@@ -22,30 +22,30 @@ export default {
         avg: 2.3
     },
     rateRed(e) {
-        this.red = e.rating
-        var value = (this.red + this.blue + this.green) / 3
-        this.avg = value.toFixed(1)
+        this.red = e.rating;
+        const value = (this.red + this.blue + this.green) / 3;
+        this.avg = value.toFixed(1);
         prompt.showToast({
             message: '平均分 ' + this.avg + '分',
-            duration: 3000,
+            duration: 3000
         });
     },
     rateBlue(e) {
-        this.blue = e.rating
-        var value = (this.red + this.blue + this.green) / 3
-        this.avg = value.toFixed(1)
+        this.blue = e.rating;
+        const value = (this.red + this.blue + this.green) / 3;
+        this.avg = value.toFixed(1);
         prompt.showToast({
             message: '平均分 ' + this.avg + '分',
-            duration: 3000,
+            duration: 3000
         });
     },
     rateGreen(e) {
-        this.green = e.rating
-        var value = (this.red + this.blue + this.green) / 3
-        this.avg = value.toFixed(1)
+        this.green = e.rating;
+        const value = (this.red + this.blue + this.green) / 3;
+        this.avg = value.toFixed(1);
         prompt.showToast({
             message: '平均分 ' + this.avg + '分',
-            duration: 3000,
+            duration: 3000
         });
     }
-}
+};
