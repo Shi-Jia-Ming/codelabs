@@ -15,7 +15,8 @@
 
 package com.huawei.codelab.slice;
 
-import java.util.List;
+import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
+import static ohos.security.SystemPermission.DISTRIBUTED_DATASYNC;
 
 import com.huawei.codelab.MainAbility;
 import com.huawei.codelab.ResourceTable;
@@ -29,10 +30,10 @@ import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.content.Intent;
 import ohos.aafwk.content.Operation;
 import ohos.agp.components.Button;
+import ohos.agp.components.Component;
 import ohos.agp.components.DependentLayout;
 import ohos.agp.components.Image;
 import ohos.agp.components.Text;
-import ohos.agp.components.Component;
 import ohos.bundle.IBundleManager;
 import ohos.data.distributed.common.ChangeNotification;
 import ohos.data.distributed.common.Entry;
@@ -46,8 +47,7 @@ import ohos.data.distributed.common.SubscribeType;
 import ohos.data.distributed.common.SyncMode;
 import ohos.data.distributed.user.SingleKvStore;
 
-import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
-import static ohos.security.SystemPermission.DISTRIBUTED_DATASYNC;
+import java.util.List;
 
 /**
  * MainAbilitySlice
@@ -56,9 +56,13 @@ import static ohos.security.SystemPermission.DISTRIBUTED_DATASYNC;
  */
 public class MainAbilitySlice extends AbilitySlice {
     private static final String TAG = MainAbilitySlice.class.getName();
-    private static final String STORE_ID = "testApp";
     private static final int PERMISSION_CODE = 20201203;
     private static final int DELAY_TIME = 10;
+    private static final String STORE_ID_KEY = "storeId";
+    private static final String POINTS_KEY = "points";
+    private static final String COLOR_INDEX_KEY = "colorIndex";
+    private static final String IS_FORM_LOCAL_KEY = "isFormLocal";
+    private static String storeId;
     private DependentLayout canvas;
     private Image transform;
     private KvManager kvManager;
@@ -71,15 +75,20 @@ public class MainAbilitySlice extends AbilitySlice {
     public void onStart(Intent intent) {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_ability_main);
+        storeId = STORE_ID_KEY + System.currentTimeMillis();
         findComponentById();
         requestPermission();
+        initView(intent);
         initDatabase();
         initDraw(intent);
-        initView(intent);
     }
 
     private void initView(Intent intent) {
-        boolean isLocal = !intent.getBooleanParam("isFormLocal", false);
+        boolean isLocal = !intent.getBooleanParam(IS_FORM_LOCAL_KEY, false);
+        if (!isLocal) {
+            storeId = intent.getStringParam(STORE_ID_KEY);
+        }
+
         title.setText(isLocal ? "本地端" : "远程端");
         transform.setVisibility(isLocal ? Component.VISIBLE : Component.INVISIBLE);
     }
@@ -109,7 +118,9 @@ public class MainAbilitySlice extends AbilitySlice {
             DeviceSelectDialog dialog = new DeviceSelectDialog(MainAbilitySlice.this);
             dialog.setListener(deviceIds -> {
                 if (deviceIds != null && !deviceIds.isEmpty()) {
+                    // 启动远程页面
                     startRemoteFas(deviceIds);
+                    // 同步远程数据库
                     singleKvStore.sync(deviceIds, SyncMode.PUSH_ONLY);
                 }
                 dialog.hide();
@@ -119,22 +130,25 @@ public class MainAbilitySlice extends AbilitySlice {
     }
 
     /**
-     * Initialize artboards
+     * Initialize art boards
      *
      * @param intent Intent
      */
     private void initDraw(Intent intent) {
-        int colorIndex = intent.getIntParam("colorIndex", 0);
+        int colorIndex = intent.getIntParam(COLOR_INDEX_KEY, 0);
         drawl = new DrawPoint(this, colorIndex);
         drawl.setWidth(MATCH_PARENT);
         drawl.setWidth(MATCH_PARENT);
         canvas.addComponent(drawl);
+
+        drawPoints();
+
         drawl.setOnDrawBack(points -> {
             if (points != null && points.size() > 1) {
                 String pointsString = GsonUtil.objectToString(points);
                 LogUtils.info(TAG, "pointsString::" + pointsString);
                 if (singleKvStore != null) {
-                    singleKvStore.putString("points", pointsString);
+                    singleKvStore.putString(POINTS_KEY, pointsString);
                 }
             }
         });
@@ -153,37 +167,44 @@ public class MainAbilitySlice extends AbilitySlice {
             drawl.setDrawParams(points);
             String pointsString = GsonUtil.objectToString(points);
             if (singleKvStore != null) {
-                singleKvStore.putString("points", pointsString);
+                singleKvStore.putString(POINTS_KEY, pointsString);
             }
         });
     }
 
-    class KvStoreObserverClient implements KvStoreObserver {
-        @Override
-        public void onChange(ChangeNotification notification) {
-            List<Entry> insertEntries = notification.getInsertEntries();
-            List<Entry> updateEntries = notification.getUpdateEntries();
-            List<Entry> deleteEntries = notification.getDeleteEntries();
-            LogUtils.info(TAG, "data changed......");
-            for (Entry entry : updateEntries) {
-                if ("points".equals(entry.getKey())) {
-                    List<MyPoint> remotePoints = GsonUtil.jsonToList(entry.getValue().getString(), MyPoint.class);
-                    LogUtils.info(TAG, "Entry entry : insertEntries......");
-                    getUITaskDispatcher().delayDispatch(() -> drawl.setDrawParams(remotePoints), DELAY_TIME);
-                }
+    // 获取数据库中的点数据，并在画布上画出来
+    private void drawPoints() {
+        List<Entry> points = singleKvStore.getEntries(POINTS_KEY);
+        for (Entry entry : points) {
+            if (entry.getKey().equals(POINTS_KEY)) {
+                List<MyPoint> remotePoints = GsonUtil.jsonToList(singleKvStore.getString(POINTS_KEY), MyPoint.class);
+                getUITaskDispatcher().delayDispatch(() -> drawl.setDrawParams(remotePoints), DELAY_TIME);
             }
         }
     }
 
+    /**
+     * Receive database messages
+     *
+     * @since 2021-04-06
+     */
+    private class KvStoreObserverClient implements KvStoreObserver {
+        @Override
+        public void onChange(ChangeNotification notification) {
+            LogUtils.info(TAG, "data changed......");
+            drawPoints();
+        }
+    }
+
     private void initDatabase() {
-        // Creating Distributed Database Management Objects
+        // 创建分布式数据库管理对象
         KvManagerConfig config = new KvManagerConfig(this);
         kvManager = KvManagerFactory.getInstance().createKvManager(config);
-        // Creating a Distributed Database
+        // 创建分布式数据库
         Options options = new Options();
         options.setCreateIfMissing(true).setEncrypt(false).setKvStoreType(KvStoreType.SINGLE_VERSION);
-        singleKvStore = kvManager.getKvStore(options, STORE_ID);
-        // Subscribe to distributed data changes
+        singleKvStore = kvManager.getKvStore(options, storeId);
+        // 订阅分布式数据变化
         KvStoreObserver kvStoreObserverClient = new KvStoreObserverClient();
         singleKvStore.subscribe(SubscribeType.SUBSCRIBE_TYPE_ALL, kvStoreObserverClient);
     }
@@ -197,8 +218,9 @@ public class MainAbilitySlice extends AbilitySlice {
         Intent[] intents = new Intent[deviceIds.size()];
         for (int i = 0; i < deviceIds.size(); i++) {
             Intent intent = new Intent();
-            intent.setParam("isFormLocal", true);
-            intent.setParam("colorIndex", i + 1);
+            intent.setParam(IS_FORM_LOCAL_KEY, true);
+            intent.setParam(COLOR_INDEX_KEY, i + 1);
+            intent.setParam(STORE_ID_KEY, storeId);
             Operation operation = new Intent.OperationBuilder()
                     .withDeviceId(deviceIds.get(i))
                     .withBundleName(getBundleName())

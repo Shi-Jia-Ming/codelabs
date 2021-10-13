@@ -46,7 +46,7 @@ public class Element {
      *
      * @param mercatorX 墨卡托影X轴坐标
      * @param mercatorY 墨卡托影y轴坐标
-     * @param isImage 元素是否为图片
+     * @param isImage   元素是否为图片
      * @since 2021-03-12
      */
     public Element(float mercatorX, float mercatorY, boolean isImage) {

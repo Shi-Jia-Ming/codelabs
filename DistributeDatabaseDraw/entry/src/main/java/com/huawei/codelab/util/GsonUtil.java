@@ -31,13 +31,13 @@ import java.util.Map;
  * @since 2021-04-06
  */
 public class GsonUtil {
-    private static Gson gson = null;
+    private static Gson gson;
 
     static {
         gson = new Gson();
     }
 
-    public GsonUtil() {
+    private GsonUtil() {
     }
 
     /**
@@ -59,6 +59,7 @@ public class GsonUtil {
      *
      * @param jsonString jsonString
      * @param cls Class
+     * @param <T> type
      * @return t
      */
     public static <T> T jsonToBean(String jsonString, Class<T> cls) {
@@ -78,18 +79,19 @@ public class GsonUtil {
      * @return list
      */
     public static <T> List<T> jsonToList(String json, Class<T> cls) {
-        List<T> list = new ArrayList<T>();
+        List<T> lists = new ArrayList<T>(0);
         JsonArray array = new JsonParser().parse(json).getAsJsonArray();
         for (final JsonElement elem : array) {
-            list.add(gson.fromJson(elem, cls));
+            lists.add(gson.fromJson(elem, cls));
         }
-        return list;
+        return lists;
     }
 
     /**
      * Convert to a list with a map
      *
      * @param gsonString String
+     * @param <T> type
      * @return list List
      */
     public static <T> List<Map<String, T>> jsonToListMaps(String gsonString) {
@@ -106,6 +108,7 @@ public class GsonUtil {
      * Converted to map
      *
      * @param gsonString String
+     * @param <T> type
      * @return map Map
      */
     public static <T> Map<String, T> jsonToMaps(String gsonString) {

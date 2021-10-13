@@ -39,30 +39,35 @@ import java.util.TimerTask;
  * @since 2021-04-06
  */
 public class DrawPoint extends Component implements Component.DrawTask {
-    private static final String TAG = "DrawPoint";
     private static final int STROKE_WIDTH = 15;
     private static final int TIME = 200;
-    private static final int ITEM_HEIGHT = 200;
     private static final int EVENT_MSG_STORE = 0x1000002;
-    private List<MyPoint> points = new ArrayList<>();
+    private final Color[] paintColors = new Color[]{Color.RED, Color.BLUE, Color.BLACK};
+    private List<MyPoint> points = new ArrayList<>(0);
     private Paint paint;
     private OnDrawCallBack callBack;
-    private Color[] paintColors = new Color[]{Color.RED, Color.BLUE, Color.BLACK};
     private Timer timer = null;
     private TimerTask timerTask = null;
 
-    private EventHandler handler = new EventHandler(EventRunner.current()) {
+    private final EventHandler handler = new EventHandler(EventRunner.current()) {
         @Override
         protected void processEvent(InnerEvent event) {
-            switch (event.eventId) {
-                case EVENT_MSG_STORE:
-                    callBack.callBack(points);
-                    break;
-                default:
-                    break;
+            if (EVENT_MSG_STORE == event.eventId) {
+                callBack.callBack(points);
             }
         }
     };
+
+    /**
+     * Drawl constructor
+     *
+     * @param context context
+     * @param colorIndex colorIndex
+     */
+    public DrawPoint(Context context, int colorIndex) {
+        super(context);
+        init(colorIndex);
+    }
 
     public List<MyPoint> getPoints() {
         return points;
@@ -83,33 +88,22 @@ public class DrawPoint extends Component implements Component.DrawTask {
     }
 
     /**
-     * Drawl constructor
-     *
-     * @param context context
-     * @param colorIndex colorIndex
-     */
-    public DrawPoint(Context context, int colorIndex) {
-        super(context);
-        init(colorIndex);
-    }
-
-    /**
      * setPoints
      *
-     * @param points points
+     * @param myPoints myPoints
      */
-    public void setDrawParams(List<MyPoint> points) {
-        this.points = points;
+    public void setDrawParams(List<MyPoint> myPoints) {
+        this.points = myPoints;
         invalidate();
     }
 
     /**
      * setOnDrawBack
      *
-     * @param callBack callBack
+     * @param onCallBack onCallBack
      */
-    public void setOnDrawBack(OnDrawCallBack callBack) {
-        this.callBack = callBack;
+    public void setOnDrawBack(OnDrawCallBack onCallBack) {
+        this.callBack = onCallBack;
     }
 
     private void init(int colorIndex) {
@@ -123,7 +117,7 @@ public class DrawPoint extends Component implements Component.DrawTask {
         setTouchEventListener((component, touchEvent) -> {
             scheduledTask();
             int crtX = (int) touchEvent.getPointerPosition(touchEvent.getIndex()).getX();
-            int crtY = (int) touchEvent.getPointerPosition(touchEvent.getIndex()).getY() - ITEM_HEIGHT;
+            int crtY = (int) touchEvent.getPointerPosition(touchEvent.getIndex()).getY();
 
             MyPoint point = new MyPoint(crtX, crtY);
             point.setPaintColor(color);
@@ -176,13 +170,13 @@ public class DrawPoint extends Component implements Component.DrawTask {
         draw(points, canvas);
     }
 
-    private void draw(List<MyPoint> points, Canvas canvas) {
-        if (points == null || points.size() <= 1) {
+    private void draw(List<MyPoint> myPoints, Canvas canvas) {
+        if (myPoints == null || myPoints.size() <= 1) {
             return;
         }
         Point first = null;
         Point last = null;
-        for (MyPoint myPoint : points) {
+        for (MyPoint myPoint : myPoints) {
             paint.setColor(myPoint.getPaintColor());
             float finalX = myPoint.getPositionX();
             float finalY = myPoint.getPositionY();

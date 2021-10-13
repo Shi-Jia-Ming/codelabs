@@ -97,11 +97,11 @@ public class TinyMap extends Component implements Component.DrawTask, Component.
 
     private Paint grayPaint;
 
-    private Path path = new Path();
-
-    private Path grayPath = new Path();
-
     private int stepPoint;
+
+    private final Path path = new Path();
+
+    private final Path grayPath = new Path();
 
     /**
      * 构造方法

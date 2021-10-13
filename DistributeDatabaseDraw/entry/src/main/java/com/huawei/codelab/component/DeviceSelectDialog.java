@@ -15,6 +15,9 @@
 
 package com.huawei.codelab.component;
 
+import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
+import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
+
 import com.huawei.codelab.ResourceTable;
 import com.huawei.codelab.bean.DeviceData;
 import com.huawei.codelab.component.listcomponent.CommentViewHolder;
@@ -33,9 +36,6 @@ import ohos.distributedschedule.interwork.DeviceManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
-import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
-
 /**
  * DeviceSelectDialog
  *
@@ -44,16 +44,19 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 public class DeviceSelectDialog extends CommonDialog {
     private static final int CORNER_RADIUS = 10;
     private ListContainer listContainer;
-    private Context context;
+    private final Context context;
     private OnclickListener onclickListener;
-    private List<DeviceData> deviceList = new ArrayList<>();
-    private List<String> checkedDeviceIds = new ArrayList<>();
+    private final List<DeviceData> deviceList = new ArrayList<>(0);
+    private final List<String> checkedDeviceIds = new ArrayList<>(0);
+
     private ListComponentAdapter listComponentAdapter;
     private Text operateConfirm;
     private Text operateCancel;
 
     /**
      * Interfaces for setting the OK button and canceling clicks
+     *
+     * @since 2021-04-06
      */
     public interface OnclickListener {
         /**
@@ -118,9 +121,7 @@ public class DeviceSelectDialog extends CommonDialog {
                 cirDevice();
             }
         });
-        operateCancel.setClickedListener(component -> {
-            hide();
-        });
+        operateCancel.setClickedListener(component -> hide());
     }
 
     private void cirDevice() {
@@ -138,38 +139,39 @@ public class DeviceSelectDialog extends CommonDialog {
         for (DeviceInfo deviceInfo : deviceInfoList) {
             deviceList.add(new DeviceData(false, deviceInfo));
         }
-        listContainer.setItemProvider(listComponentAdapter =
-                new ListComponentAdapter<DeviceData>(context, deviceList, ResourceTable.Layout_dialog_device_item) {
-                    @Override
-                    public void onBindViewHolder(CommentViewHolder commonViewHolder, DeviceData item, int position) {
-                        commonViewHolder.getTextView(ResourceTable.Id_item_desc)
-                                .setText(item.getDeviceInfo().getDeviceName());
-                        switch (item.getDeviceInfo().getDeviceType()) {
-                            case SMART_PHONE:
-                                commonViewHolder.getImageView(ResourceTable.Id_item_type)
-                                        .setPixelMap(ResourceTable.Media_dv_phone);
-                                break;
-                            case SMART_PAD:
-                                commonViewHolder.getImageView(ResourceTable.Id_item_type)
-                                        .setPixelMap(ResourceTable.Media_dv_pad);
-                                break;
-                            case SMART_WATCH:
-                                commonViewHolder.getImageView(ResourceTable.Id_item_type)
-                                        .setPixelMap(ResourceTable.Media_dv_watch);
-                                break;
-                            default:
-                                break;
-                        }
-                        commonViewHolder.getImageView(ResourceTable.Id_item_check).setPixelMap(item.isChecked()
-                                ? ResourceTable.Media_checked_point : ResourceTable.Media_uncheck_point);
-                    }
+        listComponentAdapter = new ListComponentAdapter<DeviceData>(context,
+                deviceList, ResourceTable.Layout_dialog_device_item) {
+            @Override
+            public void onBindViewHolder(CommentViewHolder commonViewHolder, DeviceData item, int position) {
+                commonViewHolder.getTextView(ResourceTable.Id_item_desc)
+                        .setText(item.getDeviceInfo().getDeviceName());
+                switch (item.getDeviceInfo().getDeviceType()) {
+                    case SMART_PHONE:
+                        commonViewHolder.getImageView(ResourceTable.Id_item_type)
+                                .setPixelMap(ResourceTable.Media_dv_phone);
+                        break;
+                    case SMART_PAD:
+                        commonViewHolder.getImageView(ResourceTable.Id_item_type)
+                                .setPixelMap(ResourceTable.Media_dv_pad);
+                        break;
+                    case SMART_WATCH:
+                        commonViewHolder.getImageView(ResourceTable.Id_item_type)
+                                .setPixelMap(ResourceTable.Media_dv_watch);
+                        break;
+                    default:
+                        break;
+                }
+                commonViewHolder.getImageView(ResourceTable.Id_item_check).setPixelMap(item.isChecked()
+                        ? ResourceTable.Media_checked_point : ResourceTable.Media_uncheck_point);
+            }
 
-                    @Override
-                    public void onItemClick(Component component, DeviceData item, int position) {
-                        super.onItemClick(component, item, position);
-                        deviceList.get(position).setChecked(!item.isChecked());
-                        listComponentAdapter.notifyDataChanged();
-                    }
-                });
+            @Override
+            public void onItemClick(Component component, DeviceData item, int position) {
+                super.onItemClick(component, item, position);
+                deviceList.get(position).setChecked(!item.isChecked());
+                listComponentAdapter.notifyDataChanged();
+            }
+        };
+        listContainer.setItemProvider(listComponentAdapter);
     }
 }

@@ -30,7 +30,7 @@
 
         <Text
                 ohos:text_color="#000000"
-                ohos:text="选择共享设备"
+                ohos:text="$string:shareDevice"
                 ohos:height="50vp"
                 ohos:width="match_parent"
                 ohos:text_size="16fp"
@@ -54,7 +54,7 @@
                     ohos:width="0vp"
                     ohos:weight="1"
                     ohos:height="match_parent"
-                    ohos:text="取消"
+                    ohos:text="$string:cancels"
                     ohos:text_alignment="center"
                     ohos:text_size="17fp"/>
 
@@ -70,7 +70,7 @@
                     ohos:width="0vp"
                     ohos:weight="1"
                     ohos:height="match_parent"
-                    ohos:text="确定"
+                    ohos:text="$string:yes"
                     ohos:text_alignment="center"
                     ohos:text_size="17fp"/>
         </DirectionalLayout>

@@ -31,37 +31,21 @@ import java.util.Map;
  */
 public class CommentViewHolder {
     Component convertView;
-    private Map<Integer, Component> mViews = new HashMap<>();
-
-    // Avoiding Multiple Static Classes Using Singleton Mode
-    static CommentViewHolder getCommentViewHolder(Context context, Component convertView, int resource) {
-        if (convertView == null) {
-            Component creatConvertView = LayoutScatter.getInstance(context).parse(resource, null, false);
-            return new CommentViewHolder(creatConvertView);
-        } else {
-            return (CommentViewHolder) convertView.getTag();
-        }
-    }
+    private final Map<Integer, Component> mViews = new HashMap<>(0);
 
     private CommentViewHolder(Component convertView) {
         this.convertView = convertView;
         convertView.setTag(this);
     }
 
-    /**
-     * Obtain the corresponding control from the collection based on the resource ID of the control in the XML file
-     *
-     * @param resId int
-     * @param <T> generic
-     * @return view
-     */
-    public <T extends Component> T getView(int resId) {
-        Component view = mViews.get(resId);
-        if (view == null) {
-            view = convertView.findComponentById(resId);
-            mViews.put(resId, view);
+    // Avoiding Multiple Static Classes Using Singleton Mode
+    static CommentViewHolder getCommentViewHolder(Context context, Component convertView, int resource) {
+        if (convertView == null) {
+            Component createConvertView = LayoutScatter.getInstance(context).parse(resource, null, false);
+            return new CommentViewHolder(createConvertView);
+        } else {
+            return (CommentViewHolder) convertView.getTag();
         }
-        return (T) view;
     }
 
     /**

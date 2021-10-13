@@ -26,8 +26,6 @@ import ohos.hiviewdfx.HiLogLabel;
 public class LogUtils {
     private static final String TAG_LOG = "LogUtil";
 
-    private static final int DOMAIN_ID = 0xD000F00;
-
     private static final HiLogLabel LABEL_LOG = new HiLogLabel(0, 0, LogUtils.TAG_LOG);
 
     private static final String LOG_FORMAT = "%{public}s: %{public}s";

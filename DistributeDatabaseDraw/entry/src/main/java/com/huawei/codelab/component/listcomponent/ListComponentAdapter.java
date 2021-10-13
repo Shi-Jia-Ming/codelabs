@@ -23,19 +23,27 @@ import ohos.app.Context;
 import java.util.List;
 
 /**
- * ListComponentAdapter<T>
+ * ListComponentAdapter
  *
+ * @param <T> type
  * @since 2021-04-06
  */
 public abstract class ListComponentAdapter<T> extends BaseItemProvider {
-    private Context mContext;
-    private List<T> mListBean;
-    private int mXmlId;
+    private final Context context;
+    private final List<T> lists;
+    private final int xmlId;
 
-    protected ListComponentAdapter(Context context, List<T> list, int xmlId) {
-        this.mContext = context;
-        this.mListBean = list;
-        this.mXmlId = xmlId;
+    /**
+     * constructor of ListComponentAdapter
+     *
+     * @param context context
+     * @param lists lists
+     * @param xmlId xmlId
+     */
+    protected ListComponentAdapter(Context context, List<T> lists, int xmlId) {
+        this.context = context;
+        this.lists = lists;
+        this.xmlId = xmlId;
     }
 
     /**
@@ -49,12 +57,12 @@ public abstract class ListComponentAdapter<T> extends BaseItemProvider {
 
     @Override
     public int getCount() {
-        return mListBean.size();
+        return lists.size();
     }
 
     @Override
     public T getItem(int var1) {
-        return mListBean.get(var1);
+        return lists.get(var1);
     }
 
     @Override
@@ -64,8 +72,8 @@ public abstract class ListComponentAdapter<T> extends BaseItemProvider {
 
     @Override
     public Component getComponent(int var1, Component component, ComponentContainer componentContainer) {
-        CommentViewHolder commentViewHolder = CommentViewHolder.getCommentViewHolder(mContext, component, mXmlId);
-        T var2 = mListBean.get(var1);
+        CommentViewHolder commentViewHolder = CommentViewHolder.getCommentViewHolder(context, component, xmlId);
+        T var2 = lists.get(var1);
         onBindViewHolder(commentViewHolder, var2, var1);
         commentViewHolder.convertView.setClickedListener(component1 -> onItemClick(component, var2, var1));
         return commentViewHolder.convertView;

@@ -23,8 +23,8 @@ import ohos.agp.utils.Color;
  * @since 2021-04-06
  */
 public class MyPoint extends ohos.agp.utils.Point {
-    private float positionX;
-    private float positionY;
+    private final float positionX;
+    private final float positionY;
     private boolean isLastPoint = false;
     private Color paintColor;
 
