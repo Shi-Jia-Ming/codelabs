@@ -21,8 +21,8 @@
 
 ## 注意
 
-• 您可以选择在分布式模拟器或真机上运行hap软件包。
-• 如果在真机上运行它，则需要在项目的File> Project Structure> Modules> Signing Configs中配置签名和证书信息。
+- 您可以选择在分布式模拟器或真机上运行hap软件包。
+- 如果在真机上运行它，则需要在项目的File> Project Structure> Modules> Signing Configs中配置签名和证书信息。
 
 ## 许可
 
