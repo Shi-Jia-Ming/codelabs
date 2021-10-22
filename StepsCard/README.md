@@ -25,7 +25,7 @@
 请参阅LICENSE文件以获得更多信息。
 
 What is it?
-This cookbook is designed to enable developers to understand the development of JS cards in HarmonyOS, including card creation, update, and deletion functions. It displays the number of steps and distances that users have walked on the day in text mode, and displays the progress of users completing the target steps in a progress bar. A line chart is used to display the step count statistics of the user in the last four days, and the card data is updated as the user walks.
+This Codelab is designed to enable developers to understand the development of JS cards in HarmonyOS, including card creation, update, and deletion functions. It displays the number of steps and distances that users have walked on the day in text mode, and displays the progress of users completing the target steps in a progress bar. A line chart is used to display the step count statistics of the user in the last four days, and the card data is updated as the user walks.
 
 Installation requirements
 • Install DevEco Studio

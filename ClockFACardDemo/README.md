@@ -1,6 +1,6 @@
 # ClockFACardDemo
 简介 
-• 本Codelab旨在使开发人员了解HarmonyOS中JAVA卡片的开发，包含卡片的创建、更新、删除功能，实现了时分秒，年月日，星期的实时刷新效果。
+• 本Codelab旨在使开发人员了解HarmonyOS中Java卡片的开发，包含卡片的创建、更新、删除功能，实现了时分秒，年月日，星期的实时刷新效果。
 
 安装要求
 • 安装DevEco Studio
