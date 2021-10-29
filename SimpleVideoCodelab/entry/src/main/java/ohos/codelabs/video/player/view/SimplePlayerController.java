@@ -64,7 +64,7 @@ public class SimplePlayerController extends ComponentContainer implements ImplPl
     private Text mCurrentTime;
     private Text mTotleTime;
     private ControllerHandler mHandler;
-    private StatuChangeListener mStatuChangeListener = new StatuChangeListener() {
+    private final StatuChangeListener mStatuChangeListener = new StatuChangeListener() {
         @Override
         public void statuCallback(PlayerStatu statu) {
             mContext.getUITaskDispatcher().asyncDispatch(() -> {
