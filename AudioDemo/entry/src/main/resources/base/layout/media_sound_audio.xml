@@ -18,7 +18,7 @@
             ohos:id="$+id:real_time_text"
             ohos:height="match_content"
             ohos:width="match_content"
-            ohos:text="实时播放："
+            ohos:text="$string:play_real"
             ohos:text_color="#000000"
             ohos:text_size="14vp"/>
 
