@@ -24,7 +24,7 @@
     "reqPermissions": [
       {
         "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
-        "reason": "keep service ability backgroud running",
+        "reason": "keep service ability background running",
         "usedScene": {
           "ability": [
             ".ServiceAbility"
