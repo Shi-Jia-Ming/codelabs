@@ -56,14 +56,14 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
     private static final int WIDTH_RATIO = 16; // 宽比例
     private static final int CIR_SIZE = 50; // 裁剪截取宽高
     private static final String INDEX = "index";
-    private static final String ISCORP = "isCorp";
+    private static final String ISCROP = "isCrop";
     private static final String ISSCALE = "isScale";
     private static final String ISMIRRORFLAG = "isMirrorFlag";
     private static Context context;
     private static PixelMap pixelMap; // 被操作的原始图片
     private static PixelMap imagePixelMap; // 裁剪缩放镜像后的图片
     private static int idIndex; // Image ID index
-    private static boolean isCorp = false; // 裁剪标识
+    private static boolean isCrop = false; // 裁剪标识
     private static boolean isScale = false; // 缩放标识
     private static boolean isMirror = false; // 镜像标识
     private static boolean isMirrorFlag = false; // 镜像标识
@@ -150,6 +150,8 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
         scaleComponent.setClickedListener(new ComponentClick());
         mirrorComponent.setClickedListener(new ComponentClick());
         cirComponent.setClickedListener(new ComponentClick());
+		cirComponent.setDoubleClickedListener(listener -> { // 防止多次点击
+        });
         saveComponent.setClickedListener(new ComponentClick());
         deviceComponent.setClickedListener(new ComponentClick());
     }
@@ -166,7 +168,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
             switch (componentId) {
                 case ResourceTable.Id_crop_image:
                     // 裁剪图片
-                    isCorp = !isCorp;
+                    isCrop = !isCrop;
                     isScale = false;
                     isMirror = false;
                     isMirrorFlag = false;
@@ -175,7 +177,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
                     break;
                 case ResourceTable.Id_scale_image:
                     // 缩放图片
-                    isCorp = false;
+                    isCrop = false;
                     isScale = !isScale;
                     isMirror = false;
                     isMirrorFlag = false;
@@ -184,7 +186,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
                     break;
                 case ResourceTable.Id_mirror_image:
                     // 镜像图片
-                    isCorp = false;
+                    isCrop = false;
                     isScale = false;
                     isMirror = true;
                     isMirrorFlag = !isMirrorFlag;
@@ -243,7 +245,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
             // 缩放 长宽缩小到一半
             initializationOptions.size = new Size(width / HALF, width * HEIGHT_RATIO / WIDTH_RATIO / HALF);
         }
-        if (isCorp) {
+        if (isCrop) {
             // 裁剪 图片中心位置 上下左右框50px
             Rect srcRegion = new Rect(width / HALF - CIR_SIZE,
                     width * HEIGHT_RATIO / WIDTH_RATIO / HALF - CIR_SIZE, SRCREGION, SRCREGION);
@@ -269,7 +271,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
         image.setMarginLeft(MARGIN);
         image.setMarginRight(MARGIN);
         // 重置图片状态
-        isCorp = false;
+        isCrop = false;
         isScale = false;
         isMirrorFlag = false;
         scaleX = 1.0f;
@@ -288,7 +290,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
         image.setPixelMap(pixelMap);
         image.setMarginLeft(MARGIN);
         image.setMarginRight(MARGIN);
-        if (isCorp || isScale) { // 裁剪、缩放
+        if (isCrop || isScale) { // 裁剪、缩放
             imagePixelMap = getPixelMapFromResource();
             image.setPixelMap(imagePixelMap);
         }
@@ -310,7 +312,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
 
     // 保存图片
     private void saveImage() {
-        if (!isCorp && !isScale && !isMirrorFlag) {
+        if (!isCrop && !isScale && !isMirrorFlag) {
             // 未对图片进行操作 不保存
             Utils.creatToastDialog(getContext(), "图片未作修改！");
         } else {
@@ -331,7 +333,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
      */
     public static void saveOrReplaceImage(int flag) {
         Map<String, Object> map = new HashMap<>(0);
-        map.put(ISCORP, isCorp);
+        map.put(ISCROP, isCrop);
         map.put(ISSCALE, isScale);
         map.put(ISMIRRORFLAG, isMirrorFlag);
         map.put(INDEX, idIndex); // 操作的图片下标
@@ -350,7 +352,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
         // Refresh the listContainer data
         MainAbilitySlice.initData(Utils.transIdToPixelMap(context));
         // 重置状态
-        isCorp = false;
+        isCrop = false;
         isScale = false;
         isMirrorFlag = false;
     }
@@ -404,7 +406,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
     @Override
     public boolean onSaveData(IntentParams saveData) {
         saveData.setParam("continueParam", "remote");
-        saveData.setParam(ISCORP, isCorp); // 裁剪
+        saveData.setParam(ISCROP, isCrop); // 裁剪
         saveData.setParam(ISSCALE, isScale); // 缩放
         saveData.setParam(ISMIRRORFLAG, isMirrorFlag); // 镜像
         saveData.setParam("scaleX", scaleX); // 镜像值
@@ -440,7 +442,7 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
         }
         // 远端FA迁移传来的状态数据，开发者可以按照特定的场景对这些数据进行处理
         this.remoteData = restoreData.getParam("continueParam").toString();
-        isCorp = (boolean) restoreData.getParam(ISCORP); // 裁剪
+        isCrop = (boolean) restoreData.getParam(ISCROP); // 裁剪
         isScale = (boolean) restoreData.getParam(ISSCALE); // 缩放
         isMirrorFlag = (boolean) restoreData.getParam(ISMIRRORFLAG); // 镜像
         scaleX = Float.parseFloat(restoreData.getParam("scaleX").toString()); // 镜像值
@@ -475,10 +477,10 @@ public class RightAbilitySlice extends AbilitySlice implements IAbilityContinuat
             image.setPixelMap(pixelMap);
             image.setMarginLeft(MARGIN);
             image.setMarginRight(MARGIN);
-            isCorp = (boolean) map.get("isCorp"); // 缩放指令
+            isCrop = (boolean) map.get("isCrop"); // 缩放指令
             isScale = (boolean) map.get("isScale"); // 裁剪指令
             isMirrorFlag = (boolean) map.get("isMirrorFlag"); // 镜像指令
-            if (isCorp || isScale) { // 裁剪、缩放
+            if (isCrop || isScale) { // 裁剪、缩放
                 imagePixelMap = getPixelMapFromResource();
                 image.setPixelMap(imagePixelMap);
             }

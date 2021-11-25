@@ -18,7 +18,6 @@
         <Image
             ohos:id="$+id:back"
             ohos:height="match_parent"
-
             ohos:width="60vp"
             ohos:bottom_padding="10vp"
             ohos:image_src="$media:ic_back"

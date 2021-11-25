@@ -91,7 +91,7 @@ public class DeviceDialog {
     }
 
     /**
-     * 打开设备选择框
+     * Open the device selection box
      *
      * @since 2021-09-10
      */
@@ -112,7 +112,7 @@ public class DeviceDialog {
     }
 
     /**
-     * 断开流转任务管理服务
+     * Disconnecting the Transfer Task Management Service
      *
      * @since 2021-09-10
      */

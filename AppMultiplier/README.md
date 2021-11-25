@@ -1,4 +1,4 @@
-# ParallelHorizon
+# AppMultiplier
 简介
 • 此Demo主要利用平行视界实现应用内双窗口，将两个Ability左右显示在同一个应用的不同窗口。 左侧页面展示图片列表，可根据屏幕宽度自适应调节图片布局；右侧页面展示选择的图片，可对图片进行裁剪、缩放、镜像、保存、流转等操作。流转是将右侧窗口对应的Ability迁移到另一台设备，另一台设备也可图片进行裁剪、缩放、镜像之后将Ability迁移回流转设备。
 
@@ -11,7 +11,7 @@
 
 用户指南
 • 下载此项目
-• 打开HUAWEI DevEco Studio，单击File> Open选择此Codelab
+• 打开HUAWEI DevEco Studio，单击File> Open选择此ComponentCodelab
 • 单击Build> Build App(s)/Hap(s)>Build Debug Hap(s)以编译hap软件包
 • 单击Run> Run 'entry'以运行hap包
 
@@ -23,7 +23,7 @@
 请参阅LICENSE文件以获得更多信息。
 
 What is it?
-This demo mainly uses parallel horizons to implement dual windows in an application, and displays two Abilities left and right in different windows of the same application. The image list is displayed on the left. You can adjust the image layout based on the screen width. The selected image is displayed on the right. You can crop, zoom, mirror, save, and transfer the image. Transfer: Migrate the Ability corresponding to the right pane to another device. The other device can also crop, zoom, and mirror images and then migrate the Ability back to the device.
+This demo mainly uses appMultiplier to implement dual windows in an application, and displays two Abilities left and right in different windows of the same application. The image list is displayed on the left. You can adjust the image layout based on the screen width. The selected image is displayed on the right. You can crop, zoom, mirror, save, and transfer the image. Transfer: Migrate the Ability corresponding to the right pane to another device. The other device can also crop, zoom, and mirror images and then migrate the Ability back to the device.
 
 Installation requirements
 • Install DevEco Studio

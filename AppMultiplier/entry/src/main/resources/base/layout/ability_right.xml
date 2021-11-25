@@ -25,7 +25,7 @@
                 ohos:height="20vp"
                 ohos:width="20vp"
                 ohos:scale_mode="stretch"
-                ohos:image_src="$media:corp"/>
+                ohos:image_src="$media:crop"/>
             <Text
                 ohos:height="match_content"
                 ohos:width="match_content"

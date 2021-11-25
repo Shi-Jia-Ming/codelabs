@@ -54,7 +54,7 @@ public class SimplePlayerController extends ComponentContainer implements ImplPl
     private Text mCurrentTime;
     private Text mTotleTime;
     private ControllerHandler mHandler;
-    private StatuChangeListener mStatuChangeListener = new StatuChangeListener() {
+    private final StatuChangeListener mStatuChangeListener = new StatuChangeListener() {
         @Override
         public void statuCallback(PlayerStatu statu) {
             mContext.getUITaskDispatcher().asyncDispatch(() -> {
@@ -136,20 +136,20 @@ public class SimplePlayerController extends ComponentContainer implements ImplPl
         addComponent(playerController);
         if (playerController.findComponentById(ResourceTable.Id_controller_bottom_layout)
                 instanceof DirectionalLayout) {
-            bottomLayout = playerController
+            bottomLayout = (DirectionalLayout) playerController
                     .findComponentById(ResourceTable.Id_controller_bottom_layout);
         }
         if (playerController.findComponentById(ResourceTable.Id_play_controller) instanceof Image) {
-            mPlayToogle = playerController.findComponentById(ResourceTable.Id_play_controller);
+            mPlayToogle = (Image) playerController.findComponentById(ResourceTable.Id_play_controller);
         }
         if (playerController.findComponentById(ResourceTable.Id_play_forward) instanceof Image) {
-            mForward = playerController.findComponentById(ResourceTable.Id_play_forward);
+            mForward = (Image) playerController.findComponentById(ResourceTable.Id_play_forward);
         }
         if (playerController.findComponentById(ResourceTable.Id_play_backward) instanceof Image) {
-            mBackward = playerController.findComponentById(ResourceTable.Id_play_backward);
+            mBackward = (Image) playerController.findComponentById(ResourceTable.Id_play_backward);
         }
         if (playerController.findComponentById(ResourceTable.Id_progress) instanceof Slider) {
-            mProgressBar = playerController.findComponentById(ResourceTable.Id_progress);
+            mProgressBar = (Slider) playerController.findComponentById(ResourceTable.Id_progress);
             ShapeElement shapeElement = new ShapeElement();
             shapeElement.setRgbColor(new RgbColor(THUMB_RED, THUMB_GREEN, THUMB_BLUE));
             shapeElement.setBounds(0, 0, THUMB_WIDTH, THUMB_HEIGHT);
@@ -157,10 +157,10 @@ public class SimplePlayerController extends ComponentContainer implements ImplPl
             mProgressBar.setThumbElement(shapeElement);
         }
         if (playerController.findComponentById(ResourceTable.Id_current_time) instanceof Text) {
-            mCurrentTime = playerController.findComponentById(ResourceTable.Id_current_time);
+            mCurrentTime = (Text) playerController.findComponentById(ResourceTable.Id_current_time);
         }
         if (playerController.findComponentById(ResourceTable.Id_end_time) instanceof Text) {
-            mTotleTime = playerController.findComponentById(ResourceTable.Id_end_time);
+            mTotleTime = (Text) playerController.findComponentById(ResourceTable.Id_end_time);
         }
     }
 

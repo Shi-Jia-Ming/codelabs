@@ -11,9 +11,9 @@
         ohos:width="match_parent"
         ohos:align_parent_bottom="true"
         ohos:background_element="#88000000"
-        ohos:left_padding="10vp"
+        ohos:start_padding="10vp"
         ohos:orientation="vertical"
-        ohos:right_padding="10vp">
+        ohos:end_padding="10vp">
 
         <DependentLayout
             ohos:height="0vp"
@@ -27,7 +27,6 @@
                 ohos:image_src="$media:ic_backward"
                 ohos:left_of="$+id:play_controller"
                 ohos:padding="10vp"
-                ohos:right_margin="20vp"
                 ohos:scale_mode="stretch"
                 />
 
@@ -36,6 +35,8 @@
                 ohos:height="40vp"
                 ohos:width="40vp"
                 ohos:horizontal_center="true"
+                ohos:end_margin="20vp"
+                ohos:start_margin="20vp"
                 ohos:image_src="$media:ic_music_stop"
                 ohos:scale_mode="stretch"
                 />
@@ -45,7 +46,6 @@
                 ohos:height="40vp"
                 ohos:width="40vp"
                 ohos:image_src="$media:ic_forward"
-                ohos:left_margin="20vp"
                 ohos:padding="10vp"
                 ohos:right_of="$id:play_controller"
                 ohos:scale_mode="stretch"
@@ -64,8 +64,7 @@
                 ohos:id="$+id:current_time"
                 ohos:height="match_content"
                 ohos:width="match_content"
-                ohos:right_margin="5vp"
-                ohos:text="$string:video_progress_default_time"
+                ohos:text="$string:default_time"
                 ohos:text_color="#ffffff"
                 ohos:text_size="12vp"/>
 
@@ -73,6 +72,8 @@
                 ohos:id="$+id:progress"
                 ohos:height="35vp"
                 ohos:width="0vp"
+                ohos:start_margin="5vp"
+                ohos:end_margin="5vp"
                 ohos:orientation="horizontal"
                 ohos:progress_element="#FF6103"
                 ohos:progress_width="5vp"
@@ -82,8 +83,7 @@
                 ohos:id="$+id:end_time"
                 ohos:height="match_content"
                 ohos:width="match_content"
-                ohos:right_margin="5vp"
-                ohos:text="$string:video_progress_default_time"
+                ohos:text="$string:default_time"
                 ohos:text_color="#ffffff"
                 ohos:text_size="12vp"/>
 

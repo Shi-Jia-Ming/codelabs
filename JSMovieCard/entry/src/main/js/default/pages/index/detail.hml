@@ -1,6 +1,6 @@
 <div class="container">
     <text class="title">{{ title }}</text>
-    <div class="centerArea">
+    <div class="centerAre">
         <image src="{{ imgUrl }}" class="movieImg"></image>
         <div class="centerRight">
             <text class="movieName">{{ movieName }}</text>
