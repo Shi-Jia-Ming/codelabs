@@ -17,9 +17,7 @@
 - ArkUI
   - [购物应用（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingEts)
   - [流式布局（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FlowLayoutETS)
-  - [HarmonyOS后台代理提醒](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
-  - [极简声明式UI范式（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
-  - [一次开发多端部署（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
+  - [Ets简单图库](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
   - [转场动画的使用（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TransitionAnimtaionETS)
   - [image、image-animator（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ClickableImageJsDemo)
   - [动画样式（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AnimationDemo)
