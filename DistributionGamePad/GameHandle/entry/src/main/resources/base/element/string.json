@@ -1,0 +1,52 @@
+{
+  "string": [
+    {
+      "name": "app_name",
+      "value": "MyDeviceManagerHelper"
+    },
+    {
+      "name": "mainability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "gameserviceability_description",
+      "value": "hap sample empty service"
+    },
+    {
+      "name": "handleability_description",
+      "value": "Java_Phone_Empty Feature Ability"
+    },
+    {
+      "name": "HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "distributed_handle",
+      "value": "Distributed Handle"
+    },
+    {
+      "name": "score",
+      "value": "SCORE:"
+    },
+    {
+      "name": "startScore",
+      "value": "0"
+    },
+    {
+      "name": "pause",
+      "value": "PAUSE"
+    },
+    {
+      "name": "start",
+      "value": "START"
+    },
+    {
+      "name": "selectDevice",
+      "value": "选择设备"
+    },
+    {
+      "name": "confirm",
+      "value": "确定"
+    }
+  ]
+}
