@@ -25,11 +25,13 @@ limitations under the License.
             <text class="select_device_title">{{ $t("strings.select_device") }}</text>
             <list class="select_device_list">
                 <list-item class="select_device_item" for="{{ deviceList }}" id="list">
-                    <text class="select_device_item_left">{{ $item.deviceName }}
-                    </text>
-                    <input class="select_device_item_right" type="checkbox" name="Device" value="{{ $idx }}"
-                           @change="selectDevice({{ $idx }})" checked="{{ $item.checked }}">
-                    </input>
+                    <div>
+                        <text class="select_device_item_left">{{ $item.deviceName }}
+                        </text>
+                        <input class="select_device_item_right" type="checkbox" name="Device" value="{{ $idx }}"
+                               @change="selectDevice({{ $idx }})" checked="{{ $item.checked }}">
+                        </input>
+                    </div>
                 </list-item>
             </list>
             <div class="choose_ok_or_not">
