@@ -13,8 +13,8 @@
 ## 目录<a name="sectionMenu"></a>
 
 - HarmonyOS-AI
-  - [AI通用文字识别（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SearchImageByKeywords)
-  - [二维码生成与扫码使用（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/QRCodeDemo)
+  - [AI通用文字识别（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SearchImageByKeywords)
+  - [二维码生成与扫码使用（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/QRCodeDemo)
 - ArkUI
   - [购物应用（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingEts)
   - [流式布局（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FlowLayoutETS)
@@ -31,47 +31,47 @@
   - [toolbar、toolbar-item（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ToolbarApplication)
   - [video（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/VideoApplication)
 - 安全
-  - [HarmonyOS面部识别能力（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/BiometricAuthentication)
+  - [HarmonyOS面部识别能力（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/BiometricAuthentication)
 - 多窗口
-  - [平行视界（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AppMultiplier)
+  - [平行视界（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AppMultiplier)
 - 分布式
-  - [分布式运动健康应用——智能穿戴端（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedHealthDemo)
-  - [分布式运动健康应用（手机端）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedHealthDemoPhone)
-  - [分布式地图导航（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedMapDemo)
-  - [分布式输入法（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/RemoteInputDemo)
-  - [分布式游戏手柄（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributionGamePad)
-  - [分布式邮件编辑（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedMail)
-  - [分布式语音照相机（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/VoiceCamera)
-  - [跨设备视频播放（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedVideoCodelab)
-  - [分布式新闻客户端（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/HarmonyOSNewsClient)
+  - [分布式运动健康应用——智能穿戴端（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedHealthDemo)
+  - [分布式运动健康应用（手机端）（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedHealthDemoPhone)
+  - [分布式地图导航（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedMapDemo)
+  - [分布式输入法（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/RemoteInputDemo)
+  - [分布式游戏手柄（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributionGamePad)
+  - [分布式邮件编辑（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedMail)
+  - [分布式语音照相机（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/VoiceCamera)
+  - [跨设备视频播放（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedVideoCodelab)
+  - [分布式新闻客户端（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/HarmonyOSNewsClient)
   - [分布式新闻客户端（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeNewsJS)
   - [分布式新闻客户端（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeNewsETS)
-  - [分布式亲子早教系统（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/EducationSystem)
-  - [分布式鉴权（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ComposeLargeWatermelon)
+  - [分布式亲子早教系统（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/EducationSystem)
+  - [分布式鉴权（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ComposeLargeWatermelon)
   - [分布式鉴权（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/GameAuth)
-  - [分布式手写板（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeDatabaseDraw)
+  - [分布式手写板（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeDatabaseDraw)
   - [分布式手写板（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSDistributeDraw)
 - 卡片
-  - [时钟卡片（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ClockFACardDemo)
+  - [时钟卡片（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ClockFACardDemo)
   - [计步器卡片（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StepsCard)
-  - [电影卡片（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MovieCardDemo)
+  - [电影卡片（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MovieCardDemo)
   - [电影卡片（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSMovieCard)
 - 媒体
-  - [音频播放管理（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AudioDemo)
-  - [视频编解码能力（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/CodecDemo)
+  - [音频播放管理（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AudioDemo)
+  - [视频编解码能力（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/CodecDemo)
   - [图片编辑模板（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ImageEditorTemplate)
-  - [简易视频播放器（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideoCodelab)
+  - [简易视频播放器（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideoCodelab)
   - [简易视频播放器（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSVideoPlayer)
   - [简易视频播放器（eTS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideoETS)
 - 碰一碰
-  - [华为分享碰一碰（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/HwShare_OneHop)
+  - [华为分享碰一碰（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/HwShare_OneHop)
 - 数据库
-  - [分布式数据库（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedDataDemo)
+  - [分布式数据库（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributedDataDemo)
 - 通用组件
   - [组件购物应用演示（JS）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingDemoJs)
-  - [常用组件和布局（Java）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ComponentCodelab)
+  - [常用组件和布局（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ComponentCodelab)
 - 效率提升套件
-  - [元数据绑定框架](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MetaDataBindingDemo)
+  - [元数据绑定框架（Java）（API6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MetaDataBindingDemo)
 
 ## 使用说明<a name="section1954919258619"></a>
 
