@@ -1,4 +1,4 @@
-# TransitionAnimationETS
+# SimpleVideoETS
 简介
 • 此Codelab使用Video、Swiper、List等组件构建了一个单机版本的视频播放器，实现了视频海报轮播、视频列表展示、视频播放等功能。
 
