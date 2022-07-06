@@ -1,0 +1,17 @@
+{
+  "color": [
+    {
+      "name": "color_index",
+      "value": "#1E67DC"
+    }, {
+      "name": "fontColor_text",
+      "value": "#000000"
+    }, {
+      "name": "fontColor_text1",
+      "value": "#8a8a8a"
+    }, {
+      "name": "fontColor_text2",
+      "value": "#FF989898"
+    }
+  ]
+}
