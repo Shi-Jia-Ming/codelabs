@@ -11,7 +11,7 @@ struct Index {
   private times: Array<number> = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2] //时间刻度值
   private settings: RenderingContextSettings = new RenderingContextSettings(true)
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)
-  @State size: number = 170 // canvas宽高
+  @State canvasSize: number = 170 // canvas宽高
   @State canvasOnScreenRatio: number = 3 // 时钟画布是屏幕的几分之一，竖屏：宽度的1/3，此值为3。横屏：高度的1/4，此值为4
   private radius: number = 0 // 半径
   private sixtyParts = Math.PI * 2 / 60 // 60等分
@@ -39,9 +39,9 @@ struct Index {
       this.screenHeight = data.height
       // 设置canvas尺寸，竖屏取值为宽高最小值的1/2，横屏取值为宽高最小值的1/4
       this.canvasOnScreenRatio *= (this.screenWidth < this.screenHeight ? 2 : 4)
-      this.size = px2vp(Math.min(this.screenWidth, this.screenHeight) / this.canvasOnScreenRatio)
+      this.canvasSize = px2vp(Math.min(this.screenWidth, this.screenHeight) / this.canvasOnScreenRatio)
       // 重置原点到canvas画布中间
-      this.context.translate(this.size, this.size / 2)
+      this.context.translate(this.canvasSize, this.canvasSize / 2)
     });
   }
 
@@ -54,11 +54,11 @@ struct Index {
             .margin({left: 20})
         }.height(80).width('100%').alignItems(HorizontalAlign.Start)
         Canvas(this.context)
-          .height(this.size)
+          .height(this.canvasSize)
           .aspectRatio(2.0)
           .onReady(() =>{
             // 获取半径
-            this.radius = this.size / 2.5 - 5
+            this.radius = this.canvasSize / 2.5 - 5
             var that = this
             // 避免时钟闪现，先画一遍
             that.draw()
@@ -147,7 +147,7 @@ struct Index {
   // 开始绘制
   private draw(): void{
     // 清空绘制
-    this.context.clearRect(-this.size, this.size / -2, this.size * 2, this.size)
+    this.context.clearRect(-this.canvasSize, this.canvasSize / -2, this.canvasSize * 2, this.canvasSize)
     // 获取当前时间
     let date = new Date()
     if(this.showClock) {
