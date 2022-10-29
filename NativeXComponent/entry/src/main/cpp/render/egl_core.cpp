@@ -91,7 +91,7 @@ void EGLCore::eglContextInit(void* window, int w, int h)
         EGL_NONE
     };
     if (mEglWindow) {
-        mEglSurface = eglCreateWindowSurface(mEglDisplay, mEglConfig, mEglWindow, winAttribs);
+        mEglSurface = eglCreateWindowSurface(mEglDisplay, mEglConfig, mEglWindow, NULL);
         if (mEglSurface == nullptr) {
             OH_LOG_Print(LOG_APP, LOG_ERROR, 0xFF00, "EGLCore", "eglCreateWindowSurface ===> unable to create surface");
             return;

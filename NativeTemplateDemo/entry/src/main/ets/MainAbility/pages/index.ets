@@ -63,7 +63,11 @@ struct Index {
           .width(150)
           .onClick(() => {
             let resultTemp = libHello.hyPot(this.num1,this.num2)
-            this.result = resultTemp.toFixed(2).toString()
+            if (parseInt(resultTemp.toString()) === parseFloat(resultTemp.toString())) {
+              this.result = resultTemp.toFixed(0).toString()
+            } else {
+              this.result = resultTemp.toFixed(2).toString()
+            }
           })
       }.height(80).width('100%').justifyContent(FlexAlign.Center)
     }
