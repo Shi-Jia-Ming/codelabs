@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="145px" height="145px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>蒙层</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="107.876821%" id="linearGradient-1">
+            <stop stop-color="#FFF0C3" offset="0%"></stop>
+            <stop stop-color="#FFD533" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="223" y="234" width="100" height="100" rx="24"></rect>
+        <filter x="-14.5%" y="-14.5%" width="129.0%" height="129.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="14" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.812896446   0 0 0 0 0.285376572  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Web组件3" transform="translate(-235.000000, -369.000000)">
+            <g id="蒙层" transform="translate(12.000000, 135.000000)">
+                <use fill-opacity="0.64" fill="#FFF3C5" fill-rule="evenodd" xlink:href="#path-2"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                <rect stroke="url(#linearGradient-1)" stroke-width="4.30107527" stroke-linejoin="square" x="225.150538" y="236.150538" width="95.6989247" height="95.6989247" rx="24"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

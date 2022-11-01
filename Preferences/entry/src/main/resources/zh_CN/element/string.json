@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "首选项"
+    },
+    {
+      "name": "fruit_text",
+      "value": "Fruit"
+    },
+    {
+      "name": "fruit_placeholder",
+      "value": "Oranges"
+    },
+    {
+      "name": "number_text",
+      "value": "Number"
+    },
+    {
+      "name": "number_placeholder",
+      "value": "25"
+    },
+    {
+      "name": "write_data_btn_text",
+      "value": "Write DB"
+    },
+    {
+      "name": "read_data_btn_text",
+      "value": "Read DB"
+    },
+    {
+      "name": "delete_data_file_btn_text",
+      "value": "Delete DB File"
+    },
+    {
+      "name": "delete_success_msg",
+      "value": "删除数据库成功！"
+    },
+    {
+      "name": "data_is_null_msg",
+      "value": "数据为空，请先写入数据！"
+    },
+    {
+      "name": "read_success_msg",
+      "value": "读取数据成功！"
+    },
+    {
+      "name": "fruit_input_null_msg",
+      "value": "水果名称或者水果数量为空，请先输入数据！"
+    },
+    {
+      "name": "write_success_msg",
+      "value": "写入数据成功！"
+    }
+  ]
+}

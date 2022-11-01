@@ -1,0 +1,140 @@
+{
+  "float": [
+    {
+      "name": "default_1",
+      "value": "1vp"
+    },
+    {
+      "name": "default_n8",
+      "value": "-8vp"
+    },
+    {
+      "name": "default_4",
+      "value": "4vp"
+    },
+    {
+      "name": "default_5",
+      "value": "5vp"
+    },
+    {
+      "name": "default_6",
+      "value": "6vp"
+    },
+    {
+      "name": "default_7",
+      "value": "7vp"
+    },
+    {
+      "name": "default_8",
+      "value": "8vp"
+    },
+    {
+      "name": "default_10",
+      "value": "10vp"
+    },
+    {
+      "name": "default_12",
+      "value": "12vp"
+    },
+    {
+      "name": "default_14",
+      "value": "14vp"
+    },
+    {
+      "name": "default_16",
+      "value": "16vp"
+    },
+    {
+      "name": "default_18",
+      "value": "18vp"
+    },
+    {
+      "name": "default_20",
+      "value": "20vp"
+    },
+    {
+      "name": "default_22",
+      "value": "22vp"
+    },
+    {
+      "name": "default_24",
+      "value": "24vp"
+    },
+    {
+      "name": "default_26",
+      "value": "26vp"
+    },
+    {
+      "name": "default_28",
+      "value": "28vp"
+    },
+    {
+      "name": "default_36",
+      "value": "36vp"
+    },
+    {
+      "name": "default_40",
+      "value": "40vp"
+    },
+    {
+      "name": "default_42",
+      "value": "42vp"
+    },
+    {
+      "name": "default_44",
+      "value": "44vp"
+    },
+    {
+      "name": "default_48",
+      "value": "48vp"
+    },
+    {
+      "name": "default_56",
+      "value": "56vp"
+    },
+    {
+      "name": "default_64",
+      "value": "64vp"
+    },
+    {
+      "name": "default_66",
+      "value": "66vp"
+    },
+    {
+      "name": "default_71",
+      "value": "71vp"
+    },
+    {
+      "name": "default_72",
+      "value": "72vp"
+    },
+    {
+      "name": "default_100",
+      "value": "100vp"
+    },
+    {
+      "name": "default_120",
+      "value": "120vp"
+    },
+    {
+      "name": "default_132",
+      "value": "132vp"
+    },
+    {
+      "name": "default_220",
+      "value": "220vp"
+    },
+    {
+      "name": "default_267",
+      "value": "267vp"
+    },
+    {
+      "name": "default_316",
+      "value": "316vp"
+    },
+    {
+      "name": "default_451",
+      "value": "451vp"
+    }
+  ]
+}

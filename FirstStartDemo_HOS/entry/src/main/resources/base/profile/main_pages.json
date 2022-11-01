@@ -1,0 +1,8 @@
+{
+  "src": [
+    "pages/LauncherPage",
+    "pages/AdvertisingPage",
+    "pages/AppHomePage",
+    "pages/PrivacyPage"
+  ]
+}

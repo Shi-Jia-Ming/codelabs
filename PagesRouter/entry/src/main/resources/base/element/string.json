@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "pageRouter"
+    },
+    {
+      "name": "next",
+      "value": "Next"
+    },
+    {
+      "name": "back",
+      "value": "Back"
+    }
+  ]
+}

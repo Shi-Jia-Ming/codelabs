@@ -1,0 +1,48 @@
+{
+  "float": [
+    {
+      "name": "index_tab_icon_size",
+      "value": "24"
+    },
+    {
+      "name": "index_tab_font_size",
+      "value": "10"
+    },
+    {
+      "name": "index_tab_vertical_margin",
+      "value": "4"
+    },
+    {
+      "name": "index_tab_font_selected_opacity",
+      "value": "1"
+    },
+    {
+      "name": "index_tab_font_default_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "file_index_title_height",
+      "value": "56"
+    },
+    {
+      "name": "file_index_title_size",
+      "value": "20"
+    },
+    {
+      "name": "file_index_title_padding",
+      "value": "24"
+    },
+    {
+      "name": "content_width",
+      "value": "360"
+    },
+    {
+      "name": "content_height",
+      "value": "626"
+    },
+    {
+      "name": "default_header_font_size",
+      "value": "16"
+    }
+  ]
+}

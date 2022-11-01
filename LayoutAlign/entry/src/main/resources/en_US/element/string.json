@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "LayoutAlign"
+    },
+    {
+      "name": "main_align",
+      "value": "main align"
+    },
+    {
+      "name": "axi_align",
+      "value": "axis align"
+    },
+    {
+      "name": "main_direction",
+      "value": "main direction"
+    },
+    {
+      "name": "warp_type",
+      "value": "wrap type"
+    },
+    {
+      "name": "align_type",
+      "value": "align type"
+    },
+    {
+      "name": "index_title",
+      "value": "Common Layout Container Alignment"
+    },
+    {
+      "name": "back",
+      "value": "back"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "float": [
+    {
+      "name": "main_page_title_font_size",
+      "value": "20"
+    },
+    {
+      "name": "main_page_title_margin_left",
+      "value": "24"
+    },
+    {
+      "name": "main_page_title_margin_top",
+      "value": "13"
+    },
+    {
+      "name": "main_page_title_margin_bottom",
+      "value": "27"
+    },
+    {
+      "name": "main_page_body_padding",
+      "value": "12"
+    },
+    {
+      "name": "main_page_body_height",
+      "value": "110"
+    },
+    {
+      "name": "main_page_body_margin",
+      "value": "12"
+    },
+    {
+      "name": "element_transition_radius",
+      "value": "20"
+    },
+    {
+      "name": "element_transition_margin",
+      "value": "20"
+    },
+    {
+      "name": "element_transition_height",
+      "value": "120"
+    },
+    {
+      "name": "element_trans_btn_height",
+      "value": "40"
+    },
+    {
+      "name": "element_trans_btn_width",
+      "value": "120"
+    },
+    {
+      "name": "element_transition_padding",
+      "value": "20"
+    },
+    {
+      "name": "back_container_title_width",
+      "value": "20"
+    },
+    {
+      "name": "back_container_title_height",
+      "value": "18"
+    },
+    {
+      "name": "back_container_response_region_width",
+      "value": "40"
+    },
+    {
+      "name": "back_container_title_font_size",
+      "value": "20"
+    },
+    {
+      "name": "back_container_title_margin",
+      "value": "18"
+    },
+    {
+      "name": "back_container_height",
+      "value": "56"
+    },
+    {
+      "name": "back_container_margin",
+      "value": "13"
+    },
+    {
+      "name": "share_item_height",
+      "value": "222"
+    },
+    {
+      "name": "share_item_padding",
+      "value": "12"
+    },
+    {
+      "name": "share_item_element_height",
+      "value": "147"
+    },
+    {
+      "name": "share_item_element_margin_top",
+      "value": "13"
+    },
+    {
+      "name": "share_item_element_margin_left",
+      "value": "12"
+    },
+    {
+      "name": "share_item_element_margin_right",
+      "value": "12"
+    },
+    {
+      "name": "share_item_element_margin_bottom",
+      "value": "12"
+    },
+    {
+      "name": "share_item_element_content_font_size",
+      "value": "20"
+    },
+    {
+      "name": "share_item_radius",
+      "value": "24"
+    }
+  ]
+}

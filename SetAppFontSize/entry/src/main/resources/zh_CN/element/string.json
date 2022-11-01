@@ -1,0 +1,92 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "Entry_ability_desc",
+      "value": "description"
+    },
+    {
+      "name": "Entry_ability_label",
+      "value": "SetAppFontSize"
+    },
+    {
+      "name": "home_display_and_brightness",
+      "value": "显示和亮度"
+    },
+    {
+      "name": "home_title",
+      "value": "设置"
+    },
+    {
+      "name": "home_voice",
+      "value": "声音"
+    },
+    {
+      "name": "home_app_management",
+      "value": "应用管理"
+    },
+    {
+      "name": "home_storage",
+      "value": "存储"
+    },
+    {
+      "name": "home_privacy",
+      "value": "隐私"
+    },
+    {
+      "name": "home_setting_the_font_size",
+      "value": "设置字体大小"
+    },
+    {
+      "name": "set_title",
+      "value": "字体大小设置"
+    },
+    {
+      "name": "set_chat_content1",
+      "value": "你知道现在可以在健康生活添加各种健康目标打卡吗？"
+    },
+    {
+      "name": "set_chat_content2",
+      "value": "知道，我添加了运动和饮食相关的目标。"
+    },
+    {
+      "name": "set_chat_content3",
+      "value": "太好了，感觉怎么样？"
+    },
+    {
+      "name": "set_chat_content4",
+      "value": "生活状态越来越好，你也一起试试吧！"
+    },
+    {
+      "name": "set_size_small",
+      "value": "小"
+    },
+    {
+      "name": "set_size_normal",
+      "value": "标准"
+    },
+    {
+      "name": "set_size_large",
+      "value": "大"
+    },
+    {
+      "name": "set_size_extra_large",
+      "value": "超大"
+    },
+    {
+      "name": "set_size_huge",
+      "value": "特大"
+    },
+    {
+      "name": "set_font_size",
+      "value": "文字大小"
+    },
+    {
+      "name": "set_char_a",
+      "value": "A"
+    }
+  ]
+}

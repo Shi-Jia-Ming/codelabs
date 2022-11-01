@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "LayoutAlign"
+    },
+    {
+      "name": "main_align",
+      "value": "主轴的对齐方式"
+    },
+    {
+      "name": "axi_align",
+      "value": "交叉轴的对齐方式"
+    },
+    {
+      "name": "main_direction",
+      "value": "主轴的方向"
+    },
+    {
+      "name": "warp_type",
+      "value": "排列方式"
+    },
+    {
+      "name": "align_type",
+      "value": "对齐方式"
+    },
+    {
+      "name": "index_title",
+      "value": "常用布局容器对齐方式"
+    },
+    {
+      "name": "back",
+      "value": "返回"
+    }
+  ]
+}

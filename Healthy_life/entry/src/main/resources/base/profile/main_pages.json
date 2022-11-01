@@ -1,0 +1,9 @@
+{
+  "src": [
+    "pages/SplashPage",
+    "pages/AdvertisingPage",
+    "pages/MainPage",
+    "pages/TaskListPage",
+    "pages/TaskEditPage"
+  ]
+}

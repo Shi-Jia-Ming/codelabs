@@ -1,0 +1,124 @@
+{
+  "float": [
+    {
+      "name": "home_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "bottom_font_size",
+      "value": "10vp"
+    },
+    {
+      "name": "bottom_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "top_font_size",
+      "value": "18vp"
+    },
+    {
+      "name": "top_font_size_selected",
+      "value": "24vp"
+    },
+    {
+      "name": "top_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "swiper_title_size",
+      "value": "12vp"
+    },
+    {
+      "name": "swiper_font_size",
+      "value": "20vp"
+    },
+    {
+      "name": "swiper_top_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "swiper_bottom_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "swiper_left_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "more_font_size",
+      "value": "14vp"
+    },
+    {
+      "name": "more_margin",
+      "value": "5vp"
+    },
+    {
+      "name": "more_width",
+      "value": "6.74vp"
+    },
+    {
+      "name": "more_height",
+      "value": "12.81vp"
+    },
+    {
+      "name": "list_height",
+      "value": "24vp"
+    },
+    {
+      "name": "list_margin",
+      "value": "5vp"
+    },
+    {
+      "name": "list_title_size",
+      "value": "16vp"
+    },
+    {
+      "name": "list_image_width",
+      "value": "164vp"
+    },
+    {
+      "name": "list_image_height_horizontal",
+      "value": "100vp"
+    },
+    {
+      "name": "list_image_height_vertical",
+      "value": "269vp"
+    },
+    {
+      "name": "list_image_border_radius",
+      "value": "12vp"
+    },
+    {
+      "name": "list_image_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "listItem_title_size",
+      "value": "14vp"
+    },
+    {
+      "name": "listItem_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "listItem_text_size",
+      "value": "12vp"
+    },
+    {
+      "name": "childList_height_vertical",
+      "value": "319vp"
+    },
+    {
+      "name": "childList_height_horizontal",
+      "value": "150vp"
+    },
+    {
+      "name": "list_height_vertical",
+      "value": "369vp"
+    },
+    {
+      "name": "list_height_horizontal",
+      "value": "200vp"
+    }
+  ]
+}

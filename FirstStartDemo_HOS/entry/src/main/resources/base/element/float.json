@@ -1,0 +1,144 @@
+{
+  "float": [
+    {
+      "name": "launcher_logo_size",
+      "value": "119vp"
+    },
+    {
+      "name": "launcher_life_text_width",
+      "value": "105vp"
+    },
+    {
+      "name": "launcher_life_text_height",
+      "value": "35vp"
+    },
+    {
+      "name": "launcher_text_title_size",
+      "value": "26fp"
+    },
+    {
+      "name": "launcher_text_introduce_size",
+      "value": "16fp"
+    },
+    {
+      "name": "launcher_text_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "advertising_text_opacity",
+      "value": "0.4"
+    },
+    {
+      "name": "advertising_image_width",
+      "value": "54vp"
+    },
+    {
+      "name": "advertising_image_height",
+      "value": "54vp"
+    },
+    {
+      "name": "advertising_text_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "advertising_text_introduce_size",
+      "value": "16fp"
+    },
+    {
+      "name": "advertising_text_title_size",
+      "value": "26fp"
+    },
+    {
+      "name": "advertising_text_border_width",
+      "value": "1"
+    },
+    {
+      "name": "advertising_text_padding_top",
+      "value": "8vp"
+    },
+    {
+      "name": "advertising_text_padding_bottom",
+      "value": "8vp"
+    },
+    {
+      "name": "advertising_text_padding_left",
+      "value": "12vp"
+    },
+    {
+      "name": "advertising_text_padding_right",
+      "value": "12vp"
+    },
+    {
+      "name": "advertising_text_radius",
+      "value": "18vp"
+    },
+    {
+      "name": "dialog_blank_height",
+      "value": "32vp"
+    },
+    {
+      "name": "dialog_blank_width",
+      "value": "1vp"
+    },
+    {
+      "name": "dialog_common_text_size",
+      "value": "18fp"
+    },
+    {
+      "name": "dialog_text_privacy_size",
+      "value": "20fp"
+    },
+    {
+      "name": "dialog_fancy_text_size",
+      "value": "16fp"
+    },
+    {
+      "name": "dialog_text_privacy_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "dialog_text_privacy_top",
+      "value": "24vp"
+    },
+    {
+      "name": "dialog_text_declaration_bottom",
+      "value": "24"
+    },
+    {
+      "name": "dialog_text_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "privacy_text_title_size",
+      "value": "20fp"
+    },
+    {
+      "name": "privacy_back_text_size",
+      "value": "20fp"
+    },
+    {
+      "name": "privacy_text_margin_top",
+      "value": "10"
+    },
+    {
+      "name": "privacy_text_margin_bottom",
+      "value": "10"
+    },
+    {
+      "name": "privacy_bottom_text_margin",
+      "value": "12"
+    },
+    {
+      "name": "privacy_text_content_left",
+      "value": "24"
+    },
+    {
+      "name": "privacy_text_content_right",
+      "value": "24"
+    },
+    {
+      "name": "home_page_text_size",
+      "value": "30vp"
+    }
+  ]
+}

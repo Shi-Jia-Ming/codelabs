@@ -1,0 +1,48 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "privacy_back_text",
+      "value": "#007DFF"
+    },
+    {
+      "name": "launcher_text_title_color",
+      "value": "#182431"
+    },
+    {
+      "name": "launcher_text_introduce_color",
+      "value": "#182431"
+    },
+    {
+      "name": "advertising_text_title_color",
+      "value": "#182431"
+    },
+    {
+      "name": "advertising_text_background_color",
+      "value": "#33000000"
+    },
+    {
+      "name": "home_page_text_color",
+      "value": "#14224D"
+    },
+    {
+      "name": "dialog_fancy_text_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "dialog_text_color",
+      "value": "#182431"
+    },
+    {
+      "name": "dialog_blank_background_color",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "dialog_text_statement_color",
+      "value": "#007DFF"
+    }
+  ]
+}

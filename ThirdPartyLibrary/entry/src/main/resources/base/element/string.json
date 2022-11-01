@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "库的调用"
+    },
+    {
+      "name": "main_title",
+      "value": "库的调用"
+    },
+    {
+      "name": "tab_title_inner",
+      "value": "本地调用"
+    },
+    {
+      "name": "tab_title_outer",
+      "value": "社区调用"
+    },
+    {
+      "name": "outer_button_load",
+      "value": "加载动画"
+    },
+    {
+      "name": "outer_button_end",
+      "value": "结束并回到第0帧"
+    },
+    {
+      "name": "outer_button_start",
+      "value": "播放"
+    },
+    {
+      "name": "outer_button_pause",
+      "value": "暂停"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "color": [
+    {
+      "name": "success",
+      "value": "#67c23a"
+    },
+    {
+      "name": "info",
+      "value": "#FFD6DADE"
+    },
+    {
+      "name": "warning",
+      "value": "#e6a23c"
+    },
+    {
+      "name": "danger",
+      "value": "#f56c6c"
+    },
+    {
+      "name": "normal",
+      "value": "#409eff"
+    },
+    {
+      "name": "none",
+      "value": "#00FDFDFD"
+    }
+  ,
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    }
+  ]
+}

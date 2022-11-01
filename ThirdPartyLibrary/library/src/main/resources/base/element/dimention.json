@@ -1,0 +1,16 @@
+{
+  "float": [
+    {
+      "name": "default_16",
+      "value": "16vp"
+    },
+    {
+      "name": "default_35",
+      "value": "35vp"
+    },
+    {
+      "name": "default_90",
+      "value": "100vp"
+    }
+  ]
+}

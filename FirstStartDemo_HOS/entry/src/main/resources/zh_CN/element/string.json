@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "entry描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "MainAbility描述"
+    },
+    {
+      "name": "home_page_text",
+      "value": "Hello World"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "应用首次启动"
+    },
+    {
+      "name": "healthy_life_text",
+      "value": "健康生活"
+    },
+    {
+      "name": "healthy_life_introduce",
+      "value": "健康总有新玩法"
+    },
+    {
+      "name": "advertising_text_title",
+      "value": "跳过广告 %ds"
+    },
+    {
+      "name": "dialog_text_title",
+      "value": "欢迎使用我的应用"
+    },
+    {
+      "name": "dialog_text_privacy_content",
+      "value": "我们充分尊重用户的隐私权，并按照法律要求和业界成熟的安全标准，为您的个人信息提供相应的安全保护措施。"
+    },
+    {
+      "name": "dialog_text_privacy_statement",
+      "value": "隐私协议保护声明"
+    },
+    {
+      "name": "dialog_text_declaration_prompt",
+      "value": "（以下简称为“本声明”）以便您了解我们如何搜集、使用、披露、保护、存储及传输您的个人数据。请您仔细阅读本声明。如您有任何疑问，请告知我们。"
+    },
+    {
+      "name": "dialog_button_disagree",
+      "value": "不同意"
+    },
+    {
+      "name": "dialog_button_agree",
+      "value": "同 意"
+    },
+    {
+      "name": "privacy_text_title",
+      "value": "隐私政策"
+    },
+    {
+      "name": "privacy_text_content",
+      "value": "本声明的重要组成部分，服务如何处理您的个人信息，您如何行使您的数据主体权利，相关的数据控制者以及如何联系该数据控制者等基本情况，由该隐私通知进行阐述。若隐私通知与本声明之间存在不一致，以该隐私通知为准，隐私通知中未约定的，以本声明为准。"
+    },
+    {
+      "name": "privacy_back",
+      "value": "返回"
+    }
+  ]
+}

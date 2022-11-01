@@ -1,0 +1,36 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "app_bg",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "common_color",
+      "value": "#182431"
+    },
+    {
+      "name": "tab_selectedColor",
+      "value": "#007DFF"
+    },
+    {
+      "name": "tab_fontColor",
+      "value": "#182431"
+    },
+    {
+      "name": "outer_canvas_title",
+      "value": "#182431"
+    },
+    {
+      "name": "outer_button_font",
+      "value": "#007DFF"
+    },
+    {
+      "name": "outer_button_bg",
+      "value": "#dedbdb"
+    }
+  ]
+}

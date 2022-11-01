@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "ArkUI动画"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "ArkUI动画"
+    },
+    {
+      "name": "please_click_button",
+      "value": "请点击按钮"
+    },
+    {
+      "name": "count",
+      "value": "数量"
+    }
+  ]
+}

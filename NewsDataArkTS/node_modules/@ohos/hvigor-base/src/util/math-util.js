@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.generateId=void 0;let id=0;function generateId(){return""+id++}exports.generateId=generateId;

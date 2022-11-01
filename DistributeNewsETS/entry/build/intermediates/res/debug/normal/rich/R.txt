@@ -1,0 +1,4 @@
+media icon 0x1000003
+string NewsClient 0x1000000
+string distributed_datasync_reason 0x1000001
+string mainability_description 0x1000002

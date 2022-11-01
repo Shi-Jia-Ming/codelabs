@@ -1,0 +1,72 @@
+{
+  "integer": [
+    {
+      "name": "index_swiper_height",
+      "value": 188
+    },
+    {
+      "name": "index_module_height",
+      "value": 188
+    },
+    {
+      "name": "index_swiper_with",
+      "value":336
+    },
+    {
+      "name": "index_module_with",
+      "value": 336
+    },
+    {
+      "name": "index_swiper_imageRadius",
+      "value":12
+    },
+    {
+      "name": "index_module_Radius",
+      "value": 24
+    },
+    {
+      "name": "index_swiper_margin",
+      "value": 12
+    },
+    {
+      "name": "index_space",
+      "value": 24
+    },
+    {
+      "name": "module_name_size",
+      "value": 18
+    },
+    {
+      "name": "module_name_margin",
+      "value": 12
+    },
+    {
+      "name": "module_image_with",
+      "value": 132
+    },
+    {
+      "name": "module_image_height",
+      "value": 74
+    },
+    {
+      "name": "video_name_size",
+      "value": 16
+    },
+    {
+      "name": "time_size",
+      "value": 16
+    },
+    {
+      "name": "start_and_pause_size",
+      "value": 50
+    },
+    {
+      "name": "slider_with",
+      "value": 240
+    },
+    {
+      "name": "slider_height",
+      "value": 4
+    }
+  ]
+}

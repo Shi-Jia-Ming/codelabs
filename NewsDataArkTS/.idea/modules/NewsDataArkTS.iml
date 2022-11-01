@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../.." />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="ArkTS-3.2.1.4" type="ArkUI">
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../../../../DevEco/HarmonyOS_SDK/openharmony/9/ets/api" />
+          <root url="file://$MODULE_DIR$/../../../../../../DevEco/HarmonyOS_SDK/openharmony/9/ets/component" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

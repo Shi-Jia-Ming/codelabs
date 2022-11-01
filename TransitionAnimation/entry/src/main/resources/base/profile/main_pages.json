@@ -1,0 +1,11 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/BottomTransition",
+    "pages/CustomTransition",
+    "pages/ComponentTransition",
+    "pages/FullCustomTransition",
+    "pages/ShareItem",
+    "pages/SharePage"
+  ]
+}

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.CodeModelImpl=void 0;class CodeModelImpl{constructor(e,t){this._codeType=t,this._srcPath=e}getSrcPath(){return this._srcPath}getCodeType(){return this._codeType}}exports.CodeModelImpl=CodeModelImpl;

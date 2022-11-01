@@ -1,0 +1,36 @@
+{
+  "float": [
+    {
+      "name": "font_14",
+      "value": "14fp"
+    },
+    {
+      "name": "font_16",
+      "value": "16fp"
+    },
+    {
+      "name": "default_8",
+      "value": "8vp"
+    },
+    {
+      "name": "default_12",
+      "value": "12vp"
+    },
+    {
+      "name": "default_16",
+      "value": "16vp"
+    },
+    {
+      "name": "default_20",
+      "value": "20vp"
+    },
+    {
+      "name": "default_40",
+      "value": "40vp"
+    },
+    {
+      "name": "default_60",
+      "value": "60vp"
+    }
+  ]
+}
