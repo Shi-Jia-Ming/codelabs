@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.SignModel=void 0;class SignModel{constructor(t,e,i){this._signTypeEnum=t,this._inputFilePath=e,this._outputFilePath=i}getSignType(){return this._signTypeEnum}getInputFilePath(){return this._inputFilePath}getOutPutFilePath(){return this._outputFilePath}}exports.SignModel=SignModel;

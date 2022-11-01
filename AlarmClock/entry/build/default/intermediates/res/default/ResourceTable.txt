@@ -1,0 +1,4 @@
+string MainAbility_desc 0x01000000
+string MainAbility_label 0x01000001
+string entry_desc 0x01000002
+media icon 0x01000003

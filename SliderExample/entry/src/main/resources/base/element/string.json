@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "SliderExample"
+    },
+    {
+      "name": "scale_text",
+      "value": "缩放比例"
+    },
+    {
+      "name": "speed_text",
+      "value": "速度"
+    }
+  ]
+}

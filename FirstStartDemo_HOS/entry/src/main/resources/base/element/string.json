@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "home_page_text",
+      "value": "Hello World"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "FirstStartDemo"
+    },
+    {
+      "name": "healthy_life_text",
+      "value": "Healthy Living"
+    },
+    {
+      "name": "healthy_life_introduce",
+      "value": "There's always a new way to play health."
+    },
+    {
+      "name": "advertising_text_title",
+      "value": "Skip %ds"
+    },
+    {
+      "name": "dialog_text_title",
+      "value": "Welcome To My App"
+    },
+    {
+      "name": "dialog_text_privacy_content",
+      "value": "We fully respect users' privacy rights and provide appropriate security protection measures for your personal information in accordance with legal requirements and mature security standards in the industry."
+    },
+    {
+      "name": "dialog_text_privacy_statement",
+      "value": "Privacy Agreement Protection Statement"
+    },
+    {
+      "name": "dialog_text_declaration_prompt",
+      "value": "(hereinafter referred to as \"this statement\") to help you understand how we collect, use, disclose, protect, store and transmit your personal data. Please read this statement carefully. If you have any questions, please let us know."
+    },
+    {
+      "name": "dialog_button_disagree",
+      "value": "Disagree"
+    },
+    {
+      "name": "dialog_button_agree",
+      "value": "Agree"
+    },
+    {
+      "name": "privacy_text_title",
+      "value": "Privacy Policy"
+    },
+    {
+      "name": "privacy_text_content",
+      "value": "This privacy notice describes the important parts of this statement, how the service processes your personal information, how you exercise your data subject rights, related data controllers, and how to contact the data controllers. If there is any inconsistency between the privacy notice and this statement, the privacy notice shall prevail. If not specified in the privacy notice, this statement shall prevail."
+    },
+    {
+      "name": "privacy_back",
+      "value": "Go Back"
+    }
+  ]
+}

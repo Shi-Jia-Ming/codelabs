@@ -1,0 +1,51 @@
+{
+    "summary": {
+        "app": {
+            "bundleName": "com.huawei.codelab",
+            "version": {
+                "code": 1000000,
+                "name": "1.0.0"
+            }
+        },
+        "modules": [
+            {
+                "mainAbility": "com.huawei.codelab.MainAbility",
+                "deviceType": [
+                    "phone",
+                    "tablet",
+                    "car"
+                ],
+                "abilities": [
+                    {
+                        "visible": true,
+                        "name": "com.huawei.codelab.MainAbility",
+                        "label": "$string:NewsClient"
+                    }
+                ],
+                "distro": {
+                    "moduleType": "entry",
+                    "installationFree": false,
+                    "deliveryWithInstall": true,
+                    "moduleName": "entry"
+                },
+                "apiVersion": {
+                    "compatible": 7,
+                    "releaseType": "Beta2",
+                    "target": 7
+                }
+            }
+        ]
+    },
+    "packages": [
+        {
+            "deviceType": [
+                "phone",
+                "tablet",
+                "car"
+            ],
+            "moduleType": "entry",
+            "deliveryWithInstall": true,
+            "name": "entry-debug-rich-unsigned"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+## 1.1.6
+- 支持开发者进行模块化编译配置
+
+## 1.1.5
+- 新增模块级napiLibFilterOption接口，可在build-profile.json5中配置.so文件打包的过滤机制
+
+## 1.1.3
+- 配套DevEco Studio 3.0.0.901版本
+- 配套@ohos/hvigor-base 1.1.3版本和@ohos/hvigor-cli 1.1.3版本
+- 解除ohos har三方包依赖需要@ohos的scope的限制
+- 增加卡片资源form_config.json文件的schema校验和文件存在与否的判断
+- 新增工具链规则提供module.json5的业务校验
+- 删除arkEnable相关配置，默认使能方舟编译模式
+- API9 Stage模型工程必须配置startWindows，增加相应的错误提示和修改指导链接
+- 修复若干内部逻辑实现问题。

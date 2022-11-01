@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "slider_color",
+      "value": "#007dff"
+    },
+    {
+      "name": "background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "font_color",
+      "value": "#182431"
+    }
+  ]
+}

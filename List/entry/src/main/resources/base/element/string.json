@@ -1,0 +1,76 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "List组件"
+    },
+    {
+      "name": "selected",
+      "value": "精选"
+    },
+    {
+      "name": "mobile_phone",
+      "value": "手机"
+    },
+    {
+      "name": "clothes",
+      "value": "服饰"
+    },
+    {
+      "name": "wear",
+      "value": "穿搭"
+    },
+    {
+      "name": "home_furnishing",
+      "value": "家居"
+    },
+    {
+      "name": "goodsName",
+      "value": "【新品上市】畅乐冰晶绿低脂新品"
+    },
+    {
+      "name": "another_goodsName",
+      "value": "【新品上市】奶茶自然清新亲近自然"
+    },
+    {
+      "name": "advertising_language",
+      "value": "重磅推荐，MD新品试用中！"
+    },
+    {
+      "name": "evaluate",
+      "value": "6662人评价 95%好评"
+    },
+    {
+      "name": "price_199",
+      "value": "¥199"
+    },
+    {
+      "name": "price_265",
+      "value": "¥265"
+    },
+    {
+      "name": "price_810",
+      "value": "¥810"
+    },
+    {
+      "name": "price_999",
+      "value": "¥999"
+    },
+    {
+      "name": "to_bottom",
+      "value": "-- 已经到底了 --"
+    },
+    {
+      "name": "refresh_text",
+      "value": "正在刷新"
+    }
+  ]
+}

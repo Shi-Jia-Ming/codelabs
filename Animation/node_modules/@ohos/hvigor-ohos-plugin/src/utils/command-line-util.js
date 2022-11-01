@@ -1,0 +1,1 @@
+"use strict";function parseTargets(e){const s=new Map;if(void 0===e)return s;const t=e.split(",");for(const e of t){const t=e.split("@");let r=0;const o=["all"];for(const e of t.slice(1))""!==e&&(o[r++]=e);s.set(t[0],o)}return s}Object.defineProperty(exports,"__esModule",{value:!0}),exports.parseTargets=void 0,exports.parseTargets=parseTargets;

@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Preferences"
+    },
+    {
+      "name": "fruit_text",
+      "value": "Fruit"
+    },
+    {
+      "name": "fruit_placeholder",
+      "value": "Oranges"
+    },
+    {
+      "name": "number_text",
+      "value": "Number"
+    },
+    {
+      "name": "number_placeholder",
+      "value": "25"
+    },
+    {
+      "name": "write_data_btn_text",
+      "value": "Write DB"
+    },
+    {
+      "name": "read_data_btn_text",
+      "value": "Read DB"
+    },
+    {
+      "name": "delete_data_file_btn_text",
+      "value": "Delete DB File"
+    },
+    {
+      "name": "delete_success_msg",
+      "value": "Delete database successfully!"
+    },
+    {
+      "name": "data_is_null_msg",
+      "value": "Data is empty, please write data first!"
+    },
+    {
+      "name": "read_success_msg",
+      "value": "Read data successfully!"
+    },
+    {
+      "name": "fruit_input_null_msg",
+      "value": "Fruit name or fruit num is empty, please write data first!"
+    },
+    {
+      "name": "write_success_msg",
+      "value": "Write data successfully!"
+    }
+  ]
+}

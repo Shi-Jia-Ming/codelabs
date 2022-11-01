@@ -1,0 +1,6 @@
+{
+  "src": [
+    "pages/IndexPage",
+    "pages/SecondPage"
+  ]
+}

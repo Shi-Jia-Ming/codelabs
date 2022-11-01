@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "ETS_Empty Feature Ability"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "TransitionAnimation"
+    },
+    {
+      "name": "Component_transition_toggle",
+      "value": "Toggle"
+    },
+    {
+      "name": "Component_transition_header",
+      "value": "组件内转场"
+    },
+    {
+      "name": "Share_Item_header",
+      "value": "共享元素转场"
+    },
+    {
+      "name": "Share_Item_hint",
+      "value": "点击查看共享元素转场动效"
+    },
+    {
+      "name": "main_page_title",
+      "value": "转场动画"
+    }
+  ]
+}

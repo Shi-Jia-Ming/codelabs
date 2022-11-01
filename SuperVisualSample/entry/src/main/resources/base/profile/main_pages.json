@@ -1,0 +1,6 @@
+{
+  "src": [
+    "pages/TaskPage",
+    "pages/TaskDetailPage"
+  ]
+}

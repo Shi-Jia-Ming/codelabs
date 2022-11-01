@@ -1,0 +1,76 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "List_HDC"
+    },
+    {
+      "name": "task_morning",
+      "value": "早起"
+    },
+    {
+      "name": "task_water",
+      "value": "喝水"
+    },
+    {
+      "name": "task_apple",
+      "value": "吃苹果"
+    },
+    {
+      "name": "task_smile",
+      "value": "每日微笑"
+    },
+    {
+      "name": "task_brush",
+      "value": "每日刷牙"
+    },
+    {
+      "name": "task_night",
+      "value": "早睡"
+    },
+    {
+      "name": "already_open",
+      "value": "已开启"
+    },
+    {
+      "name": "complete",
+      "value": "完成"
+    },
+    {
+      "name": "frequency",
+      "value": "频率"
+    },
+    {
+      "name": "remind_time",
+      "value": "提醒时间"
+    },
+    {
+      "name": "open_reminder",
+      "value": "开启提醒"
+    },
+    {
+      "name": "target_setting",
+      "value": "目标设置"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "confirm",
+      "value": "确认"
+    },
+    {
+      "name": "set_your_frequency",
+      "value": "请设置您的频率"
+    }
+  ]
+}

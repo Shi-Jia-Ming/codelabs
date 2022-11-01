@@ -1,0 +1,34 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates\\loader_out\\default",
+          "RES_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\jsbundle",
+          "JS_SUPER_VISUAL_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\entry\\build\\default\\intermediates\\manifest\\default"
+        }
+      }
+    }
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\build",
+    "BUNDLE_NAME": "com.example.animation",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "D:\\codeHub\\930\\930HarmonyOS\\Animation\\build\\outputs\\default"
+    }
+  },
+  "version": 1
+}

@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "setting_item_divider",
+      "value": "#0d182431"
+    },
+    {
+      "name": "text",
+      "value": "#182431"
+    },
+    {
+      "name": "set_chat_right_bg",
+      "value": "#D7E9F3"
+    },
+    {
+      "name": "set_chat_left_bg",
+      "value": "#FFFFFF"
+    }
+  ]
+}

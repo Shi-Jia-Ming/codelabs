@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Web"
+    },
+    {
+      "name": "promptsLocal",
+      "value": "本地H5小程序"
+    },
+    {
+      "name": "promptsCloud",
+      "value": "云端H5小程序"
+    },
+    {
+      "name": "loadLocalH5",
+      "value": "加载本地H5"
+    },
+    {
+      "name": "loadCloudH5",
+      "value": "加载云端H5"
+    },
+    {
+      "name": "textValue",
+      "value": "以上为Web组件"
+    },
+    {
+      "name": "local",
+      "value": "(本地)"
+    },
+    {
+      "name": "online",
+      "value": "(在线)"
+    },
+    {
+      "name": "btnValue",
+      "value": "点击抽奖"
+    },
+    {
+      "name": "prompts",
+      "value": "抽奖应用"
+    },
+    {
+      "name": "web_alert_dialog_button_value",
+      "value": "确定"
+    },
+    {
+      "name": "web_width",
+      "value": "93.3%"
+    }
+  ]
+}

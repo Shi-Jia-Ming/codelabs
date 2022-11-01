@@ -1,0 +1,15 @@
+{
+	"BuildOptions":{
+		"SELECT_BUILD_TARGET":"default",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\outputs\\default",
+			"RES_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\intermediates\\res\\default",
+			"ETS_SUPER_VISUAL_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\cache\\default\\LegacyCompileETS",
+			"JS_ASSETS_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\intermediates\\assets\\default",
+			"RES_PROFILE_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+			"WORKER_LOADER":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
+			"MANIFEST_JSON":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\intermediates\\manifest\\default",
+			"JS_SUPER_VISUAL_PATH":"D:\\HarmonyOS\\gitee\\codelabs_xllenga\\AlarmClock\\entry\\build\\default\\cache\\default\\LegacyCompileJS"
+		}
+	}
+}

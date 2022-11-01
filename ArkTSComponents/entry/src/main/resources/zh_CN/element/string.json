@@ -1,0 +1,224 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ArkTSComponents"
+    },
+    {
+      "name": "login_page",
+      "value": "登录界面"
+    },
+    {
+      "name": "login_more",
+      "value": "登录帐号以使用更多服务"
+    },
+    {
+      "name": "account",
+      "value": "帐号"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "login",
+      "value": "登录"
+    },
+    {
+      "name": "register_account",
+      "value": "注册帐号"
+    },
+    {
+      "name": "forgot_password",
+      "value": "忘记密码"
+    },
+    {
+      "name": "message_login",
+      "value": "短信验证码登录"
+    },
+    {
+      "name": "other_login_method",
+      "value": "其他登录方式"
+    },
+    {
+      "name": "vertical_line",
+      "value": "  |  "
+    },
+    {
+      "name": "input_empty_tips",
+      "value": "输入不能为空"
+    },
+    {
+      "name": "login_success",
+      "value": "登录成功"
+    },
+    {
+      "name": "my_love",
+      "value": "我的最爱"
+    },
+    {
+      "name": "history_record",
+      "value": "历史记录"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "购物车"
+    },
+    {
+      "name": "my_goal",
+      "value": "我的目标"
+    },
+    {
+      "name": "group",
+      "value": "圈子"
+    },
+    {
+      "name": "favorites",
+      "value": "收藏"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "回收站"
+    },
+    {
+      "name": "rankings",
+      "value": "排行榜"
+    },
+    {
+      "name": "new_product_debut",
+      "value": "新品首发"
+    },
+    {
+      "name": "big_name_flash",
+      "value": "大牌闪购"
+    },
+    {
+      "name": "find_good",
+      "value": "发现好物"
+    },
+    {
+      "name": "xiamen_station",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "more_big_names",
+      "value": "更多大牌"
+    },
+    {
+      "name": "push_notifications",
+      "value": "推送通知"
+    },
+    {
+      "name": "data_management",
+      "value": "数据管理"
+    },
+    {
+      "name": "menu_settings",
+      "value": "菜单设置"
+    },
+    {
+      "name": "about",
+      "value": "关于"
+    },
+    {
+      "name": "clear_cache",
+      "value": "清除缓存"
+    },
+    {
+      "name": "mainPage_tabTitles_home",
+      "value": "首页"
+    },
+    {
+      "name": "mainPage_tabTitles_mine",
+      "value": "我的"
+    },
+    {
+      "name": "mainPage_top",
+      "value": "排行榜"
+    },
+    {
+      "name": "mainPage_text_top",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "mainPage_new",
+      "value": "新品首发"
+    },
+    {
+      "name": "mainPage_text_new",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "mainPage_brand",
+      "value": "大牌闪购"
+    },
+    {
+      "name": "mainPage_text_brand",
+      "value": "更多大牌"
+    },
+    {
+      "name": "mainPage_found",
+      "value": "发现好物"
+    },
+    {
+      "name": "mainPage_text_found",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "setting_account_name",
+      "value": "李先生"
+    },
+    {
+      "name": "setting_account_email",
+      "value": "2000000@shenhua.cc"
+    },
+    {
+      "name": "setting_list_news",
+      "value": "推送通知"
+    },
+    {
+      "name": "setting_list_data",
+      "value": "数据管理"
+    },
+    {
+      "name": "setting_list_menu",
+      "value": "菜单设置"
+    },
+    {
+      "name": "setting_list_about",
+      "value": "关于"
+    },
+    {
+      "name": "setting_list_storage",
+      "value": "清除缓存"
+    },
+    {
+      "name": "setting_list_privacy",
+      "value": "隐私协议"
+    },
+    {
+      "name": "setting_button",
+      "value": "退出登录"
+    },
+    {
+      "name": "home_list",
+      "value": "列表"
+    },
+    {
+      "name": "setting_toggle",
+      "value": "开关"
+    }
+  ]
+}

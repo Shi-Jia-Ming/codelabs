@@ -1,0 +1,80 @@
+{
+  "float": [
+    {
+      "name": "default_1",
+      "value": "1vp"
+    },
+    {
+      "name": "default_4",
+      "value": "4vp"
+    },
+    {
+      "name": "default_8",
+      "value": "8vp"
+    },
+    {
+      "name": "default_10",
+      "value": "10vp"
+    },
+    {
+      "name": "default_12",
+      "value": "12vp"
+    },
+    {
+      "name": "default_16",
+      "value": "16vp"
+    },
+    {
+      "name": "default_21",
+      "value": "21vp"
+    },
+    {
+      "name": "default_23",
+      "value": "23vp"
+    },
+    {
+      "name": "default_24",
+      "value": "24vp"
+    },
+    {
+      "name": "default_33",
+      "value": "33vp"
+    },
+    {
+      "name": "default_40",
+      "value": "40vp"
+    },
+    {
+      "name": "default_41",
+      "value": "41vp"
+    },
+    {
+      "name": "default_56",
+      "value": "56vp"
+    },
+    {
+      "name": "default_90",
+      "value": "90vp"
+    },
+    {
+      "name": "default_260",
+      "value": "260vp"
+    },
+    {
+      "name": "fontSize_12",
+      "value": "12fp"
+    },
+    {
+      "name": "fontSize_14",
+      "value": "14fp"
+    },
+    {
+      "name": "fontSize_16",
+      "value": "16fp"
+    },
+    {
+      "name": "fontSize_24",
+      "value": "24fp"
+    }
+  ]
+}

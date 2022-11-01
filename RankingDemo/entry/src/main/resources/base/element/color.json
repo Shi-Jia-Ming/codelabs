@@ -1,0 +1,84 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "rank_first_gradient_start",
+      "value": "#FFFF9A"
+    },
+    {
+      "name": "rank_first_gradient_end",
+      "value": "#CCA538"
+    },
+    {
+      "name": "rank_first_border",
+      "value": "#9E8A24"
+    },
+    {
+      "name": "rank_first_text",
+      "value": "#9E8A24"
+    },
+    {
+      "name": "rank_secondary_gradient_start",
+      "value": "#B8B8B8"
+    },
+    {
+      "name": "rank_secondary_gradient_end",
+      "value": "#9C9C9C"
+    },
+    {
+      "name": "rank_secondary_border",
+      "value": "#7E7E7E"
+    },
+    {
+      "name": "rank_secondary_text",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "rank_third_gradient_start",
+      "value": "#B9A185"
+    },
+    {
+      "name": "rank_third_gradient_end",
+      "value": "#AE8659"
+    },
+    {
+      "name": "rank_third_border",
+      "value": "#775C3E"
+    },
+    {
+      "name": "rank_third_text",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "rank_view_color_holder",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "item_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "item_color_black",
+      "value": "#182431"
+    },
+    {
+      "name": "background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "font_description",
+      "value": "#989A9C"
+    },
+    {
+      "name": "circle_text_background",
+      "value": "#007dff"
+    }
+  ]
+}

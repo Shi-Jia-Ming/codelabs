@@ -1,0 +1,80 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "RankingDemo"
+    },
+    {
+      "name": "page_type",
+      "value": "种类"
+    },
+    {
+      "name": "page_number",
+      "value": "排名"
+    },
+    {
+      "name": "page_vote",
+      "value": "得票数"
+    },
+    {
+      "name": "prompt_text",
+      "value": "再按一次退出程序"
+    },
+    {
+      "name": "title",
+      "value": "排行榜"
+    },
+    {
+      "name": "title_default",
+      "value": " "
+    },
+    {
+      "name": "fruit_watermelon",
+      "value": "西瓜"
+    },
+    {
+      "name": "fruit_apple",
+      "value": "苹果"
+    },
+    {
+      "name": "fruit_banana",
+      "value": "香蕉"
+    },
+    {
+      "name": "fruit_grapes",
+      "value": "葡萄"
+    },
+    {
+      "name": "fruit_red_grape",
+      "value": "红提"
+    },
+    {
+      "name": "fruit_pears",
+      "value": "梨子"
+    },
+    {
+      "name": "fruit_pineapple",
+      "value": "菠萝"
+    },
+    {
+      "name": "fruit_durian",
+      "value": "榴莲"
+    },
+    {
+      "name": "fruit_guava",
+      "value": "番石榴"
+    },
+    {
+      "name": "fruit_carambola",
+      "value": "杨桃"
+    }
+  ]
+}

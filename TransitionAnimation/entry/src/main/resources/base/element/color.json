@@ -1,0 +1,28 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "gray_shadow",
+      "value": "#55000000"
+    },
+    {
+      "name": "trans_parent",
+      "value": "#00000000"
+    },
+    {
+      "name": "light_blue",
+      "value": "#007DFF"
+    },
+    {
+      "name": "grey_light",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "share_item_content_font",
+      "value": "#182431"
+    }
+  ]
+}

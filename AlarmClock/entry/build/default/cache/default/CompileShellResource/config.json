@@ -1,0 +1,101 @@
+{
+    "app" : 
+    {
+        "apiVersion" : 
+        {
+            "compatible" : 8,
+            "releaseType" : "Release",
+            "target" : 8
+        },
+        "bundleName" : "com.huawei.cookbook",
+        "vendor" : "example",
+        "version" : 
+        {
+            "code" : 1000000,
+            "name" : "1.0.0"
+        }
+    },
+    "deviceConfig" : 
+    {
+        "default" : 
+        {
+            "debug" : true
+        }
+    },
+    "module" : 
+    {
+        "abilities" : 
+        [
+            {
+                "description" : "$string:MainAbility_desc",
+                "descriptionId" : 16777216,
+                "formsEnabled" : false,
+                "icon" : "$media:icon",
+                "iconId" : 16777219,
+                "label" : "$string:MainAbility_label",
+                "labelId" : 16777217,
+                "launchType" : "standard",
+                "name" : ".MainAbility",
+                "orientation" : "unspecified",
+                "skills" : 
+                [
+                    {
+                        "actions" : 
+                        [
+                            "action.system.home"
+                        ],
+                        "entities" : 
+                        [
+                            "entity.system.home"
+                        ]
+                    }
+                ],
+                "srcLanguage" : "ets",
+                "srcPath" : "MainAbility",
+                "type" : "page",
+                "visible" : true
+            }
+        ],
+        "deviceType" : 
+        [
+            "phone"
+        ],
+        "distro" : 
+        {
+            "deliveryWithInstall" : true,
+            "installationFree" : false,
+            "moduleName" : "entry",
+            "moduleType" : "entry",
+            "virtualMachine" : "ark0.0.0.2"
+        },
+        "js" : 
+        [
+            {
+                "mode" : 
+                {
+                    "syntax" : "ets",
+                    "type" : "pageAbility"
+                },
+                "name" : ".MainAbility",
+                "pages" : 
+                [
+                    "pages/index"
+                ],
+                "window" : 
+                {
+                    "autoDesignWidth" : false,
+                    "designWidth" : 720
+                }
+            }
+        ],
+        "mainAbility" : ".MainAbility",
+        "name" : ".entry",
+        "package" : "com.example.entry",
+        "reqPermissions" : 
+        [
+            {
+                "name" : "ohos.permission.PUBLISH_AGENT_REMINDER"
+            }
+        ]
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "常用组件和容器低代码开发示例（ArkTS）"
+    },
+    {
+      "name": "task_list",
+      "value": "任务列表"
+    },
+    {
+      "name": "task_clock",
+      "value": "确认打卡"
+    },
+    {
+      "name": "clock",
+      "value": "确定"
+    },
+    {
+      "name": "task_done",
+      "value": "恭喜你今天又完成一项任务"
+    },
+    {
+      "name": "back",
+      "value": "返回"
+    },
+    {
+      "name": "task_detail",
+      "value": "任务详情"
+    }
+  ]
+}

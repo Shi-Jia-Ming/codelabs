@@ -1,0 +1,13 @@
+{
+	"BuildOptions":{
+		"BUNDLE_NAME":"com.example.animation",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"D:\\codeHub\\930\\930HarmonyOS\\Animation\\build\\outputs\\default"
+		},
+		"SELECT_BUILD_PRODUCT":"default"
+	},
+	"CommonInfo":{
+		"project.ide.version":"3.1.0.10",
+		"current.select.product":"default"
+	}
+}

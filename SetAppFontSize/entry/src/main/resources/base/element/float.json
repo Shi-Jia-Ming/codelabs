@@ -1,0 +1,92 @@
+{
+  "float": [
+    {
+      "name": "title_ic_size",
+      "value": "40vp"
+    },
+    {
+      "name": "title_ic_padding",
+      "value": "8vp"
+    },
+    {
+      "name": "title_padding_left",
+      "value": "16vp"
+    },
+    {
+      "name": "title_text_margin_left",
+      "value": "8vp"
+    },
+    {
+      "name": "block_background_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "block_vertical_padding",
+      "value": "4vp"
+    },
+    {
+      "name": "setting_item_height",
+      "value": "48vp"
+    },
+    {
+      "name": "setting_item_ic_size",
+      "value": "24vp"
+    },
+    {
+      "name": "setting_ic_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "setting_ic_margin_right",
+      "value": "8vp"
+    },
+    {
+      "name": "setting_item_divider_width",
+      "value": "0.5vp"
+    },
+    {
+      "name": "setting_item_divider_start_margin",
+      "value": "44vp"
+    },
+    {
+      "name": "set_text",
+      "value": "14fp"
+    },
+    {
+      "name": "set_small_a",
+      "value": "20fp"
+    },
+    {
+      "name": "set_big_a",
+      "value": "24fp"
+    },
+    {
+      "name": "set_chat_content_vertical_padding",
+      "value": "20vp"
+    },
+    {
+      "name": "set_chat_content_horizontal_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "set_chat_content_bg_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "a_left_padding",
+      "value": "8vp"
+    },
+    {
+      "name": "a_right_padding",
+      "value": "9vp"
+    },
+    {
+      "name": "slider_top_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "slider_bottom_padding",
+      "value": "21vp"
+    }
+  ]
+}

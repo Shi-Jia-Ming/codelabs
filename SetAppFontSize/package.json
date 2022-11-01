@@ -1,19 +1,18 @@
 {
-	"license":"ISC",
-	"devDependencies":{},
-	"name":"appfontsizeho",
-	"ohos":{
-		"org":"huawei",
-		"directoryLevel":"project",
-		"buildTool":"hvigor"
+	"license": "ISC",
+	"devDependencies": {},
+	"name": "setappfontsize",
+	"ohos": {
+		"org": "huawei",
+		"directoryLevel": "project",
+		"buildTool": "hvigor"
 	},
-	"description":"example description",
-	"repository":{},
-	"version":"1.0.0",
-	"dependencies":{
-		"@ohos/hypium":"1.0.0",
-		"@ohos/hvigor-ohos-plugin":"1.1.5-rc1",
-		"hypium":"^1.0.0",
-		"@ohos/hvigor":"1.1.5-rc1"
+	"description": "example description",
+	"repository": {},
+	"version": "1.0.0",
+	"dependencies": {
+		"@ohos/hypium": "1.0.2",
+		"@ohos/hvigor-ohos-plugin": "1.3.1-rc6",
+		"@ohos/hvigor": "1.3.1-rc6"
 	}
 }

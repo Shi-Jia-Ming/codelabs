@@ -1,0 +1,1 @@
+"use strict";var LogCombineType;Object.defineProperty(exports,"__esModule",{value:!0}),exports.LogCombineType=void 0,function(e){e[e.IGNORE=0]="IGNORE",e[e.DEBUG=1]="DEBUG",e[e.INFO=2]="INFO",e[e.WARN=3]="WARN",e[e.ERROR=4]="ERROR"}(LogCombineType=exports.LogCombineType||(exports.LogCombineType={}));

@@ -1,47 +1,37 @@
-# SetAppFontSize
+# 应用内字体大小调节
 
-简介
-• 本篇Codelab将介绍如何使用基础组件Slider,通过拖动滑块快速、同步调节应用内字体的大小。
+### 简介
 
-安装要求
-• 安装DevEco Studio
-• 设置DevEco Studio开发环境。DevEco Studio开发环境需要连接到网络，以确保该正常使用。可以根据以下两种情况配置开发环境：
-1.如果您可以直接访问Internet，则只需下载HarmonyOS SDK
-2.如果网络无法直接访问Internet，则可以通过代理服务器进行访问
-• 生成密钥并申请证书
+基于Slider组件和首选项，实现通过拖动滑块调节应用内字体大小的功能。
 
-用户指南
-• 下载此项目
-• 打开HUAWEI DevEco Studio，单击File> Open选择此ComponentCodelab
-• 单击Build> Build App(s)/Hap(s)>Build Debug Hap(s)以编译hap软件包
-• 单击Run> Run 'entry'以运行hap包
+效果图如下：
 
-注意
-• 您可以选择在模拟器或真机上运行hap软件包。
-• 如果在真机上运行它，则需要在项目的File> Project Structure> Modules> Signing Configs中配置签名和证书信息。
+![](screenshots/device/SetAppFontSize.gif)
 
-许可
-请参阅LICENSE文件以获得更多信息。
+### 相关概念
 
-What is it?
-This article will show you how to use the basic component Slider to quickly and synchronously adjust the size of in-app fonts by dragging the slider.
+字体大小调节原理 ：通过组件Slider滑动，获取滑动数值，将这个值通过首选项进行持久化，页面的字体通过这个值去改变大小。
 
-Installation requirements
-• Install DevEco Studio
-• Set up the DevEco Studio development environment.The DevEco Studio development environment needs to depend on the network environment. It needs to be connected to the network to ensure the normal use of the tool.The development environment can be configured according to the following two situations
-1.If you can directly access the Internet, just download the HarmonyOS SDK
-2.If the network cannot access the Internet directly, it can be accessed through a proxy server
-• Generate secret key and apply for certificate
+首选项: 首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。
 
-User guide
-• Download this Project
-• Open HUAWEI DevEco Studio, click File> Open> Then select and open this Project
-• Click Build> Build App(s)/Hap(s)>Build Debug Hap(s) to compile the hap package
-• Click Run> Run 'entry' to run the hap package
+### 相关权限
 
-Note
-• You can choose to run the hap package on the simulator or the phone.
-• If you run it on the phone, you need to configure the signature and certificate information in the project's File> Project Structure> Modules> Signing Configs.
+不涉及
 
-Licensing
-Please see LICENSE for more info.
+### 使用说明
+
+1.应用包含“设置”、“字体大小设置”两个页面。
+
+2.页面左上角都要一个返回按钮。
+
+3.通过点击设置页的“设置字体大小”项，可以进入到字体大小设置页。
+
+4.在字体大小设置页拖动滑块，设置页的设置项文字以及字体大小设置页的聊天文字大小会同步变化。
+
+### 约束与限制
+
+1.本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
+
+2.本示例为Stage模型，支持API Version 9及以上版本SDK。
+
+3.本示例需要使用DevEco Studio 3.0 Beta4及以上版本进行编译运行。

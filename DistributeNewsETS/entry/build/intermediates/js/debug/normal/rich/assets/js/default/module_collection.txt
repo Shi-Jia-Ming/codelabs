@@ -1,0 +1,1 @@
+system.router,ohos.mediaquery,ohos.distributedHardware.deviceManager,ohos.ability.featureAbility,ohos.ability.wantConstant
