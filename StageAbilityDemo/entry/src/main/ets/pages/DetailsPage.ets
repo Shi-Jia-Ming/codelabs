@@ -31,7 +31,7 @@ import GoodsData from '../common/bean/GoodsData';
 import DetailsViewModel from '../viewmodel/DetailsViewModel';
 
 let viewModel: DetailsViewModel = new DetailsViewModel();
-const KEY: string = "GoodsPosition";
+const KEY: string = 'GoodsPosition';
 let position = AppStorage.Get<number>(KEY);
 
 @Extend(Image) function setTopImageStyle () {

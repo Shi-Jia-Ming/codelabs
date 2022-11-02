@@ -16,9 +16,9 @@
 import hilog from '@ohos.hilog';
 import Ability from '@ohos.application.Ability';
 
-const TAG: string = "DetailsAbility";
-const KEY: string = "GoodsPosition";
-const DETAIL_ABILITY_DOMAIN = 0x00003;
+const TAG: string = 'DetailsAbility';
+const KEY: string = 'GoodsPosition';
+const DETAIL_ABILITY_DOMAIN = 0x00002;
 
 export default class DetailsAbility extends Ability {
     onCreate(want, launchParam) {
