@@ -10,9 +10,9 @@
 
 [Web](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957)：提供具有网页显示能力的Web组件。
 
-runJavaScript：异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。
+[runJavaScript](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__runjavascript)：异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。
 
-onConfirm：网页调用confirm()告警时触发此回调。本篇Codelab用于回显抽奖结果。
+[onConfirm](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__onconfirm)：网页调用confirm()告警时触发此回调。本篇Codelab用于回显抽奖结果。
 
 ## 相关权限
 
