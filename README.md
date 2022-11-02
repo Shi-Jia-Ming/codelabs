@@ -13,8 +13,8 @@
 ## 目录<a name="sectionMenu"></a>
 
 - Ability框架
-  - [Ability内页面间跳转（ArkTS）（API9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PagesRouter)
-  - [Stage模型下Ability的创建和使用（ArkTS）（API9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StageAbilityDemo)
+  - [Ability内页面间跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PagesRouter)
+  - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StageAbilityDemo)
 - UI（ArkTS）
   - [Swiper使用（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwiperETS)
   - [二级联动（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TwoLevelLink)
@@ -67,9 +67,9 @@
   - [简易视频播放器（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSVideoPlayer)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideo)
 - 三方库
-  - [库的调用（ArkTS）（API9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ThirdPartyLibrary)
+  - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ThirdPartyLibrary)
 - 效率提升套件
-  - [常见组件和容器低代码开发示例（ArkTS）（API9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SuperVisualSample)
+  - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SuperVisualSample)
 - 通用组件
   - [组件购物应用演示（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingDemoJs)
 
