@@ -1,6 +1,6 @@
 # DistributeNewsETS
 简介
-•  分布式新闻客户端（eTS）是一个简单的新闻应用程序。在这里，我们向开发者展现了一些常用的eTS组件；此外，我们还展现了HarmonyOS的跨设备协同、一次开发多端部署等特性。
+•  分布式新闻客户端（ArkTS）是一个简单的新闻应用程序。在这里，我们向开发者展现了一些常用的eTS组件；此外，我们还展现了HarmonyOS的跨设备协同、一次开发多端部署等特性。
 
 安装要求
 • 安装DevEco Studio
@@ -23,7 +23,7 @@
 请参阅LICENSE文件以获得更多信息。
 
 What is it?
-The DistributeNewsETS is a simple news client application. Here, we show developers some common eTS components. In addition, we demonstrated HarmonyOS's cross-device collaboration and One-Time Development for Multi-Device Deployment.
+The DistributeNewsETS is a simple news client application. Here, we show developers some common ArkTS components. In addition, we demonstrated HarmonyOS's cross-device collaboration and One-Time Development for Multi-Device Deployment.
 
 Installation requirements
 • Install DevEco Studio
