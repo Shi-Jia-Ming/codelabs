@@ -1,4 +1,4 @@
-# List组件的使用(ArkTS)- HDC
+# List组件的使用之设置项(ArkTS)
 
 ### 简介
 基于ArkTS，使用List组件以及路由能力，实现一个设置列表，点击对应的设置项可以跳转到详细的设置页。
@@ -24,5 +24,5 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.0 Beta4及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Canary1及以上版本进行编译运行。
 

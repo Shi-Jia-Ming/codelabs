@@ -45,8 +45,7 @@ export default struct HomePage {
   build() {
     Column() {
       Column() {
-        Blank()
-          .height(HomePageStyle.BLANK_HEIGHT)
+        Blank().height(HomePageStyle.BLANK_HEIGHT)
         // Logo and QR code
         TopBarComponent()
           .padding({
