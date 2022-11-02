@@ -1,13 +1,13 @@
-# 应用首次启动（ArkTS）
+﻿# 应用首次启动（ArkTS）
 
 ### 简介
-基于自定义弹框、首选项和页面路由router实现了一个模拟应用首次启动的案例。 效果图如下：
+基于自定义弹框、首选项和页面路由router实现了一个模拟应用首次启动的案例。效果图如下：
 
 ![](screenshots/device/FirstStartDemo.gif)
 
 ### 相关概念
 
-首选项 ：首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。数据存储形式为键值对，键的类型为字符串型，值的存储数据类型包括数字型、字符型、布尔型以及这3种类型的数组类型。
+[首选项](https://developer.harmonyos.com/cn/docs/documentation/doc/-references-V3/js-apis-data-perfereencs-0000001388823338-V3) ：首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。数据存储形式为键值对，键的类型为字符串型，值的存储数据类型包括数字型、字符型、布尔型以及这3种类型的数组类型。
 
 [自定义弹窗](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-methods-custom-dialog-box-0000001281001266) ：通过CustomDialogController类显示自定义弹窗。
 
