@@ -37,8 +37,7 @@ struct SliderPage {
           angle: this.angle
         })
         .scale({ x: this.imageSize, y: this.imageSize })
-      Row()
-        .height(Constants.WEIGHT_BLANK_IMAGE)
+      Row().height(Constants.WEIGHT_BLANK_IMAGE)
       PanelComponent({
         mode: SliderMode.SPEED,
         title: $r('app.string.speed_text'),
@@ -70,8 +69,7 @@ struct SliderPage {
           step: SliderScale.STEP,
           style: SliderStyle.InSet
         }
-      })
-        .margin({ bottom: Constants.PANEL_MARGIN_BOTTOM,
+      }).margin({ bottom: Constants.PANEL_MARGIN_BOTTOM,
           top: Constants.PANEL_MARGIN_TOP });
     }
     .justifyContent(FlexAlign.End)

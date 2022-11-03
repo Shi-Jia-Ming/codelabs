@@ -56,8 +56,7 @@ struct NavPage {
             }
           }
         }, item => item.toString())
-      }
-      .setTabStyle()
+      }.setTabStyle()
     }
     .toolBar(this.ToolBarBuilder())
     .setNavStyle()

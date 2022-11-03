@@ -73,8 +73,7 @@ struct RankPage {
         paddingValue: { left: Style.RANK_PADDING,
           right: Style.RANK_PADDING },
         widthValue: Style.CONTENT_WIDTH
-      })
-        .margin({ top: Style.HEADER_MARGIN_TOP,
+      }).margin({ top: Style.HEADER_MARGIN_TOP,
           bottom: Style.HEADER_MARGIN_BOTTOM })
       // The style of List component.
       this.RankList(Style.CONTENT_WIDTH)
