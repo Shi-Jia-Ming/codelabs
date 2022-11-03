@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.Report=void 0;class Report{constructor(e,t){this.name=e,this.value=t}getName(){return this.name}getValue(){return this.value}}exports.Report=Report;

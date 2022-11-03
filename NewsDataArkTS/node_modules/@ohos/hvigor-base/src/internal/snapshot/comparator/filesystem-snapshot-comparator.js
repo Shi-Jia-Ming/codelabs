@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.DefaultFileSystemSnapshotComparator=void 0;class DefaultFileSystemSnapshotComparator{compare(e,t){return e.equals(t)}}exports.DefaultFileSystemSnapshotComparator=DefaultFileSystemSnapshotComparator;

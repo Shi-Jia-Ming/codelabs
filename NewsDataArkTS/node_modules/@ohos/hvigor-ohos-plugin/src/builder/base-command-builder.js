@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.BaseCommandBuilder=void 0;class BaseCommandBuilder{constructor(s){this.commandList=s}build(){return this.commandList}addAllParams(s){return this.commandList=[...this.commandList,...s],this.commandList}}exports.BaseCommandBuilder=BaseCommandBuilder;
