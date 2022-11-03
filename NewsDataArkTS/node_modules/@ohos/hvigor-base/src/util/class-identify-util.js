@@ -1,1 +1,0 @@
-"use strict";function instanceOf(e,n){return void 0!==e&&e.classKind===n}Object.defineProperty(exports,"__esModule",{value:!0}),exports.instanceOf=void 0,exports.instanceOf=instanceOf;
