@@ -60,11 +60,10 @@ export default struct HomePage {
         MenusComponent({ menus: this.menus })
         // Goods list view
         GoodsComponent({ goodsList: this.goodsList, startPage: (index) => {
-          let handler = getContext(this) as AppContext.AbilityContext;
+          let handler = getContext(this) as AppContext.Context;
           viewModel.startDetailsAbility(handler, index);
         } })
-      }
-      .width(PERCENTAGE_100)
+      }.width(PERCENTAGE_100)
     }
     .height(PERCENTAGE_100)
     .backgroundImage($rawfile('index/index_background.png'), ImageRepeat.NoRepeat)

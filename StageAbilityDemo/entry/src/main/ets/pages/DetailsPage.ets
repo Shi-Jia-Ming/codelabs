@@ -31,7 +31,7 @@ import GoodsData from '../common/bean/GoodsData';
 import DetailsViewModel from '../viewmodel/DetailsViewModel';
 
 let viewModel: DetailsViewModel = new DetailsViewModel();
-const KEY: string = "GoodsPosition";
+const KEY: string = 'GoodsPosition';
 let position = AppStorage.Get<number>(KEY);
 
 @Extend(Image) function setTopImageStyle () {
@@ -62,14 +62,12 @@ struct DetailsPage {
           .backgroundColor($r('app.color.background1'))
           // the card layout style about goods information.
           this.CardsLayout()
-        }
-        .width(PERCENTAGE_100)
+        }.width(PERCENTAGE_100)
       }
       .height(DetailsPageStyle.SCROLL_LAYOUT_WEIGHT)
       .backgroundColor($r('app.color.background'))
       // tool bar in the bottom.
-      BottomBarComponent()
-        .height(DetailsPageStyle.TOOLBAR_WEIGHT)
+      BottomBarComponent().height(DetailsPageStyle.TOOLBAR_WEIGHT)
     }
     .height(PERCENTAGE_100)
     .width(PERCENTAGE_100)

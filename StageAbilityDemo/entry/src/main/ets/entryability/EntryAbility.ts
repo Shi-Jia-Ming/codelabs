@@ -17,8 +17,8 @@ import hilog from '@ohos.hilog';
 import Ability from '@ohos.application.Ability'
 import Window from '@ohos.window'
 
-const TAG: string = 'MainAbility';
-const ENTRY_ABILITY_DOMAIN = 0x00002;
+const TAG: string = 'EntryAbility';
+const ENTRY_ABILITY_DOMAIN = 0x00001;
 
 export default class EntryAbility extends Ability {
     onCreate(want, launchParam) {
