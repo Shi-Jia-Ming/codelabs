@@ -16,7 +16,7 @@
 /**
  * The host address of the server.
  */
-export const SERVER: string = 'http://49.232.7.55:8091';
+export const SERVER: string = 'http://**.**.**.**:**';
 
 /**
  * Get the news type.
