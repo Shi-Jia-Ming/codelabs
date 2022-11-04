@@ -3,7 +3,7 @@
 ### 简介
 基于ArkTS，使用List组件以及路由能力，实现一个设置列表，点击对应的设置项可以跳转到详细的设置页。
 
-![](screenshots/List_usage_hdc.gif)
+![](screenshots/list_usage_hdc.gif)
 
 ### 相关概念
 - @CustomDialog：@CustomDialog装饰器用于装饰自定义弹窗。
