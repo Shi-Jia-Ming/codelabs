@@ -4,15 +4,9 @@
 
 ![](screenshots/device/slider.gif)
 ### 相关概念
-- Text组件：文本组件，用于呈现一段信息。
-- Image组件：图片组件，用来渲染展示图片。
-- Slider组件：滑动条组件，用来快速调节设置值，如音量、亮度等。
-#### 组件和装饰器
-- 在声明式UI中，所有的页面都是由组件构成。组件的数据结构为struct，装饰器@Component是组件化的标志，用@Component修饰的struct表示这个结构体有了组件化的能力。自定义组件的声明方式为：
-  ``` @Component  
-  struct MyComponent {}
-  ```
-  @Entry修饰的Component表示该Component是页面的总入口，也可以理解为页面的根节点。值得注意的是，一个页面有且仅能有一个@Entry，只有被@Entry修饰的组件或者其子组件，才会在页面上显示。@Component和@Entry都是基础且十分重要的装饰器。简单地理解，装饰器就是某一种修饰，给被装饰的对象赋予某一种能力，比如@Entry就是页面入口的能力，@Component就是组件化能力。
+- [Text组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-text-0000001333720953)：文本组件，用于呈现一段信息。
+- [Image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-image-0000001281001226)：图片组件，用来渲染展示图片。
+- [Slider组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-slider-0000001281201142)：滑动条组件，用来快速调节设置值，如音量、亮度等。
 ### 相关权限
 不涉及
 ### 使用说明
