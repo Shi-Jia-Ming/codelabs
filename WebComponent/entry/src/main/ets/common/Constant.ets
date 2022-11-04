@@ -17,7 +17,7 @@ export const WEB_PAGE_URI: string = 'pages/WebPage';
 
 export const LOCAL_PATH: Resource = $rawfile('index.html');
 
-export const CLOUD_PATH: string = 'http://49.232.7.55/index.html';
+export const CLOUD_PATH: string = 'http://***/index.html';
 
 export const WEB_ALERT_DIALOG_TEXT_VALUE: string = '恭喜您抽中:';
 
