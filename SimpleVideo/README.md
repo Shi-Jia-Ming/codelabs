@@ -6,9 +6,12 @@
 
 ### 相关概念
 
-Video组件[https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-media-components-video.md]：用于播放单个视频并控制其播放状态的组件。
-Slider组件[https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-basic-components-slider.md]：滑动条组件，用来快速调节设置值，如音量、亮度等。
-Swiper组件[https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-container-swiper.md]：滑块视图容器，提供子组件滑动轮播显示的能力。
+[Video组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-media-components-video.md)：用于播放单个视频并控制其播放状态的组件。
+
+[Slider组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-basic-components-slider.md)：滑动条组件，用来快速调节设置值，如音量、亮度等。
+
+[Swiper组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-container-swiper.md)：滑块视图容器，提供子组件滑动轮播显示的能力。
+
 
 ### 相关权限
 
