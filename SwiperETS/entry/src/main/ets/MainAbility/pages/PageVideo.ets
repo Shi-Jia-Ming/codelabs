@@ -17,7 +17,7 @@ import {PlayView} from '../play/PlayView'
 
 @Entry
 @Component
-export struct PageVideo {
+struct PageVideo {
   @State videoArray: Array<VideoItem> = initializeOnStartup() // 数据源
 
   @State index: number = 0 // 当前滑动的索引位置

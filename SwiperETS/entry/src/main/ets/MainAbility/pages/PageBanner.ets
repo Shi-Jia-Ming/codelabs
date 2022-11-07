@@ -17,7 +17,7 @@ import {Banner02} from '../banner/Banner02';
 
 @Entry
 @Component
-export struct PageBanner {
+struct PageBanner {
   build() {
     Column() {
       Text('圆点指示器样式').fontSize(16).margin({top:50,bottom:10}).fontColor(0x000000)
