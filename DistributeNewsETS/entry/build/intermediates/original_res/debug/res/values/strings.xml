@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-  <string name="NewsClient">"NewsClient"</string>
-  <string name="distributed_datasync_reason">"This permission is required for distributed startup"</string>
-  <string name="mainability_description">"ETS_Empty Feature Ability"</string>
-</resources>
