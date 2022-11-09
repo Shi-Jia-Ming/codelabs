@@ -4,10 +4,10 @@
 
 ![](screenshots/device/screenshots.gif)
 ### 相关概念
-- Ability：Ability是应用所具备能力的抽象，也是应用程序的重要组成部分。Ability是系统调度应用的最小单元，是能够完成一个独立功能的组件。一个应用可以包含一个或多个Ability。
-- AbilityContext：Ability类拥有context属性，context属性为AbilityContext类，AbilityContext类拥有abilityInfo、currentHapModuleInfo等属性，启动Ability等方法。
-- Want：应用开发者可以通过want传递启动参数，比如希望指定页面启动Ability，可以通过want中的uri参数或parameters参数传递pages信息。
-- HiLog：HiLog日志系统，让应用可以按照指定类型、指定级别、指定格式字符串输出日志内容，帮助开发者了解应用的运行状态，更好地调试程序。
+- [Ability](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/ability-brief-0000001430320769-V3)：Ability是应用所具备能力的抽象，也是应用程序的重要组成部分。Ability是系统调度应用的最小单元，是能够完成一个独立功能的组件。一个应用可以包含一个或多个Ability。
+- [AbilityContext](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-ability-context-0000001430321061-V3)：Ability类拥有context属性，context属性为AbilityContext类，AbilityContext类拥有abilityInfo、currentHapModuleInfo等属性，启动Ability等方法。
+- [Want](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-application-want-0000001430600785-V3)：应用开发者可以通过want传递启动参数，比如希望指定页面启动Ability，可以通过want中的uri参数或parameters参数传递pages信息。
+- [HiLog](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-hilog-0000001333800437)：HiLog日志系统，让应用可以按照指定类型、指定级别、指定格式字符串输出日志内容，帮助开发者了解应用的运行状态，更好地调试程序。
 ### 相关权限
 不涉及
 ### 使用说明
