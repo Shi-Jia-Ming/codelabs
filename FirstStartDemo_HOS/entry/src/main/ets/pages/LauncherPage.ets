@@ -141,9 +141,10 @@ struct LauncherPage {
   }
 }
 // Healthy living text common styles.
-@Extend(Text) function healthyLifeTextStyle (fontWeight: number, textAttribute: number, fontSize: Resource, fontColor: Resource) {
-  .fontWeight(fontWeight)
-  .letterSpacing(textAttribute)
-  .fontSize(fontSize)
-  .fontColor(fontColor)
+@Extend(Text) function healthyLifeTextStyle (fontWeight: number,
+  textAttribute: number, fontSize: Resource, fontColor: Resource) {
+    .fontWeight(fontWeight)
+    .letterSpacing(textAttribute)
+    .fontSize(fontSize)
+    .fontColor(fontColor)
 }

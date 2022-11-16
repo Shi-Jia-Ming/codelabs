@@ -18,14 +18,9 @@
  */
 export default class CommonConstants {
   /**
-   * The my ability stage tag.
-   */
-  static readonly MY_ABILITY_STAGE_TAG: string = 'MyAbilityStage';
-
-  /**
    * The main ability tag.
    */
-  static readonly MAIN_ABILITY_TAG: string = 'MainAbility';
+  static readonly ENTRY_ABILITY_TAG: string = 'EntryAbility';
 
   /**
    * The launcher page tag.
