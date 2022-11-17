@@ -19,7 +19,6 @@ import CommonConstants from '../common/constants/CommonConstants';
 /**
  * Stay on the advertising page for a few seconds to jump to the home page.
  */
-
 @Entry
 @Component
 struct AdvertisingPage {
