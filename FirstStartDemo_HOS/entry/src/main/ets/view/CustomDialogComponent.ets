@@ -19,7 +19,6 @@ import CommonConstants from '../common/constants/CommonConstants';
 /**
  * Custom pop-up window.
  */
-
 @CustomDialog
 export default struct CustomDialogComponent {
   controller: CustomDialogController;
