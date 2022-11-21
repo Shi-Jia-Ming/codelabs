@@ -1,7 +1,7 @@
 ﻿# 应用首次启动（ArkTS）
 
 ### 简介
-基于自定义弹框、首选项和页面路由router实现了一个模拟应用首次启动的案例。效果图如下：
+本篇Codelab基于自定义弹框、首选项和页面路由router实现了一个模拟应用首次启动的案例。效果图如下：
 
 ![](screenshots/device/FirstStartDemo.gif)
 
