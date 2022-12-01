@@ -2,11 +2,11 @@
   "string": [
     {
       "name": "entry_desc",
-      "value": "entry描述"
+      "value": "模块描述"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "MainAbility描述"
+      "value": "主程序人口"
     },
     {
       "name": "home_page_text",

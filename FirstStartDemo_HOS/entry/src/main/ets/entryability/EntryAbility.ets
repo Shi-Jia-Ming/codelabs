@@ -26,13 +26,13 @@ export default class EntryAbility extends Ability {
   }
 
   onWindowStageCreate(windowStage) {
-    Logger.info(CommonConstants.MAIN_ABILITY_TAG, 'onWindowStageCreate');
+    Logger.info(CommonConstants.ENTRY_ABILITY_TAG, 'onWindowStageCreate');
     windowStage.loadContent('pages/LauncherPage', (err, data) => {
       if (err.code) {
-        Logger.error(CommonConstants.MAIN_ABILITY_TAG, 'Failed to load the content. Cause:' + JSON.stringify(err));
+        Logger.error(CommonConstants.ENTRY_ABILITY_TAG, 'Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
-      Logger.info(CommonConstants.MAIN_ABILITY_TAG, 'Succeeded in loading the content. Data: ' + JSON.stringify(data));
+      Logger.info(CommonConstants.ENTRY_ABILITY_TAG, 'Succeeded in loading the content. Data: ' + JSON.stringify(data));
     });
   }
 };
