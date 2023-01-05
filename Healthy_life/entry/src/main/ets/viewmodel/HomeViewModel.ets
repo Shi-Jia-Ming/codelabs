@@ -107,12 +107,14 @@ export class HomeStore {
     Logger.debug('updateSelectedDayInfo', JSON.stringify(selectedDayInfo));
     if (selectedDayInfo.taskList?.length === 0) {
       // get data form db
-      TaskInfoTableApi.query(selectedDayInfo.dateStr, true, (res) => {
-        Logger.info('Selected TaskInfoList: ', JSON.stringify(res));
-        selectedDayInfo.taskList = res;
-        this.selectedDayInfo = { ...selectedDayInfo };
-        this.dateArr = this.dateArr.map((item: WeekDateModel) =>
-          item.dateStr == selectedDayInfo.dateStr ? { ...item, taskList: res } : item);
+      TaskInfoTableApi.getRdbStore(() => {
+        TaskInfoTableApi.query(selectedDayInfo.dateStr, true, (res) => {
+          Logger.info('Selected TaskInfoList: ', JSON.stringify(res));
+          selectedDayInfo.taskList = res;
+          this.selectedDayInfo = { ...selectedDayInfo };
+          this.dateArr = this.dateArr.map((item: WeekDateModel) =>
+            item.dateStr == selectedDayInfo.dateStr ? { ...item, taskList: res } : item);
+        });
       });
     } else {
       this.selectedDayInfo = { ...selectedDayInfo };
