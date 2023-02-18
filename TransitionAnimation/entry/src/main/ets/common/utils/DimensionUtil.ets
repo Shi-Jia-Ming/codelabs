@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ctx from '@ohos.application.context';
+import ctx from '@ohos.app.ability.common';
 
 var context = getContext(this) as ctx.Context;
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import prompt from '@ohos.promptAction';
 import { VideoSlider } from '../view/VideoPlaySlider';
 import { prepared, finish, videoOnclick, changeSliderTime } from '../model/VideoControll';
 import {
@@ -54,6 +54,7 @@ export struct VideoPlayer {
         .height(STRING_PERCENT.NINETY_PERCENT)
         .controls(this.isUseDefaultControl)
         .autoPlay(false)
+        .objectFit(ImageFit.Contain)
         .loop(false)
         .onUpdate((event) => {
           this.currentTime = event.time;

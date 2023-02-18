@@ -22,7 +22,6 @@ export struct Buttons {
   @Prop buttonShape: string;
   @Prop buttonType: string;
   @Prop fontColor: string;
-  click: () => void;
 
   build() {
     Row() {
@@ -35,9 +34,6 @@ export struct Buttons {
         .width($r('app.float.default_90'))
         .height($r('app.float.default_35'))
         .backgroundColor(ButtonViewModel.fetchBackgroundColor(this.buttonType))
-        .onClick(() => {
-          this.click();
-        })
       }
     }
   }

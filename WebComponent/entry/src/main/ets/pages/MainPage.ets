@@ -31,6 +31,7 @@ struct MainPage {
   build() {
     Column() {
       Image($r('app.media.background'))
+        .width(MainConstant.FULL_HEIGHT)
         .height(MainConstant.IMAGE_HEIGHT)
       Navigator({ target: WEB_PAGE_URI, type: NavigationType.Push }) {
         Button($r('app.string.loadLocalH5'))

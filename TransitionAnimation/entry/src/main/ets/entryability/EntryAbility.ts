@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-import Ability from '@ohos.application.Ability';
+import UIAbility from '@ohos.app.ability.UIAbility';
 import display from '@ohos.display';
 
-export default class MainAbility extends Ability {
+export default class MainAbility extends UIAbility {
     onCreate(want) {
         globalThis.abilityWant = want;
     }

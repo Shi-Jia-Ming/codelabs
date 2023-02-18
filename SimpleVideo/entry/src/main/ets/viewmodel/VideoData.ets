@@ -15,30 +15,30 @@
 
 export const SWIPER_VIDEOS: object[] = [
   {
-    "image": $r("app.media.banner1")
+    "image": $r('app.media.banner1')
   },
   {
-    "image": $r("app.media.banner2")
+    "image": $r('app.media.banner2')
   },
   {
-    "image": $r("app.media.banner3")
+    "image": $r('app.media.banner3')
   }
 ];
 
 export const HORIZONTAL_VIDEOS: object[] = [
   {
     "id": 1,
-    "image": $r("app.media.video_list0"),
+    "image": $r('app.media.video_list0'),
     "name": '视频1'
   },
   {
     "id": 2,
-    "image": $r("app.media.video_list1"),
+    "image": $r('app.media.video_list1'),
     "name": '视频2'
   },
   {
     "id": 3,
-    "image": $r("app.media.video_list2"),
+    "image": $r('app.media.video_list2'),
     "name": '视频3'
   }
 ];

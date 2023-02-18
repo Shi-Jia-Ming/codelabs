@@ -68,7 +68,7 @@ struct TaskPage {
   @State taskList: Array<TaskInfo> = TASK_LIST;
 
   taskClickAction() {
-    router.push({
+    router.pushUrl({
       url: 'pages/TaskDetailPage'
     });
   }
