@@ -27,7 +27,7 @@ export struct TargetSettingDialog {
   controller: CustomDialogController;
   drinkRange: string[] = createDrinkRange();
   appleRange: string[] = createAppleRange();
-  currentValue: string = '1';
+  currentValue: string = this.settingParams.targetValue;
   currentTime: string = commonConst.DEFAULT_TIME;
   private tip: string = '';
 

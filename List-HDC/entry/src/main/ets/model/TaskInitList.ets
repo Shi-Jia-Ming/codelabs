@@ -47,7 +47,7 @@ export const TaskInitList: TaskListItem[] = [
     taskID: 2,
     taskName: $r('app.string.task_water'),
     icon: $r('app.media.water'),
-    targetValue: '1',
+    targetValue: '0.25',
     isOpen: true,
     unit: 'L',
     isAlarm: false,

@@ -14,7 +14,8 @@
  */
 
 // Thousandth
-export const THOUSANDTH_80: string = '8%'; 
+export const THOUSANDTH_80: string = '8%';
+export const THOUSANDTH_100: string = '10%';
 export const THOUSANDTH_400: string = '40%';
 export const THOUSANDTH_500: string = '50%';
 export const THOUSANDTH_560: string = '56%';

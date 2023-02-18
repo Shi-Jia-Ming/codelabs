@@ -29,9 +29,9 @@ import { BroadCast, BroadCastType } from '../common/utils/BroadCast';
 import { EventSourceManager } from '../model/EventSourceManager';
 import { CustomDialogView } from './CustomDialogView';
 
-@Styles function listItemStyle () {
+@Styles function listItemStyle() {
   .backgroundColor($r('app.color.white'))
-  .height(commonConst.THOUSANDTH_80)
+  .height(commonConst.DEFAULT_56)
   .borderRadius(commonConst.DEFAULT_10)
   .padding({ left: commonConst.DEFAULT_12, right: commonConst.DEFAULT_12 })
 }
@@ -58,74 +58,75 @@ export default struct TaskDetail {
   }
 
   build() {
-    Row() {
-      Column() {
-        List({ space: commonConst.LIST_ITEM_SPACE }) {
-          ListItem() {
-            TaskChooseItem()
-          }
-          .listItemStyle()
-
-          ListItem() {
-            TargetSetItem()
-          }
-          .listItemStyle()
-          .enabled(
-            this.settingParams?.isOpen
-            && (this.settingParams?.taskID !== taskType.smile)
-            && (this.settingParams?.taskID !== taskType.brushTeeth)
-          )
-          .onClick(() => {
-            this.broadCast.emit(
-              BroadCastType.SHOW_TARGET_SETTING_DIALOG);
-          })
-
-          ListItem() {
-            OpenRemindItem()
-          }
-          .listItemStyle()
-          .enabled(this.settingParams?.isOpen)
-
-          ListItem() {
-            RemindTimeItem()
-          }
-          .listItemStyle()
-          .enabled(this.settingParams?.isOpen && this.settingParams?.isAlarm)
-          .onClick(() => {
-            this.broadCast.emit(
-              BroadCastType.SHOW_REMIND_TIME_DIALOG
-            );
-          })
-
-          ListItem() {
-            FrequencyItem()
-          }
-          .listItemStyle()
-          .enabled(this.settingParams?.isOpen)
-          .onClick(() => {
-            this.broadCast.emit(
-              BroadCastType.SHOW_FREQUENCY_DIALOG,
-            );
-          })
-
+    Column() {
+      List({ space: commonConst.LIST_ITEM_SPACE }) {
+        ListItem() {
+          TaskChooseItem()
         }
-        .width(commonConst.THOUSANDTH_940)
-        .margin({ bottom: commonConst.THOUSANDTH_400 })
+        .listItemStyle()
 
-        Button() {
-          Text($r('app.string.complete')).fontSize(commonConst.DEFAULT_20).fontColor($r('app.color.blueColor'))
+        ListItem() {
+          TargetSetItem()
         }
-        .width(commonConst.THOUSANDTH_800)
-        .height(commonConst.DEFAULT_48)
-        .backgroundColor($r('app.color.borderColor'))
+        .listItemStyle()
+        .enabled(
+          this.settingParams?.isOpen
+          && (this.settingParams?.taskID !== taskType.smile)
+          && (this.settingParams?.taskID !== taskType.brushTeeth)
+        )
         .onClick(() => {
-          this.finishTaskEdit();
+          this.broadCast.emit(
+          BroadCastType.SHOW_TARGET_SETTING_DIALOG);
         })
 
-        CustomDialogView()
+        ListItem() {
+          OpenRemindItem()
+        }
+        .listItemStyle()
+        .enabled(this.settingParams?.isOpen)
+
+        ListItem() {
+          RemindTimeItem()
+        }
+        .listItemStyle()
+        .enabled(this.settingParams?.isOpen && this.settingParams?.isAlarm)
+        .onClick(() => {
+          this.broadCast.emit(
+          BroadCastType.SHOW_REMIND_TIME_DIALOG
+          );
+        })
+
+        ListItem() {
+          FrequencyItem()
+        }
+        .listItemStyle()
+        .enabled(this.settingParams?.isOpen)
+        .onClick(() => {
+          this.broadCast.emit(
+          BroadCastType.SHOW_FREQUENCY_DIALOG,
+          );
+        })
+
       }
-      .width(commonConst.THOUSANDTH_1000)
+      .width(commonConst.THOUSANDTH_940)
+
+      Button() {
+        Text($r('app.string.complete')).fontSize(commonConst.DEFAULT_20).fontColor($r('app.color.blueColor'))
+      }
+      .width(commonConst.THOUSANDTH_800)
+      .height(commonConst.DEFAULT_48)
+      .backgroundColor($r('app.color.borderColor'))
+      .onClick(() => {
+        this.finishTaskEdit();
+      })
+      .position({
+        x: commonConst.THOUSANDTH_100,
+        y: commonConst.THOUSANDTH_800
+      })
+
+      CustomDialogView()
     }
+    .width(commonConst.THOUSANDTH_1000)
   }
 }
 
