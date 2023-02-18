@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "link_blue",
+      "value": "#007DFF"
+    },
+    {
+      "name": "navigator_black",
+      "value": "#000000"
+    },
+    {
+      "name": "title_black",
+      "value": "#182431"
+    },
+    {
+      "name": "page_background_grey",
+      "value": "#F1F3F5"
+    }
+  ]
+}

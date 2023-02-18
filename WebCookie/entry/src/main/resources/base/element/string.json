@@ -1,0 +1,52 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Web组件"
+    },
+    {
+      "name": "button_confirm",
+      "value": "确定"
+    },
+    {
+      "name": "dialog_message",
+      "value": "信息"
+    },
+    {
+      "name": "navigator_name",
+      "value": "Web组件"
+    },
+    {
+      "name": "title_name",
+      "value": "Web组件内"
+    },
+    {
+      "name": "write_success",
+      "value": "写入cookie成功"
+    },
+    {
+      "name": "write_fail",
+      "value": "写入cookie失败"
+    },
+    {
+      "name": "delete_success",
+      "value": "删除cookie成功"
+    },
+    {
+      "name": "test_content",
+      "value": "info=测试cookie写入"
+    },
+    {
+      "name": "load_error",
+      "value": "加载页面失败：请检查网络连接。"
+    }
+  ]
+}
