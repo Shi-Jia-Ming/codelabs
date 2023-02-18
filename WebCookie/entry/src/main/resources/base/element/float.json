@@ -1,0 +1,12 @@
+{
+  "float": [
+    {
+      "name": "page_title_margin_top",
+      "value": "48vp"
+    },
+    {
+      "name": "page_title_margin_bottom",
+      "value": "28vp"
+    }
+  ]
+}
