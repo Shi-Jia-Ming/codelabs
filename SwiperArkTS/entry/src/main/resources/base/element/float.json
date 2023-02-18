@@ -1,0 +1,12 @@
+{
+  "float": [
+    {
+      "name": "opacity_light",
+      "value": "0.6"
+    },
+    {
+      "name": "opacity_deep",
+      "value": "0.9"
+    }
+  ]
+}

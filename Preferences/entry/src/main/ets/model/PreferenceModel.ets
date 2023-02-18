@@ -14,14 +14,13 @@
  */
 
 import dataPreferences from '@ohos.data.preferences';
-import prompt from '@ohos.prompt';
-import ctx from '@ohos.application.context';
+import promptAction from '@ohos.promptAction';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import Fruit from '../common/bean/Fruit';
 
 // Get AbilityContext.
-let context = getContext(this) as ctx.AbilityContext;
+let context = getContext(this);
 let preference: dataPreferences.Preferences = null;
 
 /**
@@ -143,7 +142,7 @@ class PreferenceModel {
    * @param message Prompt message.
    */
   showToastMessage(message: Resource) {
-    prompt.showToast({
+    promptAction.showToast({
       message: message,
       duration: CommonConstants.DURATION
     });

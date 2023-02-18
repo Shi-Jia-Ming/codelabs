@@ -51,7 +51,7 @@ export default struct HomeTopView {
       .width(commonConst.THOUSANDTH_1000)
       .padding({ left: $r('app.float.default_24') })
 
-      WeekCalendar({ homeStore:  this.homeStore })
+      WeekCalendar({ homeStore:  $homeStore })
     }
     .height(commonConst.THOUSANDTH_500)
     .backgroundImagePosition({x: 0, y: 0})

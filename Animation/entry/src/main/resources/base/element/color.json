@@ -15,6 +15,10 @@
     {
       "name": "fontGrayColor",
       "value": "#182431"
+    },
+    {
+      "name": "SliderSelectColor",
+      "value": "#007DFF"
     }
   ]
 }

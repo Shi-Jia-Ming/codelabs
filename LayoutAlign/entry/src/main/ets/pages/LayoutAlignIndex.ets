@@ -88,7 +88,7 @@ struct ListItemComp {
     .margin({ left: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN, right: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN })
     .backgroundColor($r("app.color.white"))
     .onClick(() => {
-      router.push({
+      router.pushUrl({
         url: SECOND_PAGE,
         params: {
           containerType: this.item['containerType'],

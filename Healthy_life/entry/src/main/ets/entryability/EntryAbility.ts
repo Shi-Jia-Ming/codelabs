@@ -13,15 +13,14 @@
  * limitations under the License.
  */
 
-import Ability from '@ohos.application.Ability';
+import UIAbility from '@ohos.app.ability.UIAbility';
 
-export default class MainAbility extends Ability {
+export default class MainAbility extends UIAbility {
     private static TAG: string = 'MainAbility';
 
     onCreate(want, launchParam) {
         console.debug(MainAbility.TAG, 'onCreate');
         globalThis.abilityWant = want;
-        globalThis.abilityContext = this.context;
     }
 
     onDestroy() {

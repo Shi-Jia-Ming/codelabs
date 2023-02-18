@@ -30,6 +30,7 @@ struct ListIndex {
       }
       .size({ width: LAYOUT_WIDTH_OR_HEIGHT, height: LAYOUT_WIDTH_OR_HEIGHT })
       .title(STORE)
+      .titleMode(NavigationTitleMode.Mini)
     }
     .height(LAYOUT_WIDTH_OR_HEIGHT)
     .backgroundColor($r('app.color.primaryBgColor'))

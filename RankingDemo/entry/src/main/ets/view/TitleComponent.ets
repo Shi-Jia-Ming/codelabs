@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import AppContext from '@ohos.application.context';
+import AppContext from '@ohos.app.ability.common';
 import { FontSize, TitleBarStyle, WEIGHT } from '../common/constants/Constants';
 
 @Component
@@ -29,7 +29,7 @@ export struct TitleComponent {
           .width(TitleBarStyle.IMAGE_BACK_SIZE)
           .margin({ right: TitleBarStyle.IMAGE_BACK_MARGIN_RIGHT })
           .onClick(() => {
-            let handler = getContext(this) as AppContext.AbilityContext;
+            let handler = getContext(this) as AppContext.UIAbilityContext;
             handler.terminateSelf();
           })
         Text(this.title)

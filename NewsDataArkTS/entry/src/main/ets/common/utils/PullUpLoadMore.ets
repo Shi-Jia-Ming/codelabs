@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import promptAction from '@ohos.promptAction';
 import { getTabData } from '../utils/DataUtils';
 import { DELAY_TIME, ANIMATION_DURATION, Y_OFF_SET_COEFFICIENT } from '../constant/CommonConstant';
 
@@ -44,7 +44,7 @@ export function touchUpLoadMore() {
           self.currentPage = parseInt(value.currentPage.toString());
           self.newsData = self.newsData.concat(value.newsPageData);
         },
-        onFail: (msg) => prompt.showToast({ message: msg })
+        onFail: (msg) => promptAction.showToast({ message: msg })
       });
     }, DELAY_TIME);
   } else {

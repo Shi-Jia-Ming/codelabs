@@ -15,7 +15,7 @@
 
 import window from '@ohos.window';
 import display from '@ohos.display';
-import Ability from '@ohos.application.Ability'
+import Ability from '@ohos.app.ability.UIAbility';
 
 export default class MainAbility extends Ability {
     onCreate(want) {

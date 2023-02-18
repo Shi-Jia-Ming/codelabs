@@ -14,8 +14,17 @@
  */
 
 import router from '@ohos.router';
-import { INDEX_ANIMATION_MODE, FULL_LENGTH, DEFAULT_LAYOUT_WEIGHT } from '../common/constants/CommonConstants';
+import {
+  INDEX_ANIMATION_MODE,
+  FULL_LENGTH,
+  DEFAULT_LAYOUT_WEIGHT,
+  BORDER_RADIUS,
+  DOMAIN,
+  PREFIX,
+  FORMAT
+} from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
+import hilog from '@ohos.hilog';
 
 @Entry
 @Component
@@ -35,17 +44,21 @@ struct Index {
       Scroll() {
         Column() {
           ForEach(INDEX_ANIMATION_MODE, ({ imgRes , url }) => {
-            Button()
+            Row()
               .backgroundImage(imgRes)
               .backgroundImageSize(ImageSize.Cover)
               .backgroundColor($r('app.color.trans_parent'))
               .height(DimensionUtil.getVp($r('app.float.main_page_body_height')))
               .margin({ bottom: DimensionUtil.getVp($r('app.float.main_page_body_margin')) })
               .width(FULL_LENGTH)
+              .borderRadius(BORDER_RADIUS)
               .onClick(() => {
-                router.push({ url: url });
+                router.pushUrl({ url: url })
+                  .catch(err => {
+                    hilog.error(DOMAIN, PREFIX, FORMAT, err);
+                  });
               })
-          }, item => item.toString())
+          }, item => JSON.stringify(item))
         }
       }
       .layoutWeight(DEFAULT_LAYOUT_WEIGHT)

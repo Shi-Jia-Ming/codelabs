@@ -1,17 +1,17 @@
 {
-	"license":"ISC",
-	"devDependencies":{},
-	"name":"entry",
-	"ohos":{
-		"org":"huawei",
-		"directoryLevel":"module",
-		"buildTool":"hvigor"
+	"license": "ISC",
+	"devDependencies": {},
+	"name": "entry",
+	"ohos": {
+		"org": "huawei",
+		"directoryLevel": "module",
+		"buildTool": "hvigor"
 	},
-	"description":"example description",
-	"repository":{},
-	"version":"1.0.0",
-	"dependencies":{
-		"@ohos/lottieETS":"^1.0.3",
-		"@ohos/library":"file:../library"
+	"description": "example description",
+	"repository": {},
+	"version": "1.0.0",
+	"dependencies": {
+		"@ohos/lottieETS": "^1.0.3",
+		"@ohos/library": "file:../library"
 	}
 }

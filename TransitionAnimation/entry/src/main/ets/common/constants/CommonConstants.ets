@@ -103,3 +103,23 @@ export const SHARE_ITEM_DURATION = 1000;
  * Share page url.
  */
 export const SHARE_PAGE_URL = 'pages/SharePage';
+
+/**
+ * Border radius of row.
+ */
+export const BORDER_RADIUS = 32;
+
+/**
+ * Domain of log.
+ */
+export const DOMAIN = 0xFF00;
+
+/**
+ * Prefix of log.
+ */
+export const PREFIX = '[ReadingRecorder]';
+
+/**
+ * Format of log.
+ */
+export const FORMAT = `%{public}s, %{public}s`;

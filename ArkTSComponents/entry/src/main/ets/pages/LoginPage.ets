@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import prompt from '@ohos.promptAction';
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
 
@@ -70,7 +70,7 @@ struct LoginPage {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
           this.timeOutId = null;
-          router.replace({ url: 'pages/MainPage' });
+          router.replaceUrl({ url: 'pages/MainPage' });
         }, CommonConstants.LOGIN_DELAY_TIME);
       }
     }

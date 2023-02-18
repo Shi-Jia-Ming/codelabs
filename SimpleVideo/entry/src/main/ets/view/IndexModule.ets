@@ -43,21 +43,27 @@ export struct VideoModule {
       List({ space: MARGIN_FONT_SIZE.FIRST_MARGIN }) {
         ForEach(HORIZONTAL_VIDEOS, item => {
           ListItem() {
-            HorizontalItem({ imageSrc: item.image, source: VIDEO_TYPE.NET, videoName: item.name })
+            HorizontalItem({
+ 			  imageSrc: item.image,
+			  source: VIDEO_TYPE.NET,
+			  videoName: item.name
+			})
           }
         }, item => item.id.toString())
       }
       .listDirection(Axis.Horizontal)
     }
-    .margin({ left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
-      right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN })
+    .margin({ 
+	  left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
+      right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN
+	})
     .height(STRING_PERCENT.INDEX_MODULE_HEIGHT_PERCENT)
     .width(STRING_PERCENT.INDEX_COMPONENT_WITH_PERCENT)
     .justifyContent(FlexAlign.Center)
     .borderRadius(MARGIN_FONT_SIZE.FOURTH_MARGIN)
     .borderStyle(BorderStyle.Solid)
     .borderColor(Color.White)
-    .backgroundColor($r("app.color.white"))
+    .backgroundColor($r('app.color.white'))
   }
 }
 
@@ -73,7 +79,7 @@ struct HorizontalItem {
         .width(MARGIN_FONT_SIZE.SEVENTH_MARGIN)
         .height(MARGIN_FONT_SIZE.SIXTH_MARGIN)
         .onClick(() => {
-          router.push({
+          router.pushUrl({
             url: SECOND_PAGE,
             params: { source: this.source }
           });

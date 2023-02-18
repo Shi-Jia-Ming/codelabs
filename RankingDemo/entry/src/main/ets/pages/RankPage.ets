@@ -52,8 +52,12 @@ struct RankPage {
   }
 
   onBackPress() {
+    let options= {
+      message: $r('app.string.prompt_text'),
+      duration: TIME
+    }
     if (this.isShowToast()) {
-      prompt.showToast({ message: $r('app.string.prompt_text'), duration: TIME });
+      prompt.showToast(options);
       this.clickBackTimeRecord = new Date().getTime();
       return true;
     }

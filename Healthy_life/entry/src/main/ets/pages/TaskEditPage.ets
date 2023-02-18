@@ -30,6 +30,7 @@ struct TaskEdit {
       }
       .size({ width: THOUSANDTH_1000, height: THOUSANDTH_1000 })
       .title(EDIT_TASK_TITLE)
+      .titleMode(NavigationTitleMode.Mini)
     }
     .height(THOUSANDTH_1000)
     .backgroundColor($r('app.color.primaryBgColor'))

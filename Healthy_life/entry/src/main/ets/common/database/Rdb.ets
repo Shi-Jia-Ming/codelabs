@@ -17,10 +17,6 @@ import data_rdb from '@ohos.data.rdb';
 import { STORE_CONFIG } from '../constants/CommonConstants';
 import { Logger } from '../../common/utils/log/Logger';
 
-import context from '@ohos.application.context';
-
-type Context = context.Context;
-
 export default class Rdb {
     private rdbStore: any = null;
     private tableName: string;
@@ -44,8 +40,7 @@ export default class Rdb {
             callback();
             return;
         }
-        var context: Context = getContext(this) as Context;
-        // let context = globalThis.st-----ageContext;
+        let context = getContext(this);
         data_rdb.getRdbStore(context, STORE_CONFIG, 1, (err, rdb) => {
             if (err) {
                 Logger.error('Rdb', 'gerRdbStore() failed, err: ' + err);

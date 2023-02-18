@@ -23,7 +23,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
  */
 @Component
 export default struct FileManagerIndex {
-  @Provide(RefreshConstants.REFRESH_STATE_TAG) state: RefreshState = RefreshState.REFRESHING;
+  @Provide(RefreshConstants.REFRESH_STATE_TAG) state: number = RefreshState.REFRESHING;
 
   @Builder ContentBody() {
     Image($r('app.media.bg_content'))

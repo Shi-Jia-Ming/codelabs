@@ -49,7 +49,7 @@ export struct VideoSlider {
         step: 1,
         style: SliderStyle.OutSet
       })
-        .blockColor($r("app.color.white"))
+        .blockColor($r('app.color.white'))
         .width(STRING_PERCENT.SLIDER_WITH)
         .trackColor(Color.Gray)
         .selectedColor($r("app.color.white"))

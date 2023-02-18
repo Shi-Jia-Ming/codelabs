@@ -13,9 +13,7 @@
  * limitations under the License.
  */
 
-import ctx from '@ohos.application.context';
-
-let context = getContext(this) as ctx.Context;
+let context = getContext(this);
 const DESIGN_WIDTH = 360;
 const DESIGN_HEIGHT = 780;
 

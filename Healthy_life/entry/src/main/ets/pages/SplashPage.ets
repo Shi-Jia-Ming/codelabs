@@ -1,4 +1,4 @@
-import { Logger } from '../common/utils/log/Logger';
+
 /*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License,Version 2.0 (the "License");
@@ -14,8 +14,10 @@ import { Logger } from '../common/utils/log/Logger';
  * limitations under the License.
  */
 
+import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
 import data_preferences from '@ohos.data.preferences';
+import { Logger } from '../common/utils/log/Logger';
 import * as commonConst from '../common/constants/CommonConstants';
 import UserPrivacyDialog from '../view/dialog/UserPrivacyDialog';
 
@@ -26,10 +28,11 @@ const IS_PRIVACY: string = 'isPrivacy';
 @Entry
 @Component
 struct SplashIndex {
+  context: common.UIAbilityContext = getContext(this) as common.UIAbilityContext;
   dialogController: CustomDialogController = new CustomDialogController({
     builder: UserPrivacyDialog(
       {
-        cancel: this.exitApp,
+        cancel: this.exitApp.bind(this),
         confirm: this.onConfirm.bind(this)
       }),
     cancel: this.exitApp,
@@ -39,7 +42,7 @@ struct SplashIndex {
   });
 
   onConfirm() {
-    let preferences = data_preferences.getPreferences(globalThis.abilityContext, H_STORE);
+    let preferences = data_preferences.getPreferences(this.context, H_STORE);
     preferences.then((res) => {
       res.put(IS_PRIVACY, true).then(() => {
         res.flush();
@@ -52,17 +55,17 @@ struct SplashIndex {
   }
 
   exitApp() {
-    globalThis.abilityContext.terminateSelf();
+    this.context.terminateSelf();
   }
 
   jumpAdPage() {
     setTimeout(() => {
-      router.replace({ url: 'pages/AdvertisingPage' });
+      router.replaceUrl({ url: 'pages/AdvertisingPage' });
     }, commonConst.LAUNCHER_DELAY_TIME);
   }
 
   aboutToAppear() {
-    let preferences = data_preferences.getPreferences(globalThis.abilityContext, H_STORE);
+    let preferences = data_preferences.getPreferences(this.context, H_STORE);
     preferences.then((res) => {
       res.get(IS_PRIVACY, false).then((isPrivate) => {
         if (isPrivate === true) {
@@ -83,7 +86,7 @@ struct SplashIndex {
       Image($r('app.media.logo'))
         .width($r('app.float.default_120'))
         .aspectRatio(1)
-        .margin({ top: commonConst.THOUSANDTH_160 });
+        .margin({ top: $r('app.float.default_120') });
       Text($r('app.string.MainAbility_label'))
         .fontFamily($r('app.string.HarmonyHeiTi_Bold'))
         .fontSize($r('app.float.default_24'))

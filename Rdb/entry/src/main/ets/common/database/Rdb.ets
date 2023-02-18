@@ -14,11 +14,8 @@
  */
 
 import data_rdb from '@ohos.data.rdb';
-import context from '@ohos.application.context';
 import CommonConstants from '../constants/CommonConstants';
 import { Logger } from '../utils/Logger';
-
-type Context = context.Context;
 
 export default class Rdb {
   private rdbStore: any = null;
@@ -42,7 +39,7 @@ export default class Rdb {
       callback();
       return
     }
-    var context: Context = getContext(this) as Context;
+    let context = getContext(this);
     data_rdb.getRdbStore(context, CommonConstants.STORE_CONFIG, 1, (err, rdb) => {
       if (err) {
         Logger.error(`${CommonConstants.RDB_TAG}`, 'gerRdbStore() failed, err: ' + err);

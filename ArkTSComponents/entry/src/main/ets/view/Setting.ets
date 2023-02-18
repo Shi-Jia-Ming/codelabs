@@ -79,7 +79,7 @@ export default struct Setting {
               this.settingCell(item)
             }
             .height($r('app.float.setting_list_height'))
-          }, item => item.toString())
+          }, item => JSON.stringify(item))
         }
         .backgroundColor(Color.White)
         .divider({
@@ -101,10 +101,8 @@ export default struct Setting {
           .fontWeight(FontWeight.Medium)
           .backgroundColor($r('app.color.setting_button_backgroundColor'))
           .margin({ bottom: $r('app.float.setting_button_bottom')})
-
-
       }
-      .height('100%')
+      .height(CommonConstants.FULL_PARENT)
     }
   }
 }

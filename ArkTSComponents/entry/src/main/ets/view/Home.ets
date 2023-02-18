@@ -47,7 +47,7 @@ export default struct Home {
                   .margin({ top: $r('app.float.home_homeCell_margin') })
               }
             }
-          }, item => item.toString())
+          }, item => JSON.stringify(item))
         }
         .columnsTemplate('1fr 1fr 1fr 1fr')
         .rowsTemplate('1fr 1fr')
@@ -85,7 +85,7 @@ export default struct Home {
             .backgroundImageSize(ImageSize.Cover)
             .width(CommonConstants.FULL_PARENT)
             .height(CommonConstants.FULL_PARENT)
-          }, secondItem => secondItem.toString())
+          }, secondItem => JSON.stringify(secondItem))
         }
         .width(CommonConstants.FULL_PARENT)
         .height($r('app.float.home_secondGrid_height'))
@@ -96,5 +96,6 @@ export default struct Home {
         .margin({ bottom: $r('app.float.setting_button_bottom')})
       }
     }
+    .height(CommonConstants.FULL_PARENT)
   }
 }

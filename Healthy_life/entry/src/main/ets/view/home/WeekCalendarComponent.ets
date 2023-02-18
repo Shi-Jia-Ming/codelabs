@@ -24,7 +24,7 @@ export const WEEK_DAY_WIDTH: number = 100 / commonConst.WEEK_DAY_NUM;
 
 @Component
 export struct WeekCalendar {
-  @ObjectLink homeStore: HomeStore;
+  @Link homeStore: HomeStore;
   currentPage: number = 1;
   private scroller: Scroller = new Scroller();
   private isLoadMore: boolean = false;
@@ -64,6 +64,7 @@ export struct WeekCalendar {
         Row() {
           this.ArrowIcon(false)
           HealthText({ title: this.homeStore.dateTitle as string, fontSize: $r('app.float.default_14') })
+            .margin($r('app.float.default_12'))
           this.ArrowIcon(true)
         }
         .justifyContent(FlexAlign.Center)
@@ -79,6 +80,7 @@ export struct WeekCalendar {
                   .fontFamily($r('app.string.HarmonyHeiTi_Medium'))
                   .opacity(commonConst.OPACITY_6)
                 Divider()
+                  .margin({top: commonConst.DEFAULT_2, bottom: $r('app.float.default_4')})
                   .width($r('app.float.default_12'))
                   .color(sameDate(item.date, this.homeStore.showDate) ? $r('app.color.blueColor') : $r('app.color.white'))
                 Image(this.getProgressImg(item))
@@ -87,6 +89,7 @@ export struct WeekCalendar {
                   .margin({ top: commonConst.THOUSANDTH_80 })
               }
               .width(`${WEEK_DAY_WIDTH}%`)
+              .justifyContent(FlexAlign.SpaceBetween)
               .onClick(() => WeekCalendarMethods.calenderItemClickAction.call(this, item, index))
             })
           }
@@ -99,10 +102,9 @@ export struct WeekCalendar {
       }
       .borderRadius($r('app.float.default_24'))
       .backgroundColor($r('app.color.white'))
-      .justifyContent(FlexAlign.SpaceAround)
       .width(commonConst.THOUSANDTH_1000)
       .height(commonConst.THOUSANDTH_1000)
-      .padding({ top: commonConst.THOUSANDTH_80, bottom: commonConst.THOUSANDTH_120 })
+      .padding({ top: commonConst.THOUSANDTH_50, bottom: commonConst.THOUSANDTH_120 })
 
     }
     .width(commonConst.THOUSANDTH_1000)

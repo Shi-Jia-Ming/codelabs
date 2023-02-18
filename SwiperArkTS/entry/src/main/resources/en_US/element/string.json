@@ -1,0 +1,76 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Use of Swiper"
+    },
+    {
+      "name": "recently",
+      "value": "Recent Plays"
+    },
+    {
+      "name": "photo",
+      "value": "camera"
+    },
+    {
+      "name": "more",
+      "value": "more >"
+    },
+    {
+      "name": "movie_classic",
+      "value": "Selected Films"
+    },
+    {
+      "name": "lately",
+      "value": "latest"
+    },
+    {
+      "name": "like",
+      "value": "like"
+    },
+    {
+      "name": "comment",
+      "value": "comment"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    },
+    {
+      "name": "movie",
+      "value": "movie"
+    },
+    {
+      "name": "movie_description_1",
+      "value": "@HarmonyOS Official website"
+    },
+    {
+      "name": "movie_description_2",
+      "value": "#HarmonyOS Huawei Developer Conference"
+    },
+    {
+      "name": "TV",
+      "value": "TV"
+    },
+    {
+      "name": "game",
+      "value": "Game"
+    },
+    {
+      "name": "live",
+      "value": "Live"
+    },
+    {
+      "name": "entertainment",
+      "value": "Entertainment"
+    }
+  ]
+}

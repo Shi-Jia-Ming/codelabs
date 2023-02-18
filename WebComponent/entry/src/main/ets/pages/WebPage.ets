@@ -14,17 +14,19 @@
  */
 
 import router from '@ohos.router';
+import web_webview from '@ohos.web.webview';
 import { WebConstant, MainConstant, WEB_ALERT_DIALOG_TEXT_VALUE } from '../common/Constant';
 
 @Entry
 @Component
 struct WebPage {
-  webController: WebController = new WebController();
+  webController: web_webview.WebviewController = new web_webview.WebviewController();
   @State params: object = router.getParams();
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
       Image($r('app.media.background'))
+        .width(MainConstant.FULL_HEIGHT)
         .height(MainConstant.IMAGE_HEIGHT)
       Row() {
         Column() {
@@ -95,7 +97,7 @@ struct WebPage {
             .backgroundColor($r('app.color.blue'))
             .borderRadius(WebConstant.BUTTON_BORDER_RADIUS)
             .onClick(() => {
-              this.webController.runJavaScript({ script: 'startDraw()' });
+              this.webController.runJavaScript('startDraw()');
             })
         }
         .width(WebConstant.FULL_WIDTH)

@@ -30,7 +30,7 @@ export default struct TitleBarComponent {
         Image($r('app.media.ic_public_back'))
           .height($r('app.float.title_ic_size'))
           .width($r('app.float.title_ic_size'))
-          .padding($r('app.float.title_ic_padding'))
+          .margin({ right: $r('app.float.title_ic_margin') })
           .onClick(() => {
             router.back();
           })

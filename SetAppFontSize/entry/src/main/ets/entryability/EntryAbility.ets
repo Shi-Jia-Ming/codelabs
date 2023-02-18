@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Ability from '@ohos.application.Ability';
+import UIAbility from '@ohos.app.ability.UIAbility'
 import CommonConstants from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
@@ -23,7 +23,7 @@ const TAG = '[entryAbility]';
 /**
  * Lift cycle management of Ability.
  */
-export default class EntryAbility extends Ability {
+export default class EntryAbility extends UIAbility {
   onCreate(want, launchParam) {
     Logger.info(TAG, 'onCreate');
     globalThis.abilityWant = want;

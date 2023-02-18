@@ -2,11 +2,11 @@
   "float": [
     {
       "name": "title_ic_size",
-      "value": "40vp"
+      "value": "24vp"
     },
     {
-      "name": "title_ic_padding",
-      "value": "8vp"
+      "name": "title_ic_margin",
+      "value": "4vp"
     },
     {
       "name": "title_padding_left",

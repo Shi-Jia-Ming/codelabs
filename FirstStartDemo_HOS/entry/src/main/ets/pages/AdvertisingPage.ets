@@ -14,6 +14,7 @@
  */
 
 import Router from '@ohos.router';
+import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 
 /**
@@ -44,8 +45,10 @@ struct AdvertisingPage {
    * Jump to app home page.
    */
   jumpToAppHomePage() {
-    Router.push({
+    Router.pushUrl({
       url: CommonConstants.APP_HOME_PAGE_URL
+    }).catch((error) => {
+      Logger.error(CommonConstants.ADVERTISING_PAGE_TAG, 'AdvertisingPage pushUrl error ' + JSON.stringify(error));
     });
   }
 
@@ -65,8 +68,8 @@ struct AdvertisingPage {
           color: Color.White
         })
         .margin({
-          top: CommonConstants.ADVERTISING_TITLE_TEXT_MARGIN_TOP,
-          left: CommonConstants.ADVERTISING_TITLE_TEXT_MARGIN_LEFT
+          top: $r('app.float.advertising_title_text_margin_top'),
+          left: $r('app.float.advertising_title_text_margin_left')
         })
         .padding({
           left: $r('app.float.advertising_text_padding_left'),

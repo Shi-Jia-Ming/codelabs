@@ -125,3 +125,19 @@ export const enum VIDEO_TYPE {
   INNER = 'inner',
   NET = 'net'
 };
+
+/**
+ * Attribute Styles in a Stack Layout
+ */
+export const STACK_STYLE = {
+  IMAGE_Z_INDEX: 2,
+  PROGRESS_VALUE: 0,
+  PROGRESS_TOTAL: 100,
+  PROGRESS_STROKE_WIDTH: 15,
+  PROGRESS_SCALE_COUNT: 15,
+  PROGRESS_SCALE_WIDTH: 5,
+  PROGRESS_Z_INDEX: 1,
+  PROGRESS_WIDTH: 80,
+  PROGRESS_STEP: 10,
+  MILLI_SECONDS: 100
+}

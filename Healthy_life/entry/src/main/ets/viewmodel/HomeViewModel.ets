@@ -1,4 +1,3 @@
-import { DEFAULT_100 } from '../common/constants/CommonConstants';
 /*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License,Version 2.0 (the "License");
@@ -14,6 +13,7 @@ import { DEFAULT_100 } from '../common/constants/CommonConstants';
  * limitations under the License.
  */
 
+import { DEFAULT_100 } from '../common/constants/CommonConstants';
 import { isReachNewAchievement, ACHIEVEMENT_LEVEL_KEY } from '../model/AchieveModel';
 import DatabaseApi from '../model/DatabaseModel';
 import { TaskMapById, ITaskItem, ACHIEVEMENT_LEVEL_LIST } from '../model/TaskInitList';
@@ -50,16 +50,15 @@ export class HomeStore {
     let [initArr, dateArr] = initializeOnStartUp(this.currentDate);
     this.dateArr = initArr;
     Logger.info('this.currentDate', this.currentDate.toDateString());
-    this.selectedDayInfo = initArr[this.selectedDay];
     Logger.info('initWeekData dateArr', JSON.stringify(dateArr))
     // get data form db
     try {
       this.dayInfoApi.getRdbStore(() => {
         this.databaseApi.query(dateToStr(new Date()), (taskList, dayInfo) => {
           Logger.info('Current Day Task Info: ', JSON.stringify(taskList));
-          this.selectedDayInfo = { ...this.selectedDayInfo, taskList, dayInfo };
           this.dayInfoApi.queryList(dateArr, (res: DayInfo[]) => {
             let tempList = res.concat(dayInfo);
+            let currentIndex = 0;
             Logger.info('initDayInfoList: ', JSON.stringify(res));
             for (let i = 0; i < this.dateArr.length; i++) {
               let tempDayInfo = tempList.find((item) => item.date == this.dateArr[i].dateStr) || {
@@ -68,13 +67,16 @@ export class HomeStore {
                 targetTaskNum: 0
               };
               initArr[i].dayInfo = tempDayInfo;
+              initArr[i].taskList = taskList;
               if (this.dateArr[i].dateStr == dateToStr(new Date(this.showDate))) {
                 // get tasks of showDate
-                initArr[i].taskList = taskList;
-                this.updateSelectedDayInfo(initArr[i]);
+                currentIndex = i;
               }
             }
             this.dateArr = initArr;
+            setTimeout(() => {
+              this.setSelectedShowDate(this.showDate);
+            }, 0)
           })
         })
       })
@@ -111,11 +113,11 @@ export class HomeStore {
         TaskInfoTableApi.query(selectedDayInfo.dateStr, true, (res) => {
           Logger.info('Selected TaskInfoList: ', JSON.stringify(res));
           selectedDayInfo.taskList = res;
-          this.selectedDayInfo = { ...selectedDayInfo };
           this.dateArr = this.dateArr.map((item: WeekDateModel) =>
             item.dateStr == selectedDayInfo.dateStr ? { ...item, taskList: res } : item);
+            this.selectedDayInfo = { ...selectedDayInfo };
         });
-      });
+      })
     } else {
       this.selectedDayInfo = { ...selectedDayInfo };
     }
@@ -154,7 +156,7 @@ export class HomeStore {
             // delete task
             let taskIndex = taskList.findIndex((item) => item.taskID == taskID);
             Logger.info('taskList[taskIndex]', JSON.stringify(taskList[taskIndex]));
-            if (taskList[taskIndex].isDone) {
+            if (taskList[taskIndex]?.isDone) {
               dayInfo.finTaskNum -= 1;
             }
             taskList = taskList.filter((item) => item.taskID != taskID);

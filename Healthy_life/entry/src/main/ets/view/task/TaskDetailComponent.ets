@@ -29,12 +29,12 @@ import {
 } from './TaskEditListItem';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
 import { HealthDataSrcMgr } from '../../common/utils/HealthDataSrcMgr';
-import { initFrequencyString, addTask , formatParams} from '../../viewmodel/TaskViewModel';
-import { CustomDialogView } from '../dialog/CustomDialogView';
+import { initFrequencyString, addTask, formatParams } from '../../viewmodel/TaskViewModel';
+import { TaskDialogView } from '../dialog/TaskDialogView';
 
-@Styles function listItemStyle () {
+@Styles function listItemStyle() {
   .backgroundColor($r('app.color.white'))
-  .height(commonConst.THOUSANDTH_80)
+  .height(commonConst.DEFAULT_56)
   .borderRadius(commonConst.DEFAULT_10)
   .padding({ left: commonConst.DEFAULT_12, right: commonConst.DEFAULT_12 })
 }
@@ -42,19 +42,20 @@ import { CustomDialogView } from '../dialog/CustomDialogView';
 @Component
 export default struct TaskDetail {
   @Provide broadCast: BroadCast = HealthDataSrcMgr.getInstance().getBroadCast();
-  @Provide settingParams: ITaskItem = this.parseRouterParams();
+  @Provide @Watch('onParamsChanged') settingParams: ITaskItem = this.parseRouterParams();
   @Provide frequency: string = initFrequencyString(this.settingParams?.frequency);
-  private isOpen: boolean = this.parseRouterParams()['isOpen'];
+  private isChanged: boolean = false;
 
   parseRouterParams() {
     const routerParams: ITaskItem = JSON.parse(router.getParams()['params']);
     return routerParams;
   }
 
+  onParamsChanged() {
+    this.isChanged = true;
+  }
+
   backIndexParams() {
-    if (this.isOpen === this.settingParams.isOpen) {
-      return {};
-    }
     return formatParams({
       ...this.settingParams,
       isDone: true,
@@ -63,32 +64,40 @@ export default struct TaskDetail {
   }
 
   finishTaskEdit() {
-    addTask({
-      id: commonConst.ZERO,
-      date: commonConst.GLOBAL_KEY,
-      ...this.settingParams,
-      isDone: false,
-      finValue: '',
+    if (this.isChanged) {
+      addTask({
+        id: commonConst.ZERO,
+        date: commonConst.GLOBAL_KEY,
+        ...this.settingParams,
+        isDone: false,
+        finValue: '',
+      })
+        .then(res => {
+          router.back({
+            url: 'pages/MainPage',
+            params: {
+              editTask: this.backIndexParams(),
+            }
+          })
+          Logger.info('addTaskFinished', res as string);
+        })
+        .catch(res => {
+          prompt.showToast({
+            message: commonConst.SETTING_FINISH_FAILED_MESSAGE
+          })
+          Logger.error('addTaskFailed', res as string);
+        })
+      return;
+    }
+    router.back({
+      url: 'pages/MainPage',
     })
-      .then(res => {
-        router.back({
-          url: 'pages/MainPage',
-          params: {
-            editTask: this.backIndexParams(),
-          }
-        })
-        Logger.info('addTaskFinished', res as string);
-      })
-      .catch(res => {
-        prompt.showToast({
-          message: commonConst.SETTING_FINISH_FAILED_MESSAGE
-        })
-        Logger.error('addTaskFailed', res as string);
-      })
   }
 
   aboutToAppear() {
-    this.broadCast.off(null, null);
+    this.broadCast.off(BroadCastType.SHOW_TARGET_SETTING_DIALOG, null);
+    this.broadCast.off(BroadCastType.SHOW_REMIND_TIME_DIALOG, null);
+    this.broadCast.off(BroadCastType.SHOW_FREQUENCY_DIALOG, null);
   }
 
   build() {
@@ -111,7 +120,7 @@ export default struct TaskDetail {
           )
           .onClick(() => {
             this.broadCast.emit(
-              BroadCastType.SHOW_TARGET_SETTING_DIALOG);
+            BroadCastType.SHOW_TARGET_SETTING_DIALOG);
           })
 
           ListItem() {
@@ -126,9 +135,7 @@ export default struct TaskDetail {
           .listItemStyle()
           .enabled(this.settingParams?.isOpen && this.settingParams?.isAlarm)
           .onClick(() => {
-            this.broadCast.emit(
-              BroadCastType.SHOW_REMIND_TIME_DIALOG
-            );
+            this.broadCast.emit(BroadCastType.SHOW_REMIND_TIME_DIALOG);
           })
 
           ListItem() {
@@ -137,14 +144,11 @@ export default struct TaskDetail {
           .listItemStyle()
           .enabled(this.settingParams?.isOpen)
           .onClick(() => {
-            this.broadCast.emit(
-              BroadCastType.SHOW_FREQUENCY_DIALOG,
-            );
+            this.broadCast.emit(BroadCastType.SHOW_FREQUENCY_DIALOG);
           })
 
         }
         .width(commonConst.THOUSANDTH_940)
-        .margin({ bottom: commonConst.THOUSANDTH_400 })
 
         Button() {
           Text($r('app.string.complete')).fontSize($r('app.float.default_20')).fontColor($r('app.color.blueColor'))
@@ -155,8 +159,12 @@ export default struct TaskDetail {
         .onClick(() => {
           this.finishTaskEdit();
         })
+        .position({
+          x: commonConst.THOUSANDTH_100,
+          y: commonConst.THOUSANDTH_800
+        })
 
-        CustomDialogView()
+        TaskDialogView()
       }
       .width(commonConst.THOUSANDTH_1000)
     }

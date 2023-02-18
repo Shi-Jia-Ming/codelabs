@@ -32,7 +32,7 @@ export default class CommonConstants {
   static readonly BORDER_RADIUS = 10;
   static readonly SWIPER_WIDTH = 330;
   static readonly SWIPER_SCALE = 0.9;
-  static readonly ITEM_SPACE = 15;
+  static readonly ITEM_SPACE = 12;
   static readonly PADDING = 15;
   static readonly PADDING_SCALE = 0.05;
 }

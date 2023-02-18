@@ -20,9 +20,13 @@ import {
   SHARE_TRANSITION_ID,
   SHARE_ITEM_ANIMATION_DELAY,
   SHARE_PAGE_URL,
-  FULL_LENGTH
+  FULL_LENGTH,
+  DOMAIN,
+  PREFIX,
+  FORMAT
 } from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
+import hilog from '@ohos.hilog';
 
 @Entry
 @Component
@@ -40,7 +44,10 @@ struct ShareItem {
           delay: SHARE_ITEM_ANIMATION_DELAY
         })
         .onClick(() => {
-          router.push({ url: SHARE_PAGE_URL });
+          router.pushUrl({ url: SHARE_PAGE_URL })
+            .catch(err => {
+              hilog.error(DOMAIN, PREFIX, FORMAT, err);
+            });
         })
       Text($r('app.string.Share_Item_hint'))
         .width(FULL_LENGTH)

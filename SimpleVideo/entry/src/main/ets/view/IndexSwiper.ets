@@ -34,10 +34,12 @@ export struct SwiperVideo {
     }
     .height(STRING_PERCENT.INDEX_SWIPER_HEIGHT_PERCENT)
     .width(STRING_PERCENT.INDEX_COMPONENT_WITH_PERCENT)
-    .backgroundColor($r("app.color.white"))
-    .margin({ left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
+    .backgroundColor($r('app.color.white'))
+    .margin({ 
+	  left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
       right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
-      top: MARGIN_FONT_SIZE.FOURTH_MARGIN })
+      top: MARGIN_FONT_SIZE.FOURTH_MARGIN
+	})
   }
 }
 

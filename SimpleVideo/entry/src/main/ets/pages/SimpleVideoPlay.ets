@@ -16,7 +16,7 @@
 import router from '@ohos.router';
 import { iconOnclick } from '../model/VideoControll';
 import { VideoPlayer } from '../view/VideoPlayer';
-import { MARGIN_FONT_SIZE, COMMON_NUM_FONT_WEIGHT, ALL_PERCENT } from '../common/constants/CommonConstants';
+import { MARGIN_FONT_SIZE, COMMON_NUM_FONT_WEIGHT, ALL_PERCENT, STACK_STYLE } from '../common/constants/CommonConstants';
 
 /**
  * second page
@@ -30,9 +30,15 @@ struct Play {
   @Provide isPlay: boolean = false;
   @Provide isOpacity: boolean = false;
   controller: VideoController = new VideoController();
+  @State isLoading: boolean = false;
+  @State progressVal: number = 0;
 
   onPageHide() {
     this.controller.pause();
+  }
+
+  aboutToAppear() {
+    globalThis.flag = false;
   }
 
   build() {
@@ -45,7 +51,7 @@ struct Play {
           .onClick(() => {
             router.back();
           })
-        Text($r("app.string.back"))
+        Text($r('app.string.back'))
           .fontColor(Color.White)
           .fontSize(MARGIN_FONT_SIZE.FOURTH_MARGIN)
           .fontWeight(COMMON_NUM_FONT_WEIGHT)
@@ -56,16 +62,25 @@ struct Play {
       .justifyContent(FlexAlign.Start)
 
       Stack() {
-        if (!this.isPlay) {
+        if (!this.isPlay && !this.isLoading) {
           Image(this.startIconResource)
             .width(MARGIN_FONT_SIZE.FIFTH_MARGIN)
             .height(MARGIN_FONT_SIZE.FIFTH_MARGIN)
-            .zIndex(1)
+            .zIndex(STACK_STYLE.IMAGE_Z_INDEX)
             .onClick(() => {
               iconOnclick.call(this);
             })
         }
+        if (this.isLoading) {
+          Progress({ value: STACK_STYLE.PROGRESS_VALUE, total: STACK_STYLE.PROGRESS_TOTAL, type: ProgressType.ScaleRing })
+            .color(Color.Grey)
+            .value(this.progressVal)
+            .width(STACK_STYLE.PROGRESS_WIDTH)
+            .style({ strokeWidth: STACK_STYLE.PROGRESS_STROKE_WIDTH, scaleCount: STACK_STYLE.PROGRESS_SCALE_COUNT, scaleWidth: STACK_STYLE.PROGRESS_SCALE_WIDTH })
+            .zIndex(STACK_STYLE.PROGRESS_Z_INDEX)
+        }
         VideoPlayer({ source: this.source, controller: this.controller }).zIndex(0)
+
       }
     }
     .height(ALL_PERCENT)

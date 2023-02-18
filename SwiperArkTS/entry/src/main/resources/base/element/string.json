@@ -1,0 +1,76 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Swiper的使用"
+    },
+    {
+      "name": "recently",
+      "value": "最近播放"
+    },
+    {
+      "name": "photo",
+      "value": "相机"
+    },
+    {
+      "name": "more",
+      "value": "更多 >"
+    },
+    {
+      "name": "movie_classic",
+      "value": "电影精选"
+    },
+    {
+      "name": "lately",
+      "value": "最新"
+    },
+    {
+      "name": "like",
+      "value": "点赞"
+    },
+    {
+      "name": "comment",
+      "value": "评论"
+    },
+    {
+      "name": "share",
+      "value": "转发"
+    },
+    {
+      "name": "movie",
+      "value": "视频"
+    },
+    {
+      "name": "movie_description_1",
+      "value": "@HarmonyOS 官网"
+    },
+    {
+      "name": "movie_description_2",
+      "value": "#HarmonyOS HDC大会"
+    },
+    {
+      "name": "TV",
+      "value": "电视剧"
+    },
+    {
+      "name": "game",
+      "value": "游戏"
+    },
+    {
+      "name": "live",
+      "value": "直播"
+    },
+    {
+      "name": "entertainment",
+      "value": "综艺"
+    }
+  ]
+}

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { COMMON_NUM_MINUTE, COMMON_NUM_DOUBLE, ZERO_STR, SPLIT } from '../common/constants/CommonConstants';
+import { COMMON_NUM_MINUTE, COMMON_NUM_DOUBLE, ZERO_STR, SPLIT, STACK_STYLE } from '../common/constants/CommonConstants';
 
 /**
  * video component prepared callback
@@ -25,6 +25,7 @@ export function prepared(event) {
   let head = min < COMMON_NUM_DOUBLE ? `${ZERO_STR}${min}` : min;
   let end = second < COMMON_NUM_DOUBLE ? `${ZERO_STR}${second}` : second;
   this.durationStringTime = `${head}${SPLIT}${end}`;
+  globalThis.flag = true;
 };
 
 /**
@@ -85,7 +86,31 @@ export function changeSliderTime(value: number): string {
  * icon onclick callback
  */
 export function iconOnclick() {
-  this.controller.start();
-  this.isPlay = true;
-  this.isOpacity = true;
+  if(globalThis.flag) {
+    this.controller.start();
+    this.isPlay = true;
+    this.isOpacity = true;
+  } else {
+    let that = this;
+    that.isLoading = true;
+    // The video loading is not complete. The loading action is displayed.
+    let intervalLoading = setInterval(function() {
+      if (that.progressVal >= STACK_STYLE.PROGRESS_TOTAL) {
+        that.progressVal = 0;
+      } else {
+        that.progressVal += STACK_STYLE.PROGRESS_STEP;
+      }
+    }, STACK_STYLE.MILLI_SECONDS)
+    // The scheduled task determines whether the video loading is complete.
+    let intervalFlag = setInterval(function() {
+      if (globalThis.flag) {
+        that.controller.start();
+        that.isPlay = true;
+        that.isOpacity = true;
+        that.isLoading = false;
+        clearInterval(intervalFlag);
+        clearInterval(intervalLoading);
+      }
+    }, STACK_STYLE.MILLI_SECONDS);
+  }
 };

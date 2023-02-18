@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
 import HealthText from './HealthTextComponent';
 import AddBtn from '../view/home/AddBtnComponent';
@@ -20,6 +21,7 @@ import { TaskCard } from '../view/home//TaskCardComponent';
 import HomeTopView from '../view/home/HomeTopComponent';
 import { CustomDialogView, CustomDialogCallback } from '../view/dialog/CustomDialogView';
 import TaskInfo from '../common/bean/TaskInfo';
+import { GlobalInfoTable } from '../common/database/tables/GlobalInfoTable';
 import { HomeStore } from '../viewmodel/HomeViewModel';
 import { ITaskItem, TaskMapById } from '../model/TaskInitList';
 import { HealthDataSrcMgr } from '../common/utils/HealthDataSrcMgr';
@@ -54,18 +56,43 @@ export default struct HomeIndex {
   @Link editedTaskInfo: ITaskItem;
   @Link @Watch('taskChange') editedTaskID: string;
   private scroller: Scroller = new Scroller();
+  private globalTable = new GlobalInfoTable();
 
-  aboutToAppear() {
-    this.homeStore.initData();
+  async aboutToAppear() {
+    this.globalTable.getRdbStore(() => {
+      this.globalTable.query((result) => {
+        let predate = new Date(result.lastDate);
+        let date = new Date();
+        if (result.length !== 0 && date.getTime() < predate.getTime()) {
+          AlertDialog.show(
+            {
+              title: $r('app.string.alert'),
+              message: $r('app.string.alert_message'),
+              autoCancel: false,
+              alignment: DialogAlignment.Bottom,
+              offset: { dx: 0, dy: -20 },
+              gridCount: 3,
+              confirm: {
+                value: $r('app.string.alert_button'),
+                action: () => {
+                  (getContext(this) as common.UIAbilityContext).terminateSelf()
+                  console.info('Button-clicking callback')
+                }
+              },
+              cancel: () => {
+                console.info('Closed callbacks')
+              }
+            })
+        } else {
+          this.homeStore.initData();
+        }
+      });
+    });
+    // this.homeStore.initData();
   }
 
   taskChange() {
     this.homeStore.updateTaskInfoList(this.editedTaskInfo);
-  }
-
-  aboutToDisappear() {
-    // cancel broadcast
-    this.broadCast.off(null, null);
   }
 
   taskItemAction(item: TaskInfo, isClick: boolean) {
@@ -86,7 +113,7 @@ export default struct HomeIndex {
         frequency: item.frequency,
         isOpen: item.isOpen,
       };
-      router.push({ url: 'pages/TaskEditPage', params: { params: JSON.stringify(editTask) } });
+      router.pushUrl({ url: 'pages/TaskEditPage', params: { params: JSON.stringify(editTask) } });
     }
   }
 
@@ -111,7 +138,7 @@ export default struct HomeIndex {
 
   editTaskAction() {
     if (this.homeStore.checkCurrentDay()) {
-      router.push({ url: 'pages/TaskListPage' });
+      router.pushUrl({ url: 'pages/TaskListPage' });
     }
   }
 
@@ -130,7 +157,7 @@ export default struct HomeIndex {
                 })
                   .margin({ bottom: commonConst.DEFAULT_12 })
                   .height($r('app.float.default_64'))
-              }, item => item.date + item.taskID)
+              }, item => JSON.stringify(item))
             }
             .padding({
               top: commonConst.THOUSANDTH_15,

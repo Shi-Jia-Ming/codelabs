@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import promptAction from '@ohos.promptAction';
 import {
   SERVER,
   GET_NEWS_TYPE,
@@ -34,7 +34,7 @@ import { httpRequestGet } from '../utils/HttpUtil';
 export async function getTabData(currentPage: number, pageSize: number, currentIndex: number, callback) {
   currentPage = currentPage + GET_TAB_DATA_CURRENT_PAGE;
   if (currentPage > pageSize) {
-    prompt.showToast({ message: $r('app.string.prompt_message') });
+    promptAction.showToast({ message: $r('app.string.prompt_message') });
     currentPage = currentPage - GET_TAB_DATA_CURRENT_PAGE;
   }
   let newsPageData = [];

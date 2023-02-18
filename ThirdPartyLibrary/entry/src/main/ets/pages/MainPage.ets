@@ -74,6 +74,7 @@ struct Index {
       }
       .title(this.NavigationTitle)
       .hideBackButton(true)
+      .titleMode(NavigationTitleMode.Mini)
     }
     .backgroundColor($r('app.color.app_bg'))
   }
