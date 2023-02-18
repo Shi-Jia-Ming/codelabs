@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import Ability from '@ohos.application.Ability';
+import UIAbility from '@ohos.app.ability.UIAbility';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 
 /**
  * Lift cycle management of Ability.
  */
-export default class EntryAbility extends Ability {
+export default class EntryAbility extends UIAbility {
   onCreate(want) {
     globalThis.abilityWant = want;
   }

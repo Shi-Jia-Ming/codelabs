@@ -33,7 +33,7 @@ struct AdvertisingPage {
 
   goToHomePage() {
     clearInterval(this.intervalId);
-    router.replace({ url: 'pages/MainPage' });
+    router.replaceUrl({ url: 'pages/MainPage' });
   }
 
   aboutToAppear() {
@@ -57,7 +57,7 @@ struct AdvertisingPage {
           .height($r('app.float.default_36'))
           .backgroundColor('rgba(0,0,0,0.20)')
           .border({ color: $r('app.color.white'), width: $r('app.float.default_1') })
-          .margin({ top: $r('app.float.default_56') })
+          .margin({ top: $r('app.float.default_36') })
           .padding($r('app.float.default_8'))
           .onClick(() => this.goToHomePage())
       }

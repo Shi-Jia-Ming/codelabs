@@ -28,6 +28,16 @@ export default class CommonConstants {
   static readonly LAUNCHER_PAGE_TAG: string = 'LauncherPage';
 
   /**
+   * The advertsing page tag.
+   */
+  static readonly ADVERTISING_PAGE_TAG: string = 'AdvertisingPage';
+
+  /**
+   * The custom dialog component tag.
+   */
+  static readonly CUSTOM_DIALOG_TAG: string = 'CustomDialogComponent';
+
+  /**
    * Preference saved key.
    */
   static readonly PREFERENCES_KEY_PRIVACY: string = 'isPrivacy';
@@ -91,16 +101,6 @@ export default class CommonConstants {
    * Count down text spacing.
    */
   static readonly ADVERTISING_TITLE_TEXT_LETTER_SPACING: number = 0.05;
-
-  /**
-   * Count down text top margin.
-   */
-  static readonly ADVERTISING_TITLE_TEXT_MARGIN_TOP: string = '3.2%';
-
-  /**
-   * Count down text left margin.
-   */
-  static readonly ADVERTISING_TITLE_TEXT_MARGIN_LEFT: string = '72.2%';
 
   /**
    * Advertising page healthy text spacing.

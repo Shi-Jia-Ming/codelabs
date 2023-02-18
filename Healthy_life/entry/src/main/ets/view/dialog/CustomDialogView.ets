@@ -15,12 +15,10 @@
 
 import { AchievementDialog } from './AchievementDialog';
 import { TaskDetailDialog } from './TaskDetailDialog';
-import { TargetSettingDialog, RemindTimeDialog, FrequencyDialog } from './TaskSettingDialog';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
 import { TaskItem } from '../../model/TaskInitList';
 import TaskInfo from '../../common/bean/TaskInfo';
 import { Logger } from '../../common/utils/log/Logger';
-import { ZERO, MINUS_20 } from '../../common/constants/CommonConstants';
 
 export interface CustomDialogCallback {
   confirmCallback: Function;
@@ -41,27 +39,7 @@ export struct CustomDialogView {
     autoCancel: true,
     customStyle: true
   });
-  // target setting dialog
-  targetSettingDialog = new CustomDialogController({
-    builder: TargetSettingDialog(),
-    autoCancel: true,
-    alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
-  });
-  // remind time dialog
-  RemindTimeDialogController: CustomDialogController = new CustomDialogController({
-    builder: RemindTimeDialog(),
-    autoCancel: true,
-    alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
-  });
-  // frequency dialog
-  FrequencyDialogController: CustomDialogController = new CustomDialogController({
-    builder: FrequencyDialog(),
-    autoCancel: true,
-    alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
-  });
+
   // task clock dialog
   taskDialog = new CustomDialogController({
     builder: TaskDetailDialog(),
@@ -78,23 +56,11 @@ export struct CustomDialogView {
       this.achievementDialog.open();
     })
 
-    // target setting dialog
-    this.broadCast.on(BroadCastType.SHOW_TARGET_SETTING_DIALOG, () => {
-      this.targetSettingDialog.open();
-    })
-    // remind time dialog
-    this.broadCast.on(BroadCastType.SHOW_REMIND_TIME_DIALOG, () => {
-      this.RemindTimeDialogController.open();
-    })
-    // frequency dialog
-    this.broadCast.on(BroadCastType.SHOW_FREQUENCY_DIALOG, () => {
-      this.FrequencyDialogController.open();
-    })
     // task clock dialog
     this.broadCast.on(BroadCastType.SHOW_TASK_DETAIL_DIALOG,
       (currentTask: TaskInfo, dialogCallBack: CustomDialogCallback) => {
         Logger.debug('CustomDialogView', 'SHOW_TASK_DETAIL_DIALOG');
-        this.currentTask = currentTask;
+        this.currentTask = currentTask || TaskItem;
         this.dialogCallBack = dialogCallBack;
         this.taskDialog.open();
       })

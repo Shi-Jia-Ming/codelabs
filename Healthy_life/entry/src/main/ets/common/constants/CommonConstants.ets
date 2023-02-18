@@ -49,6 +49,7 @@ export const THOUSANDTH_33: string = '3.3%'; // ‘3.3%’
 export const THOUSANDTH_50: string = '5%'; // ‘5%’
 export const THOUSANDTH_66: string = '6.6%'; // ‘6.6%’
 export const THOUSANDTH_80: string = '8%'; // ‘8%’
+export const THOUSANDTH_100: string = '10%'; // ‘10%’
 export const THOUSANDTH_120: string = '12%'; // ‘12%’
 export const THOUSANDTH_160: string = '16%'; // ‘16%’
 export const THOUSANDTH_400: string = '40%'; // ‘40%’

@@ -52,7 +52,7 @@ export default struct TaskList {
         .height(commonConst.THOUSANDTH_80)
         .borderRadius(commonConst.DEFAULT_12)
         .onClick(() => {
-          router.push({
+          router.pushUrl({
             url: 'pages/TaskEditPage',
             params: {
               params: formatParams(item),

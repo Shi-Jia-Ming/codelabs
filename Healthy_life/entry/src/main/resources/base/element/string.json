@@ -172,6 +172,18 @@
     {
       "name": "jump_ad",
       "value": " 跳过广告 %ds"
+    },
+    {
+      "name": "alert",
+      "value": "警告"
+    },
+    {
+      "name": "alert_message",
+      "value": "您的系统日期早于最新的打卡时间！"
+    },
+    {
+      "name": "alert_button",
+      "value": "退出"
     }
   ]
 }

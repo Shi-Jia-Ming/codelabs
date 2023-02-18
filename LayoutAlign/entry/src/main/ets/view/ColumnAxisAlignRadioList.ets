@@ -67,7 +67,7 @@ struct AxisAlignRadioItem {
         .checked(this.isChecked)
         .height((MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN))
         .width((MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN))
-        .onChange(() => {
+        .onClick(() => {
           switch (this.textName) {
             case ATTRIBUTE.START:
               this.currentColumnAlignItems = HorizontalAlign.Start;

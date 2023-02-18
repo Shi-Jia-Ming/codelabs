@@ -54,7 +54,7 @@ export struct TaskDetailDialog {
     }
     .height($r('app.float.default_451'))
     .width($r('app.float.default_316'))
-    .backgroundImage(TaskMapById[this.currentTask.taskID].dialogBg, ImageRepeat.NoRepeat)
+    .backgroundImage(TaskMapById[this.currentTask?.taskID].dialogBg, ImageRepeat.NoRepeat)
     .backgroundImageSize({
       width: '100%',
       height: '100%'
@@ -78,6 +78,7 @@ struct TaskBaseInfo {
         .fontWeight(FontWeight.Bold)
         .fontFamily($r('app.string.HarmonyHeiTi_Bold'))
         .taskTextStyle()
+        .margin({left: $r('app.float.default_12')})
     }
     .position({ y: $r('app.float.default_267') })
   }

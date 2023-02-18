@@ -157,7 +157,7 @@ export const TaskMapById: TaskInitListType = {
     taskName: $r('app.string.task_water'),
     icon: $r('app.media.water'),
     dialogBg: $rawfile('dialog/drink.png'),
-    targetValue: '1',
+    targetValue: '0.25',
     isOpen: false,
     unit: 'L',
     step: 0,

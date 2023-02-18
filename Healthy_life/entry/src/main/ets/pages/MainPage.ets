@@ -38,7 +38,7 @@ struct Index {
   onPageShow() {
     Logger.info('onPageShow', JSON.stringify(router.getParams()));
     this.editedTaskInfo = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
-    this.editedTaskID = `${this.editedTaskInfo.taskID}_${this.editedTaskInfo.isOpen}`;
+    this.editedTaskID = `${this.editedTaskInfo.taskID}_${this.editedTaskInfo.isOpen}` + new Date().getTime();
   }
 
   @Builder TabBuilder(index: number) {

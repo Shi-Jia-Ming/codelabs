@@ -53,6 +53,14 @@
       "value": "1"
     },
     {
+      "name": "advertising_title_text_margin_top",
+      "value": "30vp"
+    },
+    {
+      "name": "advertising_title_text_margin_left",
+      "value": "260vp"
+    },
+    {
       "name": "advertising_text_padding_top",
       "value": "8vp"
     },

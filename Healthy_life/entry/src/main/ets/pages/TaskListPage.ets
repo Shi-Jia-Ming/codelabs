@@ -43,6 +43,7 @@ struct TaskIndex {
       }
       .size({ width: THOUSANDTH_1000, height: THOUSANDTH_1000 })
       .title(ADD_TASK_TITLE)
+      .titleMode(NavigationTitleMode.Mini)
     }
     .backgroundColor($r('app.color.primaryBgColor'))
     .height(THOUSANDTH_1000)
