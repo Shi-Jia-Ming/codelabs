@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import promptAction from '@ohos.promptAction';
 import { getTabData } from './DataUtils';
 import { touchMoveLoadMore, touchUpLoadMore } from './PullUpLoadMore';
 import {
@@ -95,7 +95,7 @@ export function touchUpPullRefresh() {
           closeRefresh.call(self, true);
         },
         onFail: (msg) => {
-          prompt.showToast({ message: msg });
+          promptAction.showToast({ message: msg });
           closeRefresh.call(self, false);
         }
       });

@@ -114,7 +114,7 @@ export default struct NewsList {
         .backgroundColor($r('app.color.white'))
         .margin({ top: NewsListConstant.ITEM_MARGIN_TOP, right: NewsListConstant.LIST_MARGIN_RIGHT })
         .borderRadius(NewsListConstant.ITEM_BORDER_RADIUS)
-      }, item => item.id)
+      }, (item, index) => JSON.stringify(item) + index.toString())
       ListItem() {
         LoadMoreLayout({
           loadMoreLayoutClass: new CustomRefreshLoadLayoutClass(this.isVisiblePullUpLoad, this.pullUpLoadImage,

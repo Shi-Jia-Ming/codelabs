@@ -29,11 +29,6 @@ export default struct RefreshLayout {
         CustomRefreshLoadLayout({ customRefreshLoadClass: new CustomRefreshLoadLayoutClass
         (this.refreshLayoutClass.isVisible, this.refreshLayoutClass.imageSrc, this.refreshLayoutClass.textValue,
           this.refreshLayoutClass.heightValue) })
-      } else {
-        CustomRefreshLoadLayout({
-          customRefreshLoadClass: new CustomRefreshLoadLayoutClass(this.refreshLayoutClass.isVisible,
-            this.refreshLayoutClass.imageSrc, this.refreshLayoutClass.textValue, 0)
-        })
       }
     }
   }

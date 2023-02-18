@@ -62,7 +62,7 @@ export default struct NewsItem {
               .objectFit(ImageFit.Cover)
               .borderRadius(NewsGrid.IMAGE_BORDER_RADIUS)
           }
-        }, itemImg => this.newsData.imagesUrl.indexOf(itemImg.id).toString())
+        }, (itemImg, index) => JSON.stringify(itemImg) + index.toString())
       }
       .aspectRatio(NewsGrid.ASPECT_RATIO)
       .columnsTemplate('1fr '.repeat(this.newsData.imagesUrl.length))
