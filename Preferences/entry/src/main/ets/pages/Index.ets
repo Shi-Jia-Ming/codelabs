@@ -57,7 +57,7 @@ struct Index {
     }
     .width(StyleConstants.FULL_PERCENT)
     .height(StyleConstants.FULL_PERCENT)
-    .backgroundColor($r("app.color.main_background_color"))
+    .backgroundColor($r('app.color.main_background_color'))
   }
 
   async aboutToAppear() {

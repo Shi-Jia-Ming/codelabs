@@ -30,7 +30,7 @@ export default struct ButtonComponent {
     Column() {
       ForEach(this.buttonItemValues, (item) => {
         Button(item.resource, { type: ButtonType.Capsule, stateEffect: true })
-          .backgroundColor($r("app.color.button_background_color"))
+          .backgroundColor($r('app.color.button_background_color'))
           .width(StyleConstants.BUTTON_WIDTH)
           .height(StyleConstants.BUTTON_HEIGHT)
           .fontWeight(StyleConstants.FONT_WEIGHT)
@@ -39,7 +39,7 @@ export default struct ButtonComponent {
           .onClick(() => {
             item.clickMethod();
           })
-      }, item => item.toString())
+      }, item => JSON.stringify(item))
     }
   }
 

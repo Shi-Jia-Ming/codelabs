@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import prompt from '@ohos.promptAction';
 import AccountData from '../common/bean/AccountData';
 import AccountItem from '../common/bean/AccountItem';
 import { PayList, EarnList } from '../viewmodel/AccountList';
@@ -42,7 +42,13 @@ export struct DialogComponent {
     .width($r('app.float.component_size_MP'))
     .padding({ top: $r('app.float.edge_size_LM'), bottom: $r('app.float.edge_size_S') })
     .margin({ bottom: $r('app.float.edge_size_S') })
-    .border(this.curIndex === index ? { width: { bottom: $r('app.float.border_size_M') }, color: $r('app.color.main_color') } : {})
+    .border(this.curIndex === index ? { width: { bottom: $r('app.float.border_size_M') }, color: $r('app.color.main_color') } : { color: Color.White })
+  }
+
+  aboutToAppear() {
+    this.inputAmount = this.newAccount.amount.toString();
+    this.curIndex = this.newAccount.accountType;
+    this.curType = this.newAccount.typeText;
   }
 
   selectAccount(item: AccountItem) {
@@ -60,7 +66,7 @@ export struct DialogComponent {
           this.controller.close();
         })
 
-      Tabs({ barPosition: BarPosition.Start }) {
+      Tabs({ barPosition: BarPosition.Start, index: this.curIndex }) {
         TabContent() {
           Scroll(this.scroller) {
             Row() {
@@ -130,7 +136,7 @@ export struct DialogComponent {
       .width(CommonConstants.FULL_WIDTH)
       .height(CommonConstants.TABS_HEIGHT)
       .vertical(false)
-      .barMode(BarMode.Scrollable)
+      .barMode(BarMode.Fixed)
       .onChange((index) => {
         this.curIndex = index;
       })

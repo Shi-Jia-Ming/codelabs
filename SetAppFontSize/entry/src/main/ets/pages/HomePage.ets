@@ -47,7 +47,8 @@ struct HomePage {
       Row() {
         SettingItemComponent({
           setting: this.settingArr[CommonConstants.DISPLAY_INDEX],
-          changeFontSize: this.changeFontSize
+          changeFontSize: this.changeFontSize,
+          itemClick: () => {}
         })
       }
       .blockBackground(StyleConstants.BLOCK_TOP_MARGIN_FIRST_PERCENT)
@@ -55,7 +56,8 @@ struct HomePage {
       Row() {
         SettingItemComponent({
           setting: this.settingArr[CommonConstants.VOICE_INDEX],
-          changeFontSize: this.changeFontSize
+          changeFontSize: this.changeFontSize,
+          itemClick: () => {}
         })
       }
       .blockBackground(StyleConstants.BLOCK_TOP_MARGIN_SECOND_PERCENT)
@@ -76,7 +78,11 @@ struct HomePage {
         ListItem() {
           SettingItemComponent({ setting: item, changeFontSize: this.changeFontSize, itemClick: () => {
             if (index === CommonConstants.SET_FONT_INDEX) {
-              router.push({ url: CommonConstants.SET_URL });
+              router.pushUrl({
+                url: CommonConstants.SET_URL
+              }).catch((error) => {
+                Logger.info(TAG, 'HomePage push error' + JSON.stringify(error));
+              });
             }
           } })
         }
