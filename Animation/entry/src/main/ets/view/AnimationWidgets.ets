@@ -13,7 +13,6 @@
  * limitations under the License.
  */
 
-import { AxisModel } from '../viewmodel/AxisModel';
 import { IconsModel } from '../viewmodel/IconsModel';
 import { IconAnimation } from './IconAnimation';
 import Common from '../common/constants/Const';
@@ -23,12 +22,10 @@ import IconItem from '../common/bean/IconItem';
 export struct AnimationWidgets {
   @State mainFlag: boolean = false;
   @Link @Watch('onQuantityChange') quantity: number;
-  @ObjectLink axis: AxisModel;
-  @ObjectLink iconModel: IconsModel;
+  @Consume iconModel: IconsModel;
 
   onQuantityChange() {
     this.iconModel.addImage(this.quantity);
-    this.axis.addPoints(this.quantity);
   }
 
   aboutToAppear() {
@@ -55,11 +52,12 @@ export struct AnimationWidgets {
         ForEach(this.iconModel.imagerArr, (item: IconItem) => {
           IconAnimation({
             item: item,
-            point: this.axis.points[item.index],
             mainFlag: $mainFlag
           })
-        }, item => JSON.stringify(item))
+        }, item => JSON.stringify(item.index))
       }
+      .width(Common.DEFAULT_FULL_WIDTH)
+      .height(Common.DEFAULT_FULL_HEIGHT)
       .rotate({
         x: 0,
         y: 0,

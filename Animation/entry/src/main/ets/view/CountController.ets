@@ -33,7 +33,7 @@ export struct CountController {
         style: SliderStyle.InSet
       })
         .blockColor(Color.White)
-        .selectedColor('#007DFF')
+        .selectedColor($r('app.color.SliderSelectColor'))
         .margin({
           top: $r('app.float.size_5')
         })

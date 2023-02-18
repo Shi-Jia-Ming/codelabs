@@ -19,7 +19,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 
 @Component
 export default struct RefreshAnimHeader {
-  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: RefreshState;
+  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: number;
   @State iconWidth: number = CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH;
 
   private onStateCheck() {
@@ -50,7 +50,7 @@ export default struct RefreshAnimHeader {
       if (this.state !== RefreshState.IDLE) { // stop animation when idle state.
         ForEach(CommonConstants.REFRESH_HEADER_FEATURE, (iconItem) => {
           this.AttrAnimIcons(iconItem)
-        }, item => item.toString())
+        }, item => JSON.stringify(item))
       }
     }
     .width(CommonConstants.FULL_LENGTH)

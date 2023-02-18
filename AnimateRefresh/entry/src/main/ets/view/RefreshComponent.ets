@@ -25,7 +25,7 @@ export default struct RefreshComponent {
   private listController: Scroller = new Scroller();
   private onRefresh: () => void;
   @State headerOffset: number = 0;
-  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateChanged') state: RefreshState;
+  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateChanged') state: number;
   @BuilderParam itemLayout: () => void;
 
   private onStateChanged() {

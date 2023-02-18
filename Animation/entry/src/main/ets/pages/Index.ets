@@ -16,22 +16,19 @@
 import { AnimationWidgets } from '../view/AnimationWidgets';
 import { CountController } from '../view/CountController';
 import Common from '../common/constants/Const';
-import { AxisModel } from '../viewmodel/AxisModel';
 import {IconsModel} from '../viewmodel/IconsModel';
 
 @Entry
 @Component
 struct Index {
   @State quantity: number = Common.IMAGES_MIN;
-  @State axis: AxisModel = new AxisModel(Common.OFFSET_RADIUS, this.quantity);
-  @State iconModel: IconsModel = new IconsModel(this.quantity);
+  @Provide iconModel: IconsModel = new IconsModel(this.quantity, Common.OFFSET_RADIUS);
+
 
   build() {
     Column() {
       AnimationWidgets({
-        quantity: $quantity,
-        axis: this.axis,
-        iconModel: this.iconModel
+        quantity: $quantity
       })
 
       CountController({

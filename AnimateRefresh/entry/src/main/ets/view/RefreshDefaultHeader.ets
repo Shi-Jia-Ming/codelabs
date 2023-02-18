@@ -20,7 +20,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 @Component
 export default struct RefreshDefaultHeader {
   @State refreshTitle: Resource = $r('app.string.refresh_default_header_hint');
-  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: RefreshState;
+  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: number;
 
   private onStateCheck() {
     switch (this.state) {

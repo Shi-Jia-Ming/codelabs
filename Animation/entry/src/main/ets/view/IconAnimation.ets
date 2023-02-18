@@ -14,14 +14,12 @@
  */
 
 import IconItem from '../common/bean/IconItem';
-import Point from '../common/bean/Point';
 import Common from '../common/constants/Const';
 
 @Component
 export struct IconAnimation {
   @Link mainFlag: boolean;
-  @State point: Point = new Point(0, 0);
-  @State item: IconItem = new IconItem(0, $r('app.media.badge1'), false);
+  @ObjectLink item: IconItem;
 
   build() {
     Image(this.item.image)
@@ -30,8 +28,8 @@ export struct IconAnimation {
       .objectFit(ImageFit.Contain)
       .translate(
           this.mainFlag
-          ? { x: this.point.x, y: this.point.y }
-          : { x: 0, y: 0 }
+            ? { x: this.item.point.x, y: this.item.point.y }
+            : { x: 0, y: 0 }
       )
       .rotate({
         x: 0,
