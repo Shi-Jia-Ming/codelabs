@@ -69,8 +69,11 @@ struct SliderPage {
           step: SliderScale.STEP,
           style: SliderStyle.InSet
         }
-      }).margin({ bottom: Constants.PANEL_MARGIN_BOTTOM,
-          top: Constants.PANEL_MARGIN_TOP });
+      })
+        .margin({
+          bottom: Constants.PANEL_MARGIN_BOTTOM,
+          top: Constants.PANEL_MARGIN_TOP
+        });
     }
     .justifyContent(FlexAlign.End)
     .height(Constants.PERCENTAGE_100)

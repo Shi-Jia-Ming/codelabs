@@ -43,7 +43,7 @@ export struct StackAlignRadioList {
         ForEach(this.radioList, (item, index) => {
           StackAlignRadioListItem({ textName: item, groupName: this.groupName, isChecked: index === 0 ? true : false })
             .margin({ right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN })
-        })
+        }, item => JSON.stringify(item))
       }
       .width(ALL_PERCENT)
       .height(ALL_PERCENT)

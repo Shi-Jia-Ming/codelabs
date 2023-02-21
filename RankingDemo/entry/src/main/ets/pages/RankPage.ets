@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import prompt from '@ohos.prompt';
+import prompt from '@ohos.promptAction';
 import { RankViewModel } from '../viewmodel/RankViewModel';
 import { RankData } from '../common/bean/RankData';
 import { ListHeaderComponent } from '../view/ListHeaderComponent';
@@ -52,7 +52,7 @@ struct RankPage {
   }
 
   onBackPress() {
-    let options= {
+    let options = {
       message: $r('app.string.prompt_text'),
       duration: TIME
     }
@@ -74,11 +74,16 @@ struct RankPage {
       TitleComponent({ isRefreshData: $isSwitchDataSource, title: TITLE })
       // The head style of List component.
       ListHeaderComponent({
-        paddingValue: { left: Style.RANK_PADDING,
-          right: Style.RANK_PADDING },
+        paddingValue: {
+          left: Style.RANK_PADDING,
+          right: Style.RANK_PADDING
+        },
         widthValue: Style.CONTENT_WIDTH
-      }).margin({ top: Style.HEADER_MARGIN_TOP,
-          bottom: Style.HEADER_MARGIN_BOTTOM })
+      })
+        .margin({
+          top: Style.HEADER_MARGIN_TOP,
+          bottom: Style.HEADER_MARGIN_BOTTOM
+        })
       // The style of List component.
       this.RankList(Style.CONTENT_WIDTH)
     }
@@ -97,14 +102,16 @@ struct RankPage {
                 isSwitchDataSource: this.isSwitchDataSource
               })
             }
-          }, (item, index) => item.id)
+          }, item => JSON.stringify(item))
       }
       .width(WEIGHT)
       .height(Style.LIST_HEIGHT)
       .divider({ strokeWidth: Style.STROKE_WIDTH })
     }
-    .padding({ left: Style.RANK_PADDING,
-      right: Style.RANK_PADDING })
+    .padding({
+      left: Style.RANK_PADDING,
+      right: Style.RANK_PADDING
+    })
     .borderRadius(Style.BORDER_RADIUS)
     .width(widthValue)
     .alignItems(HorizontalAlign.Center)

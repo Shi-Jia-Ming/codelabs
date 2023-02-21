@@ -8,20 +8,19 @@
 
 
 
-
-
 ### 相关概念
 
-[Swiper]( https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)：滑动容器，提供子组件切换滑动的能力。
+- [Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)：滑动容器，提供子组件切换滑动的能力。
 
-[Stack]( https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-stack-0000001333641093)：堆叠容器，子组件按照顺序依次入栈，后入栈组件在先入栈组件上方显示。
+- [Stack](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-stack-0000001333641093)：堆叠容器，子组件按照顺序依次入栈，后入栈组件在先入栈组件上方显示。
 
-[Video]( https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-media-components-video-0000001333641101)：视频播放组件。
+- [Video](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-media-components-video-0000001333641101)：视频播放组件。
 
-[Observed和ObjectLink数据管理]( https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711#ZH-CN_TOPIC_0000001157388859__observed%E5%92%8Cobjectlink%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86)：
+-  [Observed和ObjectLink数据管理](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711#ZH-CN_TOPIC_0000001157388859__observed%E5%92%8Cobjectlink%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86)： 
 
--   @Observed应用于类，表示该类中的数据变更被UI页面管理，例如：@Observed class ClassA \{\}。
--   @ObjectLink应用于被@Observed所装饰类的对象，例如：@ObjectLink a: ClassA。
+  @Observed应用于类，表示该类中的数据变更被UI页面管理，例如：@Observed class ClassA {}。
+
+  @ObjectLink应用于被@Observed所装饰类的对象，例如：@ObjectLink a: ClassA。
 
 ### 相关权限
 

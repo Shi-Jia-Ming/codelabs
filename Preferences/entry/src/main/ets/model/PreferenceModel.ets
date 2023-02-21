@@ -19,7 +19,6 @@ import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import Fruit from '../common/bean/Fruit';
 
-// Get AbilityContext.
 let context = getContext(this);
 let preference: dataPreferences.Preferences = null;
 

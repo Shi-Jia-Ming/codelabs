@@ -28,7 +28,7 @@ export struct SwiperVideo {
       Swiper() {
         ForEach(SWIPER_VIDEOS, item => {
           SwiperItem({ imageSrc: item.image, source: VIDEO_TYPE.INNER })
-        })
+        }, item => JSON.stringify(item))
       }
       .autoPlay(true)
     }
@@ -36,7 +36,7 @@ export struct SwiperVideo {
     .width(STRING_PERCENT.INDEX_COMPONENT_WITH_PERCENT)
     .backgroundColor($r('app.color.white'))
     .margin({ 
-	  left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
+	    left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
       right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
       top: MARGIN_FONT_SIZE.FOURTH_MARGIN
 	})
@@ -50,7 +50,8 @@ struct SwiperItem {
 
   build() {
     Navigator({ target: SECOND_PAGE, type: NavigationType.Push }) {
-      Image(this.imageSrc).borderRadius(MARGIN_FONT_SIZE.FIRST_MARGIN)
+      Image(this.imageSrc)
+        .borderRadius(MARGIN_FONT_SIZE.FIRST_MARGIN)
     }
     .params({ source: this.source })
   }

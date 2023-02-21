@@ -43,7 +43,7 @@ export struct FlexShowList {
       }) {
         ForEach(this.list, (item) => {
           CommonItem({ item: item })
-        }, item => item.toString())
+        }, item => JSON.stringify(item))
       }
       .padding(MARGIN_FONT_SIZE_SPACE.COMMON_PADDING)
       .width(ALL_PERCENT)

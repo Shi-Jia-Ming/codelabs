@@ -32,7 +32,7 @@ struct SimpleVideoIndex {
           ListItem() {
             VideoModule({ moduleName: item }).margin({ top: MARGIN_FONT_SIZE.FIRST_MARGIN })
           }
-        }, item => item)
+        }, item => JSON.stringify(item))
       }
       .listDirection(Axis.Vertical)
       .margin({ top: MARGIN_FONT_SIZE.THIRD_MARGIN })
