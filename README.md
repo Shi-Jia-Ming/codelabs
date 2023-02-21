@@ -14,6 +14,7 @@
 
 - Ability框架
   - [UIAbility内页面间的跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PagesRouter)
+  - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StageAbilityDemo)
 - UI（ArkTS）
   - [Swiper的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwiperArkTS)
   - [Web组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/WebCookie)
