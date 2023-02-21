@@ -16,7 +16,12 @@
 import router from '@ohos.router';
 import { iconOnclick } from '../model/VideoControll';
 import { VideoPlayer } from '../view/VideoPlayer';
-import { MARGIN_FONT_SIZE, COMMON_NUM_FONT_WEIGHT, ALL_PERCENT, STACK_STYLE } from '../common/constants/CommonConstants';
+import {
+  MARGIN_FONT_SIZE,
+  COMMON_NUM_FONT_WEIGHT,
+  ALL_PERCENT,
+  STACK_STYLE
+} from '../common/constants/CommonConstants';
 
 /**
  * second page
@@ -72,14 +77,26 @@ struct Play {
             })
         }
         if (this.isLoading) {
-          Progress({ value: STACK_STYLE.PROGRESS_VALUE, total: STACK_STYLE.PROGRESS_TOTAL, type: ProgressType.ScaleRing })
+          Progress({
+            value: STACK_STYLE.PROGRESS_VALUE,
+            total: STACK_STYLE.PROGRESS_TOTAL,
+            type: ProgressType.ScaleRing
+          })
             .color(Color.Grey)
             .value(this.progressVal)
             .width(STACK_STYLE.PROGRESS_WIDTH)
-            .style({ strokeWidth: STACK_STYLE.PROGRESS_STROKE_WIDTH, scaleCount: STACK_STYLE.PROGRESS_SCALE_COUNT, scaleWidth: STACK_STYLE.PROGRESS_SCALE_WIDTH })
+            .style({
+              strokeWidth: STACK_STYLE.PROGRESS_STROKE_WIDTH,
+              scaleCount: STACK_STYLE.PROGRESS_SCALE_COUNT,
+              scaleWidth: STACK_STYLE.PROGRESS_SCALE_WIDTH
+            })
             .zIndex(STACK_STYLE.PROGRESS_Z_INDEX)
         }
-        VideoPlayer({ source: this.source, controller: this.controller }).zIndex(0)
+        VideoPlayer({
+          source: this.source,
+          controller: this.controller
+        })
+          .zIndex(0)
 
       }
     }

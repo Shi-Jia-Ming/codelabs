@@ -10,7 +10,9 @@
 
 [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)：列表包含一系列相同宽度的列表项；
 
-[Tabs](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-tabs-0000001281001258)、[TabContent组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-tabcontent-0000001281201166)：通过页签进行内容视图切换；
+[Tabs](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-tabs-0000001281001258)：通过页签进行内容视图切换的容器组件；
+
+[TabContent组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-tabcontent-0000001281201166)：仅在Tabs中使用，对应一个切换页签的内容视图；
 
 [数据请求](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-http-0000001281201030)：提供发起请求、中断请求、订阅/取消订阅HTTP Response Header 等方法；
 

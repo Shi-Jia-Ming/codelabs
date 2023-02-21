@@ -27,9 +27,8 @@ export struct StackComponent {
 
   build() {
     Column() {
-
       Stack({ alignContent: this.currentStackAlignContent }) {
-        Text("")
+        Text('')
           .width(ALL_PERCENT)
           .height(ALL_PERCENT)
           .fontSize(MARGIN_FONT_SIZE_SPACE.FOURTH_MARGIN)
@@ -46,11 +45,11 @@ export struct StackComponent {
       .width(ALL_PERCENT)
       .height(SHOW_LIST_HEIGHT_PERCENT.STACK_SHOW_LIST_HEIGHT)
       // set align in stack
-      StackAlignRadioList().margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
+      StackAlignRadioList()
+        .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
     }
     .layoutWeight(1)
     .height(ALL_PERCENT)
     .width(ALL_PERCENT)
-
   }
 }

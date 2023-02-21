@@ -40,23 +40,24 @@ export struct VideoModule {
       .margin({ left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
         bottom: MARGIN_FONT_SIZE.FIRST_MARGIN,
         top: MARGIN_FONT_SIZE.FIRST_MARGIN })
+
       List({ space: MARGIN_FONT_SIZE.FIRST_MARGIN }) {
         ForEach(HORIZONTAL_VIDEOS, item => {
           ListItem() {
             HorizontalItem({
- 			  imageSrc: item.image,
-			  source: VIDEO_TYPE.NET,
-			  videoName: item.name
-			})
+              imageSrc: item.image,
+              source: VIDEO_TYPE.NET,
+              videoName: item.name
+            })
           }
-        }, item => item.id.toString())
+        }, item => JSON.stringify(item))
       }
       .listDirection(Axis.Horizontal)
     }
-    .margin({ 
-	  left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
+    .margin({
+      left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
       right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN
-	})
+    })
     .height(STRING_PERCENT.INDEX_MODULE_HEIGHT_PERCENT)
     .width(STRING_PERCENT.INDEX_COMPONENT_WITH_PERCENT)
     .justifyContent(FlexAlign.Center)
@@ -85,7 +86,7 @@ struct HorizontalItem {
           });
         })
       Text(this.videoName)
-        .margin({top:MARGIN_FONT_SIZE.FIRST_MARGIN})
+        .margin({ top: MARGIN_FONT_SIZE.FIRST_MARGIN })
         .textAlign(TextAlign.Center)
         .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
     }

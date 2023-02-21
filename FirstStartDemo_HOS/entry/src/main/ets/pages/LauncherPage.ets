@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import AppContext from '@ohos.app.ability.common';
-import DataPreferences from '@ohos.data.preferences';
-import Router from '@ohos.router';
+import common from '@ohos.app.ability.common';
+import preferences from '@ohos.data.preferences';
+import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import CustomDialogComponent from '../view/CustomDialogComponent';
@@ -28,7 +28,7 @@ import CustomDialogComponent from '../view/CustomDialogComponent';
 @Entry
 @Component
 struct LauncherPage {
-  private context: AppContext.UIAbilityContext;
+  private context: common.UIAbilityContext;
   private timerId: number = 0;
   private jumpToAdvertisingFlag: boolean = false;
   dialogController: CustomDialogController = new CustomDialogController({
@@ -56,7 +56,7 @@ struct LauncherPage {
 
   onPageHide() {
     if (this.jumpToAdvertisingFlag) {
-      Router.clear();
+      router.clear();
     }
     clearTimeout(this.timerId);
   }
@@ -67,7 +67,7 @@ struct LauncherPage {
   jumpToAdvertisingPage() {
     this.timerId = setTimeout(() => {
       this.jumpToAdvertisingFlag = true;
-      Router.pushUrl({
+      router.pushUrl({
         url: CommonConstants.ADVERTISING_PAGE_URL
       }).catch((error) => {
         Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
@@ -76,8 +76,8 @@ struct LauncherPage {
   }
 
   saveIsPrivacy() {
-    let preferences: Promise<DataPreferences.Preferences> = this.getDataPreferences();
-    preferences.then((result: DataPreferences.Preferences) => {
+    let preferences: Promise<preferences.Preferences> = this.getDataPreferences();
+    preferences.then((result: preferences.Preferences) => {
       let privacyPut = result.put(CommonConstants.PREFERENCES_KEY_PRIVACY, false);
       result.flush();
       privacyPut.then(() => {
@@ -91,10 +91,10 @@ struct LauncherPage {
   }
 
   onPageShow() {
-    this.context = getContext(this) as AppContext.UIAbilityContext;
+    this.context = getContext(this) as common.UIAbilityContext;
     // Get the operation class for saving data.
-    this.getDataPreferences().then((preferences: DataPreferences.Preferences) => {
-      preferences.get(CommonConstants.PREFERENCES_KEY_PRIVACY, true).then((value: DataPreferences.ValueType) => {
+    this.getDataPreferences().then((preferences: preferences.Preferences) => {
+      preferences.get(CommonConstants.PREFERENCES_KEY_PRIVACY, true).then((value: preferences.ValueType) => {
         Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'AboutToAppear value: ' + value);
         if (value) {
           this.dialogController.open();
@@ -109,7 +109,7 @@ struct LauncherPage {
    * Get data preferences action.
    */
   getDataPreferences() {
-    return DataPreferences.getPreferences(this.context, CommonConstants.PREFERENCES_FILE_NAME);
+    return preferences.getPreferences(this.context, CommonConstants.PREFERENCES_FILE_NAME);
   }
 
   build() {

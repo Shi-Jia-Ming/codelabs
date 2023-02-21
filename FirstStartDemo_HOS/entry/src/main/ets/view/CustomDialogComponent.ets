@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Router from '@ohos.router';
+import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 
@@ -47,7 +47,7 @@ export default struct CustomDialogComponent {
         .fontSize($r('app.float.dialog_common_text_size'))
         .onClick(() => {
           this.controller.close();
-          Router.pushUrl({
+          router.pushUrl({
             url: CommonConstants.PRIVACY_PAGE_URL
           }).catch((error) => {
             Logger.error(CommonConstants.CUSTOM_DIALOG_TAG, 'CustomDialog pushUrl error ' + JSON.stringify(error));

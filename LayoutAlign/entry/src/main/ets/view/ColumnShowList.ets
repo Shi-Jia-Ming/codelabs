@@ -33,7 +33,7 @@ export struct ColumnShowList {
       Column() {
         ForEach(LIST, (item) => {
           CommonItem({ item: item })
-        }, item => item)
+        }, item => JSON.stringify(item))
       }
       .alignItems(this.currentColumnAlignItems)
       .justifyContent(this.currentColumnJustifyContent)
@@ -43,14 +43,15 @@ export struct ColumnShowList {
       .backgroundColor($r("app.color.show_list_backgroundColor"))
       .margin({ top: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN })
       // set main align
-      ColumnMainAlignRadioList().margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
+      ColumnMainAlignRadioList()
+        .margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
       // set axis align
-      ColumnAxisAlignRadioList().margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
+      ColumnAxisAlignRadioList()
+        .margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
     }
     .layoutWeight(1)
     .height(ALL_PERCENT)
     .width(ALL_PERCENT)
-
   }
 }
 

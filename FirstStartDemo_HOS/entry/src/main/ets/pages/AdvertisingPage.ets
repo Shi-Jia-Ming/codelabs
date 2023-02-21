@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Router from '@ohos.router';
+import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 
@@ -37,7 +37,7 @@ struct AdvertisingPage {
   }
 
   onPageHide() {
-    Router.clear();
+    router.clear();
     clearInterval(this.timeId);
   }
 
@@ -45,7 +45,7 @@ struct AdvertisingPage {
    * Jump to app home page.
    */
   jumpToAppHomePage() {
-    Router.pushUrl({
+    router.pushUrl({
       url: CommonConstants.APP_HOME_PAGE_URL
     }).catch((error) => {
       Logger.error(CommonConstants.ADVERTISING_PAGE_TAG, 'AdvertisingPage pushUrl error ' + JSON.stringify(error));

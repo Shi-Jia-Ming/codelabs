@@ -6,15 +6,15 @@
 ![](screenshots/health_life.gif)
 
 ### 相关概念
-- [AppStorage](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ts-application-states-appstorage-0000001333321265#ZH-CN_TOPIC_0000001333321265__appstorage%E6%8E%A5%E5%8F%A3) : 应用程序中的单例对象，为应用程序范围内的可变状态属性提供中央存储。
-- [@Observed和 @ObjectLink](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ts-other-states-observed-objectlink-0000001281201222)：@Observed 适用于类，表示类中的数据变化由UI页面管理；@ObjectLink 应用于被@Observed 装饰类的对象。
-- [@Consume 和 @Provide](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ts-other-states-consume-provide-0000001333321277)：@Provide 作为数据提供者，可以更新子节点的数据，触发页面渲染。@Consume 检测到@Provide 数据更新后，会发起当前视图的重新渲染。
-- [Flex](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-flex-0000001281001250) : 一个功能强大的容器组件，支持横向布局，竖向布局，子组件均分和流式换行布局。
-- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573): List 是很常用的滚动类容器组件之一，它按照水平或者竖直方向线性排列子组件， List 的子组件必须是 ListItem ，它的宽度默认充满 List 的宽度。
-- [TimePicker](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-timepicker-0000001281480698):TimePicker 是选择时间的滑动选择器组件，默认以 00:00 至 23:59 的时间区创建滑动选择器。
-- [toggle](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-toggle-0000001281361118): 组件提供勾选框样式、状态按钮样式及开关样式。
+- [AppStorage](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-state-management-0000001385819260#ZH-CN_TOPIC_0000001385819260__appstorage)：应用程序中的单例对象，为应用程序范围内的可变状态属性提供中央存储。
+- [@Observed和 @ObjectLink](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711#ZH-CN_TOPIC_0000001157388859__observed%E5%92%8Cobjectlink%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86)：@Observed 适用于类，表示类中的数据变化由UI页面管理；@ObjectLink 应用于被@Observed 装饰类的对象。
+- [@Consume 和 @Provide](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711#ZH-CN_TOPIC_0000001157388859__consume%E5%92%8Cprovide)：@Provide 作为数据提供者，可以更新子节点的数据，触发页面渲染。@Consume 检测到@Provide 数据更新后，会发起当前视图的重新渲染。
+- [Flex](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-flex-0000001281001250)：一个功能强大的容器组件，支持横向布局，竖向布局，子组件均分和流式换行布局。
+- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)：List 是很常用的滚动类容器组件之一，它按照水平或者竖直方向线性排列子组件， List 的子组件必须是 ListItem ，它的宽度默认充满 List 的宽度。
+- [TimePicker](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-timepicker-0000001281480698)：TimePicker 是选择时间的滑动选择器组件，默认以 00:00 至 23:59 的时间区创建滑动选择器。
+- [Toggle](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-toggle-0000001281361118)： 组件提供勾选框样式、状态按钮样式及开关样式。
 - [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-data-rdb-0000001281001102)：一种基于关系模型来管理数据的数据库。
-- [首选项](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-data-storage-0000001281360982)：首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。
+- [首选项](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-data-preferences-0000001427745052-V3?catalogVersion=V3)：首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。
 
 ### 相关权限
 不涉及

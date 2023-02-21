@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import Router from '@ohos.router';
+import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
 
 /**
@@ -43,7 +43,7 @@ struct PrivacyPage {
         .textAlign(TextAlign.Center)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          Router.back();
+          router.back();
         })
         .margin({ top: $r('app.float.privacy_bottom_text_margin') })
     }

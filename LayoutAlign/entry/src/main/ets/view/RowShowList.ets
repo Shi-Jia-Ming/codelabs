@@ -28,13 +28,11 @@ export struct RowShowList {
 
   build() {
     Column() {
-
-
       // Row中元素对齐方式布局
       Row() {
         ForEach(LIST, (item) => {
           CommonItem({ item: item })
-        }, item => item)
+        }, item => JSON.stringify(item))
       }
       .alignItems(this.currentRowAlignItems)
       .justifyContent(this.currentRowJustifyContent)
@@ -45,9 +43,11 @@ export struct RowShowList {
       .margin({ top: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN })
 
       // set main align
-      RowMainAlignRadioList().margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
+      RowMainAlignRadioList()
+        .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
       // set axis align
-      RowAxisAlignRadioList().margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
+      RowAxisAlignRadioList()
+        .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
     }
     .layoutWeight(1)
     .height(ALL_PERCENT)

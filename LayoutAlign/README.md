@@ -4,6 +4,8 @@
 
 基于ArkUI框架，实现 Flex、Column、Row 和 Stack 四种常用布局容器对齐方式。
 
+![](screenshots/layout.gif)
+
 ### 相关概念
 
 主轴：在Flex容器内可设置主轴方向，当主轴方向设置为Column时，主轴方向为水平方向，当设置为Row时，主轴方向为垂直方向。Stack容器属于堆叠容器没有主轴方向

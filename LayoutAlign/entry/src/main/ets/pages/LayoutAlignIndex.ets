@@ -48,7 +48,7 @@ struct LayoutAlignIndex {
           ListItem() {
             ListItemComp({ item: item }).margin({ top: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN })
           }
-        }, item => item.name)
+        }, item => JSON.stringify(item))
       }
       .listDirection(Axis.Vertical)
       .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })

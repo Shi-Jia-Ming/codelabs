@@ -10,7 +10,7 @@
 
 [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573) ：列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
 
-[循环渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ts-rending-control-syntax-foreach-0000001333721033) ： 开发框架提供循环渲染（ForEach组件）来迭代数组，并为每个数组项创建相应的组件。
+[循环渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-rendering-control-0000001149698611#ZH-CN_TOPIC_0000001157228877__%E5%BE%AA%E7%8E%AF%E6%B8%B2%E6%9F%93) ： 开发框架提供循环渲染（ForEach组件）来迭代数组，并为每个数组项创建相应的组件。
 
 [警告弹窗](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-methods-alert-dialog-box-0000001281201174) ：显示警告弹窗组件，可设置文本内容与响应回调。
 

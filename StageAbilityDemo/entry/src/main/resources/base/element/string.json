@@ -1,0 +1,240 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "entryAbility_label",
+      "value": "StageAbilityDemo"
+    },
+    {
+      "name": "details_ability_desc",
+      "value": "description"
+    },
+    {
+      "name": "details_ability_label",
+      "value": "StageAbilityDemoDetail"
+    },
+    {
+      "name": "put_in_shopping_cart",
+      "value": "加入购物车"
+    },
+    {
+      "name": "buy_now",
+      "value": "立即购买"
+    },
+    {
+      "name": "homepage_tab_more",
+      "value": "分类"
+    },
+    {
+      "name": "homepage_search_hot_word",
+      "value": "儿童餐椅"
+    },
+    {
+      "name": "detail_comment",
+      "value": "和描述相符合很喜欢，做工细致，颜色好看，原装正品"
+    },
+    {
+      "name": "detail_comment_phone",
+      "value": "188******1765"
+    },
+    {
+      "name": "detail_comment_header_left",
+      "value": "用户评价 （2万+）"
+    },
+    {
+      "name": "detail_comment_header_right",
+      "value": "好评"
+    },
+    {
+      "name": "detail_enjoy",
+      "value": "分享"
+    },
+    {
+      "name": "detail_collection",
+      "value": "收藏"
+    },
+    {
+      "name": "detail_price_notify",
+      "value": "降价通知"
+    },
+    {
+      "name": "detail_address_text",
+      "value": "送至"
+    },
+    {
+      "name": "detail_address_holder_text",
+      "value": "请选择您的收货地址"
+    },
+    {
+      "name": "detail_goods_picker_left_text",
+      "value": "已选"
+    },
+    {
+      "name": "detail_price_symbol",
+      "value": "￥"
+    },
+    {
+      "name": "commentRatio",
+      "value": "99%"
+    },
+    {
+      "name": "home_tab_index",
+      "value": "首页"
+    },
+    {
+      "name": "home_tab_phone",
+      "value": "手机"
+    },
+    {
+      "name": "home_tab_food",
+      "value": "食品"
+    },
+    {
+      "name": "home_tab_men_clothing",
+      "value": "男装"
+    },
+    {
+      "name": "home_tab_fresh_food",
+      "value": "生鲜"
+    },
+    {
+      "name": "home_tab_furniture",
+      "value": "家具"
+    },
+    {
+      "name": "home_tab_mom_and_infant",
+      "value": "母婴"
+    },
+    {
+      "name": "home_tab_kitchen_things",
+      "value": "厨具"
+    },
+    {
+      "name": "home_menu_all",
+      "value": "全部"
+    },
+    {
+      "name": "home_menu_all_content",
+      "value": "为你推荐"
+    },
+    {
+      "name": "home_menu_select",
+      "value": "精选"
+    },
+    {
+      "name": "home_menu_select_content",
+      "value": "发现好货"
+    },
+    {
+      "name": "home_menu_new",
+      "value": "新品"
+    },
+    {
+      "name": "home_menu_new_content",
+      "value": "新品首发"
+    },
+    {
+      "name": "home_menu_discounts",
+      "value": "实惠"
+    },
+    {
+      "name": "home_menu_discounts_content",
+      "value": "便宜好货"
+    },
+    {
+      "name": "goods_list_item_1",
+      "value": "新款手机！ 新品优惠！"
+    },
+    {
+      "name": "goods_list_item_2",
+      "value": "送给亲人 快速购买！"
+    },
+    {
+      "name": "goods_list_item_3",
+      "value": "儿童座椅"
+    },
+    {
+      "name": "goods_list_item_4",
+      "value": "背包"
+    },
+    {
+      "name": "goods_list_item_1_save",
+      "value": "限时省1000"
+    },
+    {
+      "name": "goods_list_item_2_save",
+      "value": "限时省200"
+    },
+    {
+      "name": "goods_list_item_3_save",
+      "value": "限时省100"
+    },
+    {
+      "name": "goods_list_item_4_save",
+      "value": "限时省100"
+    },
+    {
+      "name": "goods_list_item_1_desc",
+      "value": "仲夏紫·8GB+128GB·4G全网通·官方标配·x1"
+    },
+    {
+      "name": "goods_list_item_2_desc",
+      "value": "固态硬盘·官方标配·x1"
+    },
+    {
+      "name": "goods_list_item_3_desc",
+      "value": "纯色·儿童座椅·x1"
+    },
+    {
+      "name": "goods_list_item_4_desc",
+      "value": "灰色·背包·电脑背包·x1"
+    },
+    {
+      "name": "goods_list_activity_new",
+      "value": "新品"
+    },
+    {
+      "name": "goods_list_activity_time",
+      "value": "限时"
+    },
+    {
+      "name": "nav_index",
+      "value": "主页"
+    },
+    {
+      "name": "nav_new",
+      "value": "新品"
+    },
+    {
+      "name": "nav_shopping_cart",
+      "value": "购物车"
+    },
+    {
+      "name": "nav_mine",
+      "value": "我的"
+    },
+    {
+      "name": "goods_service_1_name",
+      "value": "服务"
+    },
+    {
+      "name": "goods_service_1_desc",
+      "value": "免运费（请以提交订单时为准）"
+    },
+    {
+      "name": "goods_service_2_desc",
+      "value": "店铺发货&售后"
+    },
+    {
+      "name": "goods_service_3_desc",
+      "value": "7天无理由退货"
+    }
+  ]
+}

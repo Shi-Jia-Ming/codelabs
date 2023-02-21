@@ -1,14 +1,18 @@
-# 简单视频播放器
+# 简单视频播放器（ArkTS）
 
 ### 简介
 
 基于ArkUI框架，实现一个简单视频播放器，可支持海报轮播、视频播放等功能。
 
+![](screenshots/video.gif)
+
 ### 相关概念
 
-[Video组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-media-components-video.md)：用于播放单个视频并控制其播放状态的组件。
-[Slider组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-basic-components-slider.md)：滑动条组件，用来快速调节设置值，如音量、亮度等。
-[Swiper组件](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/reference/arkui-ts/ts-container-swiper.md)：滑块视图容器，提供子组件滑动轮播显示的能力。
+- [Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)组件：滑动容器，提供切换子组件显示的能力。
+- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)组件：列表包含一系列相同宽度的列表项。适合连续、多行呈现同类数据，例如图片和文本。
+- [Video](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-media-components-video-0000001333641101)组件：视频播放组件。
+- [Navigator](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-navigator-0000001333321217)组件：路由容器组件，提供路由跳转能力。
+- [ForEach](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-rendering-control-0000001149698611)组件：循环渲染组件**，**迭代数组并为每个数组项创建相应的组件。
 
 ### 相关权限
 

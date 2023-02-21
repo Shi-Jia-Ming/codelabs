@@ -57,16 +57,18 @@ struct Second {
       Column({ space: MARGIN_FONT_SIZE_SPACE.SIXTH_MARGIN }) {
         Column() {
           BackComp({ componentName: this.componentName })
-          if (this.containerType == CONTAINER_TYPE.FLEX) {
+          if (this.containerType === CONTAINER_TYPE.FLEX) {
             FlexShowList()
-          } else if (this.containerType == CONTAINER_TYPE.COLUMN) {
+          } else if (this.containerType === CONTAINER_TYPE.COLUMN) {
             ColumnShowList()
-          } else if (this.containerType == CONTAINER_TYPE.ROW) {
+          } else if (this.containerType === CONTAINER_TYPE.ROW) {
             RowShowList()
           } else {
             StackComponent()
           }
-        }.width(ALL_PERCENT).height(ALL_PERCENT)
+        }
+        .width(ALL_PERCENT)
+        .height(ALL_PERCENT)
       }
       .width(ALL_PERCENT)
     }
