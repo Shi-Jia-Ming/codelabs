@@ -1,18 +1,18 @@
 {
-	"license": "ISC",
-	"devDependencies": {},
-	"name": "supervisualsample",
-	"ohos": {
-		"org": "huawei",
-		"directoryLevel": "project",
-		"buildTool": "hvigor"
-	},
-	"description": "example description",
-	"repository": {},
-	"version": "1.0.0",
-	"dependencies": {
-		"@ohos/hypium": "1.0.3",
-		"@ohos/hvigor-ohos-plugin": "1.3.1-rc24",
-		"@ohos/hvigor": "1.3.1-rc24"
-	}
+  "license": "ISC",
+  "devDependencies": {},
+  "name": "supervisualsample",
+  "ohos": {
+	"org": "huawei",
+	"directoryLevel": "project",
+	"buildTool": "hvigor"
+  },
+  "description": "example description",
+  "repository": {},
+  "version": "1.0.0",
+  "dependencies": {
+	"@ohos/hypium": "1.0.3",
+	"@ohos/hvigor-ohos-plugin": "1.4.0",
+	"@ohos/hvigor": "1.4.0"
+  }
 }
