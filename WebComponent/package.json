@@ -13,6 +13,6 @@
   "dependencies": {
     "@ohos/hypium": "1.0.3",
     "@ohos/hvigor-ohos-plugin": "1.4.0",
-    "@ohos/hvigor": "1.4.0",
+    "@ohos/hvigor": "1.4.0"
   }
 }
