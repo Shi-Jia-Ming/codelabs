@@ -1,0 +1,228 @@
+{
+  "float": [
+    {
+      "name": "alarms_item_desc_text_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "divider_opacity",
+      "value": "0.05"
+    },
+    {
+      "name": "setting_item_content_font_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "page_title_height",
+      "value": "56"
+    },
+    {
+      "name": "content_margin_body",
+      "value": "16"
+    },
+    {
+      "name": "title_horizon_margin",
+      "value": "24"
+    },
+    {
+      "name": "title_font_size",
+      "value": "24"
+    },
+    {
+      "name": "new_alarm_button_size",
+      "value": "48"
+    },
+    {
+      "name": "new_alarm_button_margin_vertical",
+      "value": "24"
+    },
+    {
+      "name": "title_button_size",
+      "value": "24"
+    },
+    {
+      "name": "delete_button_width",
+      "value": "120"
+    },
+    {
+      "name": "delete_button_height",
+      "value": "40"
+    },
+    {
+      "name": "delete_button_font_size",
+      "value": "16"
+    },
+    {
+      "name": "delete_button_radius",
+      "value": "20"
+    },
+    {
+      "name": "delete_button_margin_bottom",
+      "value": "24"
+    },
+    {
+      "name": "alarm_list_space",
+      "value": "12"
+    },
+    {
+      "name": "alarm_list_content_distance",
+      "value": "12"
+    },
+    {
+      "name": "alarms_item_noon_font_size",
+      "value": "16"
+    },
+    {
+      "name": "alarms_item_time_font_size",
+      "value": "24"
+    },
+    {
+      "name": "alarms_item_time_margin_left",
+      "value": "4"
+    },
+    {
+      "name": "alarms_item_dec_font_size",
+      "value": "14"
+    },
+    {
+      "name": "alarms_item_dec_margin_top",
+      "value": "2"
+    },
+    {
+      "name": "alarms_item_toggle_width",
+      "value": "36"
+    },
+    {
+      "name": "alarms_item_toggle_height",
+      "value": "20"
+    },
+    {
+      "name": "alarms_item_height",
+      "value": "72"
+    },
+    {
+      "name": "alarms_item_radius",
+      "value": "24"
+    },
+    {
+      "name": "clock_size",
+      "value": "252"
+    },
+    {
+      "name": "clock_time_font_size",
+      "value": "60"
+    },
+    {
+      "name": "detail_title_font_size",
+      "value": "20"
+    },
+    {
+      "name": "title_line_height",
+      "value": "28"
+    },
+    {
+      "name": "title_margin",
+      "value": "16"
+    },
+    {
+      "name": "common_dialog_title_font_size",
+      "value": "20"
+    },
+    {
+      "name": "common_dialog_title_margin_vertical",
+      "value": "12"
+    },
+    {
+      "name": "common_dialog_margin_vertical",
+      "value": "12"
+    },
+    {
+      "name": "common_dialog_padding",
+      "value": "24"
+    },
+    {
+      "name": "common_dialog_button_font_size",
+      "value": "15"
+    },
+    {
+      "name": "common_dialog_button_height",
+      "value": "40"
+    },
+    {
+      "name": "duration_dialog_content_font_size",
+      "value": "14"
+    },
+    {
+      "name": "duration_dialog_radio_size",
+      "value": "20"
+    },
+    {
+      "name": "interval_dialog_title_font_size",
+      "value": "10"
+    },
+    {
+      "name": "interval_dialog_title_margin_top",
+      "value": "10"
+    },
+    {
+      "name": "interval_dialog_result_font_size",
+      "value": "16"
+    },
+    {
+      "name": "rename_dialog_text_margin_bottom",
+      "value": "20"
+    },
+    {
+      "name": "repeat_dialog_check_font_size",
+      "value": "14"
+    },
+    {
+      "name": "repeat_dialog_check_box_size",
+      "value": "20"
+    },
+    {
+      "name": "date_picker_height",
+      "value": "200"
+    },
+    {
+      "name": "date_picker_padding_horizon",
+      "value": "24"
+    },
+    {
+      "name": "setting_item_divider_margin_horizon",
+      "value": "12"
+    },
+    {
+      "name": "setting_item_name_font_size",
+      "value": "16"
+    },
+    {
+      "name": "setting_item_content_font_size",
+      "value": "14"
+    },
+    {
+      "name": "setting_item_image_width",
+      "value": "6.7"
+    },
+    {
+      "name": "setting_item_image_height",
+      "value": "12.8"
+    },
+    {
+      "name": "setting_item_image_margin_horizon",
+      "value": "7"
+    },
+    {
+      "name": "setting_item_height",
+      "value": "56"
+    },
+    {
+      "name": "setting_item_interval",
+      "value": "12"
+    },
+    {
+      "name": "setting_item_border_radius",
+      "value": "24"
+    }
+  ]
+}

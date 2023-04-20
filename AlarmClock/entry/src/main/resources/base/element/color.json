@@ -1,0 +1,36 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "grey_light",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "grey_divider",
+      "value": "#182431"
+    },
+    {
+      "name": "blue_light",
+      "value": "#007DFF"
+    },
+    {
+      "name": "grey_with_opacity",
+      "value": "#0C182431"
+    },
+    {
+      "name": "red_light",
+      "value": "#FA2A2D"
+    },
+    {
+      "name": "trans_parent",
+      "value": "#00000000"
+    },
+    {
+      "name": "green_light",
+      "value": "#17A98E"
+    }
+  ]
+}
