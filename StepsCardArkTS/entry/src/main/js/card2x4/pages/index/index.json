@@ -1,0 +1,88 @@
+{
+  "data": {
+    "datasets": [
+      {
+        "strokeColor": "#40FFFFFF",
+        "fillColor": "#00000000",
+        "data": [
+          {
+            "value": 0,
+            "description": "0",
+            "textLocation": "top",
+            "textColor": "#FFFFFF",
+            "pointStyle": {
+              "shape": "circle",
+              "size": 6,
+              "fillColor": "#FFFFFF",
+              "strokeColor": "#FFFFFF"
+            }
+          },
+          {
+            "value": 0,
+            "description": "0",
+            "textLocation": "top",
+            "textColor": "#FFFFFF",
+            "pointStyle": {
+              "shape": "circle",
+              "size": 6,
+              "fillColor": "#FFFFFF",
+              "strokeColor": "#FFFFFF"
+            }
+          },
+          {
+            "value": 0,
+            "description": "0",
+            "textLocation": "top",
+            "textColor": "#FFFFFF",
+            "pointStyle": {
+              "shape": "circle",
+              "size": 6,
+              "fillColor": "#FFFFFF",
+              "strokeColor": "#FFFFFF"
+            }
+          },
+          {
+            "value": 0,
+            "description": "0",
+            "textLocation": "top",
+            "textColor": "#FFFFFF",
+            "pointStyle": {
+              "shape": "circle",
+              "size": 6,
+              "fillColor": "#FFFFFF",
+              "strokeColor": "#FFFFFF"
+            }
+          }
+        ],
+        "gradient": true
+      }
+    ],
+    "options": {
+      "xAxis": {
+        "min": 0,
+        "max": 3,
+        "display": false,
+        "axisTick": 4
+      },
+      "yAxis": {
+        "min": 0,
+        "max": 1000
+      },
+      "series": {
+        "lineStyle": {
+          "width": "4px"
+        }
+      }
+    },
+    "steps": 0,
+    "percent": 0,
+    "mileage": 0
+  },
+  "actions": {
+    "routerEvent": {
+      "action": "router",
+      "abilityName": "EntryAbility"
+    }
+  }
+}
+

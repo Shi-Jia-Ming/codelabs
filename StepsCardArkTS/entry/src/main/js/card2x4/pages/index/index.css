@@ -1,0 +1,114 @@
+.card_root_layout {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.div_basic_container {
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.div_image_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.left_items {
+    height: 100%;
+    width: 50%;
+    align-content: flex-start;
+    flex-direction: column;
+    top: 24px;
+    left: 20px;
+}
+
+.left_items_top {
+    width: 100%;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.left_items_center {
+    width: 100%;
+    top: 8px;
+    align-items: flex-end;
+    position: relative;
+}
+
+.right_items {
+    width: 45%;
+    height: 50%;
+    left: 4.3%;
+    top: 60%;
+    align-items: flex-end;
+}
+
+#Chart {
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+.chartArea {
+    bottom: 15px;
+}
+
+.text {
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.steps_data_text {
+    font-size: 40px;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.steps_text {
+    opacity: 0.9;
+    color: #FFFFFF;
+    bottom: 8px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.progress {
+    width: 100%;
+    height: 40%;
+    flex-direction: row;
+    margin-top: 18px;
+    align-content: flex-start;
+}
+
+.progress_text {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.progressDiv {
+    width: 132px;
+    top: 10px;
+    bottom: 0;
+}
+
+#Progress {
+    stroke-width: 6px;
+    background-color: #40FFFFFF;
+    align-content: flex-end;
+    position: absolute;
+    color: #FFFFFF;
+}
+
+.progressText {
+    flex-direction: row;
+    top: 5px;
+}

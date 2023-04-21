@@ -1,0 +1,67 @@
+.card_root_layout {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.div_basic_container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.div_image_container {
+    background-repeat: no-repeat;
+    position: absolute;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.div_steps_container {
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    margin: 10%;
+}
+
+.div_progress {
+    color: #FFFFFF;
+    background-color: #40FFFFFF;
+    stroke-width: 12.36px;
+    z-index: 0;
+    margin: 10%;
+    position: absolute;
+}
+
+.title_container {
+    align-items: center;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+}
+
+.item_title {
+    font-weight: 400;
+    color: #FFFFFF;
+    font-size: 26.49px;
+}
+
+.item_content {
+    color: #FFFFFF;
+    opacity: 0.9;
+    font-size: 10.47px;
+    margin-top: 2px;
+    font-weight: 700;
+
+}
+
