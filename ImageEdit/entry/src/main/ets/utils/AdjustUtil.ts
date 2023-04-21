@@ -84,34 +84,34 @@ function colorTransform(rgbValue: number) {
  * @return h (0 - 360) s(0 - 100) v (0 - 100).
  */
 function rgb2hsv(red: number, green: number, blue: number) {
-  let h: number = 0, s: number = 0, v: number = 0;
-  const R: number = colorTransform(red);
-  const G: number = colorTransform(green);
-  const B: number = colorTransform(blue);
-  const maxValue = Math.max(R, Math.max(G, B));
-  const minValue = Math.min(R, Math.min(G, B));
-  v = maxValue * CommonConstants.CONVERT_INT;
+  let hsvH: number = 0, hsvS: number = 0, hsvV: number = 0;
+  const rgbR: number = colorTransform(red);
+  const rgbG: number = colorTransform(green);
+  const rgbB: number = colorTransform(blue);
+  const maxValue = Math.max(rgbR, Math.max(rgbG, rgbB));
+  const minValue = Math.min(rgbR, Math.min(rgbG, rgbB));
+  hsvV = maxValue * CommonConstants.CONVERT_INT;
   if (maxValue === 0) {
-    s = 0;
+    hsvS = 0;
   } else {
-    s = Number((1 - minValue / maxValue).toFixed(CommonConstants.DECIMAL_TWO)) * CommonConstants.CONVERT_INT;
+    hsvS = Number((1 - minValue / maxValue).toFixed(CommonConstants.DECIMAL_TWO)) * CommonConstants.CONVERT_INT;
   }
   if (maxValue === minValue) {
-    h = 0;
+    hsvH = 0;
   }
-  if (maxValue === R && G >= B) {
-    h = Math.floor(CommonConstants.ANGLE_60 * ((G - B) / (maxValue - minValue)));
+  if (maxValue === rgbR && rgbG >= rgbB) {
+    hsvH = Math.floor(CommonConstants.ANGLE_60 * ((rgbG - rgbB) / (maxValue - minValue)));
   }
-  if (maxValue === R && G < B) {
-    h = Math.floor(CommonConstants.ANGLE_60 * ((G - B) / (maxValue - minValue)) + CommonConstants.ANGLE_360);
+  if (maxValue === rgbR && rgbG < rgbB) {
+    hsvH = Math.floor(CommonConstants.ANGLE_60 * ((rgbG - rgbB) / (maxValue - minValue)) + CommonConstants.ANGLE_360);
   }
-  if (maxValue === G) {
-    h = Math.floor(CommonConstants.ANGLE_60 * ((B - R) / (maxValue - minValue)) + CommonConstants.ANGLE_120);
+  if (maxValue === rgbG) {
+    hsvH = Math.floor(CommonConstants.ANGLE_60 * ((rgbB - rgbR) / (maxValue - minValue)) + CommonConstants.ANGLE_120);
   }
-  if (maxValue === B) {
-    h = Math.floor(CommonConstants.ANGLE_60 * ((R - G) / (maxValue - minValue)) + CommonConstants.ANGLE_240);
+  if (maxValue === rgbB) {
+    hsvH = Math.floor(CommonConstants.ANGLE_60 * ((rgbR - rgbG) / (maxValue - minValue)) + CommonConstants.ANGLE_240);
   }
-  return [h, s, v];
+  return [hsvH, hsvS, hsvV];
 }
 
 /**
@@ -134,53 +134,53 @@ function rgb2hsv(red: number, green: number, blue: number) {
  * @param v value 0 ~ 100.
  * @return rgb value.
  */
-function hsv2rgb(h: number, s: number, v: number) {
-  let R: number = 0, G: number = 0, B: number = 0;
-  if (s === 0) {
-    R = G = B = Math.round((v * CommonConstants.COLOR_LEVEL_MAX) / CommonConstants.CONVERT_INT);
-    return { R, G, B };
+function hsv2rgb(hue: number, saturation: number, value: number) {
+  let rgbR: number = 0, rgbG: number = 0, rgbB: number = 0;
+  if (saturation === 0) {
+    rgbR = rgbG = rgbB = Math.round((value * CommonConstants.COLOR_LEVEL_MAX) / CommonConstants.CONVERT_INT);
+    return { rgbR, rgbG, rgbB };
   }
-  const C = (v * s) / (CommonConstants.CONVERT_INT * CommonConstants.CONVERT_INT);
-  const X = C * (1 - Math.abs((h / CommonConstants.ANGLE_60) % CommonConstants.MOD_2 - 1));
-  const M = (v - C * CommonConstants.CONVERT_INT) / CommonConstants.CONVERT_INT;
-  const HRange = Math.floor(h / CommonConstants.ANGLE_60);
-  switch (HRange) {
+  const cxmC = (value * saturation) / (CommonConstants.CONVERT_INT * CommonConstants.CONVERT_INT);
+  const cxmX = cxmC * (1 - Math.abs((hue / CommonConstants.ANGLE_60) % CommonConstants.MOD_2 - 1));
+  const cxmM = (value - cxmC * CommonConstants.CONVERT_INT) / CommonConstants.CONVERT_INT;
+  const hsvHRange = Math.floor(hue / CommonConstants.ANGLE_60);
+  switch (hsvHRange) {
     case AngelRange.ANGEL_0_60:
-      R = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     case AngelRange.ANGEL_60_120:
-      R = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     case AngelRange.ANGEL_120_180:
-      R = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     case AngelRange.ANGEL_180_240:
-      R = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     case AngelRange.ANGEL_240_300:
-      R = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     case AngelRange.ANGEL_300_360:
-      R = (C + M) * CommonConstants.COLOR_LEVEL_MAX;
-      G = (0 + M) * CommonConstants.COLOR_LEVEL_MAX;
-      B = (X + M) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbR = (cxmC + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbG = (0 + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
+      rgbB = (cxmX + cxmM) * CommonConstants.COLOR_LEVEL_MAX;
       break;
     default:
       break;
   }
   return [
-    Math.round(R),
-    Math.round(G),
-    Math.round(B)
+    Math.round(rgbR),
+    Math.round(rgbG),
+    Math.round(rgbB)
   ];
 }
