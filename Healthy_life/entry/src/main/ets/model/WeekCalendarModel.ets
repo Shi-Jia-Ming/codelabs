@@ -16,7 +16,7 @@
 import TaskInfo from '../common/bean/TaskInfo';
 import DayInfo from '../common/bean/DayInfo';
 import { WEEK_TITLES, dateToStr } from '../common/utils/Utils'
-import { Logger } from '../common/utils/log/Logger'
+import Logger from '../common/utils/Logger'
 
 // day number of on week
 export const WEEK_DAY_NUM: number = 7;
@@ -43,7 +43,7 @@ export class WeekDateModel {
 export function initializeOnStartUp(date: Date): [Array<WeekDateModel>, Array<string>] {
   let [arr, strArr] = [[], []]; // getPreviousWeek(date);
   let currentDay = date.getDay() - 1;
-  if (date.getDay() == 0) {
+  if (date.getDay() === 0) {
     currentDay = 6;
   }
   Logger.debug('WeekCalendarModel', date.toISOString());

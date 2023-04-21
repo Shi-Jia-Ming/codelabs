@@ -136,12 +136,28 @@ export const TaskList: TaskInfo[] = [
   }
 ]
 
+export const AchievementMap = {
+  '3_off': $r('app.media.ic_badge_3_off'),
+  '3_on': $r('app.media.ic_badge_3_on'),
+  '7_off': $r('app.media.ic_badge_7_off'),
+  '7_on': $r('app.media.ic_badge_7_on'),
+  '30_off': $r('app.media.ic_badge_30_off'),
+  '30_on': $r('app.media.ic_badge_30_on'),
+  '50_off': $r('app.media.ic_badge_50_off'),
+  '50_on': $r('app.media.ic_badge_50_on'),
+  '73_off': $r('app.media.ic_badge_73_off'),
+  '73_on': $r('app.media.ic_badge_73_on'),
+  '99_off': $r('app.media.ic_badge_99_off'),
+  '99_on': $r('app.media.ic_badge_99_on')
+}
+
+
 export const TaskMapById: TaskInitListType = {
   1: {
     taskID: 1,
     taskName: $r('app.string.task_morning'),
-    icon: $r('app.media.morning'),
-    dialogBg: $rawfile('dialog/getUpEarly.png'),
+    icon: $r("app.media.ic_task_morning"),
+    dialogBg: $r('app.media.ic_dialog_getup'),
     targetValue: '08: 00',
     isOpen: false,
     unit: '',
@@ -155,8 +171,8 @@ export const TaskMapById: TaskInitListType = {
   2: {
     taskID: 2,
     taskName: $r('app.string.task_water'),
-    icon: $r('app.media.water'),
-    dialogBg: $rawfile('dialog/drink.png'),
+    icon: $r("app.media.ic_task_water"),
+    dialogBg: $r('app.media.ic_dialog_drink'),
     targetValue: '0.25',
     isOpen: false,
     unit: 'L',
@@ -170,8 +186,8 @@ export const TaskMapById: TaskInitListType = {
   3: {
     taskID: 3,
     taskName: $r('app.string.task_apple'),
-    icon: $r('app.media.apple'),
-    dialogBg: $rawfile('dialog/eatApples.png'),
+    icon: $r("app.media.ic_task_apple"),
+    dialogBg: $r('app.media.ic_dialog_eat_apples'),
     targetValue: '1',
     isOpen: false,
     unit: '个',
@@ -185,8 +201,8 @@ export const TaskMapById: TaskInitListType = {
   4: {
     taskID: 4,
     taskName: $r('app.string.task_smile'),
-    icon: $r('app.media.smile'),
-    dialogBg: $rawfile('dialog/dailySmile.png'),
+    icon: $r("app.media.ic_task_smile"),
+    dialogBg: $r('app.media.ic_dialog_smile'),
     targetValue: '1',
     isOpen: false,
     unit: '次',
@@ -200,8 +216,8 @@ export const TaskMapById: TaskInitListType = {
   5: {
     taskID: 5,
     taskName: $r('app.string.task_brush'),
-    icon: $r('app.media.brush'),
-    dialogBg: $rawfile('dialog/brushTeeth.png'),
+    icon: $r("app.media.ic_task_brush"),
+    dialogBg: $r('app.media.ic_dialog_brush_teeth'),
     targetValue: '1',
     isOpen: false,
     unit: '次',
@@ -215,8 +231,8 @@ export const TaskMapById: TaskInitListType = {
   6: {
     taskID: 6,
     taskName: $r('app.string.task_night'),
-    icon: $r('app.media.night'),
-    dialogBg: $rawfile('dialog/sleepEarly.png'),
+    icon: $r("app.media.ic_task_night"),
+    dialogBg: $r('app.media.ic_dialog_sleep'),
     targetValue: '20: 00',
     isOpen: false,
     unit: '',

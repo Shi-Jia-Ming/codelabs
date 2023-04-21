@@ -25,7 +25,7 @@ export struct ListInfo {
           Flex({ justifyContent: FlexAlign.SpaceBetween, alignItems: ItemAlign.Center }) {
             Text(item.title).fontSize($r('app.float.default_16')).height($r('app.float.default_40'))
 
-            Image($rawfile('task/right_grey.png'))
+            Image($r('app.media.ic_right_grey'))
               .objectFit(ImageFit.Contain)
               .height($r('app.float.default_12'))
               .width($r('app.float.default_7'))

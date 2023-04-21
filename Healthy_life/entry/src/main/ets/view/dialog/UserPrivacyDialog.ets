@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { FONT_WEIGHT_400, OPACITY_6, OPACITY_4 } from '../../common/constants/CommonConstants'
+import { FONT_WEIGHT_400, OPACITY_6, OPACITY_4,FULL_WIDTH } from '../../common/constants/CommonConstants';
 
 @Extend(Text) function descStyle () {
   .fontSize($r('app.float.default_14'))
   .fontWeight(FONT_WEIGHT_400)
   .fontFamily($r('app.string.HarmonyHeiTi'))
   .fontColor($r(`app.element.color.titleColor`))
-  .width('100%')
+  .width(FULL_WIDTH)
   .lineHeight($r('app.float.default_20'))
   .margin({ top: $r('app.float.default_8') })
 }
@@ -58,7 +58,7 @@ export default struct UserPrivacyDialog {
             this.confirm();
           })
       }
-      .width('100%')
+      .width(FULL_WIDTH)
       .margin({ top: $r('app.float.default_22') })
       .justifyContent(FlexAlign.SpaceEvenly)
     }

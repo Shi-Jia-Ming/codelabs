@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { BroadCast } from './BroadCast'
-import { Logger } from './log/Logger'
+import { BroadCast } from './BroadCast';
+import Logger from './Logger';
 
 const APP_KEY_GROUP_DATA_SOURCE_MANAGER = 'app_key_group_data_source_manager';
 

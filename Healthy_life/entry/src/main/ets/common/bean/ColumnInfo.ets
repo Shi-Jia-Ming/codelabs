@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License,Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,14 +13,27 @@
  * limitations under the License.
  */
 
-export interface ILogger {
-    verbose(tag: string, msg: string): void;
+/**
+ * ColumnInfo
+ *
+ */
+export default class ColumnInfo {
+  name: string
+  type: string
+  length?: number
+  nullable?: boolean
+  primary?: boolean
+  autoincrement?: boolean
 
-    debug(tag: string, msg: string): void;
-
-    info(tag: string, msg: string): void;
-
-    warn(tag: string, msg: string): void;
-
-    error(tag: string, msg: string): void;
+  constructor(name: string, type: string, length?: number, nullable?: boolean,
+              primary?: boolean, autoincrement?: boolean) {
+    this.name = name;
+    this.type = type;
+    this.primary = primary;
+    this.length = length;
+    this.nullable = nullable;
+    this.autoincrement = autoincrement;
+  }
 }
+
+

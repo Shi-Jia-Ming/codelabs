@@ -17,7 +17,7 @@
 import router from '@ohos.router';
 import prompt from '@system.prompt';
 import { ITaskItem } from '../../model/TaskInitList';
-import { Logger } from '../../common/utils/log/Logger';
+import Logger from '../../common/utils/Logger';
 import * as commonConst from '../../common/constants/CommonConstants';
 import { taskType } from '../../common/bean/TaskInfo';
 import {
@@ -79,13 +79,13 @@ export default struct TaskDetail {
               editTask: this.backIndexParams(),
             }
           })
-          Logger.info('addTaskFinished', res as string);
+          Logger.info('addTaskFinished', JSON.stringify(res));
         })
-        .catch(res => {
+        .catch(error => {
           prompt.showToast({
             message: commonConst.SETTING_FINISH_FAILED_MESSAGE
           })
-          Logger.error('addTaskFailed', res as string);
+          Logger.error('addTaskFailed', JSON.stringify(error));
         })
       return;
     }

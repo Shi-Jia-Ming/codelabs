@@ -21,7 +21,7 @@ export struct UserBaseInfo {
   build() {
     Column() {
       // userIcon
-      Image($r("app.media.icon_user"))
+      Image($r("app.media.ic_user"))
         .objectFit(ImageFit.Contain)
         .height($r('app.float.default_66'))
         .width($r('app.float.default_66'))

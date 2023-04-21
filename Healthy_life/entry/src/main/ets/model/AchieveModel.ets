@@ -15,32 +15,29 @@
 
 import { ACHIEVEMENT_LEVEL_LIST } from './TaskInitList';
 import GlobalInfo from '../common/bean/GlobalInfo';
-import { GlobalInfoTable } from '../common/database/tables/GlobalInfoTable';
+import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 
 export const ACHIEVEMENT_LEVEL_KEY = 'AchievementLevelKey';
 
 export function getAchievementLevel() {
-    let globalInfoTable: GlobalInfoTable = new GlobalInfoTable();
-    globalInfoTable.getRdbStore(() => {
-        globalInfoTable.query((res) => {
-            let globalInfo: GlobalInfo = res;
+  GlobalInfoApi.query((res) => {
+    let globalInfo: GlobalInfo = res;
 
-            let achievementStr = globalInfo.achievements??'';
-            let achievements = achievementStr.split(',');
-            if (achievements.length > 0) {
-                AppStorage.Set<Number>(ACHIEVEMENT_LEVEL_KEY,Number(achievements[achievements.length - 1]));
-            }
-        })
-    })
+    let achievementStr = globalInfo.achievements??'';
+    let achievements = achievementStr.split(',');
+    if (achievements.length > 0) {
+      AppStorage.Set<Number>(ACHIEVEMENT_LEVEL_KEY, Number(achievements[achievements.length - 1]));
+    }
+  })
 
 }
 
 export function isReachNewAchievement(globalInfo: GlobalInfo): boolean {
-    let achievementStr = globalInfo.achievements??'';
-    let achievements = achievementStr.split(',');
+  let achievementStr = globalInfo.achievements??'';
+  let achievements = achievementStr.split(',');
 
-    if (ACHIEVEMENT_LEVEL_LIST.indexOf(globalInfo.checkInDays) >= 0 && achievements.indexOf(String(globalInfo.checkInDays)) < 0) {
-        return true;
-    }
-    return false;
+  if (ACHIEVEMENT_LEVEL_LIST.indexOf(globalInfo.checkInDays) >= 0 && achievements.indexOf(String(globalInfo.checkInDays)) < 0) {
+    return true;
+  }
+  return false;
 }

@@ -26,24 +26,24 @@ import {
 } from '../../common/constants/CommonConstants';
 import { taskType } from '../../common/bean/TaskInfo';
 
-@Extend(Text) function targetSetCommon () {
+@Extend(Text) function targetSetCommon() {
   .fontSize(DEFAULT_16)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
   .align(Alignment.End)
 }
 
-@Extend(Text) function targetSettingStyle (isOpen, taskID) {
+@Extend(Text) function targetSettingStyle(isOpen, taskID) {
   .fontColor(isOpen && taskID !== taskType.smile && taskID !== taskType.brushTeeth ?
   $r('app.color.titleColor') :
   $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function remindTimeStyle (isOpen, isAlarm) {
+@Extend(Text) function remindTimeStyle(isOpen, isAlarm) {
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function frequencyStyle (isOpen) {
+@Extend(Text) function frequencyStyle(isOpen) {
   .fontSize(DEFAULT_12)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
@@ -82,6 +82,8 @@ export struct TargetSetItem {
         .fontSize(DEFAULT_20)
         .fontWeight(FontWeight.Medium)
 
+      Blank()
+        .layoutWeight(1)
       if (this.settingParams?.unit === '') {
         Text(`${this.settingParams?.targetValue}`)
           .targetSetCommon()
@@ -91,7 +93,7 @@ export struct TargetSetItem {
           .targetSetCommon()
           .targetSettingStyle(this.settingParams?.isOpen, this.settingParams?.taskID)
       }
-      Image($rawfile('task/right_grey.png')).width(DEFAULT_8).height(DEFAULT_16);
+      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16);
     }
     .width(THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
@@ -128,10 +130,12 @@ export struct RemindTimeItem {
   build() {
     Row() {
       Text($r('app.string.remind_time')).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
+      Blank()
+        .layoutWeight(1)
       Text(this.settingParams?.startTime)
         .targetSetCommon()
         .remindTimeStyle(this.settingParams?.isOpen, this.settingParams?.isAlarm)
-      Image($rawfile('task/right_grey.png')).width(DEFAULT_8).height(DEFAULT_16)
+      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16)
     }
     .width(THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
@@ -149,7 +153,7 @@ export struct FrequencyItem {
       Text(this.frequency)
         .targetSetCommon()
         .frequencyStyle(this.settingParams?.isOpen)
-      Image($rawfile('task/right_grey.png')).width(DEFAULT_8).height(DEFAULT_16)
+      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16)
     }
     .width(THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)

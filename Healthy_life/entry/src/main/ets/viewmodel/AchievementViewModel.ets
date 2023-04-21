@@ -13,16 +13,15 @@
  * limitations under the License.
  */
 
-import { ACHIEVEMENT_LEVEL_LIST } from '../model/TaskInitList';
+import { ACHIEVEMENT_LEVEL_LIST, AchievementMap } from '../model/TaskInitList';
 
-export function getBadgeCardItems(successiveDays: number):[string, string][] {
+export function getBadgeCardItems(successiveDays: number):[string, Resource][] {
   let badgeMileStones = ACHIEVEMENT_LEVEL_LIST;
-  let cardItems:[string, string][] = [];
+  let cardItems:[string, Resource][] = [];
   for (let i = 0; i < badgeMileStones.length; i++) {
     let onOrOff = successiveDays >= badgeMileStones[i] ? 'on' : 'off';
     let titleContent = String(badgeMileStones[i]);
-    let badgeImg = `achievement/badge_${ badgeMileStones[i] }_${ onOrOff }.png`;
-    let oneItem:[string, string] = [titleContent, badgeImg];
+    let oneItem:[string, Resource] = [titleContent,AchievementMap[`${ badgeMileStones[i] }_${ onOrOff }`]];
     cardItems.push(oneItem);
   }
   return cardItems;

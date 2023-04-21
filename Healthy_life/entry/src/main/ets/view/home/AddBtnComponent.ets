@@ -26,7 +26,7 @@ export default struct AddBtn {
 
   build() {
     Button({ type: ButtonType.Circle, stateEffect: false }) {
-      Image($rawfile('homeImg/add.png'))
+      Image($r('app.media.ic_home_add'))
         .allSize()
         .borderRadius(commonConst.BORDER_RADIUS_PERCENT_50)
     }

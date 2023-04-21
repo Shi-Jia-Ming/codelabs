@@ -16,7 +16,7 @@
 import * as commonConst from '../common/constants/CommonConstants';
 import { BadgePanel } from './BadgePanelComponent';
 import { TitleBar } from './TitleBarComponent';
-import { Logger } from '../common/utils/log/Logger';
+import Logger from '../common/utils/Logger';
 
 @Component
 export struct AchievementIndex {
