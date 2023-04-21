@@ -1,0 +1,36 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "find_text_font_color",
+      "value": "#E84026"
+    },
+    {
+      "name": "find_text_background_color",
+      "value": "#1AE84026"
+    },
+    {
+      "name": "mine_background_color",
+      "value": "#E4E4E4"
+    },
+    {
+      "name": "bottom_tabs_font_color",
+      "value": "#000000"
+    },
+    {
+      "name": "bottom_tabs_font_color_selected",
+      "value": "#007DFF"
+    },
+    {
+      "name": "bottom_tabs_background_color",
+      "value": "#F1F3F5"
+    }
+  ]
+}

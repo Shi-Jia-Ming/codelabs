@@ -1,0 +1,303 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Multi Device"
+    },
+    {
+      "name": "title_home",
+      "value": "Home"
+    },
+    {
+      "name": "title_home_recently",
+      "value": "Recently Played"
+    },
+    {
+      "name": "title_home_more",
+      "value": "More"
+    },
+    {
+      "name": "title_home_recommend",
+      "value": "Recommended"
+    },
+    {
+      "name": "title_find",
+      "value": "Hot List"
+    },
+    {
+      "name": "title_drive",
+      "value": "Drive"
+    },
+    {
+      "name": "title_mine",
+      "value": "Hanmeimei"
+    },
+    {
+      "name": "bottom_text_home",
+      "value": "Home"
+    },
+    {
+      "name": "bottom_text_find",
+      "value": "Find"
+    },
+    {
+      "name": "bottom_text_drive",
+      "value": "Drive"
+    },
+    {
+      "name": "bottom_text_mine",
+      "value": "Mine"
+    },
+    {
+      "name": "swiper1_title",
+      "value": "Enjoy a new life"
+    },
+    {
+      "name": "swiper1_intro",
+      "value": "Receive up to 500 yuan large coupon"
+    },
+    {
+      "name": "swiper2_title",
+      "value": "Turn on the highlight moment"
+    },
+    {
+      "name": "swiper2_intro",
+      "value": "Be a strong person in the new semester"
+    },
+    {
+      "name": "swiper3_title",
+      "value": "The ultimate mystery is opened"
+    },
+    {
+      "name": "swiper3_intro",
+      "value": "Hiding some useful baby"
+    },
+    {
+      "name": "recently_play1_title",
+      "value": "Cobalt Blue"
+    },
+    {
+      "name": "recently_play1_intro",
+      "value": "Elegant and mysterious"
+    },
+    {
+      "name": "recently_play2_title",
+      "value": "Fandai"
+    },
+    {
+      "name": "recently_play2_intro",
+      "value": "Youthful and lively"
+    },
+    {
+      "name": "recently_play3_title",
+      "value": "Sapphire"
+    },
+    {
+      "name": "recently_play3_intro",
+      "value": "Persevere"
+    },
+    {
+      "name": "recently_play4_title",
+      "value": "Pure White"
+    },
+    {
+      "name": "recently_play4_intro",
+      "value": "Loyalty"
+    },
+    {
+      "name": "recently_play5_title",
+      "value": "Joaquin"
+    },
+    {
+      "name": "recently_play5_intro",
+      "value": "Extraordinary"
+    },
+    {
+      "name": "recently_play6_title",
+      "value": "Crystal Purple"
+    },
+    {
+      "name": "recently_play6_intro",
+      "value": "Elegant and swift"
+    },
+    {
+      "name": "recently_play7_title",
+      "value": "Rainbow"
+    },
+    {
+      "name": "recently_play7_intro",
+      "value": "Vientiane"
+    },
+    {
+      "name": "recommend1_title",
+      "value": "Busy Day"
+    },
+    {
+      "name": "recommend1_intro",
+      "value": "Don't forget to say good night"
+    },
+    {
+      "name": "recommend2_title",
+      "value": "Make a Wish"
+    },
+    {
+      "name": "recommend2_intro",
+      "value": "I am the chosen one"
+    },
+    {
+      "name": "recommend3_title",
+      "value": "Looking at the Stars"
+    },
+    {
+      "name": "recommend3_intro",
+      "value": "What is the end of the universe"
+    },
+    {
+      "name": "find_item1_title",
+      "value": "Ferris Wheel Love"
+    },
+    {
+      "name": "find_item1_category",
+      "value": "Love"
+    },
+    {
+      "name": "find_item1_barrage",
+      "value": "9.99m barrage"
+    },
+    {
+      "name": "find_item1_visits",
+      "value": "9421"
+    },
+    {
+      "name": "find_item1_intro",
+      "value": "He turned"
+    },
+    {
+      "name": "find_item2_title",
+      "value": "Life Blue"
+    },
+    {
+      "name": "find_item2_category",
+      "value": "Art"
+    },
+    {
+      "name": "find_item2_barrage",
+      "value": "9.92m barrage"
+    },
+    {
+      "name": "find_item2_visits",
+      "value": "8700"
+    },
+    {
+      "name": "find_item2_intro",
+      "value": "This is the charm of blue"
+    },
+    {
+      "name": "find_item3_title",
+      "value": "Past Events in the Northeast"
+    },
+    {
+      "name": "find_item3_category",
+      "value": "Record"
+    },
+    {
+      "name": "find_item3_barrage",
+      "value": "6.66m barrage"
+    },
+    {
+      "name": "find_item3_visits",
+      "value": "7452"
+    },
+    {
+      "name": "find_item3_intro",
+      "value": "Hard life is unkillable"
+    },
+    {
+      "name": "find_item4_title",
+      "value": "Parallel World"
+    },
+    {
+      "name": "find_item4_category",
+      "value": "Science Fiction"
+    },
+    {
+      "name": "find_item4_barrage",
+      "value": "5.43m barrage"
+    },
+    {
+      "name": "find_item4_visits",
+      "value": "6162"
+    },
+    {
+      "name": "find_item4_intro",
+      "value": "Another me in the world"
+    },
+    {
+      "name": "find_item5_title",
+      "value": "Rainbow"
+    },
+    {
+      "name": "find_item5_category",
+      "value": "Life"
+    },
+    {
+      "name": "find_item5_barrage",
+      "value": "4.78m barrage"
+    },
+    {
+      "name": "find_item5_visits",
+      "value": "5555"
+    },
+    {
+      "name": "find_item5_intro",
+      "value": "Where is the rainbow"
+    },
+    {
+      "name": "find_item6_title",
+      "value": "Warder"
+    },
+    {
+      "name": "find_item6_category",
+      "value": "Plot"
+    },
+    {
+      "name": "find_item6_barrage",
+      "value": "3.21m barrage"
+    },
+    {
+      "name": "find_item6_visits",
+      "value": "4396"
+    },
+    {
+      "name": "find_item6_intro",
+      "value": "That's all for the story"
+    },
+    {
+      "name": "mine_history",
+      "value": "History"
+    },
+    {
+      "name": "mine_collection",
+      "value": "Collection"
+    },{
+      "name": "mine_settings",
+      "value": "Settings"
+    },
+    {
+      "name": "mine_help",
+      "value": "Help"
+    },
+    {
+      "name": "mine_about",
+      "value": "About"
+    }
+  ]
+}

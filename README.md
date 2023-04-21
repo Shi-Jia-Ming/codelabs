@@ -14,6 +14,7 @@
 
 - 优秀案例
   - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiDeviceMusic)
+  - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
   - [健康生活（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
 - Ability开发
   - [UIAbility和自定义组件生命周期（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/UIAbilityLifeCycle)
@@ -39,7 +40,6 @@
   - [Web组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebCookie)
   - [Swiper的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SwiperArkTS)
   - [基础组件Slider的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SliderExample)
-  - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebComponent)
   - [List组件的用法之商品列表（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List)
   - [List组件的用法之设置项（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List-HDC)
   - [极简声明式UI范式（ArkTS）（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleGalleryETS)
@@ -67,6 +67,7 @@
   - [图片编辑模板（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEditorTemplate)
 - 网络与连接
   - [新闻数据加载（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NewsDataArkTS)
+  - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebComponent)
 - 数据库
   - [关系型数据库（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Rdb)
   - [首选项（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Preferences)

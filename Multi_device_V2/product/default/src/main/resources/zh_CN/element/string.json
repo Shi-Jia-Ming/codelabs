@@ -1,0 +1,303 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "一次开发多端部署"
+    },
+    {
+      "name": "title_home",
+      "value": "首页"
+    },
+    {
+      "name": "title_home_recently",
+      "value": "最近播放"
+    },
+    {
+      "name": "title_home_more",
+      "value": "更多"
+    },
+    {
+      "name": "title_home_recommend",
+      "value": "为你推荐"
+    },
+    {
+      "name": "title_find",
+      "value": "热播总榜"
+    },
+    {
+      "name": "title_drive",
+      "value": "云盘"
+    },
+    {
+      "name": "title_mine",
+      "value": "韩梅梅"
+    },
+    {
+      "name": "bottom_text_home",
+      "value": "主页"
+    },
+    {
+      "name": "bottom_text_find",
+      "value": "发现"
+    },
+    {
+      "name": "bottom_text_drive",
+      "value": "云盘"
+    },
+    {
+      "name": "bottom_text_mine",
+      "value": "我的"
+    },
+    {
+      "name": "swiper1_title",
+      "value": "畅享新生活"
+    },
+    {
+      "name": "swiper1_intro",
+      "value": "最高领500元大额券"
+    },
+    {
+      "name": "swiper2_title",
+      "value": "开启高光时刻"
+    },
+    {
+      "name": "swiper2_intro",
+      "value": "新学期做个实力派"
+    },
+    {
+      "name": "swiper3_title",
+      "value": "极限秘境开启"
+    },
+    {
+      "name": "swiper3_intro",
+      "value": "藏着什么好用的宝贝"
+    },
+    {
+      "name": "recently_play1_title",
+      "value": "钴蓝"
+    },
+    {
+      "name": "recently_play1_intro",
+      "value": "高雅神秘"
+    },
+    {
+      "name": "recently_play2_title",
+      "value": "粉黛"
+    },
+    {
+      "name": "recently_play2_intro",
+      "value": "青春活泼"
+    },
+    {
+      "name": "recently_play3_title",
+      "value": "青玉"
+    },
+    {
+      "name": "recently_play3_intro",
+      "value": "坚持不懈"
+    },
+    {
+      "name": "recently_play4_title",
+      "value": "臻白"
+    },
+    {
+      "name": "recently_play4_intro",
+      "value": "忠贞不渝"
+    },
+    {
+      "name": "recently_play5_title",
+      "value": "华金"
+    },
+    {
+      "name": "recently_play5_intro",
+      "value": "非凡尊贵"
+    },
+    {
+      "name": "recently_play6_title",
+      "value": "晶紫"
+    },
+    {
+      "name": "recently_play6_intro",
+      "value": "优雅迅捷"
+    },
+    {
+      "name": "recently_play7_title",
+      "value": "流虹"
+    },
+    {
+      "name": "recently_play7_intro",
+      "value": "万象天成"
+    },
+    {
+      "name": "recommend1_title",
+      "value": "忙碌一天"
+    },
+    {
+      "name": "recommend1_intro",
+      "value": "不要忘了道晚安"
+    },
+    {
+      "name": "recommend2_title",
+      "value": "许个心愿"
+    },
+    {
+      "name": "recommend2_intro",
+      "value": "我就是天选之子"
+    },
+    {
+      "name": "recommend3_title",
+      "value": "遥望星空"
+    },
+    {
+      "name": "recommend3_intro",
+      "value": "宇宙尽头是什么"
+    },
+    {
+      "name": "find_item1_title",
+      "value": "摩天轮之恋"
+    },
+    {
+      "name": "find_item1_category",
+      "value": "爱情"
+    },
+    {
+      "name": "find_item1_barrage",
+      "value": "999万条弹幕"
+    },
+    {
+      "name": "find_item1_visits",
+      "value": "9421"
+    },
+    {
+      "name": "find_item1_intro",
+      "value": "他转起来了"
+    },
+    {
+      "name": "find_item2_title",
+      "value": "生命之蓝"
+    },
+    {
+      "name": "find_item2_category",
+      "value": "艺术"
+    },
+    {
+      "name": "find_item2_barrage",
+      "value": "992万条弹幕"
+    },
+    {
+      "name": "find_item2_visits",
+      "value": "8700"
+    },
+    {
+      "name": "find_item2_intro",
+      "value": "这就是蓝的魅力"
+    },
+    {
+      "name": "find_item3_title",
+      "value": "东北往事"
+    },
+    {
+      "name": "find_item3_category",
+      "value": "纪录"
+    },
+    {
+      "name": "find_item3_barrage",
+      "value": "666万条弹幕"
+    },
+    {
+      "name": "find_item3_visits",
+      "value": "7452"
+    },
+    {
+      "name": "find_item3_intro",
+      "value": "狠活是杀不死的"
+    },
+    {
+      "name": "find_item4_title",
+      "value": "平行世界"
+    },
+    {
+      "name": "find_item4_category",
+      "value": "科幻"
+    },
+    {
+      "name": "find_item4_barrage",
+      "value": "543万条弹幕"
+    },
+    {
+      "name": "find_item4_visits",
+      "value": "6162"
+    },
+    {
+      "name": "find_item4_intro",
+      "value": "世界上的另一个我"
+    },
+    {
+      "name": "find_item5_title",
+      "value": "彩虹"
+    },
+    {
+      "name": "find_item5_category",
+      "value": "生活"
+    },
+    {
+      "name": "find_item5_barrage",
+      "value": "478万条弹幕"
+    },
+    {
+      "name": "find_item5_visits",
+      "value": "5555"
+    },
+    {
+      "name": "find_item5_intro",
+      "value": "哪里会有彩虹"
+    },
+    {
+      "name": "find_item6_title",
+      "value": "守望者"
+    },
+    {
+      "name": "find_item6_category",
+      "value": "剧情"
+    },
+    {
+      "name": "find_item6_barrage",
+      "value": "321万条弹幕"
+    },
+    {
+      "name": "find_item6_visits",
+      "value": "4396"
+    },
+    {
+      "name": "find_item6_intro",
+      "value": "故事就到这里吧"
+    },
+    {
+      "name": "mine_history",
+      "value": "观看历史"
+    },
+    {
+      "name": "mine_collection",
+      "value": "收藏"
+    },{
+      "name": "mine_settings",
+      "value": "设置"
+    },
+    {
+      "name": "mine_help",
+      "value": "帮助与反馈"
+    },
+    {
+      "name": "mine_about",
+      "value": "关于我们"
+    }
+  ]
+}
