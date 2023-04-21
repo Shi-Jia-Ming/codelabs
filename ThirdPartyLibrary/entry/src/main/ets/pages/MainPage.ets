@@ -72,9 +72,9 @@ struct Index {
           this.currentIndex = index;
         })
       }
+      .titleMode(NavigationTitleMode.Mini)
       .title(this.NavigationTitle)
       .hideBackButton(true)
-      .titleMode(NavigationTitleMode.Mini)
     }
     .backgroundColor($r('app.color.app_bg'))
   }

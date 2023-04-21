@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import lottie from '@ohos/lottieETS';
-import { Logger } from '../common/utils/log/logger';
+import lottie from '@ohos/lottie';
+import Logger from '../common/utils/log/logger';
 import { CommonConstants } from '../common/constants/CommonConst';
 
 
@@ -81,6 +81,10 @@ export struct Outer {
         .height($r('app.float.default_40'))
         .backgroundColor($r('app.color.outer_button_bg'))
         .onClick(() => {
+          if (this.animateItem !== null) {
+            this.animateItem.destroy()
+            this.animateItem = null
+          }
           this.canvasTitle = $r('app.string.outer_button_load');
           this.animateItem = lottie.loadAnimation({
             container: this.renderingContext,
@@ -102,6 +106,7 @@ export struct Outer {
         .height($r('app.float.default_40'))
         .backgroundColor($r('app.color.outer_button_bg'))
         .onClick(() => {
+          if (this.animateItem === null) return;
           this.canvasTitle = $r('app.string.outer_button_end');
           this.animateItem.goToAndPlay(CommonConstants.ZERO_FRAME, true);
         })
@@ -117,6 +122,7 @@ export struct Outer {
           .height($r('app.float.default_40'))
           .backgroundColor($r('app.color.outer_button_bg'))
           .onClick(() => {
+            if (this.animateItem === null) return;
             this.canvasTitle = $r('app.string.outer_button_start');
             lottie.play();
           })
@@ -131,6 +137,7 @@ export struct Outer {
           .height($r('app.float.default_40'))
           .backgroundColor($r('app.color.outer_button_bg'))
           .onClick(() => {
+            if (this.animateItem === null) return;
             this.canvasTitle = $r('app.string.outer_button_pause');
             lottie.pause();
           })
