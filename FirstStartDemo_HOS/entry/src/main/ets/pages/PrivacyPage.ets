@@ -43,11 +43,16 @@ struct PrivacyPage {
         .textAlign(TextAlign.Center)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
+          globalThis.isJumpPrivacy = false;
           router.back();
         })
         .margin({ top: $r('app.float.privacy_bottom_text_margin') })
     }
     .justifyContent(FlexAlign.Center)
     .height(CommonConstants.FULL_HEIGHT)
+  }
+
+  onBackPress() {
+    globalThis.isJumpPrivacy = false;
   }
 }

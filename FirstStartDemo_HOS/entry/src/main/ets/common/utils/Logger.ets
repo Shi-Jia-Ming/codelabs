@@ -15,44 +15,37 @@
 
 import hilog from '@ohos.hilog';
 
-/**
- * Common log for all features.
- *
- * @param {string} prefix Identifies the log tag.
- */
-export class Logger {
+class Logger {
   private domain: number;
   private prefix: string;
-  private format: string = `%{public}s, %{public}s`;
+  private format: string = '%{public}s, %{public}s';
 
-  constructor(prefix: string) {
+  /**
+   * constructor.
+   *
+   * @param Prefix Identifies the log tag.
+   * @param domain Domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF.
+   */
+  constructor(prefix: string = 'MyApp', domain: number = 0xFF00) {
     this.prefix = prefix;
-    this.domain = 0xFF00;
+    this.domain = domain;
   }
 
-  debug(...args: any[]) {
+  debug(...args: any[]): void {
     hilog.debug(this.domain, this.prefix, this.format, args);
   }
 
-  info(...args: any[]) {
+  info(...args: any[]): void {
     hilog.info(this.domain, this.prefix, this.format, args);
   }
 
-  warn(...args: any[]) {
+  warn(...args: any[]): void {
     hilog.warn(this.domain, this.prefix, this.format, args);
   }
 
-  error(...args: any[]) {
+  error(...args: any[]): void {
     hilog.error(this.domain, this.prefix, this.format, args);
-  }
-
-  fatal(...args: any[]) {
-    hilog.fatal(this.domain, this.prefix, this.format, args);
-  }
-
-  isLoggable(level: number) {
-    hilog.isLoggable(this.domain, this.prefix, level);
   }
 }
 
-export default new Logger('FirstStartDemo');
+export default new Logger('FirstStartDemo', 0xFF00)

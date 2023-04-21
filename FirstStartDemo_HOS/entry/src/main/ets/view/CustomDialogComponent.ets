@@ -46,7 +46,7 @@ export default struct CustomDialogComponent {
         .fontColor($r('app.color.dialog_text_statement_color'))
         .fontSize($r('app.float.dialog_common_text_size'))
         .onClick(() => {
-          this.controller.close();
+          globalThis.isJumpPrivacy = true;
           router.pushUrl({
             url: CommonConstants.PRIVACY_PAGE_URL
           }).catch((error) => {
