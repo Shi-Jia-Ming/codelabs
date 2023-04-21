@@ -1,0 +1,28 @@
+{
+  "float": [
+    {
+      "name": "detail_list_margin",
+      "value": "20vp"
+    },
+    {
+      "name": "img_border_radius",
+      "value": "12vp"
+    },
+    {
+      "name": "grid_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "title_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "title_font_size",
+      "value": "30fp"
+    },
+    {
+      "name": "navi_bar_height",
+      "value": "56vp"
+    }
+  ]
+}
