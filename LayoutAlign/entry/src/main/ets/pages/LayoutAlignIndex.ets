@@ -39,8 +39,7 @@ struct LayoutAlignIndex {
         .width(ALL_PERCENT)
         .fontSize(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
         .fontWeight(TITLE_FONT_WEIGHT)
-        .textAlign(TextAlign.Start)
-        .align(Alignment.Center)
+        .textAlign(TextAlign.Center)
         .fontColor(Color.Black)
         .margin({ top: EIGHT_POINT_TWO_PERCENT })
       List() {
