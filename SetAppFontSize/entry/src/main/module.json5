@@ -13,14 +13,14 @@
     "abilities": [
       {
         "name": "EntryAbility",
-        "srcEntrance": "./ets/entryability/EntryAbility.ets",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:Entry_ability_desc",
         "icon": "$media:icon",
         "label": "$string:Entry_ability_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:white",
         "orientation": "portrait",
-        "visible": true,
+        "exported": true,
         "skills": [
           {
             "entities": [
