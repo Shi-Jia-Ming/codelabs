@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MultipleWindow"
+    },
+    {
+      "name": "text_input_hint",
+      "value": "Nickname"
+    },
+    {
+      "name": "text_input_signature",
+      "value": "Personalized signature"
+    },
+    {
+      "name": "title_birthdate",
+      "value": "Date of birth"
+    },
+    {
+      "name": "title_sex",
+      "value": "Sex"
+    },
+    {
+      "name": "default_sex",
+      "value": "Male"
+    },
+    {
+      "name": "title_hobbies",
+      "value": "Hobbies (multiple choices)"
+    },
+    {
+      "name": "alert_dialog_message",
+      "value": "The current data is not saved. Are you sure you want to leave?"
+    },
+    {
+      "name": "cancel_button",
+      "value": "Cancel"
+    },
+    {
+      "name": "definite_button",
+      "value": "Definite"
+    },
+    {
+      "name": "text_personal_title",
+      "value": "Personal information"
+    },
+    {
+      "name": "text_title_hobbies",
+      "value": "Hobbies"
+    }
+  ]
+}
