@@ -1,15 +1,15 @@
 # 电影卡片（ArkTS）
 
 ### 简介
-本篇Codelab主要介绍服务卡片功能，帮助开发者快速上手开发一个带有卡片的应用，该卡片包含2x2、2x4两种布局样式。效果如图所示：
+本篇Codelab基于元服务卡片功能，实现带有卡片的应用，介绍卡片的开发过程和生命周期实现。效果如图所示：
 
 ![](screenshots/device/MovieCard.gif)
 
 ### 相关概念
 
-- [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-data-rdb-0000001281001102)：关系型数据库基于SQLite组件提供了一套完整的对本地数据库进行管理的机制，对外提供了一系列的增、删、改、查等接口，也可以直接运行用户输入的SQL语句来满足复杂的场景需要。
+- [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/database-relational-guidelines-0000001333800361)：关系型数据库基于SQLite组件提供了一套完整的对本地数据库进行管理的机制，对外提供了一系列的增、删、改、查等接口，也可以直接运行用户输入的SQL语句来满足复杂的场景需要。
 
-- [服务卡片开发](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-app-form-formextensionability-0000001493424316-V3?catalogVersion=V3)：卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
+- [元服务卡片开发](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/js-ui-widget-development-0000001535946225-V3?catalogVersion=V3)：卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
 
   - 卡片提供方：显示卡片内容，控制卡片布局以及控件点击事件。
 
@@ -26,8 +26,8 @@
 1. 打开应用，显示电影列表，上下滑动列表，点击想看按钮，跳转到对应电影详情页。
 2. 打开电影详情页，点击展开显示全部简介内容，点击收起，收起部分简介内容。
 3. 打开电影详情页，主演和剧照图片列表可以滑动。
-4. 应用退出到后台，长按应用，点击服务卡片，选择2x2或x4服务卡片，添加到桌面，每隔5分钟，随机更新服务卡片电影信息。
-5. 点击2x2或2x4服务卡片某个电影信息，跳转对应电影详情页。
+4. 应用退出到后台，长按应用，点击元服务卡片，选择2x2或2x4元服务卡片，添加到桌面，每隔5分钟，随机更新元服务卡片电影信息。
+5. 点击2x2或2x4元服务卡片某个电影信息，跳转对应电影详情页。
 
 ### 约束与限制
 
