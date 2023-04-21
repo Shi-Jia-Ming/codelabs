@@ -1,0 +1,28 @@
+{
+  "float": [
+    {
+      "name": "icon_width",
+      "value": "20vp"
+    },
+    {
+      "name": "icon_height",
+      "value": "20vp"
+    },
+    {
+      "name": "icon_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "title_opacity",
+      "value": "0.9"
+    },
+    {
+      "name": "title_padding_left",
+      "value": "10vp"
+    },
+    {
+      "name": "title_bar_height",
+      "value": "50vp"
+    }
+  ]
+}
