@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "TransitionAnimation"
+    },
+    {
+      "name": "Component_transition_toggle",
+      "value": "Toggle"
+    },
+    {
+      "name": "Component_transition_header",
+      "value": "In Component Transition"
+    },
+    {
+      "name": "Share_Item_header",
+      "value": "Shared Element Transition"
+    },
+    {
+      "name": "Share_Item_hint",
+      "value": "Click to view the shared element transition effect"
+    },
+    {
+      "name": "main_page_title",
+      "value": "Transition Animation"
+    }
+  ]
+}

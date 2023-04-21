@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "转场动画的使用"
+    },
+    {
+      "name": "Component_transition_toggle",
+      "value": "Toggle"
+    },
+    {
+      "name": "Component_transition_header",
+      "value": "组件内转场"
+    },
+    {
+      "name": "Share_Item_header",
+      "value": "共享元素转场"
+    },
+    {
+      "name": "Share_Item_hint",
+      "value": "点击查看共享元素转场动效"
+    },
+    {
+      "name": "main_page_title",
+      "value": "转场动画"
+    }
+  ]
+}

@@ -1,15 +1,15 @@
 {
   "string": [
     {
-      "name": "entry_desc",
+      "name": "module_desc",
       "value": "description"
     },
     {
-      "name": "MainAbility_desc",
-      "value": "ETS_Empty Feature Ability"
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
     },
     {
-      "name": "MainAbility_label",
+      "name": "EntryAbility_label",
       "value": "TransitionAnimation"
     },
     {
@@ -18,19 +18,19 @@
     },
     {
       "name": "Component_transition_header",
-      "value": "组件内转场"
+      "value": "In Component Transition"
     },
     {
       "name": "Share_Item_header",
-      "value": "共享元素转场"
+      "value": "Shared Element Transition"
     },
     {
       "name": "Share_Item_hint",
-      "value": "点击查看共享元素转场动效"
+      "value": "Click to view the shared element transition effect"
     },
     {
       "name": "main_page_title",
-      "value": "转场动画"
+      "value": "Transition Animation"
     }
   ]
 }
