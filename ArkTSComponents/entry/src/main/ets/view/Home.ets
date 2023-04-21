@@ -27,6 +27,16 @@ export default struct Home {
   build() {
     Scroll() {
       Column({ space: CommonConstants.COMMON_SPACE }) {
+        Column(){
+          Text($r('app.string.mainPage_tabTitles_home'))
+            .fontWeight(FontWeight.Medium)
+            .fontSize($r('app.float.page_title_text_size'))
+            .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
+            .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
+        }
+        .width(CommonConstants.FULL_PARENT)
+        .alignItems(HorizontalAlign.Start)
+
         Swiper(this.swiperController) {
           ForEach(mainViewModel.getSwiperImages(), (img: Resource) => {
             Image(img).borderRadius($r('app.float.home_swiper_borderRadius'))

@@ -45,21 +45,12 @@ struct MainPage {
     })
   }
 
-  @Builder TabTitles(title: Resource) {
-    Text(title)
-      .fontWeight(FontWeight.Medium)
-      .fontSize($r('app.float.page_title_text_size'))
-      .margin({ top: $r('app.float.mainPage_tabTitles_margin') })
-      .padding({ left: $r('app.float.mainPage_tabTitles_padding') })
-  }
-
   build() {
     Tabs({
       barPosition: BarPosition.End,
       controller: this.tabsController
     }) {
       TabContent() {
-        this.TabTitles($r('app.string.mainPage_tabTitles_home'))
         Home()
       }
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
@@ -68,7 +59,6 @@ struct MainPage {
       $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
-        this.TabTitles($r('app.string.mainPage_tabTitles_mine'))
         Setting()
       }
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
