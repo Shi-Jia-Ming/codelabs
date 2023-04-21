@@ -25,7 +25,7 @@ export class CommonConstants {
   static readonly LAYOUT_FULL_SCREEN: string = '100%';
 
   /**
-   * Edit page height
+   * Edit page height.
    */
   static readonly EDIT_PAGE_HEIGHT: string = '30%';
 
