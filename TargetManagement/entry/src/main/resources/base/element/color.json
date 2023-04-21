@@ -1,0 +1,44 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "index_background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "main_blue",
+      "value": "#007DFF"
+    },
+    {
+      "name": "main_red",
+      "value": "#E84026"
+    },
+    {
+      "name": "custom_button_color",
+      "value": "#E8E7EB"
+    },
+    {
+      "name": "edit_blue",
+      "value": "#1A007DFF"
+    },
+    {
+      "name": "button_background",
+      "value": "#0D182431"
+    },
+    {
+      "name": "title_black_color",
+      "value": "#182431"
+    },
+    {
+      "name": "dialog_progress",
+      "value": "#4D4D4D"
+    },
+    {
+      "name": "input_background",
+      "value": "#0D182431"
+    }
+  ]
+}

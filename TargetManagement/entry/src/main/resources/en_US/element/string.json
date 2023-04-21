@@ -1,0 +1,76 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Target Management"
+    },
+    {
+      "name": "title",
+      "value": "Work Objectives"
+    },
+    {
+      "name": "add_task",
+      "value": "Add Sub-Targets"
+    },
+    {
+      "name": "target_name",
+      "value": "Q1 Operation Targets"
+    },
+    {
+      "name": "target_info",
+      "value": "Increase the number of users and user activeness."
+    },
+    {
+      "name": "overall_progress",
+      "value": "Overall Progress"
+    },
+    {
+      "name": "add_task_dialog",
+      "value": "Add Sub-Targets"
+    },
+    {
+      "name": "latest_updateTime",
+      "value": "Update Time: "
+    },
+    {
+      "name": "sub_goals",
+      "value": "Sub-goals"
+    },
+    {
+      "name": "cancel_button",
+      "value": "Cancel"
+    },
+    {
+      "name": "confirm_button",
+      "value": "OK"
+    },
+    {
+      "name": "delete_button",
+      "value": "Delete"
+    },
+    {
+      "name": "edit_button",
+      "value": "Edit"
+    },
+    {
+      "name": "select_all_button",
+      "value": "Select All"
+    },
+    {
+      "name": "cannot_input_empty",
+      "value": "The task name cannot be null."
+    },
+    {
+      "name": "input_target_name",
+      "value": "Please enter a sub-target name."
+    }
+  ]
+}
