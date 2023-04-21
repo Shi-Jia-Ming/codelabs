@@ -1,0 +1,6 @@
+{
+  "src": [
+    "pages/MovieListPage",
+    "pages/MovieDetailsPage"
+  ]
+}

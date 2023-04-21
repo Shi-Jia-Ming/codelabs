@@ -1,0 +1,80 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "电影卡片"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "服务卡片入口"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "服务卡片"
+    },
+    {
+      "name": "expand_text",
+      "value": "展开"
+    },
+    {
+      "name": "collapse_text",
+      "value": "收起"
+    },
+    {
+      "name": "text_movie_details",
+      "value": "电影详情"
+    },
+    {
+      "name": "want_to_see",
+      "value": "想看"
+    },
+    {
+      "name": "story_introduction",
+      "value": "剧情简介"
+    },
+    {
+      "name": "starring_text",
+      "value": "主演"
+    },
+    {
+      "name": "starring_count",
+      "value": "全部 6"
+    },
+    {
+      "name": "actors",
+      "value": "小明"
+    },
+    {
+      "name": "play_the_role",
+      "value": "饰 大白"
+    },
+    {
+      "name": "stills",
+      "value": "剧照"
+    },
+    {
+      "name": "stills_count",
+      "value": "全部 4"
+    },
+    {
+      "name": "list_page_title",
+      "value": "热门电影排行"
+    },
+    {
+      "name": "MovieDetailsAbility_desc",
+      "value": "电影详情描述"
+    },
+    {
+      "name": "MovieDetailsAbility_label",
+      "value": "电影详情"
+    }
+  ]
+}

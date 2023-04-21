@@ -1,0 +1,28 @@
+{
+  "data": {
+    "topIndex": 3,
+    "topMovieImage": "/common/ic_movie_three.png",
+    "topTitle": "古刹钟声",
+    "topDescribe": "抗日战争时期，八路军剿灭日本特务的故事",
+    "bottomIndex": 4,
+    "bottomMovieImage": "/common/ic_movie_three.png",
+    "bottomTitle": "花木兰",
+    "bottomDescribe": "花木兰替父从军，英姿飒爽的故事"
+  },
+  "actions": {
+    "leftClickEvent": {
+      "action": "router",
+      "abilityName": "EntryDetailsAbility",
+      "params": {
+        "index": "{{topIndex}}"
+      }
+    },
+    "rightClickEvent": {
+      "action": "router",
+      "abilityName": "EntryDetailsAbility",
+      "params": {
+        "index": "{{bottomIndex}}"
+      }
+    }
+  }
+}
