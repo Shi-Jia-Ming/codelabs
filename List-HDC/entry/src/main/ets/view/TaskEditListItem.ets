@@ -26,24 +26,24 @@ import {
 } from '../common/constants/CommonConstant';
 import { taskType } from '../model/TaskInfo'
 
-@Extend(Text) function targetSetCommon () {
+@Extend(Text) function targetSetCommon() {
   .fontSize(DEFAULT_16)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
   .align(Alignment.End)
 }
 
-@Extend(Text) function targetSettingStyle (isOpen, taskID) {
+@Extend(Text) function targetSettingStyle(isOpen, taskID) {
   .fontColor(isOpen && taskID !== taskType.smile && taskID !== taskType.brushTeeth ?
   $r('app.color.titleColor') :
   $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function remindTimeStyle (isOpen, isAlarm) {
+@Extend(Text) function remindTimeStyle(isOpen, isAlarm) {
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function frequencyStyle (isOpen) {
+@Extend(Text) function frequencyStyle(isOpen) {
   .fontSize(DEFAULT_12)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
@@ -81,6 +81,8 @@ export struct TargetSetItem {
         .fontSize(DEFAULT_20)
         .fontWeight(FontWeight.Medium)
 
+      Blank()
+        .layoutWeight(1)
       if (this.settingParams?.unit === '') {
         Text(`${this.settingParams?.targetValue}`)
           .targetSetCommon()
@@ -107,6 +109,8 @@ export struct OpenRemindItem {
         .fontSize(DEFAULT_20)
         .fontWeight(FontWeight.Medium)
 
+      Blank()
+        .layoutWeight(1)
       Toggle({ type: ToggleType.Switch, isOn: this.settingParams?.isAlarm })
         .width(DEFAULT_56)
         .height(DEFAULT_32)
@@ -127,6 +131,8 @@ export struct RemindTimeItem {
   build() {
     Row() {
       Text($r('app.string.remind_time')).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
+      Blank()
+        .layoutWeight(1)
       Text(this.settingParams?.startTime)
         .targetSetCommon()
         .remindTimeStyle(this.settingParams?.isOpen, this.settingParams?.isAlarm)

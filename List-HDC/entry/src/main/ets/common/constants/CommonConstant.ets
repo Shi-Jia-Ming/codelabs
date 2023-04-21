@@ -60,6 +60,7 @@ export const GET_UP_EARLY_TIME: string = '06:00';
 export const GET_UP_LATE_TIME: string = '09:00';
 export const SLEEP_EARLY_TIME: string = '20:00';
 export const SLEEP_LATE_TIME: string = '23:00';
+export const DEFAULT_SELECTED_TIME: Date = new Date(`${TODAY} 8:00:00`);
 
 // frequency Dialog
 export const EVERYDAY: string = '每天';
@@ -79,4 +80,6 @@ export const DRINK_STEP: number = 25;
 export const DRINK_MAX_RANGE: number = 500;
 export const TIMES_100: number = 100;
 export const EAT_APPLE_RANGE: number = 100;
+export const DEFAULT_TEXT: string = '0.25';
+export const DEFAULT_APPLE: string = '1';
 

@@ -36,6 +36,8 @@ export default struct TaskList {
             }
             .width(commonConst.THOUSANDTH_500)
 
+            Blank()
+              .layoutWeight(1)
             if (item?.isOpen) {
               Text($r('app.string.already_open'))
                 .fontSize(commonConst.DEFAULT_16)
