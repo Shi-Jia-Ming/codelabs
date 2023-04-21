@@ -34,23 +34,22 @@ class PreferenceModel {
    * Read the specified Preferences persistence file and load the data into the Preferences instance.
    */
   async getPreferencesFromStorage() {
-    await dataPreferences.getPreferences(context, CommonConstants.PREFERENCES_NAME).then((data) => {
-      preference = data;
-      Logger.info(CommonConstants.TAG, `Succeeded in getting preferences`);
-    }).catch((err) => {
+    try {
+      preference = await dataPreferences.getPreferences(context, CommonConstants.PREFERENCES_NAME);
+    } catch (err) {
       Logger.error(CommonConstants.TAG, `Failed to get preferences, Cause: ${err}`);
-    });
+    }
   }
 
   /**
    * Deletes the specified Preferences persistence file from memory and removes the Preferences instance.
    */
   async deletePreferences() {
-    await dataPreferences.deletePreferences(context, CommonConstants.PREFERENCES_NAME).then(() => {
-      Logger.info(CommonConstants.TAG, `Succeeded in delete preferences`);
-    }).catch((err) => {
+    try {
+      await dataPreferences.deletePreferences(context, CommonConstants.PREFERENCES_NAME);
+    } catch(err) {
       Logger.error(CommonConstants.TAG, `Failed to delete preferences, Cause: ${err}`);
-    });
+    };
     preference = null;
     this.showToastMessage($r('app.string.delete_success_msg'));
   }
@@ -65,11 +64,11 @@ class PreferenceModel {
       await this.getPreferencesFromStorage();
     }
     // The fruit name and fruit quantity data entered by the user are saved to the cached Preference instance.
-    await preference.put(CommonConstants.KEY_NAME, JSON.stringify(fruit)).then(() => {
-      Logger.info(CommonConstants.TAG, `Succeeded in putting value`);
-    }).catch((err) => {
+    try {
+      await preference.put(CommonConstants.KEY_NAME, JSON.stringify(fruit));
+    } catch (err) {
       Logger.error(CommonConstants.TAG, `Failed to put value, Cause: ${err}`);
-    });
+    }
     // Store the Preference instance in the preference persistence file
     await preference.flush();
   }
@@ -82,13 +81,11 @@ class PreferenceModel {
     if (preference === null) {
       await this.getPreferencesFromStorage();
     }
-    await preference.get(CommonConstants.KEY_NAME, '').then((data) => {
-      fruit = <string> data;
-      Logger.info(CommonConstants.TAG, `Succeeded in getting value`);
-    }).catch((err) => {
+    try {
+      fruit = <string> await preference.get(CommonConstants.KEY_NAME, '');
+    } catch (err) {
       Logger.error(CommonConstants.TAG, `Failed to get value, Cause: ${err}`);
-    });
-
+    }
     // If the data is empty, a message is displayed indicating that data needs to be written.
     if (fruit === '') {
       this.showToastMessage($r('app.string.data_is_null_msg'));
