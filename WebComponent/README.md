@@ -8,11 +8,11 @@
 
 ## 相关概念
 
-[Web](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957)：提供具有网页显示能力的Web组件。
+- [Web](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957)：提供具有网页显示能力的Web组件。
 
-[runJavaScript](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__runjavascript)：异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。
+- [runJavaScript](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__runjavascript)：异步执行JavaScript脚本，并通过回调方式返回脚本执行的结果。
 
-[onConfirm](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__onconfirm)：网页调用confirm()告警时触发此回调。本篇Codelab用于回显抽奖结果。
+- [onConfirm](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-web-0000001333720957#ZH-CN_TOPIC_0000001333720957__onconfirm)：网页调用confirm()告警时触发此回调。本篇Codelab用于回显抽奖结果。
 
 ## 相关权限
 
@@ -30,4 +30,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta1及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
