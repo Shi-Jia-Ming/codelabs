@@ -3,7 +3,7 @@
 
 ### 简介
 
-本篇Codelab是基于ArkTS的声明式开发范式的样例，主要介绍了数据请求和touch事件的使用。
+本篇Codelab是基于ArkTS的声明式开发范式实现的样例，主要介绍了数据请求和touch事件的使用。
 
 ![](screenshots/device/news.gif)
 
