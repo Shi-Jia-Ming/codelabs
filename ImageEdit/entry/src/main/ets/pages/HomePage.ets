@@ -19,7 +19,7 @@ import AdjustContentView from '../view/AdjustContentView';
 import { cropIconChangeList, menuIconList } from '../viewModel/IconListViewModel';
 import Logger from '../utils/LoggerUtil';
 import { RotateType, CropType, MainTabId } from '../viewModel/OptionViewModel';
-import { one2oneCrop, four2threeCrop, sixteen2nineCrop } from '../utils/CropUtil';
+import { square, banner, rectangle } from '../utils/CropUtil';
 import { encode } from '../utils/EncodeUtil';
 import getPixelMap from '../utils/DecodeUtil';
 import { CommonConstants } from '../common/constant/CommonConstants';
@@ -72,18 +72,18 @@ struct HomePage {
       return;
     }
     switch (proportion) {
-      case CropType.ONE2ONE:
-        one2oneCrop(this.pixelMap, imageWidth, imageHeight).then(() => {
+      case CropType.SQUARE:
+        square(this.pixelMap, imageWidth, imageHeight).then(() => {
           this.flushPixelMap();
         });
         break;
-      case CropType.FOUR2THREE:
-        four2threeCrop(this.pixelMap, imageWidth, imageHeight).then(() => {
+      case CropType.BANNER:
+        banner(this.pixelMap, imageWidth, imageHeight).then(() => {
           this.flushPixelMap();
         });
         break;
-      case CropType.SIXTEEN2NINE:
-        sixteen2nineCrop(this.pixelMap, imageWidth, imageHeight).then(() => {
+      case CropType.RECTANGLE:
+        rectangle(this.pixelMap, imageWidth, imageHeight).then(() => {
           this.flushPixelMap();
         });
         break;
