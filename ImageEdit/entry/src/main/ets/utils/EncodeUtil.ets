@@ -28,7 +28,7 @@ const TAG: string = 'imageEdit_Encode';
  */
 export async function encode(pixelMap: PixelMap) {
   const newPixelMap = pixelMap;
-  // packing image.
+  // Packing image.
   const imagePackerApi = image.createImagePacker();
   const packOptions: image.PackingOption = {
     format: CommonConstants.ENCODE_FORMAT,
@@ -36,12 +36,12 @@ export async function encode(pixelMap: PixelMap) {
   }
   const imageData = await imagePackerApi.packing(newPixelMap, packOptions);
   Logger.info(TAG, `imageData's length is ${imageData.byteLength}`);
-  // get album's path.
+  // Get album's path.
   const context = getContext(this);
   const media = mediaLibrary.getMediaLibrary(context);
   const publicPath = await media.getPublicDirectory(mediaLibrary.DirectoryType.DIR_IMAGE);
   const currentTime = new Date().getTime();
-  // create image asset.
+  // Create image asset.
   const imageAssetInfo = await media.createAsset(
     mediaLibrary.MediaType.IMAGE,
     `${CommonConstants.IMAGE_PREFIX}_${currentTime}${CommonConstants.IMAGE_FORMAT}`,
@@ -49,7 +49,7 @@ export async function encode(pixelMap: PixelMap) {
   );
   const imageFd = await imageAssetInfo.open(CommonConstants.ENCODE_FILE_PERMISSION);
   await fs.write(imageFd, imageData);
-  // image resource release.
+  // Image resource release.
   await imageAssetInfo.close(imageFd);
   imagePackerApi.release();
   await media.release();
