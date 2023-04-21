@@ -18,9 +18,9 @@
  */
 export enum CropType {
   ORIGINAL_IMAGE,
-  ONE2ONE,
-  FOUR2THREE,
-  SIXTEEN2NINE
+  SQUARE,
+  BANNER,
+  RECTANGLE
 }
 
 /**
