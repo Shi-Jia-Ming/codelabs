@@ -41,7 +41,7 @@ struct HomeComponent {
           TabContent() {
             HomeTabComponent()
           }
-          .padding({ left: $r('app.float.home_padding') })
+          .padding({ left: $r('app.float.home_padding'), right: $r('app.float.home_padding') })
 
           TabContent() {
           }
