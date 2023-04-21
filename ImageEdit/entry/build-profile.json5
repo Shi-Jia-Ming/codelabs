@@ -1,0 +1,17 @@
+{
+  "apiType": 'stageMode',
+  "buildOption": {
+    "sourceOption": {
+      "workers": [
+        "./src/main/ets/workers/AdjustSaturationWork.ts",
+        "./src/main/ets/workers/AdjustBrightnessWork.ts"
+      ]
+    }
+  },
+  "targets": [
+    {
+      "name": "default",
+      "runtimeOS": "HarmonyOS"
+    }
+  ]
+}
