@@ -149,6 +149,9 @@ struct MainPage {
                     .height($r('app.float.component_size_SM'))
                     .fontSize($r('app.float.font_size_M'))
 
+                  Blank()
+                    .layoutWeight(1)
+
                   if (!this.isEdit) {
                     Text(item.accountType === 0 ? '-' + item.amount.toString(): '+' + item.amount.toString())
                       .fontSize($r('app.float.font_size_M'))
