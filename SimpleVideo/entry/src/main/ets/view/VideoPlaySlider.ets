@@ -13,14 +13,15 @@
  * limitations under the License.
  */
 
-import { sliderOnchange } from '../model/VideoControll';
+import { iconOnclick, sliderOnchange } from '../model/VideoControll';
 import {
   ALL_PERCENT,
   MARGIN_FONT_SIZE,
   SMALL_TRACK_THICK_NESS,
   DEFAULT_OPACITY,
   STRING_PERCENT,
-  BIG_TRACK_THICK_NESS
+  BIG_TRACK_THICK_NESS,
+  IMAGE_SIZE
 } from '../common/constants/CommonConstants';
 
 /**
@@ -30,18 +31,28 @@ import {
 export struct VideoSlider {
   @Consume isOpacity: boolean;
   private controller: VideoController;
-  @Consume  sliderStartTime: string;
+  @Consume  currentStringTime: string;
   @Consume  currentTime: number;
   @Consume durationTime: number ;
   @Consume durationStringTime: string ;
   @Consume isPlay: boolean;
+  @Consume flag: boolean;
+  @Consume isLoading: boolean;
+  @Consume progressVal: number;
 
   build() {
     Row({ space: MARGIN_FONT_SIZE.FIRST_MARGIN }) {
-      Text(this.sliderStartTime)
-        .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
+      Image(this.isPlay ? $r('app.media.ic_pause') : $r('app.media.ic_play'))
+        .width(IMAGE_SIZE)
+        .height(IMAGE_SIZE)
         .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN })
+        .onClick(() => {
+          iconOnclick.call(this);
+        })
+      Text(this.currentStringTime)
+        .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
         .fontColor(Color.White)
+        .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN })
       Slider({
         value: this.currentTime,
         min: 0,

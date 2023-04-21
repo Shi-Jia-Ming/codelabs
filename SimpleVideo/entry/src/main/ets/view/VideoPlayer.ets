@@ -15,10 +15,8 @@
 
 import prompt from '@ohos.promptAction';
 import { VideoSlider } from '../view/VideoPlaySlider';
-import { prepared, finish, videoOnclick, changeSliderTime } from '../model/VideoControll';
+import { prepared, finish, changeSliderTime } from '../model/VideoControll';
 import {
-  VIDEO_TYPE,
-  NET,
   START_TIME,
   STRING_PERCENT,
   COMMON_NUM_DURATION,
@@ -31,34 +29,35 @@ import {
  */
 @Component
 export struct VideoPlayer {
-  private source: string;
+  private source: string | Resource;
   private controller: VideoController;
-  private innerResource: Resource = $rawfile('videoTest.mp4');
   private previewUris: Resource = $r('app.media.preview');
-  private isUseDefaultControl: boolean = false;
   @Provide currentTime: number = 0;
   @Provide durationTime: number = 0;
   @Provide durationStringTime: string = START_TIME;
-  @Provide sliderStartTime: string = START_TIME;
+  @Provide currentStringTime: string = START_TIME;
   @Consume isPlay: boolean;
   @Consume isOpacity: boolean;
+  @Consume flag: boolean;
+  @Consume isLoading: boolean;
+  @Consume progressVal: number;
 
   build() {
     Column() {
       Video({
-        src: this.source === VIDEO_TYPE.INNER ? this.innerResource : NET,
+        src: this.source,
         previewUri: this.previewUris,
         controller: this.controller
       })
         .width(ALL_PERCENT)
         .height(STRING_PERCENT.NINETY_PERCENT)
-        .controls(this.isUseDefaultControl)
+        .controls(false)
         .autoPlay(false)
         .objectFit(ImageFit.Contain)
         .loop(false)
         .onUpdate((event) => {
           this.currentTime = event.time;
-          this.sliderStartTime = changeSliderTime(this.currentTime);
+          this.currentStringTime = changeSliderTime(this.currentTime);
         })
         .onPrepared((event) => {
           prepared.call(this, event);
@@ -71,9 +70,6 @@ export struct VideoPlayer {
             duration: COMMON_NUM_DURATION,
             message: MESSAGE
           });
-        })
-        .onClick(() => {
-          videoOnclick.call(this);
         })
       VideoSlider({ controller: this.controller })
     }

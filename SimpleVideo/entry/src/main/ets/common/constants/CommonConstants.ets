@@ -94,10 +94,15 @@ export const LIST: string[] = ['最近播放', '为你推荐'];
 export const ALL_PERCENT: string = '100%';
 
 /**
+ * Image Size
+ */
+export const IMAGE_SIZE: number = 24;
+
+/**
  * component with or height percent
  */
 export const enum STRING_PERCENT {
-  SLIDER_WITH = '70%',
+  SLIDER_WITH = '56.7%',
   NINETY_PERCENT = '90%',
   INDEX_COMPONENT_WITH_PERCENT = '93.3%',
   INDEX_SWIPER_HEIGHT_PERCENT = '24.1%',
