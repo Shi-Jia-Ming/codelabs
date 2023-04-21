@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/IndexPage",
+    "pages/IntroductionPage",
+    "pages/ConversionPage"
+  ]
+}

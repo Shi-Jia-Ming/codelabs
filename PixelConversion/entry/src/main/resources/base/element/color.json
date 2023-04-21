@@ -1,0 +1,32 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "page_background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "item_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "blue_background",
+      "value": "#007DFF"
+    },
+    {
+      "name": "title_font",
+      "value": "#182431"
+    },
+    {
+      "name": "font_background",
+      "value": "#FAFAFA"
+    },
+    {
+      "name": "notice_font",
+      "value": "#FF7500"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "像素转换"
+    },
+    {
+      "name": "pixel_introduce",
+      "value": "像素介绍"
+    },
+    {
+      "name": "pixel_conversion",
+      "value": "像素转换"
+    },
+    {
+      "name": "HarmonyHeiTi",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "HarmonyHeiTi_Medium",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "font_desc",
+      "value": "这是一段为%dfp的文字"
+    },
+    {
+      "name": "notice",
+      "value": "lpx与px之间的转换，需要根据实际情况设置designWidth"
+    },
+    {
+      "name": "px_unit",
+      "value": "屏幕物理像素单位。"
+    },
+    {
+      "name": "vp_unit",
+      "value": "屏幕密度相关像素，根据屏幕像素密度转换为屏幕物理像素。"
+    },
+    {
+      "name": "lpx_unit",
+      "value": "视窗逻辑像素单位，lpx单位为实际屏幕宽度与逻辑宽度（通过designWidth配置）的比值。"
+    },
+    {
+      "name": "fp_unit",
+      "value": "字体像素，与vp类似，随系统字体大小设置变化。"
+    },
+    {
+      "name": "vp_desc",
+      "value": "像素密度为160dpi的设备上1vp=1px,1vp对应的物理屏幕像素=（屏幕像素密度/160）px "
+    },
+    {
+      "name": "fp_desc",
+      "value": "默认情况下与vp相同，即1vp=1fp,如果用户手动调整了系统字体，scale为缩放比例，设置后的字体大小（单位fp） = 设置前的字体大小 * scale"
+    }
+  ]
+}
