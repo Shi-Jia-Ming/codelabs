@@ -114,7 +114,7 @@ export struct PlayList {
       .margin({ top: $r('app.float.list_area_margin_top') })
       .lanes(this.currentBreakpoint === BreakpointConstants.BREAKPOINT_LG ?
         ContentConstants.COL_TWO : ContentConstants.COL_ONE)
-
+	  .layoutWeight(1)
     }
     .padding({
       top: this.currentBreakpoint === BreakpointConstants.BREAKPOINT_SM ? 0 : $r('app.float.list_area_padding_top'),
