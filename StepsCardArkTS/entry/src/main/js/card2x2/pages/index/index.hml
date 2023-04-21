@@ -1,0 +1,18 @@
+<div class="card_root_layout" onclick="routerEvent">
+    <div class="div_basic_container">
+        <div class="div_image_container">
+            <image src="/common/icon_2x2_card_background.png"/>
+        </div>
+        <div class="div_steps_container">
+            <progress type="ring" percent="{{ percent }}" class="div_progress"/>
+            <div class="title_container">
+                <text class="item_content">{{ $t('strings.number_of_steps') }}
+                </text>
+                <text class="item_title">{{ steps }}
+                </text>
+                <text class="item_content">{{ $t('strings.step') }}
+                </text>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Stage模型卡片"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "卡片创建，删除，修改，查询等操作入口"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "服务卡片"
+    },
+    {
+      "name": "main_text_title",
+      "value": "今天一共走了"
+    },
+    {
+      "name": "steps",
+      "value": " 步"
+    },
+    {
+      "name": "notifications_title",
+      "value": "今天走了%s步"
+    }
+  ]
+}

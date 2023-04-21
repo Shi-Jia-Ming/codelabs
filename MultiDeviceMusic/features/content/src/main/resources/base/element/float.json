@@ -1,0 +1,128 @@
+{
+  "float": [
+    {
+      "name": "playlist_border_radius",
+      "value": "40vp"
+    },
+    {
+      "name": "play_all_icon_size",
+      "value": "23vp"
+    },
+    {
+      "name": "play_all_text_padding",
+      "value": "10vp"
+    },
+    {
+      "name": "order_icon_size",
+      "value": "24vp"
+    },
+    {
+      "name": "order_icon_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "play_all_area_height",
+      "value": "60vp"
+    },
+    {
+      "name": "play_all_area_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "play_all_border_radius",
+      "value": "20vp"
+    },
+    {
+      "name": "list_item_title_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "list_item_image_size",
+      "value": "16vp"
+    },
+    {
+      "name": "list_item_image_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "list_item_height",
+      "value": "60vp"
+    },
+    {
+      "name": "list_item_padding",
+      "value": "14vp"
+    },
+    {
+      "name": "list_area_margin_top",
+      "value": "60vp"
+    },
+    {
+      "name": "singer_opacity",
+      "value": "0.38"
+    },
+    {
+      "name": "divider_opacity",
+      "value": "0.1"
+    },
+    {
+      "name": "list_area_padding_top",
+      "value": "50vp"
+    },
+    {
+      "name": "list_area_padding_bottom",
+      "value": "48vp"
+    },
+    {
+      "name": "album_cover_border_radius",
+      "value": "8vp"
+    },
+    {
+      "name": "album_name_opacity",
+      "value": "0.9"
+    },
+    {
+      "name": "album_name_margin",
+      "value": "10vp"
+    },
+    {
+      "name": "introduction_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "introduction_height",
+      "value": "70vp"
+    },
+    {
+      "name": "introduction_padding",
+      "value": "20vp"
+    },
+    {
+      "name": "introduction_margin_top",
+      "value": "30vp"
+    },
+    {
+      "name": "introduction_margin_bottom",
+      "value": "20vp"
+    },
+    {
+      "name": "option_image_size",
+      "value": "30vp"
+    },
+    {
+      "name": "option_area_height",
+      "value": "70vp"
+    },
+    {
+      "name": "option_margin",
+      "value": "15vp"
+    },
+    {
+      "name": "cover_padding_top_sm",
+      "value": "50vp"
+    },
+    {
+      "name": "cover_padding_top_other",
+      "value": "70vp"
+    }
+  ]
+}

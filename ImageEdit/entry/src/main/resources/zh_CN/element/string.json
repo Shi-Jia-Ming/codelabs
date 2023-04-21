@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ImageEdit"
+    },
+    {
+      "name": "reason",
+      "value": "保存图片"
+    },
+    {
+      "name": "image_edit",
+      "value": "图片编辑"
+    },
+    {
+      "name": "crop",
+      "value": "裁剪"
+    },
+    {
+      "name": "rotate",
+      "value": "旋转"
+    },
+    {
+      "name": "adjust",
+      "value": "调节"
+    },
+    {
+      "name": "brightness",
+      "value": "亮度"
+    },
+    {
+      "name": "transparency",
+      "value": "透明度"
+    },
+    {
+      "name": "saturation",
+      "value": "饱和度"
+    },
+    {
+      "name": "save_image",
+      "value": "保存图片"
+    },
+    {
+      "name": "confirm_save",
+      "value": "确定要保存图片吗"
+    },
+    {
+      "name": "save",
+      "value": "保存"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "exec_edit",
+      "value": "正在执行编辑"
+    }
+  ]
+}

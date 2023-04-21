@@ -1,0 +1,80 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "MovieCard"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "Service Card Entry"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "Service Card"
+    },
+    {
+      "name": "expand_text",
+      "value": "Unfolding"
+    },
+    {
+      "name": "collapse_text",
+      "value": "Collapse "
+    },
+    {
+      "name": "text_movie_details",
+      "value": "Movie Details "
+    },
+    {
+      "name": "want_to_see",
+      "value": "Want to see"
+    },
+    {
+      "name": "story_introduction",
+      "value": "Synopsis of the story"
+    },
+    {
+      "name": "starring_text",
+      "value": "Starring"
+    },
+    {
+      "name": "starring_count",
+      "value": "All 6"
+    },
+    {
+      "name": "actors",
+      "value": "Xiao Ming"
+    },
+    {
+      "name": "play_the_role",
+      "value": "Decorated Da Bai"
+    },
+    {
+      "name": "stills",
+      "value": "Stills"
+    },
+    {
+      "name": "stills_count",
+      "value": "All 4"
+    },
+    {
+      "name": "list_page_title",
+      "value": "Popular Movie Rankings"
+    },
+    {
+      "name": "MovieDetailsAbility_desc",
+      "value": "MovieDetailsDescription"
+    },
+    {
+      "name": "MovieDetailsAbility_label",
+      "value": "MovieCardDetails"
+    }
+  ]
+}

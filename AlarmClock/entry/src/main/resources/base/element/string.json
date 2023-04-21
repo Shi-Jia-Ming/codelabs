@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "entry_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "AlarmClock"
+    },
+    {
+      "name": "confirm",
+      "value": "确定"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "ring_duration",
+      "value": "闹铃时长"
+    },
+    {
+      "name": "ring_interval",
+      "value": "再响间隔"
+    },
+    {
+      "name": "ring_interval_content",
+      "value": "响铃间隔时间（分钟）"
+    },
+    {
+      "name": "ring_times_content",
+      "value": "重复响铃次数"
+    },
+    {
+      "name": "alarm_name",
+      "value": "闹钟名"
+    },
+    {
+      "name": "repeat_name",
+      "value": "重复"
+    },
+    {
+      "name": "new_alarm",
+      "value": "新建闹钟"
+    },
+    {
+      "name": "update_alarm",
+      "value": "修改闹钟"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    },
+    {
+      "name": "main_page_title_font_family",
+      "value": "HarmonyHeiTi-Bold"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<div class="card_root_layout" onclick="routerEvent">
+    <div class="div_basic_container">
+        <div class="div_image_container">
+
+        <!-- Background picture -->
+            <image src="/common/icon_2x4_card_background.png"/>
+        </div>
+        <div class="left_items">
+            <div class="left_items_top">
+                <text class="text ">{{ $t('strings.today') }}</text>
+                <text id="stepValue" class="text">{{ mileage }}</text>
+                <text id="stepDesc" class="text">{{ $t('strings.unit') }}</text>
+            </div>
+
+        <!-- Number of steps to walk -->
+            <div class="left_items_center">
+                <text id="stepValue" class="steps_data_text">{{ steps }}</text>
+                <text id="stepDesc" class="steps_text">{{ $t('strings.step') }}</text>
+            </div>
+
+        <!-- Progress value -->
+            <div class="progressText">
+                <text id="progressValue" class="progress_text">{{ percent }}</text>
+                <text class="progress_text">%</text>
+            </div>
+
+        <!-- Progress bar -->
+            <div class="progressDiv">
+                <progress type="horizontal" id="Progress" percent="{{ percent }}"/>
+            </div>
+
+        </div>
+        <div class="right_items">
+
+        <!-- Line type Layout -->
+            <div class="chartArea">
+                <chart type="line" id="Chart" datasets="{{ datasets }}" options="{{ options }}"></chart>
+            </div>
+        </div>
+    </div>
+</div>

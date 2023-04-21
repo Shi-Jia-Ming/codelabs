@@ -1,0 +1,13 @@
+{
+  "data": {
+    "percent": 0,
+    "steps": 0,
+    "isShow": true
+  },
+  "actions": {
+    "routerEvent": {
+      "action": "router",
+      "abilityName": "EntryAbility"
+    }
+  }
+}

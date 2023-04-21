@@ -1,0 +1,288 @@
+{
+  "float": [
+    {
+      "name": "start_button_width",
+      "value": "186vp"
+    },
+    {
+      "name": "start_button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "start_button_radius",
+      "value": "20vp"
+    },
+    {
+      "name": "start_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "start_position_height",
+      "value": "22vp"
+    },
+    {
+      "name": "button_height",
+      "value": "50vp"
+    },
+    {
+      "name": "button_margin_top",
+      "value": "602vp"
+    },
+    {
+      "name": "progress_width",
+      "value": "180vp"
+    },
+    {
+      "name": "progress_margin_top",
+      "value": "62vp"
+    },
+    {
+      "name": "value_margin_top",
+      "value": "120vp"
+    },
+    {
+      "name": "target_button_height",
+      "value": "30vp"
+    },
+    {
+      "name": "target_button_width",
+      "value": "96vp"
+    },
+    {
+      "name": "target_button_radius",
+      "value": "15fp"
+    },
+    {
+      "name": "target_button_font",
+      "value": "16fp"
+    },
+    {
+      "name": "target_margin_top",
+      "value": "16vp"
+    },
+    {
+      "name": "target_margin_bottom",
+      "value": "16vp"
+    },
+    {
+      "name": "progress_text_radius",
+      "value": "15fp"
+    },
+    {
+      "name": "progress_text_font",
+      "value": "48fp"
+    },
+    {
+      "name": "percent_text_radius",
+      "value": "15fp"
+    },
+    {
+      "name": "percent_margin_top",
+      "value": "143vp"
+    },
+    {
+      "name": "percent_text_font",
+      "value": "24fp"
+    },
+    {
+      "name": "walling_height",
+      "value": "28vp"
+    },
+    {
+      "name": "walling_text_font",
+      "value": "20fp"
+    },
+    {
+      "name": "walling_margin_top",
+      "value": "14vp"
+    },
+    {
+      "name": "walling_margin_bottom",
+      "value": "14vp"
+    },
+    {
+      "name": "walling_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "description_text_width",
+      "value": "80vp"
+    },
+    {
+      "name": "description_text_height",
+      "value": "22vp"
+    },
+    {
+      "name": "record_steps_font",
+      "value": "20fp"
+    },
+    {
+      "name": "current_steps_font",
+      "value": "16fp"
+    },
+    {
+      "name": "current_row_height",
+      "value": "22vp"
+    },
+    {
+      "name": "current_margin_top",
+      "value": "13vp"
+    },
+    {
+      "name": "current_margin_bottom",
+      "value": "13vp"
+    },
+    {
+      "name": "current_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "divider_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "divider_margin_right",
+      "value": "12vp"
+    },
+    {
+      "name": "start_position_font",
+      "value": "16fp"
+    },
+    {
+      "name": "display_text_width",
+      "value": "232vp"
+    },
+    {
+      "name": "display_text_height",
+      "value": "22vp"
+    },
+    {
+      "name": "position_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "position_margin_top",
+      "value": "13vp"
+    },
+    {
+      "name": "position_margin_bottom",
+      "value": "13vp"
+    },
+    {
+      "name": "position_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "location_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "current_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "current_location_height",
+      "value": "22vp"
+    },
+    {
+      "name": "location_margin_top",
+      "value": "13vp"
+    },
+    {
+      "name": "location_margin_bottom",
+      "value": "17vp"
+    },
+    {
+      "name": "location_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "situation_border_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "current_situation_height",
+      "value": "204vp"
+    },
+    {
+      "name": "situation_margin_top",
+      "value": "324vp"
+    },
+    {
+      "name": "input_text_height",
+      "value": "28vp"
+    },
+    {
+      "name": "input_text_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "input_margin_top",
+      "value": "14vp"
+    },
+    {
+      "name": "input_margin_bottom",
+      "value": "14vp"
+    },
+    {
+      "name": "input_margin_left",
+      "value": "24vp"
+    },
+    {
+      "name": "text_input_height",
+      "value": "22vp"
+    },
+    {
+      "name": "input_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "text_margin_top",
+      "value": "13vp"
+    },
+    {
+      "name": "text_margin_bottom",
+      "value": "13vp"
+    },
+    {
+      "name": "divider_height",
+      "value": "22vp"
+    },
+    {
+      "name": "text_width",
+      "value": "136vp"
+    },
+    {
+      "name": "text_height",
+      "value": "22vp"
+    },
+    {
+      "name": "text_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "text_margin_left",
+      "value": "8vp"
+    },
+    {
+      "name": "text_margin_right",
+      "value": "8vp"
+    },
+    {
+      "name": "row_margin_top",
+      "value": "17vp"
+    },
+    {
+      "name": "row_margin_bottom",
+      "value": "26vp"
+    },
+    {
+      "name": "row_margin_left",
+      "value": "24vp"
+    },
+    {
+      "name": "dialog_border_radius",
+      "value": "32fp"
+    }
+  ]
+}

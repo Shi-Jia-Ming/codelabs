@@ -1,0 +1,56 @@
+{
+  "float": [
+    {
+      "name": "cover_width",
+      "value": "32vp"
+    },
+    {
+      "name": "cover_height",
+      "value": "32vp"
+    },
+    {
+      "name": "cover_border_radius",
+      "value": "5vp"
+    },
+    {
+      "name": "cover_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "vip_icon_width",
+      "value": "16vp"
+    },
+    {
+      "name": "vip_icon_height",
+      "value": "16vp"
+    },
+    {
+      "name": "vip_icon_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "singer_opacity",
+      "value": "0.38"
+    },
+    {
+      "name": "control_icon_width",
+      "value": "24vp"
+    },
+    {
+      "name": "control_icon_height",
+      "value": "24vp"
+    },
+    {
+      "name": "control_icon_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "player_area_height",
+      "value": "48vp"
+    },
+    {
+      "name": "player_padding",
+      "value": "16vp"
+    }
+  ]
+}

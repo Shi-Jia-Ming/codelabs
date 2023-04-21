@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="19px" viewBox="0 0 56 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>遮罩</title>
+    <defs>
+        <linearGradient x1="0%" y1="50%" x2="95.7429613%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="46.0100143%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="电影详情页" transform="translate(-280.000000, -370.000000)" fill="url(#linearGradient-1)">
+            <rect id="遮罩" x="280" y="370" width="56" height="19"></rect>
+        </g>
+    </g>
+</svg>

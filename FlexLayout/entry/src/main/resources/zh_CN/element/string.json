@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "FlexLayout"
+    },
+    {
+      "name": "recent_searches",
+      "value": "最近搜索"
+    },
+    {
+      "name": "no_search_content",
+      "value": "没有搜索内容"
+    },
+    {
+      "name": "search",
+      "value": "搜索"
+    }
+  ]
+}

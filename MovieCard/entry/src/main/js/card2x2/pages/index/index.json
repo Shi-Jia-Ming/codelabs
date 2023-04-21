@@ -1,0 +1,28 @@
+{
+  "data": {
+    "topIndex": 0,
+    "topMovieImage": "/common/ic_movie_one.png",
+    "topTitle": "冰上姐妹",
+    "topDescribe": "讲述冰上女运动员之间团结友爱、互帮互助的故事",
+    "bottomIndex": 1,
+    "bottomMovieImage": "/common/ic_movie_two.png",
+    "bottomTitle": "冲破黎明前的黑暗",
+    "bottomDescribe": "通过地道战的方式与日寇作斗争的故事"
+  },
+  "actions": {
+    "topClickEvent": {
+      "action": "router",
+      "abilityName": "EntryDetailsAbility",
+      "params": {
+        "index": "{{topIndex}}"
+      }
+    },
+    "bottomClickEvent": {
+      "action": "router",
+      "abilityName": "EntryDetailsAbility",
+      "params": {
+        "index": "{{bottomIndex}}"
+      }
+    }
+  }
+}

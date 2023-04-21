@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "StepsCard"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "Entry for creating, deleting, modifying, and querying cards."
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "Service Card"
+    },
+    {
+      "name": "main_text_title",
+      "value": "I'm leaving today."
+    },
+    {
+      "name": "steps",
+      "value": " steps"
+    },
+    {
+      "name": "notifications_title",
+      "value": "Gone today %s steps"
+    }
+  ]
+}

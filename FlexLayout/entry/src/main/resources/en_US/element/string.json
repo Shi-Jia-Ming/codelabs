@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "FlexLayout"
+    },
+    {
+      "name": "recent_searches",
+      "value": "Recent Searches"
+    },
+    {
+      "name": "no_search_content",
+      "value": "There is no search content"
+    },
+    {
+      "name": "search",
+      "value": "Search"
+    }
+  ]
+}

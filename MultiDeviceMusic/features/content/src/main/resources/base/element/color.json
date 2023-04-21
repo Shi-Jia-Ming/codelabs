@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "name": "album_background",
+      "value": "#e4ecf7"
+    },
+    {
+      "name": "black",
+      "value": "#000000"
+    },
+    {
+      "name": "white",
+      "value": "#fff"
+    },
+    {
+      "name": "album_name_introduction",
+      "value": "#556B89"
+    }
+  ]
+}

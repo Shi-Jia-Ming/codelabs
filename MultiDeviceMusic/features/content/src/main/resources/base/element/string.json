@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "collection_num",
+      "value": "125000"
+    },
+    {
+      "name": "list_name",
+      "value": "Independent folk"
+    },
+    {
+      "name": "playlist_Introduction",
+      "value": "The set list is a selection of popular folk songs."
+    },
+    {
+      "name": "play_all",
+      "value": "Play all(104)"
+    },
+    {
+      "name": "collect",
+      "value": "999+"
+    },
+    {
+      "name": "download",
+      "value": "download"
+    },
+    {
+      "name": "comment",
+      "value": "comment"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    }
+  ]
+}

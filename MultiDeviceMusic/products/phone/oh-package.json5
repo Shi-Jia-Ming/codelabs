@@ -1,0 +1,14 @@
+{
+  "license": "ISC",
+  "devDependencies": {},
+  "name": "phone",
+  "description": "example description",
+  "repository": {},
+  "version": "1.0.0",
+  "dependencies": {
+    "@ohos/content": "../../features/content",
+    "@ohos/header": "../../features/header",
+    "@ohos/player": "../../features/player",
+    "@ohos/common": "../../common"
+  }
+}

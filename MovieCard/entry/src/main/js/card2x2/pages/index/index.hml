@@ -1,0 +1,21 @@
+<div class="card-root-layout">
+    <div class="card-background-layout"></div>
+    <div class="card-layout">
+        <div class="card-top-layout" onclick="topClickEvent">
+            <image class="card-image" src="{{ topMovieImage }}"></image>
+            <div class="card-text-layout">
+                <text class="card-text-title">{{ topTitle }}</text>
+                <text class="card-text-content">{{ topDescribe }}</text>
+            </div>
+        </div>
+
+        <div class="card-bottom-layout" onclick="bottomClickEvent">
+            <image class="card-image" src="{{ bottomMovieImage }}"></image>
+            <div class="card-text-layout">
+                <text class="card-text-title">{{ bottomTitle }}</text>
+                <text class="card-text-content">{{ bottomDescribe }}</text>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,172 @@
+{
+  "float": [
+    {
+      "name": "title_font",
+      "value": "24fp"
+    },
+    {
+      "name": "button_font",
+      "value": "16fp"
+    },
+    {
+      "name": "list_font",
+      "value": "16fp"
+    },
+    {
+      "name": "text_font",
+      "value": "12fp"
+    },
+    {
+      "name": "target_name_font",
+      "value": "18fp"
+    },
+    {
+      "name": "target_desc_font",
+      "value": "15fp"
+    },
+    {
+      "name": "progress_font",
+      "value": "14fp"
+    },
+    {
+      "name": "secondary_title",
+      "value": "20fp"
+    },
+    {
+      "name": "text_button_font",
+      "value": "16fp"
+    },
+    {
+      "name": "text_line_height",
+      "value": "19vp"
+    },
+    {
+      "name": "text_margin",
+      "value": "2vp"
+    },
+    {
+      "name": "checkbox_width",
+      "value": "20"
+    },
+    {
+      "name": "button_width",
+      "value": "156vp"
+    },
+    {
+      "name": "button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "dialog_height",
+      "value": "168vp"
+    },
+    {
+      "name": "title_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "title_height",
+      "value": "32vp"
+    },
+    {
+      "name": "progress_length",
+      "value": "48vp"
+    },
+    {
+      "name": "dialog_btn_width",
+      "value": "96vp"
+    },
+    {
+      "name": "dialog_btn_height",
+      "value": "32vp"
+    },
+    {
+      "name": "dialog_divider_height",
+      "value": "18vp"
+    },
+    {
+      "name": "dialog_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "edit_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "dialog_offset_y",
+      "value": "-16vp"
+    },
+    {
+      "name": "slider_height",
+      "value": "22vp"
+    },
+    {
+      "name": "slider_margin_left",
+      "value": "8vp"
+    },
+    {
+      "name": "operate_button_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "operate_row_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "list_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "list_item_height",
+      "value": "64vp"
+    },
+    {
+      "name": "edit_panel_height",
+      "value": "84vp"
+    },
+    {
+      "name": "expanded_item_height",
+      "value": "148vp"
+    },
+    {
+      "name": "history_line_height",
+      "value": "30vp"
+    },
+    {
+      "name": "target_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "target_image_length",
+      "value": "96vp"
+    },
+    {
+      "name": "progress_margin_top",
+      "value": "15vp"
+    },
+    {
+      "name": "list_padding_top",
+      "value": "14vp"
+    },
+    {
+      "name": "list_padding_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "list_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "list_edit_padding",
+      "value": "54vp"
+    },
+    {
+      "name": "list_padding_right",
+      "value": "11vp"
+    },
+    {
+      "name": "target_info_height",
+      "value": "187vp"
+    }
+  ]
+}

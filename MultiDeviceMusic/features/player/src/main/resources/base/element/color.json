@@ -1,0 +1,16 @@
+{
+  "color": [
+    {
+      "name": "singer",
+      "value": "#000000"
+    },
+    {
+      "name": "song_name",
+      "value": "#000000"
+    },
+    {
+      "name": "player_background",
+      "value": "#F6F9FC"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "ImageEdit"
+    },
+    {
+      "name": "reason",
+      "value": "save image"
+    },
+    {
+      "name": "image_edit",
+      "value": "imageEdit"
+    },
+    {
+      "name": "crop",
+      "value": "crop"
+    },
+    {
+      "name": "rotate",
+      "value": "rotate"
+    },
+    {
+      "name": "adjust",
+      "value": "adjust"
+    },
+    {
+      "name": "brightness",
+      "value": "brightness"
+    },
+    {
+      "name": "transparency",
+      "value": "transparency"
+    },
+    {
+      "name": "saturation",
+      "value": "saturation"
+    },
+    {
+      "name": "save_image",
+      "value": "saveImage"
+    },
+    {
+      "name": "confirm_save",
+      "value": "are you sure to save image"
+    },
+    {
+      "name": "save",
+      "value": "save"
+    },
+    {
+      "name": "cancel",
+      "value": "cancel"
+    },
+    {
+      "name": "exec_edit",
+      "value": "running exec edit."
+    }
+  ]
+}

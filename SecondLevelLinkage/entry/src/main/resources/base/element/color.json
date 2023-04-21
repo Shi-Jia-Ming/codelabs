@@ -1,0 +1,28 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "classify_background",
+      "value": "#0D182431"
+    },
+    {
+      "name": "base_background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "base_font_color",
+      "value": "#182431"
+    },
+    {
+      "name": "normal_font_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "price_color",
+      "value": "#FA2A2D"
+    }
+  ]
+}

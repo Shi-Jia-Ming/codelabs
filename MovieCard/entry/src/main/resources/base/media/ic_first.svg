@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_No1</title>
+    <g id="ic_No1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8,0 L16,0 L16,0 L16,8 C16,12.418278 12.418278,16 8,16 L0,16 L0,16 L0,8 C-5.41083001e-16,3.581722 3.581722,8.11624501e-16 8,0 Z" id="矩形" fill="#FFBF00"></path>
+        <polygon id="路径" fill="#FFFFFF" fill-rule="nonzero" points="5.95 7.33 5.95 6.26 8.12 5.01 8.95 5.01 8.95 12.34 7.86 12.34 7.86 6.25"></polygon>
+    </g>
+</svg>
