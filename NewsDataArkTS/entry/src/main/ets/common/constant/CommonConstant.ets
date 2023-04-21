@@ -99,8 +99,17 @@ export const TabBars = {
   BAR_HEIGHT: '7.2%',
   HORIZONTAL_PADDING: '2.2%',
   BAR_WIDTH: '100%',
-  DEFAULT_NEWS_TYPES: [{ id: 0, name: '全部' }, { id: 1, name: '国内' }, { id: 2, name: '国际' }, { id: 3, name: '娱乐' },
-                       { id: 4, name: '军事' }, { id: 5, name: '体育' }, { id: 6, name: '科技' }, { id: 7, name: '财经' },]
+  DEFAULT_NEWS_TYPES:
+  [
+    { id: 0, name: '全部' },
+    { id: 1, name: '国内' },
+    { id: 2, name: '国际' },
+    { id: 3, name: '娱乐' },
+    { id: 4, name: '军事' },
+    { id: 5, name: '体育' },
+    { id: 6, name: '科技' },
+    { id: 7, name: '财经' }
+  ]
 }
 
 /**
@@ -218,5 +227,57 @@ export const enum PageState {
   Fail = 2
 }
 
+/**
+ * The host address of the default server.
+ */
+export const DEFAULT_SERVER: string = 'http://**.**.**.**:**';
 
-
+/**
+ * Local analog data.
+ */
+export const LOCAL_DATA = [
+  {
+    id: 0,
+    title: '入春来，百花香',
+    content: '随着气温升高，连日来，某某县某某街道的各个角度盛开了各种各样的花朵，让人眼花缭乱，装点了春天的气息。',
+    imagesUrl:
+    [
+      { id: 1, url: $r('app.media.ic_news_1_1') },
+      { id: 2, url: $r('app.media.ic_news_1_2') },
+      { id: 3, url: $r('app.media.ic_news_1_3') }
+    ]
+  },
+  {
+    id: 1,
+    title: '第四届美食节正式启动',
+    content: '8月5日，某某市第四届美食节正式启动。美食节将围绕各地特色美食展开，推进各地美食文化交流。',
+    imagesUrl:
+    [
+      { id: 1, url: $r('app.media.ic_news_2_1') },
+      { id: 2, url: $r('app.media.ic_news_2_1') },
+      { id: 3, url: $r('app.media.ic_news_2_1') }
+    ]
+  },
+  {
+    id: 2,
+    title: '江南风景美如画',
+    content: '南朝四百八十寺，多少楼台烟雨中。江南美，去过风光绮丽的江南，便久久不能忘怀，江南的雨如沐春风。',
+    imagesUrl:
+    [
+      { id: 1, url: $r('app.media.ic_news_3_1') },
+      { id: 2, url: $r('app.media.ic_news_3_2') },
+      { id: 3, url: $r('app.media.ic_news_3_3') }
+    ]
+  },
+  {
+    id: 3,
+    title: '好物推荐',
+    content: '精选好物，提升家居氛围，享受美好生活。',
+    imagesUrl:
+    [
+      { id: 1, url: $r('app.media.ic_news_4_1') },
+      { id: 2, url: $r('app.media.ic_news_4_2') },
+      { id: 3, url: $r('app.media.ic_news_4_2') }
+    ]
+  }
+]

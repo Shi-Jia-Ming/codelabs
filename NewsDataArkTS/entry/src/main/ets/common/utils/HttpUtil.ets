@@ -25,7 +25,7 @@ import { HTTP_READ_TIMEOUT, HTTP_CODE_200, SERVER_CODE_SUCCESS } from '../consta
 export function httpRequestGet(url: string, params: any) {
   if (params) {
     url = `${url}?${'currentPage'}=${params.currentPage}&${'pageSize'}=${params.pageSize}`
-      + `&${'currentIndex'}=${params.currentIndex}`;
+    + `&${'currentIndex'}=${params.currentIndex}`;
   }
   let httpRequest = http.createHttp();
   let responseResult = httpRequest.request(url, {
@@ -38,10 +38,10 @@ export function httpRequestGet(url: string, params: any) {
     data: any,
     msg: string | Resource
   } = { code: 0, data: '', msg: '' };
-  // 处理数据，并返回
+  // Processes the data and returns.
   return responseResult.then((value) => {
     if (value.responseCode === HTTP_CODE_200) {
-      // 获取返回数据
+      // Obtains the returned data.
       let result = `${value.result}`;
       let resultJson = JSON.parse(result);
       if (resultJson.code === SERVER_CODE_SUCCESS) {
