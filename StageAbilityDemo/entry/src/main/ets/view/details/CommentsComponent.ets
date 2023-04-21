@@ -16,7 +16,7 @@
 import { AppFontSize, AppFontWeight, PERCENTAGE_100 } from '../../common/constants/Constants';
 import { CommentList } from '../../common/constants/DetailsConstants';
 
-@Extend(Image) function setImageStyle () {
+@Extend(Image) function setImageStyle() {
   .objectFit(ImageFit.Contain)
   .size({ width: CommentList.IMAGE_MARK_WIDTH })
 }

@@ -22,13 +22,13 @@ import { AppFontSize, NavPageStyle, PERCENTAGE_100 } from '../common/constants/C
 const HOME: number = 0;
 let viewModel: NavViewModel = new NavViewModel();
 
-@Extend(Navigation) function setNavStyle () {
+@Extend(Navigation) function setNavStyle() {
   .hideTitleBar(true)
   .width(PERCENTAGE_100)
   .height(PERCENTAGE_100)
 }
 
-@Extend(Tabs) function setTabStyle () {
+@Extend(Tabs) function setTabStyle() {
   .barHeight(NavPageStyle.BAR_HEIGHT)
   .scrollable(false)
 }

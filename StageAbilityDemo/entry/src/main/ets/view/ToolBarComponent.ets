@@ -19,7 +19,7 @@ import { NavPageStyle } from '../common/constants/Constants';
 
 @Component
 export default struct ToolBarComponent {
-  @State navCurrentPosition: number = NavPageStyle.POSITION_INITIAL;;
+  @State navCurrentPosition: number = NavPageStyle.POSITION_INITIAL;
   toolBarConfigs: ToolBarData[];
   controller: TabsController;
 
