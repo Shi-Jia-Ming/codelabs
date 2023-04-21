@@ -14,9 +14,7 @@
  */
 
 /**
- * TopBar entity class
- * @param id
- * @param name
+ * TopBar entity class.
  */
 export class TopBarItem {
   id: number;

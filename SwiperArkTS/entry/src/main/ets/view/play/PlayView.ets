@@ -22,12 +22,12 @@ import { CommentView } from './CommentView';
 import { DescriptionView } from './DescriptionView';
 
 /**
- * Video play view
+ * Video play view.
  */
 @Component
 export struct PlayView {
   private isShow: boolean = false;
-  // Change the video playing state according to the index and pageShow changes
+  // Change the video playing state according to the index and pageShow changes.
   @Link @Watch("needPageShow") index: number;
   @Link @Watch("needPageShow") pageShow: boolean;
   private barPosition: number;
@@ -42,7 +42,7 @@ export struct PlayView {
         controller: this.videoController
       })
         .controls(false)
-        .autoPlay(this.playState === PlayState.START ? true : false) // Auto play in the first visible state
+        .autoPlay(this.playState === PlayState.START ? true : false) // Auto play in the first visible state.
         .objectFit(ImageFit.Fill)
         .loop(true)
         .height(CommonConstants.WIDTH_VIDEO)

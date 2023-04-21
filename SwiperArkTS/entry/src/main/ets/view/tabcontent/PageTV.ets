@@ -16,7 +16,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * Tab content of TV
+ * Tab content of TV.
  */
 @Component
 export struct PageTV {

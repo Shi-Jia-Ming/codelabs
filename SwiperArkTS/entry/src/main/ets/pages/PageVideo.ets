@@ -19,25 +19,26 @@ import { PlayView } from '../view/play/PlayView';
 import { CommonConstants } from '../common/constants/CommonConstant';
 
 /**
- * Video playing page
+ * Video playing page.
  */
 @Entry
 @Component
 struct PageVideo {
   @State videoArray: Array<VideoItem> = initializeOnStartup();
-  @State index: number = 0; // video index
+  @State index: number = 0; // video index.
   @State pageShow: boolean = false;
 
   build() {
     Column() {
       Swiper() {
-        ForEach(this.videoArray.map((item, index) => {
-          return { i: index, data: item };
-        }),
-          item => {
-            PlayView({ index: $index, pageShow: $pageShow, item: item.data, barPosition: item.i })
-          },
-          item => item.data.id)
+        ForEach(this.videoArray, (item: VideoItem, index: number) => {
+          PlayView({
+            index: $index,
+            pageShow: $pageShow,
+            item: item,
+            barPosition: index
+          });
+        }, item => JSON.stringify(item))
       }
       .width(CommonConstants.FULL_WIDTH)
       .height(CommonConstants.FULL_HEIGHT)

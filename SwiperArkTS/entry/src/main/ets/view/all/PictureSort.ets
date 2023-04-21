@@ -20,9 +20,10 @@ import { PictureType } from '../../common/constants/PictureConstants';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * text style
- * @param fontSize
- * @param fontWeight
+ * text style.
+ *
+ * @param fontSize Font size.
+ * @param fontWeight Font weight.
  */
 @Extend(Text) function textStyle(fontSize: number, fontWeight: number) {
   .fontSize(fontSize)
@@ -31,7 +32,7 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
 }
 
 /**
- * Picture sort
+ * Picture sort.
  */
 @Component
 export struct PictureSort {
@@ -70,7 +71,7 @@ export struct PictureSort {
           GridItem() {
             PictureView({ photos: item });
           }
-        }, item => JSON.stringify(item.id))
+        }, item => JSON.stringify(item))
       }
       .columnsTemplate(CommonConstants.TWO_COLUMNS)
       .rowsTemplate(CommonConstants.TWO_ROWS)

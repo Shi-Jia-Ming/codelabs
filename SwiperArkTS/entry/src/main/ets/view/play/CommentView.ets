@@ -17,9 +17,9 @@ import { VideoItem } from '../../common/bean/VideoItem';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * text style
- * @param fontSize
- * @param fonWeight
+ * text style.
+ * @param fontSize Font size.
+ * @param fonWeight Font weight.
  */
 @Extend(Text) function textStyle(fontSize: number, fonWeight: number) {
   .fontSize(fontSize)
@@ -29,7 +29,7 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
 }
 
 /**
- * Comment component
+ * Comment component.
  */
 @Component
 export struct CommentView {

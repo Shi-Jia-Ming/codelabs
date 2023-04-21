@@ -18,11 +18,11 @@ import { initializeOnStartup } from '../../viewmodel/TopBarViewModel';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * TopBar component
+ * TopBar component.
  */
 @Component
 export struct TopBar {
-  // Double binding of index values to achieve linkage effect
+  // Double binding of index values to achieve linkage effect.
   @Link index: number;
   private tabArray: Array<TopBarItem> = initializeOnStartup();
 
@@ -38,7 +38,7 @@ export struct TopBar {
             .onClick(() => {
               this.index = item.id;
             })
-        }, (item: TopBarItem) => (JSON.stringify(item.id)))
+        }, item => JSON.stringify(item))
     }
     .margin({ left: CommonConstants.ADS_LEFT })
     .width(CommonConstants.FULL_WIDTH)
