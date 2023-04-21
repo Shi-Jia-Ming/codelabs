@@ -1,0 +1,28 @@
+{
+  "color": [
+    {
+      "name": "button_background",
+      "value": "#F87B31"
+    },
+    {
+      "name": "input_text_font",
+      "value": "#F87B31"
+    },
+    {
+      "name": "button_font",
+      "value":"#182431"
+    },
+    {
+      "name": "step_text_font",
+      "value":"#182431"
+    },
+    {
+      "name": "steps_text_font",
+      "value":"#99182431"
+    },
+    {
+      "name": "divider",
+      "value":"#33182431"
+    }
+  ]
+}
