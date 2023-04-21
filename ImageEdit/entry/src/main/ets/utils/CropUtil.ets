@@ -23,7 +23,7 @@ import { CommonConstants } from '../common/constant/CommonConstants';
  * @param width.
  * @param height.
  */
-export async function one2oneCrop(pixelMap: PixelMap, width: number, height: number) {
+export async function square(pixelMap: PixelMap, width: number, height: number) {
   if (width < height) {
     pixelMap.crop({
       size: {
@@ -70,7 +70,7 @@ export async function cropCommon(pixelMap: PixelMap, cropWidth: number, cropHeig
  * @param width.
  * @param height.
  */
-export async function four2threeCrop(pixelMap: PixelMap, width: number, height: number) {
+export async function banner(pixelMap: PixelMap, width: number, height: number) {
   if (width <= height) {
     const cropWidth = width;
     const cropHeight = Math.floor(width * CommonConstants.CROP_RATE_4_3);
@@ -108,7 +108,7 @@ export async function four2threeCrop(pixelMap: PixelMap, width: number, height: 
  * @param width.
  * @param height.
  */
-export async function sixteen2nineCrop(pixelMap: PixelMap, width: number, height: number) {
+export async function rectangle(pixelMap: PixelMap, width: number, height: number) {
   if (width <= height) {
     const cropWidth = width;
     const cropHeight = Math.floor(width * (CommonConstants.CROP_RATE_9_16));
