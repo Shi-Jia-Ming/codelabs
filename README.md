@@ -12,67 +12,82 @@
 
 ## 目录<a name="sectionMenu"></a>
 
-- Ability框架
+- 优秀案例
+  - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MultiDeviceMusic)
+  - [健康生活（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Healthy_life)
+- Ability开发
+  - [UIAbility和自定义组件生命周期（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/UIAbilityLifeCycle)
   - [UIAbility内页面间的跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PagesRouter)
   - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StageAbilityDemo)
-- UI（ArkTS）
-  - [Swiper的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwiperArkTS)
-  - [Web组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/WebCookie)
+- UI(ArkTS)
+  - [一次开发多端部署（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Multi_device)
+  - [电子相册（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ElectronicAlbum)
+  - [构建多种样式弹窗（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MultipleDialog)
+  - [简易计算器（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleCalculator)
+  - [自定义抽奖转盘（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/CanvasComponent)
+  - [像素转换（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PixelConversion)
+  - [二级联动（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SecondLevelLinkage)
+  - [目标管理（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TargetManagement)
+  - [弹性布局（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FlexLayout)
+  - [待办列表（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ToDoListArkTS)
   - [ArkTS组件基础知识（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/RankingDemo)
-  - [新闻数据加载（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/NewsDataArkTS)
-  - [转场动画的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TransitionAnimation)
   - [动效示例（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Animation)
+  - [转场动画的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TransitionAnimation)
   - [自定义下拉刷新动画（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AnimateRefresh)
-  - [常用布局容器对齐方式（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/LayoutAlign)
-  - [应用内字体大小调节（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SetAppFontSize)
+  - [ ArkUI 常用布局容器对齐方式（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/LayoutAlign)
   - [常用组件与布局（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ArkTSComponents)
+  - [Web组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/WebCookie)
+  - [Swiper的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwiperArkTS)
   - [基础组件Slider的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SliderExample)
+  - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/WebComponent)
   - [List组件的用法之商品列表（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/List)
   - [List组件的用法之设置项（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/List-HDC)
-  - [一次开发多端部署（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Multi_device)
-  - [健康生活（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Healthy_life)
-  - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/WebComponent)
-  - [应用首次启动（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FirstStartDemo_HOS)
-  - [二级联动（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/TwoLevelLink)
-  - [闹钟（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AlarmClock)
+  - [极简声明式UI范式（ArkTS）（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleGalleryETS)
+  - [购物应用（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingEts)
   - [Native XComponent（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/NativeXComponent)
   - [简易Native C++ 示例（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/NativeTemplateDemo)
-  - [像素转换（ArkTS）（API 8）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/PixelUnitsExample)
-  - [购物应用（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingEts)
-  - [流式布局（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FlowLayoutETS)
-  - [简单图库（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
+- UI(JS)
   - [image、image-animator（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ClickableImageJsDemo)
-  - [动画样式（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AnimationDemo)
-  - [dialog（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DialogDemo)
   - [input、label（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/InputApplication)
   - [rating（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/RatingApplication)
-  - [switch、chart（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwitchApplication)
   - [slider（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SliderApplication)
+  - [switch、chart（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SwitchApplication)
+  - [dialog（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DialogDemo)
+  - [动画样式（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AnimationDemo)
   - [toolbar、toolbar-item（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ToolbarApplication)
   - [video（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/VideoApplication)
+  - [组件购物应用演示（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingDemoJs)
+- 公共事件与通知
+  - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/AlarmClock)
+  - [HarmonyOS后台代理提醒（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleGalleryETS)
+- 媒体
+  - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ImageEdit)
+  - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideo)
+  - [简易视频播放器（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSVideoPlayer)
+  - [图片编辑模板（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ImageEditorTemplate)
+- 网络与连接
+  - [新闻数据加载（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/NewsDataArkTS)
 - 数据库
   - [关系型数据库（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Rdb)
   - [首选项（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/Preferences)
+  - [应用内字体大小调节（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SetAppFontSize)
+  - [应用首次启动（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/FirstStartDemo_HOS)
+- 设备管理
+  - [计步器应用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/StepsDemo)
 - 分布式
   - [分布式新闻客户端（ArkTS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeNewsETS)
   - [分布式新闻客户端（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/DistributeNewsJS)
-  - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/GameAuth)
   - [分布式手写板（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSDistributeDraw)
+  - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/GameAuth)
 - 卡片
-  - [时钟卡片（Java）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ClockFACardDemo)
+  - [电影卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MovieCard)
+  - [Stage模型卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StepsCardArkTS)
   - [计步器卡片（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/StepsCard)
-  - [电影卡片（Java）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/MovieCardDemo)
   - [电影卡片（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSMovieCard)
-- 媒体
-  - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SimpleVideo)
-  - [图片编辑模板（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ImageEditorTemplate)
-  - [简易视频播放器（JS）（API 7）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/JSVideoPlayer)
 - 三方库
   - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ThirdPartyLibrary)
-- 效率提升套件
+- 效率提升
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/SuperVisualSample)
-- 通用组件
-  - [组件购物应用演示（JS）（API 6）](https://gitee.com/harmonyos/harmonyos_codelabs/tree/master/ShoppingDemoJs)
 
 ## 使用说明<a name="section1954919258619"></a>
 
