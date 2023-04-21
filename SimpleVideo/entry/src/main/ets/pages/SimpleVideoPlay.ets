@@ -14,7 +14,6 @@
  */
 
 import router from '@ohos.router';
-import { iconOnclick } from '../model/VideoControll';
 import { VideoPlayer } from '../view/VideoPlayer';
 import {
   MARGIN_FONT_SIZE,
@@ -35,15 +34,12 @@ struct Play {
   @Provide isPlay: boolean = false;
   @Provide isOpacity: boolean = false;
   controller: VideoController = new VideoController();
-  @State isLoading: boolean = false;
-  @State progressVal: number = 0;
+  @Provide isLoading: boolean = false;
+  @Provide progressVal: number = 0;
+  @Provide flag: boolean = false;
 
   onPageHide() {
     this.controller.pause();
-  }
-
-  aboutToAppear() {
-    globalThis.flag = false;
   }
 
   build() {
@@ -72,9 +68,6 @@ struct Play {
             .width(MARGIN_FONT_SIZE.FIFTH_MARGIN)
             .height(MARGIN_FONT_SIZE.FIFTH_MARGIN)
             .zIndex(STACK_STYLE.IMAGE_Z_INDEX)
-            .onClick(() => {
-              iconOnclick.call(this);
-            })
         }
         if (this.isLoading) {
           Progress({

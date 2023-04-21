@@ -13,11 +13,19 @@
  * limitations under the License.
  */
 
+import Logger from '../utils/Logger';
+import { CommonConstants } from '../constants/CommonConstant';
+
 /**
- * Pop up a message box
- * @param message
+ * Pop up a message box.
+ *
+ * @param message Message.
  */
 export function showDialog(message: ResourceStr) {
+  let newMessage = message.toString();
+  if (newMessage.length > CommonConstants.SUB_LENGTH) {
+    message = newMessage.substring(0, CommonConstants.SUB_LENGTH);
+  }
   AlertDialog.show(
     {
       title: $r('app.string.dialog_message'),
@@ -25,11 +33,11 @@ export function showDialog(message: ResourceStr) {
       confirm: {
         value: $r('app.string.button_confirm'),
         action: () => {
-          console.info('Button-clicking callback');
+          Logger.info('Button-clicking callback');
         }
       },
       cancel: () => {
-        console.info('Closed callbacks');
+        Logger.info('Closed callbacks');
       }
     }
   )

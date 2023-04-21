@@ -5,6 +5,10 @@
       "value": "#FFFFFF"
     },
     {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
       "name": "app_bg",
       "value": "#F1F3F5"
     },

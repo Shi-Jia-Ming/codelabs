@@ -17,7 +17,7 @@ import { TopBarItem } from '../common/bean/TopBarItem';
 import { TOP_BAR_DATA } from '../common/constants/TopBarConstants';
 
 /**
- * Init topBar data
+ * Init topBar data.
  */
 export function initializeOnStartup(): Array<TopBarItem> {
   let tabDataArray: Array<TopBarItem> = []

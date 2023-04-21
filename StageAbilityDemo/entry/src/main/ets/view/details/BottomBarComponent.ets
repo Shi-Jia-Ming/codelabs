@@ -16,7 +16,7 @@
 import { AppFontSize, PERCENTAGE_100 } from '../../common/constants/Constants';
 import { BottomBar } from '../../common/constants/DetailsConstants';
 
-@Extend(Text) function setTextStyle () {
+@Extend(Text) function setTextStyle() {
   .width(BottomBar.TEXT_WIDTH)
   .lineHeight(BottomBar.TEXT_LINE_HEIGHT)
   .textAlign(TextAlign.Center)

@@ -17,7 +17,7 @@
 import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
 import data_preferences from '@ohos.data.preferences';
-import { Logger } from '../common/utils/log/Logger';
+import Logger from '../common/utils/Logger';
 import * as commonConst from '../common/constants/CommonConstants';
 import UserPrivacyDialog from '../view/dialog/UserPrivacyDialog';
 
@@ -35,7 +35,7 @@ struct SplashIndex {
         cancel: this.exitApp.bind(this),
         confirm: this.onConfirm.bind(this)
       }),
-    cancel: this.exitApp,
+    cancel: this.exitApp.bind(this),
     autoCancel: false,
     alignment: DialogAlignment.Bottom,
     offset: { dx: 0, dy: commonConst.OFFSET_24 }
@@ -107,7 +107,7 @@ struct SplashIndex {
     .width('100%')
     .height('100%')
     .backgroundImagePosition({x: 0, y: 0})
-    .backgroundImage($r('app.media.splash_bg'))
+    .backgroundImage($r('app.media.ic_splash_bg'))
     .backgroundImageSize({ width: '100%', height: '100%' })
   }
 }

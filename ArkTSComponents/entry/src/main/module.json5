@@ -3,7 +3,7 @@
     "name": "entry",
     "type": "entry",
     "description": "$string:module_desc",
-    "mainElement": "entryAbility",
+    "mainElement": "EntryAbility",
     "deviceTypes": [
       "phone"
     ],
@@ -12,15 +12,14 @@
     "pages": "$profile:main_pages",
     "abilities": [
       {
-        "name": "entryAbility",
-        "srcEntrance": "./ets/entryability/EntryAbility.ts",
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ts",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
-        "visible": true,
-        "orientation": "portrait",
+        "exported": true,
         "skills": [
           {
             "entities": [

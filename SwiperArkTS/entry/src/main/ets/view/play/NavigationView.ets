@@ -16,7 +16,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * Navigation component
+ * Navigation component.
  */
 @Component
 export struct NavigationView {

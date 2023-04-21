@@ -27,7 +27,8 @@ export struct TargetSettingDialog {
   controller: CustomDialogController;
   drinkRange: string[] = createDrinkRange();
   appleRange: string[] = createAppleRange();
-  currentValue: string = this.settingParams.targetValue;
+  currentValue: string = this.settingParams.taskID === taskType.drinkWater ? commonConst.DEFAULT_TEXT :
+  commonConst.DEFAULT_APPLE;
   currentTime: string = commonConst.DEFAULT_TIME;
   private tip: string = '';
 
@@ -81,16 +82,19 @@ export struct TargetSettingDialog {
       .justifyContent(FlexAlign.Start)
 
       if ([taskType.getup, taskType.sleepEarly].indexOf(this.settingParams?.taskID) > commonConst.HAS_NO_INDEX) {
-        TimePicker({})
+        TimePicker({
+          selected: commonConst.DEFAULT_SELECTED_TIME
+        })
           .height(commonConst.THOUSANDTH_800)
           .useMilitaryTime(true)
           .onChange((value: TimePickerResult) => {
             this.currentTime = formatTime(value);
           })
       } else {
-        TextPicker({ range: this.settingParams?.taskID === taskType.drinkWater ? this.drinkRange : this.appleRange })
-          .width(commonConst.THOUSANDTH_900,)
-          .height(commonConst.THOUSANDTH_800,)
+        TextPicker({ range: this.settingParams?.taskID === taskType.drinkWater ? this.drinkRange : this.appleRange,
+          value: this.settingParams.targetValue })
+          .width(commonConst.THOUSANDTH_900)
+          .height(commonConst.THOUSANDTH_800)
           .onChange((value) => {
             this.currentValue = value?.split(' ')[0];
           })
@@ -100,7 +104,7 @@ export struct TargetSettingDialog {
         Text($r('app.string.cancel')).fontSize(commonConst.DEFAULT_20).fontColor($r('app.color.blueColor'))
           .onClick(() => {
             this.currentTime = commonConst.DEFAULT_TIME;
-            this.currentValue = '';
+            this.currentValue = commonConst.DEFAULT_TEXT;
             this.controller.close();
           })
 
@@ -138,7 +142,9 @@ export struct RemindTimeDialog {
       }
       .width(commonConst.THOUSANDTH_900)
 
-      TimePicker({})
+      TimePicker({
+        selected: commonConst.DEFAULT_SELECTED_TIME
+      })
         .height(commonConst.THOUSANDTH_800)
         .useMilitaryTime(true)
         .onChange((value: TimePickerResult) => {

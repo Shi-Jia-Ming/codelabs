@@ -19,8 +19,9 @@ import { PictureType } from '../common/constants/PictureConstants';
 import { CommonConstants } from '../common/constants/CommonConstant';
 
 /**
- * Initialize picture data according to type
- * @param initType
+ * Initialize picture data according to type.
+ *
+ * @param initType Init type.
  */
 export function initializePictures(initType: string): Array<PictureItem> {
   let imageDataArray: Array<PictureItem> = [];
@@ -54,8 +55,9 @@ export function initializePictures(initType: string): Array<PictureItem> {
 let timerIds: number[] = [];
 
 /**
- * start scheduled task
- * @param swiperController
+ * start scheduled task.
+ *
+ * @param swiperController Controller.
  */
 export function startPlay(swiperController: SwiperController) {
   let timerId = setInterval(() => {
@@ -65,8 +67,7 @@ export function startPlay(swiperController: SwiperController) {
 }
 
 /**
- * stop scheduled task
- * @param item
+ * stop scheduled task.
  */
 export function stopPlay() {
   timerIds.forEach((item) => {

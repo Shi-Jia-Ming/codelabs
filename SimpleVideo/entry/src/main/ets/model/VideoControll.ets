@@ -25,7 +25,7 @@ export function prepared(event) {
   let head = min < COMMON_NUM_DOUBLE ? `${ZERO_STR}${min}` : min;
   let end = second < COMMON_NUM_DOUBLE ? `${ZERO_STR}${second}` : second;
   this.durationStringTime = `${head}${SPLIT}${end}`;
-  globalThis.flag = true;
+  this.flag = true;
 };
 
 /**
@@ -34,21 +34,6 @@ export function prepared(event) {
 export function finish() {
   this.isPlay = false;
   this.isOpacity = false;
-};
-
-/**
- * video component onclick callback
- */
-export function videoOnclick() {
-  if (!this.isPlay) {
-    this.controller.start();
-    this.isPlay = true;
-    this.isOpacity = true;
-  } else {
-    this.controller.pause()
-    this.isPlay = false;
-    this.isOpacity = false;
-  }
 };
 
 /**
@@ -86,7 +71,13 @@ export function changeSliderTime(value: number): string {
  * icon onclick callback
  */
 export function iconOnclick() {
-  if(globalThis.flag) {
+  if (this.isPlay) {
+    this.controller.pause()
+    this.isPlay = false;
+    this.isOpacity = false;
+    return;
+  }
+  if(this.flag) {
     this.controller.start();
     this.isPlay = true;
     this.isOpacity = true;
@@ -103,7 +94,7 @@ export function iconOnclick() {
     }, STACK_STYLE.MILLI_SECONDS)
     // The scheduled task determines whether the video loading is complete.
     let intervalFlag = setInterval(function() {
-      if (globalThis.flag) {
+      if (that.flag) {
         that.controller.start();
         that.isPlay = true;
         that.isOpacity = true;

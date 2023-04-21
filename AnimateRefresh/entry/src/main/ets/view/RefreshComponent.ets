@@ -74,11 +74,6 @@ export default struct RefreshComponent {
     .height(this.displayHeight)
     .listDirection(Axis.Vertical)
     .offset({ y: this.headerOffset })
-    .onScrollStop(() => {
-      if (this.headerOffset === -RefreshConstants.REFRESH_HEADER_HEIGHT) {
-        this.state = RefreshState.IDLE;
-      }
-    })
     .animation({
       curve: Curve.Smooth,
       duration: RefreshConstants.REFRESH_HEADER_ANIM_DURATION,

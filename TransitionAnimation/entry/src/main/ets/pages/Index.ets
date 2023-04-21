@@ -61,8 +61,9 @@ struct Index {
           }, item => JSON.stringify(item))
         }
       }
+      .align(Alignment.Top)
       .layoutWeight(DEFAULT_LAYOUT_WEIGHT)
-      .scrollBar(null)
+      .scrollBar(BarState.Off)
     }
     .height(FULL_LENGTH)
     .backgroundColor($r('app.color.grey_light'))

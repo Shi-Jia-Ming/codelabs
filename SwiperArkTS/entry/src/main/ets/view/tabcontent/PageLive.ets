@@ -16,7 +16,7 @@
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * Tab content of live
+ * Tab content of live.
  */
 @Component
 export struct PageLive {

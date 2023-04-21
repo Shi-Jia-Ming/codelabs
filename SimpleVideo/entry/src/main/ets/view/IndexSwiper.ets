@@ -14,20 +14,19 @@
  */
 
 import { SWIPER_VIDEOS } from '../viewmodel/VideoData';
-import { STRING_PERCENT, MARGIN_FONT_SIZE, SECOND_PAGE, VIDEO_TYPE } from '../common/constants/CommonConstants';
+import { STRING_PERCENT, MARGIN_FONT_SIZE, SECOND_PAGE } from '../common/constants/CommonConstants';
 
 /**
  * Picture carousel component
  */
 @Component
 export struct SwiperVideo {
-  private moduleName: string;
 
   build() {
     Column() {
       Swiper() {
         ForEach(SWIPER_VIDEOS, item => {
-          SwiperItem({ imageSrc: item.image, source: VIDEO_TYPE.INNER })
+          SwiperItem({ imageSrc: item.image, source: $rawfile('videoTest.mp4') })
         }, item => JSON.stringify(item))
       }
       .autoPlay(true)
@@ -46,7 +45,7 @@ export struct SwiperVideo {
 @Component
 struct SwiperItem {
   private imageSrc: Resource;
-  private source: string;
+  private source: Resource;
 
   build() {
     Navigator({ target: SECOND_PAGE, type: NavigationType.Push }) {

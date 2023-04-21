@@ -20,7 +20,7 @@ import { PictureView } from '../common/PictureView';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * Movie sort
+ * Movie sort.
  */
 @Component
 export struct MovieSort {
@@ -40,7 +40,7 @@ export struct MovieSort {
           GridItem() {
             PictureView({ photos: item })
           }
-        }, item => JSON.stringify(item.id))
+        }, item => JSON.stringify(item))
       }
       .columnsTemplate(CommonConstants.THREE_COLUMNS)
       .rowsTemplate(CommonConstants.THREE_ROWS)

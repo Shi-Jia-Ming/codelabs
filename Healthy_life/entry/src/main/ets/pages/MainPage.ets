@@ -14,13 +14,14 @@
  */
 
 import router from '@ohos.router';
-import { Logger } from '../common/utils/log/Logger';
+import Logger from '../common/utils/Logger';
 import { ITaskItem } from '../model/TaskInitList';
 import * as commonConst from '../common/constants/CommonConstants'
 import { NavList, TabId } from '../model/NavItemModel';
 import HomeIndex from '../view/HomeComponent';
 import { AchievementIndex } from '../view/AchievementComponent';
 import { MineIndex } from './MinePage';
+import { HomeStore } from '../viewmodel/HomeViewModel';
 
 @Styles function allSize () {
   .width(commonConst.THOUSANDTH_1000)
@@ -33,12 +34,20 @@ struct Index {
   @State currentPage: number = 0;
   @State editedTaskInfo: ITaskItem = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
   @State editedTaskID: string = '0';
+  @State homeStore: HomeStore = new HomeStore(new Date());
   private tabController: TabsController = new TabsController();
 
   onPageShow() {
     Logger.info('onPageShow', JSON.stringify(router.getParams()));
     this.editedTaskInfo = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
     this.editedTaskID = `${this.editedTaskInfo.taskID}_${this.editedTaskInfo.isOpen}` + new Date().getTime();
+    if (globalThis.isForeground) {
+      globalThis.isForeground = false;
+      if (this.homeStore.currentDate.getDate()!== (new Date()).getDate()) {
+        this.homeStore = new HomeStore(new Date());
+        this.homeStore.initData();
+      }
+    }
   }
 
   @Builder TabBuilder(index: number) {
@@ -58,7 +67,7 @@ struct Index {
   build() {
     Tabs({ barPosition: BarPosition.End, controller: this.tabController }) {
       TabContent() {
-        HomeIndex({ editedTaskInfo: $editedTaskInfo, editedTaskID: $editedTaskID })
+        HomeIndex({homeStore: $homeStore, editedTaskInfo: $editedTaskInfo, editedTaskID: $editedTaskID })
           .borderWidth({ bottom: 1 })
           .borderColor($r('app.color.primaryBgColor'))
       }

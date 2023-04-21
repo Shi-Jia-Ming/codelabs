@@ -16,7 +16,7 @@
 import { VideoItem } from '../bean/VideoItem';
 
 /**
- * Data of video
+ * Data of video.
  */
 export const VIDEO_DATA: VideoItem[] = [
   {
@@ -38,7 +38,7 @@ export const VIDEO_DATA: VideoItem[] = [
 ];
 
 /**
- * state of video play
+ * state of video play.
  */
 export enum PlayState {
   STOP = 0,

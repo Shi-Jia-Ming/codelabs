@@ -16,8 +16,7 @@
 import { PictureItem } from '../bean/PictureItem';
 
 /**
- *
- * Pictures of banner
+ * Pictures of banner.
  */
 export const PICTURE_BANNER: PictureItem[] = [
   { 'id': '1', 'name': '怒海', 'description': '怒海波涛', 'image': $r('app.media.image1') },
@@ -26,7 +25,7 @@ export const PICTURE_BANNER: PictureItem[] = [
 ];
 
 /**
- * pictures of recently play
+ * pictures of recently play.
  */
 export const PICTURE_RECENTLY: PictureItem[] = [
   { 'id': '1', 'name': '背影', 'description': '感人的亲情之歌', 'image': $r('app.media.recently1') },
@@ -36,7 +35,7 @@ export const PICTURE_RECENTLY: PictureItem[] = [
 ];
 
 /**
- * pictures of photo
+ * pictures of photo.
  */
 export const PICTURE_PHOTO: PictureItem[] = [
   { 'id': '1', 'name': '蓝·静', 'description': '用放大镜看世界', 'image': $r('app.media.photo1') },
@@ -46,7 +45,7 @@ export const PICTURE_PHOTO: PictureItem[] = [
 ];
 
 /**
- * pictures of newest
+ * pictures of newest.
  */
 export const PICTURE_LATEST: PictureItem[] = [
   { 'id': '1', 'name': '潮·设计大会', 'description': '国际设计大师分...', 'image': $r('app.media.movie1') },
@@ -61,7 +60,7 @@ export const PICTURE_LATEST: PictureItem[] = [
 ];
 
 /**
- * type of pictures
+ * type of pictures.
  */
 export enum PictureType {
   RECENTLY = 'recently',

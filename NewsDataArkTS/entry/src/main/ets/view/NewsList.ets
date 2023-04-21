@@ -68,7 +68,7 @@ export default struct NewsList {
   }
 
   aboutToAppear() {
-    // 请求新闻数据
+    // Request news data.
     this.changeCategory();
   }
 
@@ -112,7 +112,7 @@ export default struct NewsList {
         }
         .height(NewsListConstant.ITEM_HEIGHT)
         .backgroundColor($r('app.color.white'))
-        .margin({ top: NewsListConstant.ITEM_MARGIN_TOP, right: NewsListConstant.LIST_MARGIN_RIGHT })
+        .margin({ top: NewsListConstant.ITEM_MARGIN_TOP})
         .borderRadius(NewsListConstant.ITEM_BORDER_RADIUS)
       }, (item, index) => JSON.stringify(item) + index.toString())
       ListItem() {
@@ -124,18 +124,18 @@ export default struct NewsList {
     }
     .width(NewsListConstant.LIST_WIDTH)
     .height(FULL_HEIGHT)
-    .margin({ left: NewsListConstant.LIST_MARGIN_LEFT })
+    .margin({ left: NewsListConstant.LIST_MARGIN_LEFT, right: NewsListConstant.LIST_MARGIN_RIGHT })
     .backgroundColor($r('app.color.listColor'))
     .divider({
       color: $r('app.color.dividerColor'),
       strokeWidth: NewsListConstant.LIST_DIVIDER_STROKE_WIDTH,
       endMargin: NewsListConstant.LIST_MARGIN_RIGHT
     })
-    // 去掉回弹效果
+    // Remove the rebound effect.
     .edgeEffect(EdgeEffect.None)
     .offset({ x: 0, y: `${this.offsetY}px` })
     .onScrollIndex((start, end) => {
-      // 监听当前列表首位索引
+      // Listen to the first index of the current list.
       this.startIndex = start;
       this.endIndex = end;
     })

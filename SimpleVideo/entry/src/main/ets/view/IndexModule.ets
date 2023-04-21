@@ -16,11 +16,10 @@
 import router from '@ohos.router';
 import { HORIZONTAL_VIDEOS } from '../viewmodel/VideoData';
 import {
-  VIDEO_TYPE,
   MARGIN_FONT_SIZE,
-  COMMON_NUM_FONT_WEIGHT,
   STRING_PERCENT,
-  SECOND_PAGE
+  SECOND_PAGE,
+  NET
 } from '../common/constants/CommonConstants';
 
 /**
@@ -46,7 +45,7 @@ export struct VideoModule {
           ListItem() {
             HorizontalItem({
               imageSrc: item.image,
-              source: VIDEO_TYPE.NET,
+              source: NET,
               videoName: item.name
             })
           }

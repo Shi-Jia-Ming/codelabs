@@ -1,11 +1,29 @@
 {
     "document": {
         "VisualVersion": "12",
-        "type": "ETS"
+        "type": "ETS",
+        "custom": false,
+        "path": "/entry/src/main/supervisual/pages/TaskPage"
     },
     "visualModel": {
         "dataType": "VisualModel",
         "value": {
+            "propertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "dynamicPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "mediaPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "dynamicMediaPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
             "property": {
                 "dataType": "Map",
                 "value": {
@@ -22,6 +40,22 @@
                 {
                     "dataType": "VisualModel",
                     "value": {
+                        "propertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "dynamicPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "mediaPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "dynamicMediaPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
                         "property": {
                             "dataType": "Map",
                             "value": {
@@ -244,7 +278,9 @@
                                                                         },
                                                                         "dynamicPropertyStorage": {
                                                                             "dataType": "Map",
-                                                                            "value": {}
+                                                                            "value": {
+                                                                                "padding-right": "$r('app.float.default_16')"
+                                                                            }
                                                                         },
                                                                         "mediaPropertyStorage": {
                                                                             "dataType": "Map",
@@ -261,13 +297,13 @@
                                                                                 "height": "100%",
                                                                                 "background-color": "#FFF",
                                                                                 "align-items-row": "center",
-                                                                                "flex-shrink": "0"
+                                                                                "justify-content-rc": "space-between",
+                                                                                "padding-right": "24vp"
                                                                             }
                                                                         },
                                                                         "dynamicProperty": {
                                                                             "dataType": "Map",
                                                                             "value": {
-                                                                                "padding-right": "$r('app.float.default_16')",
                                                                                 "padding-left": "$r('app.float.default_12')",
                                                                                 "border-radius": "$r('app.float.default_20')"
                                                                             }
@@ -276,12 +312,27 @@
                                                                             {
                                                                                 "dataType": "VisualModel",
                                                                                 "value": {
+                                                                                    "propertyStorage": {
+                                                                                        "dataType": "Map",
+                                                                                        "value": {}
+                                                                                    },
+                                                                                    "dynamicPropertyStorage": {
+                                                                                        "dataType": "Map",
+                                                                                        "value": {}
+                                                                                    },
+                                                                                    "mediaPropertyStorage": {
+                                                                                        "dataType": "Map",
+                                                                                        "value": {}
+                                                                                    },
+                                                                                    "dynamicMediaPropertyStorage": {
+                                                                                        "dataType": "Map",
+                                                                                        "value": {}
+                                                                                    },
                                                                                     "property": {
                                                                                         "dataType": "Map",
                                                                                         "value": {
                                                                                             "width": "50%",
-                                                                                            "height": "100%",
-                                                                                            "flex-shrink": "0"
+                                                                                            "height": "100%"
                                                                                         }
                                                                                     },
                                                                                     "dynamicProperty": {
@@ -391,7 +442,9 @@
                                                                                     },
                                                                                     "dynamicPropertyStorage": {
                                                                                         "dataType": "Map",
-                                                                                        "value": {}
+                                                                                        "value": {
+                                                                                            "margin-right": "12"
+                                                                                        }
                                                                                     },
                                                                                     "mediaPropertyStorage": {
                                                                                         "dataType": "Map",
@@ -411,13 +464,12 @@
                                                                                             "font-color": "#182431",
                                                                                             "font-weight": "400",
                                                                                             "opacity": "0.6",
-                                                                                            "flex-shrink": "0"
+                                                                                            "margin-right": "0vp"
                                                                                         }
                                                                                     },
                                                                                     "dynamicProperty": {
                                                                                         "dataType": "Map",
                                                                                         "value": {
-                                                                                            "margin-right": "$r('app.float.default_12')",
                                                                                             "font-size": "$r('app.float.font_16')",
                                                                                             "content": "item1.targetValue"
                                                                                         }
@@ -463,6 +515,16 @@
             "value": {}
         },
         "actions": {
+            "dataType": "Map",
+            "value": {}
+        }
+    },
+    "customData": {
+        "property": {
+            "dataType": "Map",
+            "value": {}
+        },
+        "event": {
             "dataType": "Map",
             "value": {}
         }

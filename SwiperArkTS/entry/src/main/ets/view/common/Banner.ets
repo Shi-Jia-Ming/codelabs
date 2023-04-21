@@ -20,9 +20,10 @@ import { initializePictures, startPlay, stopPlay } from '../../viewmodel/Picture
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * text style
- * @param fontSize
- * @param fontWeight
+ * text style.
+ *
+ * @param fontSize Font size.
+ * @param fontWeight Font weight.
  */
 @Extend(Text) function textStyle(fontSize: number, fontWeight: number) {
   .fontSize(fontSize)
@@ -31,20 +32,19 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
 }
 
 /**
- *
- * Carousel banner
+ * Carousel banner.
  */
 @Component
 export struct Banner {
-  // Change the index value through a scheduled task to perform a round robin
+  // Change the index value through a scheduled task to perform a round robin.
   @State index: number = 0;
   private imageArray: Array<PictureItem> = [];
   private swiperController: SwiperController = new SwiperController();
 
   aboutToAppear() {
-    // Data Initialization
+    // Data Initialization.
     this.imageArray = initializePictures(PictureType.BANNER);
-    // Turn on scheduled task
+    // Turn on scheduled task.
     startPlay(this.swiperController);
   }
 
@@ -80,7 +80,7 @@ export struct Banner {
         }
         .height(CommonConstants.FULL_HEIGHT)
         .width(CommonConstants.FULL_WIDTH)
-      }, item => JSON.stringify(item.id))
+      }, item => JSON.stringify(item))
     }
     .width(CommonConstants.PAGE_WIDTH)
     .height(CommonConstants.HEIGHT_BANNER)

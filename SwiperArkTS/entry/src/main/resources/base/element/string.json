@@ -10,67 +10,67 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "Swiper的使用"
+      "value": "Use of Swiper"
     },
     {
       "name": "recently",
-      "value": "最近播放"
+      "value": "Recent Plays"
     },
     {
       "name": "photo",
-      "value": "相机"
+      "value": "camera"
     },
     {
       "name": "more",
-      "value": "更多 >"
+      "value": "more >"
     },
     {
       "name": "movie_classic",
-      "value": "电影精选"
+      "value": "Selected Films"
     },
     {
       "name": "lately",
-      "value": "最新"
+      "value": "latest"
     },
     {
       "name": "like",
-      "value": "点赞"
+      "value": "like"
     },
     {
       "name": "comment",
-      "value": "评论"
+      "value": "comment"
     },
     {
       "name": "share",
-      "value": "转发"
+      "value": "share"
     },
     {
       "name": "movie",
-      "value": "视频"
+      "value": "movie"
     },
     {
       "name": "movie_description_1",
-      "value": "@HarmonyOS 官网"
+      "value": "@HarmonyOS Official website"
     },
     {
       "name": "movie_description_2",
-      "value": "#HarmonyOS HDC大会"
+      "value": "#HarmonyOS Huawei Developer Conference"
     },
     {
       "name": "TV",
-      "value": "电视剧"
+      "value": "TV"
     },
     {
       "name": "game",
-      "value": "游戏"
+      "value": "Game"
     },
     {
       "name": "live",
-      "value": "直播"
+      "value": "Live"
     },
     {
       "name": "entertainment",
-      "value": "综艺"
+      "value": "Entertainment"
     }
   ]
 }

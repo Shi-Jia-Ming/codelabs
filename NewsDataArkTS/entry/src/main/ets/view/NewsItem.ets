@@ -64,7 +64,6 @@ export default struct NewsItem {
           }
         }, (itemImg, index) => JSON.stringify(itemImg) + index.toString())
       }
-      .aspectRatio(NewsGrid.ASPECT_RATIO)
       .columnsTemplate('1fr '.repeat(this.newsData.imagesUrl.length))
       .columnsGap(NewsGrid.COLUMNS_GAP)
       .rowsTemplate(NewsGrid.ROWS_TEMPLATE)

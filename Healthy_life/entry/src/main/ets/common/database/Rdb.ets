@@ -15,7 +15,7 @@
 
 import data_rdb from '@ohos.data.rdb';
 import { STORE_CONFIG } from '../constants/CommonConstants';
-import { Logger } from '../../common/utils/log/Logger';
+import Logger from '../../common/utils/Logger';
 
 export default class Rdb {
     private rdbStore: any = null;

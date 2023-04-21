@@ -23,12 +23,12 @@ import { PageTV } from '../view/tabcontent/PageTV';
 import { PageMovie } from '../view/tabcontent/PageMovie';
 
 /**
- * Application home page
+ * Application home page.
  */
 @Entry
 @Component
 struct SwiperIndex {
-  // Double binding of index values to achieve linkage effect
+  // Double binding of index values to achieve linkage effect.
   @State index: number = 0;
 
   build() {

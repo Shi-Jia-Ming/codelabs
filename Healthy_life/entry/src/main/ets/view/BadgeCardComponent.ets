@@ -19,11 +19,11 @@ import * as commonConst from '../common/constants/CommonConstants';
 @Component
 export struct BadgeCard {
   @Prop content: string;
-  @Prop imgSrc: string;
+  imgSrc: Resource;
 
   build() {
     Column({space: commonConst.DEFAULT_18}) {
-      Image($rawfile(this.imgSrc))
+      Image(this.imgSrc)
         .width(commonConst.FULL_WIDTH)
         .height(commonConst.ACHIEVE_CARD_IMG_HEIGHT)
         .objectFit(ImageFit.Contain)

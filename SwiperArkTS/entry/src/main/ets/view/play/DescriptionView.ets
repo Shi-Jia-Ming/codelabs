@@ -16,9 +16,9 @@
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * text style
- * @param fontSize
- * @param fonWeight
+ * text style.
+ * @param fontSize Font size.
+ * @param fonWeight Font weight.
  */
 @Extend(Text) function textStyle(fontSize: number, fonWeight: number) {
   .fontSize(fontSize)
@@ -29,7 +29,7 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
 }
 
 /**
- * Description component
+ * Description component.
  */
 @Component
 export struct DescriptionView {

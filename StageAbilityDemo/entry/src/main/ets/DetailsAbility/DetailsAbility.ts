@@ -14,13 +14,13 @@
  */
 
 import hilog from '@ohos.hilog';
-import Ability from '@ohos.app.ability.UIAbility';
+import UIAbility from '@ohos.app.ability.UIAbility';
 
 const TAG: string = 'DetailsAbility';
 const KEY: string = 'GoodsPosition';
 const DETAIL_ABILITY_DOMAIN = 0x00002;
 
-export default class DetailsAbility extends Ability {
+export default class DetailsAbility extends UIAbility {
     onCreate(want, launchParam) {
         let index: number = want?.parameters?.position;
         AppStorage.SetOrCreate(KEY, index);

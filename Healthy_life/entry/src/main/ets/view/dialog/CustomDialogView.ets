@@ -18,7 +18,7 @@ import { TaskDetailDialog } from './TaskDetailDialog';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
 import { TaskItem } from '../../model/TaskInitList';
 import TaskInfo from '../../common/bean/TaskInfo';
-import { Logger } from '../../common/utils/log/Logger';
+import Logger from '../../common/utils/Logger';
 
 export interface CustomDialogCallback {
   confirmCallback: Function;

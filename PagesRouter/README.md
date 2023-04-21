@@ -6,12 +6,11 @@
 
 效果图如下：
 
-![](screenshots/device/Index.png)
-![](screenshots/device/Second.png)
+![](screenshots/device/pageRouter.gif)
 
 ### 相关概念
 
-[页面路由](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-router-0000001478061893-V3?catalogVersion=V3): 提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、用应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
+- [页面路由](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-router-0000001478061893-V3?catalogVersion=V3): 提供通过不同的url访问不同的页面，包括跳转到应用内的指定页面、用应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
 
 ### 相关权限
 
@@ -29,4 +28,4 @@
 
 2.本示例为Stage模型，支持API version 9及以上版本SDK。
 
-3.本示例需要使用DevEco Studio 3.1 Beta1及以上版本进行编译运行。
+3.本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。

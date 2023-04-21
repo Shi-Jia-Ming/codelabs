@@ -34,7 +34,7 @@ let viewModel: DetailsViewModel = new DetailsViewModel();
 const KEY: string = 'GoodsPosition';
 let position = AppStorage.Get<number>(KEY);
 
-@Extend(Image) function setTopImageStyle () {
+@Extend(Image) function setTopImageStyle() {
   .width(DetailsPageStyle.TOP_IMAGE_SIZE)
   .height(DetailsPageStyle.TOP_IMAGE_SIZE)
 }
@@ -46,6 +46,12 @@ struct DetailsPage {
 
   aboutToAppear() {
     this.goodsDetails = viewModel.loadDetails(position);
+  }
+
+  onBackPress() {
+    let handler = getContext(this) as AppContext.UIAbilityContext;
+    handler.terminateSelf();
+    return true;
   }
 
   build() {

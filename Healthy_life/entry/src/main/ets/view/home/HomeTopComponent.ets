@@ -55,7 +55,7 @@ export default struct HomeTopView {
     }
     .height(commonConst.THOUSANDTH_500)
     .backgroundImagePosition({x: 0, y: 0})
-    .backgroundImage($rawfile('homeImg/home_bg.png'))
+    .backgroundImage($r('app.media.ic_home_bg'))
     .backgroundImageSize({ width: commonConst.THOUSANDTH_1000, height: commonConst.THOUSANDTH_900 })
     .justifyContent(FlexAlign.End)
   }

@@ -19,7 +19,7 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
 import { PictureType } from '../../common/constants/PictureConstants';
 
 /**
- * Tab content of all
+ * Tab content of all.
  */
 @Component
 export struct PageAll {

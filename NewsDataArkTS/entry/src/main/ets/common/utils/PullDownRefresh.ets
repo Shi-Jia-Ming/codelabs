@@ -36,10 +36,10 @@ export function listTouchEvent(event: TouchEvent) {
       }
       let isDownPull = event.touches[0].y - this.lastMoveY > 0;
       if ((isDownPull || this.isPullRefreshOperation) && !this.isCanLoadMore) {
-        // 手指移动，处理下拉刷新
+        // Finger movement, processing pull-down refresh.
         touchMovePullRefresh.call(this, event);
       } else {
-        // 手指移动，处理加载更多
+        // Finger movement, processing load more.
         touchMoveLoadMore.call(this, event);
       }
       this.lastMoveY = event.touches[0].y;
@@ -51,10 +51,10 @@ export function listTouchEvent(event: TouchEvent) {
         return;
       }
       if (this.isPullRefreshOperation) {
-        // 手指抬起，处理下拉刷新
+        // Lift your finger and pull down to refresh.
         touchUpPullRefresh.call(this);
       } else {
-        // 手指抬起，处理加载更多
+        // Fingers up, handle loading more.
         touchUpLoadMore.call(this);
       }
       break;
@@ -68,7 +68,7 @@ export function touchMovePullRefresh(event: TouchEvent) {
     this.isPullRefreshOperation = true;
     let height = vp2px(this.pullDownRefreshHeight);
     this.offsetY = event.touches[0].y - this.downY;
-    // 滑动的偏移量大于下拉刷新布局高度，达到刷新条件
+    // The sliding offset is greater than the pull-down refresh layout height, and the refresh condition is met.
     if (this.offsetY >= height) {
       pullRefreshState.call(this, RefreshState.Release);
       this.offsetY = height + this.offsetY * Y_OFF_SET_COEFFICIENT;

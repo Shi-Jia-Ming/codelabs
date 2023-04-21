@@ -18,7 +18,7 @@ import { PictureItem } from '../../common/bean/PictureItem';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**
- * Picture component
+ * Picture component.
  */
 @Component
 export struct PictureView {

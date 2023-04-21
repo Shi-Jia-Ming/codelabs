@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Logger } from './log/Logger';
+import Logger from './Logger';
 
 const FILE_TAG = 'BroadCast';
 

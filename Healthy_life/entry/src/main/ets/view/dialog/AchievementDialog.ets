@@ -14,6 +14,7 @@
  */
 
 import * as commonConst from '../../common/constants/CommonConstants';
+import { AchievementMap } from '../../model/TaskInitList';
 
 const ANGLE_LARGE = 360;
 
@@ -28,7 +29,7 @@ export struct AchievementDialog {
   build() {
     Column() {
 
-      Image($rawfile(`achievement/badge_${this.achievementLevel}_on.png`))
+      Image(AchievementMap[`${this.achievementLevel}_on`])
         .width(commonConst.THOUSANDTH_560)
         .height(commonConst.THOUSANDTH_400)
         .objectFit(ImageFit.Contain)

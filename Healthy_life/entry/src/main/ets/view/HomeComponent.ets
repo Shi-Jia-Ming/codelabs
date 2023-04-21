@@ -21,7 +21,7 @@ import { TaskCard } from '../view/home//TaskCardComponent';
 import HomeTopView from '../view/home/HomeTopComponent';
 import { CustomDialogView, CustomDialogCallback } from '../view/dialog/CustomDialogView';
 import TaskInfo from '../common/bean/TaskInfo';
-import { GlobalInfoTable } from '../common/database/tables/GlobalInfoTable';
+import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 import { HomeStore } from '../viewmodel/HomeViewModel';
 import { ITaskItem, TaskMapById } from '../model/TaskInitList';
 import { HealthDataSrcMgr } from '../common/utils/HealthDataSrcMgr';
@@ -30,12 +30,12 @@ import * as commonConst from '../common/constants/CommonConstants';
 
 const WHITE_COLOR_0X = 255;
 
-@Styles function allSize () {
+@Styles function allSize() {
   .width(commonConst.THOUSANDTH_1000)
   .height(commonConst.THOUSANDTH_1000)
 }
 
-@Extend(Text) function titleTextStyle () {
+@Extend(Text) function titleTextStyle() {
   .fontSize($r('app.float.default_16'))
   .fontWeight(commonConst.FONT_WEIGHT_500)
   .width(commonConst.THOUSANDTH_1000)
@@ -52,43 +52,39 @@ const WHITE_COLOR_0X = 255;
 export default struct HomeIndex {
   @Provide broadCast: BroadCast = HealthDataSrcMgr.getInstance().getBroadCast();
   @State naviAlpha: number = 0;
-  @State homeStore: HomeStore = new HomeStore(new Date());
+  @Link homeStore: HomeStore;
   @Link editedTaskInfo: ITaskItem;
   @Link @Watch('taskChange') editedTaskID: string;
   private scroller: Scroller = new Scroller();
-  private globalTable = new GlobalInfoTable();
 
   async aboutToAppear() {
-    this.globalTable.getRdbStore(() => {
-      this.globalTable.query((result) => {
-        let predate = new Date(result.lastDate);
-        let date = new Date();
-        if (result.length !== 0 && date.getTime() < predate.getTime()) {
-          AlertDialog.show(
-            {
-              title: $r('app.string.alert'),
-              message: $r('app.string.alert_message'),
-              autoCancel: false,
-              alignment: DialogAlignment.Bottom,
-              offset: { dx: 0, dy: -20 },
-              gridCount: 3,
-              confirm: {
-                value: $r('app.string.alert_button'),
-                action: () => {
-                  (getContext(this) as common.UIAbilityContext).terminateSelf()
-                  console.info('Button-clicking callback')
-                }
-              },
-              cancel: () => {
-                console.info('Closed callbacks')
+    GlobalInfoApi.query((result) => {
+      let predate = new Date(result.lastDate);
+      let date = new Date();
+      if (result.length !== 0 && date.getTime() < predate.getTime()) {
+        AlertDialog.show(
+          {
+            title: $r('app.string.alert'),
+            message: $r('app.string.alert_message'),
+            autoCancel: false,
+            alignment: DialogAlignment.Bottom,
+            offset: { dx: 0, dy: -20 },
+            gridCount: 3,
+            confirm: {
+              value: $r('app.string.alert_button'),
+              action: () => {
+                (getContext(this) as common.UIAbilityContext).terminateSelf()
+                console.info('Button-clicking callback')
               }
-            })
-        } else {
-          this.homeStore.initData();
-        }
-      });
+            },
+            cancel: () => {
+              console.info('Closed callbacks')
+            }
+          })
+      } else {
+        this.homeStore.initData();
+      }
     });
-    // this.homeStore.initData();
   }
 
   taskChange() {
@@ -117,7 +113,7 @@ export default struct HomeIndex {
     }
   }
 
-  //confirm clock
+  //confirm clockL
   onConfirm(task) {
     this.homeStore.taskClock(task).then((res) => {
       if (res.showAchievement) {
@@ -167,7 +163,7 @@ export default struct HomeIndex {
             .width(commonConst.THOUSANDTH_1000)
           } else {
             Column({ space: commonConst.DEFAULT_8 }) {
-              Image($rawfile('homeImg/no_data.png'))
+              Image($r('app.media.ic_no_data'))
                 .width($r('app.float.default_132'))
                 .height($r('app.float.default_100'));
               HealthText({ title: '', titleResource: $r('app.string.no_task'), fontSize: $r('app.float.default_14') })

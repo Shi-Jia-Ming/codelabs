@@ -8,7 +8,7 @@
 
 ### 相关概念
 
-[属性动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-animatorproperty-0000001333321185) ：组件的某些通用属性变化时，可以通过属性动画实现渐变效果，提升用户体验。支持的属性包括width、height、backgroundColor、opacity、scale、rotate、translate等。案例中自定义头部组件的属性动画设置主要涉及duration(动画时长)、tempo(动画速率)、delay(动画延时)、curve(动画曲线)、palyMode(动画模式)和iterations（动画播放次数）。
+- [属性动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-animatorproperty-0000001333321185) ：组件的某些通用属性变化时，可以通过属性动画实现渐变效果，提升用户体验。支持的属性包括width、height、backgroundColor、opacity、scale、rotate、translate等。案例中自定义头部组件的属性动画设置主要涉及duration(动画时长)、tempo(动画速率)、delay(动画延时)、curve(动画曲线)、palyMode(动画模式)和iterations（动画播放次数）。
 
 ### 使用说明
 
@@ -20,4 +20,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta1及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。

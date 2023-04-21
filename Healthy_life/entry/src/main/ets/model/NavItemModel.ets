@@ -29,20 +29,20 @@ export enum TabId {
 
 export const NavList: NavItem[] = [
   {
-    icon: $rawfile('tabs/home_normal.png'),
-    icon_selected: $rawfile('tabs/home_sel.png'),
+    icon: $r('app.media.ic_tabs_home_normal'),
+    icon_selected: $r('app.media.ic_tabs_home_sel'),
     text: $r('app.string.tab_home'),
     id: TabId.HOME
   },
   {
-    icon: $rawfile('tabs/achievement_normal.png'),
-    icon_selected: $rawfile('tabs/achievement_sel.png'),
+    icon: $r('app.media.ic_tabs_achievement_normal'),
+    icon_selected: $r('app.media.ic_tabs_achievement_sel'),
     text: $r('app.string.tab_achievement'),
     id: TabId.ACHIEVEMENT
   },
   {
-    icon: $rawfile('tabs/mine_normal.png'),
-    icon_selected: $rawfile('tabs/mine_sel.png'),
+    icon: $r('app.media.ic_tabs_mine_normal'),
+    icon_selected: $r('app.media.ic_tabs_mine_sel'),
     text: $r('app.string.tab_mine'),
     id: TabId.MINE
   },

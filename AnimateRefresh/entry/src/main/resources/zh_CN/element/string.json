@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "自定义下拉刷新动画"
+    },
+    {
+      "name": "refresh_default_header_hint",
+      "value": "下拉刷新"
+    },
+    {
+      "name": "refresh_default_header_load",
+      "value": "松开刷新"
+    },
+    {
+      "name": "refresh_default_header_loading",
+      "value": "正在刷新..."
+    },
+    {
+      "name": "file_index_title",
+      "value": "云空间"
+    }
+  ]
+}

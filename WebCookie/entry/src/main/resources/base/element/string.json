@@ -2,7 +2,7 @@
   "string": [
     {
       "name": "module_desc",
-      "value": "模块描述"
+      "value": "module description"
     },
     {
       "name": "EntryAbility_desc",
@@ -10,43 +10,43 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "Web组件"
+      "value": "Web component"
     },
     {
       "name": "button_confirm",
-      "value": "确定"
+      "value": "Confirm"
     },
     {
       "name": "dialog_message",
-      "value": "信息"
+      "value": "Message"
     },
     {
       "name": "navigator_name",
-      "value": "Web组件"
+      "value": "Web component"
     },
     {
       "name": "title_name",
-      "value": "Web组件内"
+      "value": "In web component"
     },
     {
       "name": "write_success",
-      "value": "写入cookie成功"
+      "value": "Write cookie success"
     },
     {
       "name": "write_fail",
-      "value": "写入cookie失败"
+      "value": "Write cookie fail"
     },
     {
       "name": "delete_success",
-      "value": "删除cookie成功"
+      "value": "Delete cookie success"
     },
     {
       "name": "test_content",
-      "value": "info=测试cookie写入"
+      "value": "info=test writing cookie"
     },
     {
       "name": "load_error",
-      "value": "加载页面失败：请检查网络连接。"
+      "value": "Failed to load the page: please check your network connection."
     }
   ]
 }

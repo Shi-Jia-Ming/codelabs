@@ -14,11 +14,7 @@
  */
 
 /**
- * Picture entity class
- * @param id
- * @param name
- * @param description
- * @param image
+ * Picture entity class.
  */
 export class PictureItem {
   id: string;

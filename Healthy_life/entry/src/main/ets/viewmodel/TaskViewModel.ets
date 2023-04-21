@@ -13,24 +13,23 @@
  * limitations under the License.
  */
 
-import { TaskInfoTable } from '../common/database/tables/TaskInfoTable';
-import { Logger } from '../common/utils/log/Logger';
-import TaskInfo, { oneWeek } from '../common/bean/TaskInfo';
 import {
-    EVERYDAY,
-    GLOBAL_KEY,
-    TODAY,
-    DRINK_STEP,
-    DRINK_MAX_RANGE,
-    EAT_APPLE_RANGE,
-    TIMES_100
+  EVERYDAY,
+  GLOBAL_KEY,
+  TODAY,
+  DRINK_STEP,
+  DRINK_MAX_RANGE,
+  EAT_APPLE_RANGE,
+  TIMES_100
 } from '../common/constants/CommonConstants';
+import TaskInfoApi from '../common/database/tables/TaskInfoApi';
+import Logger from '../common/utils/Logger';
+import TaskInfo, { oneWeek } from '../common/bean/TaskInfo';
 import { TaskMapById, ITaskItem } from '../model/TaskInitList';
 import { padTo2Digits } from '../common/utils/Utils';
 
-const taskInfoTable = new TaskInfoTable();
 export const taskOriginData: ITaskItem[] = Object.keys(TaskMapById).map(item => {
-    return TaskMapById[item];
+  return TaskMapById[item];
 })
 
 /**
@@ -38,41 +37,41 @@ export const taskOriginData: ITaskItem[] = Object.keys(TaskMapById).map(item => 
  * @return object[] Database query results
  */
 export const getAllTask = async () => {
-    return new Promise((resolve) => {
-        taskInfoTable.query(GLOBAL_KEY, true, (res) => {
-            if (res?.length === 0) {
-                Logger.warn('queryTaskList', 'has no data!!');
-                resolve(res ?? []);
-            }
-            resolve(res);
-        })
-    });
+  return new Promise((resolve) => {
+    TaskInfoApi.query(GLOBAL_KEY, true, (res) => {
+      if (res?.length === 0) {
+        Logger.warn('queryTaskList', 'has no data!!');
+        resolve(res ?? []);
+      }
+      resolve(res);
+    })
+  });
 }
 
 /**
  * @param params:TaskInfo
  */
 export const addTask = (params: TaskInfo) => {
-    if (!params) {
-        Logger.error('addTask', 'params is null!');
-        return;
-    }
-    return new Promise((resolve, reject) => {
-        taskInfoTable.updateDataByDate(params, (flag) => {
-            if (!flag) {
-                Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
-                reject(flag);
-            }
-            resolve(flag);
-        })
-        taskInfoTable.updateDataByDate({ ...params, date: TODAY, isDone: true }, (flag) => {
-            if (!flag) {
-                Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
-                reject(flag);
-            }
-            resolve(flag);
-        })
+  if (!params) {
+    Logger.error('addTask', 'params is null!');
+    return;
+  }
+  return new Promise((resolve, reject) => {
+    TaskInfoApi.updateDataByDate(params, (flag) => {
+      if (!flag) {
+        Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
+        reject(flag);
+      }
+      resolve(flag);
     })
+    TaskInfoApi.updateDataByDate({ ...params, date: TODAY, isDone: true }, (flag) => {
+      if (!flag) {
+        Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
+        reject(flag);
+      }
+      resolve(flag);
+    })
+  })
 }
 
 /**
@@ -81,20 +80,20 @@ export const addTask = (params: TaskInfo) => {
  * @param taskInfoData Database query data
  */
 export const taskIndexDataInit = (taskInitList, taskInfoData) => {
-    const afterInitData = taskInitList.map((content) => {
-        taskInfoData.forEach((item) => {
-            if (item?.taskID === content?.taskID) {
-                content.isOpen = item?.isOpen;
-                content.targetValue = item?.targetValue;
-                content.isAlarm = item?.isAlarm;
-                content.startTime = item?.startTime;
-                content.endTime = item?.endTime;
-                content.frequency = item?.frequency;
-            }
-        });
-        return content;
+  const afterInitData = taskInitList.map((content) => {
+    taskInfoData.forEach((item) => {
+      if (item?.taskID === content?.taskID) {
+        content.isOpen = item?.isOpen;
+        content.targetValue = item?.targetValue;
+        content.isAlarm = item?.isAlarm;
+        content.startTime = item?.startTime;
+        content.endTime = item?.endTime;
+        content.frequency = item?.frequency;
+      }
     });
-    return afterInitData;
+    return content;
+  });
+  return afterInitData;
 }
 
 /**
@@ -102,7 +101,7 @@ export const taskIndexDataInit = (taskInitList, taskInfoData) => {
  * @param params = {}
  */
 export const formatParams = (params = {}) => {
-    return JSON.stringify(params);
+  return JSON.stringify(params);
 }
 
 /**
@@ -111,18 +110,18 @@ export const formatParams = (params = {}) => {
  * @return string Frequency string
  */
 export const initFrequencyString = (frequencyIdCollection) => {
-    if (frequencyIdCollection === '') {
-        return EVERYDAY;
-    }
-    const frequencyIdArray = frequencyIdCollection.split(',').map(item => Number(item));
-    const length = frequencyIdArray.length;
-    if (length === 7) {
-        return EVERYDAY;
-    }
-    const frequencyString = frequencyIdArray.reduce((pre, current) => {
-        return pre + ' ' + oneWeek[current];
-    }, '')
-    return frequencyString;
+  if (frequencyIdCollection === '') {
+    return EVERYDAY;
+  }
+  const frequencyIdArray = frequencyIdCollection.split(',').map(item => Number(item));
+  const length = frequencyIdArray.length;
+  if (length === 7) {
+    return EVERYDAY;
+  }
+  const frequencyString = frequencyIdArray.reduce((pre, current) => {
+    return pre + ' ' + oneWeek[current];
+  }, '')
+  return frequencyString;
 }
 
 /**
@@ -131,8 +130,8 @@ export const initFrequencyString = (frequencyIdCollection) => {
  * @return timestamp
  */
 export const returnTimeStamp = (currentTime: string) => {
-    const timeString = `${TODAY} ${currentTime}`;
-    return new Date(timeString).getTime();
+  const timeString = `${TODAY} ${currentTime}`;
+  return new Date(timeString).getTime();
 }
 
 /**
@@ -140,7 +139,7 @@ export const returnTimeStamp = (currentTime: string) => {
  * @param value
  */
 export const formatTime = (value: TimePickerResult) => {
-    return `${padTo2Digits(value?.hour)}:${padTo2Digits(value?.minute)}`;
+  return `${padTo2Digits(value?.hour)}:${padTo2Digits(value?.minute)}`;
 }
 
 /**
@@ -148,11 +147,11 @@ export const formatTime = (value: TimePickerResult) => {
  * @return Array<string>
  */
 export const createDrinkRange = () => {
-    const drinkRangeArr = []
-    for (let i = DRINK_STEP; i <= DRINK_MAX_RANGE; i += DRINK_STEP) {
-        drinkRangeArr.push(`${i / TIMES_100} L`);
-    }
-    return drinkRangeArr;
+  const drinkRangeArr = []
+  for (let i = DRINK_STEP; i <= DRINK_MAX_RANGE; i += DRINK_STEP) {
+    drinkRangeArr.push(`${i / TIMES_100} L`);
+  }
+  return drinkRangeArr;
 }
 
 /**
@@ -160,9 +159,9 @@ export const createDrinkRange = () => {
  * @return Array<string>
  */
 export const createAppleRange = () => {
-    const appleRangeArr = []
-    for (let i = 1; i <= EAT_APPLE_RANGE; i++) {
-        appleRangeArr.push(`${i} 个`);
-    }
-    return appleRangeArr;
+  const appleRangeArr = []
+  for (let i = 1; i <= EAT_APPLE_RANGE; i++) {
+    appleRangeArr.push(`${i} 个`);
+  }
+  return appleRangeArr;
 }

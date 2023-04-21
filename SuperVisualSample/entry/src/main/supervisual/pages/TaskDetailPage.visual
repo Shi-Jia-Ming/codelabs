@@ -1,11 +1,29 @@
 {
     "document": {
         "VisualVersion": "12",
-        "type": "ETS"
+        "type": "ETS",
+        "custom": false,
+        "path": "/entry/src/main/supervisual/pages/TaskDetailPage"
     },
     "visualModel": {
         "dataType": "VisualModel",
         "value": {
+            "propertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "dynamicPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "mediaPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
+            "dynamicMediaPropertyStorage": {
+                "dataType": "Map",
+                "value": {}
+            },
             "property": {
                 "dataType": "Map",
                 "value": {
@@ -21,6 +39,22 @@
                 {
                     "dataType": "VisualModel",
                     "value": {
+                        "propertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "dynamicPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "mediaPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
+                        "dynamicMediaPropertyStorage": {
+                            "dataType": "Map",
+                            "value": {}
+                        },
                         "property": {
                             "dataType": "Map",
                             "value": {
@@ -73,6 +107,22 @@
                                         {
                                             "dataType": "VisualModel",
                                             "value": {
+                                                "propertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "dynamicPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "mediaPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "dynamicMediaPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
                                                 "property": {
                                                     "dataType": "Map",
                                                     "value": {
@@ -223,6 +273,22 @@
                                         {
                                             "dataType": "VisualModel",
                                             "value": {
+                                                "propertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "dynamicPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "mediaPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
+                                                "dynamicMediaPropertyStorage": {
+                                                    "dataType": "Map",
+                                                    "value": {}
+                                                },
                                                 "property": {
                                                     "dataType": "Map",
                                                     "value": {
@@ -482,6 +548,16 @@
             "value": {}
         },
         "actions": {
+            "dataType": "Map",
+            "value": {}
+        }
+    },
+    "customData": {
+        "property": {
+            "dataType": "Map",
+            "value": {}
+        },
+        "event": {
             "dataType": "Map",
             "value": {}
         }

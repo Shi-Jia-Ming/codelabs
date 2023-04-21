@@ -13,7 +13,7 @@
 - @State装饰的变量是组件内部的状态数据，当这些状态数据被修改时，将会调用所在组件的build方法进行UI刷新。
 - @Prop与@State有相同的语义，但初始化方式不同。@Prop装饰的变量必须使用其父组件提供的@State变量进行初始化，允许组件内部修改@Prop变量，但更改不会通知给父组件，即@Prop属于单向数据绑定。
 - @Link装饰的变量可以和父组件的@State变量建立双向数据绑定。
-#### [组件生命周期函数](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ui-ts-custom-component-lifecycle-callbacks-0000001436217309)
+#### [组件生命周期函数](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ui-ts-custom-component-lifecycle-callbacks-0000001436217309)
 - 自定义组件的生命周期回调函数用于通知用户该自定义组件的生命周期，这些回调函数是私有的，在运行时由开发框架在特定的时间进行调用，不能从应用程序中手动调用这些回调函数。 
 ### 相关权限
 不涉及
@@ -25,5 +25,5 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta1及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
 

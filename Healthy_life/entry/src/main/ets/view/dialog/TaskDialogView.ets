@@ -15,7 +15,7 @@
 
 import { TargetSettingDialog, RemindTimeDialog, FrequencyDialog } from './TaskSettingDialog';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
-import { Logger } from '../../common/utils/log/Logger';
+import Logger from '../../common/utils/Logger';
 import { ZERO, MINUS_20 } from '../../common/constants/CommonConstants';
 
 export interface CustomDialogCallback {

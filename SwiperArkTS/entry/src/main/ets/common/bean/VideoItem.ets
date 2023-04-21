@@ -14,7 +14,7 @@
  */
 
 /**
- * Video entity class
+ * Video entity class.
  */
 @Observed export class VideoItem {
   id: string;

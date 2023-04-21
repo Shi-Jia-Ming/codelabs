@@ -17,7 +17,7 @@ import { VideoItem } from '../common/bean/VideoItem';
 import { VIDEO_DATA, PlayState } from '../common/constants/VideoConstants';
 
 /**
- * Init video data
+ * Init video data.
  */
 export function initializeOnStartup(): Array<VideoItem> {
   let videoDataArray: Array<VideoItem> = []
@@ -28,7 +28,7 @@ export function initializeOnStartup(): Array<VideoItem> {
 }
 
 /**
- * video show
+ * video show.
  */
 export function onPageSwiperShow() {
   if (this.playState != PlayState.START) {
@@ -38,7 +38,7 @@ export function onPageSwiperShow() {
 }
 
 /**
- * video hide
+ * video hide.
  */
 export function onPageSwiperHide() {
   if (this.playState != PlayState.STOP) {
@@ -48,20 +48,20 @@ export function onPageSwiperHide() {
 }
 
 /**
- * play page show
+ * play page show.
  */
 export function needPageShow() {
   if (this.pageShow) {
-    if (this.barPosition === this.index) { // Judge whether the index is the same as the current location
+    if (this.barPosition === this.index) { // Judge whether the index is the same as the current location.
       this.isShow = true;
       onPageSwiperShow.call(this);
     } else {
-      if (this.isShow) { // The already visible status is changed to invisible, and the invisible method callback is triggered
+      if (this.isShow) { // The already visible status is changed to invisible, and the invisible method callback is triggered.
         this.isShow = false;
         onPageSwiperHide.call(this);
       }
     }
-  } else { // Stop when the page goes back to the background
+  } else { // Stop when the page goes back to the background.
     this.isShow = false;
     onPageSwiperHide.call(this);
   }

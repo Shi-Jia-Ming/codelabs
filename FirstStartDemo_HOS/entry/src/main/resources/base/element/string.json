@@ -1,12 +1,12 @@
 {
   "string": [
     {
-      "name": "entry_desc",
+      "name": "module_desc",
       "value": "description"
     },
     {
       "name": "EntryAbility_desc",
-      "value": "Main program entry."
+      "value": "Main program entry"
     },
     {
       "name": "home_page_text",

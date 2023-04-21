@@ -19,7 +19,7 @@ import { RankData } from '../common/bean/RankData';
 import { ListHeaderComponent } from '../view/ListHeaderComponent';
 import { TitleComponent } from '../view/TitleComponent';
 import { ListItemComponent } from '../view/ListItemComponent';
-import { APP_EXIT_INTERVAL, Style, TAG, TIME, TITLE, WEIGHT } from '../common/constants/Constants';
+import { APP_EXIT_INTERVAL, Style, TIME, TITLE, WEIGHT } from '../common/constants/Constants';
 
 let rankModel: RankViewModel = new RankViewModel();
 
@@ -34,21 +34,8 @@ struct RankPage {
   private clickBackTimeRecord: number = 0;
 
   aboutToAppear() {
-    console.log(`${TAG} aboutToAppear`);
     this.dataSource1 = rankModel.loadRankDataSource1();
     this.dataSource2 = rankModel.loadRankDataSource2();
-  }
-
-  aboutToDisappear() {
-    console.log(`${TAG} aboutToDisappear`);
-  }
-
-  onPageShow() {
-    console.log(`${TAG} onPageShow`);
-  }
-
-  onPageHide() {
-    console.log(`${TAG} onPageHide`);
   }
 
   onBackPress() {

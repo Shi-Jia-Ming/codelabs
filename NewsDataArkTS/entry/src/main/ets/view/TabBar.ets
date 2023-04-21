@@ -54,7 +54,7 @@ export default struct TabBar {
           }
         }
         .tabBar(this.TabBuilder(tabsItem.id))
-      }, item => item.id);
+      }, item => JSON.stringify(item));
     }
     .barHeight(TabBars.BAR_HEIGHT)
     .barMode(BarMode.Scrollable)

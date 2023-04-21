@@ -18,7 +18,7 @@ import { MovieSort } from '../movie/MovieSort';
 import { CommonConstants } from '../../common/constants/CommonConstant'
 
 /**
- * Tab content of movie
+ * Tab content of movie.
  */
 @Component
 export struct PageMovie {

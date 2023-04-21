@@ -16,7 +16,7 @@
 import { TopBarItem } from '../bean/TopBarItem';
 
 /**
- * Data of top bar
+ * Data of top bar.
  */
 export const TOP_BAR_DATA: TopBarItem[] = [
   { 'id': 0, 'name': '全部' },

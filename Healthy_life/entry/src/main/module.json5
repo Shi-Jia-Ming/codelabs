@@ -30,13 +30,13 @@
       {
         "name": "MainAbility",
         "orientation": "portrait",
-        "srcEntrance": "./ets/entryability/EntryAbility.ts",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:MainAbility_desc",
         "icon": "$media:logo",
         "label": "$string:MainAbility_label",
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:white",
-        "visible": true,
+        "exported": true,
         "skills": [
           {
             "entities": [

@@ -30,7 +30,7 @@ import CustomDialogComponent from '../view/CustomDialogComponent';
 struct LauncherPage {
   private context: common.UIAbilityContext;
   private timerId: number = 0;
-  private jumpToAdvertisingFlag: boolean = false;
+  private isJumpToAdvertising: boolean = false;
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogComponent(
       {
@@ -55,9 +55,10 @@ struct LauncherPage {
   }
 
   onPageHide() {
-    if (this.jumpToAdvertisingFlag) {
+    if (this.isJumpToAdvertising) {
       router.clear();
     }
+    globalThis.isJumpPrivacy = true;
     clearTimeout(this.timerId);
   }
 
@@ -66,7 +67,7 @@ struct LauncherPage {
    */
   jumpToAdvertisingPage() {
     this.timerId = setTimeout(() => {
-      this.jumpToAdvertisingFlag = true;
+      this.isJumpToAdvertising = true;
       router.pushUrl({
         url: CommonConstants.ADVERTISING_PAGE_URL
       }).catch((error) => {
@@ -95,9 +96,12 @@ struct LauncherPage {
     // Get the operation class for saving data.
     this.getDataPreferences().then((preferences: preferences.Preferences) => {
       preferences.get(CommonConstants.PREFERENCES_KEY_PRIVACY, true).then((value: preferences.ValueType) => {
-        Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'AboutToAppear value: ' + value);
+        Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'onPageShow value: ' + value);
         if (value) {
-          this.dialogController.open();
+          let isJumpPrivacy: boolean = globalThis.isJumpPrivacy ?? false;
+          if (!isJumpPrivacy) {
+            this.dialogController.open();
+          }
         } else {
           this.jumpToAdvertisingPage();
         }
@@ -126,16 +130,16 @@ struct LauncherPage {
           .width($r('app.float.launcher_life_text_width'))
           .height($r('app.float.launcher_life_text_height'))
           .healthyLifeTextStyle(FontWeight.Bold,
-          CommonConstants.LAUNCHER_LIFE_TEXT_SPACING,
-          $r('app.float.launcher_text_title_size'),
-          $r('app.color.launcher_text_title_color'))
+            CommonConstants.LAUNCHER_LIFE_TEXT_SPACING,
+            $r('app.float.launcher_text_title_size'),
+            $r('app.color.launcher_text_title_color'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_TITLE_MARGIN_TOP })
         Text($r('app.string.healthy_life_introduce'))
           .height(CommonConstants.LAUNCHER_TEXT_INTRODUCE_HEIGHT)
           .healthyLifeTextStyle(FontWeight.Normal,
-          CommonConstants.LAUNCHER_TEXT_INTRODUCE_SPACING,
-          $r('app.float.launcher_text_introduce_size'),
-          $r('app.color.launcher_text_introduce_color'))
+            CommonConstants.LAUNCHER_TEXT_INTRODUCE_SPACING,
+            $r('app.float.launcher_text_introduce_size'),
+            $r('app.color.launcher_text_introduce_color'))
           .opacity($r('app.float.launcher_text_opacity'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
       }

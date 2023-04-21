@@ -35,6 +35,8 @@ export default struct TaskList {
               Text(item?.taskName).fontSize(commonConst.DEFAULT_20).fontColor($r('app.color.titleColor'))
             }.width(commonConst.THOUSANDTH_500)
 
+            Blank()
+              .layoutWeight(1)
             if (item?.isOpen) {
               Text($r('app.string.already_open'))
                 .fontSize(commonConst.DEFAULT_16)
@@ -43,7 +45,9 @@ export default struct TaskList {
                 .margin({ right: commonConst.DEFAULT_8 })
                 .fontColor($r('app.color.titleColor'))
             }
-            Image($rawfile('task/right_grey.png')).width(commonConst.DEFAULT_8).height(commonConst.DEFAULT_16)
+            Image($r('app.media.ic_right_grey'))
+            .width(commonConst.DEFAULT_8)
+            .height(commonConst.DEFAULT_16)
           }
           .width(commonConst.THOUSANDTH_1000)
           .justifyContent(FlexAlign.SpaceBetween)

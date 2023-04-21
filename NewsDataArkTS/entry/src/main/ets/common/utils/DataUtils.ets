@@ -19,7 +19,9 @@ import {
   GET_NEWS_TYPE,
   GET_NEWS_LIST,
   GET_TAB_DATA_CURRENT_PAGE,
-  SERVER_CODE_SUCCESS
+  SERVER_CODE_SUCCESS,
+  LOCAL_DATA,
+  DEFAULT_SERVER
 } from '../constant/CommonConstant';
 import { httpRequestGet } from '../utils/HttpUtil';
 
@@ -33,11 +35,16 @@ import { httpRequestGet } from '../utils/HttpUtil';
  */
 export async function getTabData(currentPage: number, pageSize: number, currentIndex: number, callback) {
   currentPage = currentPage + GET_TAB_DATA_CURRENT_PAGE;
+  let newsPageData = [];
+  if (SERVER === DEFAULT_SERVER) {
+    newsPageData = LOCAL_DATA;
+    callback.onSuccess({ currentPage, newsPageData });
+    return;
+  }
   if (currentPage > pageSize) {
     promptAction.showToast({ message: $r('app.string.prompt_message') });
     currentPage = currentPage - GET_TAB_DATA_CURRENT_PAGE;
   }
-  let newsPageData = [];
   let url = `${SERVER}/${GET_NEWS_LIST}`;
   let params = { 'currentPage': currentPage, 'pageSize': pageSize, 'currentIndex': currentIndex };
   let data = await httpRequestGet(url, params);

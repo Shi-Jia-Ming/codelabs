@@ -7,15 +7,15 @@
 本篇Codelab使用ArkTS实现应用的“一次开发，多端部署”，效果如下图所示：
 
 ![image](screenshots/device/一多.gif)
-![image](screenshots/device/一多_平板.png)
+![image](screenshots/device/平板.png)
 
 ### 相关概念
 
-[List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)：包含一系列相同宽度的列表项，适合连续、多行呈现同类数据，例如图片和文本。
+- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)：包含一系列相同宽度的列表项，适合连续、多行呈现同类数据，例如图片和文本。
 
-[Flex](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-flex-0000001281001250)：弹性布局组件。
+- [Flex](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-flex-0000001281001250)：弹性布局组件。
 
-[Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)：滑动容器，提供切换子组件显示的能力。
+- [Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)：滑动容器，提供切换子组件显示的能力。
 
 ### 相关权限
 
@@ -30,4 +30,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta1及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
