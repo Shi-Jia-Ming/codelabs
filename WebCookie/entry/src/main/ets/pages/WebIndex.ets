@@ -14,27 +14,12 @@
  */
 
 import web_webview from '@ohos.web.webview';
-import {
-  USER_CENTER_URL,
-  NAVIGATOR_SIZE,
-  TITLE_SIZE,
-  FULL_HEIGHT,
-  FULL_WIDTH,
-  WEB_HEIGHT,
-  WEB_WIDTH,
-  PAGE_TITLE_HEIGHT,
-  PAGE_TITLE_WIDTH,
-  FONT_WEIGHT_DEEPER,
-  APP_TITLE_MARGIN_TOP,
-  APP_TITLE_MARGIN_LEFT,
-  WEB_MARGIN_BOTTOM,
-  CookieOperation
-} from '../common/constants/CommonConstant';
+import { CommonConstants, CookieOperation } from '../common/constants/CommonConstant';
 import { LinkButton } from '../view/LinkButton'
 import { showDialog } from '../common/utils/DialogUtil';
 
 /**
- * Home page
+ * Home page.
  */
 @Entry
 @Component
@@ -44,27 +29,33 @@ struct WebIndex {
   build() {
     Column() {
       Text($r('app.string.navigator_name'))
-        .fontSize(NAVIGATOR_SIZE)
-        .fontWeight(FONT_WEIGHT_DEEPER)
+        .fontSize(CommonConstants.NAVIGATOR_SIZE)
+        .fontWeight(CommonConstants.FONT_WEIGHT_DEEPER)
         .fontColor($r('app.color.navigator_black'))
-        .width(FULL_WIDTH)
-        .margin({ top: APP_TITLE_MARGIN_TOP, left: APP_TITLE_MARGIN_LEFT })
+        .width(CommonConstants.FULL_WIDTH)
+        .margin({
+          top: CommonConstants.APP_TITLE_MARGIN_TOP,
+          left: CommonConstants.APP_TITLE_MARGIN_LEFT
+        })
 
       Text($r('app.string.title_name'))
-        .fontSize(TITLE_SIZE)
-        .fontWeight(FONT_WEIGHT_DEEPER)
+        .fontSize(CommonConstants.TITLE_SIZE)
+        .fontWeight(CommonConstants.FONT_WEIGHT_DEEPER)
         .fontColor($r('app.color.title_black'))
-        .width(PAGE_TITLE_WIDTH)
-        .height(PAGE_TITLE_HEIGHT)
-        .margin({ top: $r('app.float.page_title_margin_top'), bottom: $r('app.float.page_title_margin_bottom') })
+        .width(CommonConstants.PAGE_TITLE_WIDTH)
+        .height(CommonConstants.PAGE_TITLE_HEIGHT)
+        .margin({
+          top: $r('app.float.page_title_margin_top'),
+          bottom: $r('app.float.page_title_margin_bottom')
+        })
 
       Web({
-        src: USER_CENTER_URL,
+        src: CommonConstants.USER_CENTER_URL,
         controller: this.controller
       })
-        .height(WEB_HEIGHT)
-        .width(WEB_WIDTH)
-        .margin({ bottom: WEB_MARGIN_BOTTOM })
+        .height(CommonConstants.WEB_HEIGHT)
+        .width(CommonConstants.WEB_WIDTH)
+        .margin({ bottom: CommonConstants.WEB_MARGIN_BOTTOM })
         .onErrorReceive(() => {
           let message = $r('app.string.load_error');
           showDialog(message);
@@ -76,10 +67,10 @@ struct WebIndex {
         LinkButton({ buttonType: CookieOperation.DELETE_COOKIE, isNeedDivider: true })
         LinkButton({ buttonType: CookieOperation.VERIFY_COOKIE, isNeedDivider: false })
       }
-      .width(WEB_WIDTH)
+      .width(CommonConstants.WEB_WIDTH)
     }
     .backgroundColor($r('app.color.page_background_grey'))
-    .width(FULL_WIDTH)
-    .height(FULL_HEIGHT)
+    .width(CommonConstants.FULL_WIDTH)
+    .height(CommonConstants.FULL_HEIGHT)
   }
 }

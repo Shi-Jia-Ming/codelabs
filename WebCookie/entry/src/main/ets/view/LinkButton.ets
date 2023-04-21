@@ -12,21 +12,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 import web_webview from '@ohos.web.webview';
 import router from '@ohos.router';
 import { showDialog } from '../common/utils/DialogUtil';
-import {
-  USER_CENTER_URL,
-  USER_ABOUT_URL,
-  CookieOperation,
-  BUTTON_SIZE,
-  DIVIDER_MARGIN,
-  PAGE_VERIFY,
-  DIVIDER_HEIGHT
-} from '../common/constants/CommonConstant';
+import { CommonConstants, CookieOperation } from '../common/constants/CommonConstant';
+import Logger from '../common/utils/Logger';
 
 /**
- * Link component
+ * Link component.
  */
 @Component
 export struct LinkButton {
@@ -37,7 +31,7 @@ export struct LinkButton {
     Row() {
       Text(this.buttonType)
         .fontColor($r('app.color.link_blue'))
-        .fontSize(BUTTON_SIZE)
+        .fontSize(CommonConstants.BUTTON_SIZE)
         .textAlign(TextAlign.Center)
         .fontWeight(FontWeight.Normal)
         .onClick(() => {
@@ -47,8 +41,8 @@ export struct LinkButton {
       if (this.isNeedDivider) {
         Divider()
           .vertical(true)
-          .margin(DIVIDER_MARGIN)
-          .height(DIVIDER_HEIGHT)
+          .margin(CommonConstants.DIVIDER_MARGIN)
+          .height(CommonConstants.DIVIDER_HEIGHT)
       }
     }
   }
@@ -57,7 +51,7 @@ export struct LinkButton {
     switch (this.buttonType) {
       case CookieOperation.GET_COOKIE:
         try {
-          let originCookie = web_webview.WebCookieManager.getCookie(USER_CENTER_URL);
+          let originCookie = web_webview.WebCookieManager.getCookie(CommonConstants.USER_CENTER_URL);
           showDialog(originCookie);
         } catch (error) {
           showDialog(`ErrorCode: ${error.code},  Message: ${error.message}`);
@@ -65,7 +59,7 @@ export struct LinkButton {
         break;
       case CookieOperation.SET_COOKIE:
         try {
-          web_webview.WebCookieManager.setCookie(USER_ABOUT_URL, 'info=测试cookie写入');
+          web_webview.WebCookieManager.setCookie(CommonConstants.USER_ABOUT_URL, 'info=测试cookie写入');
           showDialog($r('app.string.write_success'));
         } catch (error) {
           showDialog(`ErrorCode: ${error.code},  Message: ${error.message}`);
@@ -78,9 +72,9 @@ export struct LinkButton {
         break;
       case CookieOperation.VERIFY_COOKIE:
         router.pushUrl({
-          url: PAGE_VERIFY
+          url: CommonConstants.PAGE_VERIFY
         }).catch(err => {
-          console.error('[LinkButton] push url fail: ' + err);
+          Logger.error('[LinkButton] push url fail: ' + err);
         });
         break;
       default:

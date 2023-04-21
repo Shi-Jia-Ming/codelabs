@@ -14,124 +14,135 @@
  */
 
 /**
- * user center path
+ * Common constants for all features.
  */
-export const USER_CENTER_URL = 'https://id1.cloud.huawei.com/AMW/portal/userCenter/index.html?' +
-'service=http://developer.huawei.com/consumer/cn/#/accountCenter/userCenter';
+export class CommonConstants {
+
+  /**
+   * User Center Link.
+   */
+  static readonly USER_CENTER_URL = 'https://id1.cloud.huawei.com/AMW/portal/userCenter/index.html?' +
+  'service=http://developer.huawei.com/consumer/cn/#/accountCenter/userCenter';
+
+  /**
+   * About Links.
+   */
+  static readonly USER_ABOUT_URL = 'https://id1.cloud.huawei.com/AMW/portal/userCenter/index.html?' +
+  'service=http://developer.huawei.com/consumer/cn/#/accountCenter/about';
+
+  /**
+   * Font size of navigation text.
+   */
+  static readonly NAVIGATOR_SIZE = '20fp';
+
+  /**
+   * Font size of page title text.
+   */
+  static readonly TITLE_SIZE = '18fp';
+
+  /**
+   * Font size of button text.
+   */
+  static readonly BUTTON_SIZE = '14fp';
+
+  /**
+   * Margin of divider.
+   */
+  static readonly DIVIDER_MARGIN = 12;
+
+  /**
+   * Height of divider.
+   */
+  static readonly DIVIDER_HEIGHT = '2.2%';
+
+  /**
+   * Url of verify page.
+   */
+  static readonly PAGE_VERIFY = 'pages/Verify';
+
+  /**
+   * Url of index page.
+   */
+  static readonly PAGE_INDEX = 'pages/WebIndex';
+
+  /**
+   * Maximum of width.
+   */
+  static readonly FULL_WIDTH = '100%';
+
+  /**
+   * Maximum of height.
+   */
+  static readonly FULL_HEIGHT = '100%';
+
+  /**
+   * Width of back icon.
+   */
+  static readonly BACK_WIDTH = '6.7%';
+
+  /**
+   * Height of back icon.
+   */
+  static readonly BACK_HEIGHT = '3.1%';
+
+  /**
+   * Height of web component.
+   */
+  static readonly WEB_HEIGHT = '60%';
+
+  /**
+   * Width of web component.
+   */
+  static readonly WEB_WIDTH = '90%';
+
+  /**
+   * Height of page title text.
+   */
+  static readonly PAGE_TITLE_HEIGHT = '3.1%';
+
+  /**
+   * Width of page title text.
+   */
+  static readonly PAGE_TITLE_WIDTH = '25.6%';
+
+  /**
+   * Top margin of navigation.
+   */
+  static readonly NAVIGATOR_MARGIN_TOP = '1.7%';
+
+  /**
+   * Left margin of navigation.
+   */
+  static readonly NAVIGATOR_MARGIN_LEFT = '10%';
+
+  /**
+   * Deeper font weight than normal font.
+   */
+  static readonly FONT_WEIGHT_DEEPER = 500;
+
+  /**
+   * Top margin of app title.
+   */
+  static readonly APP_TITLE_MARGIN_TOP = '15vp';
+
+  /**
+   * Left margin of app title.
+   */
+  static readonly APP_TITLE_MARGIN_LEFT = '26vp';
+
+  /**
+   * Bottom margin of web.
+   */
+  static readonly WEB_MARGIN_BOTTOM = '90vp';
+
+  /**
+   * Length of truncated.
+   */
+  static readonly SUB_LENGTH: number = 300;
+}
 
 /**
- * about path
- */
-export const USER_ABOUT_URL = 'https://id1.cloud.huawei.com/AMW/portal/userCenter/index.html?' +
-'service=http://developer.huawei.com/consumer/cn/#/accountCenter/about';
-
-/**
- * font size of navigation text
- */
-export const NAVIGATOR_SIZE = '20fp';
-
-/**
- * font size of page title text
- */
-export const TITLE_SIZE = '18fp';
-
-/**
- * font size of button text
- */
-export const BUTTON_SIZE = '14fp';
-
-/**
- * margin of divider
- */
-export const DIVIDER_MARGIN = 12;
-
-/**
- * height of divider
- */
-export const DIVIDER_HEIGHT = '2.2%';
-
-/**
- * url of verify page
- */
-export const PAGE_VERIFY = 'pages/Verify';
-
-/**
- * url of index page
- */
-export const PAGE_INDEX = 'pages/WebIndex';
-
-/**
- * Maximum of width
- */
-export const FULL_WIDTH = '100%';
-
-/**
- * Maximum of height
- */
-export const FULL_HEIGHT = '100%';
-
-/**
- * width of back icon
- */
-export const BACK_WIDTH = '6.7%';
-
-/**
- * height of back icon
- */
-export const BACK_HEIGHT = '3.1%';
-
-/**
- * height of web component
- */
-export const WEB_HEIGHT = '60%';
-
-/**
- * width of web component
- */
-export const WEB_WIDTH = '90%';
-
-/**
- * height of page title text
- */
-export const PAGE_TITLE_HEIGHT = '3.1%';
-
-/**
- * width of page title text
- */
-export const PAGE_TITLE_WIDTH = '25.6%';
-
-/**
- * top margin of navigation
- */
-export const NAVIGATOR_MARGIN_TOP = '1.7%';
-
-/**
- * left margin of navigation
- */
-export const NAVIGATOR_MARGIN_LEFT = '10%';
-
-/**
- * deeper font weight than normal font
- */
-export const FONT_WEIGHT_DEEPER = 500;
-
-/**
- * top margin of app title
- */
-export const APP_TITLE_MARGIN_TOP = '15vp';
-
-/**
- * left margin of app title
- */
-export const APP_TITLE_MARGIN_LEFT = '26vp';
-
-/**
- * bottom margin of web
- */
-export const WEB_MARGIN_BOTTOM = '90vp';
-
-/**
- * type of cookie Operation
+ * Type of cookie Operation.
  */
 export enum CookieOperation {
   GET_COOKIE = '读取cookie',

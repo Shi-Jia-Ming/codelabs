@@ -15,26 +15,10 @@
 
 import web_webview from '@ohos.web.webview';
 import { showDialog } from '../common/utils/DialogUtil';
-import {
-  USER_ABOUT_URL,
-  NAVIGATOR_SIZE,
-  TITLE_SIZE,
-  PAGE_INDEX,
-  FULL_WIDTH,
-  FULL_HEIGHT,
-  BACK_WIDTH,
-  BACK_HEIGHT,
-  WEB_WIDTH,
-  WEB_HEIGHT,
-  PAGE_TITLE_HEIGHT,
-  PAGE_TITLE_WIDTH,
-  NAVIGATOR_MARGIN_TOP,
-  NAVIGATOR_MARGIN_LEFT,
-  FONT_WEIGHT_DEEPER
-} from '../common/constants/CommonConstant';
+import { CommonConstants } from '../common/constants/CommonConstant';
 
 /**
- * Page use to verify login free
+ * Page use to verify login free.
  */
 @Entry
 @Component
@@ -49,42 +33,48 @@ struct Verify {
 
   build() {
     Column() {
-      Navigator({ target: PAGE_INDEX, type: NavigationType.Back }) {
+      Navigator({ target: CommonConstants.PAGE_INDEX, type: NavigationType.Back }) {
         Row() {
           Image($r('app.media.ic_back'))
-            .width(BACK_WIDTH)
-            .height(BACK_HEIGHT)
+            .width(CommonConstants.BACK_WIDTH)
+            .height(CommonConstants.BACK_HEIGHT)
             .objectFit(ImageFit.Contain)
 
           Text($r('app.string.navigator_name'))
-            .fontSize(NAVIGATOR_SIZE)
-            .fontWeight(FONT_WEIGHT_DEEPER)
+            .fontSize(CommonConstants.NAVIGATOR_SIZE)
+            .fontWeight(CommonConstants.FONT_WEIGHT_DEEPER)
             .fontColor($r('app.color.navigator_black'))
         }
-        .width(FULL_WIDTH)
+        .width(CommonConstants.FULL_WIDTH)
       }
-      .width(FULL_WIDTH)
-      .margin({ top: NAVIGATOR_MARGIN_TOP, left: NAVIGATOR_MARGIN_LEFT })
+      .width(CommonConstants.FULL_WIDTH)
+      .margin({
+        top: CommonConstants.NAVIGATOR_MARGIN_TOP,
+        left: CommonConstants.NAVIGATOR_MARGIN_LEFT
+      })
 
       Text($r('app.string.title_name'))
-        .fontSize(TITLE_SIZE)
-        .fontWeight(FONT_WEIGHT_DEEPER)
+        .fontSize(CommonConstants.TITLE_SIZE)
+        .fontWeight(CommonConstants.FONT_WEIGHT_DEEPER)
         .fontColor($r('app.color.title_black'))
-        .width(PAGE_TITLE_WIDTH)
-        .height(PAGE_TITLE_HEIGHT)
-        .margin({ top: $r('app.float.page_title_margin_top'), bottom: $r('app.float.page_title_margin_bottom') })
+        .width(CommonConstants.PAGE_TITLE_WIDTH)
+        .height(CommonConstants.PAGE_TITLE_HEIGHT)
+        .margin({
+          top: $r('app.float.page_title_margin_top'),
+          bottom: $r('app.float.page_title_margin_bottom')
+        })
 
       Web({
-        src: USER_ABOUT_URL,
+        src: CommonConstants.USER_ABOUT_URL,
         controller: this.controller
       })
-        .height(WEB_HEIGHT)
-        .width(WEB_WIDTH)
+        .height(CommonConstants.WEB_HEIGHT)
+        .width(CommonConstants.WEB_WIDTH)
         .fileAccess(this.fileAccess)
         .javaScriptAccess(true)
         .onPageEnd(() => {
           try {
-            let originCookie = web_webview.WebCookieManager.getCookie(USER_ABOUT_URL);
+            let originCookie = web_webview.WebCookieManager.getCookie(CommonConstants.USER_ABOUT_URL);
             if (originCookie === '' || this.isRedirect) {
               return;
             }
@@ -96,7 +86,7 @@ struct Verify {
         })
     }
     .backgroundColor($r('app.color.page_background_grey'))
-    .width(FULL_WIDTH)
-    .height(FULL_HEIGHT)
+    .width(CommonConstants.FULL_WIDTH)
+    .height(CommonConstants.FULL_HEIGHT)
   }
 }
