@@ -1,32 +1,32 @@
 {
   "string": [
     {
-      "name": "entry_desc",
+      "name": "module_desc",
       "value": "description"
     },
     {
-      "name": "MainAbility_desc",
-      "value": "description"
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
     },
     {
-      "name": "MainAbility_label",
+      "name": "EntryAbility_label",
       "value": "AnimateRefresh"
     },
     {
       "name": "refresh_default_header_hint",
-      "value": "下拉刷新"
+      "value": "Pull Down Refresh"
     },
     {
       "name": "refresh_default_header_load",
-      "value": "松开刷新"
+      "value": "Release Refresh"
     },
     {
       "name": "refresh_default_header_loading",
-      "value": "正在刷新..."
+      "value": "Refreshing..."
     },
     {
       "name": "file_index_title",
-      "value": "云空间"
+      "value": "Cloud space"
     }
   ]
 }
