@@ -1,0 +1,28 @@
+{
+  "float": [
+    {
+      "name": "dialog_image_size",
+      "value": "90vp"
+    },
+    {
+      "name": "dialog_image_top",
+      "value": "55vp"
+    },
+    {
+      "name": "dialog_image_bottom",
+      "value": "48vp"
+    },
+    {
+      "name": "dialog_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "dialog_message_bottom",
+      "value": "20vp"
+    },
+    {
+      "name": "dialog_height",
+      "value": "277vp"
+    }
+  ]
+}
