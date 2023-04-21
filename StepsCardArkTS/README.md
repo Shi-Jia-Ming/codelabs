@@ -11,7 +11,7 @@
 
 - [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-data-rdb-0000001281001102)：关系型数据库基于SQLite组件提供了一套完整的对本地数据库进行管理的机制，对外提供了一系列的增、删、改、查等接口，也可以直接运行用户输入的SQL语句来满足复杂的场景需要。
 
-- [服务卡片开发](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-app-form-formextensionability-0000001478181537-V3?catalogVersion=V3)：卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
+- [服务卡片开发](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-app-form-formextensionability-0000001493424316-V3?catalogVersion=V3)：卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
  
   - 卡片提供方：显示卡片内容，控制卡片布局以及控件点击事件。
 
