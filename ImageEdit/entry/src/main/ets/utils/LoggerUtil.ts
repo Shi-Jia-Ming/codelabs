@@ -25,7 +25,7 @@ class Logger {
   private format: string = '%{public}s, %{public}s';
 
   /**
-   * constructor.
+   * Constructor.
    *
    * @param Prefix Identifies the log tag.
    * @param domain Domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF.
