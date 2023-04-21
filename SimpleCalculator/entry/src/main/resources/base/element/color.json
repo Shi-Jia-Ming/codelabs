@@ -1,0 +1,32 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "input_back_color",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "text_color",
+      "value": "#182431"
+    },
+    {
+      "name": "border_color",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "equals_back_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "row_back_color",
+      "value": "#F8F8FF"
+    },
+    {
+      "name": "column_back_color",
+      "value": "#F5F5F5"
+    }
+  ]
+}
