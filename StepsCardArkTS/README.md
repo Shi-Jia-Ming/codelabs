@@ -1,7 +1,7 @@
 # Stage模型卡片（ArkTS）
 
 ### 简介
-本篇Codelab基于元服务卡片功能，实现带有卡片的应用，介绍卡片的开发过程和生命周期实现。效果如图所示：
+本篇Codelab基于Stage模型实现带有卡片的计步应用，用于介绍卡片的开发及生命周期实现。效果如图所示：
 
 ![](screenshots/device/steps_card.gif)
 
@@ -12,7 +12,7 @@
 - [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/database-relational-guidelines-0000001333800361)：关系型数据库基于SQLite组件提供了一套完整的对本地数据库进行管理的机制，对外提供了一系列的增、删、改、查等接口，也可以直接运行用户输入的SQL语句来满足复杂的场景需要。
 
 - [元服务卡片开发](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/js-ui-widget-development-0000001535946225-V3?catalogVersion=V3)：卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达，减少体验层级的目的。
- 
+
   - 卡片提供方：显示卡片内容，控制卡片布局以及控件点击事件。
 
   - 卡片使用方：显示卡片内容的宿主应用，控制卡片在宿主中展示的位置。
