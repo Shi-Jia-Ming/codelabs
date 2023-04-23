@@ -21,7 +21,6 @@
   - [UIAbility内页面间的跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/PagesRouter)
   - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StageAbilityDemo)
 - UI(ArkTS)
-  - [一次开发多端部署（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device)
   - [电子相册（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ElectronicAlbum)
   - [构建多种样式弹窗（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultipleDialog)
   - [简易计算器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleCalculator)
@@ -42,7 +41,6 @@
   - [基础组件Slider的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SliderExample)
   - [List组件的用法之商品列表（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List)
   - [List组件的用法之设置项（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List-HDC)
-  - [极简声明式UI范式（ArkTS）（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleGalleryETS)
   - [购物应用（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingEts)
   - [Native XComponent（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/NativeXComponent)
   - [简易Native C++ 示例（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/NativeTemplateDemo)
@@ -83,12 +81,12 @@
 - 卡片
   - [电影卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
   - [Stage模型卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardArkTS)
-  - [计步器卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCard)
   - [电影卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/JSMovieCard)
-- 三方库
-  - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ThirdPartyLibrary)
+  - [计步器卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCard)
 - 效率提升
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SuperVisualSample)
+- 三方库
+  - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ThirdPartyLibrary)
 
 ## 使用说明<a name="section1954919258619"></a>
 
