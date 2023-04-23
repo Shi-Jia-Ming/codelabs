@@ -117,8 +117,8 @@ export class CalculateModel {
     if ((last.indexOf(CommonConstants.DOTS) !== -1) && (value === CommonConstants.DOTS)) {
       return false;
     }
-    if ((last === '0') && (value != CommonConstants.DOTS) &&
-      (value != CommonConstants.PERCENT_SIGN)) {
+    if ((last === '0') && (value !== CommonConstants.DOTS) &&
+      (value !== CommonConstants.PERCENT_SIGN)) {
       return false;
     }
     return true;

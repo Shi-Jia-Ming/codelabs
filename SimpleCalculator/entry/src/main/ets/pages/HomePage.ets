@@ -74,7 +74,8 @@ struct HomePage {
                     } else {
                       Text(keyItem.value)
                         .fontSize(
-                          (keyItem.value === '.') ? $r('app.float.font_size_dot') : $r('app.float.font_size_text')
+                          (keyItem.value === CommonConstants.DOTS) ?
+                            $r('app.float.font_size_dot') : $r('app.float.font_size_text')
                         )
                         .width(keyItem.width)
                         .height(keyItem.height)
@@ -82,16 +83,16 @@ struct HomePage {
                   }
                   .width($r('app.float.key_width'))
                   .height(
-                    ((columnItemIndex === keysModel.getPressKeys().length - 1) &&
-                      (keyItemIndex === columnItem.length - 1)) ?
+                    ((columnItemIndex === (keysModel.getPressKeys().length - 1)) &&
+                      (keyItemIndex === (columnItem.length - 1))) ?
                       $r('app.float.equals_height') : $r('app.float.key_height')
                   )
                   .borderWidth(1)
                   .borderColor($r('app.color.border_color'))
                   .borderRadius($r('app.float.border_radius'))
                   .backgroundColor(
-                    ((columnItemIndex === keysModel.getPressKeys().length - 1) &&
-                      (keyItemIndex === columnItem.length - 1)) ?
+                    ((columnItemIndex === (keysModel.getPressKeys().length - 1)) &&
+                      (keyItemIndex === (columnItem.length - 1))) ?
                       $r('app.color.equals_back_color') : Color.White
                   )
                   .alignItems(HorizontalAlign.Center)
@@ -105,8 +106,8 @@ struct HomePage {
                   })
                 }
                 .layoutWeight(
-                  ((columnItemIndex === keysModel.getPressKeys().length - 1) &&
-                    (keyItemIndex === columnItem.length - 1)) ? CommonConstants.TWO : 1
+                  ((columnItemIndex === (keysModel.getPressKeys().length - 1)) &&
+                    (keyItemIndex === (columnItem.length - 1))) ? CommonConstants.TWO : 1
                 )
                 .width(CommonConstants.FULL_PERCENT)
                 .justifyContent(FlexAlign.Center)
