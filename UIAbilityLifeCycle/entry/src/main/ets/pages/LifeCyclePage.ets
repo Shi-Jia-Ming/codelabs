@@ -13,37 +13,36 @@
  * limitations under the License.
  */
 
-import hilog from '@ohos.hilog';
-import CommonConstants from '../common/CommonConstants';
+import Logger from '../common/util/Logger';
+import CommonConstants from '../common/constants/CommonConstants';
 
 @Entry
 @Component
 struct LifeCyclePage {
   @State textColor: Color = Color.Black;
-  private tag: string = 'LifeCyclePage';
 
   aboutToAppear() {
     this.textColor = Color.Blue;
-    hilog.info(CommonConstants.DOMAIN, this.tag, '%{public}s', 'LifeCyclePage aboutToAppear');
+    Logger.info('[LifeCyclePage]  LifeCyclePage aboutToAppear');
   }
 
   onPageShow() {
     this.textColor = Color.Brown;
-    hilog.info(CommonConstants.DOMAIN, this.tag, '%{public}s', 'LifeCyclePage onPageShow');
+    Logger.info('[LifeCyclePage]  LifeCyclePage onPageShow');
   }
 
   onPageHide() {
-    hilog.info(CommonConstants.DOMAIN, this.tag, '%{public}s', 'LifeCyclePage onPageHide');
+    Logger.info('[LifeCyclePage]  LifeCyclePage onPageHide');
   }
 
   onBackPress() {
     this.textColor = Color.Red;
-    hilog.info(CommonConstants.DOMAIN, this.tag, '%{public}s', 'LifeCyclePage onBackPress');
+    Logger.info('[LifeCyclePage]  LifeCyclePage onBackPress');
     return false;
   }
 
   aboutToDisappear() {
-    hilog.info(CommonConstants.DOMAIN, this.tag, '%{public}s', 'LifeCyclePage aboutToDisappear');
+    Logger.info('[LifeCyclePage]  LifeCyclePage aboutToDisappear');
   }
 
   build() {
