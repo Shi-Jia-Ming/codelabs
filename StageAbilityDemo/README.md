@@ -4,9 +4,9 @@
 
 ![](screenshots/device/screenshots.gif)
 ### 相关概念
-- [UIAbility](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-app-ability-uiability-0000001427744948-V3?catalogVersion=V3)：UIAbility组件是系统调度的基本单元，为应用提供绘制界面的窗口；一个UIAbility组件中可以通过多个页面来实现一个功能模块。每一个UIAbility组件实例，都对应于一个最近任务列表中的任务。
+- [UIAbility](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/uiability-overview-0000001477980929-V3?ha_linker=eyJ0cyI6MTY4MjIzNzYzNjAxMSwiaWQiOiIxZjZkOGVkNDM0YTI0ZTgwNjNjZDdhNmIwMjc1ZWE2MyJ9)：UIAbility组件是系统调度的基本单元，为应用提供绘制界面的窗口；一个UIAbility组件中可以通过多个页面来实现一个功能模块。每一个UIAbility组件实例，都对应于一个最近任务列表中的任务。
 - [UIAbilityContext](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-inner-application-uiabilitycontext-0000001478341321-V3)：UIAbilityContext模块提供允许访问特定Ability的资源的能力，包括对Ability的启动、停止的设置、获取caller通信接口、拉起弹窗请求用户授权等。
-- [Want](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-app-ability-want-0000001427902596-V3)：Want是对象间信息传递的载体, 可以用于应用组件间的信息传递。 Want的使用场景之一是作为startAbility的参数, 其包含了指定的启动目标, 以及启动时需携带的相关数据。
+- [Want](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-inner-ability-want-0000001428061892-V3?ha_linker=eyJ0cyI6MTY4MjIzNzY1NzY3NSwiaWQiOiIxZjZkOGVkNDM0YTI0ZTgwNjNjZDdhNmIwMjc1ZWE2MyJ9)：Want是对象间信息传递的载体, 可以用于应用组件间的信息传递。 Want的使用场景之一是作为startAbility的参数, 其包含了指定的启动目标, 以及启动时需携带的相关数据。
 - [HiLog](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-hilog-0000001333800437)：HiLog日志系统，让应用可以按照指定类型、指定级别、指定格式字符串输出日志内容，帮助开发者了解应用的运行状态，更好地调试程序。
 ### 相关权限
 不涉及
