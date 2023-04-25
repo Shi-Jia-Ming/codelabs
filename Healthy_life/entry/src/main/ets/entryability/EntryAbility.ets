@@ -15,73 +15,73 @@
 
 import UIAbility from '@ohos.app.ability.UIAbility';
 import { RDB_NAME, DAY_INFO, GLOBAL_INFO, TASK_INFO } from '../common/constants/CommonConstants';
-import { columnDayInfos, columnGlobalInfos, columnTaskInfoInfos } from '../model/RdbColumnModel';
+import { columnDayInfoList, columnGlobalInfoList, columnTaskInfoInfoList } from '../model/RdbColumnModel';
 import RdbUtils from '../common/database/rdb/RdbUtils';
+import Logger from '../common/utils/Logger';
 
-
-export default class MainAbility extends UIAbility {
+export default class EntryAbility extends UIAbility {
   private static TAG: string = 'MainAbility';
 
   async onCreate(want, launchParam) {
-    console.debug(MainAbility.TAG, 'onCreate');
+    Logger.debug(EntryAbility.TAG, 'onCreate');
     globalThis.abilityWant = want;
 
     RdbUtils.initDb(this.context, RDB_NAME.dbname);
     await RdbUtils.createDb();
 
-    RdbUtils.createTable(DAY_INFO.tableName, columnDayInfos).then(() => {
-      console.log(`RdbHelper createTable dayInfo success`);
+    RdbUtils.createTable(DAY_INFO.tableName, columnDayInfoList).then(() => {
+      Logger.info(`RdbHelper createTable dayInfo success`);
     }).catch(err => {
-      console.log(`RdbHelper dayInfo err : ${JSON.stringify(err)}`);
+      Logger.info(`RdbHelper dayInfo err : ${JSON.stringify(err)}`);
     });
 
-    RdbUtils.createTable(GLOBAL_INFO.tableName, columnGlobalInfos).then(() => {
-      console.log(`RdbHelper createTable globalInfo success`);
+    RdbUtils.createTable(GLOBAL_INFO.tableName, columnGlobalInfoList).then(() => {
+      Logger.info(`RdbHelper createTable globalInfo success`);
     }).catch(err => {
-      console.log(`RdbHelper globalInfo err : ${JSON.stringify(err)}`);
+      Logger.info(`RdbHelper globalInfo err : ${JSON.stringify(err)}`);
     });
-    RdbUtils.createTable(TASK_INFO.tableName, columnTaskInfoInfos).then(() => {
-      console.log(`RdbHelper createTable taskInfo  success`);
+    RdbUtils.createTable(TASK_INFO.tableName, columnTaskInfoInfoList).then(() => {
+      Logger.info(`RdbHelper createTable taskInfo  success`);
     }).catch(err => {
-      console.log(`RdbHelper taskInfo err : ${JSON.stringify(err)}`);
+      Logger.info(`RdbHelper taskInfo err : ${JSON.stringify(err)}`);
     });
   }
 
   onDestroy() {
-    console.debug(MainAbility.TAG, 'onDestroy');
+    Logger.debug(EntryAbility.TAG, 'onDestroy');
   }
 
   onWindowStageCreate(windowStage) {
     // Main window is created, set main page for this ability
-    console.debug(MainAbility.TAG, 'onWindowStageCreate');
-    windowStage.loadContent("pages/SplashPage", (err, data) => {
+    Logger.debug(EntryAbility.TAG, 'onWindowStageCreate');
+    windowStage.loadContent('pages/SplashPage', (err, data) => {
       if (err.code) {
-        console.error('windowStage', 'Failed to load the content. Cause:' + JSON.stringify(err));
+        Logger.error('windowStage', 'Failed to load the content. Cause:' + JSON.stringify(err));
         return;
       }
-      console.info('windowStage', 'Succeeded in loading the content. Data: ' + JSON.stringify(data));
+      Logger.info('windowStage', 'Succeeded in loading the content. Data: ' + JSON.stringify(data));
     });
   }
 
   onWindowStageDestroy() {
     // Main window is destroyed, release UI related resources
-    console.debug(MainAbility.TAG, 'onWindowStageDestroy');
+    Logger.debug(EntryAbility.TAG, 'onWindowStageDestroy');
   }
 
   onForeground() {
     // Ability has brought to foreground
     globalThis.isForeground = true;
-    console.debug(MainAbility.TAG, 'onForeground');
+    Logger.debug(EntryAbility.TAG, 'onForeground');
   }
 
   onBackground() {
     // Ability has back to background
-    console.debug(MainAbility.TAG, 'onBackground');
+    Logger.debug(EntryAbility.TAG, 'onBackground');
   }
 
   onNewWant(want, launchParam) {
     // Ability has new want
-    console.debug(MainAbility.TAG, `onNewWant ${JSON.stringify(want)}`);
+    Logger.debug(EntryAbility.TAG, `onNewWant ${JSON.stringify(want)}`);
     globalThis.abilityWant = want;
   }
 };

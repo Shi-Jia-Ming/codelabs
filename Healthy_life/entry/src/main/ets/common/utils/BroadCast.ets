@@ -55,8 +55,8 @@ export class BroadCast {
       for (let i = 0; i < len; i++) {
         try {
           cbs[i].apply(_self, args);
-        } catch (e) {
-          new Error(e);
+        } catch (error) {
+          new Error(error);
         }
       }
     }

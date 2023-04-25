@@ -14,16 +14,16 @@
  */
 
 /**
- * ColumnInfo
+ * Column Info.
  *
  */
 export default class ColumnInfo {
-  name: string
-  type: string
-  length?: number
-  nullable?: boolean
-  primary?: boolean
-  autoincrement?: boolean
+  name: string;
+  type: string;
+  length?: number;
+  nullable?: boolean;
+  primary?: boolean;
+  autoincrement?: boolean;
 
   constructor(name: string, type: string, length?: number, nullable?: boolean,
               primary?: boolean, autoincrement?: boolean) {
