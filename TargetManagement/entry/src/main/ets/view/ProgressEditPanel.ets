@@ -17,6 +17,7 @@ import { CommonConstants } from '../common/constant/CommonConstant';
 
 @Component
 export default struct ProgressEditPanel {
+  @Link sliderMode: number;
   @Prop slidingProgress: number;
   onCancel: () => void;
   onClickOK: (progress: number) => void;
@@ -32,8 +33,9 @@ export default struct ProgressEditPanel {
           step: CommonConstants.SLIDER_STEP
         })
           .width(CommonConstants.SLIDER_INNER_WIDTH)
-          .onChange((value: number) => {
+          .onChange((value: number, mode: SliderChangeMode) => {
             this.slidingProgress = Math.floor(value);
+            this.sliderMode = mode;
           })
         Text(`${this.slidingProgress}%`)
           .fontSize($r('app.float.progress_font'))

@@ -24,6 +24,7 @@ export default struct TargetList {
   @State isEditMode: boolean = false;
   @State selectArray: Array<boolean> = [];
   @State clickIndex: number = CommonConstants.DEFAULT_CLICK_INDEX;
+  @State selectAll: boolean = false;
   @Link targetData: Array<TaskItemBean>;
   onAddClick: () => void;
 
@@ -41,6 +42,7 @@ export default struct TargetList {
               .operateTextStyle($r('app.color.main_blue'))
               .margin({ left: $r('app.float.operate_button_margin') })
               .onClick(() => {
+                this.selectAll = false;
                 this.isEditMode = false;
                 selectAllOrCancel.call(this, false);
               })
@@ -53,8 +55,9 @@ export default struct TargetList {
               .select(isSelectAll.call(this))
               .selectedColor($r('app.color.main_blue'))
               .width(CommonConstants.CHECKBOX_WIDTH)
-              .onChange((selectAll: boolean) => {
-                selectAllOrCancel.call(this, selectAll);
+              .onClick(() => {
+                this.selectAll = !this.selectAll;
+                selectAllOrCancel.call(this, this.selectAll);
               })
           } else {
             Text($r('app.string.edit_button'))
@@ -100,6 +103,7 @@ export default struct TargetList {
           .onClick(() => {
             deleteSelected.call(this);
             selectAllOrCancel.call(this, false);
+            this.selectAll = false;
           })
       } else {
         Button($r('app.string.add_task'))
