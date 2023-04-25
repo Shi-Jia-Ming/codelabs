@@ -15,7 +15,7 @@
 
 import dataRdb from '@ohos.data.relationalStore';
 import TaskInfo from '../../bean/TaskInfo';
-import { TASK_INFO } from '../../constants/CommonConstants'
+import { TASK_INFO } from '../../constants/CommonConstants';
 import RdbUtils from '../Rdb/RdbUtils';
 import Logger from '../../utils/Logger';
 
@@ -26,7 +26,7 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  insertData(taskInfo: TaskInfo, callback) {
+  insertData(taskInfo: TaskInfo, callback): void {
     const valueBucket = generateBucket(taskInfo);
     RdbUtils.insert('taskInfo', valueBucket).then(result => {
       callback(result);
@@ -40,13 +40,13 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  deleteDataByID(taskInfo: TaskInfo, callback) {
+  deleteDataByID(taskInfo: TaskInfo, callback): void {
     let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
     predicates.equalTo('date', taskInfo.date).and().equalTo('taskID', taskInfo.taskID);
     RdbUtils.del(predicates).then(result => {
       callback(result);
     });
-    Logger.info('TaskInfoTable', `Delete taskInfo {${taskInfo.date}:${taskInfo.taskID}} finished.`)
+    Logger.info('TaskInfoTable', `Delete taskInfo {${taskInfo.date}:${taskInfo.taskID}} finished.`);
   }
 
   /**
@@ -55,12 +55,12 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  updateDataByDate(taskInfo: TaskInfo, callback) {
+  updateDataByDate(taskInfo: TaskInfo, callback): void {
     const valueBucket = generateBucket(taskInfo);
     let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
     predicates.equalTo('date', taskInfo.date).and().equalTo('taskID', taskInfo.taskID);
     RdbUtils.update(valueBucket, predicates).then(result => {
-      callback(result)
+      callback(result);
     });
     Logger.info('TaskInfoTable', `Update data {${taskInfo.date}:${taskInfo.taskID}} finished.`);
   }
@@ -71,7 +71,7 @@ class TaskInfoApi {
    * @param date
    * @param callback
    */
-  query(date: string, isOpen: boolean = true, callback) {
+  query(date: string, isOpen: boolean = true, callback): void {
     let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
     predicates.equalTo('date', date);
     if (isOpen) {
@@ -80,7 +80,6 @@ class TaskInfoApi {
     predicates.orderByAsc('taskID');
     RdbUtils.query(predicates).then(resultSet => {
       let count = resultSet.rowCount;
-      // 添加数据库返回错误的逻辑判断
       if (count === 0 || typeof count === 'string') {
         Logger.error('TaskInfoTable', `${date} query no results!`);
         callback([]);
@@ -105,14 +104,13 @@ class TaskInfoApi {
         }
         callback(result);
       }
-      return;
     });
   }
 }
 
-function generateBucket(taskInfo: TaskInfo) {
+function generateBucket(taskInfo: TaskInfo): dataRdb.ValuesBucket {
   let valueBucket = {};
-  TASK_INFO.columns.forEach((item) => {
+  TASK_INFO.columns.forEach((item: string) => {
     if (item !== 'id') {
       valueBucket[item] = taskInfo[item];
     }

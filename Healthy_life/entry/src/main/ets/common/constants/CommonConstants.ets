@@ -30,7 +30,19 @@ export const GLOBAL_INFO = {
 /** task info table */
 export const TASK_INFO = {
   tableName: 'taskInfo',
-  columns: ['id', 'date', 'taskID', 'targetValue', 'isAlarm', 'startTime', 'endTime', 'frequency', 'isDone', 'finValue', 'isOpen']
+  columns: [
+    'id',
+    'date',
+    'taskID',
+    'targetValue',
+    'isAlarm',
+    'startTime',
+    'endTime',
+    'frequency',
+    'isDone',
+    'finValue',
+    'isOpen'
+  ],
 }
 
 // TaskNum

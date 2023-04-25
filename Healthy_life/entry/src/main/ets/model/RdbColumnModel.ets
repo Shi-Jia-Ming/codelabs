@@ -15,7 +15,7 @@
 
 import ColumnInfo from '../common/bean/ColumnInfo';
 
-export const columnGlobalInfos: Array<ColumnInfo> = [
+export const columnGlobalInfoList: Array<ColumnInfo> = [
   {
     name: 'id',
     type: 'integer',
@@ -40,7 +40,7 @@ export const columnGlobalInfos: Array<ColumnInfo> = [
     type: 'text'
   }];
 
-export const columnDayInfos: Array<ColumnInfo> = [
+export const columnDayInfoList: Array<ColumnInfo> = [
   {
     name: 'date',
     type: 'text',
@@ -57,7 +57,7 @@ export const columnDayInfos: Array<ColumnInfo> = [
     nullable: true
   }];
 
-export const columnTaskInfoInfos: Array<ColumnInfo> = [
+export const columnTaskInfoInfoList: Array<ColumnInfo> = [
   {
     name: 'id',
     type: 'integer',

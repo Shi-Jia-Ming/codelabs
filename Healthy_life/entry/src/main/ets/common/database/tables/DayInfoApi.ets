@@ -22,12 +22,12 @@ import Logger from '../../utils/Logger';
 class DayInfoApi {
 
   /**
-   * insert dayInfo
+   * Insert dayInfo.
    *
    * @param dayInfo
    * @param callback
    */
-  insertData(dayInfo: DayInfo, callback: Function) {
+  insertData(dayInfo: DayInfo, callback: Function): void {
     const valueBucket = generateBucket(dayInfo);
     RdbUtils.insert('dayInfo', valueBucket).then(result => {
       callback(result);
@@ -36,12 +36,12 @@ class DayInfoApi {
   }
 
   /**
-   * update dayInfo
+   * Update dayInfo.
    *
    * @param dayInfo
    * @param callback
    */
-  updateData(dayInfo: DayInfo, callback: Function) {
+  updateData(dayInfo: DayInfo, callback: Function): void {
     const valueBucket = generateBucket(dayInfo);
     let predicates = new dataRdb.RdbPredicates(DAY_INFO.tableName);
     predicates.equalTo('date', dayInfo.date);
@@ -52,12 +52,12 @@ class DayInfoApi {
   }
 
   /**
-   * query dayInfo
+   * Query dayInfo.
    *
    * @param date
    * @param callback
    */
-  query(date: string, callback: Function) {
+  query(date: string, callback: Function): void {
     let predicates = new dataRdb.RdbPredicates(DAY_INFO.tableName);
     predicates.equalTo('date', date);
     RdbUtils.query(predicates).then(resultSet => {
@@ -78,12 +78,12 @@ class DayInfoApi {
   }
 
   /**
-   * query dayInfo list
+   * Query dayInfo list.
    *
    * @param date
    * @param callback
    */
-  queryList(dates: string[], callback: Function) {
+  queryList(dates: string[], callback: Function): void {
     let predicates = new dataRdb.RdbPredicates(DAY_INFO.tableName);
     predicates.in('date', dates);
     RdbUtils.query(predicates).then(resultSet => {
@@ -104,14 +104,13 @@ class DayInfoApi {
         }
         callback(result);
       }
-      return;
     });
   }
 }
 
-function generateBucket(dayInfo: DayInfo) {
+function generateBucket(dayInfo: DayInfo): dataRdb.ValuesBucket {
   let valueBucket = {};
-  DAY_INFO.columns.forEach((item) => {
+  DAY_INFO.columns.forEach((item: string) => {
     valueBucket[item] = dayInfo[item];
   });
   return valueBucket;

@@ -22,7 +22,7 @@ export interface InfoItem {
 export const MineInfoList: InfoItem[] = [
   {
     id: '1',
-    title: $r("app.string.mine_personal_data")
+    title: $r('app.string.mine_personal_data')
   },
   {
     id: '2',

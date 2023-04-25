@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import dataRdb from '@ohos.data.relationalStore';
 import common from '@ohos.app.ability.common';
 import ColumnInfo from '../../bean/ColumnInfo';
@@ -19,7 +34,7 @@ export class RdbUtils {
   createDb(): Promise<RdbHelper> {
     return new Promise<RdbHelper>((success, error) => {
       let dbName = mDatabaseName;
-      if (!dbContext || !dbName || dbName.length == 0) {
+      if (!dbContext || !dbName || dbName.length === 0) {
         error("init err");
         return;
       }
@@ -92,7 +107,7 @@ export class RdbUtils {
     })
   }
 
-  queryBySql(sql: string, bindArgs?: Array<dataRdb.ValueType>): Promise<any> {
+  queryBySql(sql: string, bindArgs?: Array<dataRdb.ValueType>): Promise<dataRdb.ResultSet> {
     return this.createDb().then(dbHelper => {
       return dbHelper.queryBySql(sql, bindArgs);
     })

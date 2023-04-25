@@ -22,12 +22,12 @@ import Logger from '../../utils/Logger';
 class GlobalInfoApi {
 
   /**
-   * insert globalInfo
+   * Insert globalInfo.
    *
    * @param globalInfo
    * @param callback
    */
-  insertData(globalInfo: GlobalInfo, callback) {
+  insertData(globalInfo: GlobalInfo, callback): void {
     const valueBucket = generateBucket(globalInfo);
     RdbUtils.insert('GlobalInfo', valueBucket).then(result => {
       callback(result);
@@ -36,12 +36,12 @@ class GlobalInfoApi {
   }
 
   /**
-   * update globalInfo
+   * Update globalInfo.
    *
    * @param globalInfo
    * @param callback
    */
-  updateData(globalInfo: GlobalInfo, callback) {
+  updateData(globalInfo: GlobalInfo, callback): void {
     const valueBucket = generateBucket(globalInfo);
     let predicates = new dataRdb.RdbPredicates(GLOBAL_INFO.tableName);
     predicates.equalTo('id', 0);
@@ -52,11 +52,11 @@ class GlobalInfoApi {
   }
 
   /**
-   * query globalInfo
+   * Query globalInfo.
    *
    * @param callback
    */
-  query(callback) {
+  query(callback): void {
     let predicates = new dataRdb.RdbPredicates(GLOBAL_INFO.tableName);
     predicates.equalTo('id', 0);
     RdbUtils.query(predicates).then(resultSet => {
@@ -73,14 +73,13 @@ class GlobalInfoApi {
         result.achievements = resultSet.getString(resultSet.getColumnIndex('achievements'));
         callback(result);
       }
-      return;
     });
   }
 }
 
-function generateBucket(globalInfo: GlobalInfo) {
+function generateBucket(globalInfo: GlobalInfo): dataRdb.ValuesBucket {
   let valueBucket = {};
-  GLOBAL_INFO.columns.forEach((item) => {
+  GLOBAL_INFO.columns.forEach((item: string) => {
     if (item === 'id') {
       valueBucket[item] = 0;
     } else {

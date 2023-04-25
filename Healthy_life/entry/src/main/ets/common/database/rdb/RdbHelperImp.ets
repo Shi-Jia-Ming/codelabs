@@ -1,8 +1,24 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import dataRdb from '@ohos.data.relationalStore';
 import tableHelper from './TableHelper';
 import { RdbHelper } from './RdbHelper';
 import ColumnInfo from '../../bean/ColumnInfo';
 import Logger from '../../utils/Logger';
+import common from '@ohos.app.ability.common';
 
 export class RdbHelperImp implements RdbHelper {
   private mDatabaseName: string;
@@ -17,7 +33,7 @@ export class RdbHelperImp implements RdbHelper {
     return this.mDatabaseName;
   }
 
-  getRdb(context: any): Promise<RdbHelper> {
+  getRdb(context: common.UIAbilityContext): Promise<RdbHelper> {
     Logger.info(`initRdb  getRdb success`);
     this.storeConfig = {
       name: this.mDatabaseName, securityLevel: dataRdb.SecurityLevel.S1
@@ -57,7 +73,7 @@ export class RdbHelperImp implements RdbHelper {
   }
 
   insert(tableName: string, values: dataRdb.ValuesBucket | Array<dataRdb.ValuesBucket>): Promise<number> {
-    return new Promise<any>((success, error) => {
+    return new Promise<number>((success, error) => {
       Logger.info(`insert tableName : ${tableName}, values : ${JSON.stringify(values)}`);
       if (!values) {
         Logger.info(`insert failed, values is undefined`);
@@ -115,7 +131,7 @@ export class RdbHelperImp implements RdbHelper {
     })
   }
 
-  private saveData(tableName: string, values: Array<dataRdb.ValuesBucket>, index: number, callback) {
+  private saveData(tableName: string, values: Array<dataRdb.ValuesBucket>, index: number, callback): void   {
     Logger.info(`saveData tableName : ${tableName}, index : ${JSON.stringify(index)}`);
     this.rdbStore.insert(tableName, values[index]).then(data => {
       Logger.info(`saveData success id : ${data}`);
@@ -140,7 +156,7 @@ export class RdbHelperImp implements RdbHelper {
     return this.rdbStore.querySql(`select * from ${tableName}`);
   }
 
-  queryBySql(sql: string, bindArgs?: Array<dataRdb.ValueType>): Promise<any> {
+  queryBySql(sql: string, bindArgs?: Array<dataRdb.ValueType>): Promise<dataRdb.ResultSet> {
     Logger.info(`queryBySql sql : ${sql}`);
     return this.rdbStore.querySql(sql, bindArgs);
   }
