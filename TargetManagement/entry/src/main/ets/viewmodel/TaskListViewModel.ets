@@ -45,7 +45,13 @@ export function isSelectAll(): boolean {
   if (this.selectArray.length === 0) {
     return false;
   }
-  return this.selectArray.filter(selected => selected === false).length === 0;
+  let deSelectCount = this.selectArray.filter(selected => selected === false).length;
+  if (deSelectCount === 0) {
+    this.selectAll = true;
+    return true;
+  }
+  this.selectAll = false;
+  return false;
 }
 
 /**
