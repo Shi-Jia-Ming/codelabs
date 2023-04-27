@@ -28,6 +28,7 @@ export default struct TargetListItem {
   @Link @Watch('onClickIndexChanged') clickIndex: number;
   @State isExpanded: boolean = false;
   @Consume overAllProgressChanged: boolean;
+  @State sliderMode: number = CommonConstants.DEFAULT_SLIDER_MODE;
   private index: number;
 
   aboutToAppear() {
@@ -53,7 +54,8 @@ export default struct TargetListItem {
           ProgressEditPanel({
             slidingProgress: this.latestProgress,
             onCancel: () => this.isExpanded = false,
-            onClickOK: changeProgress.bind(this)
+            onClickOK: changeProgress.bind(this),
+            sliderMode: $sliderMode
           })
             .transition({
               scale: {
@@ -79,6 +81,10 @@ export default struct TargetListItem {
       .animation({ duration: CommonConstants.DURATION })
       .backgroundColor(this.selectArr[this.index] ? $r('app.color.edit_blue') : Color.White)
       .onClick(() => {
+        if (this.sliderMode === SliderChangeMode.Click) {
+          this.sliderMode = CommonConstants.DEFAULT_SLIDER_MODE;
+          return;
+        }
         if (!this.isEditMode) {
           animateTo({ duration: CommonConstants.DURATION }, () => {
             this.isExpanded = !this.isExpanded;
