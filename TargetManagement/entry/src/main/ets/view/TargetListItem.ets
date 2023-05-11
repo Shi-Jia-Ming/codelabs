@@ -81,7 +81,7 @@ export default struct TargetListItem {
       .animation({ duration: CommonConstants.DURATION })
       .backgroundColor(this.selectArr[this.index] ? $r('app.color.edit_blue') : Color.White)
       .onClick(() => {
-        if (this.sliderMode === SliderChangeMode.Click) {
+        if (this.sliderMode === CommonConstants.CLICK_SLIDER_MODE) {
           this.sliderMode = CommonConstants.DEFAULT_SLIDER_MODE;
           return;
         }

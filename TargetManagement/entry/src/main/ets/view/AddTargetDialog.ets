@@ -17,7 +17,6 @@ import { CommonConstants } from '../common/constant/CommonConstant';
 
 @CustomDialog
 export default struct AddTargetDialog {
-  @State buttonColor: Color = Color.Blue;
   @State subtaskName: string = '';
   private controller: CustomDialogController;
   onClickOk: (value: string) => void;
