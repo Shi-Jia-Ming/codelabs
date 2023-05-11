@@ -234,6 +234,11 @@ export class CommonConstants {
   static readonly DEFAULT_SLIDER_MODE: number = -1;
 
   /**
+   * click SliderChangeMode.
+   */
+  static readonly CLICK_SLIDER_MODE: number = 3;
+
+  /**
    * x-axis transition animation.
    */
   static readonly TRANSITION_ANIMATION_X: number = 1;
