@@ -15,7 +15,7 @@
 - 优秀案例
   - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiDeviceMusic)
   - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
-  - [健康生活（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
+  - [健康生活应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
 - Ability开发
   - [UIAbility和自定义组件生命周期（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/UIAbilityLifeCycle)
   - [UIAbility内页面间的跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/PagesRouter)
