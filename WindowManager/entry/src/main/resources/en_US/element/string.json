@@ -1,0 +1,148 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "WindowManager"
+    },
+    {
+      "name": "login_page",
+      "value": "Login page"
+    },
+    {
+      "name": "login_more",
+      "value": "Log in to your account to use more services"
+    },
+    {
+      "name": "account",
+      "value": "Account"
+    },
+    {
+      "name": "password",
+      "value": "Password"
+    },
+    {
+      "name": "verify",
+      "value": "Verify"
+    },
+    {
+      "name": "register_account",
+      "value": "Registering an Account"
+    },
+    {
+      "name": "forgot_password",
+      "value": "Forgot Password"
+    },
+    {
+      "name": "message_login",
+      "value": "SMS verification code login"
+    },
+    {
+      "name": "change_one",
+      "value": "Change One"
+    },
+    {
+      "name": "verify_input_placeholder",
+      "value": "Please enter the verification code"
+    },
+    {
+      "name": "verify_wrong_hints",
+      "value": "Incorrect verification code. Please try again"
+    },
+    {
+      "name": "verify_hints",
+      "value": "To protect your network security, please enter the verification code"
+    },
+    {
+      "name": "verify_ok",
+      "value": "OK"
+    },
+    {
+      "name": "success",
+      "value": "Verification success"
+    },
+    {
+      "name": "success_login_hints",
+      "value": "The login page is automatically displayed in 2 seconds"
+    },
+    {
+      "name": "my_love",
+      "value": "My favorite"
+    },
+    {
+      "name": "history_record",
+      "value": "History"
+    },
+    {
+      "name": "message",
+      "value": "Message"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "Shopping cart"
+    },
+    {
+      "name": "my_goal",
+      "value": "My goal"
+    },
+    {
+      "name": "group",
+      "value": "Group"
+    },
+    {
+      "name": "favorites",
+      "value": "Favorites"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "Recycle Bin"
+    },
+    {
+      "name": "home_top",
+      "value": "Rankings"
+    },
+    {
+      "name": "home_text_top",
+      "value": "XiaMen Station, we'll see you."
+    },
+    {
+      "name": "home_new",
+      "value": "New product launch"
+    },
+    {
+      "name": "home_text_new",
+      "value": "XiaMen Station, we'll see you."
+    },
+    {
+      "name": "home_brand",
+      "value": "Big-name flash shopping"
+    },
+    {
+      "name": "home_text_brand",
+      "value": "More Big Names"
+    },
+    {
+      "name": "home_found",
+      "value": "Discover the good stuff"
+    },
+    {
+      "name": "home_text_found",
+      "value": "XiaMen Station, we'll see you."
+    },
+    {
+      "name": "home_list",
+      "value": "List"
+    },
+    {
+      "name": "home_title",
+      "value": "Home"
+    }
+  ]
+}

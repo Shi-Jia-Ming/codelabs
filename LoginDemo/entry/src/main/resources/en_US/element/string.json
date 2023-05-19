@@ -1,0 +1,244 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "Main program entry"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "LoginDemo"
+    },
+    {
+      "name": "login_page",
+      "value": "Login page"
+    },
+    {
+      "name": "login_more",
+      "value": "Log in to your account to use more services"
+    },
+    {
+      "name": "account",
+      "value": "Account"
+    },
+    {
+      "name": "password",
+      "value": "Password"
+    },
+    {
+      "name": "login",
+      "value": "Log in"
+    },
+    {
+      "name": "register_account",
+      "value": "Registering an Account"
+    },
+    {
+      "name": "forgot_password",
+      "value": "Forgot Password"
+    },
+    {
+      "name": "message_login",
+      "value": "SMS verification code login"
+    },
+    {
+      "name": "my_love",
+      "value": "My favorite"
+    },
+    {
+      "name": "history_record",
+      "value": "History"
+    },
+    {
+      "name": "message",
+      "value": "Message"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "Shopping cart"
+    },
+    {
+      "name": "my_goal",
+      "value": "My goal"
+    },
+    {
+      "name": "group",
+      "value": "Group"
+    },
+    {
+      "name": "favorites",
+      "value": "Favorites"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "Recycle Bin"
+    },
+    {
+      "name": "main_page",
+      "value": "Home"
+    },
+    {
+      "name": "mine_page",
+      "value": "Mine"
+    },
+    {
+      "name": "main_page_rankings",
+      "value": "Rankings"
+    },
+    {
+      "name": "main_page_others",
+      "value": "Xiamen Station, we'll see you."
+    },
+    {
+      "name": "main_page_new",
+      "value": "New product debut"
+    },
+    {
+      "name": "main_Page_brand",
+      "value": "Big name flash"
+    },
+    {
+      "name": "main_page_more",
+      "value": "More Big Names"
+    },
+    {
+      "name": "main_page_found",
+      "value": "Find good things"
+    },
+    {
+      "name": "mine_title_name",
+      "value": "Mr. Lee"
+    },
+    {
+      "name": "mine_title_email",
+      "value": "2000000@shenhua.cc"
+    },
+    {
+      "name": "mine_list_news",
+      "value": "Push Notifications"
+    },
+    {
+      "name": "mine_list_data",
+      "value": "Data Management"
+    },
+    {
+      "name": "mine_list_menu",
+      "value": "Menu Settings"
+    },
+    {
+      "name": "mine_list_about",
+      "value": "About"
+    },
+    {
+      "name": "mine_list_storage",
+      "value": "Clear Cache"
+    },
+    {
+      "name": "mine_list_privacy",
+      "value": "Privacy Agreement"
+    },
+    {
+      "name": "mine_button",
+      "value": "Logout"
+    },
+    {
+      "name": "home_list",
+      "value": "List"
+    },
+    {
+      "name": "mine_toggle",
+      "value": "switch"
+    },
+    {
+      "name": "incomplete_toast",
+      "value": "This function is not perfect, please look forward to it."
+    },
+    {
+      "name": "please_input_account",
+      "value": "Please input the account"
+    },
+    {
+      "name": "please_input_password",
+      "value": "Please input the password"
+    },
+    {
+      "name": "open_my_love",
+      "value": "Open my favorite"
+    },
+    {
+      "name": "open_history_record",
+      "value": "Open history"
+    },
+    {
+      "name": "open_message",
+      "value": "Open message"
+    },
+    {
+      "name": "open_shopping_cart",
+      "value": "Open shopping cart"
+    },
+    {
+      "name": "open_my_goal",
+      "value": "Open my goal"
+    },
+    {
+      "name": "open_group",
+      "value": "Open group"
+    },
+    {
+      "name": "open_favorites",
+      "value": "Open favorites"
+    },
+    {
+      "name": "open_recycle_bin",
+      "value": "Open Recycle Bin"
+    },
+    {
+      "name": "open_rankings",
+      "value": "Open rankings"
+    },
+    {
+      "name": "open_new",
+      "value": "Open new product debut"
+    },
+    {
+      "name": "open_brand",
+      "value": "Open big name flash"
+    },
+    {
+      "name": "open_found",
+      "value": "Open find good things"
+    },
+    {
+      "name": "open_news",
+      "value": "Push is on"
+    },
+    {
+      "name": "close_news",
+      "value": "Push is off"
+    },
+    {
+      "name": "open_data",
+      "value": "Open data management"
+    },
+    {
+      "name": "open_menu",
+      "value": "Open menu settings"
+    },
+    {
+      "name": "open_about",
+      "value": "Open about"
+    },
+    {
+      "name": "clear_storage",
+      "value": "Clear cache succeeded"
+    },
+    {
+      "name": "check_privacy",
+      "value": "Check privacy agreement"
+    }
+  ]
+}

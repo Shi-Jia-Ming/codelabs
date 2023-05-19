@@ -1,0 +1,244 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "登录应用"
+    },
+    {
+      "name": "login_page",
+      "value": "登录界面"
+    },
+    {
+      "name": "login_more",
+      "value": "登录帐号以使用更多服务"
+    },
+    {
+      "name": "account",
+      "value": "帐号"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "login",
+      "value": "登录"
+    },
+    {
+      "name": "register_account",
+      "value": "注册帐号"
+    },
+    {
+      "name": "forgot_password",
+      "value": "忘记密码"
+    },
+    {
+      "name": "message_login",
+      "value": "短信验证码登录"
+    },
+    {
+      "name": "my_love",
+      "value": "我的最爱"
+    },
+    {
+      "name": "history_record",
+      "value": "历史记录"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "购物车"
+    },
+    {
+      "name": "my_goal",
+      "value": "我的目标"
+    },
+    {
+      "name": "group",
+      "value": "圈子"
+    },
+    {
+      "name": "favorites",
+      "value": "收藏"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "回收站"
+    },
+    {
+      "name": "main_page",
+      "value": "首页"
+    },
+    {
+      "name": "mine_page",
+      "value": "我的"
+    },
+    {
+      "name": "main_page_rankings",
+      "value": "排行榜"
+    },
+    {
+      "name": "main_page_others",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "main_page_new",
+      "value": "新品首发"
+    },
+    {
+      "name": "main_Page_brand",
+      "value": "大牌闪购"
+    },
+    {
+      "name": "main_page_more",
+      "value": "更多大牌"
+    },
+    {
+      "name": "main_page_found",
+      "value": "发现好物"
+    },
+    {
+      "name": "mine_title_name",
+      "value": "李先生"
+    },
+    {
+      "name": "mine_title_email",
+      "value": "2000000@shenhua.cc"
+    },
+    {
+      "name": "mine_list_news",
+      "value": "推送通知"
+    },
+    {
+      "name": "mine_list_data",
+      "value": "数据管理"
+    },
+    {
+      "name": "mine_list_menu",
+      "value": "菜单设置"
+    },
+    {
+      "name": "mine_list_about",
+      "value": "关于"
+    },
+    {
+      "name": "mine_list_storage",
+      "value": "清除缓存"
+    },
+    {
+      "name": "mine_list_privacy",
+      "value": "隐私协议"
+    },
+    {
+      "name": "mine_button",
+      "value": "退出登录"
+    },
+    {
+      "name": "home_list",
+      "value": "列表"
+    },
+    {
+      "name": "mine_toggle",
+      "value": "开关"
+    },
+    {
+      "name": "incomplete_toast",
+      "value": "此功能未完善，敬请期待"
+    },
+    {
+      "name": "please_input_account",
+      "value": "请输入帐号"
+    },
+    {
+      "name": "please_input_password",
+      "value": "请输入密码"
+    },
+    {
+      "name": "open_my_love",
+      "value": "打开我的最爱"
+    },
+    {
+      "name": "open_history_record",
+      "value": "打开历史记录"
+    },
+    {
+      "name": "open_message",
+      "value": "打开消息"
+    },
+    {
+      "name": "open_shopping_cart",
+      "value": "打开购物车"
+    },
+    {
+      "name": "open_my_goal",
+      "value": "打开我的目标"
+    },
+    {
+      "name": "open_group",
+      "value": "打开圈子"
+    },
+    {
+      "name": "open_favorites",
+      "value": "打开收藏"
+    },
+    {
+      "name": "open_recycle_bin",
+      "value": "打开回收站"
+    },
+    {
+      "name": "open_rankings",
+      "value": "打开排行榜"
+    },
+    {
+      "name": "open_new",
+      "value": "打开新品发布"
+    },
+    {
+      "name": "open_brand",
+      "value": "打开大牌闪购"
+    },
+    {
+      "name": "open_found",
+      "value": "打开发现好物"
+    },
+    {
+      "name": "open_news",
+      "value": "推送已打开"
+    },
+    {
+      "name": "close_news",
+      "value": "推送已关闭"
+    },
+    {
+      "name": "open_data",
+      "value": "打开数据管理"
+    },
+    {
+      "name": "open_menu",
+      "value": "打开菜单设置"
+    },
+    {
+      "name": "open_about",
+      "value": "打开关于"
+    },
+    {
+      "name": "clear_storage",
+      "value": "清除缓存成功"
+    },
+    {
+      "name": "check_privacy",
+      "value": "查看隐私协议"
+    }
+  ]
+}
