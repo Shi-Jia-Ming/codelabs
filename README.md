@@ -58,7 +58,10 @@
 - 公共事件与通知
   - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AlarmClock)
   - [HarmonyOS后台代理提醒（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleGalleryETS)
+- 窗口管理
+  - [窗口管理（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WindowManager)
 - 媒体
+  - [视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/VideoPlayer)
   - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEdit)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleVideo)
   - [简易视频播放器（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/JSVideoPlayer)
@@ -84,6 +87,7 @@
   - [电影卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/JSMovieCard)
   - [计步器卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCard)
 - 效率提升
+  - [使用DevEco Studio高效开发（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/LoginDemo)
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SuperVisualSample)
 - 三方库
   - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ThirdPartyLibrary)
