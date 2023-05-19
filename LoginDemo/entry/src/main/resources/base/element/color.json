@@ -1,0 +1,60 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "title_text_color",
+      "value": "#182431"
+    },
+    {
+      "name": "more_text_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "placeholder_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "line_color",
+      "value": "#0D182431"
+    },
+    {
+      "name": "login_button_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "blue_text_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "main_page_selected",
+      "value": "#1698CE"
+    },
+    {
+      "name": "main_page_normal",
+      "value": "#6B6B6B"
+    },
+    {
+      "name": "home_grid_fontColor",
+      "value": "#99182431"
+    },
+    {
+      "name": "mine_button_color",
+      "value": "#E5E8EA"
+    },
+    {
+      "name": "logout_font_color",
+      "value": "#FA2A2D"
+    },
+    {
+      "name": "item_divider_color",
+      "value": "#33000000"
+    }
+  ]
+}
