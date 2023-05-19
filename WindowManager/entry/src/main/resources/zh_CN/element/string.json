@@ -1,0 +1,148 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "窗口管理"
+    },
+    {
+      "name": "login_page",
+      "value": "登录界面"
+    },
+    {
+      "name": "login_more",
+      "value": "登录帐号以使用更多服务"
+    },
+    {
+      "name": "account",
+      "value": "帐号"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "verify",
+      "value": "验证码检测"
+    },
+    {
+      "name": "register_account",
+      "value": "注册帐号"
+    },
+    {
+      "name": "forgot_password",
+      "value": "忘记密码"
+    },
+    {
+      "name": "message_login",
+      "value": "短信验证码登录"
+    },
+    {
+      "name": "change_one",
+      "value": "换一张"
+    },
+    {
+      "name": "verify_input_placeholder",
+      "value": "请输入验证码"
+    },
+    {
+      "name": "verify_wrong_hints",
+      "value": "验证码错误，请重新输入"
+    },
+    {
+      "name": "verify_hints",
+      "value": "为了保护你的网络安全，请输入验证码"
+    },
+    {
+      "name": "verify_ok",
+      "value": "确定"
+    },
+    {
+      "name": "success",
+      "value": "验证成功"
+    },
+    {
+      "name": "success_login_hints",
+      "value": "2s后自动跳转登录"
+    },
+    {
+      "name": "my_love",
+      "value": "我的最爱"
+    },
+    {
+      "name": "history_record",
+      "value": "历史记录"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "购物车"
+    },
+    {
+      "name": "my_goal",
+      "value": "我的目标"
+    },
+    {
+      "name": "group",
+      "value": "圈子"
+    },
+    {
+      "name": "favorites",
+      "value": "收藏"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "回收站"
+    },
+    {
+      "name": "home_top",
+      "value": "排行榜"
+    },
+    {
+      "name": "home_text_top",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "home_new",
+      "value": "新品首发"
+    },
+    {
+      "name": "home_text_new",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "home_brand",
+      "value": "大牌闪购"
+    },
+    {
+      "name": "home_text_brand",
+      "value": "更多大牌"
+    },
+    {
+      "name": "home_found",
+      "value": "发现好物"
+    },
+    {
+      "name": "home_text_found",
+      "value": "厦门站，我们不见不散"
+    },
+    {
+      "name": "home_list",
+      "value": "列表"
+    },
+    {
+      "name": "home_title",
+      "value": "首页"
+    }
+  ]
+}
