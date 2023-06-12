@@ -1,0 +1,102 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    width: 100%;
+    flex-direction: column;
+    background-color:#F1F3F5;
+}
+
+.tab-bar {
+    width: 100%;
+    padding: 0 24vp;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.order-status-select {
+    color: #E92F4F;
+    font-weight: 800;
+}
+
+.order-status-unselect {
+    color: #000000;
+    font-weight: 500;
+}
+
+.order-status-comm {
+    font-size: 16fp;
+}
+
+.product-buy-card {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+    padding: 16vp;
+    margin: 17vp 12vp 0;
+    flex-direction: column;
+}
+
+.mall-name-box {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.market-icon {
+    width: 24vp;
+    height: 24vp;
+    margin-right: 8vp;
+}
+
+.black-comm-text {
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 600;
+}
+
+.pending-payment-time {
+    font-size: 12fp;
+    color: #E92F4F;
+    font-weight: 500;
+}
+.mall-name-divider{
+    margin-top: 10.5vp;
+}
+.order-id {
+    opacity: 0.6;
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 400;
+}
+.order-id-divider{
+    margin: 12.5vp 0 16vp;
+}
+.divider {
+    opacity: 0.05;
+    background-color: #000000;
+    width: 100%;
+}
+.total-price{
+    width: 100%;
+    font-size: 14fp;
+    color: #000000;
+    text-align: right;
+    font-weight: 500;
+}
+.common-button{
+    margin-top: 16vp;
+    width: 100%;
+    justify-content: flex-end;
+}

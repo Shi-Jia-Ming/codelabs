@@ -1,0 +1,49 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<element name="back" src="../../component/backComponent/backComponent.hml"></element>
+<element name="product-info" src="../../component/productBuyInfo/productBuyInfo.hml"></element>
+<element name="order-reusable" src="../../component/orderReusableCom/orderReusableCom.hml"></element>
+<element name="common-button" src="../../component/commonButton/commonButton.hml"></element>
+
+<div class="container">
+    <back title="{{ $t('strings.my_order') }}" @back-page="backPage"></back>
+    <div class="background">
+        <div class="pending-payment-box">
+            <div class="pending-payment">
+                <div class="payment-status">
+                    <text class="pending-payment-text pending-payment-margin">{{ $t('strings.pending_payment') }}</text>
+                    <text class="pending-payment-text">{{ $t('strings.pending_payment_time') }}</text>
+                </div>
+                <text class="payment-info-text">{{ $t('strings.paymentInfo') }}</text>
+                <div class="">
+                    <text class="payment-info-text payment-time-margin">{{ $t('strings.payment_time_year') }}</text>
+                    <text class="payment-info-text">{{ $t('strings.payment_time_day') }}</text>
+                </div>
+            </div>
+            <image class="arrow-right-icon" src="{{ rightArrowWhite }}"></image>
+        </div>
+        <div class="card-box">
+            <order-reusable is-show-more="{{ isShowMore }}"></order-reusable>
+            <div class="price-info comm-card-style">
+                <div class="price-box" for="{{ value in priceInfo }}">
+                    <text class="">{{ $t(value.title) }}</text>
+                    <text class="">{{ value.price }}</text>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-button-box">
+            <common-button @jump-page="jumpPage"></common-button>
+        </div>
+    </div>
+</div>

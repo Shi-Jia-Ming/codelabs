@@ -1,0 +1,61 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    width: 100%;
+}
+
+.order-title {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 16vp 0 14vp 0;
+    height: 21vp;
+}
+
+.my-order {
+    font-size: 16fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 3.3%;
+}
+
+.all-order-box {
+    align-items: center;
+}
+
+.all-order {
+    opacity: 0.6;
+    font-size: 14fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+    margin-right: 4vp;
+}
+
+.all-order-icon {
+    width: 6vp;
+    height: 12vp;
+    margin-right: 3.3%;
+}
+
+.my-order {
+    font-size: 16fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 3.3%;
+}

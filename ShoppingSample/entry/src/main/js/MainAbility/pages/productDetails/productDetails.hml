@@ -1,0 +1,151 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<div class="container">
+    <div class="top">
+        <div class="top-swiper">
+            <div class="top-nav">
+                <image class="top-icon" src="{{ backgroundColorBack }}" @click="toHomePage">
+                </image>
+                <image class="top-icon" src="{{ share }}"></image>
+            </div>
+            <swiper class="swiper" id="swiper" index="0" indicator="true" digital="false" loop="true" autoplay="true">
+                <div class="swiper-content" for="{{ swiperData }}">
+                    <image class="swiper-content-image" src="{{ $item }}"></image>
+                </div>
+            </swiper>
+        </div>
+        <div class="product-info">
+            <text class="product-price">{{ productInfo.price }}</text>
+            <text class="product-title">{{ $t('strings.phone_title') }}</text>
+            <div class="widgets-box">
+                <div class="widgets-content" for="{{ widgetsData }}">
+                    <image class="widgets-icon-size" src="{{ $item.icon }}"></image>
+                    <text class="widgets-text">{{ $t($item.content) }}</text>
+                </div>
+            </div>
+        </div>
+        <div class="selected-info">
+            <text class="selected-text">{{ $t('strings.selected') }}</text>
+            <div class="right-box">
+                <text class="selected-detail">{{ $t('strings.selected_phone_content') }}</text>
+                <image class="icon-more" src="{{ icon.moreIcon }}"></image>
+            </div>
+        </div>
+        <div class="other">
+            <div class="other-delivered">
+                <text class="delivered-text">{{ $t('strings.delivered') }}</text>
+                <div class="other-middle-box right-box">
+                    <div>
+                        <image class="red-icon" src="{{ icon.addressIcon }}"></image>
+                        <text class="delivered">{{ $t('strings.other_Address') }}</text>
+                    </div>
+                    <image class="icon-more" src="{{ icon.moreIcon }}"></image>
+                </div>
+            </div>
+            <div class="other-server-box">
+                <text class="other-server">{{ $t('strings.service') }}</text>
+                <div class="sub-box right-box">
+                    <div class="other-list-loop" for="{{ otherList }}">
+                        <image class="red-icon" src="{{ $item.icon }}"></image>
+                        <text class="server-content">{{ $t($item.content) }}</text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="user-reviews">
+        <div class="user-reviews-top">
+            <text class="user-comments">{{ $t('strings.user_comments') }}</text>
+            <div class="right-positive-reviews">
+                <text class="user-comments-percentage">{{ $t('strings.positive_reviews_percentage') }}</text>
+                <text class="user-positive-reviews">{{ $t('strings.reviews_percentage') }}</text>
+                <image class="icon-more" src="{{ greyRightArrow }}"></image>
+            </div>
+        </div>
+        <div class="review-list">
+            <div class="review-box" for="{{ item in reviewListData }}">
+                <div class="review-box-top">
+                    <image class="review-user-icon" src="{{ item.userIcon }}"></image>
+                    <div class="right-review-info">
+                        <text class="review-tel">{{ item.tel }}</text>
+                        <div class="loop-box">
+                            <div class="loop-red-stars" for="{{ items in item.redStarsNumber }}">
+                                <image class="red-stars-icon" src="{{ item.redStarsIcon }}"></image>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <text class="review-box-content">{{ $t(item.content) }}</text>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-tool">
+        <div class="bottom-tool-style">
+            <div class="home-buy-box" @click="toHomePage">
+                <image class="bottom-comm-icon" src="{{ icon.homeIcon }}"></image>
+                <text class="shopping-home-text">{{ $t('strings.home_page') }}</text>
+            </div>
+            <div class="home-buy-box" @click="toShoppingCart">
+                <image class="bottom-comm-icon" src="{{ icon.shoppingCartICon }}"></image>
+                <text class="shopping-home-text">{{ $t('strings.shopping_cart') }}</text>
+            </div>
+            <div class="two-colors-box">
+                <div class="icon-add-background" @click="showPanel">
+                    <text class="add-buy-text">{{ $t('strings.add_cart') }}</text>
+                </div>
+                <div class="icon-buy-background" @click="nowBuy">
+                    <text class="add-buy-text">{{ $t('strings.now_buy') }}</text>
+                </div>
+            </div>
+        </div>
+    </div>
+    <panel class="panel" id="panelId" type="foldable" mode="half" onsizechange="changeMode"
+           halfheight="600vp" miniheight="600vp">
+        <div class="panel-box">
+            <div class="panel-box-top">
+                <image class="phone-picture-size" src="{{ productInfo.phonePicture }}"></image>
+                <div class="panel-right-box">
+                    <text class="product-price">{{ productInfo.price }}</text>
+                    <text class="panel-content-title">{{ $t('strings.phone_subtitle') }}</text>
+                </div>
+            </div>
+            <div class="product-box" for="{{ value in productInfoList }}">
+                <div class="product-info-box">
+                    <text class="">{{ $t(value.title) }}</text>
+                    <div class="product-content" if="{{ value.title !== $t('strings.quantity') }}">
+                        <div class="product-content-box" for="{{ (index, values) in value.content }}">
+                            <text class="product-content-text">{{ $t(values) }}</text>
+                        </div>
+                    </div>
+                    <div class="product-num" if="{{ $t(value.title) === $t('strings.quantity') }}">
+                        <image class="add-subtract-icon" @click="subtractNum" src="{{ productInfo.num === 1 ?
+                                productInfo.decreaseDisableIcon : productInfo.decreaseIcon }}">
+                        </image>
+                        <text class="productInfo-num">{{ productInfo.num }}</text>
+                        <image class="add-subtract-icon" @click="addNum"
+                               src="{{ productInfo.increaseIcon }}"></image>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-two-colors" @click="closePanel">
+                <div class="icon-add-background">
+                    <text class="add-buy-text">{{ $t('strings.add_cart') }}</text>
+                </div>
+                <div class="icon-buy-background" @click="nowBuy">
+                    <text class="add-buy-text">{{ $t('strings.now_buy') }}</text>
+                </div>
+            </div>
+        </div>
+    </panel>
+</div>

@@ -1,0 +1,150 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color:#F1F3F5;
+}
+
+.top {
+    flex-direction: column;
+    margin: 0 3.3% 0 3.3%;
+}
+
+.top-title {
+    height: 32vp;
+    width: 100%;
+    justify-content: space-between;
+    margin: 12vp 0 12vp 3.4%;
+}
+
+.shopping-cart {
+    font-size: 24vp;
+    color: #000000;
+    font-weight: 700;
+    margin-left: 3.4%;
+}
+
+.edit {
+    opacity: 0.6;
+    font-size: 16fp;
+    color: #000000;
+    font-weight: 400;
+}
+
+.top-list {
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+    width: 100%;
+    flex-direction: column;
+}
+
+.list-title {
+    width: 100%;
+    align-items: center;
+    margin-top: 16vp;
+}
+
+.all-checkbox {
+    width: 48vp;
+    height: 48vp;
+    margin-left: 8vp;
+}
+
+.checkbox {
+    width: 40vp;
+    height: 40vp;
+    margin-left: 12vp;
+}
+
+.my-icon-size {
+    width: 24vp;
+    height: 24vp;
+}
+
+.mall-self-operated {
+    margin-left: 2.2%;
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 400;
+}
+
+.list-content {
+    align-items: center;
+}
+
+.list-item {
+    padding-top: 16vp;
+    padding-bottom: 16vp;
+    margin-top: 2vp;;
+    margin-bottom: 2vp;
+}
+
+.product-pictures {
+    width: 70vp;
+    height: 80vp;
+    margin-left: 4.4%;
+    margin-right: 4.4%;
+}
+
+.box-content {
+    width: 52.8%;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 700;
+}
+
+.product-subtitle {
+    opacity: 0.6;
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 400;
+    margin-top: 8vp;
+    margin-bottom: 16vp;
+}
+
+.content-price {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.product-price {
+    font-size: 16fp;
+    color: #E92F4F;
+    text-align: left;
+    line-height: 19vp;
+    font-weight: 500;
+}
+
+.product-num {
+    font-size: 12fp;
+    color: #000000;
+    text-align: left;
+    font-weight: 400;
+    margin-left: 12vp;
+    margin-right: 12vp;
+}
+
+.middle-card {
+    flex-direction: column;
+    margin-bottom: 55vp;
+}

@@ -1,0 +1,97 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<element name="subtitle" src="../../component/subtitle/subtitle.hml"></element>
+
+<div class="container">
+    <div class="background">
+        <div class="top">
+            <div class="top-icon">
+                <image class="top-icon-size" src="{{ setting }}"></image>
+                <image class="top-icon-size icon-margin-left" src="{{ scan }}"></image>
+            </div>
+            <div class="my">
+                <image class="icon-my" src="{{ person }}"></image>
+                <div class="right-content">
+                    <text class="content-tel">{{ tel }}</text>
+                    <div class="content-tag">
+                        <div class="content-tag-background">
+                            <text class="tag-text">{{ $t('strings.member') }}</text>
+                        </div>
+                        <div class="content-tag-background tag-background-margin">
+                            <text class="tag-text">{{ $t('strings.ship_to') }}</text>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="all-quantity">
+                <div class="quantity" for="{{ (index, value) in commonQuantity }}">
+                    <div class="common-quantity">
+                        <text class="common-quantity-style common-num ">{{ value.num }}</text>
+                        <div class="quantity-column-style">
+                            <text class="common-quantity-style common-title ">{{ $t(value.title) }}</text>
+                            <image class="common-quantity-icon" src="{{ rightArrowWhite }}"></image>
+                        </div>
+                    </div>
+                    <divider class="divider" vertical="true" if="{{ index === 2 ? false : true }}"></divider>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content">
+                <subtitle title='{{ myOrder }}'></subtitle>
+                <div class="order-content">
+                    <div class="order-contents" for="{{ value in orderStatusList }}"
+                         @click="toAllOrdersPage(value.title)">
+                        <image class="order-icon" src="{{ value.image }}"></image>
+                        <text class="order-subtitle">{{ $t(value.title) }}</text>
+                    </div>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="order-content">
+                    <div class="order-contents" for="{{ value in memberList }}">
+                        <image class="content-icon" src="{{ value.image }}"></image>
+                        <text class="contents-text-style">{{ $t(value.title) }}</text>
+                    </div>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="order-content">
+                    <div class="order-contents" for="{{ value in customerList }}">
+                        <image class="content-icon" src="{{ value.image }}"></image>
+                        <text class="contents-text-style">{{ $t(value.title) }}</text>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="see-often">
+            <subtitle title='{{ seeOften }}'></subtitle>
+            <div class="see-often-box">
+                <div class="see-often-box-content" for="{{ value in livePicturesCard }}">
+                    <image class="often-box-icon" src="{{ value.image }}"></image>
+                    <div class="box-content">
+                        <image class="box-content-icon" src="{{ person }}"></image>
+                        <text class="often-box-text">{{ $t(value.name) }}</text>
+                    </div>
+                    <div class="float-box">
+                        <div class="float-inside-box">
+                            <text class="live-broadcast float-comm-text">{{ $t(value.liveBroadcastStatus) }}</text>
+                        </div>
+                        <text class="viewers-number float-comm-text">{{ $t(value.viewersNumber) }}</text>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
