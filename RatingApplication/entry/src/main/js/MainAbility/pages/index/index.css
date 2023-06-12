@@ -1,0 +1,100 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Vertical layout of the page. */
+.container {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F1F3F5;
+}
+
+/* Subcomponent Layout. */
+.sub-container {
+    flex-direction: column;
+    background-color: #FFFFFF;
+    align-items: center;
+    margin: 12vp;
+    border-radius: 16vp;
+    width: 100%;
+}
+
+/* Average Component Layout. */
+.sub-container-average {
+    background-color: #FFFFFF;
+    align-items: center;
+    margin: 12vp;
+    border-radius: 16vp;
+    width: 100%;
+}
+
+/* Custom Rating Style. */
+.rate {
+    star-background: url("/common/images/ic_star_nor.svg");
+    star-foreground: url("/common/images/ic_star_focus_yellow.svg");
+    star-secondary: url("/common/images/ic_star_half_yellow.svg");
+    width: 140vp;
+    height: 30vp;
+    margin-bottom: 10vp;
+}
+
+/* Average Rating Style. */
+.rate-avg {
+    width: 110vp;
+    height: 22vp;
+    margin-top: 14vp;
+    margin-bottom: 14vp;
+    margin-left: 12vp;
+}
+
+/* Heading style. */
+.title {
+    font-family: HarmonyHeiTi-Medium;
+    font-size: 24fp;
+    color: #000000;
+    font-weight: 500;
+    text-align: left;
+    padding-top: 12vp;
+    padding-left: 24vp;
+    padding-bottom: 11vp;
+    width: 100%;
+}
+
+/* Common Style. */
+.avg-text, .custom-text {
+    font-size: 16vp;
+    color: #000000;
+    margin: 12vp;
+    font-weight: 500;
+    text-align: left;
+}
+
+.custom-text {
+    width: 100%;
+}
+
+/* Average Score Style. */
+.score-text {
+    opacity: 0.6;
+    font-family: HarmonyHeiTi;
+    font-size: 14vp;
+    color: #000000;
+    text-align: right;
+    line-height: 19vp;
+    font-weight: 400;
+    margin-left: 8vp;
+}
