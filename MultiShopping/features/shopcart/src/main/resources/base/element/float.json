@@ -1,0 +1,28 @@
+{
+  "float": [
+    {
+      "name": "item_delete_height",
+      "value": "112vp"
+    },
+    {
+      "name": "item_delete_width",
+      "value": "80vp"
+    },
+    {
+      "name": "item_delete_margin_left",
+      "value": "-24vp"
+    },
+    {
+      "name": "card_image_size",
+      "value": "80vp"
+    },
+    {
+      "name": "settle_select_width",
+      "value": "100vp"
+    },
+    {
+      "name": "settle_button_height",
+      "value": "40vp"
+    }
+  ]
+}

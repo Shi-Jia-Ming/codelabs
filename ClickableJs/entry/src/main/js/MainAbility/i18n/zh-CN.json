@@ -1,0 +1,9 @@
+{
+  "strings": {
+    "content_title": "点击图标",
+    "normal_description": "点击阴影效果",
+    "select_description": "点击切换状态",
+    "phone_description": "点击动画效果",
+    "state_description": "点击切换动效"
+  }
+}

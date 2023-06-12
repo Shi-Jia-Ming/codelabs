@@ -1,0 +1,290 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #F1F3F5;
+}
+
+.background {
+    flex-direction: column;
+    width: 100%;
+    background-image: url('/common/images/home/ic_home_bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-items: center;
+}
+
+.top {
+    flex-direction: column;
+}
+
+.top-icon {
+    width: 100%;
+    justify-content: flex-end;
+    margin: 12vp 12vp 0 0;
+    height: 26vp;
+}
+
+.top-icon-size {
+    width: 24vp;
+    height: 24vp;
+}
+
+.icon-margin-left {
+    margin-left: 4.4%;
+}
+
+.my {
+    flex-direction: row;
+    margin-top: 8vp;
+    height: 50vp;
+}
+
+.icon-my {
+    margin: 0 3.3%;
+    width: 48vp;
+    height: 48vp;
+}
+
+.right-content {
+    flex-direction: column;
+}
+
+.content-tel {
+    font-size: 16fp;
+    color: #FFFFFF;
+    font-weight: 500;
+    margin-bottom: 9vp;
+}
+
+.content-tag {
+    flex-direction: row;
+}
+
+.content-tag-background {
+    padding: 0 6vp;
+    height: 18vp;
+    background-color: rgba(0, 0, 0, 0.10);
+    border-radius: 8vp;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag-background-margin {
+    margin-left: 3.3%;
+}
+
+.tag-text {
+    opacity: 0.8;
+    font-size: 11fp;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+}
+
+.all-quantity {
+    margin-top: 10vp;
+    flex-direction: row;
+    width: 100%;
+    height: 38vp;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.quantity {
+    align-items: center;
+}
+
+.common-quantity {
+    flex-direction: column;
+    width: 112vp;
+    justify-content: center;
+    height: 38vp;
+    align-items: center;
+}
+
+.common-quantity-style {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.common-num-size {
+    font-size: 14fp;
+}
+
+.common-title-size {
+    font-size: 12fp;
+}
+
+.divider {
+    border: 0.5vp solid rgba(255, 255, 255, 0.60);
+    width: 0.5vp;
+    height: 16vp;
+}
+
+.quantity-column-style {
+    flex-direction: row;
+    justify-content: center;
+    height: 18vp;
+    align-items: center;
+}
+
+.common-quantity-icon {
+    width: 4vp;
+    height: 8vp;
+    margin-left: 2vp;
+}
+
+.card {
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    flex-direction: column;
+    width: 93.3%;
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+    margin-top: 9vp;
+    padding-bottom: 18vp;
+}
+
+.order-icon {
+    width: 28vp;
+    height: 28vp;
+}
+
+.content-icon {
+    width: 40vp;
+    height: 40vp;
+}
+
+.order-subtitle {
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 400;
+    margin-top: 12vp;
+}
+
+.contents-text-style {
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 400;
+    margin-top: 6vp;
+}
+
+.order-content {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.order-contents {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content-card {
+    width: 93.3%;
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+    margin-top: 12vp;
+    align-items: center;
+    padding: 16vp 0;
+}
+
+.see-often {
+    flex-direction: column;
+    margin: 16vp 3.3% 55vp 3.3%;
+}
+
+.see-often-box {
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.see-often-box-content {
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 12vp;
+    margin-bottom: 8vp;
+}
+
+.often-box-icon {
+    width: 164vp;
+    height: 150vp;
+    border-radius: 12vp;
+}
+
+.box-content-icon {
+    width: 20vp;
+    height: 20vp;
+    margin-right: 8vp;
+}
+
+.box-content {
+    margin: 8vp;
+    align-content: center;
+    height: 22vp;
+
+}
+
+.often-box-text {
+    font-size: 12fp;
+    color: #000000;
+    line-height: 14vp;
+    font-weight: 500;
+}
+
+.float-box {
+    height: 16vp;
+    top: 8vp;
+    left: 8vp;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.40);
+    border-radius: 8vp;
+    align-items: center;
+    padding-right: 8vp;
+}
+
+.float-inside-box {
+    background-color: #F74D42;
+    border-radius: 8vp;
+    height: 100%;
+    align-items: center;
+    padding: 0  8vp;
+}
+
+.viewers-number {
+    padding-left: 5vp;
+}
+
+.float-comm-text {
+    font-size: 10vp;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+}

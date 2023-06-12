@@ -1,0 +1,104 @@
+{
+  "string": [
+    {
+      "name": "account_name",
+      "value": "166****6555"
+    },
+    {
+      "name": "member_type",
+      "value": "V0 Member"
+    },
+    {
+      "name": "ship_address",
+      "value": "Ship To Address"
+    },
+    {
+      "name": "account_point",
+      "value": "0"
+    },
+    {
+      "name": "account_bonus",
+      "value": "Integrals"
+    },
+    {
+      "name": "account_coupons",
+      "value": "Coupons"
+    },
+    {
+      "name": "account_vouchers",
+      "value": "Free Credit"
+    },
+    {
+      "name": "order_mine",
+      "value": "My Order"
+    },
+    {
+      "name": "order_total",
+      "value": "All Order"
+    },
+    {
+      "name": "live_watch",
+      "value": "The live broadcast I used to watch"
+    },
+    {
+      "name": "live_more",
+      "value": "See more"
+    },
+    {
+      "name": "pending_payment",
+      "value": "Pending payment"
+    },
+    {
+      "name": "pending_shipment",
+      "value": "To be shipped"
+    },
+    {
+      "name": "pending_receive",
+      "value": "To be received"
+    },
+    {
+      "name": "pending_evaluated",
+      "value": "To be evaluated"
+    },
+    {
+      "name": "pending_after_sales",
+      "value": "Refund/AfterSales"
+    },
+    {
+      "name": "bonus_store",
+      "value": "Bonus Mall"
+    },
+    {
+      "name": "interactive",
+      "value": "Interactive Courtesy"
+    },
+    {
+      "name": "card_coupon",
+      "value": "Card Voucher"
+    },
+    {
+      "name": "official_service",
+      "value": "Official Service"
+    },
+    {
+      "name": "cash",
+      "value": "Cash Envelope"
+    },
+    {
+      "name": "trade_in",
+      "value": "Trade For New"
+    },
+    {
+      "name": "my_evaluation",
+      "value": "My Rating"
+    },
+    {
+      "name": "living",
+      "value": "Live Broadcast"
+    },
+    {
+      "name": "not_living",
+      "value": "Not On"
+    }
+  ]
+}

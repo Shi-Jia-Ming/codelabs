@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "title_bar_classification",
+      "value": "Classifieds"
+    },
+    {
+      "name": "swiper_product_boutique",
+      "value": "FineProducts"
+    },
+    {
+      "name": "swiper_product_phone",
+      "value": "Phone"
+    },
+    {
+      "name": "swiper_product_clothes",
+      "value": "Dress"
+    },
+    {
+      "name": "swiper_product_match",
+      "value": "Wear tie"
+    },
+    {
+      "name": "swiper_product_furnishing",
+      "value": "Homes"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "strings": {
+    "sub_title": "每一种颜色都是可爱的快乐",
+    "sub_description": "美妙的音色如余音绕梁",
+    "button_name": "立即购买",
+    "head_wearable_description": "头戴式蓝牙耳机酷劲十足",
+    "in_ear_description": "入耳式蓝牙耳机小巧灵动",
+    "half_ear_description": "半入耳恋上小耳朵",
+    "necklace_description": "不只是耳机，还是潮流单品",
+    "head_wearable": "头戴式",
+    "in_ear": "入耳式",
+    "half_in_ear": "半入耳式",
+    "necklace": "项链式"
+  }
+}

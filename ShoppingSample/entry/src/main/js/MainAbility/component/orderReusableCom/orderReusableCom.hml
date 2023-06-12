@@ -1,0 +1,50 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<element name="product" src="../../component/productBuyInfo/productBuyInfo.hml"></element>
+
+<div class="container">
+    <div class="user-info comm-card-style">
+        <div class="user-info-box">
+            <image class="user-local-icon" src="{{ userLocalIcon }}"></image>
+            <div class="user-detail-info">
+                <div class="user-detail-box">
+                    <text class="user-name-margin black-comm-text">{{ $t('strings.user_name') }}</text>
+                    <text class="black-comm-text">{{ userTel }}</text>
+                </div>
+                <text class="grey-comm-text">{{ $t('strings.user_address') }}</text>
+            </div>
+        </div>
+        <image if="{{ isShowMore }}" class="more-icon" src="{{ moreIcon }}"></image>
+    </div>
+    <div class="order-info comm-card-style">
+        <div>
+            <image class="market-icon" src="{{ marketIcon }}"></image>
+            <text class="black-comm-text">{{ $t('strings.mall_self_operated') }}</text>
+        </div>
+        <divider class="market-divider-box divider"></divider>
+        <product></product>
+        <div class="reward-box">
+            <text class="black-comm-text reward">{{ $t('strings.reward') }}</text>
+            <text class="black-comm-text standard-delivery">{{ $t('strings.standard_delivery') }}</text>
+        </div>
+        <divider class="reward-invoice-divider divider"></divider>
+        <div class="invoice-box">
+            <text class="black-comm-text invoice">{{ $t('strings.invoice') }}</text>
+            <div class="individual-invoices-box">
+                <text class="individual-invoices black-comm-text">{{ $t('strings.individual_invoices') }}</text>
+                <image class="more-icon" src="{{ moreIcon }}"></image>
+            </div>
+        </div>
+    </div>
+</div>

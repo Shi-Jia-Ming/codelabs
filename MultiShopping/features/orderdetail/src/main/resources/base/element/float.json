@@ -1,0 +1,60 @@
+{
+  "float": [
+    {
+      "name": "order_height",
+      "value": "100vp"
+    },
+    {
+      "name": "order_item_height",
+      "value": "46vp"
+    },
+    {
+      "name": "button_height",
+      "value": "30vp"
+    },
+    {
+      "name": "confirm_button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "title_image_margin_left",
+      "value": "26vp"
+    },
+    {
+      "name": "title_text_margin_left",
+      "value": "0vp"
+    },
+    {
+      "name": "border_width",
+      "value": "0vp"
+    },
+    {
+      "name": "order_tab_height",
+      "value": "30vp"
+    },
+    {
+      "name": "order_tab_bar_height",
+      "value": "32vp"
+    },
+    {
+      "name": "order_list_button_height",
+      "value": "28vp"
+    },
+    {
+      "name": "order_list_item_height",
+      "value": "78vp"
+    },
+    {
+      "name": "pay_image_height",
+      "value": "36vp"
+    },
+    {
+      "name": "pay_image_width",
+      "value": "45vp"
+    },
+    {
+      "name": "background_image_height",
+      "value": "132vp"
+    }
+  ]
+}

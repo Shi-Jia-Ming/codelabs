@@ -1,0 +1,55 @@
+{
+  "app": {
+    "signingConfigs": [],
+    "compileSdkVersion": 9,
+    "compatibleSdkVersion": 9,
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "phone",
+      "srcPath": "./product/phone",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "common",
+      "srcPath": "./common"
+    },
+    {
+      "name": "home",
+      "srcPath": "./features/home"
+    },
+    {
+      "name": "newproduct",
+      "srcPath": "./features/newproduct"
+    },
+    {
+      "name": "shopcart",
+      "srcPath": "./features/shopcart"
+    },
+    {
+      "name": "personal",
+      "srcPath": "./features/personal"
+    },
+    {
+      "name": "commoditydetail",
+      "srcPath": "./features/commoditydetail"
+    },
+    {
+      "name": "orderdetail",
+      "srcPath": "./features/orderdetail"
+    }
+  ]
+}

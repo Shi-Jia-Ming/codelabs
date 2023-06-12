@@ -1,0 +1,131 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    width: 100%;
+}
+
+.box {
+    flex-direction: column;
+    width: 100%;
+    margin: 6vp 3.3%;
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+}
+
+.windmill-box {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8vp;
+    padding-bottom: 16vp;
+}
+
+.text {
+    margin: 12vp 0 0 12vp;
+    font-size: 16vp;
+}
+
+.img {
+    justify-content: center;
+    align-items: center;
+    height: 100vp;
+    width: 100vp;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+/* Translate Animation. */
+.img-translate {
+    animation-name: translateAnim;
+}
+
+/* Rotate Clockwise. */
+.img-rotate {
+    animation-name: rotateAnim;
+}
+
+/* Y-axis Rotation. */
+.img-rotateY {
+    animation-name: rotateYAnim;
+}
+
+/* Scale Animation. */
+.img-scale {
+    animation-name: scaleAnim;
+}
+
+/* Transparency Change. */
+.img-opacity {
+    animation-name: opacityAnim;
+}
+
+/* Translate from -100vp to 100vp. */
+@keyframes translateAnim {
+    from {
+        transform: translate(-100vp);
+    }
+
+    to {
+        transform: translate(100vp);
+    }
+}
+
+/* Rotate from 0° to 360°. */
+@keyframes rotateAnim {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Rotate along the Y axis from 0° to 360°. */
+@keyframes rotateYAnim {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* Scale from 0x to 1.2x. */
+@keyframes scaleAnim {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* Opacity value changes from 0 to 1. */
+@keyframes opacityAnim {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

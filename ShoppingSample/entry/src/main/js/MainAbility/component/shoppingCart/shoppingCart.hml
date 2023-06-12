@@ -1,0 +1,65 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<element name="liked-cards" src="../../component/likedCards/likedCards.hml"></element>
+
+<div class="container">
+    <div class="top">
+
+        <!-- Top Navigation Title Bar -->
+        <div class="top-title">
+            <text class="shopping-cart">{{ $t('strings.shopping_cart') }}</text>
+            <text class="edit">{{ $t('strings.edit') }}</text>
+        </div>
+
+        <!-- Shopping Cart Offering List -->
+        <div class="top-list">
+            <div class="list-title">
+                <input class="all-checkbox" type="checkbox" checked='{{ isAllSelect }}' @change="checkboxOnChange">
+                </input>
+                <image class="my-icon-size" src="{{ person }}"></image>
+                <text class="mall-self-operated">{{ $t('strings.mall_self_operated') }}</text>
+            </div>
+            <list class="list">
+                <list-item for="{{ (index, item) in shoppingListData }}" class="list-item">
+                    <div class="list-content">
+                        <input class="checkbox" type="checkbox" checked='{{ item.isSelect }}'
+                               @change="singleAnswer(index)"></input>
+                        <image class="product-pictures" src="{{ item.image }}"></image>
+                        <div class="box-content">
+                            <text class="product-title">{{ $t(item.title) }}</text>
+                            <text class="product-subtitle">{{ $t(item.subtitle) }}</text>
+                            <div class="content-price">
+                                <text class="product-price">{{ item.price }}</text>
+                                <div class="price-num">
+                                    <image class="my-icon-size" @click="subtractNum(index)" src="{{ item.num === 0 ?
+                                            commonIcon.decreaseDisableIcon : commonIcon.decreaseIcon }}">
+                                    </image>
+                                    <text class="product-num">{{ item.num }}</text>
+                                    <image class="my-icon-size" src="{{ commonIcon.increaseIcon }}"
+                                           @click="addNum(index)">
+                                    </image>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </list-item>
+            </list>
+        </div>
+    </div>
+
+    <!-- Guess you like the list of items -->
+    <div class="middle-card">
+        <liked-cards></liked-cards>
+    </div>
+</div>

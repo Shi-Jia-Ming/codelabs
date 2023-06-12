@@ -1,0 +1,52 @@
+{
+  "color": [
+    {
+      "name": "page_background",
+      "value": "#f1f3f5"
+    },
+    {
+      "name": "focus_color",
+      "value": "#e92f4f"
+    },
+    {
+      "name": "three_alpha_black",
+      "value": "#08000000"
+    },
+    {
+      "name": "five_alpha_black",
+      "value": "#0d000000"
+    },
+    {
+      "name": "ten_alpha_black",
+      "value": "#1A000000"
+    },
+    {
+      "name": "twenty_alpha_black",
+      "value": "#33000000"
+    },
+    {
+      "name": "forty_alpha_black",
+      "value": "#66000000"
+    },
+    {
+      "name": "sixty_alpha_black",
+      "value": "#99000000"
+    },
+    {
+      "name": "eighty_alpha_black",
+      "value": "#cc000000"
+    },
+    {
+      "name": "zero_alpha_black",
+      "value": "#00000000"
+    },
+    {
+      "name": "sixty_alpha_white",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "eighty_alpha_white",
+      "value": "#CCFFFFFF"
+    }
+  ]
+}

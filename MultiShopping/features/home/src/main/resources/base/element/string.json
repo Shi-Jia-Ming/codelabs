@@ -1,0 +1,84 @@
+{
+  "string": [
+    {
+      "name": "swiper_model_mate",
+      "value": "XXXXXX xs2"
+    },
+    {
+      "name": "swiper_model_chang",
+      "value": "XX20 Plus"
+    },
+    {
+      "name": "swiper_model_mate_book",
+      "value": "XXXXBook 13"
+    },
+    {
+      "name": "swiper_model_Nova",
+      "value": "XXXX7 Pro"
+    },
+    {
+      "name": "title_bar_homepage",
+      "value": "Home"
+    },
+    {
+      "name": "title_bar_phone",
+      "value": "Phone"
+    },
+    {
+      "name": "title_bar_computer",
+      "value": "Computers"
+    },
+    {
+      "name": "title_bar_foods",
+      "value": "Food"
+    },
+    {
+      "name": "title_bar_men_wear",
+      "value": "Menswear"
+    },
+    {
+      "name": "title_bar_fresh",
+      "value": "Fresh"
+    },
+    {
+      "name": "title_bar_furniture_kitchenware",
+      "value": "Furniture"
+    },
+    {
+      "name": "title_bar_classification",
+      "value": "Classifieds"
+    },
+    {
+      "name": "activity_title_all",
+      "value": "All"
+    },
+    {
+      "name": "activity_title_selected",
+      "value": "Picks"
+    },
+    {
+      "name": "activity_title_new_products",
+      "value": "NewProducts"
+    },
+    {
+      "name": "activity_title_affordable",
+      "value": "Affordable"
+    },
+    {
+      "name": "activity_title_all_desc",
+      "value": "Recommend you"
+    },
+    {
+      "name": "activity_title_selected_desc",
+      "value": "Find good"
+    },
+    {
+      "name": "activity_title_new_products_desc",
+      "value": "NewProduct launch"
+    },
+    {
+      "name": "activity_title_affordable_desc",
+      "value": "Cheap good"
+    }
+  ]
+}

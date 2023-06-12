@@ -1,0 +1,240 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color:#F1F3F5;
+}
+
+.background {
+    flex-direction: column;
+    width: 100%;
+    background-image: url('/common/images/home/ic_home_bg.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.top {
+    flex-direction: column;
+}
+
+.top-icon {
+    width: 100%;
+    justify-content: space-between;
+    margin: 12vp 12vp 0;
+    height: 36vp;
+}
+
+.top-icon-size {
+    width: 24vp;
+    height: 24vp;
+}
+
+.top-search {
+    width: 100%;
+    background-color: #FFFFFF;
+    margin: 0 12vp;
+}
+
+.all-tabs {
+    width: 100%;
+    margin: 12vp 12vp 0vp;
+    height: 27vp;
+    justify-content: space-between;
+}
+
+.left-tabs {
+    flex-direction: row;
+    height: 21vp;
+}
+
+.tabs-content {
+    margin-right: 3%;
+}
+
+.tabs-content-unselect {
+    font-size: 16fp;
+    color: #FFFFFF;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+.tabs-content-select {
+    font-size: 16fp;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.right-tabs {
+    justify-content: space-around;
+}
+
+.tabs-left-icon {
+    width: 1fp;
+    height: 18fp;
+    margin-left: 7vp;
+    margin-right: 4vp;
+}
+
+.tabs-right-icon {
+    width: 16fp;
+    height: 16fp;
+    margin-right: 2vp;
+}
+
+.right-tabs-categorize {
+    white-space: nowrap;
+    color: #FFFFFF;
+}
+
+.top-swiper {
+    height: 150vp;
+    width: 100%;
+    margin: 0 3.3% 12vp 3.3%;
+}
+
+.swiper {
+    width: 100%;
+    height: 150vp;
+    indicator-color: #FFFFFF;
+    indicator-selected-color: red;
+}
+
+.swiper-content-image {
+    width: 100%;
+    height: 150fp;
+    border-radius: 20vp;
+}
+
+.content {
+    width: 100%;
+    margin: 0 24vp 12vp 24vp;
+    justify-content: space-between;
+}
+
+.content-title {
+    align-items: center;
+    width: 20%;
+    flex-direction: column;
+}
+
+.content-title-select {
+    font-size: 16vp;
+    color: #000000;
+    font-weight: 600;
+}
+
+.content-title-unselect {
+    font-size: 16vp;
+    color: #000000;
+    font-weight: 500;
+}
+
+.content-subtitle-select {
+    font-size: 12fp;
+    color: #E92F4F;
+    font-weight: 400;
+}
+
+.content-subtitle-unselect {
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 400;
+}
+
+.box {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 3.3%;
+    margin-bottom: 55vp;
+}
+
+.box-content {
+    margin: 4vp 0;
+    width: 48.6%;
+    height: 263vp;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 8vp;
+}
+
+.box-content-image {
+    width: 164vp;
+    height: 194vp;
+}
+
+.image {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 12vp 0 8vp 0;
+}
+
+.box-content-details {
+    flex-direction: column;
+    margin: 0 0 4vp 12vp;
+    width: 100%;
+}
+
+.box-title {
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 600;
+    height: 38vp;
+}
+
+.box-subtitle {
+    opacity: 0.6;
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 400;
+}
+
+.box-price {
+    flex-direction: row;
+    margin: 4vp 0 7vp 0;
+}
+
+.box-newPrice {
+    font-size: 16fp;
+    color: #E92F4F;
+    text-align: left;
+    line-height: 19fp;
+    font-weight: 400;
+    margin-right: 4vp;
+}
+
+.box-oldPrice {
+    opacity: 0.4;
+    font-size: 12fp;
+    color: #000000;
+    text-align: left;
+    font-weight: 400;
+}
+
+.box-tag {
+    font-size: 10fp;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 14fp;
+    font-weight: 500;
+    background-color: #E92F4F;
+    border-radius: 4vp;
+    width: 30vp;
+    height: 16vp;
+}

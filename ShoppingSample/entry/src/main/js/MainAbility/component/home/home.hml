@@ -1,0 +1,69 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<div class="container">
+    <div class="background">
+        <div class="top">
+            <div class="top-icon">
+                <image class="top-icon-size" src="{{ eshop }}"></image>
+                <image class="top-icon-size" src="{{ scan }}"></image>
+            </div>
+            <search class="top-search" hint='{{ searchHint }}' searchbutton='{{ searchButtonText }}'>
+            </search>
+            <div class="all-tabs">
+                <div class="left-tabs">
+                    <div class="tabs-content" for="{{ (index, value) in tabBarData }}">
+                        <text class="{{ index === 0 ?
+                                'tabs-content-select' : 'tabs-content-unselect' }}">{{ $t(value) }}</text>
+                    </div>
+                </div>
+                <div class="right-tabs">
+                    <image class="tabs-left-icon" src="{{ splitLine }}"></image>
+                    <image class="tabs-right-icon" src="{{ moreWhite }}"></image>
+                    <text class="right-tabs-categorize">{{ $t('strings.categorize') }}</text>
+                </div>
+            </div>
+            <div class="top-swiper">
+                <swiper class="swiper" id="swiper" index="0" indicator="true" loop="true" autoplay="true">
+                    <div class="swiper-content" for="{{ value in swiperData }}">
+                        <image class="swiper-content-image" src="{{ value }}"></image>
+                    </div>
+                </swiper>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-title" for="{{ (index, value) in contentTitleData }}" @click="changeSubtitle(index)">
+                <text class="{{ index === subtitleId ?
+                        'content-title-select' : 'content-title-unselect' }}">{{ $t(value.title) }}</text>
+                <text class="{{ index === subtitleId ?
+                        'content-subtitle-select' : 'content-subtitle-unselect' }}">{{ $t(value.subtitle) }}</text>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-content" for="{{ (index, value) in contentListData }}" @click="toHomePage">
+                <div class="image">
+                    <image class="box-content-image" src="{{ value.image }}"></image>
+                </div>
+                <div class="box-content-details">
+                    <text class="box-title">{{ $t(value.title) }}</text>
+                    <text class="box-subtitle">{{ $t(value.subtitle) }}</text>
+                    <div class="box-price">
+                        <text class="box-newPrice">{{ value.newPrice }}</text>
+                        <text class="box-oldPrice">{{ value.oldPrice }}</text>
+                    </div>
+                    <text class="box-tag">{{ $t(value.tag) }}</text>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

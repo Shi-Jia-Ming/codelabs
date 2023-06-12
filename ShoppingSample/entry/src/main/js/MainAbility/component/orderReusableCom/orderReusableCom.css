@@ -1,0 +1,115 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-info {
+    padding: 12vp;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comm-card-style {
+    background-color: #FFFFFF;
+    border-radius: 16vp;
+    margin-bottom: 12vp;
+    width: 100%;
+}
+
+.user-info-box {
+    align-items: center;
+}
+
+.user-local-icon {
+    width: 18vp;
+    height: 18vp;
+    margin-right: 12vp;
+}
+
+.user-detail-info {
+    flex-direction: column;
+}
+
+.user-detail-box {
+    margin-bottom: 4vp;
+}
+
+.user-name-margin {
+    margin-right: 12vp;
+}
+
+.black-comm-text {
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 500;
+}
+
+.grey-comm-text {
+    opacity: 0.6;
+    font-size: 12fp;
+    color: #000000;
+    font-weight: 500;
+}
+
+.order-info {
+    flex-direction: column;
+    padding: 16vp;
+}
+
+.market-icon {
+    width: 24vp;
+    height: 24vp;
+    margin-right: 8vp;
+}
+
+.market-divider-box {
+    margin-top: 10.5vp;
+}
+
+.divider {
+    width: 100%;
+    opacity: 0.05;
+    background-color: #000000;
+}
+
+.reward-box {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.reward-invoice-divider {
+    margin: 12.5vp 0 12vp;
+}
+
+.invoice-box {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.individual-invoices-box {
+    align-items: center;
+}
+
+.individual-invoices {
+    margin-right: 12vp;
+}
+
+.more-icon {
+    width: 6vp;
+    height: 12vp;
+}

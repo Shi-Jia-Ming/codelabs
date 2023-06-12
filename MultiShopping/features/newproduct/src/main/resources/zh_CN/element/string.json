@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "title_bar_classification",
+      "value": "分类"
+    },
+    {
+      "name": "swiper_product_boutique",
+      "value": "精品"
+    },
+    {
+      "name": "swiper_product_phone",
+      "value": "手机"
+    },
+    {
+      "name": "swiper_product_clothes",
+      "value": "服饰"
+    },
+    {
+      "name": "swiper_product_match",
+      "value": "穿搭"
+    },
+    {
+      "name": "swiper_product_furnishing",
+      "value": "家居"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<div class="container">
+    <div class="swiper-box">
+        <swiper class="swiper" id="swiper" index="0" indicator="true" loop="true" autoplay="true">
+            <div class="tabs-content" for="{{ value in swiperData }}">
+                <image class="swiper-content-image" src="{{ value }}"></image>
+            </div>
+        </swiper>
+    </div>
+    <div class="all-tabs">
+        <div class="left-tabs">
+            <div class="tabs-content" for="{{ (index, value) in tabBarData }}">
+                <text class="{{ index === 0 ? 'tabs-content-first' : 'tabs-content-text' }}">{{ $t(value) }}</text>
+            </div>
+        </div>
+        <div class="right-tabs">
+            <image class="tabs-left-icon" src="{{ splitLineBlack }}"></image>
+            <image class="tabs-right-icon" src="{{ moreBlack }}"></image>
+            <text class="right-tabs-categorize">{{ $t('strings.categorize') }}</text>
+        </div>
+    </div>
+    <div class="new-product-box">
+        <div class="card-box" for="{{ value in productList }}">
+            <image class="product-card-icon" src="{{ value.image }}"></image>
+            <div class="product-tag-box" if="{{ value.tag.length == 0 ? false : true }}">
+                <text class="product-tag-title">{{ $t(value.tag) }}</text>
+            </div>
+            <div class="product-title-box">
+                <text class="product-card-title">{{ $t(value.title) }}</text>
+            </div>
+            <div class="user-box">
+                <image class="card-user-icon" src="{{ value.userIcon }}"></image>
+                <text class="card-user-name">{{ $t(value.userName) }}</text>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "orderdetail",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "https请求"
+    },
+    {
+      "name": "http_error_message",
+      "value": "网络请求错误，请稍后重试！"
+    },
+    {
+      "name": "request_button_name",
+      "value": "请求"
+    },
+    {
+      "name": "input_address",
+      "value": "请输入网址"
+    },
+    {
+      "name": "request_success",
+      "value": "成功"
+    },
+    {
+      "name": "http_response_error",
+      "value": "请求出错，请检查是否有网络"
+    }
+  ]
+}

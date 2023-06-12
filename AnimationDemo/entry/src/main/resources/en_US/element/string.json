@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "animationStyle"
+    },
+    {
+      "name": "MainAbility_desc",
+      "value": "animationStyle"
+    },
+    {
+      "name": "MainAbility_label",
+      "value": "animationStyle"
+    }
+  ]
+}

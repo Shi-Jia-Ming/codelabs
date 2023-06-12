@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "rmb",
+      "value": "￥"
+    },
+    {
+      "name": "quantity",
+      "value": "数量"
+    },
+    {
+      "name": "share",
+      "value": "分享"
+    },
+    {
+      "name": "collection",
+      "value": "收藏"
+    },
+    {
+      "name": "reduction",
+      "value": "降价通知"
+    },
+    {
+      "name": "choice",
+      "value": "已选"
+    },
+    {
+      "name": "send",
+      "value": "送至"
+    },
+    {
+      "name": "send_hint",
+      "value": "请选择您的收货地址"
+    },
+    {
+      "name": "service",
+      "value": "服务"
+    },
+    {
+      "name": "evaluate_favorable",
+      "value": "好评"
+    },
+    {
+      "name": "evaluate_show_more",
+      "value": "查看更多评价"
+    },
+    {
+      "name": "cart",
+      "value": "购物车"
+    },
+    {
+      "name": "index",
+      "value": "首页"
+    },
+    {
+      "name": "insert_cart_success",
+      "value": "加入购物车成功"
+    },
+    {
+      "name": "commodity_desc",
+      "value": "【%s】%s"
+    },
+    {
+      "name": "insert_cart",
+      "value": "加入购物车"
+    },
+    {
+      "name": "buy_now",
+      "value": "立即购买"
+    }
+  ]
+}

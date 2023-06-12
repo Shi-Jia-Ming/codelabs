@@ -1,0 +1,116 @@
+{
+  "string": [
+    {
+      "name": "header_bar_title",
+      "value": "Confirm Order"
+    },
+    {
+      "name": "bottom_bar_button",
+      "value": "Submitting Order"
+    },
+    {
+      "name": "order_list_reward",
+      "value": "Delivery"
+    },
+    {
+      "name": "order_list_standard_reward",
+      "value": "Standard Delivery"
+    },
+    {
+      "name": "order_list_invoices",
+      "value": "Invoices"
+    },
+    {
+      "name": "order_list_personal_invoices",
+      "value": "Electronic Invoice - Personal"
+    },
+    {
+      "name": "bottom_bar_amount",
+      "value": "￥ %d"
+    },
+    {
+      "name": "order_commit_success",
+      "value": "Submitted successfully"
+    },
+    {
+      "name": "order_commit_fail",
+      "value": "Submission failed %d"
+    },
+    {
+      "name": "order_money",
+      "value": "Actual payment"
+    },
+    {
+      "name": "product_price",
+      "value": "Commodity Amount"
+    },
+    {
+      "name": "fee_price",
+      "value": "Freight Charges"
+    },
+    {
+      "name": "btn_pay",
+      "value": "To Pay"
+    },
+    {
+      "name": "money",
+      "value": "￥%s"
+    },
+    {
+      "name": "order_id",
+      "value": "Order No：%s"
+    },
+    {
+      "name": "pay_now",
+      "value": "Pay Now"
+    },
+    {
+      "name": "confirm_pay",
+      "value": "Pay"
+    },
+    {
+      "name": "confirm_harvest",
+      "value": "Confirm Receipt"
+    },
+    {
+      "name": "guess_like",
+      "value": "Guess you like"
+    },
+    {
+      "name": "all_orders",
+      "value": "All"
+    },
+    {
+      "name": "pending_payment",
+      "value": "Pending payment"
+    },
+    {
+      "name": "waiting_shipment",
+      "value": "To be Shipment"
+    },
+    {
+      "name": "to_be_received",
+      "value": "To be Received"
+    },
+    {
+      "name": "to_be_evaluated",
+      "value": "To be Evaluated"
+    },
+    {
+      "name": "my_order",
+      "value": "My Order"
+    },
+    {
+      "name": "goods_count",
+      "value": "Total %d items，%s：￥%d"
+    },
+    {
+      "name": "info_success",
+      "value": "%s Success"
+    },
+    {
+      "name": "wait_pay",
+      "value": "To be paid"
+    }
+  ]
+}

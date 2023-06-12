@@ -1,0 +1,32 @@
+{
+  "float": [
+    {
+      "name": "splash_image_size",
+      "value": "120vp"
+    },
+    {
+      "name": "splash_image_size_lg",
+      "value": "160vp"
+    },
+    {
+      "name": "splash_text_margin_bottom",
+      "value": "136vp"
+    },
+    {
+      "name": "text_image_width",
+      "value": "114vp"
+    },
+    {
+      "name": "text_image_height",
+      "value": "27vp"
+    },
+    {
+      "name": "main_image_size",
+      "value": "24vp"
+    },
+    {
+      "name": "bar_width",
+      "value": "96vp"
+    }
+  ]
+}

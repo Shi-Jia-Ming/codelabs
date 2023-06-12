@@ -1,0 +1,29 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<div class="container">
+    <!-- Custom rating component. -->
+    <div class="sub-container">
+        <text class="custom-text">{{ $t('strings.custom_rating_content') }}</text>
+        <rating for="{{ ratings }}" onchange="rateChange({{ $idx }})" class="rate" rating="3"></rating>
+    </div>
+
+    <!-- Average rating score display. -->
+    <div class="sub-container-average">
+        <text class="avg-text">{{ $t('strings.avg_rating_content') }}</text>
+        <rating class="rate-avg" indicator="true" stepsize="0.1" rating="{{ avg }}"></rating>
+        <text class="score-text">{{ avg }}{{ $t('strings.score_content') }}</text>
+    </div>
+</div>

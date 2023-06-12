@@ -13,6 +13,7 @@
 ## 目录<a name="sectionMenu"></a>
 
 - 优秀案例
+  - [一次开发，多端部署-购物应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiShopping)
   - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiDeviceMusic)
   - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
   - [健康生活应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
@@ -41,17 +42,14 @@
   - [基础组件Slider的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SliderExample)
   - [List组件的用法之商品列表（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List)
   - [List组件的用法之设置项（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List-HDC)
-  - [购物应用（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingEts)
-  - [Native XComponent（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/NativeXComponent)
-  - [简易Native C++ 示例（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/NativeTemplateDemo)
 - UI(JS)
-  - [image、image-animator（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ClickableImageJsDemo)
-  - [rating（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/RatingApplication)
-  - [switch、chart（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/SwitchApplication)
-  - [dialog（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/DialogDemo)
-  - [动画样式（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/AnimationDemo)
-  - [toolbar、toolbar-item（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ToolbarApplication)
-  - [购物应用（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingDemoJs)
+  - [image、image-animator组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ClickableJs)
+  - [rating组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/RatingApplication)
+  - [switch、chart组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SwitchChart)
+  - [弹窗基本使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/DialogDemo)
+  - [动画样式（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AnimationDemo)
+  - [toolbar、toolbar-item组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ToolbarApplication)
+  - [购物应用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingSample)
 - 公共事件与通知
   - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AlarmClock)
 - 窗口管理
@@ -61,6 +59,8 @@
   - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEdit)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleVideo)
 - 网络与连接
+  - [新闻发布（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NewsRelease)
+  - [HTTPS请求过程（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/HttpsRequest)
   - [新闻数据加载（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NewsDataArkTS)
   - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebComponent)
 - 数据库
@@ -83,6 +83,9 @@
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SuperVisualSample)
 - 三方库
   - [库的调用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ThirdPartyLibrary)
+- Native
+  - [简易Native C++ 示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NativeTemplateDemo)
+  - [Native XComponent组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/XComponent)
 
 ## 使用说明<a name="section1954919258619"></a>
 

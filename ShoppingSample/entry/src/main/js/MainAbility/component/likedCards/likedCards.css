@@ -1,0 +1,106 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License,Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    flex-direction: column;
+    width: 100%;
+}
+
+.you-may-like {
+    margin-left: 6.7%;
+    margin-top: 24vp;
+    margin-bottom: 8vp;
+    font-size: 16fp;
+    color: #000000;
+    font-weight: 600;
+}
+
+.card-box {
+    flex-wrap: wrap;
+    margin: 4vp;
+    justify-content: space-around;
+}
+
+.card-content {
+    flex-direction: column;
+    width: 45.6%;
+    background-color: #FFFFFF;
+    border-radius: 8vp;
+    margin: 4vp;
+}
+
+.card-image-style {
+    width: 100%;
+    justify-content: center;
+}
+
+.card-pictures {
+    width: 108vp;
+    height: 108vp;
+    margin-top: 24vp;
+    margin-bottom: 16vp;
+}
+
+.card-content-margin {
+    flex-direction: column;
+    margin: 0 12vp;
+}
+
+.card-title {
+    font-size: 14fp;
+    color: #000000;
+    font-weight: 500;
+    margin-bottom: 8vp;
+}
+
+.card-price {
+    font-size: 16fp;
+    color: #E92F4F;
+    line-height: 19vp;
+    font-weight: 400;
+    margin-bottom: 5vp;
+}
+
+.card-tag-box {
+    border: 1vp solid #E92F4F;
+    border-radius: 4vp;
+    width: 56vp;
+    height: 16vp;
+    margin-bottom: 5vp;
+    justify-content: center;
+}
+
+.card-tag {
+    font-size: 10fp;
+    color: #E92F4F;
+    text-align: center;
+    line-height: 14vp;
+    font-weight: 500;
+}
+
+.card-review-box {
+    margin-bottom: 12vp;
+}
+
+.card-review {
+    font-size: 10fp;
+    color: rgba(0, 0, 0, 0.60);
+    text-align: center;
+    font-weight: 400;
+}
+
+.card-positive-reviews {
+    margin-left: 12vp;
+}

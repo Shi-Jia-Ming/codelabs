@@ -1,0 +1,16 @@
+{
+  "float": [
+    {
+      "name": "classify_title_height",
+      "value": "40vp"
+    },
+    {
+      "name": "product_image_height",
+      "value": "234vp"
+    },
+    {
+      "name": "comment_text_height",
+      "value": "28vp"
+    }
+  ]
+}
