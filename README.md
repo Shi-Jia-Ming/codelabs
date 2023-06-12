@@ -77,7 +77,7 @@
   - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/GameAuth)
 - 卡片
   - [电影卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
-  - [Stage模型卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardArkTS)
+  - [计步器卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardArkTS)
 - 效率提升
   - [使用DevEco Studio高效开发（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/LoginDemo)
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SuperVisualSample)
