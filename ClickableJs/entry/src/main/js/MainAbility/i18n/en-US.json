@@ -1,0 +1,9 @@
+{
+  "strings": {
+    "content_title": "Click the icon",
+    "normal_description": "Click Shadow Effect",
+    "select_description": "Click to switch the status",
+    "phone_description": "Click the animation effect",
+    "state_description": "Click to switch the dynamic effect"
+  }
+}
