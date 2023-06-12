@@ -1,0 +1,132 @@
+{
+  "float": [
+    {
+      "name": "tittle_font_size",
+      "value": "30fp"
+    },
+    {
+      "name": "message_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "tips_result_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "result_font_size",
+      "value": "36fp"
+    },
+    {
+      "name": "num_tips_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "submit_button_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "title_text_height",
+      "value": "40vp"
+    },
+    {
+      "name": "title_height",
+      "value": "56vp"
+    },
+    {
+      "name": "message_text_height",
+      "value": "21vp"
+    },
+    {
+      "name": "message_formula_height",
+      "value": "20vp"
+    },
+    {
+      "name": "message_height",
+      "value": "45vp"
+    },
+    {
+      "name": "tips_result_message_height",
+      "value": "19vp"
+    },
+    {
+      "name": "tips_result_height",
+      "value": "50vp"
+    },
+    {
+      "name": "result_height",
+      "value": "48vp"
+    },
+    {
+      "name": "tips_num_text_height",
+      "value": "19vp"
+    },
+    {
+      "name": "tips_num_height",
+      "value": "40vp"
+    },
+    {
+      "name": "function_area_height",
+      "value": "245vp"
+    },
+    {
+      "name": "button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "text_padding_left",
+      "value": "24vp"
+    },
+    {
+      "name": "text_padding_top",
+      "value": "7vp"
+    },
+    {
+      "name": "tips_result_padding_bottom",
+      "value": "2vp"
+    },
+    {
+      "name": "tips_result_padding_right",
+      "value": "24vp"
+    },
+    {
+      "name": "result_padding_right",
+      "value": "24vp"
+    },
+    {
+      "name": "tips_num_width",
+      "value": "66vp"
+    },
+    {
+      "name": "first_tips_num_margin_top",
+      "value": "32vp"
+    },
+    {
+      "name": "second_tips_num_margin_top",
+      "value": "16vp"
+    },
+    {
+      "name": "text_input_margin_left",
+      "value": "5vp"
+    },
+    {
+      "name": "text_input_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "function_area_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "function_area_border_radius",
+      "value": "16"
+    },
+    {
+      "name": "button_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "button_width",
+      "value": "120vp"
+    }
+  ]
+}

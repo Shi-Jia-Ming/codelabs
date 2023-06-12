@@ -1,0 +1,40 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "NativeTemplateDemo"
+    },
+    {
+      "name": "title",
+      "value": "Invoke the C standard library example"
+    },
+    {
+      "name": "message",
+      "value": "Calculate the square root of the sum of the squares of two given numbers"
+    },
+    {
+      "name": "input_x_value",
+      "value": "Input X value"
+    },
+    {
+      "name": "input_y_value",
+      "value": "Input Y value"
+    },
+    {
+      "name": "result_tip",
+      "value": "Result"
+    },
+    {
+      "name": "submit_button",
+      "value": "Calculate"
+    }
+  ]
+}

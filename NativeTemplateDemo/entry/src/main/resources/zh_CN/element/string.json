@@ -1,0 +1,40 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "NativeTemplateDemo"
+    },
+    {
+      "name": "title",
+      "value": "调用C标准库示例"
+    },
+    {
+      "name": "message",
+      "value": "计算两个给定数平方和的平方根"
+    },
+    {
+      "name": "input_x_value",
+      "value": "输入X数值"
+    },
+    {
+      "name": "input_y_value",
+      "value": "输入Y数值"
+    },
+    {
+      "name": "result_tip",
+      "value": "结果"
+    },
+    {
+      "name": "submit_button",
+      "value": "计算结果"
+    }
+  ]
+}
