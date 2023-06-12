@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "HttpsRequest"
+    },
+    {
+      "name": "http_error_message",
+      "value": "Network request failed, please try later!"
+    },
+    {
+      "name": "request_button_name",
+      "value": "request"
+    },
+    {
+      "name": "input_address",
+      "value": "Please input the address"
+    },
+    {
+      "name": "request_success",
+      "value": "success"
+    },
+    {
+      "name": "http_response_error",
+      "value": "Request error, please check if there is a network."
+    }
+  ]
+}
