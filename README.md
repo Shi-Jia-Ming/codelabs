@@ -46,26 +46,20 @@
   - [简易Native C++ 示例（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/NativeTemplateDemo)
 - UI(JS)
   - [image、image-animator（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ClickableImageJsDemo)
-  - [input、label（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/InputApplication)
   - [rating（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/RatingApplication)
-  - [slider（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/SliderApplication)
   - [switch、chart（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/SwitchApplication)
   - [dialog（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/DialogDemo)
   - [动画样式（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/AnimationDemo)
   - [toolbar、toolbar-item（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ToolbarApplication)
-  - [video（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/VideoApplication)
-  - [组件购物应用演示（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingDemoJs)
+  - [购物应用（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingDemoJs)
 - 公共事件与通知
   - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AlarmClock)
-  - [HarmonyOS后台代理提醒（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleGalleryETS)
 - 窗口管理
   - [窗口管理（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WindowManager)
 - 媒体
   - [视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/VideoPlayer)
   - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEdit)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleVideo)
-  - [简易视频播放器（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/JSVideoPlayer)
-  - [图片编辑模板（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEditorTemplate)
 - 网络与连接
   - [新闻数据加载（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NewsDataArkTS)
   - [Web组件抽奖案例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebComponent)
@@ -82,10 +76,8 @@
   - [分布式手写板（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/JSDistributeDraw)
   - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/GameAuth)
 - 卡片
-  - [电影卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
-  - [Stage模型卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardArkTS)
-  - [电影卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/JSMovieCard)
-  - [计步器卡片（JS）（API 6）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCard)
+  - [电影卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
+  - [Stage模型卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardArkTS)
 - 效率提升
   - [使用DevEco Studio高效开发（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/LoginDemo)
   - [常见组件和容器低代码开发示例（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SuperVisualSample)
@@ -103,9 +95,10 @@
 1.  安装运行应用示例之前，请先通过config.json文件中的"deviceType"字段来确认该应用示例支持的设备类型，可尝试通过修改该字段使其可以在相应类型的设备上运行（config.json文件一般在代码的entry/src/main路径下，不同的Codelabs可能会有不同）。
 2.  配置开发环境时，如果您想让应用示例运行到HarmonyOS上，请参考[DevEco Studio使用说明](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/tools_overview-0000001053582387)。
 3.  IDE版本及配套SDK问题，可前往[DevEco Studio版本说明](https://developer.harmonyos.com/cn/docs/documentation/doc-releases/release_notes-0000001057597449)来查看详细的IDE、SDK、插件及Gradle配套版本。
-4.  所有OpenHarmony相关Codelabs代码已被全部迁移至OpenHarmony组织之下的[codelabs](https://gitee.com/openharmony/codelabs)仓中，本仓中不再体现。
+4.  所有OpenHarmony相关Codelabs代码已被全部迁移至OpenHarmony组织之下的[Codelabs](https://gitee.com/openharmony/codelabs)仓中，本仓中不再体现。
 
 ## 相关链接<a name="section01752910717"></a>
 
 1.  HarmonyOS Codelabs官网：[HarmonyOS Codelabs](https://developer.harmonyos.com/cn/documentation/codelabs/)
-2.  OpenHarmony Codelabs仓：[codelabs](https://gitee.com/openharmony/codelabs)
+2.  OpenHarmony Codelabs仓：[OpenHarmony Codelabs](https://gitee.com/openharmony/codelabs)
+
