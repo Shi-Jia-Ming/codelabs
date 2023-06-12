@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "empty_text",
+      "value": "暂无数据"
+    },
+    {
+      "name": "commodity_piece_description",
+      "value": "【%s】%s"
+    },
+    {
+      "name": "commodity_piece",
+      "value": "￥%d"
+    }
+  ]
+}

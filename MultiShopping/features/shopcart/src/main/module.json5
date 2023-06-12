@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "shopcart",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

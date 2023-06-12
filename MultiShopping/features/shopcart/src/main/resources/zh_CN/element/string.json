@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "cart",
+      "value": "购物车"
+    },
+    {
+      "name": "rmb",
+      "value": "￥"
+    },
+    {
+      "name": "guess",
+      "value": "猜你喜欢"
+    },
+    {
+      "name": "select_all",
+      "value": "全选"
+    },
+    {
+      "name": "total",
+      "value": "合计:"
+    },
+    {
+      "name": "checkout",
+      "value": "结算"
+    },
+    {
+      "name": "delete",
+      "value": "删除"
+    }
+  ]
+}

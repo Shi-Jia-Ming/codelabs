@@ -1,0 +1,17 @@
+{
+  "license": "ISC",
+  "devDependencies": {},
+  "name": "phone",
+  "description": "example description",
+  "repository": {},
+  "version": "1.0.0",
+  "dependencies": {
+    "@ohos/orderdetail": "file:../../features/orderdetail",
+    "@ohos/commoditydetail": "../../features/commoditydetail",
+    "@ohos/newproduct": "../../features/newproduct",
+    "@ohos/home": "../../features/home",
+    "@ohos/common": "file:../../common",
+    "@ohos/personal": "../../features/personal",
+    "@ohos/shopcart": "../../features/shopcart"
+  }
+}

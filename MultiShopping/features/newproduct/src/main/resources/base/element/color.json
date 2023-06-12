@@ -1,0 +1,12 @@
+{
+  "color": [
+    {
+      "name": "indicator_color",
+      "value": "#33000000"
+    },
+    {
+      "name": "indicator_select_color",
+      "value": "#99000000"
+    }
+  ]
+}

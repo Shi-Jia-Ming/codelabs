@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "cart",
+      "value": "Shopping cart"
+    },
+    {
+      "name": "rmb",
+      "value": "￥"
+    },
+    {
+      "name": "guess",
+      "value": "Guess you like"
+    },
+    {
+      "name": "select_all",
+      "value": "Select All"
+    },
+    {
+      "name": "total",
+      "value": "Total:"
+    },
+    {
+      "name": "checkout",
+      "value": "Settle"
+    },
+    {
+      "name": "delete",
+      "value": "Delete"
+    }
+  ]
+}

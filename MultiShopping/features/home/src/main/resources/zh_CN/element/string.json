@@ -1,0 +1,84 @@
+{
+  "string": [
+    {
+      "name": "swiper_model_mate",
+      "value": "XXXXXX xs2"
+    },
+    {
+      "name": "swiper_model_chang",
+      "value": "XX20 Plus"
+    },
+    {
+      "name": "swiper_model_mate_book",
+      "value": "XXXXBook 13"
+    },
+    {
+      "name": "swiper_model_Nova",
+      "value": "XXXX7 Pro"
+    },
+    {
+      "name": "title_bar_homepage",
+      "value": "首页"
+    },
+    {
+      "name": "title_bar_phone",
+      "value": "手机"
+    },
+    {
+      "name": "title_bar_computer",
+      "value": "电脑"
+    },
+    {
+      "name": "title_bar_foods",
+      "value": "食品"
+    },
+    {
+      "name": "title_bar_men_wear",
+      "value": "男装"
+    },
+    {
+      "name": "title_bar_fresh",
+      "value": "生鲜"
+    },
+    {
+      "name": "title_bar_furniture_kitchenware",
+      "value": "家具厨具"
+    },
+    {
+      "name": "title_bar_classification",
+      "value": "分类"
+    },
+    {
+      "name": "activity_title_all",
+      "value": "全部"
+    },
+    {
+      "name": "activity_title_selected",
+      "value": "精选"
+    },
+    {
+      "name": "activity_title_new_products",
+      "value": "新品"
+    },
+    {
+      "name": "activity_title_affordable",
+      "value": "实惠"
+    },
+    {
+      "name": "activity_title_all_desc",
+      "value": "为你推荐"
+    },
+    {
+      "name": "activity_title_selected_desc",
+      "value": "发现好货"
+    },
+    {
+      "name": "activity_title_new_products_desc",
+      "value": "新品首发"
+    },
+    {
+      "name": "activity_title_affordable_desc",
+      "value": "便宜好货"
+    }
+  ]
+}

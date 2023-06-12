@@ -1,0 +1,104 @@
+{
+  "string": [
+    {
+      "name": "account_name",
+      "value": "166****6555"
+    },
+    {
+      "name": "member_type",
+      "value": "V0会员"
+    },
+    {
+      "name": "ship_address",
+      "value": "收货地址"
+    },
+    {
+      "name": "account_point",
+      "value": "0"
+    },
+    {
+      "name": "account_bonus",
+      "value": "积分"
+    },
+    {
+      "name": "account_coupons",
+      "value": "优惠券"
+    },
+    {
+      "name": "account_vouchers",
+      "value": "代金券"
+    },
+    {
+      "name": "order_mine",
+      "value": "我的订单"
+    },
+    {
+      "name": "order_total",
+      "value": "全部订单"
+    },
+    {
+      "name": "live_watch",
+      "value": "我常看的直播"
+    },
+    {
+      "name": "live_more",
+      "value": "查看更多"
+    },
+    {
+      "name": "pending_payment",
+      "value": "待付款"
+    },
+    {
+      "name": "pending_shipment",
+      "value": "待发货"
+    },
+    {
+      "name": "pending_receive",
+      "value": "待收货"
+    },
+    {
+      "name": "pending_evaluated",
+      "value": "待评价"
+    },
+    {
+      "name": "pending_after_sales",
+      "value": "退款/售后"
+    },
+    {
+      "name": "bonus_store",
+      "value": "积分商城"
+    },
+    {
+      "name": "interactive",
+      "value": "互动有礼"
+    },
+    {
+      "name": "card_coupon",
+      "value": "红包卡券"
+    },
+    {
+      "name": "official_service",
+      "value": "官方客服"
+    },
+    {
+      "name": "cash",
+      "value": "现金红包"
+    },
+    {
+      "name": "trade_in",
+      "value": "以旧换新"
+    },
+    {
+      "name": "my_evaluation",
+      "value": "我的评价"
+    },
+    {
+      "name": "living",
+      "value": "直播中"
+    },
+    {
+      "name": "not_living",
+      "value": "未开播"
+    }
+  ]
+}

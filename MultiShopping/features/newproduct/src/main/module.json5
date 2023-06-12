@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "newproduct",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

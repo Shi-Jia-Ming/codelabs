@@ -1,0 +1,48 @@
+{
+  "float": [
+    {
+      "name": "icon_size",
+      "value": "28vp"
+    },
+    {
+      "name": "icon_row_height",
+      "value": "44vp"
+    },
+    {
+      "name": "live_image_height",
+      "value": "150vp"
+    },
+    {
+      "name": "live_item_height",
+      "value": "202vp"
+    },
+    {
+      "name": "live_desc_margin_left",
+      "value": "38vp"
+    },
+    {
+      "name": "icon_person_size",
+      "value": "48vp"
+    },
+    {
+      "name": "account_points_height",
+      "value": "38vp"
+    },
+    {
+      "name": "avatar_height",
+      "value": "110vp"
+    },
+    {
+      "name": "order_height",
+      "value": "125vp"
+    },
+    {
+      "name": "icon_dock_height",
+      "value": "94vp"
+    },
+    {
+      "name": "personal_background_image_height",
+      "value": "222vp"
+    }
+  ]
+}

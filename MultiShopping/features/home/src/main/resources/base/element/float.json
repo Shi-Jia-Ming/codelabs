@@ -1,0 +1,16 @@
+{
+  "float": [
+    {
+      "name": "search_swiper_height",
+      "value": "40vp"
+    },
+    {
+      "name": "activity_title_height",
+      "value": "55vp"
+    },
+    {
+      "name": "image_background_height",
+      "value": "222vp"
+    }
+  ]
+}

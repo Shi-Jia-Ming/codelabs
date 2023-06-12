@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "rmb",
+      "value": "￥"
+    },
+    {
+      "name": "quantity",
+      "value": "quantity"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    },
+    {
+      "name": "collection",
+      "value": "collection"
+    },
+    {
+      "name": "reduction",
+      "value": "Reduction Notice"
+    },
+    {
+      "name": "choice",
+      "value": "Selected"
+    },
+    {
+      "name": "send",
+      "value": "Delivered"
+    },
+    {
+      "name": "send_hint",
+      "value": "Please select your shipping address"
+    },
+    {
+      "name": "service",
+      "value": "Service"
+    },
+    {
+      "name": "evaluate_favorable",
+      "value": "rave reviews"
+    },
+    {
+      "name": "evaluate_show_more",
+      "value": "See more reviews"
+    },
+    {
+      "name": "cart",
+      "value": "Shopping cart"
+    },
+    {
+      "name": "index",
+      "value": "Home"
+    },
+    {
+      "name": "insert_cart_success",
+      "value": "Adding to the shopping cart succeeded"
+    },
+    {
+      "name": "commodity_desc",
+      "value": "【%s】%s"
+    },
+    {
+      "name": "insert_cart",
+      "value": "Adding to the shopping cart"
+    },
+    {
+      "name": "buy_now",
+      "value": "Buy Now"
+    }
+  ]
+}

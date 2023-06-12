@@ -1,0 +1,72 @@
+{
+  "float": [
+    {
+      "name": "swiper_image_margin",
+      "value": "40vp"
+    },
+    {
+      "name": "swiper_indicator_text_width",
+      "value": "35vp"
+    },
+    {
+      "name": "swiper_indicator_text_radius",
+      "value": "9vp"
+    },
+    {
+      "name": "swiper_height",
+      "value": "334vp"
+    },
+    {
+      "name": "evaluate_icon_size",
+      "value": "40vp"
+    },
+    {
+      "name": "service_divide_height",
+      "value": "0.25vp"
+    },
+    {
+      "name": "evaluate_text_width",
+      "value": "120vp"
+    },
+    {
+      "name": "evaluate_text_height",
+      "value": "30vp"
+    },
+    {
+      "name": "evaluate_text_radius",
+      "value": "15vp"
+    },
+    {
+      "name": "evaluate_rating_width",
+      "value": "76vp"
+    },
+    {
+      "name": "button_image_size",
+      "value": "22vp"
+    },
+    {
+      "name": "button_flex_width",
+      "value": "74vp"
+    },
+    {
+      "name": "detail_image_max_width",
+      "value": "400vp"
+    },
+    {
+      "name": "title_button_size",
+      "value": "32vp"
+    },
+    {
+      "name": "dialog_normal_image_width",
+      "value": "64vp"
+    },
+    {
+      "name": "dialog_commodity_image_size",
+      "value": "100vp"
+    },
+    {
+      "name": "dialog_radius",
+      "value": "32vp"
+    }
+  ]
+}
