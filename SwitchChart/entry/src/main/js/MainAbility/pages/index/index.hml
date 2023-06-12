@@ -1,0 +1,91 @@
+<!--
+  Copyright (c) 2023 Huawei Device Co., Ltd.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<div class="container">
+    <div class="sub-container">
+        <div class="switch-block">
+            <text class="title">Switch_Chart</text>
+            <text class="switch-info">{{ $t('strings.switch_info') }}</text>
+            <switch onchange="change"></switch>
+        </div>
+        <div class="chart-block">
+            <stack class="full-size">
+                <image class="background-image" src="common/images/ic_line_bg.png"></image>
+                <chart class="chart-data" type="line" options="{{ lineOps }}" datasets="{{ lineData }}">
+                </chart>
+            </stack>
+            <text class="text-vertical">{{ $t('strings.line_title') }}</text>
+        </div>
+        <div class="gauge-block">
+            <div class='flex-row-center full-size'>
+                <stack class="flex-row-center rainbow-size">
+                    <chart class="data-gauge" type="rainbow" segments="{{ rainBowData }}" effects="true"
+                           animationduration="2000"></chart>
+                    <div class="flex-column">
+                        <div class="flex-row-center">
+                            <text class="rainbow-percent">{{ percent }}</text>
+                            <text class="rainbow-text">%</text>
+                        </div>
+                        <text class="rainbow-total">{{ $t('strings.rainbow_used') }}{{ used }}GB/128GB</text>
+                    </div>
+                </stack>
+
+                <div class='flex-column'>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-icon rainbow-color-photo"></div>
+                        <text class="chart-legend-text">{{ this.$t('strings.legend_photo') }} 64GB</text>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-icon rainbow-color-app"></div>
+                        <text class="chart-legend-text">{{ this.$t('strings.legend_app') }} 15.6GB</text>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-icon rainbow-color-book"></div>
+                        <text class="chart-legend-text">{{ $t('strings.legend_book') }} 10GB</text>
+                    </div>
+                    <div class="chart-legend-item">
+                        <div class="chart-legend-icon rainbow-color-data"></div>
+                        <text class="chart-legend-text">{{ $t('strings.legend_data') }} {{ systemDataSize }}GB</text>
+                    </div>
+                </div>
+            </div>
+            <text class="text-vertical">{{ $t('strings.rainbow_title') }}</text>
+        </div>
+        <div class="bar-block">
+            <div class="flex-column full-size">
+                <div class="flex-row-end bar-legend-margin">
+                    <div class="flex-row-center">
+                        <div class="bar-legend-icon bar-color-phone"></div>
+                        <text class="chart-legend-text">{{ $t('strings.legend_phone') }}</text>
+                    </div>
+                    <div class="flex-row-center legend-item-space">
+                        <div class="bar-legend-icon bar-color-pc "></div>
+                        <text class="chart-legend-text">{{ $t('strings.legend_pc') }}</text>
+                    </div>
+                    <div class="flex-row-center">
+                        <div class="bar-legend-icon bar-color-sport"></div>
+                        <text class="chart-legend-text">{{ $t('strings.legend_sport') }}</text>
+                    </div>
+                </div>
+                <stack class="full-size bar-height">
+                    <image class="background-image" src="common/images/ic_bar_bg.png"></image>
+                    <chart class="data-bar" type="bar" id="bar-chart1" options="{{ barOps }}" datasets="{{ barData }}">
+                    </chart>
+                </stack>
+            </div>
+            <text class="text-vertical">{{ $t('strings.bar_title') }}</text>
+        </div>
+    </div>
+</div>

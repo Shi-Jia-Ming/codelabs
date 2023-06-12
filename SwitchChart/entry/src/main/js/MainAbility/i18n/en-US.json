@@ -1,0 +1,16 @@
+{
+  "strings": {
+    "switch_info": "Dynamic display",
+    "line_title": "This week's mood curve",
+    "rainbow_title": "Device memory usage",
+    "rainbow_used": "Used",
+    "legend_photo": "Photo albums",
+    "legend_app": "Application",
+    "legend_book": "Books",
+    "legend_data": "System data",
+    "legend_phone": "Phone",
+    "legend_pc": "Computers",
+    "legend_sport": "Sports health",
+    "bar_title": "Sales volume"
+  }
+}

@@ -1,0 +1,251 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    background-color: #F1F3F5;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.sub-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 98%;
+}
+
+.full-size {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    font-size: 30fp;
+    font-weight: 500;
+    text-align: left;
+    width: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-end {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@media screen and (device-type: tablet) and (orientation: landscape) {
+    .title {
+        font-size: 50fp;
+        font-weight: 500;
+    }
+}
+
+@media screen and (device-type: wearable) {
+    .title {
+        font-size: 15fp;
+        color: #FFFFFF;
+    }
+}
+
+@media screen and (device-type: tv) {
+    .container {
+        background-image: url('/common/images/ic_wallpaper.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .title {
+        font-size: 100fp;
+        color: #FFFFFF;
+    }
+}
+
+@media screen and (device-type: phone) and (orientation: landscape) {
+    .title {
+        font-size: 60fp;
+    }
+}
+
+.switch-block {
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.switch-info {
+    font-size: 16fp;
+    color: #000000;
+    font-weight: 500;
+    margin-top: 10vp;
+}
+
+.chart-block, .gauge-block, .bar-block {
+    position: relative;
+    width: 93.3%;
+    border-radius: 16vp;
+    background-color: #FFFFFF;
+    height: 28%;
+}
+
+.text-vertical {
+    position: absolute;
+    top: 16vp;
+    left: 12vp;
+    width: 200vp;
+    font-size: 14fp;
+    font-weight: 500;
+}
+
+.bar-legend-icon {
+    width: 10vp;
+    height: 10vp;
+    border-radius: 1vp;
+}
+
+.chart-data {
+    width: 90%;
+    height: 90%;
+    margin-bottom: 15%;
+    margin-left: 10%;
+}
+
+.rainbow-size {
+    width: 70%;
+    height: 70%;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.text-abscissa {
+    position: absolute;
+    font-size: 10fp;
+    bottom: 2vp;
+    right: 10vp;
+}
+
+.rainbow-percent {
+    font-size: 31.67fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+}
+
+.rainbow-text {
+    font-size: 8.44fp;
+    color: #000000;
+    font-weight: 500;
+    margin-top: 25vp;
+}
+
+.rainbow-total {
+    font-size: 7.39fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.data-gauge {
+    width: 100%;
+    height: 100%;
+    stroke-width: 13vp;
+}
+
+.data-bar {
+    width: 100%;
+    height: 75%;
+    margin-top: 20%;
+    margin-left: -16vp;
+}
+
+.chart-legend-item {
+    display: flex;
+    margin-top: 10vp;
+    align-items: center;
+}
+
+.chart-legend-icon {
+    border-radius: 5vp;
+    width: 10vp;
+    height: 10vp;
+}
+
+.rainbow-color-photo {
+    background-color: #FEB732;
+}
+
+.rainbow-color-app {
+    background-color: #F5683D;
+}
+
+.rainbow-color-book {
+    background-color: #E673A4;
+}
+
+.rainbow-color-data {
+    background-color: #B66DEC;
+}
+
+.chart-legend-text {
+    opacity: 0.6;
+    font-size: 10fp;
+    color: #000000;
+    font-weight: 400;
+    margin-left: 10vp;
+}
+
+.legend-item-space {
+    margin-right: 10vp;
+    margin-left: 10vp;
+}
+
+.bar-legend-margin {
+    margin-top: 16vp;
+    margin-right: 12vp;
+}
+
+.bar-color-phone {
+    background-color: #4480FF;
+}
+
+.bar-color-pc {
+    background-color: #9F9DFE;
+}
+
+.bar-color-sport {
+    background-color: #FFCD02;
+}
+
+.bar-height {
+    height: 90%;
+}

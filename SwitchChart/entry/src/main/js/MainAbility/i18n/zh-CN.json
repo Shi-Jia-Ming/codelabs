@@ -1,0 +1,16 @@
+{
+  "strings": {
+    "switch_info": "动态展示",
+    "line_title": "本周情绪曲线",
+    "rainbow_title": "设备内存占比",
+    "rainbow_used": "已使用",
+    "legend_photo": "相册",
+    "legend_app": "应用",
+    "legend_book": "图书",
+    "legend_data": "系统数据",
+    "legend_phone": "手机",
+    "legend_pc": "电脑",
+    "legend_sport": "运动健康",
+    "bar_title": "销量"
+  }
+}
