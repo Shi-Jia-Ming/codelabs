@@ -208,11 +208,11 @@ export class DatabaseUtils {
     let notificationBarTitle: string;
     let Language: string = I18n.System.getSystemLanguage();
     if (Language.match(CommonConstants.CHINESE_LANGUAGE)) {
-      notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_ZH
-      + stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_ZH;
+      notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_ZH +
+        stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_ZH;
     } else {
-      notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_EN
-      + stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_EN;
+      notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_EN +
+        stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_EN;
     }
     // Construct the notificationRequest object.
     let notificationRequest = {
