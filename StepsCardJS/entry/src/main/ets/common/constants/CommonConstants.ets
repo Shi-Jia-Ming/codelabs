@@ -55,13 +55,13 @@ export default class CommonConstants {
    * SQL statement for creating a form.
    */
   static readonly CREATE_TABLE_FORM: string = 'CREATE TABLE IF NOT EXISTS Form ' +
-  '(id INTEGER PRIMARY KEY AUTOINCREMENT, formId TEXT NOT NULL, formName TEXT NOT NULL, dimension INTEGER)';
+    '(id INTEGER PRIMARY KEY AUTOINCREMENT, formId TEXT NOT NULL, formName TEXT NOT NULL, dimension INTEGER)';
 
   /**
    * SQL statement for creating steps.
    */
   static readonly CREATE_TABLE_SENSOR_DATA: string = 'CREATE TABLE IF NOT EXISTS SensorData ' +
-  '(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT NOT NULL, stepsValue INTEGER)';
+    '(id INTEGER PRIMARY KEY AUTOINCREMENT, date TEXT NOT NULL, stepsValue INTEGER)';
 
   /**
    * Table sensor name.
