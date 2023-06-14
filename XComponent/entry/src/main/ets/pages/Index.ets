@@ -17,7 +17,7 @@ import nativeRender from 'libnativerender.so';
 import { ContextType } from '../entryability/EntryAbility';
 import CommonConstants from '../common/CommonConstants';
 
-const nativePageLifecycle = nativeRender.getContext(ContextType.JSPAGE_LIFECYCLE);
+const nativePageLifecycle = nativeRender.getContext(ContextType.PAGE_LIFECYCLE);
 
 @Entry
 @Component

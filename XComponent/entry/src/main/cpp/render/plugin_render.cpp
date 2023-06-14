@@ -29,8 +29,13 @@ OH_NativeXComponent_Callback PluginRender::m_callback;
 void OnSurfaceCreatedCB(OH_NativeXComponent *component, void *window)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Callback", "OnSurfaceCreatedCB");
+    if ((nullptr == component) || (nullptr == window)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
+            "OnSurfaceCreatedCB: component or window is null");
+        return;
+    }
 
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
+    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = { '\0' };
     uint64_t idSize = OH_XCOMPONENT_ID_LEN_MAX + 1;
     if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS != OH_NativeXComponent_GetXComponentId(component, idStr, &idSize)) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
@@ -43,17 +48,23 @@ void OnSurfaceCreatedCB(OH_NativeXComponent *component, void *window)
     uint64_t width;
     uint64_t height;
     int32_t xSize = OH_NativeXComponent_GetXComponentSize(component, window, &width, &height);
-    if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS == xSize && nullptr != render) {
-        render->m_eglCore->EglContextInit(window, width, height);
-        render->m_eglCore->Background();
+    if ((OH_NATIVEXCOMPONENT_RESULT_SUCCESS == xSize) && (nullptr != render)) {
+        if (render->m_eglCore->EglContextInit(window, width, height)) {
+            render->m_eglCore->Background();
+        }
     }
 }
 
 void OnSurfaceChangedCB(OH_NativeXComponent *component, void *window)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Callback", "OnSurfaceChangedCB");
+    if ((nullptr == component) || (nullptr == window)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
+            "OnSurfaceChangedCB: component or window is null");
+        return;
+    }
 
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
+    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = { '\0' };
     uint64_t idSize = OH_XCOMPONENT_ID_LEN_MAX + 1;
     if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS != OH_NativeXComponent_GetXComponentId(component, idStr, &idSize)) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
@@ -64,15 +75,20 @@ void OnSurfaceChangedCB(OH_NativeXComponent *component, void *window)
     std::string id(idStr);
     auto render = PluginRender::GetInstance(id);
     if (nullptr != render) {
-        // do something
+        OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Callback", "surface changed");
     }
 }
 
 void OnSurfaceDestroyedCB(OH_NativeXComponent *component, void *window)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Callback", "OnSurfaceDestroyedCB");
+    if ((nullptr == component) || (nullptr == window)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
+            "OnSurfaceDestroyedCB: component or window is null");
+        return;
+    }
 
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
+    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = { '\0' };
     uint64_t idSize = OH_XCOMPONENT_ID_LEN_MAX + 1;
     if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS != OH_NativeXComponent_GetXComponentId(component, idStr, &idSize)) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
@@ -81,18 +97,19 @@ void OnSurfaceDestroyedCB(OH_NativeXComponent *component, void *window)
     }
 
     std::string id(idStr);
-    auto render = PluginRender::GetInstance(id);
-    if (nullptr != render) {
-        // do something
-        render->ReleaseEgl();
-    }
+    PluginRender::Release(id);
 }
 
 void DispatchTouchEventCB(OH_NativeXComponent *component, void *window)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Callback", "DispatchTouchEventCB");
+    if ((nullptr == component) || (nullptr == window)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
+            "DispatchTouchEventCB: component or window is null");
+        return;
+    }
 
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
+    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = { '\0' };
     uint64_t idSize = OH_XCOMPONENT_ID_LEN_MAX + 1;
     if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS != OH_NativeXComponent_GetXComponentId(component, idStr, &idSize)) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Callback",
@@ -101,7 +118,7 @@ void DispatchTouchEventCB(OH_NativeXComponent *component, void *window)
     }
 
     std::string id(idStr);
-    auto render = PluginRender::GetInstance(id);
+    PluginRender *render = PluginRender::GetInstance(id);
     if (nullptr != render) {
         render->m_eglCore->ChangeColor();
     }
@@ -111,7 +128,7 @@ PluginRender::PluginRender(std::string &id)
 {
     this->m_id = id;
     this->m_eglCore = new EGLCore();
-    auto renderCallback = &PluginRender::m_callback;
+    OH_NativeXComponent_Callback *renderCallback = &PluginRender::m_callback;
     renderCallback->OnSurfaceCreated = OnSurfaceCreatedCB;
     renderCallback->OnSurfaceChanged = OnSurfaceChangedCB;
     renderCallback->OnSurfaceDestroyed = OnSurfaceDestroyedCB;
@@ -129,18 +146,29 @@ PluginRender *PluginRender::GetInstance(std::string &id)
     }
 }
 
-napi_value PluginRender::Export(napi_env env, napi_value exports)
+void PluginRender::Export(napi_env env, napi_value exports)
 {
+    if ((nullptr == env) || (nullptr == exports)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender", "Export: env or exports is null");
+        return;
+    }
+
     napi_property_descriptor desc[] = {
         { "drawRectangle", nullptr, PluginRender::NapiDrawRectangle, nullptr, nullptr, nullptr, napi_default, nullptr }
     };
-    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
-    return exports;
+    if (napi_ok != napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender", "Export: napi_define_properties failed");
+    }
 }
 
+// NAPI registration method type napi_callback. If no value is returned, nullptr is returned.
 napi_value PluginRender::NapiDrawRectangle(napi_env env, napi_callback_info info)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "PluginRender", "NapiDrawRectangle");
+    if ((nullptr == env) || (nullptr == info)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender", "NapiDrawRectangle: env or info is null");
+        return nullptr;
+    }
 
     napi_value thisArg;
     if (napi_ok != napi_get_cb_info(env, info, nullptr, nullptr, &thisArg, nullptr)) {
@@ -161,7 +189,7 @@ napi_value PluginRender::NapiDrawRectangle(napi_env env, napi_callback_info info
         return nullptr;
     }
 
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
+    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = { '\0' };
     uint64_t idSize = OH_XCOMPONENT_ID_LEN_MAX + 1;
     if (OH_NATIVEXCOMPONENT_RESULT_SUCCESS != OH_NativeXComponent_GetXComponentId(nativeXComponent, idStr, &idSize)) {
         OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "PluginRender",
@@ -178,13 +206,15 @@ napi_value PluginRender::NapiDrawRectangle(napi_env env, napi_callback_info info
     return nullptr;
 }
 
-PluginRender *PluginRender::ReleaseEgl()
+void PluginRender::Release(std::string &id)
 {
-    char idStr[OH_XCOMPONENT_ID_LEN_MAX + 1] = {};
-    std::string id(idStr);
     PluginRender *render = PluginRender::GetInstance(id);
     if (nullptr != render) {
         render->m_eglCore->Release();
+        delete render->m_eglCore;
+        render->m_eglCore = nullptr;
+        delete render;
+        render = nullptr;
+        m_instance.erase(m_instance.find(id));
     }
-    return nullptr;
 }

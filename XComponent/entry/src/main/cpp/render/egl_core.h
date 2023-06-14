@@ -15,8 +15,6 @@
 #ifndef EGL_CORE_H
 #define EGL_CORE_H
 
-#include <string>
-
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 #include <GLES3/gl3.h>
@@ -25,7 +23,8 @@ class EGLCore {
 public:
     explicit EGLCore(){};
     ~EGLCore() {}
-    void EglContextInit(void *window, int width, int height);
+    bool EglContextInit(void *window, int width, int height);
+    bool CreateEnvironment();
     void Draw();
     void Background();
     void ChangeColor();
@@ -35,8 +34,8 @@ private:
     GLuint LoadShader(GLenum type, const char *shaderSrc);
     GLuint CreateProgram(const char *vertexShader, const char *fragShader);
     GLint PrepareDraw();
-    void ExecuteDraw(GLint positionHandle, const GLfloat *color, const GLfloat rectangleVertices[]);
-    void FinishDraw();
+    bool ExecuteDraw(GLint position, const GLfloat *color, const GLfloat rectangleVertices[], unsigned long vertSize);
+    bool FinishDraw();
 
 private:
     EGLNativeWindowType m_eglWindow;
@@ -44,7 +43,7 @@ private:
     EGLConfig m_eglConfig = EGL_NO_CONFIG_KHR;
     EGLSurface m_eglSurface = EGL_NO_SURFACE;
     EGLContext m_eglContext = EGL_NO_CONTEXT;
-    GLuint m_programHandle;
+    GLuint m_program;
     bool m_flag = false;
     int m_width;
     int m_height;

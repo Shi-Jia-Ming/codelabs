@@ -27,7 +27,7 @@
 
 class PluginManager {
 public:
-    ~PluginManager() {}
+    ~PluginManager();
 
     static PluginManager *GetInstance()
     {
@@ -52,7 +52,10 @@ public:
 
     void SetNativeXComponent(std::string &id, OH_NativeXComponent *nativeXComponent);
     PluginRender *GetRender(std::string &id);
-    bool Export(napi_env env, napi_value exports);
+    void Export(napi_env env, napi_value exports);
+
+private:
+    static void RegisterLifecycle(napi_env env, napi_value exports, int64_t value);
 
 private:
     static PluginManager m_pluginManager;
