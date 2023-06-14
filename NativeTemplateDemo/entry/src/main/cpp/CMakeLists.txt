@@ -9,5 +9,13 @@ include_directories(
     ${NATIVERENDER_ROOT_PATH}/include
 )
 
+find_library(
+    # Sets the name of the path variable.
+    hilog-lib
+    # Specifies the name of the NDK library that
+    # you want CMake to locate.
+    hilog_ndk.z
+)
+
 add_library(hello SHARED hello.cpp)
-target_link_libraries(hello PUBLIC libace_napi.z.so libc++.a)
+target_link_libraries(hello PUBLIC ${hilog-lib} libace_napi.z.so libc++.a)
