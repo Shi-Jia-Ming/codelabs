@@ -82,6 +82,7 @@ export struct HomeTabs {
           }
           .height($r('app.float.home_swiper_height'))
           .itemSpace(Const.ITEM_SPACE)
+          .autoPlay(true)
           .displayCount(this.currentBreakpoint === Const.LG ?
           Const.NUM_3 : (this.currentBreakpoint === Const.MD ? Const.NUM_2 : Const.NUM_1))
         }
@@ -103,6 +104,5 @@ export struct HomeTabs {
     .height(Const.FULL_SIZE)
     .align(Alignment.TopStart)
     .scrollBar(BarState.Off)
-    .edgeEffect(EdgeEffect.Spring)
   }
 }
