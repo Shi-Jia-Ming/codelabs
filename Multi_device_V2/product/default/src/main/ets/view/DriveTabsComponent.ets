@@ -70,7 +70,6 @@ export struct DriveTabs {
     .height(Const.FULL_SIZE)
     .align(Alignment.TopStart)
     .scrollBar(BarState.Off)
-    .edgeEffect(EdgeEffect.Spring)
   }
 }
 
