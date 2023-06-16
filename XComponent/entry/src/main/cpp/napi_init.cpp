@@ -17,20 +17,27 @@
 #include "manager/plugin_manager.h"
 #include "common/common.h"
 
+EXTERN_C_START
 static napi_value Init(napi_env env, napi_value exports)
 {
     OH_LOG_Print(LOG_APP, LOG_INFO, LOG_PRINT_DOMAIN, "Init", "Init begins");
+    if ((nullptr == env) || (nullptr == exports)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Init", "env or exports is null");
+        return nullptr;
+    }
+
     napi_property_descriptor desc[] = {
         { "getContext", nullptr, PluginManager::GetContext, nullptr, nullptr, nullptr, napi_default, nullptr }
     };
-    napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc);
-
-    bool ret = PluginManager::GetInstance()->Export(env, exports);
-    if (!ret) {
-        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Init", "Init failed");
+    if (napi_ok != napi_define_properties(env, exports, sizeof(desc) / sizeof(desc[0]), desc)) {
+        OH_LOG_Print(LOG_APP, LOG_ERROR, LOG_PRINT_DOMAIN, "Init", "napi_define_properties failed");
+        return nullptr;
     }
+
+    PluginManager::GetInstance()->Export(env, exports);
     return exports;
 }
+EXTERN_C_END
 
 static napi_module nativerenderModule = {
     .nm_version = 1,

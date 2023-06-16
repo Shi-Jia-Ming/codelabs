@@ -20,7 +20,7 @@ import nativerender from 'libnativerender.so';
 
 export enum ContextType {
   APP_LIFECYCLE,
-  JSPAGE_LIFECYCLE,
+  PAGE_LIFECYCLE,
 }
 
 const nativeAppLifecycle = nativerender.getContext(ContextType.APP_LIFECYCLE);

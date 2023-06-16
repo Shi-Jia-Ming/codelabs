@@ -1,6 +1,8 @@
 # Native XComponent组件的使用（ArkTS）
 ### 简介
-本篇Codelab主要介绍如何使用XComponent组件调用Native API来创建EGL/GLES环境，从而使用标准OpenGL ES进行图形渲染。使用OpenGL ES实现在主页面绘制区域中渲染一个正方形，点击绘制区域可以改变正方形的颜色。界面效果如图所示：
+本篇Codelab主要介绍如何使用XComponent组件调用NAPI来创建EGL/GLES环境，实现在主页面绘制一个正方形，并可以改变正方形的颜色。本篇CodeLab使用Native C++模板创建。
+
+如图所示，点击绘制矩形按钮，XComponent组件绘制区域中渲染出一个正方形，点击绘制区域，正方形显示另一种颜色，点击绘制矩形按钮正方形还原至初始绘制的颜色。
 
 ![native_xcomponent](screenshots/device/native_xcomponent.gif)
 ### 相关概念

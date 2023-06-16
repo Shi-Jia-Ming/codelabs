@@ -153,11 +153,26 @@ const GLfloat GL_ALPHA_DEFAULT = 1.0;
 const GLuint PROGRAM_ERROR = 0;
 
 /**
+ * Rectangle vertices size.
+ */
+const int RECTANGLE_VERTICES_SIZE = 8;
+
+/**
+ * Position handle name.
+ */
+const char POSITION_NAME[] = "a_position";
+
+/**
+ * Position error.
+ */
+const GLint POSITION_ERROR = -1;
+
+/**
  * Context type.
  */
 enum ContextType {
     APP_LIFECYCLE,
-    JS_PAGE_LIFECYCLE,
+    PAGE_LIFECYCLE,
 };
 
 /**

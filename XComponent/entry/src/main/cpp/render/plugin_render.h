@@ -25,11 +25,18 @@
 class PluginRender {
 public:
     explicit PluginRender(std::string &id);
-    ~PluginRender() {}
+    ~PluginRender()
+    {
+        if (nullptr != m_eglCore) {
+            m_eglCore->Release();
+            delete m_eglCore;
+            m_eglCore = nullptr;
+        }
+    }
     static PluginRender *GetInstance(std::string &id);
-    static PluginRender *ReleaseEgl();
+    static void Release(std::string &id);
     static napi_value NapiDrawRectangle(napi_env env, napi_callback_info info);
-    napi_value Export(napi_env env, napi_value exports);
+    void Export(napi_env env, napi_value exports);
 
 public:
     static std::unordered_map<std::string, PluginRender *> m_instance;

@@ -4,8 +4,8 @@
 
 ![native_template](screenshots/device/native_template.gif)
 ### 相关概念
-- [Native API](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/napi-guidelines-0000001493903956-V3?catalogVersion=V3)：Native API提供的接口名与三方Node.js一致，目前支持部分接口。
-- [Native API中支持的标准库](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/musl-0000001478181805-V3)：目前支持标准C库、C++库、OpenSL ES、zlib。
+- [NAPI](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/napi-guidelines-0000001493903956-V3?catalogVersion=V3)：NAPI提供的接口名与三方Node.js一致，目前支持部分接口。
+- [NAPI中支持的标准库](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/musl-0000001478181805-V3)：目前支持标准C库、C++库、OpenSL ES、zlib。
 
 ### 相关权限
 不涉及
