@@ -128,6 +128,5 @@ export struct FindTabs {
     .height(Const.FULL_SIZE)
     .align(Alignment.TopStart)
     .scrollBar(BarState.Off)
-    .edgeEffect(EdgeEffect.Spring)
   }
 }
