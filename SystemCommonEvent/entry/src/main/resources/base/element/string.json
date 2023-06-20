@@ -1,0 +1,108 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Common event"
+    },
+    {
+      "name": "system_common_event",
+      "value": "System common event"
+    },
+    {
+      "name": "wifi_event_title",
+      "value": "Wi-Fi connection"
+    },
+    {
+      "name": "charge_event_title",
+      "value": "Charging condition"
+    },
+    {
+      "name": "event_init_state",
+      "value": "No change"
+    },
+    {
+      "name": "wifi_connection_state",
+      "value": "Connection state"
+    },
+    {
+      "name": "battery_charge_state",
+      "value": "Charge state"
+    },
+    {
+      "name": "btn_title_subscribe",
+      "value": "subscribe"
+    },
+    {
+      "name": "btn_title_unsubscribe",
+      "value": "unsubscribe"
+    },
+    {
+      "name": "subscribe_success",
+      "value": "Subscription succeeded"
+    },
+    {
+      "name": "subscribe_fail",
+      "value": "Subscription failed"
+    },
+    {
+      "name": "unsubscribe_success",
+      "value": "Unsubscription succeeded"
+    },
+    {
+      "name": "unsubscribe_fail",
+      "value": "Unsubscription failed"
+    },
+    {
+      "name": "need_subscriber",
+      "value": "Subscriber creation required"
+    },
+    {
+      "name": "wifi_state_connecting",
+      "value": "Connecting"
+    },
+    {
+      "name": "wifi_state_disconnected",
+      "value": "Disconnected"
+    },
+    {
+      "name": "wifi_state_disconnecting",
+      "value": "Disconnecting"
+    },
+    {
+      "name": "wifi_state_connected",
+      "value": "Connected"
+    },
+    {
+      "name": "state_unknown",
+      "value": "Unknown"
+    },
+    {
+      "name": "initial_empty",
+      "value": " "
+    },
+    {
+      "name": "battery_not_charged",
+      "value": "Not charged"
+    },
+    {
+      "name": "battery_charging",
+      "value": "Charging"
+    },
+    {
+      "name": "battery_stop",
+      "value": "Stop"
+    },
+    {
+      "name": "battery_fully_charged",
+      "value": "Fully charged"
+    }
+  ]
+}

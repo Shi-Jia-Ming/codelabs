@@ -1,0 +1,52 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "normal_black",
+      "value": "#000000"
+    },
+    {
+      "name": "unit_title_check",
+      "value": "#182431"
+    },
+    {
+      "name": "unit_title_uncheck",
+      "value": "#66182431"
+    },
+    {
+      "name": "sub_color_check",
+      "value": "#FF007DFF"
+    },
+    {
+      "name": "sub_color_uncheck",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "sub_bgColor_check",
+      "value": "#F3F4F4"
+    },
+    {
+      "name": "sub_bgColor_uncheck",
+      "value": "#FF007DFF"
+    },
+    {
+      "name": "item_name",
+      "value": "#FF182431"
+    },
+    {
+      "name": "item_state",
+      "value": "#66182431"
+    },
+    {
+      "name": "full_unit_bg",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "global_bg_color",
+      "value": "#F1F3F5"
+    }
+  ]
+}
