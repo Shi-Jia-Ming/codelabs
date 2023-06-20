@@ -1,0 +1,60 @@
+{
+  "float": [
+    {
+      "name": "title_font_size",
+      "value": "24fp"
+    },
+    {
+      "name": "card_height",
+      "value": "108vp"
+    },
+    {
+      "name": "name_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "name_font_height",
+      "value": "16vp"
+    },
+    {
+      "name": "normal_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "title_margin_top",
+      "value": "24vp"
+    },
+    {
+      "name": "card_border_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "card_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "card_image_length",
+      "value": "48vp"
+    },
+    {
+      "name": "button_width",
+      "value": "72vp"
+    },
+    {
+      "name": "button_height",
+      "value": "28vp"
+    },
+    {
+      "name": "button_border_radius",
+      "value": "14vp"
+    },
+    {
+      "name": "button_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "button_font_size",
+      "value": "12fp"
+    }
+  ]
+}
