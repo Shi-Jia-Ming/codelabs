@@ -1,0 +1,166 @@
+<!--
+  Copyright (c) 2021 Huawei Device Co., Ltd.
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ -->
+
+<stack class="container">
+    <div class="container" disabled="{{ postState }}">
+        <!-- The top -->
+        <div class="container-top">
+            <div onclick="showDialog">
+                <image src="common/images/ic_back.svg" class="container-image-left"></image>
+                <text class="container-txt">{{$t('strings.title') }}</text>
+            </div>
+            <div>
+                <image src="common/images/ic_reset.png" class="container-image-right" onclick="reset"></image>
+                <image src="common/images/ic_save.png" class="container-image-right" onclick="save"></image>
+            </div>
+        </div>
+
+        <!--Picture drawing area-->
+        <div class="crop-image-size">
+            <stack class="full-size center">
+                <canvas id="canvasOne" class="canvas" show="true"></canvas>
+                <canvas id="canvasCrop" class="canvas" show="true"></canvas>
+                <div id="mainBox"
+                     style="width: {{ cropDrawWidth }}; height: {{ cropDrawHeight }}"
+                     show="{{ isCropShow }}">
+                    <div class="minBox left-up-top"></div>
+                    <div class="minBox left-up"></div>
+                    <div class="minBox up-middle"></div>
+                    <div class="minBox right-up-top"></div>
+                    <div class="minBox right-middle"></div>
+                    <div class="minBox right-up"></div>
+                    <div class="minBox left-down-bot"></div>
+                    <div class="minBox left-middle"></div>
+                    <div class="minBox left-down"></div>
+                    <div class="minBox right-down-bot"></div>
+                    <div class="minBox down-middle"></div>
+                    <div class="minBox right-down"></div>
+                    <div class="line-vertical line-left"></div>
+                    <div class="line-vertical line-right"></div>
+                    <div class="line-horizontal line-top"></div>
+                    <div class="line-horizontal line-bottom"></div>
+                </div>
+            </stack>
+        </div>
+
+        <!-- Cropping ratio -->
+        <div class="center-column edit-area-size" if="{{ isCropShow }}">
+            <div class="space-around-row adjust-width crop-height">
+                <image for="{{ (index, value) in cropImage }}"
+                       src="{{ cropClickIndex === index ? cropImageFill[index] : value }}"
+                       class="edit-image" onclick="cropClick({{ index }})">
+                </image>
+            </div>
+            <div class="space-around-row adjust-width">
+                <!-- cropping -->
+                <div class="center-column">
+                    <image src="common/images/ic_crop_filled.png" class="edit-image"></image>
+                    <text class="text-normal-size" style="color: #2788B9;">{{ $t('strings.cropping') }}</text>
+                </div>
+                <!-- Rotate -->
+                <div class="center-column" onclick="changeEditType(1)">
+                    <image src="common/images/ic_rotate.png" class="edit-image"></image>
+                    <text class="text-normal-size">{{ $t('strings.rotate') }}</text>
+                </div>
+                <!--adjusts-->
+                <div class="center-column" onclick="changeEditType(2)">
+                    <image src="common/images/ic_adjust.png" class="edit-image"></image>
+                    <text class="text-normal-size">{{ $t('strings.adjust') }}
+                    </text>
+                </div>
+            </div>
+        </div>
+        <!-- Rotate -->
+        <div class="center-column edit-area-size" if="{{ isRotateShow }}">
+            <div class="space-around-row adjust-width crop-height">
+                <!-- Left Rotation -->
+                <image src="common/images/ic_anti_clockwise.png" class="edit-image" onclick="onRotate(-90)"></image>
+                <!-- Right Rotation -->
+                <image src="common/images/ic_clockwise.png" class="edit-image" onclick="onRotate(90)">
+                </image>
+            </div>
+            <div class="space-around-row adjust-width">
+                <!-- cropping -->
+                <div class="center-column" onclick="changeEditType(0)">
+                    <image src="common/images/ic_crop.png" class="edit-image"></image>
+                    <text class="text-normal-size">{{ $t('strings.cropping') }}</text>
+                </div>
+                <!-- Rotate -->
+                <div class="center-column">
+                    <image src="common/images/ic_rotate_filled.png" class="edit-image"></image>
+                    <text class="text-normal-size" style="color: #2788B9;">{{ $t('strings.rotate') }}</text>
+                </div>
+                <!--adjusts-->
+                <div class="center-column" onclick="changeEditType(2)">
+                    <image src="common/images/ic_adjust.png" class="edit-image"></image>
+                    <text class="text-normal-size">{{ $t('strings.adjust') }}
+                    </text>
+                </div>
+            </div>
+        </div>
+
+        <!--Adjusting Pictures-->
+        <div class="center-column edit-area-size" if="{{ isAdjustShow }}">
+            <slider min="1" max="100" step="1" showtips="true" value="{{ brightnessValue }}"
+                    onchange="setBrightnessValue" if="{{ adjustTypeIndex === 0 }}" style="color: #808080;"/>
+            <slider min="1" max="100" step="1" showtips="true" value="{{ opacityValue }}"
+                    onchange="setOpacityValue" if="{{ adjustTypeIndex === 1 }}" style="color: #808080;"/>
+            <slider min="1" max="100" step="1" showtips="true" value="{{ saturationValue }}"
+                    onchange="setSaturationValue" if="{{ adjustTypeIndex === 2 }}" style="color: #808080;"/>
+            <div class="space-around-row adjust-width">
+                <!-- Adjustment button -->
+                <div for="{{ (index, value) in adjustImage }}" class="center adjust-item-width"
+                     onclick="changeAdjustType({{ index }})">
+                    <image src="{{ adjustTypeIndex === index ? adjustImageFill[index] : value }}" class="edit-image">
+                    </image>
+                    <text class="text-normal-size"
+                          style="color: {{ adjustTypeIndex === index ? '#2788B9' : '#ffffff' }};">
+                        {{ adjustTypeText[index] }}
+                    </text>
+                </div>
+            </div>
+            <div class="space-around-row adjust-width">
+                <!-- cropping -->
+                <div class="center adjust-item-width" onclick="changeEditType(0)">
+                    <image src="common/images/ic_crop.png" class="edit-image"/>
+                    <text class="text-normal-size">{{ $t('strings.cropping') }}</text>
+                </div>
+                <!--Rotate-->
+                <div class="center adjust-item-width" onclick="changeEditType(1)">
+                    <image src="common/images/ic_rotate.png" class="edit-image"></image>
+                    <text class="text-normal-size">{{ $t('strings.rotate') }}</text>
+                </div>
+                <!--adjusts-->
+                <div class="center adjust-item-width">
+                    <image src="common/images/ic_adjust_filled.png" class="edit-image"/>
+                    <text class="text-normal-size" style="color: #2788B9;">{{ $t('strings.adjust') }}</text>
+                </div>
+            </div>
+        </div>
+        <!-- Exit the pop-up window. -->
+        <dialog id="simpleDialog" class="dialog-main" oncancel="cancelDialog">
+            <div class="center-column dialog-div-size">
+                <text class="dialog-text-size">{{ $t('strings.dialog_title') }}</text>
+                <div class="dialog-div-button">
+                    <button type="text" value="{{ $t('strings.cancel') }}" onclick="cancel" class="dialog-button"></button>
+                    <button type="text" value="{{ $t('strings.discard') }}" onclick="abandon" class="dialog-button"></button>
+                </div>
+            </div>
+        </dialog>
+    </div>
+    <div class="{{ postState ? 'loading' : '' }}"  >
+        <progress class="progress" type="circular" if="{{ postState }}"></progress>
+    </div>
+</stack>
