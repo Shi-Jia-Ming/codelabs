@@ -98,6 +98,5 @@ export struct MineTabs {
     .width(Const.FULL_SIZE)
     .scrollBar(BarState.Off)
     .layoutWeight(1)
-    .edgeEffect(EdgeEffect.Spring)
   }
 }
