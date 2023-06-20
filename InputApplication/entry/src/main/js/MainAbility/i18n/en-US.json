@@ -1,0 +1,30 @@
+{
+  "strings": {
+    "title": "Input Form",
+    "email": "Email",
+    "birthday": "Birthday",
+    "date": "Date(yyyy-mm-dd)",
+    "height": "Height (cm)",
+    "height_holder": "Height",
+    "gender": "Gender",
+    "gender_male": "Male",
+    "gender_female": "Female",
+    "hobbies": "Hobbies (Multiple Choices)",
+    "hobby": "Hobbies",
+    "hobby_swim": "Swimming",
+    "hobby_fitness": "Fitness",
+    "hobby_soccer": "Soccer",
+    "hobby_basketball": "Basketball",
+    "hobby_reading_book": "ReadingBooks",
+    "user_check_null": "The user name cannot be empty.",
+    "email_check_null": "The email address cannot be empty.",
+    "hobby_check_null": "Please select at least one hobby",
+    "date_not_format": "The format of the birth date is incorrect.",
+    "height_not_format": "The height format is incorrect.",
+    "success": "Submitted successfully.",
+    "submit": "Submitting",
+    "gender_select": "Select gender",
+    "cancel": "Cancel",
+    "determined": "Determined"
+  }
+}
