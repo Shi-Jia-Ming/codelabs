@@ -1,0 +1,152 @@
+<!--
+Copyright (c) 2023 Huawei Device Co., Ltd.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<div class="container">
+    <div class="title-area">
+        <div class="title">
+            <text>
+                {{ $t('strings.title') }}
+            </text>
+        </div>
+    </div>
+    <div class="user-area">
+        <image class="image" src="{{ urls.user }}"></image>
+        <div class="input-label">
+            <image src="{{ urls.required }}"></image>
+            <label class="label" target="user">{{ $t('strings.user') }}</label>
+        </div>
+        <div class="input-div">
+            <input class="input" id="user" type="text" placeholder="{{ $t('strings.user') }}" onchange="inputChange"
+                   ontranslate="translate"></input>
+        </div>
+    </div>
+    <div class="input-area">
+        <image src="{{ urls.email }}"></image>
+        <div class="input-label">
+            <image src="{{ urls.required }}"></image>
+            <label class="label" target="email">{{ $t('strings.email') }}</label>
+        </div>
+        <div class="input-div">
+            <input class="input" id="email" type="email" placeholder="{{ $t('strings.email') }}"
+                   onchange="inputChange">
+            </input>
+        </div>
+    </div>
+    <div class="input-area">
+        <image src="{{ urls.date }}"></image>
+        <div class="input-label">
+            <label class="label" target="date">{{ $t('strings.birthday') }}</label>
+        </div>
+        <div class="input-div">
+            <input class="input" id="date" type="date" placeholder="{{ $t('strings.date') }}" onchange="inputChange">
+            </input>
+        </div>
+    </div>
+    <div class="input-area">
+        <image src="{{ urls.height }}"></image>
+        <div class="input-label">
+            <label class="label" target="height">{{ $t('strings.height_holder') }}</label>
+        </div>
+        <div class="input-div">
+            <input class="input" id="height" type="number" placeholder="{{ $t('strings.height') }}"
+                   onchange="inputChange"></input>
+        </div>
+    </div>
+    <div class="input-area">
+        <image src="{{ urls.gender }}"></image>
+        <div class="input-label">
+            <label class="label" target="gender">{{ $t('strings.gender') }}</label>
+        </div>
+        <div class="input-div" onclick="openGender">
+            <input class="input select" id="gender" type="text" placeholder="{{ $t('strings.gender') }}"
+                   softkeyboardenabled="false"
+                   value="{{ genderObj[gender] }}"></input>
+            <image src="{{ urls.spinner }}"></image>
+        </div>
+    </div>
+    <div class="input-area">
+        <image src="{{ urls.hobby }}"></image>
+        <div class="input-label">
+            <image src="{{ urls.required }}"></image>
+            <label class="label" target="hobbies">{{ $t('strings.hobbies') }}</label>
+        </div>
+        <div class="input-div" onclick="openHobby">
+            <input class="input select" id="hobbies" type="text" placeholder="{{ $t('strings.hobby') }}"
+                   softkeyboardenabled="false" value="{{ hobbies.join(',') }}"></input>
+            <image src="{{ urls.spinner }}"></image>
+        </div>
+    </div>
+    <button type="capsule" onclick="buttonClick">{{ $t('strings.submit') }}</button>
+    <dialog id="genderDialog">
+        <div class="gender-dialog">
+            <text>{{ $t('strings.gender_select') }}</text>
+            <div>
+                <text>{{ $t('strings.gender_male') }}</text>
+                <input if="{{ gender === 0 }}" class="radio" type="radio" checked="true" name="radio"
+                       value="{{ $t('strings.gender_male') }}" onchange="onRadioChange"></input>
+                <input if="{{ gender === 1 }}" class="radio" type="radio" checked="false" name="radio"
+                       value="{{ $t('strings.gender_male') }}" onchange="onRadioChange"></input>
+            </div>
+            <divider vertical="false"></divider>
+            <div>
+                <text>{{ $t('strings.gender_female') }}</text>
+                <input if="{{ gender === 0 }}" class="radio" type="radio" checked="false" name="radio"
+                       value="{{ $t('strings.gender_female') }}"></input>
+                <input if="{{ gender === 1 }}" class="radio" type="radio" checked="true" name="radio"
+                       value="{{ $t('strings.gender_female') }}"></input>
+            </div>
+            <div class="button">
+                <text onclick="closeGender">{{ $t('strings.cancel') }}</text>
+                <divider vertical="true"></divider>
+                <text onclick="confirmGender">{{ $t('strings.determined') }}</text>
+            </div>
+        </div>
+    </dialog>
+    <dialog id="hobbyDialog">
+        <div class="hobby-dialog">
+            <text>{{ $t('strings.hobby') }}</text>
+            <div>
+                <text>{{ $t('strings.hobby_swim') }}</text>
+                <input class="checkbox" type="checkbox" checked="{{ hobbies.indexOf(hobbiesOjb[0]) !== -1 }}"
+                       value="{{ hobbiesOjb[0] }}" onchange="checkboxOnChange"></input>
+            </div>
+            <div>
+                <text>{{ $t('strings.hobby_fitness') }}</text>
+                <input class="checkbox" type="checkbox" checked="{{ hobbies.indexOf(hobbiesOjb[1]) !== -1 }}"
+                       value="{{ hobbiesOjb[1] }}" onchange="checkboxOnChange"></input>
+            </div>
+            <div>
+                <text>{{ $t('strings.hobby_soccer') }}</text>
+                <input class="checkbox" type="checkbox" checked="{{ hobbies.indexOf(hobbiesOjb[2]) !== -1 }}"
+                       value="{{ hobbiesOjb[2] }}" onchange="checkboxOnChange"></input>
+            </div>
+            <div>
+                <text>{{ $t('strings.hobby_basketball') }}</text>
+                <input class="checkbox" type="checkbox" checked="{{ hobbies.indexOf(hobbiesOjb[3]) !== -1 }}"
+                       value="{{ hobbiesOjb[3] }}" onchange="checkboxOnChange"></input>
+            </div>
+            <div>
+                <text>{{ $t('strings.hobby_reading_book') }}</text>
+                <input class="checkbox" type="checkbox" checked="{{ hobbies.indexOf(hobbiesOjb[4]) !== -1 }}"
+                       value="{{ hobbiesOjb[4] }}" onchange="checkboxOnChange"></input>
+            </div>
+            <div class="button">
+                <text onclick="closeHobby">{{ $t('strings.cancel') }}</text>
+                <divider vertical="true"></divider>
+                <text onclick="confirmHobby">{{ $t('strings.determined') }}</text>
+            </div>
+        </div>
+    </dialog>
+</div>

@@ -1,0 +1,50 @@
+<!--
+ Copyright (c) 2023 Huawei Device Co., Ltd.
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+     http://www.apache.org/licenses/LICENSE-2.0
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ -->
+
+<div class="container">
+    <div class="top-block">
+        <div class="image-block" style="transform: scale({{ imageSize }});">
+            <image class="image-show" src="{{ imgUrl }}" style="animation-duration: {{ animationDuration }};"/>
+        </div>
+    </div>
+    <div class="bottom-block">
+        <text class="text-title">
+            {{ $t('strings.speed') }}
+        </text>
+        <div class="function-block">
+            <text class="text-number">
+                {{ speed }}
+            </text>
+            <div class="slider-block">
+                <image class="speed-slow-img" src="{{ speedImg }}"></image>
+                <slider min="{{ minSpeed }}" max="{{ maxSpeed }}" value="{{ speed }}"
+                        onchange="changeSpeed" mode="inset"></slider>
+                <image class="speed-fast-img" src="{{ speedImg }}"></image>
+            </div>
+        </div>
+        <text class="text-title">
+            {{ $t('strings.zoom_ratio') }}
+        </text>
+        <div class="function-block">
+            <text class="text-number">
+                {{ imageSize }}
+            </text>
+            <div class="slider-block">
+                <text class="text-small">A</text>
+                <slider min="{{ minSize }}" max="{{ maxSize }}" value="{{ size }}" onchange="changeSize" mode="inset">
+                </slider>
+                <text class="text-big">A</text>
+            </div>
+        </div>
+    </div>
+</div>

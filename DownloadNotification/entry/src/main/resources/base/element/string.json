@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "DownloadNotification"
+    },
+    {
+      "name": "title",
+      "value": "File DownLoad"
+    },
+    {
+      "name": "button_download",
+      "value": "DownLoad"
+    },
+    {
+      "name": "button_pause",
+      "value": "Pause"
+    },
+    {
+      "name": "button_resume",
+      "value": "Resume"
+    },
+    {
+      "name": "button_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "button_finish",
+      "value": "Open"
+    },
+    {
+      "name": "notification_title_download",
+      "value": "Downloading"
+    },
+    {
+      "name": "notification_title_pause",
+      "value": "Download paused"
+    },
+    {
+      "name": "notification_title_finish",
+      "value": "Download completed"
+    },
+    {
+      "name": "invalid_button_toast",
+      "value": "The function is not implemented"
+    },
+    {
+      "name": "invalid_progress_toast",
+      "value": "The progress bar template is not supported"
+    }
+  ]
+}

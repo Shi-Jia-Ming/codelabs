@@ -1,0 +1,15 @@
+{
+  "strings": {
+    "title": "Editor",
+    "dialog_title": "Do you want to discard the current modification?",
+    "cropping": "Cropping",
+    "adjust": "Adjusts",
+    "rotate": "Rotate",
+    "luminance": "Luminance",
+    "transparency": "Transparency",
+    "saturation": "Saturation",
+    "save_toast": "Picture saved successfully. Please view it in gallery.",
+    "cancel": "CANCEL",
+    "discard": "DISCARD"
+  }
+}

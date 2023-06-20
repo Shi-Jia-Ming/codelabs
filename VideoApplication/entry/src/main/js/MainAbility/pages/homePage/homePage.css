@@ -1,0 +1,87 @@
+/*
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+}
+
+image {
+    width: 80px;
+    aspect-ratio: 1;
+}
+
+.progress {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-div {
+    align-items: center;
+    justify-content: flex-end;
+    width: 60px;
+    height: 100%;
+}
+
+.slider-div {
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.image-div image {
+    width: 40px;
+    aspect-ratio: 1;
+    margin-right: -10px;
+}
+
+.now-time {
+    color: white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: -10px;
+    z-index: 1;
+}
+
+slider {
+    width: 90%;
+    height: 100%;
+    color: #888888;
+    selected-color: white;
+    z-index: 0;
+}
+.duration-time {
+    color: white;
+    height: 100%;
+    position: absolute;
+    right: -15px;
+    z-index: 1;
+}

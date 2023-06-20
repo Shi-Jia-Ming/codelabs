@@ -1,0 +1,108 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "入口描述"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "公共事件"
+    },
+    {
+      "name": "system_common_event",
+      "value": "系统公共事件"
+    },
+    {
+      "name": "wifi_event_title",
+      "value": "Wi-Fi连接"
+    },
+    {
+      "name": "charge_event_title",
+      "value": "充电状况"
+    },
+    {
+      "name": "event_init_state",
+      "value": "无变化"
+    },
+    {
+      "name": "wifi_connection_state",
+      "value": "连接状态"
+    },
+    {
+      "name": "battery_charge_state",
+      "value": "充电状态"
+    },
+    {
+      "name": "btn_title_subscribe",
+      "value": "订阅"
+    },
+    {
+      "name": "btn_title_unsubscribe",
+      "value": "取消订阅"
+    },
+    {
+      "name": "subscribe_success",
+      "value": "订阅成功"
+    },
+    {
+      "name": "subscribe_fail",
+      "value": "订阅失败"
+    },
+    {
+      "name": "unsubscribe_success",
+      "value": "取消订阅"
+    },
+    {
+      "name": "unsubscribe_fail",
+      "value": "取消订阅失败"
+    },
+    {
+      "name": "need_subscriber",
+      "value": "需要创建订阅者"
+    },
+    {
+      "name": "wifi_state_connecting",
+      "value": "连接中"
+    },
+    {
+      "name": "wifi_state_disconnected",
+      "value": "已断开"
+    },
+    {
+      "name": "wifi_state_disconnecting",
+      "value": "正在断开"
+    },
+    {
+      "name": "wifi_state_connected",
+      "value": "已连接"
+    },
+    {
+      "name": "state_unknown",
+      "value": "未知状态"
+    },
+    {
+      "name": "initial_empty",
+      "value": " "
+    },
+    {
+      "name": "battery_not_charged",
+      "value": "未充电"
+    },
+    {
+      "name": "battery_charging",
+      "value": "正在充电"
+    },
+    {
+      "name": "battery_stop",
+      "value": "停止"
+    },
+    {
+      "name": "battery_fully_charged",
+      "value": "已充满"
+    }
+  ]
+}

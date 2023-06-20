@@ -1,0 +1,136 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Vertical layout of the page. */
+.container {
+    flex-direction: column;
+}
+
+/* Top block layout. */
+.top-block {
+    height: 55%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #F1F3F5;
+}
+
+/* Image block layout. */
+.image-block {
+    position: relative;
+    top: 30vp;
+}
+
+/* Image layout. */
+.image-show {
+    width: 180vp;
+    height: 180vp;
+    animation-name: Go;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Image rotation angle: 0° to 360°. */
+@keyframes Go {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Function block layout. */
+.function-block {
+    margin-left: 3.3%;
+    margin-right: 3.3%;
+    height: 28%;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 24vp;
+}
+
+/* Title layout. */
+.text-title {
+    position: relative;
+    left: 6.5%;
+    font-size: 14fp;
+    font-weight: 500;
+    height: 8%;
+    margin-top: 20vp;
+    margin-bottom: 6vp;
+    letter-spacing: 1.23fp;
+}
+
+/* Bottom block layout. */
+.bottom-block {
+    height: 45%;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #F1F3F5;
+}
+
+/* Slider layout. */
+slider {
+    height: 100vp;
+    width: 100%;
+    padding-left: 10vp;
+    padding-right: 10vp;
+}
+
+/* Number layout. */
+.text-number {
+    font-weight: 400;
+    font-size: 14fp;
+    letter-spacing: 1.23fp;
+    margin-top: 18vp;
+    height: 30vp;
+}
+
+/* Slider block layout. */
+.slider-block {
+    justify-content: center;
+    align-items: center;
+    height: 100vp;
+    width: 100%;
+    padding-left: 20vp;
+    padding-right: 20vp;
+}
+
+/* Text small layout. */
+.text-small {
+    font-size: 20fp;
+    font-weight: 500;
+}
+
+/* Text bit layout. */
+.text-big {
+    font-size: 24fp;
+    font-weight: 700;
+}
+
+/* Image slow layout. */
+.speed-slow-img {
+    width: 26vp;
+    object-fit: contain;
+}
+
+/* Image fast layout. */
+.speed-fast-img {
+    width: 35vp;
+    object-fit: contain;
+}

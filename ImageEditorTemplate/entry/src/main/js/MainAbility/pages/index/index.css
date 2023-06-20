@@ -1,0 +1,322 @@
+/*
+ * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    justify-content: space-around;
+}
+
+.full-size {
+    width: 100%;
+    height: 100%;
+}
+
+.crop-height {
+    height: 70%;
+}
+
+/*horizontal layout, vertical center*/
+
+.space-around-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Vertical layout, horizontally centered*/
+
+.center-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/*Center vertically and horizontally.*/
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-top {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+}
+
+.container-bar-left {
+    width: 86vp;
+}
+
+.container-image-left {
+    height: 24vp;
+    width: 24vp;
+}
+
+.container-txt {
+    font-size: 20fp;
+    color: #FFFFFF;
+    text-align: left;
+    line-height: 28vp;
+    font-weight: 500;
+    margin-left: 16vp;
+}
+
+.container-image-right {
+    height: 24vp;
+    width: 24vp;
+    margin-left: 20vp;
+}
+
+/*Exit the application in a pop-up window.*/
+
+.dialog-main {
+    width: 80%;
+    height: 128vp;
+    margin-bottom: 30vp;
+    position: absolute;
+}
+
+.dialog-div-size {
+    width: 100%;
+    height: 70%;
+    margin-top: 20vp;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress {
+    width: 100vp;
+    height: 100vp;
+    color: #FFFFFF;
+}
+
+.dialog-button {
+    width: 96vp;
+    height: 32vp;
+}
+
+.dialog-div-button {
+    width: 90%;
+    height: 45vp;
+    justify-content: space-around;
+    margin-top: 14vp;
+}
+
+.crop-image-size {
+    width: 100%;
+    height: 65%;
+}
+
+#cropBox {
+    position: absolute;
+}
+
+.canvas {
+    height: 100%;
+    width: 98%;
+}
+
+#originalCanvas {
+    height: 100%;
+    width: 100%;
+}
+
+/*Cutout box*/
+
+#mainBox {
+    border: 1vp solid #ccffffff;
+}
+
+.minBox {
+    position: absolute;
+    height: 15vp;
+    width: 3vp;
+    background-color: #FFFFFF;
+}
+
+.left-up-top {
+    top: -3vp;
+    left: -3vp;
+    height: 3vp;
+    width: 15vp;
+}
+
+.up-middle {
+    top: -3vp;
+    left: 50%;
+    margin-left: -12.5vp;
+    height: 3vp;
+    width: 25vp;
+}
+
+.left-up {
+    top: -3vp;
+    left: -3vp;
+}
+
+.right-up-top {
+    right: -3vp;
+    top: -3vp;
+    height: 3vp;
+    width: 15vp;
+}
+
+.right-middle {
+    top: 50%;
+    right: -3vp;
+    margin-top: -12.5vp;
+    height: 25vp;
+    width: 3vp;
+}
+
+.right-up {
+    right: -3vp;
+    top: -3vp;
+}
+
+.left-down-bot {
+    bottom: -3vp;
+    left: -3vp;
+    height: 3vp;
+    width: 15vp;
+}
+
+.left-middle {
+    top: 50%;
+    left: -3vp;
+    margin-top: -12.5vp;
+    height: 25vp;
+    width: 3vp;
+}
+
+.left-down {
+    bottom: -3vp;
+    left: -3vp;
+}
+
+.down-middle {
+    bottom: -3vp;
+    left: 50%;
+    margin-left: -12.5vp;
+    height: 3vp;
+    width: 25vp;
+}
+
+.right-down-bot {
+    right: -3vp;
+    bottom: -3vp;
+    height: 3vp;
+    width: 15vp;
+}
+
+.right-down {
+    bottom: -3vp;
+    right: -3vp;
+}
+
+.line-vertical {
+    position: absolute;
+    width: 0.5vp;
+    height: 100%;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+
+.line-horizontal {
+    position: absolute;
+    width: 100%;
+    height: 0.5vp;
+    background-color: #FFFFFF;
+    opacity: 0.6;
+}
+
+.line-left {
+    left: 25%;
+}
+
+.line-right {
+    right: 25%;
+}
+
+.line-top {
+    top: 25%;
+}
+
+.line-bottom {
+    bottom: 25%;
+}
+
+.edit-area-size {
+    width: 100%;
+    height: 23%;
+    justify-content: space-between;
+}
+
+.edit-image {
+    width: 32vp;
+    height: 32vp;
+}
+
+.edit-crop-margin {
+    margin-left: 148vp;
+}
+
+.adjust-width {
+    width: 80%;
+}
+
+.adjust-item-width {
+    width: 20%;
+}
+
+.edit-type-margin {
+    margin-left: 74vp;
+}
+
+.text-normal-size {
+    opacity: 0.9;
+    font-size: 14fp;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 400;
+    margin-top: 4vp;
+}
+
+.dialog-text-size {
+    font-size: 16fp;
+    color: #000000;
+    text-align: center;
+    font-weight: 400;
+}
+
+.resize-image-margin {
+    margin-left: 49vp;
+}

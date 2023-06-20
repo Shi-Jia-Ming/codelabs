@@ -44,13 +44,18 @@
   - [List组件的用法之设置项（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List-HDC)
 - UI(JS)
   - [image、image-animator组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ClickableJs)
+  - [input、label组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/InputApplication)
   - [rating组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/RatingApplication)
+  - [slider组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SliderApplication)
   - [switch、chart组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SwitchChart)
   - [弹窗基本使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/DialogDemo)
   - [动画样式（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AnimationDemo)
   - [toolbar、toolbar-item组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ToolbarApplication)
+  - [video组件的使用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/VideoApplication)
   - [购物应用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingSample)
 - 公共事件与通知
+  - [系统公共事件（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SystemCommonEvent)
+  - [下载通知（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/DownloadNotification)
   - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AlarmClock)
 - 窗口管理
   - [窗口管理（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WindowManager)
@@ -58,6 +63,7 @@
   - [视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/VideoPlayer)
   - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEdit)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleVideo)
+  - [图片编辑（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEditorTemplate)
 - 网络与连接
   - [新闻发布（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/NewsRelease)
   - [HTTPS请求过程（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/HttpsRequest)

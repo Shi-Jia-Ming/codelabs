@@ -1,0 +1,31 @@
+{
+  "strings": {
+    "title": "input表单",
+    "user": "用户名",
+    "email": "电子邮箱",
+    "birthday": "出生日期",
+    "date": "日期（yyyy-mm-dd）",
+    "height": "身高（cm）",
+    "height_holder": "身高",
+    "gender": "性别",
+    "gender_male": "男",
+    "gender_female": "女",
+    "hobbies": "爱好（多选）",
+    "hobby": "爱好",
+    "hobby_swim": "游泳",
+    "hobby_fitness": "健身",
+    "hobby_soccer": "足球",
+    "hobby_basketball": "篮球",
+    "hobby_reading_book": "看书",
+    "user_check_null": "用户名不能为空",
+    "email_check_null": "邮箱不能为空",
+    "hobby_check_null": "请至少选择一个爱好",
+    "date_not_format": "出生日期格式错误",
+    "height_not_format": "身高格式错误",
+    "success": "提交成功",
+    "submit": "提交",
+    "gender_select": "选择性别",
+    "cancel": "取消",
+    "determined": "确定"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "strings": {
+    "title": "编辑",
+    "dialog_title": "是否放弃当前修改?",
+    "cropping": "裁剪",
+    "adjust": "调节",
+    "rotate": "旋转",
+    "luminance": "亮度",
+    "transparency": "透明度",
+    "saturation": "饱和度",
+    "save_toast": "图片保存成功，请到图库查看！",
+    "cancel": "取消",
+    "discard": "放弃"
+  }
+}
