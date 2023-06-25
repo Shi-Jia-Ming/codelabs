@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "运动总有新玩法"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "健康生活"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "卡片创建，删除，修改，查询等操作入口"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "服务卡片"
+    },
+    {
+      "name": "agencyNoTask",
+      "value": "请前往健康生活添加任务"
+    }
+  ]
+}

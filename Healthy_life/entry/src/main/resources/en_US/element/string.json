@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "There's always a new way to play sports."
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Healthy living"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "agencyNoTask",
+      "value": "Go to Healthy Living to add tasks"
+    }
+  ]
+}
