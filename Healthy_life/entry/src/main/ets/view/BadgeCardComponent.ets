@@ -22,7 +22,7 @@ export struct BadgeCard {
   imgSrc: Resource;
 
   build() {
-    Column({ space: commonConst.DEFAULT_18 }) {
+    Column({space: commonConst.DEFAULT_18}) {
       Image(this.imgSrc)
         .width(commonConst.FULL_WIDTH)
         .height(commonConst.ACHIEVE_CARD_IMG_HEIGHT)

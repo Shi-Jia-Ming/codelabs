@@ -82,6 +82,7 @@
   - [分布式手写板（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/JSDistributeDraw)
   - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/GameAuth)
 - 卡片
+  - [健康生活卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
   - [电影卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
   - [计步器卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardJS)
 - 效率提升

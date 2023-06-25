@@ -31,8 +31,6 @@ export struct WeekCalendar {
   @Link homeStore: HomeStore;
   currentPage: number = 1;
   private scroller: Scroller = new Scroller();
-  private isLoadMore: boolean = false;
-  private isPageScroll: boolean = false;
   scrollWidth: number = DEFAULT_SCROLL_WIDTH;
 
   aboutToAppear() {

@@ -14,7 +14,6 @@
  */
 
 import dataRdb from '@ohos.data.relationalStore';
-import common from '@ohos.app.ability.common';
 import ColumnInfo from '../../bean/ColumnInfo';
 
 export interface RdbHelper {
@@ -31,7 +30,7 @@ export interface RdbHelper {
    * @param context - indicates the context of application or capability.
    * @returns the RDB store.
    */
-  getRdb(context: common.UIAbilityContext): Promise<RdbHelper>;
+  getRdb(context: Context): Promise<RdbHelper>;
 
   /**
    * Execute sql in the database.

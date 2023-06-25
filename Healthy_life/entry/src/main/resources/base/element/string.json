@@ -1,23 +1,23 @@
 {
   "string": [
     {
-      "name": "entry_desc",
+      "name": "module_desc",
       "value": "description"
     },
     {
-      "name": "MainAbility_desc",
-      "value": "运动总有新玩法"
+      "name": "EntryAbility_desc",
+      "value": "There's always a new way to play sports."
     },
     {
-      "name": "MainAbility_label",
-      "value": "健康生活"
+      "name": "EntryAbility_label",
+      "value": "Healthy living"
     },
     {
-      "name": "form_FormAbility_desc",
+      "name": "EntryFormAbility_desc",
       "value": "form_description"
     },
     {
-      "name": "form_FormAbility_label",
+      "name": "EntryFormAbility_label",
       "value": "form_label"
     },
     {
@@ -76,7 +76,6 @@
       "name": "task_water",
       "value": "喝水"
     },
-
     {
       "name": "task_smile",
       "value": "每日微笑"
@@ -184,6 +183,10 @@
     {
       "name": "alert_button",
       "value": "退出"
+    },
+    {
+      "name": "agencyNoTask",
+      "value": "Go to Healthy Living to add tasks"
     }
   ]
 }

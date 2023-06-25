@@ -14,19 +14,26 @@
  */
 
 import UIAbility from '@ohos.app.ability.UIAbility';
-import { RDB_NAME, DAY_INFO, GLOBAL_INFO, TASK_INFO } from '../common/constants/CommonConstants';
-import { columnDayInfoList, columnGlobalInfoList, columnTaskInfoInfoList } from '../model/RdbColumnModel';
+import { RDB_NAME, DAY_INFO, GLOBAL_INFO, TASK_INFO, FORM_INFO } from '../common/constants/CommonConstants';
+import {
+  columnDayInfoList,
+  columnGlobalInfoList,
+  columnTaskInfoInfoList,
+  columnFormInfoList
+} from '../model/RdbColumnModel';
 import RdbUtils from '../common/database/rdb/RdbUtils';
 import Logger from '../common/utils/Logger';
+import FormUtils from '../common/utils/FormUtils';
 
 export default class EntryAbility extends UIAbility {
-  private static TAG: string = 'MainAbility';
+  private static TAG: string = 'EntryAbility';
 
   async onCreate(want, launchParam) {
     Logger.debug(EntryAbility.TAG, 'onCreate');
     globalThis.abilityWant = want;
+    globalThis.launchParam = launchParam;
 
-    RdbUtils.initDb(this.context, RDB_NAME.dbname);
+    RdbUtils.initDb(this.context, RDB_NAME.dbName);
     await RdbUtils.createDb();
 
     RdbUtils.createTable(DAY_INFO.tableName, columnDayInfoList).then(() => {
@@ -41,9 +48,14 @@ export default class EntryAbility extends UIAbility {
       Logger.info(`RdbHelper globalInfo err : ${JSON.stringify(err)}`);
     });
     RdbUtils.createTable(TASK_INFO.tableName, columnTaskInfoInfoList).then(() => {
-      Logger.info(`RdbHelper createTable taskInfo  success`);
+      Logger.info(`RdbHelper createTable taskInfo success`);
     }).catch(err => {
       Logger.info(`RdbHelper taskInfo err : ${JSON.stringify(err)}`);
+    });
+    RdbUtils.createTable(FORM_INFO.tableName, columnFormInfoList).then(() => {
+      Logger.info(`RdbHelper createTable formInfo success`);
+    }).catch(err => {
+      Logger.info(`RdbHelper formInfo err : ${JSON.stringify(err)}`);
     });
   }
 
@@ -54,6 +66,7 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage) {
     // Main window is created, set main page for this ability
     Logger.debug(EntryAbility.TAG, 'onWindowStageCreate');
+    globalThis.isForeground = true;
     windowStage.loadContent('pages/SplashPage', (err, data) => {
       if (err.code) {
         Logger.error('windowStage', 'Failed to load the content. Cause:' + JSON.stringify(err));
@@ -71,11 +84,13 @@ export default class EntryAbility extends UIAbility {
   onForeground() {
     // Ability has brought to foreground
     globalThis.isForeground = true;
+    globalThis.taskListChange = false;
     Logger.debug(EntryAbility.TAG, 'onForeground');
   }
 
   onBackground() {
     // Ability has back to background
+    FormUtils.backgroundUpdateCard(globalThis.taskListChange);
     Logger.debug(EntryAbility.TAG, 'onBackground');
   }
 
@@ -83,5 +98,6 @@ export default class EntryAbility extends UIAbility {
     // Ability has new want
     Logger.debug(EntryAbility.TAG, `onNewWant ${JSON.stringify(want)}`);
     globalThis.abilityWant = want;
+    globalThis.launchParam = launchParam;
   }
 };

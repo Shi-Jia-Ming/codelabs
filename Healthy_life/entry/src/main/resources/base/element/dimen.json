@@ -135,6 +135,86 @@
     {
       "name": "default_451",
       "value": "451vp"
+    },
+    {
+      "name": "agency_item_margin",
+      "value": "6vp"
+    },
+    {
+      "name": "agency_item_radius",
+      "value": "6vp"
+    },
+    {
+      "name": "agency_padding_left",
+      "value": "12vp"
+    },
+    {
+      "name": "agency_padding_top",
+      "value": "10vp"
+    },
+    {
+      "name": "agency_padding_right",
+      "value": "6vp"
+    },
+    {
+      "name": "agency_padding_bottom",
+      "value": "10vp"
+    },
+    {
+      "name": "empty_data_size",
+      "value": "16fp"
+    },
+    {
+      "name": "agency_image_size",
+      "value": "26vp"
+    },
+    {
+      "name": "text_common_size",
+      "value": "14fp"
+    },
+    {
+      "name": "agency_text_bold",
+      "value": "22fp"
+    },
+    {
+      "name": "agency_row_padding",
+      "value": "15vp"
+    },
+    {
+      "name": "progress_component_size",
+      "value": "108vp"
+    },
+    {
+      "name": "progress_stroke_width",
+      "value": "13vp"
+    },
+    {
+      "name": "percent_text_size",
+      "value": "27fp"
+    },
+    {
+      "name": "percent_sign_size",
+      "value": "13fp"
+    },
+    {
+      "name": "percent_sign_margin",
+      "value": "10vp"
+    },
+    {
+      "name": "numerator_text_size",
+      "value": "15fp"
+    },
+    {
+      "name": "numerator_line_height",
+      "value": "19vp"
+    },
+    {
+      "name": "denominator_text_size",
+      "value": "15fp"
+    },
+    {
+      "name": "denominator_line_height",
+      "value": "19vp"
     }
   ]
 }

@@ -17,23 +17,22 @@
   "module": {
     "name": "entry",
     "type": "entry",
-    "description": "$string:entry_desc",
-    "mainElement": "MainAbility",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
     "deviceTypes": [
-      "phone",
-      "tablet"
+      "phone"
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
     "pages": "$profile:main_pages",
     "abilities": [
       {
-        "name": "MainAbility",
+        "name": "EntryAbility",
         "orientation": "portrait",
         "srcEntry": "./ets/entryability/EntryAbility.ets",
-        "description": "$string:MainAbility_desc",
+        "description": "$string:EntryAbility_desc",
         "icon": "$media:logo",
-        "label": "$string:MainAbility_label",
+        "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:white",
         "exported": true,
@@ -49,7 +48,21 @@
         ]
       }
     ],
-    "extensionAbilities": [],
+    "extensionAbilities": [
+      {
+        "name": "EntryFormAbility",
+        "srcEntry": "./ets/entryformability/EntryFormAbility.ets",
+        "label": "$string:EntryFormAbility_label",
+        "description": "$string:EntryFormAbility_desc",
+        "type": "form",
+        "metadata": [
+          {
+            "name": "ohos.extension.form",
+            "resource": "$profile:form_config"
+          }
+        ]
+      }
+    ],
     "requestPermissions": [
       {
         "name": "ohos.permission.PUBLISH_AGENT_REMINDER"

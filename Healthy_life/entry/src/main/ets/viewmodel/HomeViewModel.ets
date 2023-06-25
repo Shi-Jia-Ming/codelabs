@@ -135,18 +135,26 @@ export class HomeStore {
           const dayInfo: DayInfo = item.dayInfo;
           if (editedTaskInfo.isOpen) {
             // add task
-            taskList = taskList.filter((item) => item.taskID != taskID)
+            taskList = taskList.filter((taskItem) => taskItem.taskID != taskID)
               .concat(task)
               .sort((a, b) => a.taskID - b.taskID);
-            dayInfo.finTaskNum += 1;
+            let count: number = 0;
+            taskList.forEach((taskItem: TaskInfo) => {
+              if (taskItem.isDone) {
+                count++;
+              }
+            });
+            if (count > dayInfo.finTaskNum) {
+              dayInfo.finTaskNum = count;
+            }
           } else {
             // delete task
-            let taskIndex = taskList.findIndex((item) => item.taskID == taskID);
+            let taskIndex = taskList.findIndex((taskItem) => taskItem.taskID == taskID);
             Logger.info('taskList[taskIndex]', JSON.stringify(taskList[taskIndex]));
             if (taskList[taskIndex]?.isDone) {
               dayInfo.finTaskNum -= 1;
             }
-            taskList = taskList.filter((item) => item.taskID != taskID);
+            taskList = taskList.filter((taskItem) => taskItem.taskID != taskID);
           }
           dayInfo.targetTaskNum = taskList.length;
           if (dayInfo.finTaskNum > dayInfo.targetTaskNum) {
@@ -238,7 +246,7 @@ export class HomeStore {
         updateTask.finValue = targetValue;
       } else {
         let value = Number(finValue) + step;
-        updateTask.isDone = value >= Number(targetValue);
+        updateTask.isDone = updateTask.isDone || value >= Number(targetValue);
         updateTask.finValue = updateTask.isDone ? targetValue : `${value}`;
       }
       TaskInfoTableApi.updateDataByDate(updateTask, (res) => {

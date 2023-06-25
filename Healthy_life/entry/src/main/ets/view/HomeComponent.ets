@@ -56,36 +56,7 @@ export default struct HomeIndex {
   @Link editedTaskInfo: ITaskItem;
   @Link @Watch('taskChange') editedTaskID: string;
   private scroller: Scroller = new Scroller();
-
-  async aboutToAppear() {
-    GlobalInfoApi.query((result) => {
-      let predate = new Date(result.lastDate);
-      let date = new Date();
-      if (result.length !== 0 && date.getTime() < predate.getTime()) {
-        AlertDialog.show(
-          {
-            title: $r('app.string.alert'),
-            message: $r('app.string.alert_message'),
-            autoCancel: false,
-            alignment: DialogAlignment.Bottom,
-            offset: { dx: 0, dy: -20 },
-            gridCount: 3,
-            confirm: {
-              value: $r('app.string.alert_button'),
-              action: () => {
-                (getContext(this) as common.UIAbilityContext).terminateSelf()
-                console.info('Button-clicking callback')
-              }
-            },
-            cancel: () => {
-              console.info('Closed callbacks')
-            }
-          })
-      } else {
-        this.homeStore.initData();
-      }
-    });
-  }
+  private yOffset: number = 0;
 
   taskChange() {
     this.homeStore.updateTaskInfoList(this.editedTaskInfo);
@@ -124,11 +95,11 @@ export default struct HomeIndex {
 
   // change navigator alpha when scrolling the Scroll component
   onScrollAction() {
-    let yOffset = this.scroller.currentOffset().yOffset;
-    if (yOffset > commonConst.DEFAULT_56) {
+    this.yOffset = this.scroller.currentOffset().yOffset;
+    if (this.yOffset > commonConst.DEFAULT_56) {
       this.naviAlpha = 1;
     } else {
-      this.naviAlpha = yOffset / commonConst.DEFAULT_56;
+      this.naviAlpha = this.yOffset / commonConst.DEFAULT_56;
     }
   }
 
@@ -155,6 +126,9 @@ export default struct HomeIndex {
                   .height($r('app.float.default_64'))
               }, item => JSON.stringify(item))
             }
+            .onAppear(() => {
+              this.scroller.scrollTo({ xOffset: 0, yOffset: this.yOffset });
+            })
             .padding({
               top: commonConst.THOUSANDTH_15,
               left: commonConst.THOUSANDTH_33,
@@ -180,7 +154,7 @@ export default struct HomeIndex {
 
       AddBtn({ clickAction: this.editTaskAction.bind(this) })
       Row() {
-        Text($r('app.string.MainAbility_label'))
+        Text($r('app.string.EntryAbility_label'))
           .titleTextStyle()
           .fontSize($r('app.float.default_24'))
           .padding({ left: commonConst.THOUSANDTH_66 })

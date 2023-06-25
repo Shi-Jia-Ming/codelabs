@@ -14,16 +14,18 @@
  */
 
 import router from '@ohos.router';
+import common from '@ohos.app.ability.common';
 import Logger from '../common/utils/Logger';
 import { ITaskItem } from '../model/TaskInitList';
-import * as commonConst from '../common/constants/CommonConstants'
+import * as commonConst from '../common/constants/CommonConstants';
 import { NavList, TabId } from '../model/NavItemModel';
 import HomeIndex from '../view/HomeComponent';
 import { AchievementIndex } from '../view/AchievementComponent';
 import { MineIndex } from './MinePage';
 import { HomeStore } from '../viewmodel/HomeViewModel';
+import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 
-@Styles function allSize () {
+@Styles function allSize() {
   .width(commonConst.THOUSANDTH_1000)
   .height(commonConst.THOUSANDTH_1000)
 }
@@ -40,19 +42,50 @@ struct Index {
   onPageShow() {
     Logger.info('onPageShow', JSON.stringify(router.getParams()));
     this.editedTaskInfo = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
-    this.editedTaskID = `${this.editedTaskInfo.taskID}_${this.editedTaskInfo.isOpen}` + new Date().getTime();
+    this.editedTaskID = JSON.stringify(this.editedTaskInfo);
     if (globalThis.isForeground) {
       globalThis.isForeground = false;
-      if (this.homeStore.currentDate.getDate()!== (new Date()).getDate()) {
+      if (this.homeStore.currentDate.getDate() !== (new Date()).getDate()) {
+        globalThis.taskListChange = true;
         this.homeStore = new HomeStore(new Date());
+      }
+      this.checkCurrentTime();
+    }
+  }
+
+  checkCurrentTime() {
+    GlobalInfoApi.query((result) => {
+      let predate = new Date(result.lastDate);
+      let date = new Date();
+      if (result.length !== 0 && date.getTime() < predate.getTime()) {
+        AlertDialog.show(
+          {
+            title: $r('app.string.alert'),
+            message: $r('app.string.alert_message'),
+            autoCancel: false,
+            alignment: DialogAlignment.Bottom,
+            offset: { dx: 0, dy: -20 },
+            gridCount: 3,
+            confirm: {
+              value: $r('app.string.alert_button'),
+              action: () => {
+                (getContext(this) as common.UIAbilityContext).terminateSelf();
+                console.info('Button-clicking callback');
+              }
+            },
+            cancel: () => {
+              console.info('Closed callbacks');
+            }
+          });
+      } else {
         this.homeStore.initData();
       }
-    }
+    });
   }
 
   @Builder TabBuilder(index: number) {
     Column() {
-      Image(index == this.currentPage ? NavList[index].icon_selected : NavList[index].icon)
+      Image(index === this.currentPage ? NavList[index].icon_selected : NavList[index].icon)
         .width($r('app.float.default_24'))
         .height($r('app.float.default_24'))
         .objectFit(ImageFit.Contain);
@@ -67,7 +100,7 @@ struct Index {
   build() {
     Tabs({ barPosition: BarPosition.End, controller: this.tabController }) {
       TabContent() {
-        HomeIndex({homeStore: $homeStore, editedTaskInfo: $editedTaskInfo, editedTaskID: $editedTaskID })
+        HomeIndex({ homeStore: $homeStore, editedTaskInfo: $editedTaskInfo, editedTaskID: $editedTaskID })
           .borderWidth({ bottom: 1 })
           .borderColor($r('app.color.primaryBgColor'))
       }

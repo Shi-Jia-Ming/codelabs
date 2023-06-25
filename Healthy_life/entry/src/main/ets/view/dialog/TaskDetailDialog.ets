@@ -103,6 +103,7 @@ struct TaskClock {
       .borderRadius($r('app.float.default_24'))
       .backgroundColor('rgba(255,255,255,0.40)')
       .onClick(() => {
+        globalThis.taskListChange = true;
         this.confirm();
       })
       .visibility(!this.showButton ? Visibility.None : Visibility.Visible)

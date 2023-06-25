@@ -16,6 +16,7 @@
 
 import router from '@ohos.router';
 import prompt from '@system.prompt';
+import common from '@ohos.app.ability.common';
 import { ITaskItem } from '../../model/TaskInitList';
 import Logger from '../../common/utils/Logger';
 import * as commonConst from '../../common/constants/CommonConstants';
@@ -65,33 +66,33 @@ export default struct TaskDetail {
 
   finishTaskEdit() {
     if (this.isChanged) {
+      let context: Context = getContext(this) as common.Context;
       addTask({
         id: commonConst.ZERO,
         date: commonConst.GLOBAL_KEY,
         ...this.settingParams,
         isDone: false,
-        finValue: '',
+        finValue: ''
+      }, context).then(res => {
+        globalThis.taskListChange = true;
+        router.back({
+          url: 'pages/MainPage',
+          params: {
+            editTask: this.backIndexParams(),
+          }
+        })
+        Logger.info('addTaskFinished', JSON.stringify(res));
+      }).catch(error => {
+        prompt.showToast({
+          message: commonConst.SETTING_FINISH_FAILED_MESSAGE
+        })
+        Logger.error('addTaskFailed', JSON.stringify(error));
       })
-        .then(res => {
-          router.back({
-            url: 'pages/MainPage',
-            params: {
-              editTask: this.backIndexParams(),
-            }
-          })
-          Logger.info('addTaskFinished', JSON.stringify(res));
-        })
-        .catch(error => {
-          prompt.showToast({
-            message: commonConst.SETTING_FINISH_FAILED_MESSAGE
-          })
-          Logger.error('addTaskFailed', JSON.stringify(error));
-        })
       return;
     }
     router.back({
       url: 'pages/MainPage',
-    })
+    });
   }
 
   aboutToAppear() {

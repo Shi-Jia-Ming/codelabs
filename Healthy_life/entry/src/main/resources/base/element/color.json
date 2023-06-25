@@ -63,6 +63,38 @@
     {
       "name": "disabledColor",
       "value": "#dddadc"
+    },
+    {
+      "name": "list_background_color",
+      "value": "#33000000"
+    },
+    {
+      "name": "no_data_background",
+      "value": "#cc727272"
+    },
+    {
+      "name": "text_common_color",
+      "value": "#182431"
+    },
+    {
+      "name": "hex_common_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "progress_background_color",
+      "value": "#08000000"
+    },
+    {
+      "name": "numerator_text_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "denominator_text_color",
+      "value": "#72787E"
+    },
+    {
+      "name": "progress_column_color",
+      "value": "#0d000000"
     }
   ]
 }

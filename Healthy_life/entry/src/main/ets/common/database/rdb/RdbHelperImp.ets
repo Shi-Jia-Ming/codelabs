@@ -18,7 +18,6 @@ import tableHelper from './TableHelper';
 import { RdbHelper } from './RdbHelper';
 import ColumnInfo from '../../bean/ColumnInfo';
 import Logger from '../../utils/Logger';
-import common from '@ohos.app.ability.common';
 
 export class RdbHelperImp implements RdbHelper {
   private mDatabaseName: string;
@@ -33,7 +32,7 @@ export class RdbHelperImp implements RdbHelper {
     return this.mDatabaseName;
   }
 
-  getRdb(context: common.UIAbilityContext): Promise<RdbHelper> {
+  getRdb(context: Context): Promise<RdbHelper> {
     Logger.info(`initRdb  getRdb success`);
     this.storeConfig = {
       name: this.mDatabaseName, securityLevel: dataRdb.SecurityLevel.S1
@@ -98,7 +97,7 @@ export class RdbHelperImp implements RdbHelper {
           success(data);
           this.rdbStore.commit();
         }).catch(err => {
-          Logger.error(`insert failed, err : ${err}`);
+          Logger.error(`insert failed, err : ${JSON.stringify(err)}`);
           error(err);
           this.rdbStore.commit();
         })

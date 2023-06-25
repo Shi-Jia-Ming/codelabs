@@ -43,7 +43,6 @@ export class BroadCast {
   }
 
   public emit(event, args?: any[]) {
-    let _self = this;
     if (!this.callBackArray[event]) {
       Logger.info(FILE_TAG, 'emit broadcast failed for no callback');
       return;
@@ -54,7 +53,7 @@ export class BroadCast {
       let len = cbs.length;
       for (let i = 0; i < len; i++) {
         try {
-          cbs[i].apply(_self, args);
+          cbs[i].apply(this, args);
         } catch (error) {
           new Error(error);
         }

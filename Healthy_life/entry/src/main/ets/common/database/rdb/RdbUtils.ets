@@ -14,19 +14,19 @@
  */
 
 import dataRdb from '@ohos.data.relationalStore';
-import common from '@ohos.app.ability.common';
 import ColumnInfo from '../../bean/ColumnInfo';
 import { RdbHelper } from './RdbHelper';
 import { RdbHelperImp } from './RdbHelperImp';
 import Logger from '../../utils/Logger';
+import Queue from '@ohos.util.Queue';
 
-let dbContext: common.UIAbilityContext;
+let dbContext: Context;
 let mDatabaseName: string = '';
 
 export class RdbUtils {
   private rdbHelpers = new Map<string, RdbHelper>();
 
-  initDb(context: common.UIAbilityContext, databaseName: string) {
+  initDb(context: Context, databaseName: string) {
     dbContext = context;
     mDatabaseName = databaseName;
   }
@@ -63,6 +63,15 @@ export class RdbUtils {
     return this.createDb().then(dbHelper => {
       return dbHelper.createTable(tableName, columns);
     })
+  }
+
+  isCreateTable(tableName: string, columns: Array<ColumnInfo>): Promise<boolean> {
+    return this.createTable(tableName, columns).then(() => {
+      return true;
+    }).catch((error) => {
+      Logger.error('RdbUtils', 'create table error ' + JSON.stringify(error));
+      return false;
+    });
   }
 
   deleteTable(tableName: string): Promise<void> {

@@ -108,3 +108,24 @@ export const columnTaskInfoInfoList: Array<ColumnInfo> = [
   }
 ];
 
+export const columnFormInfoList: Array<ColumnInfo> = [
+  {
+    name: 'id',
+    type: 'integer',
+    primary: true,
+    nullable: true
+  },
+  {
+    name: 'formId',
+    type: 'text'
+  },
+  {
+    name: 'formName',
+    type: 'text'
+  },
+  {
+    name: 'formDimension',
+    type: 'integer'
+  }
+];
+

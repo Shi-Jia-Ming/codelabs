@@ -3,7 +3,8 @@
     {
       "name": "agency",
       "description": "This is a service widget.",
-      "src": "./js/agency/pages/index/index",
+      "src": "./ets/agency/pages/AgencyCard.ets",
+      "uiSyntax": "arkts",
       "window": {
         "designWidth": 720,
         "autoDesignWidth": true
@@ -20,7 +21,8 @@
     {
       "name": "progress",
       "description": "This is a service widget.",
-      "src": "./js/progress/pages/index/index",
+      "src": "./ets/progress/pages/ProgressCard.ets",
+      "uiSyntax": "arkts",
       "window": {
         "designWidth": 720,
         "autoDesignWidth": true

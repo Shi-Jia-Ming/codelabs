@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export const RDB_NAME = { dbname: 'taskInfo.db' }; // db name
+export const RDB_NAME = { dbName: 'taskInfo.db' }; // db name
 
 /** day info table */
 export const DAY_INFO = {
@@ -43,6 +43,12 @@ export const TASK_INFO = {
     'finValue',
     'isOpen'
   ],
+}
+
+/** form info table */
+export const FORM_INFO = {
+  tableName: 'formInfo',
+  columns: ['id', 'formId', 'formName', 'formDimension']
 }
 
 // TaskNum
@@ -150,9 +156,6 @@ export const SIGNATURE = '这是一条简短地个人签';
 
 export const HOME_BTN_Z = 2;
 
-// date format
-export const TODAY: string = new Date().toDateString();
-
 // time range
 export const DEFAULT_TIME: string = '08:00';
 
@@ -167,8 +170,6 @@ export const GET_UP_LATE_TIME: string = '09:00';
 export const SLEEP_EARLY_TIME: string = '20:00';
 
 export const SLEEP_LATE_TIME: string = '23:00';
-
-export const DEFAULT_SELECTED_TIME: Date = new Date(`${TODAY} 8:00:00`);
 
 // frequency Dialog
 export const EVERYDAY: string = '每天';
@@ -208,6 +209,14 @@ export const BRUSH_TEETH_CONTENT: string = '每日刷牙';
 
 export const SLEEP_CONTENT: string = '早睡';
 
+export const H_STORE: string = 'healthAppStore';
+
+export const REMINDER_AGENT_TAG: string = 'reminderAgent';
+
+export const PACKAGE_NAME: string = 'com.example.healthy_life';
+
+export const ENTRY_ABILITY: string = 'EntryAbility';
+
 // offset
 export const ZERO: number = 0;
 
@@ -221,6 +230,8 @@ export const OFFSET_24: number = -24;
 export const DRINK_STEP: number = 25;
 
 export const DRINK_MAX_RANGE: number = 500;
+
+export const TIMES_50: number = 50;
 
 export const TIMES_100: number = 100;
 
@@ -250,4 +261,31 @@ export const FULL_WIDTH: string = '100%';
 export const FULL_HEIGHT: string = '100%';
 
 export const WEEK_DAY_NUM: number = 7; // number days of one week
+
 export const WEEK_DAY_TIME: number = WEEK_DAY_NUM * 24 * 60 * 60 * 1000;
+
+export enum TaskType {
+  Getup = 'getup',
+  Drink= 'drink',
+  Apple = 'apple',
+  Smile = 'smile',
+  Clean = 'clean',
+  Sleep = 'sleep'
+}
+
+export enum Unit {
+  Liter = 'L',
+  Pcs = '个',
+  Times = '次',
+  Empty = ''
+}
+
+// Card Constants
+export const TAG = "UpdateFormUtils";
+export const FORM_PARAM_IDENTITY_KEY = "ohos.extra.param.key.form_identity";
+export const FORM_PARAM_DIMENSION_KEY = "ohos.extra.param.key.form_dimension";
+export const FORM_PARAM_NAME_KEY = "ohos.extra.param.key.form_name";
+export const DEFAULT_DIMENSION_2X2 = 2;
+export const DEFAULT_DIMENSION_2X4 = 3;
+export const WIDGET_NAME_AGENCY = "agency";
+export const WIDGET_NAME_PROGRESS = "progress";

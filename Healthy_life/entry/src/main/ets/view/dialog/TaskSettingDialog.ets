@@ -29,7 +29,6 @@ export struct TargetSettingDialog {
   appleRange: string[] = createAppleRange();
   currentValue: string = this.settingParams.targetValue;
   currentTime: string = commonConst.DEFAULT_TIME;
-  private tip: string = '';
 
   compareTime(startTime: string, endTime: string) {
     if (returnTimeStamp(this.currentTime) < returnTimeStamp(startTime) ||
@@ -75,7 +74,7 @@ export struct TargetSettingDialog {
 
       if ([taskType.getup, taskType.sleepEarly].indexOf(this.settingParams?.taskID) > commonConst.HAS_NO_INDEX) {
         TimePicker({
-          selected: commonConst.DEFAULT_SELECTED_TIME,
+          selected: new Date(`${new Date().toDateString()} 8:00:00`),
         })
           .height(commonConst.THOUSANDTH_800)
           .useMilitaryTime(true)
@@ -134,7 +133,7 @@ export struct RemindTimeDialog {
       .width(commonConst.THOUSANDTH_900)
 
       TimePicker({
-        selected: commonConst.DEFAULT_SELECTED_TIME,
+        selected: new Date(`${new Date().toDateString()} 8:00:00`),
       })
         .height(commonConst.THOUSANDTH_800)
         .useMilitaryTime(true)
