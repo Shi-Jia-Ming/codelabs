@@ -29,7 +29,6 @@ export default class EntryAbility extends UIAbility {
   private static TAG: string = 'EntryAbility';
 
   async onCreate(want, launchParam) {
-    Logger.debug(EntryAbility.TAG, 'onCreate');
     globalThis.abilityWant = want;
     globalThis.launchParam = launchParam;
 
@@ -39,33 +38,26 @@ export default class EntryAbility extends UIAbility {
     RdbUtils.createTable(DAY_INFO.tableName, columnDayInfoList).then(() => {
       Logger.info(`RdbHelper createTable dayInfo success`);
     }).catch(err => {
-      Logger.info(`RdbHelper dayInfo err : ${JSON.stringify(err)}`);
+      Logger.error(`RdbHelper dayInfo err : ${JSON.stringify(err)}`);
     });
 
     RdbUtils.createTable(GLOBAL_INFO.tableName, columnGlobalInfoList).then(() => {
       Logger.info(`RdbHelper createTable globalInfo success`);
     }).catch(err => {
-      Logger.info(`RdbHelper globalInfo err : ${JSON.stringify(err)}`);
+      Logger.error(`RdbHelper globalInfo err : ${JSON.stringify(err)}`);
     });
     RdbUtils.createTable(TASK_INFO.tableName, columnTaskInfoInfoList).then(() => {
       Logger.info(`RdbHelper createTable taskInfo success`);
     }).catch(err => {
-      Logger.info(`RdbHelper taskInfo err : ${JSON.stringify(err)}`);
+      Logger.error(`RdbHelper taskInfo err : ${JSON.stringify(err)}`);
     });
-    RdbUtils.createTable(FORM_INFO.tableName, columnFormInfoList).then(() => {
-      Logger.info(`RdbHelper createTable formInfo success`);
-    }).catch(err => {
-      Logger.info(`RdbHelper formInfo err : ${JSON.stringify(err)}`);
+    RdbUtils.createTable(FORM_INFO.tableName, columnFormInfoList).catch(err => {
+      Logger.error(`RdbHelper formInfo err : ${JSON.stringify(err)}`);
     });
-  }
-
-  onDestroy() {
-    Logger.debug(EntryAbility.TAG, 'onDestroy');
   }
 
   onWindowStageCreate(windowStage) {
     // Main window is created, set main page for this ability
-    Logger.debug(EntryAbility.TAG, 'onWindowStageCreate');
     globalThis.isForeground = true;
     windowStage.loadContent('pages/SplashPage', (err, data) => {
       if (err.code) {
@@ -76,27 +68,19 @@ export default class EntryAbility extends UIAbility {
     });
   }
 
-  onWindowStageDestroy() {
-    // Main window is destroyed, release UI related resources
-    Logger.debug(EntryAbility.TAG, 'onWindowStageDestroy');
-  }
-
   onForeground() {
     // Ability has brought to foreground
     globalThis.isForeground = true;
     globalThis.taskListChange = false;
-    Logger.debug(EntryAbility.TAG, 'onForeground');
   }
 
   onBackground() {
     // Ability has back to background
     FormUtils.backgroundUpdateCard(globalThis.taskListChange);
-    Logger.debug(EntryAbility.TAG, 'onBackground');
   }
 
   onNewWant(want, launchParam) {
     // Ability has new want
-    Logger.debug(EntryAbility.TAG, `onNewWant ${JSON.stringify(want)}`);
     globalThis.abilityWant = want;
     globalThis.launchParam = launchParam;
   }

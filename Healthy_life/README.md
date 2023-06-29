@@ -22,7 +22,7 @@
   - 卡片提供方：提供卡片显示内容的应用，控制卡片的显示内容、控件布局以及控件点击事件。
 
 ### 相关权限
-不涉及
+本篇Codelab用到了任务提醒功能，需要在配置文件module.json5里添加后台代理提醒权限：ohos.permission.PUBLISH_AGENT_REMINDER。
 
 ### 使用说明
 
