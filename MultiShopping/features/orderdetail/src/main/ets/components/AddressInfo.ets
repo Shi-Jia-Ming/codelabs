@@ -34,26 +34,30 @@ export struct AddressInfo {
         .height($r('app.float.vp_eighteen'))
         .margin({ right: $r('app.float.vp_twelve') })
       Flex({
-        direction: FlexDirection.Column,
-        justifyContent: FlexAlign.Center
+        justifyContent: FlexAlign.SpaceBetween,
+        alignItems: ItemAlign.Center
       }) {
-        Row() {
-          Text(this.info.name)
-            .fontSize($r('app.float.small_font_size'))
-            .margin({ right: $r('app.float.vp_twelve') })
-            .fontColor(Color.Black)
-          Text(this.info.phone)
-            .fontSize($r('app.float.small_font_size'))
+        Column(){
+          Row() {
+            Text(this.info.name)
+              .fontSize($r('app.float.small_font_size'))
+              .margin({ right: $r('app.float.vp_twelve') })
+              .fontColor(Color.Black)
+            Text(this.info.phone)
+              .fontSize($r('app.float.small_font_size'))
+              .fontColor($r("app.color.sixty_alpha_black"))
+          }
+          .margin({ bottom: $r('app.float.vp_eight') })
+          Text(`${this.info.province}${this.info.city}${this.info.region} ${this.info.detailAddress}`)
+            .fontSize($r('app.float.smaller_font_size'))
             .fontColor($r("app.color.sixty_alpha_black"))
         }
-        .margin({ bottom: $r('app.float.vp_eight') })
-        Text(`${this.info.province}${this.info.city}${this.info.region} ${this.info.detailAddress}`)
-          .fontSize($r('app.float.smaller_font_size'))
-          .fontColor($r("app.color.sixty_alpha_black"))
+        .alignItems(HorizontalAlign.Start)
+
+        Image($r('app.media.ic_point'))
+          .height($r('app.float.vp_twelve'))
+          .width($r('app.float.vp_six'))
       }
-      Image($r('app.media.ic_point'))
-        .height($r('app.float.vp_twelve'))
-        .width($r('app.float.vp_six'))
     }
     .width(StyleConstants.FULL_WIDTH)
     .backgroundColor(Color.White)
