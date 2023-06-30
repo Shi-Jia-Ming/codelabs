@@ -18,8 +18,7 @@ import Logger from '../../utils/Logger';
 
 class TableHelper {
   createTableSql(tableName: string, columns: Array<ColumnInfo>): string {
-    Logger.info(`TableHelper createTableSql : ${JSON.stringify(columns)}`);
-    let sql = `create table if not exists ${tableName}(`
+    let sql = `create table if not exists ${tableName}(`;
     for (let column of columns) {
       sql = sql.concat(`${column.name} ${column.type}`);
       sql = sql.concat(`${column.length && column.length > 0 ? `(${column.length})` : ''}`);
@@ -29,7 +28,6 @@ class TableHelper {
       sql = sql.concat(', ');
     }
     sql = `${sql.substring(0, sql.length - 2)})`;
-    Logger.info(`TableHelper createTableSql : ` + sql);
     return sql;
   }
 

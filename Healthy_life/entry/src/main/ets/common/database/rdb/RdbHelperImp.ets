@@ -33,7 +33,6 @@ export class RdbHelperImp implements RdbHelper {
   }
 
   getRdb(context: Context): Promise<RdbHelper> {
-    Logger.info(`initRdb  getRdb success`);
     this.storeConfig = {
       name: this.mDatabaseName, securityLevel: dataRdb.SecurityLevel.S1
     };
