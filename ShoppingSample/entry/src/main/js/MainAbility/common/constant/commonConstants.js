@@ -691,6 +691,6 @@ export default class CommonConstants {
   /**
    * Recipient's mobile number.
    */
-  static USER_TEL = '18512345678';
+  static USER_TEL = '185****5678';
 
 }

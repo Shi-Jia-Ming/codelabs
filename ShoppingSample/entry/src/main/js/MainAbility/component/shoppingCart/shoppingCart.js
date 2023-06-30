@@ -29,7 +29,7 @@ export default {
   checkboxOnChange() {
     this.isAllSelect = !this.isAllSelect;
     this.shoppingListData.filter((item) => {
-      return item.isSelect = this.isAllSelect;
+      item.isSelect = this.isAllSelect;
     });
   },
 
@@ -47,10 +47,10 @@ export default {
       }
     })
     // Check whether all products in the shopping cart are selected.
-    var selectAll = this.shoppingListData.every(item => item.isSelect === true);
+    let selectAll = this.shoppingListData.every(item => item.isSelect === true);
     if (selectAll === true) {
       this.isAllSelect = true;
-    } else{
+    } else {
       this.isAllSelect = false;
     }
   },
@@ -61,7 +61,9 @@ export default {
    * @param value Current product quantity.
    */
   subtractNum(value) {
-    this.shoppingListData[value].num > 0 ? this.shoppingListData[value].num-- : false;
+    if (this.shoppingListData[value].num > 0) {
+      this.shoppingListData[value].num--;
+    }
   },
 
   /**

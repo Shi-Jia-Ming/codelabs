@@ -47,7 +47,9 @@ export default {
     this.$element(CommonConstants.PANEL_ID).close();
   },
   subtractNum() {
-    this.productInfo.num > 0 ? this.productInfo.num-- : false;
+    if (this.productInfo.num > 0) {
+      this.productInfo.num--;
+    }
   },
   addNum() {
     this.productInfo.num++;
