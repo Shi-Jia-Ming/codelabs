@@ -26,13 +26,10 @@ export default class MainViewModel {
   private static instant;
   private reminderService: ReminderService;
   private alarms: Array<AlarmItem>;
-  private drawInterval: any = CommonConstants.DEFAULT_NUMBER_NEGATIVE;
-  private showClock: boolean = true;
 
   private constructor() {
     this.alarms = new Array();
     this.reminderService = new ReminderService();
-    this.reminderService.openNotificationPermission();
   }
 
   /**
