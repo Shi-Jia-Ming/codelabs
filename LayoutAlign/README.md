@@ -1,4 +1,4 @@
-# ArkUI 常用布局容器对齐方式（ArkTS）
+# ArkUI常用布局容器对齐方式（ArkTS）
 
 ### 简介
 
