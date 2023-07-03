@@ -22,16 +22,6 @@ import ReminderItem from '../common/bean/ReminderItemBean';
  * Base on ohos reminder agent service
  */
 export default class ReminderService {
-  /**
-   * open notification permission
-   */
-  public openNotificationPermission() {
-    notification.requestEnableNotification().then(() => {
-      console.info('Enable notification success');
-    }).catch((err) => {
-      console.error('Enable notification failed because ' + JSON.stringify(err));
-    });
-  }
 
   /**
    * Adding and modifying alarm reminders
@@ -39,7 +29,7 @@ export default class ReminderService {
    * @param alarmItem ReminderItem
    * @param callback callback
    */
-  public addReminder(alarmItem: ReminderItem, callback?) {
+  public addReminder(alarmItem: ReminderItem, callback?: (reminderId: number) => void) {
     let reminder = this.initReminder(alarmItem);
     reminderAgent.publishReminder(reminder, (err, reminderId) => {
       if (callback != null) {
@@ -57,7 +47,7 @@ export default class ReminderService {
     reminderAgent.cancelReminder(reminderId);
   }
 
-  private initReminder(item: ReminderItem): reminderAgent.ReminderRequestAlarm{
+  private initReminder(item: ReminderItem): reminderAgent.ReminderRequestAlarm {
     return {
       reminderType: item.remindType,
       hour: item.hour,

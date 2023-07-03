@@ -55,7 +55,7 @@
   - [购物应用（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ShoppingSample)
 - 公共事件与通知
   - [系统公共事件（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SystemCommonEvent)
-  - [下载通知（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/DownloadNotification)
+  - [进度条通知（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/DownloadNotification)
   - [闹钟（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AlarmClock)
 - 窗口管理
   - [窗口管理（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WindowManager)

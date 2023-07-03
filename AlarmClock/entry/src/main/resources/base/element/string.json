@@ -55,10 +55,6 @@
     {
       "name": "delete",
       "value": "删除"
-    },
-    {
-      "name": "main_page_title_font_family",
-      "value": "HarmonyHeiTi-Bold"
     }
   ]
 }
