@@ -1,7 +1,7 @@
-# 下载通知（ArkTS）
+# 进度条通知（ArkTS）
 
 ## 简介
-基于HarmonyOS通知能力，实现下载通知的案例。
+基于HarmonyOS通知能力，实现进度条通知的案例。
 
 ![](screenshots/device/notifition.gif)
 
