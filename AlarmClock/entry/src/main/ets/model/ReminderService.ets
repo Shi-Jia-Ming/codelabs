@@ -39,7 +39,7 @@ export default class ReminderService {
    * @param alarmItem ReminderItem
    * @param callback callback
    */
-  public addReminder(alarmItem: ReminderItem, callback?) {
+  public addReminder(alarmItem: ReminderItem, callback?: (reminderId: number) => void) {
     let reminder = this.initReminder(alarmItem);
     reminderAgent.publishReminder(reminder, (err, reminderId) => {
       if (callback != null) {
@@ -57,7 +57,7 @@ export default class ReminderService {
     reminderAgent.cancelReminder(reminderId);
   }
 
-  private initReminder(item: ReminderItem): reminderAgent.ReminderRequestAlarm{
+  private initReminder(item: ReminderItem): reminderAgent.ReminderRequestAlarm {
     return {
       reminderType: item.remindType,
       hour: item.hour,
