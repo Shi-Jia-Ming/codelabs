@@ -22,16 +22,6 @@ import ReminderItem from '../common/bean/ReminderItemBean';
  * Base on ohos reminder agent service
  */
 export default class ReminderService {
-  /**
-   * open notification permission
-   */
-  public openNotificationPermission() {
-    notification.requestEnableNotification().then(() => {
-      console.info('Enable notification success');
-    }).catch((err) => {
-      console.error('Enable notification failed because ' + JSON.stringify(err));
-    });
-  }
 
   /**
    * Adding and modifying alarm reminders
