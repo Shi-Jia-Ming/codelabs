@@ -19,106 +19,103 @@ import { CommonConstants } from '../constants/CommonConst';
 import Logger from './Logger';
 
 class CommonEventUtil {
-  subscribe(commonEventItem: CommonEventBean, callback: Function): void {
+  subscribe(item: CommonEventBean, callback: Function): void {
     let toastMsg: Resource;
-    let commonEvent = commonEventItem;
+    let theItem = item;
     // The information of subscribe.
     const subscribeInfo = {
-      events: [commonEventItem.subEvents]
+      events: [item.subEvents]
     };
 
     // Create subscriber.
     CommonEventManager.createSubscriber(subscribeInfo, (err, subscriber) => {
-      commonEvent.changeState = false;
       if (err) {
         toastMsg = $r('app.string.subscribe_fail');
         Logger.error(`[CommonEvent]CreateSubscriberCallBack err= ${JSON.stringify(err)}`);
-        callback(commonEvent, toastMsg);
-        return;
-      }
-      commonEvent.subscriber = subscriber;
-      // The callback of subscribing common events.
-      if (commonEvent.subscriber === null) {
-        toastMsg = $r('app.string.need_subscriber');
-        callback(commonEvent, toastMsg);
-        return;
+        callback(toastMsg, theItem);
+      } else {
+        Logger.info(`[CommonEvent]CreateSubscriber: ${JSON.stringify(subscriber)}`);
+        theItem.subscriber = subscriber;
       }
 
-      CommonEventManager.subscribe(commonEvent.subscriber, (err, data) => {
-        if (err) {
-          toastMsg = $r('app.string.subscribe_fail');
-          Logger.error(`[CommonEvent]SubscribeCallBack err= ${JSON.stringify(err)}`);
-          callback(commonEvent, toastMsg);
-          return;
-        }
-        if (data.event === CommonConstants.SUB_EVENTS.BATTERY_CHANGED) {
-          switch (data?.parameters[CommonConstants.EXTRA_CHARGE_STATE]) {
-            case CommonConstants.BATTERY_CHARGE_STATE[0]:
-              commonEvent.state = $r('app.string.battery_not_charged');
-              break;
-            case CommonConstants.BATTERY_CHARGE_STATE[1]:
-              commonEvent.state = $r('app.string.battery_charging');
-              break;
-            case CommonConstants.BATTERY_CHARGE_STATE[2]:
-              commonEvent.state = $r('app.string.battery_stop');
-              break;
-            case CommonConstants.BATTERY_CHARGE_STATE[3]:
-              commonEvent.state = $r('app.string.battery_fully_charged');
-              break;
-            default:
-              break;
+      // The callback of subscribing common events.
+      if (theItem.subscriber !== null) {
+        CommonEventManager.subscribe(theItem.subscriber, (err, data) => {
+          if (err) {
+            toastMsg = $r('app.string.subscribe_fail');
+            Logger.error(`[CommonEvent]SubscribeCallBack err= ${JSON.stringify(err)}`);
+            callback(toastMsg, theItem);
+          } else {
+            let stateChanged: boolean = false;
+            Logger.info(`[CommonEvent]SubscribeCallBack data= ${JSON.stringify(data)}`);
+            if (data.event === CommonConstants.SUB_EVENTS.BATTERY_CHANGED) {
+              switch (data?.parameters[CommonConstants.EXTRA_CHARGE_STATE]) {
+                case CommonConstants.BATTERY_CHARGE_STATE[0]:
+                  theItem.state = $r('app.string.battery_not_charged');
+                  break;
+                case CommonConstants.BATTERY_CHARGE_STATE[1]:
+                  theItem.state = $r('app.string.battery_charging');
+                  break;
+                case CommonConstants.BATTERY_CHARGE_STATE[2]:
+                  theItem.state = $r('app.string.battery_stop');
+                  break;
+                case CommonConstants.BATTERY_CHARGE_STATE[3]:
+                  theItem.state = $r('app.string.battery_fully_charged');
+                  break;
+              }
+              stateChanged = true;
+            }
+            if (data.event === CommonConstants.SUB_EVENTS.CONN_STATE) {
+              switch (data?.data) {
+                case CommonConstants.WIFI_STATE[0]:
+                  theItem.state = $r('app.string.wifi_state_connecting');
+                  break;
+                case CommonConstants.WIFI_STATE[1]:
+                  theItem.state = $r('app.string.wifi_state_disconnected');
+                  break;
+                case CommonConstants.WIFI_STATE[2]:
+                  theItem.state = $r('app.string.wifi_state_disconnecting');
+                  break;
+                case CommonConstants.WIFI_STATE[3]:
+                  theItem.state = $r('app.string.state_unknown');
+                  break;
+                case CommonConstants.WIFI_STATE[4]:
+                  theItem.state = $r('app.string.wifi_state_connected');
+                  break;
+              }
+              stateChanged = true;
+            }
+            callback(toastMsg, theItem, stateChanged);
           }
-        }
-        if (data.event === CommonConstants.SUB_EVENTS.CONN_STATE) {
-          switch (data?.data) {
-            case CommonConstants.WIFI_STATE[0]:
-              commonEvent.state = $r('app.string.wifi_state_connecting');
-              break;
-            case CommonConstants.WIFI_STATE[1]:
-              commonEvent.state = $r('app.string.wifi_state_disconnected');
-              break;
-            case CommonConstants.WIFI_STATE[2]:
-              commonEvent.state = $r('app.string.wifi_state_disconnecting');
-              break;
-            case CommonConstants.WIFI_STATE[3]:
-              commonEvent.state = $r('app.string.state_unknown');
-              break;
-            case CommonConstants.WIFI_STATE[4]:
-              commonEvent.state = $r('app.string.wifi_state_connected');
-              break;
-            default:
-              break;
-          }
-        }
-        commonEvent.changeState = true;
-        // Modifying the state of a common event
-        callback(commonEvent);
-      })
-      toastMsg = $r('app.string.subscribe_success');
-      commonEvent.buttonTitle = $r('app.string.btn_title_unsubscribe');
-      commonEvent.isSubscribe = true;
-      // Modify the subscription status and pop-up window content.
-      callback(commonEvent, toastMsg);
+        })
+        toastMsg = $r('app.string.subscribe_success');
+        theItem.buttonTitle = $r('app.string.btn_title_unsubscribe');
+        theItem.isSubscribe = true;
+      } else {
+        toastMsg = $r('app.string.need_subscriber');
+      }
+      callback(toastMsg, theItem);
     })
   }
 
-  unsubscribe(commonEventItem: CommonEventBean, callback: Function): void {
+  unsubscribe(item: CommonEventBean, callback: Function): void {
     let toastMsg: Resource;
-    let commonEvent = commonEventItem;
+    let theItem = item;
     // Unsubscribe common events.
-    CommonEventManager.unsubscribe(commonEventItem.subscriber, (err) => {
+    CommonEventManager.unsubscribe(item.subscriber, (err) => {
       if (err) {
         toastMsg = $r('app.string.unsubscribe_fail');
         Logger.error(`[CommonEvent]UnsubscribeCallBack err= ${JSON.stringify(err)}`);
-        callback(commonEvent, toastMsg);
-        return;
+        callback(toastMsg, theItem);
+      } else {
+        Logger.info(`[CommonEvent]Unsubscribe success`);
+        theItem.buttonTitle = $r('app.string.btn_title_subscribe');
+        theItem.isSubscribe = false;
+        theItem.subscriber = null;
+        theItem.state = $r('app.string.event_init_state');
+        toastMsg = $r('app.string.unsubscribe_success');
       }
-      commonEvent.buttonTitle = $r('app.string.btn_title_subscribe');
-      commonEvent.isSubscribe = false;
-      commonEvent.subscriber = null;
-      commonEvent.state = $r('app.string.event_init_state');
-      toastMsg = $r('app.string.unsubscribe_success');
-      callback(commonEvent, toastMsg);
+      callback(toastMsg, theItem);
     });
   }
 }
