@@ -33,6 +33,11 @@ export class CommonEventBean {
   state: Resource;
 
   /**
+   * The change state of common event state.
+   */
+  changeState: boolean;
+
+  /**
    * The title of the button.
    */
   buttonTitle: Resource;

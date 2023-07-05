@@ -108,24 +108,25 @@ export default struct CommonEventListComponent {
 
   subscribeEvent(item: CommonEventBean, index: number): void {
     if (item.isSubscribe === false) {
-      CommonEventUtil.subscribe(item, (toast: Resource, theItem: CommonEventBean, stateChanged?: boolean) => {
-        this.toastMsg = toast;
-        this.commonEventData[index] = theItem;
+      CommonEventUtil.subscribe(item, (commonEvent: CommonEventBean, toast?: Resource) => {
+        this.commonEventData[index] = commonEvent;
         this.commonEventData = this.commonEventData.splice(0);
-        if (stateChanged !== true) {
+        if (commonEvent.changeState === false) {
+          this.toastMsg = toast;
           this.showToast(this.toastMsg);
         }
       });
-    } else {
-      if (item.subscriber !== null) {
-        CommonEventUtil.unsubscribe(item, (toast: Resource, theItem: CommonEventBean) => {
-          this.toastMsg = toast;
-          this.commonEventData[index] = theItem;
-          this.commonEventData = this.commonEventData.splice(0);
-          this.showToast(this.toastMsg);
-        });
-      }
+      return;
     }
+    if (item.subscriber !== null) {
+      CommonEventUtil.unsubscribe(item, (commonEvent: CommonEventBean, toast: Resource) => {
+        this.toastMsg = toast;
+        this.commonEventData[index] = commonEvent;
+        this.commonEventData = this.commonEventData.splice(0);
+        this.showToast(this.toastMsg);
+      });
+    }
+
   }
 
   showToast(toast: Resource): void {
