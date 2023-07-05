@@ -143,7 +143,7 @@ export default struct TaskDetail {
             FrequencyItem()
           }
           .listItemStyle()
-          .enabled(this.settingParams?.isOpen)
+          .enabled(this.settingParams?.isOpen && this.settingParams?.isAlarm)
           .onClick(() => {
             this.broadCast.emit(BroadCastType.SHOW_FREQUENCY_DIALOG);
           })
