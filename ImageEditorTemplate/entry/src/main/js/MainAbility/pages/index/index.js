@@ -273,7 +273,7 @@ export default {
   setOpacityValue(event) {
     let slidingOpacityValue = event.value;
     let slidingMode = event.mode;
-    if (slidingMode === CommonConstants.SLIDER_MODE_END || slidingMode === CommonConstants.SLIDER_MODE_CLICK) {
+    if ((slidingMode === CommonConstants.SLIDER_MODE_END) || (slidingMode === CommonConstants.SLIDER_MODE_CLICK)) {
       adjustOpacity(this.imagePixelMapAdjust, slidingOpacityValue).then(pixelMap => {
         this.imagePixelMapAdjust = pixelMap;
         this.drawToCanvas(this.imagePixelMapAdjust, this.drawImageLeft, this.drawImageTop,
@@ -305,7 +305,7 @@ export default {
    * @param workerName File path where the worker thread is located.
    */
   postToWorker(type, value, workerName) {
-    let sliderValue = type === CommonConstants.AdjustId.BRIGHTNESS ? this.brightnessValue : this.saturationValue;
+    let sliderValue = (type === CommonConstants.AdjustId.BRIGHTNESS) ? this.brightnessValue : this.saturationValue;
     this.workerInstance = new worker.ThreadWorker(workerName);
     const bufferArray = new ArrayBuffer(this.imagePixelMapAdjust.getPixelBytesNumber());
     this.imagePixelMapAdjust.readPixelsToBuffer(bufferArray).then(() => {
