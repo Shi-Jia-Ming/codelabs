@@ -32,6 +32,7 @@ const COMMON_EVENT = [
   {
     title: $r('app.string.wifi_event_title'),
     state: $r('app.string.event_init_state'),
+    changeState: false,
     name: $r('app.string.wifi_connection_state'),
     buttonTitle: $r('app.string.btn_title_subscribe'),
     isSubscribe: false,
@@ -43,6 +44,7 @@ const COMMON_EVENT = [
   {
     title: $r('app.string.charge_event_title'),
     state: $r('app.string.event_init_state'),
+    changeState: false,
     name: $r('app.string.battery_charge_state'),
     buttonTitle: $r('app.string.btn_title_subscribe'),
     isSubscribe: false,
