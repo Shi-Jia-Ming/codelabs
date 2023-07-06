@@ -43,12 +43,12 @@ import { taskType } from '../../common/bean/TaskInfo';
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function frequencyStyle(isOpen) {
+@Extend(Text) function frequencyStyle(isOpen, isAlarm) {
   .fontSize(DEFAULT_12)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
   .textAlign(TextAlign.End)
-  .fontColor(isOpen ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
+  .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
 
@@ -152,7 +152,7 @@ export struct FrequencyItem {
       Text($r('app.string.frequency')).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
       Text(this.frequency)
         .targetSetCommon()
-        .frequencyStyle(this.settingParams?.isOpen)
+        .frequencyStyle(this.settingParams?.isOpen, this.settingParams?.isAlarm)
       Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16)
     }
     .width(THOUSANDTH_1000)

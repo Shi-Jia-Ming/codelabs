@@ -38,7 +38,8 @@ export const columnGlobalInfoList: Array<ColumnInfo> = [
   {
     name: 'achievements',
     type: 'text'
-  }];
+  }
+];
 
 export const columnDayInfoList: Array<ColumnInfo> = [
   {
@@ -55,7 +56,8 @@ export const columnDayInfoList: Array<ColumnInfo> = [
     name: 'finTaskNum',
     type: 'integer',
     nullable: true
-  }];
+  }
+];
 
 export const columnTaskInfoInfoList: Array<ColumnInfo> = [
   {
