@@ -52,7 +52,7 @@ const addNews = (req, res) => {
   let nowDate = new Date();
   let month = (nowDate.getMonth() + 1).toString().padStart(2, '0');
   let day = nowDate.getDate().toString().padStart(2, '0');
-  let createDate = nowDate.getFullYear + YEAR + month + MONTH + day + DAY;
+  let createDate = nowDate.getFullYear() + YEAR + month + MONTH + day + DAY;
   var imageFile = new NewsFile(dbFile.maxFileId, news.imagesUrl[0].url, 0, dbFile.maxNewsId);
   var newsData = new NewsData(dbFile.maxNewsId, news.title, news.content, [imageFile], createDate);
   dbFile.newsDataArray.unshift(newsData);
