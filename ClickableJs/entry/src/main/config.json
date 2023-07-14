@@ -27,7 +27,7 @@
           }
         ],
         "orientation": "unspecified",
-        "visible": true,
+        "visible": false,
         "srcPath": "MainAbility",
         "name": ".MainAbility",
         "srcLanguage": "js",

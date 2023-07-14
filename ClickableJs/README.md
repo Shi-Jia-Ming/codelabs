@@ -7,7 +7,7 @@ HarmonyOS提供了常用的图片、图片帧动画播放器组件，开发者�
 ### 相关概念 
 
 -   [image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-components-basic-image-0000001427744884-V3?catalogVersion=V3)：图片组件，用于图片资源的展示。
--   [image-animitor组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-components-basic-image-animator-0000001478181473-V3?catalogVersion=V3)：帧动画播放器，用以播放一组图片，可以设置播放时间、次数等参数。
+-   [image-animator组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-components-basic-image-animator-0000001478181473-V3?catalogVersion=V3)：帧动画播放器，用以播放一组图片，可以设置播放时间、次数等参数。
 -   [通用事件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-components-common-events-0000001478341193-V3?catalogVersion=V3)：事件绑定在组件上，当组件达到事件触发条件时，会执行JS中对应的事件回调函数，实现页面UI视图和页面JS逻辑层的交互。
 
 ### 相关权限
