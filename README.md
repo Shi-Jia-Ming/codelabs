@@ -15,13 +15,13 @@
 - 优秀案例
   - [一次开发，多端部署-购物应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiShopping)
   - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiDeviceMusic)
-  - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
   - [健康生活应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
 - Ability开发
   - [UIAbility和自定义组件生命周期（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/UIAbilityLifeCycle)
   - [UIAbility内页面间的跳转（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/PagesRouter)
   - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StageAbilityDemo)
 - UI(ArkTS)
+  - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
   - [电子相册（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ElectronicAlbum)
   - [构建多种样式弹窗（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultipleDialog)
   - [简易计算器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleCalculator)

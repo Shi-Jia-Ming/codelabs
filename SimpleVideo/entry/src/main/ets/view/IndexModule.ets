@@ -57,7 +57,6 @@ export struct VideoModule {
       left: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN,
       right: STRING_PERCENT.INDEX_SWIPER_LEFT_RIGHT_MARGIN
     })
-    .height(STRING_PERCENT.INDEX_MODULE_HEIGHT_PERCENT)
     .width(STRING_PERCENT.INDEX_COMPONENT_WITH_PERCENT)
     .justifyContent(FlexAlign.Center)
     .borderRadius(MARGIN_FONT_SIZE.FOURTH_MARGIN)
@@ -85,7 +84,10 @@ struct HorizontalItem {
           });
         })
       Text(this.videoName)
-        .margin({ top: MARGIN_FONT_SIZE.FIRST_MARGIN })
+        .margin({
+		  top: MARGIN_FONT_SIZE.FIRST_MARGIN,
+		  bottom: MARGIN_FONT_SIZE.FIRST_MARGIN
+		})
         .textAlign(TextAlign.Center)
         .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
     }
