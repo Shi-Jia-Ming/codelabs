@@ -11,6 +11,10 @@
     {
       "name": "MainAbility_label",
       "value": "图片编辑"
+    },
+    {
+      "name": "reason",
+      "value": "保存图片"
     }
   ]
 }

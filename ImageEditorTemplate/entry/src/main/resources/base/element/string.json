@@ -11,6 +11,10 @@
     {
       "name": "MainAbility_label",
       "value": "ImageEditor"
+    },
+    {
+      "name": "reason",
+      "value": "save image"
     }
   ]
 }

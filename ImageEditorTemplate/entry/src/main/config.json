@@ -48,13 +48,34 @@
     ],
     "reqPermissions": [
       {
-        "name": "ohos.permission.MEDIA_LOCATION"
+        "name": "ohos.permission.MEDIA_LOCATION",
+        "reason": "$string:reason",
+        "usedScene": {
+          "ability": [
+            "MainAbility"    
+          ],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.READ_MEDIA"
+        "name": "ohos.permission.READ_MEDIA",
+        "reason": "$string:reason",
+        "usedScene": {
+          "ability": [
+            "MainAbility"    
+          ],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.WRITE_MEDIA"
+        "name": "ohos.permission.WRITE_MEDIA",
+        "reason": "$string:reason",
+        "usedScene": {
+          "ability": [
+            "MainAbility"    
+          ],
+          "when": "inuse"
+        }
       }
     ],
     "js": [
