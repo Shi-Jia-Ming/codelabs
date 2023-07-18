@@ -35,7 +35,7 @@
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:white",
-        "exported": true,
+        "exported": false,
         "skills": [
           {
             "entities": [
@@ -65,7 +65,14 @@
     ],
     "requestPermissions": [
       {
-        "name": "ohos.permission.PUBLISH_AGENT_REMINDER"
+        "name": "ohos.permission.PUBLISH_AGENT_REMINDER",
+        "reason": '$string:task_reason',
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
       }
     ]
   }
