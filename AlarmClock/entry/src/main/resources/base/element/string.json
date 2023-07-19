@@ -55,6 +55,10 @@
     {
       "name": "delete",
       "value": "删除"
+    },
+    {
+      "name": "reason",
+      "value": "通知"
     }
   ]
 }
