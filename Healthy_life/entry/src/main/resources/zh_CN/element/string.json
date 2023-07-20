@@ -23,6 +23,10 @@
     {
       "name": "agencyNoTask",
       "value": "请前往健康生活添加任务"
+    },
+    {
+      "name": "task_reason",
+      "value": "用于发布/取消任务提醒"
     }
   ]
 }
