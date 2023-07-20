@@ -19,7 +19,7 @@
         "label": "$string:MainAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:white",
-        "exported": true,
+        "exported": false,
         "orientation": "portrait",
         "skills": [
           {
@@ -35,7 +35,14 @@
     ],
     "requestPermissions": [
       {
-        "name": "ohos.permission.PUBLISH_AGENT_REMINDER"
+        "name": "ohos.permission.PUBLISH_AGENT_REMINDER",
+        "reason": "$string:reason",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"    
+          ],
+          "when": "inuse"
+        }
       }
     ]
   }
