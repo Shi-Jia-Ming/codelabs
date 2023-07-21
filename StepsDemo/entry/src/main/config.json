@@ -60,22 +60,52 @@
     ],
     "reqPermissions": [
       {
-        "name": "ohos.permission.ACTIVITY_MOTION"
+        "name": "ohos.permission.ACTIVITY_MOTION",
+        "reason":"$string:reason_motion",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.INTERNET"
+        "name": "ohos.permission.INTERNET",
+        "reason":"$string:reason_internet",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.LOCATION"
+        "name": "ohos.permission.LOCATION",
+        "reason":"$string:reason_location",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.LOCATION_IN_BACKGROUND"
+        "name": "ohos.permission.LOCATION_IN_BACKGROUND",
+        "reason":"$string:reason_location",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.APPROXIMATELY_LOCATION"
+        "name": "ohos.permission.APPROXIMATELY_LOCATION",
+        "reason":"$string:reason_location",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       },
       {
-        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"
+        "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
+        "reason":"$string:reason_background",
+        "usedScene":{
+          "ability": ["MainAbility"],
+          "when": "inuse"
+        }
       }
     ],
     "js": [
