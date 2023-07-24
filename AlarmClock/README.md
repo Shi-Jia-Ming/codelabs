@@ -10,11 +10,11 @@
 
 ## 相关概念
 
-- [Canvas](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-components-canvas-canvas-0000001333641081): 提供画布组件，用于自定义绘制图形。
+- [Canvas](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-drawing-customization-on-canvas-0000001453684976-V3?catalogVersion=V3): 提供画布组件，用于自定义绘制图形。
 
-- [CanvasRenderingContext2D](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-canvasrenderingcontext2d-0000001333720961): 使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
+- [CanvasRenderingContext2D](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-canvasrenderingcontext2d-0000001478181441-V3?catalogVersion=V3): 使用RenderingContext在Canvas组件上进行绘制，绘制对象可以是矩形、文本、图片等。
 
-- [后台代理提醒](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-reminderagent-0000001333720857): 开发应用时，开发者可以调用后台提醒发布的接口创建定时提醒，包括倒计时、日历、闹钟三种提醒类型。使用后台代理提醒能力后，应用可以被冻结或退出，计时和弹出提醒的功能将被后台系统服务代理。本应用中主要使用到后台代理提醒的两个接口：
+- [后台代理提醒](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/reminder-agent-development-0000001493903928-V3?catalogVersion=V3): 开发应用时，开发者可以调用后台提醒发布的接口创建定时提醒，包括倒计时、日历、闹钟三种提醒类型。使用后台代理提醒能力后，应用可以被冻结或退出，计时和弹出提醒的功能将被后台系统服务代理。本应用中主要使用到后台代理提醒的两个接口：
 
     -   **publishReminder**
 
@@ -31,7 +31,14 @@
 ```
 "requestPermissions": [
   {
-    "name": "ohos.permission.PUBLISH_AGENT_REMINDER"
+    "name": "ohos.permission.PUBLISH_AGENT_REMINDER",
+    "reason": "$string:reason",
+    "usedScene": {
+      "abilities": [
+        "EntryAbility"    
+      ],
+      "when": "inuse"
+    }
   }
 ]
 ```
@@ -46,5 +53,5 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
 
