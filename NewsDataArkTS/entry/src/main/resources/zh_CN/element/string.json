@@ -47,6 +47,10 @@
     {
       "name": "prompt_message",
       "value": "没有更多数据了"
+    },
+    {
+      "name": "reason",
+      "value": "网络"
     }
   ]
 }
