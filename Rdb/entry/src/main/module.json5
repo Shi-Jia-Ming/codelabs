@@ -20,7 +20,7 @@
         "label": "$string:MainAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:white",
-        "visible": true,
+        "visible": false,
         "skills": [
           {
             "entities": [
