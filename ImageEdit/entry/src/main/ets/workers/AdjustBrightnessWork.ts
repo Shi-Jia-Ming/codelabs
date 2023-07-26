@@ -31,6 +31,7 @@ workerPort.onmessage = function(event : MessageEvents) {
     let cur = event.data.cur;
     let buffer = adjustImageValue(bufferArray, last, cur)
     workerPort.postMessage(buffer);
+    workerPort.close();
 }
 
 /**
