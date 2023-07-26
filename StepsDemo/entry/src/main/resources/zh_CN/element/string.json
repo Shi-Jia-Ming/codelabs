@@ -63,6 +63,22 @@
     {
       "name": "confirm",
       "value": "确定"
+    },
+    {
+      "name": "reason_motion",
+      "value": "获取计步器数据"
+    },
+    {
+      "name": "reason_internet",
+      "value": "链接网络"
+    },
+    {
+      "name": "reason_location",
+      "value": "获取位置信息"
+    },
+    {
+      "name": "reason_background",
+      "value": "保持后台运行"
     }
   ]
 }
