@@ -47,6 +47,10 @@
     {
       "name": "prompt_message",
       "value": "No more data"
+    },
+    {
+      "name": "reason",
+      "value": "internet"
     }
   ]
 }
