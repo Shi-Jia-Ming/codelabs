@@ -13,84 +13,87 @@
  * limitations under the License.
  */
 
-// 奖品名数组
+// Award name array
 let prizesArr = ["啤酒", "奶茶", "汉堡", "咖啡", "西瓜", "鸡腿", "柠檬", "蛋糕"];
-// 图片数组
+// Image array
 let arrBigImg = ["./img/1-beer.png", "./img/2-milk.png", "./img/3-hamburg.png",
-"./img/4-coffee.png", "./img/5-watermelon.png", "./img/6-drumstick.png",
-"./img/7-lemon.png", "./img/8-cake.png", "./img/9-prizes.png"];
+  "./img/4-coffee.png", "./img/5-watermelon.png", "./img/6-drumstick.png",
+  "./img/7-lemon.png", "./img/8-cake.png", "./img/9-prizes.png"];
 
-// 获取全部奖品单元格
+// Get All Award Cells
 let allPrizesLi = document.querySelectorAll('.prizes-li');
-// 获取图片
+// Get Pictures
 let prizesImg = document.querySelectorAll('.pic');
 
-let count = 0; // 转圈初始值
+// Initial value of rotation
+let count = 0;
 let isClick = true;
 let index = 3;
-let prizesPosition = 0; // 转到哪个位置
+// Turn to which position
+let prizesPosition = 0;
 
-// 绑定img
+// Bind an IMG
 for (let j = 0;j < prizesImg.length; j++) {
-    prizesImg[j].src = arrBigImg[j];
+  prizesImg[j].src = arrBigImg[j];
 }
-let speed = 500; //转圈速度，值越大越慢
+// Rotation speed. The larger the value, the slower the speed
+let speed = 500;
 
-// 旋转函数
+// rotation function
 function roll() {
+  // velocity decay
+  speed -= 50;
+  if (speed <= 10) {
+    speed = 10;
+  }
 
-    // 速度衰减
-    speed -= 50;
-    if (speed <= 10) {
-        speed = 10;
+  // Remove all active class names for each call
+  for (let j = 0; j < allPrizesLi.length; j++) {
+    allPrizesLi[j].classList.remove('active');
+  }
+  prizesPosition++;
+
+  // Calculate the number of turns
+  if (prizesPosition >= allPrizesLi.length - 1) {
+    prizesPosition = 0;
+    count++;
+  }
+
+  allPrizesLi[prizesPosition].classList.add('active');
+  let initSpeed = 500;
+  let timer;
+  // Total number of revolutions at least
+  let totalCount = 5;
+
+  // Stop when the number of turns and the specified position are met
+  if (count >= totalCount && (prizesPosition + 1) === index) {
+    clearTimeout(timer);
+    isClick = true;
+    speed = initSpeed;
+    // Wait for 1s to open the pop-up window
+    timer = setTimeout(openDialog, 1000);
+  } else {
+    // Wait for 1s to open the pop-up window
+    timer = setTimeout(roll, speed);
+    // Last lap deceleration
+    if (count >= totalCount - 1 || speed <= 50) {
+      speed += 100;
     }
-
-    // 每次调用都去掉全部active类名
-    for (let j = 0; j < allPrizesLi.length; j++) {
-        allPrizesLi[j].classList.remove('active');
-    }
-    prizesPosition++;
-
-    // 计算转圈次数
-    if (prizesPosition >= allPrizesLi.length - 1) {
-        prizesPosition = 0;
-        count++;
-    }
-
-    allPrizesLi[prizesPosition].classList.add('active');
-    let initSpeed = 500;
-    let timer;
-    let totalCount = 5; // 至少转动的总圈数
-
-    // 满足转圈数和指定位置就停止
-    if (count >= totalCount && (prizesPosition + 1) == index) {
-        clearTimeout(timer);
-        isClick = true;
-        speed = initSpeed;
-        timer = setTimeout(openDialog, 1000); // 等待1s打开弹窗
-    } else {
-        timer = setTimeout(roll, speed); // 不满足条件时调用定时器
-        // 最后一圈减速
-        if (count >= totalCount - 1 || speed <= 50) {
-            speed += 100;
-        }
-    }
+  }
 }
 
-// 抽奖开始函数
+// Draw Start Function
 function startDraw() {
-
-    // 防止抽奖多次触发
-    if (isClick) {
-        count = 0;
-
-        // 随机产生中奖位置
-        index = Math.floor(Math.random() * prizesArr.length + 1);
-        roll();
-        isClick = false;
-    }
+  // Prevent multiple triggering of the lottery
+  if (isClick) {
+    count = 0;
+    // Randomly generate the winning position
+    index = Math.floor(Math.random() * prizesArr.length + 1);
+    roll();
+    isClick = false;
+  }
 }
 
 function openDialog() {
-    confirm(prizesArr[prizesPosition]);
+  confirm(prizesArr[prizesPosition]);
 }

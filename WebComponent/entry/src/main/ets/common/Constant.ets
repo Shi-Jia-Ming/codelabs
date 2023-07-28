@@ -17,8 +17,10 @@ export const WEB_PAGE_URI: string = 'pages/WebPage';
 
 export const LOCAL_PATH: Resource = $rawfile('index.html');
 
-// 运行时需要修改为自己服务器的地址
-export const CLOUD_PATH: string = 'http://***/index.html';
+/**
+ * The host address of the server.
+ */
+export const CLOUD_PATH: string = 'http://xxx.xxx.xxx.xxx:9588/index.html';
 
 export const WEB_ALERT_DIALOG_TEXT_VALUE: string = '恭喜您抽中:';
 
@@ -53,6 +55,17 @@ export const WebConstant = {
   BUTTON_MARGIN_TOP: '10%',
   BUTTON_BORDER_RADIUS: '20',
   BUTTON_FONT_SIZE: 16,
+  DURATION: 3000,
+  PROGRESS_MIN: 0,
+  PROGRESS_MAX: 100,
+  PROGRESS_STEP: 10,
+  MILLI_SECONDS: 100,
+  PROGRESS_STROKE_WIDTH: 15,
+  PROGRESS_SCALE_COUNT: 15,
+  PROGRESS_SCALE_WIDTH: 5,
+  PROGRESS_WIDTH: 80,
+  PROGRESS_POSITION_X: '40%',
+  PROGRESS_POSITION_Y: '30%'
 }
 
 export const MainConstant = {

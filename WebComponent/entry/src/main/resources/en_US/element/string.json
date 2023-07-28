@@ -14,47 +14,51 @@
     },
     {
       "name": "promptsLocal",
-      "value": "本地H5小程序"
+      "value": "Local H5 applet"
     },
     {
       "name": "promptsCloud",
-      "value": "云端H5小程序"
+      "value": "Cloud H5 applet"
     },
     {
       "name": "loadLocalH5",
-      "value": "加载本地H5"
+      "value": "Load the local H5"
     },
     {
       "name": "loadCloudH5",
-      "value": "加载云端H5"
+      "value": "Load cloud H5"
     },
     {
       "name": "textValue",
-      "value": "以上为Web组件"
+      "value": "These are web components"
     },
     {
       "name": "local",
-      "value": "(本地)"
+      "value": "(Local)"
     },
     {
       "name": "online",
-      "value": "(在线)"
+      "value": "(online)"
     },
     {
       "name": "btnValue",
-      "value": "点击抽奖"
+      "value": "Click on the raffle"
     },
     {
       "name": "prompts",
-      "value": "抽奖应用"
+      "value": "Sweepstakes App"
     },
     {
       "name": "web_alert_dialog_button_value",
-      "value": "确定"
+      "value": "Confirm"
     },
     {
       "name": "web_width",
       "value": "93.3%"
+    },
+    {
+      "name": "internet_err",
+      "value": "Failed to load the network."
     }
   ]
 }

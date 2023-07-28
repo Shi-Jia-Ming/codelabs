@@ -13,15 +13,15 @@
  * limitations under the License.
  */
 
-/* 重置样式 */
+/* Reset Style */
 * {
     margin: 0;
-    padding: 0; /* 去除无序列表的样式 */
-    list-style: none; /* 去除文本的样式 */
+    padding: 0;
+    list-style: none;
     text-decoration: none;
 }
 
-/* 图片样式 */
+/* Picture Style */
 img {
     width: 100%;
     height: 100%;
@@ -29,21 +29,21 @@ img {
     display: block;
 }
 
-/* 抽奖列表 */
+/* Sweepstakes List */
 .prizes {
     width: 96.5%;
     height: 96.7%;
     position: absolute;
 }
 
-/* 开始抽奖文本 */
+/* Start Sweepstakes Text */
 .trigger {
     font-size: 22px;
     text-align: center;
     display:block;
 }
 
-/* 奖品格子 */
+/* Prize Plaid */
 .prizes li {
     width: 30.6%;
     height: 30.6%;
@@ -52,7 +52,7 @@ img {
 }
 
 
-/* 奖品格子位置 */
+/* Prize Grid Position */
 .prizes li:nth-of-type(1) {
     left: 3.0%;
     top: 2.7%;
@@ -98,7 +98,7 @@ img {
     top: 34.6%;
 }
 
-/* 抽奖效果 */
+/* Draw effect */
 .active:after {
     top: 0;
     left: 0;
@@ -110,13 +110,3 @@ img {
     background-size: contain;
     background-image:url('../img/background.svg');
 }
-
-
-
-
-
-
-
-
-
-

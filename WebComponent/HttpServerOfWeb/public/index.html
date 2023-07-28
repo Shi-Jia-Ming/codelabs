@@ -1,0 +1,48 @@
+<!--
+Copyright (c) 2022 Huawei Device Co., Ltd.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
+    <meta charset="UTF-8">
+    <title>抽奖页面</title>
+    <style>
+        #prize {
+            border-radius: 16px 16px 16px 16px;
+            background-image: linear-gradient(180deg, #A2DAFF 0%, #EAF5FF 100%);
+            margin-left: 1.82%;
+            margin-top: 1.43%;
+            width: 96.5%;
+            height: 96.7%;
+        }
+    </style>
+</head>
+<body>
+    <div class="luckyDraw">
+        <!-- Use an unordered list to implement a lottery tray -->
+        <ul id="prize" class="prizes">
+            <li class="prizes-li active"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" onclick="startDraw()" src="#"></li>
+        </ul>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

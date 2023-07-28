@@ -18,33 +18,31 @@ limitations under the License.
     <meta charset="UTF-8">
     <title>抽奖页面</title>
     <style>
-#prize {
-    border-radius: 16px 16px 16px 16px;
-    background-image: linear-gradient(180deg, #A2DAFF 0%, #EAF5FF 100%);
-    margin-left: 1.82%;
-    margin-top: 1.43%;
-    width: 96.5%;
-    height: 96.7%;
-}
-
+        #prize {
+            border-radius: 16px 16px 16px 16px;
+            background-image: linear-gradient(180deg, #A2DAFF 0%, #EAF5FF 100%);
+            margin-left: 1.82%;
+            margin-top: 1.43%;
+            width: 96.5%;
+            height: 96.7%;
+        }
     </style>
 </head>
 <body>
-<div class="luckyDraw">
-    <!-- 使用无序列表实现抽奖盘 -->
-    <ul id="prize" class="prizes">
-        <li class="prizes-li active"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" src="#"></li>
-        <li class="prizes-li"><img class="pic" onclick="startDraw()" src="#"></li>
-    </ul>
-</div>
-
-<script src="./js/index.js"></script>
+    <div class="luckyDraw">
+        <!-- Use an unordered list to implement a lottery tray -->
+        <ul id="prize" class="prizes">
+            <li class="prizes-li active"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" src="#"></li>
+            <li class="prizes-li"><img class="pic" onclick="startDraw()" src="#"></li>
+        </ul>
+    </div>
+    <script src="./js/index.js"></script>
 </body>
 </html>
