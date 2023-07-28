@@ -14,8 +14,9 @@
  */
 
 import promptAction from '@ohos.promptAction';
-import { getTabData } from '../utils/DataUtils';
-import { DELAY_TIME, ANIMATION_DURATION, Y_OFF_SET_COEFFICIENT } from '../constant/CommonConstant';
+import { DELAY_TIME, ANIMATION_DURATION, Y_OFF_SET_COEFFICIENT, GET_NEWS_LIST } from '../constant/CommonConstant';
+import NewsViewModel from '../../viewmodel/NewsViewModel';
+import Logger from './Logger';
 
 export function touchMoveLoadMore(event: TouchEvent) {
   if (this.endIndex === this.newsData.length - 1 || this.endIndex === this.newsData.length) {
@@ -35,17 +36,21 @@ export function touchUpLoadMore() {
   }, () => {
     self.offsetY = 0;
   })
-  if (self.isCanLoadMore) {
+  if (self.isCanLoadMore && self.hasMore) {
     self.isLoading = true;
     setTimeout(() => {
       closeLoadMore.call(this);
-      getTabData(self.currentPage, self.pageSize, self.currentIndex, {
-        onSuccess: (value) => {
-          self.currentPage = parseInt(value.currentPage.toString());
-          self.newsData = self.newsData.concat(value.newsPageData);
-        },
-        onFail: (msg) => promptAction.showToast({ message: msg })
-      });
+      NewsViewModel.getNewsList(self.currentPage, self.pageSize, GET_NEWS_LIST).then((data) => {
+        if (data.length === self.pageSize) {
+          self.currentPage++;
+          self.hasMore = true;
+        } else {
+          self.hasMore = false;
+        }
+        self.newsData = [...self.newsData, ...data];
+      }).catch((err) => {
+        promptAction.showToast({ message: err });
+      })
     }, DELAY_TIME);
   } else {
     closeLoadMore.call(this);

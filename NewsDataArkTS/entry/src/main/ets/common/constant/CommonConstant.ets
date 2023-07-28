@@ -16,17 +16,17 @@
 /**
  * The host address of the server.
  */
-export const SERVER: string = 'http://**.**.**.**:**';
+export const SERVER: string = 'http://**.**.**.**:9588';
 
 /**
  * Get the news type.
  */
-export const GET_NEWS_TYPE: string = 'getNewsType';
+export const GET_NEWS_TYPE: string = 'news/getNewsType';
 
 /**
  * Get the news list.
  */
-export const GET_NEWS_LIST: string = 'getNewsList';
+export const GET_NEWS_LIST: string = 'news/getNewsList';
 
 /**
  * The request success status code.
@@ -41,17 +41,12 @@ export const Y_OFF_SET_COEFFICIENT: number = 0.1;
 /**
  * The page size.
  */
-export const PAGE_SIZE: number = 10;
+export const PAGE_SIZE: number = 4;
 
 /**
  * The refresh and load height.
  */
 export const CUSTOM_LAYOUT_HEIGHT: number = 70;
-
-/**
- * Gt tab data current page.
- */
-export const GET_TAB_DATA_CURRENT_PAGE: number = 1;
 
 /**
  * Http request success status code.
@@ -155,7 +150,7 @@ export const NewsContent = {
   HEIGHT: '16.8%',
   MARGIN_LEFT: '3.5%',
   MARGIN_TOP: '3.4%',
-  MAX_LINES: 3,
+  MAX_LINES: 2,
   FONT_SIZE: 15,
 }
 
@@ -199,6 +194,14 @@ export const RefreshLayout = {
 }
 
 /**
+ * The NoMoreLayout constants.
+ */
+export const NoMoreLayoutConstant = {
+  NORMAL_PADDING: 8,
+  TITLE_FONT: '16fp'
+}
+
+/**
  * The RefreshConstant constants.
  */
 export const RefreshConstant = {
@@ -228,56 +231,8 @@ export const enum PageState {
 }
 
 /**
- * The host address of the default server.
+ * The request content type enum.
  */
-export const DEFAULT_SERVER: string = 'http://**.**.**.**:**';
-
-/**
- * Local analog data.
- */
-export const LOCAL_DATA = [
-  {
-    id: 0,
-    title: '入春来，百花香',
-    content: '随着气温升高，连日来，某某县某某街道的各个角度盛开了各种各样的花朵，让人眼花缭乱，装点了春天的气息。',
-    imagesUrl:
-    [
-      { id: 1, url: $r('app.media.ic_news_1_1') },
-      { id: 2, url: $r('app.media.ic_news_1_2') },
-      { id: 3, url: $r('app.media.ic_news_1_3') }
-    ]
-  },
-  {
-    id: 1,
-    title: '第四届美食节正式启动',
-    content: '8月5日，某某市第四届美食节正式启动。美食节将围绕各地特色美食展开，推进各地美食文化交流。',
-    imagesUrl:
-    [
-      { id: 1, url: $r('app.media.ic_news_2_1') },
-      { id: 2, url: $r('app.media.ic_news_2_1') },
-      { id: 3, url: $r('app.media.ic_news_2_1') }
-    ]
-  },
-  {
-    id: 2,
-    title: '江南风景美如画',
-    content: '南朝四百八十寺，多少楼台烟雨中。江南美，去过风光绮丽的江南，便久久不能忘怀，江南的雨如沐春风。',
-    imagesUrl:
-    [
-      { id: 1, url: $r('app.media.ic_news_3_1') },
-      { id: 2, url: $r('app.media.ic_news_3_2') },
-      { id: 3, url: $r('app.media.ic_news_3_3') }
-    ]
-  },
-  {
-    id: 3,
-    title: '好物推荐',
-    content: '精选好物，提升家居氛围，享受美好生活。',
-    imagesUrl:
-    [
-      { id: 1, url: $r('app.media.ic_news_4_1') },
-      { id: 2, url: $r('app.media.ic_news_4_2') },
-      { id: 3, url: $r('app.media.ic_news_4_2') }
-    ]
-  }
-]
+export const enum ContentType {
+  JSON = 'application/json'
+}

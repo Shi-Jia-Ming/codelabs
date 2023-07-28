@@ -13,20 +13,25 @@
  * limitations under the License.
  */
 
-import NewsItem from './NewsItem';
-import LoadMoreLayout from './LoadMoreLayout';
-import RefreshLayout from './RefreshLayout';
-import CustomRefreshLoadLayout from './CustomRefreshLoadLayout';
-import { getTabData } from '../common/utils/DataUtils';
-import { CustomRefreshLoadLayoutClass } from '../common/bean/NewsData';
-import { listTouchEvent } from '../common/utils/PullDownRefresh';
+import promptAction from '@ohos.promptAction';
 import {
   CUSTOM_LAYOUT_HEIGHT,
   NewsListConstant,
   FULL_WIDTH,
   FULL_HEIGHT,
-  PageState
+  PageState,
+  ANIMATION_DURATION,
+  PAGE_SIZE,
+  GET_NEWS_LIST
 } from '../common/constant/CommonConstant';
+import NewsItem from './NewsItem';
+import LoadMoreLayout from './LoadMoreLayout';
+import RefreshLayout from './RefreshLayout';
+import CustomRefreshLoadLayout from './CustomRefreshLoadLayout';
+import { CustomRefreshLoadLayoutClass } from '../common/bean/NewsData';
+import { listTouchEvent } from '../common/utils/PullDownRefresh';
+import NewsViewModel from '../viewmodel/NewsViewModel';
+import NoMoreLayout from './NoMoreLayout';
 
 /**
  * The news list component.
@@ -36,7 +41,7 @@ export default struct NewsList {
   @Watch('changeCategory') @Link currentIndex: number;
   @State newsData: Array<any> = [];
   @State currentPage: number = 1;
-  @State pageSize: number = 10;
+  @State pageSize: number = PAGE_SIZE;
   @State pullDownRefreshText: Resource = $r('app.string.pull_down_refresh_text');
   @State pullDownRefreshImage: Resource = $r('app.media.ic_pull_down_refresh');
   @State pullDownRefreshHeight: number = CUSTOM_LAYOUT_HEIGHT;
@@ -45,9 +50,11 @@ export default struct NewsList {
   @State pullUpLoadImage: Resource = $r('app.media.ic_pull_up_load');
   @State pullUpLoadHeight: number = CUSTOM_LAYOUT_HEIGHT;
   @State isVisiblePullUpLoad: boolean = false;
+  @State offsetY: number = 0;
+  @State pageState: number = PageState.Loading;
+  @State hasMore: boolean = true;
   private startIndex = 0;
   private endIndex = 0;
-  @State offsetY: number = 0;
   private downY = 0;
   private lastMoveY = 0;
   private isRefreshing: boolean = false;
@@ -55,16 +62,25 @@ export default struct NewsList {
   private isPullRefreshOperation = false;
   private isLoading: boolean = false;
   private isCanLoadMore = false;
-  @State pageState: number = PageState.Loading;
 
   changeCategory() {
-    getTabData(this.currentPage - 1, this.pageSize, this.currentIndex, {
-      onSuccess: (value) => {
-        this.pageState = PageState.Success;
-        this.newsData = value.newsPageData;
-      },
-      onFail: () => this.pageState = PageState.Fail
-    })
+    this.currentPage = 1;
+    NewsViewModel.getNewsList(this.currentPage, this.pageSize, GET_NEWS_LIST).then((data) => {
+      this.pageState = PageState.Success;
+      if (data.length === this.pageSize) {
+        this.currentPage++;
+        this.hasMore = true;
+      } else {
+        this.hasMore = false;
+      }
+      this.newsData = data;
+    }).catch((err) => {
+      promptAction.showToast({
+        message: err,
+        duration: ANIMATION_DURATION
+      });
+      this.pageState = PageState.Fail;
+    });
   }
 
   aboutToAppear() {
@@ -74,10 +90,10 @@ export default struct NewsList {
 
   build() {
     Column() {
-      if (this.pageState === PageState.Loading) {
-        this.LoadingLayout()
-      } else if (this.pageState === PageState.Success) {
+      if (this.pageState === PageState.Success) {
         this.ListLayout()
+      } else if (this.pageState === PageState.Loading) {
+        this.LoadingLayout()
       } else {
         this.FailLayout()
       }
@@ -115,11 +131,16 @@ export default struct NewsList {
         .margin({ top: NewsListConstant.ITEM_MARGIN_TOP})
         .borderRadius(NewsListConstant.ITEM_BORDER_RADIUS)
       }, (item, index) => JSON.stringify(item) + index.toString())
+
       ListItem() {
-        LoadMoreLayout({
-          loadMoreLayoutClass: new CustomRefreshLoadLayoutClass(this.isVisiblePullUpLoad, this.pullUpLoadImage,
-            this.pullUpLoadText, this.pullUpLoadHeight)
-        })
+        if (this.hasMore) {
+          LoadMoreLayout({
+            loadMoreLayoutClass: new CustomRefreshLoadLayoutClass(this.isVisiblePullUpLoad, this.pullUpLoadImage,
+              this.pullUpLoadText, this.pullUpLoadHeight)
+          })
+        } else {
+          NoMoreLayout()
+        }
       }
     }
     .width(NewsListConstant.LIST_WIDTH)
@@ -152,4 +173,3 @@ export default struct NewsList {
       .margin({ top: NewsListConstant.NONE_TEXT_margin })
   }
 }
-

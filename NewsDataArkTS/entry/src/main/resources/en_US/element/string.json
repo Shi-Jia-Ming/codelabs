@@ -49,8 +49,8 @@
       "value": "No more data"
     },
     {
-      "name": "reason",
-      "value": "internet"
+      "name": "dependency_reason",
+      "value": "Used to initiate network data requests."
     }
   ]
 }

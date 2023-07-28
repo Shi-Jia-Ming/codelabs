@@ -49,8 +49,8 @@
       "value": "没有更多数据了"
     },
     {
-      "name": "reason",
-      "value": "网络"
+      "name": "dependency_reason",
+      "value": "用于发起网络数据请求"
     }
   ]
 }

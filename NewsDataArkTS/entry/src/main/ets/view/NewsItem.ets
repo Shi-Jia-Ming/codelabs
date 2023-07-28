@@ -1,4 +1,3 @@
-import { NewsListConstant } from '../common/constant/CommonConstant';
 /*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,7 @@ import { NewsListConstant } from '../common/constant/CommonConstant';
  */
 
 import { NewsData } from '../common/bean/NewsData';
-import { NewsSource, NewsContent, NewsTitle, NewsGrid } from '../common/constant/CommonConstant';
+import { SERVER, NewsSource, NewsContent, NewsTitle, NewsGrid } from '../common/constant/CommonConstant';
 
 /**
  * The news list item component.
@@ -58,7 +57,7 @@ export default struct NewsItem {
       Grid() {
         ForEach(this.newsData.imagesUrl, itemImg => {
           GridItem() {
-            Image(itemImg.url)
+            Image(SERVER + itemImg.url)
               .objectFit(ImageFit.Cover)
               .borderRadius(NewsGrid.IMAGE_BORDER_RADIUS)
           }

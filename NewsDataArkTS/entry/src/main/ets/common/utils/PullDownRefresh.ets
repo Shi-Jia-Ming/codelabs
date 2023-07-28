@@ -14,15 +14,16 @@
  */
 
 import promptAction from '@ohos.promptAction';
-import { getTabData } from './DataUtils';
 import { touchMoveLoadMore, touchUpLoadMore } from './PullUpLoadMore';
 import {
   DELAY_TIME,
   DELAY_ANIMATION_DURATION,
   Y_OFF_SET_COEFFICIENT,
   RefreshState,
-  RefreshConstant
+  RefreshConstant,
+  GET_NEWS_LIST
 } from '../constant/CommonConstant';
+import NewsViewModel from '../../viewmodel/NewsViewModel';
 
 export function listTouchEvent(event: TouchEvent) {
   switch (event.type) {
@@ -86,18 +87,21 @@ export function touchUpPullRefresh() {
   if (this.isCanRefresh) {
     this.offsetY = vp2px(this.pullDownRefreshHeight);
     pullRefreshState.call(this, RefreshState.Refreshing);
+    this.currentPage = 1;
     setTimeout(() => {
       let self = this;
-      getTabData(self.currentPage, self.pageSize, self.currentIndex, {
-        onSuccess: (value) => {
-          self.currentPage = parseInt(value.currentPage.toString());
-          self.newsData = value.newsPageData;
-          closeRefresh.call(self, true);
-        },
-        onFail: (msg) => {
-          promptAction.showToast({ message: msg });
-          closeRefresh.call(self, false);
+      NewsViewModel.getNewsList(this.currentPage, this.pageSize, GET_NEWS_LIST).then((data) => {
+        if (data.length === this.pageSize) {
+          self.hasMore = true;
+          self.currentPage++;
+        } else {
+          self.hasMore = false;
         }
+        self.newsData = data;
+        closeRefresh.call(self, true);
+      }).catch((err) => {
+        promptAction.showToast({ message: err });
+        closeRefresh.call(self, false);
       });
     }, DELAY_TIME);
   } else {

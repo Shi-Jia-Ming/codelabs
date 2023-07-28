@@ -15,14 +15,15 @@
 
 import NewsList from '../view/newslist';
 import { TabBars, FULL_HEIGHT } from '../common/constant/CommonConstant';
-import { loadNewsTypes } from '../common/utils/DataUtils';
+import NewsTypeBean from '../common/bean/NewsTypeBean';
+import NewsViewModel from '../viewmodel/NewsViewModel';
 
 /**
  * The tabBar component.
  */
 @Component
 export default struct TabBar {
-  @State tabBarArray: Array<any> = TabBars.DEFAULT_NEWS_TYPES;
+  @State tabBarArray: NewsTypeBean[] = NewsViewModel.getDefaultTypeList();
   @State currentIndex: number = 0;
   @State currentPage: number = 1;
 
@@ -38,10 +39,11 @@ export default struct TabBar {
   }
 
   aboutToAppear() {
-    // 请求新闻类别
-    loadNewsTypes({
-      onSuccess: (value) => this.tabBarArray = value,
-      onFail: () => this.tabBarArray = TabBars.DEFAULT_NEWS_TYPES
+    // Request news category.
+    NewsViewModel.getNewsTypeList().then((typeList: NewsTypeBean[]) => {
+      this.tabBarArray = typeList;
+    }).catch((typeList: NewsTypeBean[]) => {
+      this.tabBarArray = typeList;
     });
   }
 

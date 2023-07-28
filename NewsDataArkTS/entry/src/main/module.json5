@@ -35,10 +35,10 @@
     "requestPermissions": [
       {
         "name": "ohos.permission.INTERNET",
-        "reason": "$string:reason",
+        "reason": "$string:dependency_reason",
         "usedScene": {
           "abilities": [
-            "EntryAbility"    
+            "EntryAbility"
           ],
           "when": "inuse"
         }
