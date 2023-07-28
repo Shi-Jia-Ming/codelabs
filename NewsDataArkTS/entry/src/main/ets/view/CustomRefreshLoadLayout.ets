@@ -30,10 +30,14 @@ export default struct CustomLayout {
         .height(RefreshLayout.IMAGE_HEIGHT)
 
       Text(this.customRefreshLoadClass.textValue)
-        .margin({ left: RefreshLayout.TEXT_MARGIN_LEFT,
-          bottom: RefreshLayout.TEXT_MARGIN_BOTTOM })
-        .fontSize(RefreshLayout.TEXT_FONT_SIZE).textAlign(TextAlign.Center)
+        .margin({
+          left: RefreshLayout.TEXT_MARGIN_LEFT,
+          bottom: RefreshLayout.TEXT_MARGIN_BOTTOM
+        })
+        .fontSize(RefreshLayout.TEXT_FONT_SIZE)
+        .textAlign(TextAlign.Center)
     }
+    .clip(true)
     .width(FULL_WIDTH)
     .justifyContent(FlexAlign.Center)
     .height(this.customRefreshLoadClass.heightValue)

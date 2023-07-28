@@ -55,6 +55,10 @@
     {
       "name": "web_width",
       "value": "93.3%"
+    },
+    {
+      "name": "internet_err",
+      "value": "网络加载失败！"
     }
   ]
 }

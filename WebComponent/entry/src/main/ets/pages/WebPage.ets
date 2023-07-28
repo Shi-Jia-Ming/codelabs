@@ -14,14 +14,25 @@
  */
 
 import router from '@ohos.router';
-import web_webview from '@ohos.web.webview';
+import webview from '@ohos.web.webview';
+import prompt from '@ohos.promptAction';
 import { WebConstant, MainConstant, WEB_ALERT_DIALOG_TEXT_VALUE } from '../common/Constant';
 
 @Entry
 @Component
 struct WebPage {
-  webController: web_webview.WebviewController = new web_webview.WebviewController();
+  webController: webview.WebviewController = new webview.WebviewController();
   @State params: object = router.getParams();
+  @State progressVal: number = 0;
+  @State isLoading: boolean = true;
+  @State intervalLoading: number = -1;
+
+  aboutToAppear() {
+    this.intervalLoading = setInterval(() => {
+      this.progressVal = this.progressVal >= WebConstant.PROGRESS_MAX ?
+        WebConstant.PROGRESS_MIN : (this.progressVal + WebConstant.PROGRESS_STEP);
+    }, WebConstant.MILLI_SECONDS);
+  }
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
@@ -47,7 +58,7 @@ struct WebPage {
 
           }.height(WebConstant.TOP_ROW_HEIGHT)
 
-          // web组件加载本地H5
+          // Web component loading H5.
           Web({ src: this.params['path'], controller: this.webController })
             .zoomAccess(false)
             .width(WebConstant.WIDTH)
@@ -55,7 +66,7 @@ struct WebPage {
             .margin({ left: WebConstant.MARGIN_LEFT, right: WebConstant.MARGIN_RIGHT, top: WebConstant.MARGIN_TOP })
             .onConfirm((event) => {
               AlertDialog.show({
-                message: `${WEB_ALERT_DIALOG_TEXT_VALUE}` + `${event.message}`,
+                message: WEB_ALERT_DIALOG_TEXT_VALUE + event.message,
                 confirm: {
                   value: $r('app.string.web_alert_dialog_button_value'),
                   action: () => {
@@ -68,13 +79,33 @@ struct WebPage {
               });
               return true;
             })
+            .onErrorReceive((event) => {
+              if (event.error.getErrorInfo() === 'ERR_INTERNET_DISCONNECTED') {
+                prompt.showToast({
+                  message: $r('app.string.internet_err'),
+                  duration: WebConstant.DURATION
+                })
+              }
+              if (event.error.getErrorInfo() === 'ERR_CONNECTION_TIMED_OUT') {
+                prompt.showToast({
+                  message: $r('app.string.internet_err'),
+                  duration: WebConstant.DURATION
+                })
+              }
+            })
+            .onProgressChange((event) => {
+              if (event.newProgress === WebConstant.PROGRESS_MAX) {
+                this.isLoading = false;
+                clearInterval(this.intervalLoading);
+                this.intervalLoading = -1;
+              }
+            })
 
           Column() {
             Text($r('app.string.textValue'))
               .fontSize(WebConstant.TEXT_VALUE_FONT_SIZE)
               .textAlign(TextAlign.Center)
               .fontColor($r('app.color.text_value_font_color'))
-              .width(WebConstant.TEXT_VALUE_WIDTH)
               .height(WebConstant.TEXT_VALUE_HEIGHT)
               .fontWeight(WebConstant.TEXT_VALUE_FONT_WEIGHT)
               .margin({ top: WebConstant.TEXT_VALUE_MARGIN_TOP })
@@ -102,6 +133,27 @@ struct WebPage {
         }
         .width(WebConstant.FULL_WIDTH)
         .height(WebConstant.FULL_HEIGHT)
+      }
+
+      if (this.isLoading) {
+        Progress({
+          value: WebConstant.PROGRESS_MIN,
+          total: WebConstant.PROGRESS_MAX,
+          type: ProgressType.ScaleRing
+        })
+          .color(Color.Grey)
+          .value(this.progressVal)
+          .width(WebConstant.PROGRESS_WIDTH)
+          .style({
+            strokeWidth: WebConstant.PROGRESS_STROKE_WIDTH,
+            scaleCount: WebConstant.PROGRESS_SCALE_COUNT,
+            scaleWidth: WebConstant.PROGRESS_SCALE_WIDTH
+          })
+          .zIndex(1)
+          .position({
+            x: WebConstant.PROGRESS_POSITION_X,
+            y: WebConstant.PROGRESS_POSITION_Y
+          })
       }
     }
     .backgroundColor($r('app.color.navy_blue'))
