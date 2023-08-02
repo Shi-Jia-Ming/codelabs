@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形 2@1x</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#E84026" offset="0%"></stop>
+            <stop stop-color="#F5744E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-38" transform="translate(-147.000000, 0.000000)">
+            <g id="矩形-2" transform="translate(147.000000, 0.000000)">
+                <rect id="矩形" x="0" y="0" width="24" height="24"></rect>
+                <g id="编组-2" transform="translate(2.000000, 0.000000)">
+                    <path d="M10.9472142,20.6480621 L13.345253,24 L13.345253,24 L7.34525299,23.9627813 L9.98887311,20.6246672 C10.1946012,20.3648932 10.5719654,20.3210803 10.8317394,20.5268084 C10.8757092,20.5616303 10.9145792,20.6024455 10.9472142,20.6480621 Z" id="三角形" fill="#FFFFFF" transform="translate(10.345253, 22.000000) scale(1, -1) translate(-10.345253, -22.000000) "></path>
+                    <ellipse id="椭圆形" fill="#FFFFFF" cx="10.5" cy="10.3445292" rx="10.5" ry="10.3445292"></ellipse>
+                    <ellipse id="椭圆形" fill="url(#linearGradient-1)" cx="10.5" cy="10.359336" rx="9.5" ry="9.35933596"></ellipse>
+                    <g id="编组-36" transform="translate(4.000139, 4.999722)" fill="#FFFFFF" fill-rule="nonzero">
+                        <path d="M5.44949593,0.913215089 C7.1983869,0.927654575 8.62784861,2.35711631 8.64228809,4.10600723 L8.69167309,10.0874518 L8.69167309,10.0874518 L3.06207819,10.0409718 C2.67343576,10.037763 2.3557776,9.7201049 2.35256882,9.33146246 L2.30899382,4.05371723 C2.29455434,2.3048263 3.70060504,0.898775603 5.44949593,0.913215089 Z" id="路径" fill-opacity="0.6" transform="translate(5.500278, 5.500278) rotate(-45.000000) translate(-5.500278, -5.500278) "></path>
+                        <path d="M7.4486606,0.913215089 C9.19755157,0.927654575 10.6270133,2.35711631 10.6414528,4.10600723 L10.6908378,10.0874518 L10.6908378,10.0874518 L5.06124285,10.0409718 C4.67260042,10.037763 4.35494226,9.7201049 4.35173349,9.33146246 L4.30815848,4.05371723 C4.293719,2.3048263 5.6997697,0.898775603 7.4486606,0.913215089 Z" id="路径" transform="translate(7.499443, 5.500278) scale(-1, 1) rotate(-45.000000) translate(-7.499443, -5.500278) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
