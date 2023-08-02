@@ -1,0 +1,52 @@
+{
+  "float": [
+    {
+      "name": "font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "image_border_radius",
+      "value": "10fp"
+    },
+    {
+      "name": "text_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "sub_text_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "operate_border_radius",
+      "value": "12fp"
+    },
+    {
+      "name": "text_opacity",
+      "value": "0.6"
+    },
+    {
+      "name": "cover_image_border_radius",
+      "value": "12fp"
+    },
+    {
+      "name": "text_title_font_size",
+      "value": "18fp"
+    },
+    {
+      "name": "text_item_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "item_image_border_radius",
+      "value": "6fp"
+    },
+    {
+      "name": "image_option",
+      "value": "24vp"
+    },
+    {
+      "name": "image_option_play",
+      "value": "30vp"
+    }
+  ]
+}

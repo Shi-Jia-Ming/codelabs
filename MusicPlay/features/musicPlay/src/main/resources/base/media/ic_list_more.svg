@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_list_more</title>
+    <defs>
+        <path d="M6.25,13.5 C7.21649831,13.5 8,12.7164983 8,11.75 C8,10.7835017 7.21649831,10 6.25,10 C5.28350169,10 4.5,10.7835017 4.5,11.75 C4.5,12.7164983 5.28350169,13.5 6.25,13.5 Z M17.25,13.5 C18.2164983,13.5 19,12.7164983 19,11.75 C19,10.7835017 18.2164983,10 17.25,10 C16.2835017,10 15.5,10.7835017 15.5,11.75 C15.5,12.7164983 16.2835017,13.5 17.25,13.5 Z" id="path-1"></path>
+    </defs>
+    <g id="ic_list_more" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="形状结合" fill-opacity="0.6" fill="#182431" transform="translate(11.750000, 12.000000) rotate(-270.000000) translate(-11.750000, -12.000000) " xlink:href="#path-1"></use>
+    </g>
+</svg>

@@ -1,0 +1,80 @@
+{
+  "forms": [
+    {
+      "name": "widget",
+      "description": "This is a service widget.",
+      "src": "./ets/widget/pages/WidgetCard.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": true,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "1*2",
+      "supportDimensions": [
+        "1*2"
+      ]
+    },
+    {
+      "name": "widget1",
+      "description": "This is a service widget.",
+      "src": "./ets/widget1/pages/Widget1Card.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": false,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "2*2",
+      "supportDimensions": [
+        "2*2"
+      ]
+    },
+    {
+      "name": "widget2",
+      "description": "This is a service widget.",
+      "src": "./ets/widget2/pages/Widget2Card.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": false,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "2*4",
+      "supportDimensions": [
+        "2*4"
+      ]
+    },
+    {
+      "name": "widget3",
+      "description": "This is a service widget.",
+      "src": "./ets/widget3/pages/Widget3Card.ets",
+      "uiSyntax": "arkts",
+      "window": {
+        "designWidth": 720,
+        "autoDesignWidth": true
+      },
+      "colorMode": "auto",
+      "isDefault": false,
+      "updateEnabled": false,
+      "scheduledUpdateTime": "10:30",
+      "updateDuration": 1,
+      "defaultDimension": "4*4",
+      "supportDimensions": [
+        "4*4"
+      ]
+    }
+  ]
+}

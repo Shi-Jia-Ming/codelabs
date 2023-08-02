@@ -1,0 +1,14 @@
+{
+  "module": {
+    "name": "musicList",
+    "type": "shared",
+    "description": "$string:shared_desc",
+    "installationFree": true,
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "pages": "$profile:main_pages"
+  }
+}
