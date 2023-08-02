@@ -1,14 +1,12 @@
 {
-  "license": "ISC",
+  "license": "",
   "devDependencies": {},
+  "author": "",
   "name": "phone",
-  "description": "example description",
-  "repository": {},
+  "description": "Please describe the basic information.",
+  "main": "",
   "version": "1.0.0",
   "dependencies": {
-    "@ohos/content": "../../features/content",
-    "@ohos/header": "../../features/header",
-    "@ohos/player": "../../features/player",
-    "@ohos/common": "../../common"
+    "@ohos/constantsCommon": "file:../../common/constantsCommon"
   }
 }

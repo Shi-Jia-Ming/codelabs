@@ -5,12 +5,8 @@
       "value": "#FFFFFF"
     },
     {
-      "name": "page_background_sm",
-      "value": "#e4ecf7"
-    },
-    {
-      "name": "page_background_other",
-      "value": "#f6f9fc"
+      "name": "button_background_color",
+      "value": "#FF1949"
     }
   ]
 }

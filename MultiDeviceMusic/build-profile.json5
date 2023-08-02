@@ -6,7 +6,7 @@
     "products": [
       {
         "name": "default",
-        "signingConfig": "default",
+        "signingConfig": "default"
       }
     ]
   },
@@ -24,20 +24,60 @@
       ]
     },
     {
-      "name": "common",
-      "srcPath": "./common"
+      "name": "musicList",
+      "srcPath": "./features/musicList",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     },
     {
-      "name": "content",
-      "srcPath": "./features/content"
+      "name": "musicPlay",
+      "srcPath": "./features/musicPlay",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     },
     {
-      "name": "player",
-      "srcPath": "./features/player"
+      "name": "musicComment",
+      "srcPath": "./features/musicComment",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     },
     {
-      "name": "header",
-      "srcPath": "./features/header"
+      "name": "live",
+      "srcPath": "./features/live",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "mediaCommon",
+      "srcPath": "./common/mediaCommon"
+    },
+    {
+      "name": "constantsCommon",
+      "srcPath": "./common/constantsCommon"
     }
   ]
 }

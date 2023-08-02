@@ -1,0 +1,124 @@
+{
+  "float": [
+    {
+      "name": "back_width",
+      "value": "24vp"
+    },
+    {
+      "name": "back_height",
+      "value": "24vp"
+    },
+    {
+      "name": "back_left_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "title_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "title_left_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "title_height",
+      "value": "28vp"
+    },
+    {
+      "name": "title_row_height",
+      "value": "56vp"
+    },
+    {
+      "name": "grid_row_gutter",
+      "value": "12vp"
+    },
+    {
+      "name": "live_image_height",
+      "value": "200vp"
+    },
+    {
+      "name": "stack_top_margin_small",
+      "value": "8vp"
+    },
+    {
+      "name": "stack_top_margin_middle",
+      "value": "12vp"
+    },
+    {
+      "name": "live_image_border_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "video_width",
+      "value": "24vp"
+    },
+    {
+      "name": "video_height",
+      "value": "24vp"
+    },
+    {
+      "name": "video_top_margin_small",
+      "value": "16vp"
+    },
+    {
+      "name": "video_top_margin_middle_large",
+      "value": "24vp"
+    },
+    {
+      "name": "video_row_height",
+      "value": "112vp"
+    },
+    {
+      "name": "grid_col_left_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "grid_col_right_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "live_item_title_font_size",
+      "value": "21fp"
+    },
+    {
+      "name": "live_item_title_height",
+      "value": "28vp"
+    },
+    {
+      "name": "live_item_top_margin_phone",
+      "value": "21vp"
+    },
+    {
+      "name": "live_item_top_margin_tablet",
+      "value": "13vp"
+    },
+    {
+      "name": "live_introduction_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "live_introduction_height",
+      "value": "17vp"
+    },
+    {
+      "name": "live_introduction_top_margin",
+      "value": "2vp"
+    },
+    {
+      "name": "small_left_right_padding",
+      "value": "16vp"
+    },
+    {
+      "name": "middle_large_left_right_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "live_item_row_height",
+      "value": "88vp"
+    },
+    {
+      "name": "scroll_margin_bottom",
+      "value": "56vp"
+    }
+  ]
+}

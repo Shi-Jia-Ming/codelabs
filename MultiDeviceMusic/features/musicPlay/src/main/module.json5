@@ -1,0 +1,13 @@
+{
+  "module": {
+    "name": "musicPlay",
+    "type": "shared",
+    "description": "$string:shared_desc",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "pages": "$profile:main_pages"
+  }
+}

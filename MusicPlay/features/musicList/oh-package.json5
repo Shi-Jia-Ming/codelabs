@@ -1,0 +1,13 @@
+{
+  "license": "Apache-2.0",
+  "devDependencies": {},
+  "author": "",
+  "name": "@ohos/musiclist",
+  "description": "Please describe the basic information.",
+  "main": "./src/main/ets/Index.ets",
+  "version": "1.0.0",
+  "dependencies": {
+    "@ohos/mediaCommon": "file:../../common/mediaCommon",
+    "@ohos/constantsCommon": "file:../../common/constantsCommon"
+  }
+}

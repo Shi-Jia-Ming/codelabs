@@ -1,11 +1,12 @@
 {
-  "license": "ISC",
+  "license": "",
   "devDependencies": {
     "@ohos/hypium": "1.0.6"
   },
-  "name": "multidevice",
-  "description": "example description",
-  "repository": {},
+  "author": "",
+  "name": "musichome",
+  "description": "Please describe the basic information.",
+  "main": "",
   "version": "1.0.0",
   "dependencies": {}
 }

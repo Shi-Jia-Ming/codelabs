@@ -1,0 +1,12 @@
+{
+  "apiType": 'stageMode',
+  "showInServiceCenter": true,
+  "buildOption": {
+  },
+  "targets": [
+    {
+      "name": "default",
+      "runtimeOS": "HarmonyOS"
+    }
+  ]
+}

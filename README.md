@@ -13,6 +13,7 @@
 ## 目录<a name="sectionMenu"></a>
 
 - 优秀案例
+  - [溪村小镇（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/OxHornCampus)
   - [一次开发，多端部署-购物应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiShopping)
   - [一次开发，多端部署-音乐专辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultiDeviceMusic)
   - [健康生活应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
@@ -82,6 +83,7 @@
   - [分布式手写板（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/JSDistributeDraw)
   - [分布式鉴权（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/GameAuth)
 - 卡片
+  - [音乐播放原子化服务和卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MusicPlay)
   - [健康生活卡片（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Healthy_life)
   - [电影卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MovieCard)
   - [计步器卡片（JS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StepsCardJS)

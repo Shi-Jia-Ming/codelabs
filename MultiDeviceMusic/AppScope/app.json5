@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.huawei.multidevice",
+    "bundleName": "com.huawei.music.musichome",
     "vendor": "example",
     "versionCode": 1000000,
     "versionName": "1.0.0",
