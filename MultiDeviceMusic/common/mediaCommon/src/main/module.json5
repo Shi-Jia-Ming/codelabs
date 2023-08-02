@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "mediaCommon",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
