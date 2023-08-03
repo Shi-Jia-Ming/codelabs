@@ -22,6 +22,7 @@ import BuildListItem from '../view/BuildListItem';
 import StyleListItem from '../view/StyleListItem';
 import SubTitleItem from '../view/SubTitleItem';
 import zonesViewModel from '../viewmodel/ZonesViewModel';
+import SwiperListItem from '../view/SwiperListItem'
 
 @Entry
 @Component
@@ -61,7 +62,7 @@ struct IntroductionPage {
         })
     }
   }
-
+  
   @Builder StickyHeader() {
     Column() {
       Image(this.introductionData.subPicBottom)
@@ -102,45 +103,37 @@ struct IntroductionPage {
       .height($r('app.float.introduction_page_padding_bottom'))
   }
 
+  pageTransition(){
+    PageTransitionEnter({duration: Const.SHARED_DURATION})
+      .slide(SlideEffect.Bottom)
+      .scale({
+        x: 0,
+        y: 0,
+        z: 0,
+        centerX: Const.HALF_PERCENT,
+        centerY: Const.HALF_PERCENT
+      })
+    PageTransitionExit({delay: Const.SWIPER_DURATION})
+      .slide(SlideEffect.Bottom)
+      .scale({
+        x: 0,
+        y: 0,
+        z: 0,
+        centerX: Const.HALF_PERCENT,
+        centerY: Const.HALF_PERCENT
+      })
+  }
   build() {
     Column() {
       Stack({ alignContent: Alignment.Bottom }) {
         Column() {
           List({ scroller: this.scrollerForList }) {
             ListItem() {
-              Stack({ alignContent: Alignment.Bottom }) {
-                Image(this.zoneList[this.currentZoneId].swiperPic)
-                  .width(Const.FULL_SIZE)
-                  .height(this.imageHeight + '%')
-                  .objectFit(ImageFit.Cover)
-                  .sharedTransition(this.currentZoneId.toString(), {
-                    duration: Const.TRANSITION_DURATION,
-                    curve: Curve.EaseInOut,
-                    delay: 0
-                  })
-                Text(this.introductionData.title)
-                  .fontSize($r('app.float.font_size_largest'))
-                  .fontWeight(FontWeight.Bold)
-                  .fontColor($r('app.color.font_color_white'))
-                  .opacity(this.arrowIconOpacity)
-                  .width(Const.FULL_SIZE)
-                  .textAlign(TextAlign.Center)
-                  .height($r('app.float.zone_name_container_height'))
-                  .margin({ bottom: $r('app.float.zone_name_margin_bottom') })
-                  .animation({
-                    duration: Const.ANIMATION_DURATION_NORMAL,
-                    curve: Curve.EaseOut,
-                  })
-                Image($r('app.media.ic_arrow_down'))
-                  .height($r('app.float.arrow_down_height'))
-                  .width($r('app.float.arrow_down_width'))
-                  .margin({ bottom: $r('app.float.arrow_down_margin_bottom') })
-                  .opacity(this.arrowIconOpacity)
-                  .animation({
-                    duration: Const.ANIMATION_DURATION_NORMAL,
-                    curve: Curve.EaseOut,
-                  })
-              }
+              SwiperListItem({
+                imageHeight: this.imageHeight,
+                currentZoneId: this.currentZoneId,
+                arrowIconOpacity: this.arrowIconOpacity
+              })
             }
 
             ListItem() {
@@ -192,7 +185,7 @@ struct IntroductionPage {
           .onClick(() => {
             this.scrollToTop();
           })
-          .opacity(1 - this.arrowIconOpacity)
+          // .opacity(1 - this.arrowIconOpacity)
 
         Image($r('app.media.ic_home_back'))
           .height($r('app.float.page_icon_size'))
@@ -214,9 +207,6 @@ struct IntroductionPage {
   }
 
   aboutToAppear() {
-    setTimeout(() => {
-      this.homeIconOpacity = Const.OPACITY_MAX;
-    }, 1000)
     this.getIntroductionData();
     this.screenHeight = DeviceScreen.getDeviceHeight();
   }
