@@ -95,11 +95,7 @@ export struct Zones {
               .opacity(1 - Math.min(ZoneConst.HALF_COUNT,
                 Math.abs(this.getImgCoefficients(index))) * ZoneConst.OPACITY_COEFFICIENTS)
               .blur(ZoneConst.OFFSET_COEFFICIENTS * Math.abs(this.getImgCoefficients(index)))
-              .sharedTransition(item.id.toString(), {
-                duration: Const.TRANSITION_DURATION,
-                curve: Curve.EaseInOut,
-                delay: 0
-              })
+            
           }
           .width(index != this.aheadIndex && this.getImgCoefficients(index) === 0
             ? Const.SWIPER_DEFAULT_WIDTH
