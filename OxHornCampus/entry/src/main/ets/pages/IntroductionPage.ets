@@ -185,7 +185,7 @@ struct IntroductionPage {
           .onClick(() => {
             this.scrollToTop();
           })
-          // .opacity(1 - this.arrowIconOpacity)
+          .opacity(1 - this.arrowIconOpacity)
 
         Image($r('app.media.ic_home_back'))
           .height($r('app.float.page_icon_size'))
@@ -197,7 +197,7 @@ struct IntroductionPage {
           .onClick(() => {
             router.back();
           })
-          .opacity(this.homeIconOpacity)
+          // .opacity(this.homeIconOpacity)
 
       }
       .backgroundColor($r('app.color.introduction_page_color'))
