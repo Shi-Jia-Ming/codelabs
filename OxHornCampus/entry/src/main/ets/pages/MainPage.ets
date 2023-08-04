@@ -32,7 +32,7 @@ struct MainPage {
   pageTransition() {
     PageTransitionEnter({ duration: Const.SHARED_DURATION })
       .slide(SlideEffect.Top)
-    PageTransitionEnter({ delay: Const.EXIT_DELAY })
+    PageTransitionExit({ delay: Const.EXIT_DELAY })
       .opacity(0)
   }
 
