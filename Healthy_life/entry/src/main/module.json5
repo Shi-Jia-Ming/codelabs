@@ -35,7 +35,7 @@
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:white",
-        "exported": false,
+        "exported": true,
         "skills": [
           {
             "entities": [

@@ -30,7 +30,7 @@
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
-        "exported": false,
+        "exported": true,
         "minWindowHeight": 780,
         "minWindowWidth": 360,
         "backgroundModes": [

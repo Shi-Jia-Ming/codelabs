@@ -20,7 +20,7 @@
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
         "orientation": "portrait",
-        "exported": false,
+        "exported": true,
         "skills": [
           {
             "entities": [
@@ -40,7 +40,7 @@
         "label": "$string:MovieDetailsAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
-        "exported": false
+        "exported": true
       }
     ],
     "extensionAbilities": [

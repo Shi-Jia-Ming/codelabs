@@ -42,7 +42,7 @@
         "description": "$string:MainAbility_desc",
         "label": "$string:MainAbility_label",
         "type": "page",
-        "visible": false,
+        "visible": true,
         "launchType": "singleton"
       },
       {
