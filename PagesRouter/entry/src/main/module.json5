@@ -20,7 +20,7 @@
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:white",
         "orientation": "portrait",
-        "exported": false,
+        "exported": true,
         "skills": [
           {
             "entities": [

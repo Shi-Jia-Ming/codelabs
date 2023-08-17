@@ -19,7 +19,7 @@
         "label": "$string:MainAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:white",
-        "exported": false,
+        "exported": true,
         "orientation": "portrait",
         "skills": [
           {
