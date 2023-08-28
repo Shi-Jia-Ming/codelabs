@@ -10,17 +10,10 @@
 
 ### 相关概念
 
-- [Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-swiper-0000001333321221)：滑动容器，提供子组件切换滑动的能力。
-
-- [Stack](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-stack-0000001333641093)：堆叠容器，子组件按照顺序依次入栈，后入栈组件在先入栈组件上方显示。
-
-- [Video](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-media-components-video-0000001333641101)：视频播放组件。
-
--  [Observed和ObjectLink数据管理](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711#ZH-CN_TOPIC_0000001157388859__observed%E5%92%8Cobjectlink%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86)： 
-
-  @Observed应用于类，表示该类中的数据变更被UI页面管理，例如：@Observed class ClassA {}。
-
-  @ObjectLink应用于被@Observed所装饰类的对象，例如：@ObjectLink a: ClassA。
+- [Swiper](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-swiper-0000001427744844-V3?catalogVersion=V3)：滑动容器，提供子组件切换滑动的能力。
+- [Stack](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-stack-0000001427584888-V3?catalogVersion=V3)：堆叠容器，子组件按照顺序依次入栈，后一个子组件覆盖前一个子组件。
+- [Video](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-media-components-video-0000001427902484-V3?catalogVersion=V3)：用于播放视频文件并控制其播放状态的组件。
+- [Observed和ObjectLink装饰器](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-observed-and-objectlink-0000001473697338-V3?catalogVersion=V3)：用于在涉及嵌套对象或数组的场景中进行双向数据同步。
 
 ### 相关权限
 
@@ -38,4 +31,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API Version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。

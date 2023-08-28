@@ -47,7 +47,7 @@ export struct LinkButton {
     }
   }
 
-  operationMethod() {
+  operationMethod(): void {
     switch (this.buttonType) {
       case CookieOperation.GET_COOKIE:
         try {
@@ -73,8 +73,8 @@ export struct LinkButton {
       case CookieOperation.VERIFY_COOKIE:
         router.pushUrl({
           url: CommonConstants.PAGE_VERIFY
-        }).catch(err => {
-          Logger.error('[LinkButton] push url fail: ' + err);
+        }).catch((err: Error) => {
+            Logger.error(`[LinkButton] push url fail: ${err}`);
         });
         break;
       default:
