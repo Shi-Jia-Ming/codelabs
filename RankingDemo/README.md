@@ -4,16 +4,16 @@
 
 ![](screenshots/device/screenshots.gif)
 ### 相关概念
-#### [渲染控制语法](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-rendering-control-0000001149698611)
-- 条件渲染 ：使用if/else进行条件渲染。
-- 循环渲染 ：开发框架提供循环渲染（ForEach组件）来迭代数组，并为每个数组项创建相应的组件。
-#### [组件化装饰器@Builder](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-dynamic-ui-element-building-0000001366154244)
+#### 渲染控制语法
+- [条件渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-rendering-control-ifelse-0000001524177637-V3?ha_linker=eyJ0cyI6MTY5Mjg0NDI1MDY1MywiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9) ：使用if/else进行条件渲染。
+- [循环渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-rendering-control-foreach-0000001524537153-V3) ：开发框架提供循环渲染（ForEach组件）来迭代数组，并为每个数组项创建相应的组件。
+#### [组件化装饰器@Builder](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-builder-0000001524176981-V3?ha_linker=eyJ0cyI6MTY5Mjg0NDk1NDc3MSwiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9)
 - @Builder 装饰的方法用于定义组件的声明式UI描述，在一个自定义组件内快速生成多个布局内容。@Builder装饰方法的功能和语法规范与build函数相同。
-#### [组件状态管理器](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711)
-- @State装饰的变量是组件内部的状态数据，当这些状态数据被修改时，将会调用所在组件的build方法进行UI刷新。
-- @Prop与@State有相同的语义，但初始化方式不同。@Prop装饰的变量必须使用其父组件提供的@State变量进行初始化，允许组件内部修改@Prop变量，但更改不会通知给父组件，即@Prop属于单向数据绑定。
-- @Link装饰的变量可以和父组件的@State变量建立双向数据绑定。
-#### [组件生命周期函数](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ui-ts-custom-component-lifecycle-callbacks-0000001436217309)
+#### 组件状态管理器
+- [@State](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-state-0000001474017162-V3?ha_linker=eyJ0cyI6MTY5Mjg0NDk1MzEzNiwiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9)装饰的变量是组件内部的状态数据，当这些状态数据被修改时，将会调用所在组件的build方法进行UI刷新。
+- [@Prop](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-prop-0000001473537702-V3?ha_linker=eyJ0cyI6MTY5Mjg0NDk1MzcyOSwiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9)与@State有相同的语义，但初始化方式不同。@Prop装饰的变量必须使用其父组件提供的@State变量进行初始化，允许组件内部修改@Prop变量，但更改不会通知给父组件，即@Prop属于单向数据绑定。
+- [@Link](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-link-0000001524297305-V3?ha_linker=eyJ0cyI6MTY5Mjg0NDk1NDMwNywiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9)装饰的变量可以和父组件的@State变量建立双向数据绑定。
+#### [组件生命周期函数](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/arkts-custom-component-lifecycle-0000001482395076-V3?ha_linker=eyJ0cyI6MTY5Mjg0NTEyOTc0MSwiaWQiOiI5Y2ZmMGU5ODBiMzhjYzAzMGVmM2YxZDM0MTgzOGZlMCJ9)
 - 自定义组件的生命周期回调函数用于通知用户该自定义组件的生命周期，这些回调函数是私有的，在运行时由开发框架在特定的时间进行调用，不能从应用程序中手动调用这些回调函数。 
 ### 相关权限
 不涉及
@@ -25,5 +25,4 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
-
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
