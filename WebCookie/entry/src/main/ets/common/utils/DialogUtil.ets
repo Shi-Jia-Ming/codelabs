@@ -21,7 +21,7 @@ import { CommonConstants } from '../constants/CommonConstant';
  *
  * @param message Message.
  */
-export function showDialog(message: ResourceStr) {
+export function showDialog(message: ResourceStr): void {
   let newMessage = message.toString();
   if (newMessage.length > CommonConstants.SUB_LENGTH) {
     message = newMessage.substring(0, CommonConstants.SUB_LENGTH);
