@@ -47,11 +47,11 @@ struct FullCustomTransition {
   pageTransition() {
     PageTransitionEnter({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
       .onEnter((type: RouteType, progress: number) => {
-        this.animValue = progress
+        this.animValue = progress;
       });
     PageTransitionExit({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
       .onExit((type: RouteType, progress: number) => {
-        this.animValue = FULL_CUSTOM_TRANSITION_DEFAULT_ANIM_VALUE - progress
+        this.animValue = FULL_CUSTOM_TRANSITION_DEFAULT_ANIM_VALUE - progress;
       });
   }
 }

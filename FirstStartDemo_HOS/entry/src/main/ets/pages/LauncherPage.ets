@@ -131,15 +131,15 @@ struct LauncherPage {
           .height($r('app.float.launcher_life_text_height'))
           .healthyLifeTextStyle(FontWeight.Bold,
             CommonConstants.LAUNCHER_LIFE_TEXT_SPACING,
-            $r('app.float.launcher_text_title_size'),
-            $r('app.color.launcher_text_title_color'))
+              $r('app.float.launcher_text_title_size'),
+              $r('app.color.launcher_text_title_color'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_TITLE_MARGIN_TOP })
         Text($r('app.string.healthy_life_introduce'))
           .height(CommonConstants.LAUNCHER_TEXT_INTRODUCE_HEIGHT)
           .healthyLifeTextStyle(FontWeight.Normal,
             CommonConstants.LAUNCHER_TEXT_INTRODUCE_SPACING,
-            $r('app.float.launcher_text_introduce_size'),
-            $r('app.color.launcher_text_introduce_color'))
+              $r('app.float.launcher_text_introduce_size'),
+              $r('app.color.launcher_text_introduce_color'))
           .opacity($r('app.float.launcher_text_opacity'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
       }
