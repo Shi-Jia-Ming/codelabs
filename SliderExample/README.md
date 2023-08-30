@@ -4,9 +4,9 @@
 
 ![](screenshots/device/slider.gif)
 ### 相关概念
-- [Text组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-text-0000001333720953)：文本组件，用于呈现一段信息。
-- [Image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-image-0000001281001226)：图片组件，用来渲染展示图片。
-- [Slider组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-slider-0000001281201142)：滑动条组件，用来快速调节设置值，如音量、亮度等。
+- [Text组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-text-0000001477981201-V3)：文本组件，用于呈现一段信息。
+- [Image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-image-0000001428061728-V3)：图片组件，用来渲染展示图片。
+- [Slider组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-slider-0000001427744820-V3)：滑动条组件，用来快速调节设置值，如音量、亮度等。
 ### 相关权限
 不涉及
 ### 使用说明
@@ -15,5 +15,5 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
 
