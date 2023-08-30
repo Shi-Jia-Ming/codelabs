@@ -8,15 +8,13 @@
 
 ### 相关概念
 
-- [Flex组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-flex-0000001281001250)：以弹性方式布局子组件的容器组件。
-- [Search组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-search-0000001333641069)：搜索框组件，适用于浏览器的搜索内容输入框等应用场景。
-- [Text组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-text-0000001333720953)：显示一段文本的组件。
-- [Image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-image-0000001281001226)：图片组件，支持本地图片和网络图片的渲染展示。
-- [Scroll组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-scroll-0000001333720973)：可滑动的容器组件，当子组件的布局尺寸超过父组件的视口时，内容可以滑动。
-- [条件渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-rendering-control-0000001149698611#ZH-CN_TOPIC_0000001157228877__%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93)：使用if/else进行条件渲染。
-- [循环渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-rendering-control-0000001149698611#ZH-CN_TOPIC_0000001157228877__%E5%BE%AA%E7%8E%AF%E6%B8%B2%E6%9F%93)：通过循环渲染（ForEach）从数组中获取数据，并为每个数据项创建相应的组件，可减少代码复杂度。
-
-
+- [Flex组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-flex-0000001427902472-V3?catalogVersion=V3)：以弹性方式布局子组件的容器组件。
+- [Search组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-search-0000001428061740-V3?catalogVersion=V3)：搜索框组件，适用于浏览器的搜索内容输入框等应用场景。
+- [Text组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-text-0000001477981201-V3?catalogVersion=V3)：显示一段文本的组件。
+- [Image组件](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-image-0000001428061728-V3?catalogVersion=V3)：图片组件，支持本地图片和网络图片的渲染展示。
+- [Scroll](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-scroll-0000001427902480-V3?catalogVersion=V3)：可滑动的容器组件，当子组件的布局尺寸超过父组件的视口时，内容可以滑动。
+- [条件渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-rendering-control-ifelse-0000001524177637-V3?catalogVersion=V3)：条件渲染可根据应用的不同状态，使用if、else和else if渲染对应状态下的UI内容。
+- [循环渲染](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-rendering-control-foreach-0000001524537153-V3?catalogVersion=V3)：ForEach基于数组类型数据执行循环渲染。
 
 ### 相关权限
 
@@ -31,4 +29,5 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
+
