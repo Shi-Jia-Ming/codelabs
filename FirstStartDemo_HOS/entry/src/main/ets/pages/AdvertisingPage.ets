@@ -89,13 +89,13 @@ struct AdvertisingPage {
           Text($r('app.string.healthy_life_text'))
             .bottomTextStyle(FontWeight.Bolder,
             CommonConstants.ADVERTISING_HEALTHY_LIFE_TEXT_SPACING,
-            $r('app.float.advertising_text_title_size'),
-            $r('app.color.advertising_text_title_color'))
+              $r('app.float.advertising_text_title_size'),
+              $r('app.color.advertising_text_title_color'))
           Text($r('app.string.healthy_life_introduce'))
             .bottomTextStyle(FontWeight.Normal,
             CommonConstants.ADVERTISING_TEXT_INTRODUCE_LETTER_SPACING,
-            $r('app.float.advertising_text_introduce_size'),
-            $r('app.color.launcher_text_introduce_color'))
+              $r('app.float.advertising_text_introduce_size'),
+              $r('app.color.launcher_text_introduce_color'))
             .opacity($r('app.float.advertising_text_opacity'))
             .margin({ top: CommonConstants.ADVERTISING_TEXT_INTRODUCE_MARGIN_TOP })
         }

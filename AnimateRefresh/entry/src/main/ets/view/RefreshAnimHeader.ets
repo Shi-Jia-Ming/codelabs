@@ -41,7 +41,7 @@ export default struct RefreshAnimHeader {
         delay: iconItem.delay,
         curve: Curve.Linear,
         playMode: PlayMode.Alternate,
-        iterations: CommonConstants.REFRESH_HEADER_ITEM_ANIM_ITERATIONS,
+        iterations: CommonConstants.REFRESH_HEADER_ITEM_ANIM_ITERATIONS
       })
   }
 
