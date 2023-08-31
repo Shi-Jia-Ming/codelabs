@@ -6,11 +6,11 @@
 ![](screenshots/list_usage_hdc.gif)
 
 ### 相关概念
-- [@CustomDialog](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-dynamic-ui-element-building-0000001366154244#ZH-CN_TOPIC_0000001366154244__customdialog)：@CustomDialog装饰器用于装饰自定义弹窗。
-- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573)：List是常用的滚动类容器组件之一，它按照水平或者竖直方向线性排列子组件， List的子组件必须是ListItem，它的宽度默认充满List的宽度。
-- [TimePicker](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-timepicker-0000001281480698)：TimePicker是选择时间的滑动选择器组件，默认以 00:00 至 23:59 的时间区创建滑动选择器。
-- [Toggle](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-toggle-0000001281361118)：组件提供勾选框样式、状态按钮样式及开关样式。
-- [Router](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-router-0000001333321105)：通过不同的url访问不同的页面，包括跳转到应用内的指定页面、用应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
+- [@CustomDialog](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-common-components-custom-dialog-0000001450754206-V3?catalogVersion=V3)：@CustomDialog装饰器用于装饰自定义弹窗。
+- [List](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-list-0000001477981213-V3?catalogVersion=V3)：List是常用的滚动类容器组件之一，它按照水平或者竖直方向线性排列子组件， List的子组件必须是ListItem，它的宽度默认充满List的宽度。
+- [TimePicker](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-timepicker-0000001478341149-V3?catalogVersion=V3)：TimePicker是选择时间的滑动选择器组件，默认以 00:00 至 23:59 的时间区创建滑动选择器。
+- [Toggle](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-toggle-0000001478061705-V3?catalogVersion=V3)：组件提供勾选框样式、状态按钮样式及开关样式。
+- [Router](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-router-0000001478061893-V3?catalogVersion=V3)：通过不同的url访问不同的页面，包括跳转到应用内的指定页面、用应用内的某个页面替换当前页面、返回上一页面或指定的页面等。
 
 
 ### 相关权限
@@ -24,5 +24,5 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
 
