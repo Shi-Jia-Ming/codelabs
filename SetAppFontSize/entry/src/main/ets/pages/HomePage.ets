@@ -31,7 +31,7 @@ const TAG = '[HomePage]';
 @Component
 struct HomePage {
   private settingArr = HomeViewModel.initSettingData();
-  @State changeFontSize: number = 0;
+  @State changeFontSize: number = CommonConstants.SET_SIZE_NORMAL;
 
   onPageShow() {
     PreferencesUtil.getChangeFontSize().then((value) => {

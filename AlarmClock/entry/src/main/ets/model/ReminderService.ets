@@ -17,11 +17,22 @@ import reminderAgent from '@ohos.reminderAgentManager';
 import notification from '@ohos.notificationManager';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import ReminderItem from '../common/bean/ReminderItemBean';
+import Logger from '../common/utils/Logger';
 
 /**
  * Base on ohos reminder agent service
  */
 export default class ReminderService {
+  /**
+   * open notification permission
+   */
+  public openNotificationPermission() {
+    notification.requestEnableNotification().then(() => {
+      Logger.info('Enable notification success');
+    }).catch((err) => {
+      Logger.error('Enable notification failed because ' + JSON.stringify(err));
+    });
+  }
 
   /**
    * Adding and modifying alarm reminders
@@ -56,7 +67,7 @@ export default class ReminderService {
       title: item.name,
       ringDuration: item.duration * CommonConstants.DEFAULT_TOTAL_MINUTE,
       snoozeTimes: item.intervalTimes,
-      timeInterval: item.intervalMinute,
+      timeInterval: item.intervalMinute * CommonConstants.DEFAULT_TOTAL_MINUTE,
       actionButton: [
         {
           title: '关闭',
