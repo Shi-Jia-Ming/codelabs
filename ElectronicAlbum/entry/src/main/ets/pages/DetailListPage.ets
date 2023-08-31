@@ -16,7 +16,6 @@
 import display from '@ohos.display';
 import router from '@ohos.router';
 import Constants from '../common/constants/Constants';
-import Logger from '../common/utils/Logger';
 
 enum scrollTypeEnum {
   STOP = 'onScrollStop',
@@ -30,7 +29,7 @@ struct DetailListPage {
   private bigScroller: Scroller = new Scroller();
   @State deviceWidth: number = Constants.DEFAULT_WIDTH;
   @State smallImgWidth: number = (this.deviceWidth - Constants.LIST_ITEM_SPACE * (Constants.SHOW_COUNT - 1)) /
-    Constants.SHOW_COUNT;
+  Constants.SHOW_COUNT;
   @State imageWidth: number = this.deviceWidth + this.smallImgWidth;
   private photoArr: Array<Resource | string> = router.getParams()[`${Constants.PARAM_PHOTO_ARR_KEY}`];
   private smallPhotoArr: Array<Resource | string> = [
@@ -38,7 +37,7 @@ struct DetailListPage {
     ...router.getParams()[`${Constants.PARAM_PHOTO_ARR_KEY}`],
     ...Constants.CACHE_IMG_LIST
   ];
-  @State selectedIndex: SubscribedAbstractProperty<number> = AppStorage.Link(`${Constants.SELECTED_INDEX_KEY}`);
+  @StorageLink('selectedIndex') selectedIndex: number = 0;
 
   @Builder SmallImgItemBuilder(img: Resource, index: number) {
     if (index > (Constants.CACHE_IMG_SIZE - 1) && index < (this.smallPhotoArr.length - Constants.CACHE_IMG_SIZE)) {
@@ -56,59 +55,57 @@ struct DetailListPage {
   }
 
   onPageShow() {
-    this.smallScroller.scrollToIndex(this.selectedIndex.get());
-    this.bigScroller.scrollToIndex(this.selectedIndex.get());
+    this.smallScroller.scrollToIndex(this.selectedIndex);
+    this.bigScroller.scrollToIndex(this.selectedIndex);
   }
 
-  goDetailPage() {
+  goDetailPage(): void {
     router.pushUrl({
       url: Constants.URL_DETAIL_PAGE,
       params: { photoArr: this.photoArr }
-    }).catch((error) => {
-      Logger.error(Constants.TAG_DETAIL_PAGE, JSON.stringify(error));
     });
   }
 
-  smallImgClickAction(index: number) {
-    this.selectedIndex.set(index - Constants.CACHE_IMG_SIZE);
-    this.smallScroller.scrollToIndex(this.selectedIndex.get());
-    this.bigScroller.scrollToIndex(this.selectedIndex.get());
+  smallImgClickAction(index: number): void {
+    this.selectedIndex = index - Constants.CACHE_IMG_SIZE;
+    this.smallScroller.scrollToIndex(this.selectedIndex);
+    this.bigScroller.scrollToIndex(this.selectedIndex);
   }
 
-  smallScrollAction(type: scrollTypeEnum) {
-    this.selectedIndex.set(Math.round((this.smallScroller.currentOffset().xOffset +
-    this.smallImgWidth / Constants.DOUBLE_NUMBER) / (this.smallImgWidth + Constants.LIST_ITEM_SPACE)));
+  smallScrollAction(type: scrollTypeEnum): void {
+    this.selectedIndex = Math.round((this.smallScroller.currentOffset().xOffset +
+    this.smallImgWidth / Constants.DOUBLE_NUMBER) / (this.smallImgWidth + Constants.LIST_ITEM_SPACE));
     if (type === scrollTypeEnum.SCROLL) {
-      this.bigScroller.scrollTo({ xOffset: this.selectedIndex.get() * this.imageWidth, yOffset: 0 });
+      this.bigScroller.scrollTo({ xOffset: this.selectedIndex * this.imageWidth, yOffset: 0 });
     } else {
-      this.smallScroller.scrollTo({ xOffset: this.selectedIndex.get() * this.smallImgWidth, yOffset: 0 });
+      this.smallScroller.scrollTo({ xOffset: this.selectedIndex * this.smallImgWidth, yOffset: 0 });
     }
   }
 
-  bigScrollAction(type: scrollTypeEnum) {
+  bigScrollAction(type: scrollTypeEnum): void {
     let smallWidth = this.smallImgWidth + Constants.LIST_ITEM_SPACE;
-    this.selectedIndex.set(Math.round((this.bigScroller.currentOffset().xOffset +
-    smallWidth / Constants.DOUBLE_NUMBER) / this.imageWidth));
+    this.selectedIndex = Math.round((this.bigScroller.currentOffset().xOffset +
+    smallWidth / Constants.DOUBLE_NUMBER) / this.imageWidth);
     if (type === scrollTypeEnum.SCROLL) {
-      this.smallScroller.scrollTo({ xOffset: this.selectedIndex.get() * smallWidth, yOffset: 0 });
+      this.smallScroller.scrollTo({ xOffset: this.selectedIndex * smallWidth, yOffset: 0 });
     } else {
-      this.bigScroller.scrollTo({ xOffset: this.selectedIndex.get() * this.imageWidth, yOffset: 0 });
+      this.bigScroller.scrollTo({ xOffset: this.selectedIndex * this.imageWidth, yOffset: 0 });
     }
   }
 
   build() {
     Navigation() {
       Stack({ alignContent: Alignment.Bottom }) {
-        List({ scroller: this.bigScroller, initialIndex: this.selectedIndex.get() }) {
-          ForEach(this.photoArr, (img: Resource) => {
+        List({ scroller: this.bigScroller, initialIndex: this.selectedIndex }) {
+          ForEach(this.photoArr, (img: Resource, index: number) => {
             ListItem() {
               Image(img)
                 .height(Constants.FULL_PERCENT)
                 .width(Constants.FULL_PERCENT)
                 .objectFit(ImageFit.Contain)
                 .gesture(PinchGesture({ fingers: Constants.DOUBLE_NUMBER })
-                  .onActionStart(this.goDetailPage.bind(this)))
-                .onClick(this.goDetailPage.bind(this))
+                  .onActionStart(() => this.goDetailPage()))
+                .onClick(() => this.goDetailPage())
             }
             .padding({
               left: this.smallImgWidth / Constants.DOUBLE_NUMBER,
@@ -131,7 +128,7 @@ struct DetailListPage {
         List({
           scroller: this.smallScroller,
           space: Constants.LIST_ITEM_SPACE,
-          initialIndex: this.selectedIndex.get()
+          initialIndex: this.selectedIndex
         }) {
           ForEach(this.smallPhotoArr, (img: Resource, index: number) => {
             ListItem() {

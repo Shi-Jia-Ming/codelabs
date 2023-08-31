@@ -37,7 +37,8 @@ struct IndexPage {
     }, Constants.LOADING_DURATION);
   }
 
-  @Builder ClassifyHeader(classifyName: string) {
+  @Builder
+  ClassifyHeader(classifyName: string) {
     Row() {
       Text(classifyName)
         .fontSize($r('app.float.header_font_size'))
@@ -74,7 +75,7 @@ struct IndexPage {
               ClassifyItem({
                 classifyName: item.classifyName,
                 isSelected: this.currentClassify === index,
-                onClickAction: this.classifyChangeAction.bind(this, index, true)
+                onClickAction: () => this.classifyChangeAction(index, true)
               })
             }
           }, (item: ClassifyModel) => item.classifyName + this.currentClassify)
