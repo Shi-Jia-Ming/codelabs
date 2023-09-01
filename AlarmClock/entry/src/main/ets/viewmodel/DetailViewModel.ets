@@ -50,7 +50,7 @@ export default class DetailViewModel {
    * @param repeatDay number
    * @return repeatContent string
    */
-  public transAlarmRepeatDayContent(repeatDay: number): string{
+  public transAlarmRepeatDayContent(repeatDay: number): string {
     let repeatContent;
     switch (repeatDay) {
       case CommonConstants.DEFAULT_NUMBER_MONDAY:
@@ -102,7 +102,7 @@ export default class DetailViewModel {
     DetailConstant.DAY_DATA[CommonConstants.DEFAULT_SINGLE].delSelect = (hour === 0
       ? CommonConstants.DEFAULT_TOTAL_HOUR
       : (hour > CommonConstants.DEFAULT_TOTAL_HOUR ? hour - CommonConstants.DEFAULT_TOTAL_HOUR : hour))
-    - CommonConstants.DEFAULT_SINGLE;
+      - CommonConstants.DEFAULT_SINGLE;
     DetailConstant.DAY_DATA[CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION].delSelect =
     (minute === 0 ? CommonConstants.DEFAULT_TOTAL_MINUTE : minute) - CommonConstants.DEFAULT_SINGLE;
   }
@@ -116,9 +116,11 @@ export default class DetailViewModel {
     alarmItem.hour = this.getAlarmTime(CommonConstants.DEFAULT_SINGLE);
     alarmItem.minute = this.getAlarmTime(CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION);
     let index = await this.findAlarmWithId(alarmItem.id);
-    if (index !== CommonConstants.DEFAULT_NUMBER_NEGATIVE) { // 已存在，删除原有提醒
+    if (index !== CommonConstants.DEFAULT_NUMBER_NEGATIVE) {
+      // The reminder already exists. Delete the original reminder.
       this.reminderService.deleteReminder(alarmItem.id);
-    } else { // 不存在，以数据长度为notificationId新增闹钟数据
+    } else {
+      // If the alarm does not exist, add alarm data based on the data length of notificationId.
       index = this.alarms.length;
       alarmItem.notificationId = index;
       this.alarms.push(alarmItem);
@@ -145,7 +147,7 @@ export default class DetailViewModel {
     globalThis.preference.set(ALARM_KEY, JSON.stringify(this.alarms));
   }
 
-  private getAlarmTime(aType: number): number{
+  private getAlarmTime(aType: number): number {
     let times = DetailConstant.DAY_DATA[aType];
     let selectedIndex = times.delSelect;
     let time = Number(times.data[selectedIndex]);
@@ -162,7 +164,7 @@ export default class DetailViewModel {
     let data = await globalThis.preference.get(ALARM_KEY);
     if (!DataTypeUtils.isNull(data)) {
       this.alarms = JSON.parse(data);
-      for (let i = 0;i < this.alarms.length; i++) {
+      for (let i = 0; i < this.alarms.length; i++) {
         if (this.alarms[i].id === id) {
           return i;
         }

@@ -30,6 +30,7 @@ export default class MainViewModel {
   private constructor() {
     this.alarms = new Array();
     this.reminderService = new ReminderService();
+    this.reminderService.openNotificationPermission();
   }
 
   /**

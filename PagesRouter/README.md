@@ -28,4 +28,4 @@
 
 2.本示例为Stage模型，支持API version 9及以上版本SDK。
 
-3.本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3.本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。

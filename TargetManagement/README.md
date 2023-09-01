@@ -6,11 +6,11 @@
 ![](screenshots/device/TargetManagement.gif)
 
 ## 相关概念
-- [页面状态管理](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/ets-state-mgmt-page-level-0000001149818711): 用于管理页面级变量的状态。
+- [页面状态管理](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-state-management-overview-0000001524537145-V3?catalogVersion=V3): 用于管理页面级变量的状态。
 
-- [自定义弹窗](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-methods-custom-dialog-box-0000001281001266): 通过CustomDialogController类显示自定义弹窗。
+- [自定义弹窗](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-methods-custom-dialog-box-0000001477981237-V3?catalogVersion=V3): 通过CustomDialogController类显示自定义弹窗。
 
-- [List列表](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-list-0000001333800573): 列表包含一系列相同宽度的列表项。
+- [List列表](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-list-0000001477981213-V3?catalogVersion=V3): 列表包含一系列相同宽度的列表项。
 
 ## 相关权限
 
@@ -26,4 +26,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。

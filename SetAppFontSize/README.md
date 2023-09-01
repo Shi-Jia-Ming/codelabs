@@ -2,7 +2,7 @@
 
 ### 简介
 
-基于 [Slider](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-slider-0000001281201142) 组件和首选项，实现通过拖动滑块调节应用内字体大小的功能。
+基于 [Slider](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-slider-0000001427744820-V3?catalogVersion=V3) 组件和首选项，实现通过拖动滑块调节应用内字体大小的功能。
 
 效果图如下：
 
@@ -34,4 +34,4 @@
 
 2.本示例为Stage模型，支持API version 9及以上版本SDK。
 
-3.本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3.本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
