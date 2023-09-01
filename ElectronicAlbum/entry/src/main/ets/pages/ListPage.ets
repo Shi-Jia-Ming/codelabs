@@ -15,13 +15,12 @@
 
 import router from '@ohos.router';
 import Constants from '../common/constants/Constants';
-import Logger from '../common/utils/Logger';
 
 @Entry
 @Component
 struct ListPage {
-  photoArr: Array<Resource> = router.getParams()[`${Constants.PARAM_PHOTO_ARR_KEY}`];
-  @State selectedIndex: SubscribedAbstractProperty<number> = AppStorage.SetAndLink(`${Constants.SELECTED_INDEX_KEY}`, 0);
+  photoArr: Array<Resource> = (router.getParams() as Record<string, Array<Resource>>)[`${Constants.PARAM_PHOTO_ARR_KEY}`];
+  @StorageLink('selectedIndex') selectedIndex: number = 0;
 
   build() {
     Navigation() {
@@ -33,20 +32,18 @@ struct ListPage {
               .width(Constants.FULL_PERCENT)
               .objectFit(ImageFit.Cover)
               .onClick(() => {
-                this.selectedIndex.set(index);
+                this.selectedIndex = index;
                 router.pushUrl({
                   url: Constants.URL_DETAIL_LIST_PAGE,
                   params: {
                     photoArr: this.photoArr,
                   }
-                }).catch((error) => {
-                  Logger.error(Constants.TAG_LIST_PAGE, JSON.stringify(error));
                 });
               })
           }
           .width(Constants.FULL_PERCENT)
           .aspectRatio(1)
-        }, item => JSON.stringify(item))
+        }, (item: Resource) => JSON.stringify(item))
       }
       .columnsTemplate(Constants.GRID_COLUMNS_TEMPLATE)
       .rowsGap(Constants.LIST_ITEM_SPACE)
