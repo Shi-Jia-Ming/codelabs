@@ -13,11 +13,12 @@
  
 ### 相关概念 
  
-- [显式动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-explicit-animation-0000001281480722)：提供全局animateTo显式动画接口来指定有闭包代码导致的状态变化插入过渡动画效果。
+- [显式动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-explicit-animation-0000001478341181-V3?catalogVersion=V3)：提供全局animateTo显式动画接口来指定由于闭包代码导致的状态变化插入过渡动效。
  
-- [属性动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-animatorproperty-0000001333321185)：组件的通用属性发生变化时，可以创建属性动画进行渐变，提升用户体验。
+- [属性动画](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-animatorproperty-0000001478181445-V3?catalogVersion=V3)：组件的某些通用属性变化时，可以通过属性动画实现渐变过渡效果，提升用户体验。支持的属性包括width、height、backgroundColor、opacity、scale、rotate、translate等。
  
-- [Slider](https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-slider-0000001281201142)：滑动条组件，用来快速调节设置值，如音量、亮度等。
+- [Slider](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-slider-0000001427744820-V3?catalogVersion=V3)：滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。
+
  
 ### 使用说明
 1. 进入首页点击按钮会有相应数量的图标由中心旋转而出，再次点击突变会由四周旋转缩回原点。
@@ -28,4 +29,4 @@
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
