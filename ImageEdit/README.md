@@ -8,9 +8,9 @@
 
 ### 相关概念
 
-- [图片解码](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001477981401__imagecreatepixelmap8-1)：读取不同格式的图片文件，无压缩的解码为位图格式。
-- [PixelMap](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001477981401__pixelmap7)：图片解码后的状态，用于对图片像素进行处理。
-- [图片编码](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001477981401__imagepacker)：图片经过像素处理完成之后，需要重新进行编码打包，生成需要的图片格式。
+- [图片解码](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001523648994__imagesource)：读取不同格式的图片文件，无压缩的解码为位图格式。
+- [PixelMap](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001523648994__pixelmap7)：图片解码后的状态，用于对图片像素进行处理。
+- [图片编码](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-image-0000001477981401-V3#ZH-CN_TOPIC_0000001523648994__imagepacker)：图片经过像素处理完成之后，需要重新进行编码打包，生成需要的图片格式。
 
 ### 相关权限
 
@@ -27,5 +27,5 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Beta2及以上版本进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
 
