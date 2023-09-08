@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "SelectContact"
+    },
+    {
+      "name": "navigation_title",
+      "value": "手机充值"
+    },
+    {
+      "name": "recharge_button",
+      "value": "充值"
+    },
+    {
+      "name": "recharge_success",
+      "value": "充值成功"
+    },
+    {
+      "name": "phone_check",
+      "value": "手机号不能为空"
+    }
+  ]
+}

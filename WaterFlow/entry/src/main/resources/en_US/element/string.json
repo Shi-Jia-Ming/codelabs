@@ -1,0 +1,55 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "WaterFlow"
+    },  {
+      "name": "title_bar_homepage",
+      "value": "Home"
+    },
+    {
+      "name": "title_bar_phone",
+      "value": "Phone"
+    },
+    {
+      "name": "title_bar_computer",
+      "value": "Computers"
+    },
+    {
+      "name": "title_bar_foods",
+      "value": "Food"
+    },
+    {
+      "name": "title_bar_men_wear",
+      "value": "Menswear"
+    },
+    {
+      "name": "title_bar_fresh",
+      "value": "Fresh"
+    },
+    {
+      "name": "title_bar_furniture_kitchenware",
+      "value": "Furniture"
+    },
+    {
+      "name": "title_bar_classification",
+      "value": "Classifieds"
+    },
+    {
+      "name": "search_text",
+      "value": "Children's dining chair"
+    },
+    {
+      "name": "footer_text",
+      "value": "It's been to the end."
+    }
+  ]
+}

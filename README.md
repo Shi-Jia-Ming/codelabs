@@ -23,6 +23,8 @@
   - [Stage模型下Ability的创建和使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/StageAbilityDemo)
 - UI(ArkTS)
   - [一次开发，多端部署-视频应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Multi_device_V2)
+  - [WaterFlow容器的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WaterFlow)
+  - [ArkTS与H5的交互（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SelectContact)
   - [电子相册（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ElectronicAlbum)
   - [构建多种样式弹窗（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/MultipleDialog)
   - [简易计算器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleCalculator)

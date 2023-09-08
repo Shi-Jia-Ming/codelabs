@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "SelectContact"
+    },
+    {
+      "name": "navigation_title",
+      "value": "charge credit"
+    },
+    {
+      "name": "recharge_button",
+      "value": "recharge"
+    },
+    {
+      "name": "recharge_success",
+      "value": "recharge success"
+    },
+    {
+      "name": "phone_check",
+      "value": "The tel isn't empty"
+    }
+  ]
+}
