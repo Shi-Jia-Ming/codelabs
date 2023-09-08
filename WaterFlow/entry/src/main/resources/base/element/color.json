@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "indicator_select",
+      "value": "#F74E42"
+    },
+    {
+      "name": "focus_color",
+      "value": "#E92F4F"
+    },
+    {
+      "name": "home_background_color",
+      "value": "#F1F3F5"
+    }
+  ]
+}

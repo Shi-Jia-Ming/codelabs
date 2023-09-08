@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "WaterFlow组件的使用"
+    },
+    {
+      "name": "title_bar_homepage",
+      "value": "首页"
+    },
+    {
+      "name": "title_bar_phone",
+      "value": "手机"
+    },
+    {
+      "name": "title_bar_computer",
+      "value": "电脑"
+    },
+    {
+      "name": "title_bar_foods",
+      "value": "食品"
+    },
+    {
+      "name": "title_bar_men_wear",
+      "value": "男装"
+    },
+    {
+      "name": "title_bar_fresh",
+      "value": "生鲜"
+    },
+    {
+      "name": "title_bar_furniture_kitchenware",
+      "value": "家具厨具"
+    },
+    {
+      "name": "title_bar_classification",
+      "value": "分类"
+    },
+    {
+      "name": "search_text",
+      "value": "儿童餐椅"
+    },
+    {
+      "name": "footer_text",
+      "value": "已经到底了"
+    }
+  ]
+}

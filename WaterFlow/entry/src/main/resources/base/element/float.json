@@ -1,0 +1,196 @@
+{
+  "float": [
+    {
+      "name": "smaller_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "small_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "middle_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "split_line_width",
+      "value": "1vp"
+    },
+    {
+      "name": "split_line_height",
+      "value": "18vp"
+    },
+    {
+      "name": "more_width",
+      "value": "16vp"
+    },
+    {
+      "name": "more_height",
+      "value": "16vp"
+    },
+    {
+      "name": "more_margin_left",
+      "value": "2vp"
+    },
+    {
+      "name": "more_margin_right",
+      "value": "2vp"
+    },
+    {
+      "name": "classify_title_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "search_width",
+      "value": "20vp"
+    },
+    {
+      "name": "search_height",
+      "value": "20vp"
+    },
+    {
+      "name": "search_radius",
+      "value": "20vp"
+    },
+    {
+      "name": "search_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "search_margin_right",
+      "value": "8vp"
+    },
+    {
+      "name": "search_swiper_height",
+      "value": "40vp"
+    },
+    {
+      "name": "search_margin_top",
+      "value": "16vp"
+    },
+    {
+      "name": "swiper_image_height",
+      "value": "150vp"
+    },
+    {
+      "name": "swiper_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "swiper_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "swiper_margin_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "image_background_height",
+      "value": "222vp"
+    },
+    {
+      "name": "home_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "home_margin_right",
+      "value": "12vp"
+    },
+    {
+      "name": "product_layout_radius",
+      "value": "8vp"
+    },
+    {
+      "name": "product_layout_margin_left",
+      "value": "12vp"
+    },
+    {
+      "name": "product_layout_margin_right",
+      "value": "12vp"
+    },
+    {
+      "name": "product_layout_margin_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "product_image_size",
+      "value": "132vp"
+    },
+    {
+      "name": "water_flow_image_top",
+      "value": "12vp"
+    },
+    {
+      "name": "water_flow_image_bottom",
+      "value": "8vp"
+    },
+    {
+      "name": "discount_text_bottom",
+      "value": "4vp"
+    },
+    {
+      "name": "piece_line_height",
+      "value": "19vp"
+    },
+    {
+      "name": "promotion_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "promotion_radius",
+      "value": "4vp"
+    },
+    {
+      "name": "promotion_text_height",
+      "value": "16vp"
+    },
+    {
+      "name": "promotion_padding_left",
+      "value": "4vp"
+    },
+    {
+      "name": "promotion_padding_right",
+      "value": "4vp"
+    },
+    {
+      "name": "promotion_margin_top",
+      "value": "6vp"
+    },
+    {
+      "name": "promotion_margin_right",
+      "value": "8vp"
+    },
+    {
+      "name": "bonus_points_radius_width",
+      "value": "0.5vp"
+    },
+    {
+      "name": "bonus_points_margin_top",
+      "value": "6vp"
+    },
+    {
+      "name": "bonus_points_padding_left",
+      "value": "8vp"
+    },
+    {
+      "name": "bonus_points_padding_right",
+      "value": "8vp"
+    },
+    {
+      "name": "water_flow_columns_gap",
+      "value": "8vp"
+    },
+    {
+      "name": "water_flow_row_gap",
+      "value": "8vp"
+    },
+    {
+      "name": "footer_text_size",
+      "value": "10vp"
+    },
+    {
+      "name": "footer_text_height",
+      "value": "20vp"
+    }
+  ]
+}
