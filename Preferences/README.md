@@ -27,5 +27,5 @@
 ### 约束与限制
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机。
-2. 本示例为Stage模型，支持API version 9及以上版本SDK。
-3. 本示例需要使用DevEco Studio 3.1 Release及以上版本进行编译运行。
+2. 本示例为Stage模型，支持API version 9。
+3. 本示例需要使用DevEco Studio 3.1 Release版本进行编译运行。
