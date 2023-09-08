@@ -1,0 +1,116 @@
+/* Common Style */
+* {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/* Container Style */
+.container {
+    position: relative;
+}
+
+/* Text div style */
+.select_tips {
+    height: 24rem;
+    width: 100%;
+    overflow: auto;
+}
+
+.select_tips > div {
+    font-size: 12rem;
+    color: #999;
+}
+
+/* Left text div style */
+#phone_tip {
+    float: left;
+    margin-left: 12rem;
+}
+
+/* Right text div style */
+#concat_tip {
+    float: right;
+    margin-right: 12rem;
+}
+
+/* Contact input type */
+input[type='tel'] {
+    width: 80%;
+    height: 36rem;
+    font-size: 24rem;
+    outline: none;
+    border-left-width: 0;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom: 0.5rem solid rgba(24, 36, 49, 0.05);
+}
+
+/* Icon select style */
+#icon-select {
+    width: 24rem;
+    height: 24rem;
+    text-align: right;
+}
+
+/* Select input div style */
+.flex-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 36rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+/* Amount select container */
+.amount-content {
+    background-color: #fff;
+    padding: 12rem;
+    border-radius: 24rem;
+    margin-top: 16rem;
+}
+
+/* Amount select ttp */
+.amount-tip {
+    background-color: #fff;
+    font-size: 16rem;
+    color: #182431;
+    font-weight: 500;
+}
+
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 12rem;
+    margin-top: 12rem;
+    background-color: #fff;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 53rem;
+    background-color: #fff;
+    color: #182431;
+    font-size: 21rem;
+    border-radius: 8rem;
+    border: 1rem solid rgba(24, 36, 49, 0.20);
+}
+
+/* Grid item selected */
+.selected {
+    background-color: #007DFF;
+    color: #fff;
+}
+
+.bottom-tip {
+    font-size: 12rem;
+    color: rgba(24, 36, 49, 0.60);
+    font-weight: 400;
+    margin-top: 8rem;
+    margin-left: 8rem;
+}

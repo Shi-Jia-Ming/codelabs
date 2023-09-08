@@ -1,0 +1,44 @@
+<!-- MainPage.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <meta charset="utf-8">
+    <title>testApp</title>
+</head>
+<script>
+    window.ohosCallNative.callNative('getProportion', {}, (data) => {
+        document.getElementsByTagName("html")[0].style.fontSize = data + 'px';
+    })
+</script>
+<body>
+<div class="container">
+    <div class="selectConcat">
+        <div class="select_tips">
+            <div id="phone_tip">手机号</div>
+            <div id="concat_tip">联系人</div>
+        </div>
+        <div class="flex-input">
+            <input type="tel" id="phone" placeholder="请输入手机号" oninput="changeVal(event)" value=""/>
+            <img id="icon-select" onclick="chooseContact()" src="./img/ic_contacts.svg"/>
+        </div>
+    </div>
+    <div class="amount-content">
+        <div class="amount-tip">充值金额</div>
+        <div class="grid-container">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+    </div>
+    <div class="bottom-tip">选择一个金额开始充值</div>
+</div>
+<script src="./js/mainPage.js"></script>
+</body>
+</html>
