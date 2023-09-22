@@ -17,11 +17,11 @@ import router from '@ohos.router';
 import { SLEEP, TASK_NAME, TASK_TARGET, TASK_PROGRESS, FREQUENCY, REMIND_TIME, EVERYDAY } from '../common/Const';
 
 class DetailModel {
-  title: string;
-  value: string;
+  title: string = '';
+  value: string = '';
 }
 
-const DETAILS = [
+const DETAILS: Array<DetailModel> = [
   { title: TASK_NAME, value: SLEEP },
   { title: TASK_TARGET, value: SLEEP },
   { title: TASK_PROGRESS, value: '100%' },
