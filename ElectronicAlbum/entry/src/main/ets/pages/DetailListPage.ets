@@ -31,16 +31,15 @@ struct DetailListPage {
   @State smallImgWidth: number = (this.deviceWidth - Constants.LIST_ITEM_SPACE * (Constants.SHOW_COUNT - 1)) /
   Constants.SHOW_COUNT;
   @State imageWidth: number = this.deviceWidth + this.smallImgWidth;
-  private photoArr: Array<Resource | string> = router.getParams()[`${Constants.PARAM_PHOTO_ARR_KEY}`];
-  private smallPhotoArr: Array<Resource | string> = [
-    ...Constants.CACHE_IMG_LIST,
-    ...router.getParams()[`${Constants.PARAM_PHOTO_ARR_KEY}`],
-    ...Constants.CACHE_IMG_LIST
-  ];
+  private photoArr: Array<ResourceStr> = (router.getParams() as Record<string, Array<ResourceStr>>)[`${Constants.PARAM_PHOTO_ARR_KEY}`];
+  private smallPhotoArr: Array<ResourceStr> = new Array<ResourceStr>().concat(Constants.CACHE_IMG_LIST,
+    (router.getParams() as Record<string, Array<ResourceStr>>)[`${Constants.PARAM_PHOTO_ARR_KEY}`],
+    Constants.CACHE_IMG_LIST)
   @StorageLink('selectedIndex') selectedIndex: number = 0;
 
-  @Builder SmallImgItemBuilder(img: Resource, index: number) {
-    if (index > (Constants.CACHE_IMG_SIZE - 1) && index < (this.smallPhotoArr.length - Constants.CACHE_IMG_SIZE)) {
+  @Builder
+  SmallImgItemBuilder(img: Resource, index?: number) {
+    if (index && index > (Constants.CACHE_IMG_SIZE - 1) && index < (this.smallPhotoArr.length - Constants.CACHE_IMG_SIZE)) {
       Image(img)
         .onClick(() => this.smallImgClickAction(index))
     }
@@ -73,8 +72,8 @@ struct DetailListPage {
   }
 
   smallScrollAction(type: scrollTypeEnum): void {
-    this.selectedIndex = Math.round((this.smallScroller.currentOffset().xOffset +
-    this.smallImgWidth / Constants.DOUBLE_NUMBER) / (this.smallImgWidth + Constants.LIST_ITEM_SPACE));
+    this.selectedIndex = Math.round(((this.smallScroller.currentOffset().xOffset as number) +
+      this.smallImgWidth / Constants.DOUBLE_NUMBER) / (this.smallImgWidth + Constants.LIST_ITEM_SPACE));
     if (type === scrollTypeEnum.SCROLL) {
       this.bigScroller.scrollTo({ xOffset: this.selectedIndex * this.imageWidth, yOffset: 0 });
     } else {
@@ -84,8 +83,8 @@ struct DetailListPage {
 
   bigScrollAction(type: scrollTypeEnum): void {
     let smallWidth = this.smallImgWidth + Constants.LIST_ITEM_SPACE;
-    this.selectedIndex = Math.round((this.bigScroller.currentOffset().xOffset +
-    smallWidth / Constants.DOUBLE_NUMBER) / this.imageWidth);
+    this.selectedIndex = Math.round(((this.bigScroller.currentOffset().xOffset as number) +
+      smallWidth / Constants.DOUBLE_NUMBER) / this.imageWidth);
     if (type === scrollTypeEnum.SCROLL) {
       this.smallScroller.scrollTo({ xOffset: this.selectedIndex * smallWidth, yOffset: 0 });
     } else {
@@ -97,7 +96,7 @@ struct DetailListPage {
     Navigation() {
       Stack({ alignContent: Alignment.Bottom }) {
         List({ scroller: this.bigScroller, initialIndex: this.selectedIndex }) {
-          ForEach(this.photoArr, (img: Resource, index: number) => {
+          ForEach(this.photoArr, (img: Resource) => {
             ListItem() {
               Image(img)
                 .height(Constants.FULL_PERCENT)
@@ -112,7 +111,7 @@ struct DetailListPage {
               right: this.smallImgWidth / Constants.DOUBLE_NUMBER
             })
             .width(this.imageWidth)
-          }, item => JSON.stringify(item))
+          }, (item: Resource) => JSON.stringify(item))
         }
         .onScroll((scrollOffset, scrollState) => {
           if (scrollState === ScrollState.Fling) {
@@ -130,13 +129,13 @@ struct DetailListPage {
           space: Constants.LIST_ITEM_SPACE,
           initialIndex: this.selectedIndex
         }) {
-          ForEach(this.smallPhotoArr, (img: Resource, index: number) => {
+          ForEach(this.smallPhotoArr, (img: Resource, index?: number) => {
             ListItem() {
               this.SmallImgItemBuilder(img, index)
             }
             .width(this.smallImgWidth)
             .aspectRatio(1)
-          }, item => JSON.stringify(item))
+          }, (item: Resource) => JSON.stringify(item))
         }
         .listDirection(Axis.Horizontal)
         .onScroll((scrollOffset, scrollState) => {

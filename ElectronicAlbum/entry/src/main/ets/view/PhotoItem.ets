@@ -17,7 +17,7 @@ import Constants from '../common/constants/Constants';
 
 @Component
 export default struct PhotoItem {
-  photoArr: Array<Resource>;
+  photoArr: Array<Resource> = [];
   @State currentIndex: number = 0;
   private showCount: number = Constants.SHOW_COUNT / Constants.DOUBLE_NUMBER;
 
@@ -37,9 +37,11 @@ export default struct PhotoItem {
 
   build() {
     Stack({ alignContent: Alignment.Top }) {
-      ForEach(Constants.CACHE_IMG_LIST, (image, index) => {
-        this.albumPicBuilder(this.photoArr[this.showCount - index - 1], index)
-      }, (item, index) => JSON.stringify(item) + index)
+      ForEach(Constants.CACHE_IMG_LIST, (image: string, index?: number) => {
+        if (index) {
+          this.albumPicBuilder(this.photoArr[this.showCount - index - 1], index)
+        }
+      }, (item: string, index?: number) => JSON.stringify(item) + index)
     }
     .width(Constants.FULL_PERCENT)
     .height(Constants.FULL_PERCENT)

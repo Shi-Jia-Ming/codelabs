@@ -48,7 +48,7 @@ struct IndexPage {
           }
           .width(Constants.FULL_PERCENT)
           .aspectRatio(Constants.BANNER_ASPECT_RATIO)
-        }, (item: Resource, index: number) => JSON.stringify(item) + index)
+        }, (item: Resource, index?: number) => JSON.stringify(item) + index)
       }
       .autoPlay(true)
       .loop(true)
@@ -71,7 +71,7 @@ struct IndexPage {
               params: { photoArr: photoArr }
             });
           })
-        }, (item: Resource, index: number) => JSON.stringify(item) + index)
+        }, (item: Array<Resource>, index?: number) => JSON.stringify(item) + index)
       }
       .columnsTemplate(Constants.INDEX_COLUMNS_TEMPLATE)
       .columnsGap($r('app.float.grid_padding'))

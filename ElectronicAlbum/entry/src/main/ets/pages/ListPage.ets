@@ -25,13 +25,16 @@ struct ListPage {
   build() {
     Navigation() {
       Grid() {
-        ForEach(this.photoArr, (img: Resource, index: number) => {
+        ForEach(this.photoArr, (img: Resource, index?: number) => {
           GridItem() {
             Image(img)
               .height(Constants.FULL_PERCENT)
               .width(Constants.FULL_PERCENT)
               .objectFit(ImageFit.Cover)
               .onClick(() => {
+                if (!index) {
+                  index = 0;
+                }
                 this.selectedIndex = index;
                 router.pushUrl({
                   url: Constants.URL_DETAIL_LIST_PAGE,
