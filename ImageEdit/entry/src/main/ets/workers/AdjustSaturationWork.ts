@@ -25,7 +25,7 @@ let workerPort : ThreadWorkerGlobalScope = worker.workerPort;
 *
 * @param e message data
 */
-workerPort.onmessage = function(event : MessageEvents) {
+workerPort.onmessage = function (event: MessageEvents) {
     let bufferArray = event.data.buf;
     let last = event.data.last;
     let cur = event.data.cur;
@@ -40,7 +40,7 @@ workerPort.onmessage = function(event : MessageEvents) {
 *
 * @param e message data
 */
-workerPort.onmessageerror = function(event : MessageEvents) {
+workerPort.onmessageerror = function (event: MessageEvents) {
     hilog.error(0x0000, 'AdjustSaturationWork', 'Failed to load the content. Cause: %{public}s', `on message error ${JSON.stringify(event)}`);
 }
 
@@ -50,6 +50,6 @@ workerPort.onmessageerror = function(event : MessageEvents) {
 *
 * @param e error message
 */
-workerPort.onerror = function(error : ErrorEvent) {
+workerPort.onerror = function (error: ErrorEvent) {
     hilog.error(0x0000, 'AdjustSaturationWork', 'Failed to load the content. Cause: %{public}s', `on worker error ${JSON.stringify(error)}`);
 }

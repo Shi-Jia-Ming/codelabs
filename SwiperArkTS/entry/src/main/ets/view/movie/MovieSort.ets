@@ -40,7 +40,7 @@ export struct MovieSort {
           GridItem() {
             PictureView({ photos: item })
           }
-        }, item => JSON.stringify(item))
+        }, (item: PictureItem) => JSON.stringify(item))
       }
       .columnsTemplate(CommonConstants.THREE_COLUMNS)
       .rowsTemplate(CommonConstants.THREE_ROWS)

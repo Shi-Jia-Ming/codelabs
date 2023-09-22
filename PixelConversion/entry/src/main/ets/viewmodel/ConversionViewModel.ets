@@ -29,34 +29,10 @@ class ConversionViewModel {
 }
 
 export const CONVERSION_LIST: ConversionItem[] = [
-  {
-    title: 'vp > px',
-    subTitle: `vp2px(${Constants.VP_SIZE})`,
-    value: vp2px(Constants.VP_SIZE),
-    conversionTitle: 'px > vp',
-    conversionSubTitle: `px2vp(${Constants.VP_SIZE})`,
-    conversionValue: px2vp(Constants.VP_SIZE),
-    notice: null
-  },
-  {
-    title: 'fp > px',
-    subTitle: `fp2px(${Constants.VP_SIZE})`,
-    value: fp2px(Constants.VP_SIZE),
-    conversionTitle: 'px > fp',
-    conversionSubTitle: `px2fp(${Constants.VP_SIZE})`,
-    conversionValue: px2fp(Constants.VP_SIZE),
-    notice: null
-  },
-  {
-    title: 'lpx > px',
-    subTitle: `lpx2px(${Constants.VP_SIZE})`,
-    value: lpx2px(Constants.VP_SIZE),
-    conversionTitle: 'px > lpx',
-    conversionSubTitle: `px2lpx(${Constants.VP_SIZE})`,
-    conversionValue: px2lpx(Constants.VP_SIZE),
-    notice: $r('app.string.notice')
-  }
-];
+  new ConversionItem('vp > px', `vp2px(${Constants.VP_SIZE})`, vp2px(Constants.VP_SIZE), 'px > vp',`px2vp(${Constants.VP_SIZE})`, px2vp(Constants.VP_SIZE)),
+  new ConversionItem('fp > px',`fp2px(${Constants.VP_SIZE})`,fp2px(Constants.VP_SIZE),'px > fp',`px2fp(${Constants.VP_SIZE})`,px2fp(Constants.VP_SIZE)),
+  new ConversionItem('lpx > px',`lpx2px(${Constants.VP_SIZE})`,lpx2px(Constants.VP_SIZE),'px > lpx',`px2lpx(${Constants.VP_SIZE})`,px2lpx(Constants.VP_SIZE),$r('app.string.notice'))
+]
 
 let conversionViewModel = new ConversionViewModel();
 

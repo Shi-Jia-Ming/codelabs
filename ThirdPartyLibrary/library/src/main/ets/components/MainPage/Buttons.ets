@@ -13,23 +13,26 @@
  * limitations under the License.
  */
 
-import ButtonViewModel from '../../viewmodel/ButtonsViewModel'
+import ButtonViewModel from '../../viewmodel/ButtonsViewModel';
 
 @Component
 export struct Buttons {
-  @Prop buttonText: string;
-  @Prop stateEffect: boolean;
-  @Prop buttonShape: string;
-  @Prop buttonType: string;
-  @Prop fontColor: string;
+  @Prop buttonText: string = '';
+  @Prop stateEffect: boolean = false;
+  @Prop buttonShape: string = '';
+  @Prop buttonType: string = '';
+  @Prop fontColor: string = '';
 
   build() {
     Row() {
       Column() {
-        Button({ type: ButtonViewModel.fetchType(this.buttonShape), stateEffect: this.stateEffect }){
+        Button({
+          type: ButtonViewModel.fetchType(this.buttonShape),
+          stateEffect: this.stateEffect
+        }) {
           Text(this.buttonText)
-          .fontSize($r('app.float.default_16'))
-          .fontColor(this.fontColor || $r('app.color.white'))
+            .fontSize($r('app.float.default_16'))
+            .fontColor(this.fontColor || $r('app.color.white'))
         }
         .width($r('app.float.default_90'))
         .height($r('app.float.default_35'))

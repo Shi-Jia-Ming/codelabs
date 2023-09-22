@@ -17,11 +17,11 @@
  * GoodsData is used to initialize the GoodsComponent.
  */
 export default class GoodsData {
-  goodsName: Resource;
-  price: string;
-  originalPrice: string;
-  discounts: Resource;
-  label: Resource;
-  goodsImg: Resource;
-  goodsDescription: Resource;
+  goodsName: Resource = $r('app.string.goods_list_item_1');
+  price: string = '';
+  originalPrice: string = '';
+  discounts: Resource = $r('app.string.goods_list_item_1_save');
+  label: Resource = $r('app.string.goods_list_activity_new');
+  goodsImg: Resource =  $rawfile('index/good1.png');
+  goodsDescription: Resource = $r('app.string.goods_list_item_1_desc');
 }

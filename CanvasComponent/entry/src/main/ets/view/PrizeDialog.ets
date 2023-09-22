@@ -22,11 +22,11 @@ import CommonConstants from '../common/constants/CommonConstants';
 export default struct PrizeDialog {
   @Link prizeData: PrizeData;
   @Link enableFlag: boolean;
-  private controller: CustomDialogController;
+  private controller?: CustomDialogController;
 
   build() {
     Column() {
-      Image(this.prizeData.imageSrc)
+      Image(this.prizeData.imageSrc !== undefined ? this.prizeData.imageSrc : '')
         .width($r('app.float.dialog_image_size'))
         .height($r('app.float.dialog_image_size'))
         .margin({
@@ -51,7 +51,7 @@ export default struct PrizeDialog {
         .fontSize($r('app.float.dialog_font_size'))
         .textAlign(TextAlign.Center)
         .onClick(() => {
-          this.controller.close();
+          this.controller?.close();
           this.enableFlag = !this.enableFlag;
         })
     }

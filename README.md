@@ -40,7 +40,7 @@
   - [自定义下拉刷新动画（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/AnimateRefresh)
   - [ArkUI常用布局容器对齐方式（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/LayoutAlign)
   - [常用组件与布局（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ArkTSComponents)
-  - [Web组件的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebCookie)
+  - [Web组件之cookie常见操作（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WebCookie)
   - [Swiper的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SwiperArkTS)
   - [基础组件Slider的使用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SliderExample)
   - [List组件的用法之商品列表（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/List)

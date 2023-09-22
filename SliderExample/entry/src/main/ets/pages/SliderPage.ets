@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Constants, RotatePosition, SliderMode, SliderScale, SliderSpeed } from '../common/Constants';
+import { Constants, RotatePosition, SliderMode, SliderSpeed } from '../common/Constants';
 import { PanelComponent } from '../view/PanelComponent';
 
 @Entry
@@ -64,9 +64,9 @@ struct SliderPage {
         }),
         options: {
           value: this.imageSize,
-          min: SliderScale.MIN,
-          max: SliderScale.MAX,
-          step: SliderScale.STEP,
+          min: Constants.MIN,
+          max: Constants.MAX,
+          step: Constants.STEP,
           style: SliderStyle.InSet
         }
       })
@@ -80,10 +80,10 @@ struct SliderPage {
     .backgroundColor($r('app.color.background_color'))
   }
 
-  speedChange() {
+  speedChange(): void {
     let that = this;
     this.angle = Constants.ANGLE;
-    this.interval = setInterval(function () {
+    this.interval = setInterval(() => {
       that.angle += that.speed;
     }, Constants.DELAY_TIME)
   }

@@ -29,38 +29,11 @@ class IntroductionViewModel {
 }
 
 const INTRODUCE_LIST: IntroductionItem[] = [
-  {
-    name: 'px',
-    title: $r('app.string.px_unit'),
-    subTitle: null,
-    value: Constants.PIXEL_WIDTH + 'px',
-    smallFontSize: 0,
-    largeFontSize: 0
-  },
-  {
-    name: 'vp',
-    title: $r('app.string.vp_unit'),
-    subTitle: $r('app.string.vp_desc'),
-    value: Constants.PIXEL_WIDTH + 'vp',
-    smallFontSize: 0,
-    largeFontSize: 0
-  },
-  {
-    name: 'lpx',
-    title: $r('app.string.lpx_unit'),
-    subTitle: null,
-    value: Constants.PIXEL_WIDTH + 'lpx',
-    smallFontSize: 0,
-    largeFontSize: 0
-  },
-  {
-    name: 'fp',
-    title: $r('app.string.fp_unit'),
-    subTitle: $r('app.string.fp_desc'),
-    value: '',
-    smallFontSize: Constants.SMALL_FONT_SIZE,
-    largeFontSize: Constants.LARGE_FONT_SIZE
-  }
+  new IntroductionItem('px', $r('app.string.px_unit'), '', Constants.PIXEL_WIDTH + 'px', 0, 0),
+  new IntroductionItem('vp', $r('app.string.vp_unit'), $r('app.string.vp_desc'), Constants.PIXEL_WIDTH + 'vp', 0, 0),
+  new IntroductionItem('lpx', $r('app.string.lpx_unit'), '', Constants.PIXEL_WIDTH + 'lpx', 0, 0),
+  new IntroductionItem('fp', $r('app.string.fp_unit'), $r('app.string.fp_desc'), '', Constants.SMALL_FONT_SIZE,
+    Constants.LARGE_FONT_SIZE)
 ];
 
 let introductionViewModel = new IntroductionViewModel();

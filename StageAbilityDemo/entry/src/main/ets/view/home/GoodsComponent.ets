@@ -20,18 +20,21 @@ import { PERCENTAGE_100, PERCENTAGE_50 } from '../../common/constants/Constants'
 
 @Component
 export default struct GoodsComponent {
-  private goodsList: GoodsData[];
-  private startPage: (index: number) => void;
+  private goodsList: GoodsData[] = [];
+  private startPage: (index: number) => void = (index: number) => {};
 
   build() {
     Grid() {
-      ForEach(this.goodsList, (item, index) => {
+      ForEach(this.goodsList, (item: GoodsData, index?: number) => {
         GridItem() {
           GoodsItemComponent({ config: item })
         }.onClick(() => {
+          if (!index) {
+            index = 0;
+          }
           this.startPage(index);
         })
-      }, item => JSON.stringify(item))
+      }, (item: GoodsData) => JSON.stringify(item))
     }
     .columnsTemplate(GoodsList.GRID_STYLE)
     .columnsGap(GoodsList.SPACE)

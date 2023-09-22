@@ -37,8 +37,7 @@ struct IndexPage {
     }, Constants.LOADING_DURATION);
   }
 
-  @Builder
-  ClassifyHeader(classifyName: string) {
+  @Builder ClassifyHeader(classifyName: string) {
     Row() {
       Text(classifyName)
         .fontSize($r('app.float.header_font_size'))
@@ -70,12 +69,16 @@ struct IndexPage {
     Row() {
       if (this.requestSuccess) {
         List({ scroller: this.classifyScroller }) {
-          ForEach(this.classifyList, (item: ClassifyModel, index: number) => {
+          ForEach(this.classifyList, (item: ClassifyModel, index?: number) => {
             ListItem() {
               ClassifyItem({
                 classifyName: item.classifyName,
                 isSelected: this.currentClassify === index,
-                onClickAction: () => this.classifyChangeAction(index, true)
+                onClickAction: () => {
+                  if (index !== undefined) {
+                    this.classifyChangeAction(index, true);
+                  }
+                }
               })
             }
           }, (item: ClassifyModel) => item.classifyName + this.currentClassify)

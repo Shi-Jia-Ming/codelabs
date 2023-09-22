@@ -17,7 +17,7 @@
  * Multithreading transmission message.
  */
 export class MessageItem {
-  constructor(buf, last, cur) {
+  constructor(buf: ArrayBuffer, last: number, cur: number) {
     this.buf = buf;
     this.last = last;
     this.cur = cur;

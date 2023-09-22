@@ -22,7 +22,7 @@ import { StackAlignRadioList } from './StackAlignRadioList';
 @Component
 export struct StackComponent {
   @Consume currentStackAlignContent: Alignment;
-  @Consume message: string ;
+  @Consume message: string;
   @State textAl: TextAlign = TextAlign.Center;
 
   build() {

@@ -17,18 +17,16 @@ import { CommonEventBean } from '../common/bean/CommonEventBean';
 import { CommonConstants } from '../common/constants/CommonConst';
 
 class MainPageViewModel {
-  getCommonEventData() {
+  getCommonEventData(): Array<CommonEventBean> {
     let CommonEventData: Array<CommonEventBean> = [];
     for (let i = 0; i < COMMON_EVENT.length; i++) {
-      let CommonEventItem = new CommonEventBean();
-      CommonEventItem = { ...COMMON_EVENT[i] };
-      CommonEventData.push(CommonEventItem);
+      CommonEventData.push(COMMON_EVENT[i]);
     }
     return CommonEventData;
   }
 }
 
-const COMMON_EVENT = [
+const COMMON_EVENT: CommonEventBean[] = [
   {
     title: $r('app.string.wifi_event_title'),
     state: $r('app.string.event_init_state'),
@@ -37,10 +35,10 @@ const COMMON_EVENT = [
     buttonTitle: $r('app.string.btn_title_subscribe'),
     isSubscribe: false,
     subscriber: null,
-    subEvents: CommonConstants.SUB_EVENTS.CONN_STATE,
+    subEvents: CommonConstants.CONN_STATE,
     onIcon: $r('app.media.ic_wifi_on'),
     offIcon: $r('app.media.ic_wifi_off')
-  },
+  } as CommonEventBean,
   {
     title: $r('app.string.charge_event_title'),
     state: $r('app.string.event_init_state'),
@@ -49,10 +47,10 @@ const COMMON_EVENT = [
     buttonTitle: $r('app.string.btn_title_subscribe'),
     isSubscribe: false,
     subscriber: null,
-    subEvents: CommonConstants.SUB_EVENTS.BATTERY_CHANGED,
+    subEvents: CommonConstants.BATTERY_CHANGED,
     onIcon: $r('app.media.ic_batteries_on'),
     offIcon: $r('app.media.ic_batteries_off')
-  }
+  } as CommonEventBean
 ];
 
 let mainPageViewModel = new MainPageViewModel();

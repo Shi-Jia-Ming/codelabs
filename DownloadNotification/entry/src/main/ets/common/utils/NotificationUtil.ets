@@ -34,7 +34,7 @@ export function createWantAgent(bundleName: string, abilityName: string): Promis
     operationType: wantAgent.OperationType.START_ABILITY,
     requestCode: 0,
     wantAgentFlags: [wantAgent.WantAgentFlags.CONSTANT_FLAG]
-  };
+  } as wantAgent.WantAgentInfo;
   return wantAgent.getWantAgent(wantAgentInfo);
 }
 
@@ -46,7 +46,7 @@ export function createWantAgent(bundleName: string, abilityName: string): Promis
  * @param wantAgentObj The want of application.
  */
 export function publishNotification(progress: number, title: string, wantAgentObj: WantAgent) {
-  let template = {
+  let template:notification.NotificationTemplate = {
     name: 'downloadTemplate',
     data: {
       progressValue: progress,
@@ -69,7 +69,18 @@ export function publishNotification(progress: number, title: string, wantAgentOb
     },
     wantAgent: wantAgentObj
   };
-  notification.publish(notificationRequest).catch(err => {
-    Logger.error(`[ANS] publish failed, code is ${err.code}, message is ${err.message}`);
+  notification.publish(notificationRequest).catch((err: Error) => {
+    Logger.error(`[ANS] publish failed,message is ${err}`);
+  });
+}
+
+/**
+ * open notification permission
+ */
+export function openNotificationPermission() {
+  notification.requestEnableNotification().then(() => {
+    Logger.info('Enable notification success');
+  }).catch((err) => {
+    Logger.error('Enable notification failed because ' + JSON.stringify(err));
   });
 }

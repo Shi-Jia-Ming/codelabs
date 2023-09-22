@@ -12,18 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { ATTRIBUTE, GROUP } from '../constants/CommonConstants';
 
 /*
  * class for ContainerModuleItem
  */
 export class ContainerModuleItem {
-  private groupName: string;
-  private moduleName: Resource;
-  private attributeList: string[];
-
-  constructor(groupName: string, moduleName: Resource, attributeList: string[]) {
-    this.groupName = groupName;
-    this.moduleName = moduleName;
-    this.attributeList = attributeList;
-  }
+   groupName: string = GROUP.MAIN_ALIGN;
+   moduleName: Resource = $r("app.string.main_align");
+   attributeList: string[] = [ATTRIBUTE.START, ATTRIBUTE.CENTER, ATTRIBUTE.END];
 }

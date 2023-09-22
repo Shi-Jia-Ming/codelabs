@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { CommonConstants } from '../constants/CommonConst';
 
 /**
  * ButtonList item information
@@ -20,50 +21,50 @@ export class CommonEventBean {
   /**
    * The title of common events.
    */
-  title: Resource;
+  title: Resource = $r('app.string.wifi_event_title');
 
   /**
    * The name of common events.
    */
-  name: Resource;
+  name: Resource = $r('app.string.wifi_connection_state');
 
   /**
    * The state of common events.
    */
-  state: Resource;
+  state: Resource = $r('app.string.event_init_state');
 
   /**
    * The change state of common event state.
    */
-  changeState: boolean;
+  changeState: boolean = false;
 
   /**
    * The title of the button.
    */
-  buttonTitle: Resource;
+  buttonTitle: Resource = $r('app.string.btn_title_subscribe');
 
   /**
    * Subscribed or not.
    */
-  isSubscribe: boolean;
+  isSubscribe: boolean = false;
 
   /**
    * The subscriber of common events.
    */
-  subscriber: any;
+  subscriber: any = null;
 
   /**
    * System public event name.
    */
-  subEvents: string;
+  subEvents: string = CommonConstants.CONN_STATE;
 
   /**
    * The icon of open state.
    */
-  onIcon: Resource;
+  onIcon: Resource = $r('app.media.ic_wifi_on');
 
   /**
    * The icon of closed state.
    */
-  offIcon: Resource;
+  offIcon: Resource = $r('app.media.ic_wifi_off');
 }

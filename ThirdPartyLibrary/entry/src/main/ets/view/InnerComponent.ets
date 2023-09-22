@@ -26,7 +26,7 @@ export struct Inner {
   build() {
     Scroll(this.scroller) {
       Column({ space: CommonConstants.SPACE_12 }) {
-        ForEach(this.buttonList, (item) => {
+        ForEach(this.buttonList, (item: ButtonList) => {
           Column() {
             Flex({
               direction: FlexDirection.Column,
@@ -93,6 +93,6 @@ export struct Inner {
     }
     .scrollable(ScrollDirection.Vertical)
     .scrollBar(BarState.Off)
-    .margin({bottom: $r('app.float.default_24')})
+    .margin({ bottom: $r('app.float.default_24') })
   }
 }

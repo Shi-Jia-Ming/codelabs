@@ -21,11 +21,11 @@ import Logger from '../utils/Logger';
  * @param resource Resource path.
  * @returns Promise instance of a string.
  */
-export async function getStringByRes(resource: Resource): Promise<string> {
+export async function getStringByRes(resource: Resource, component: Object): Promise<string> {
   if (!resource) {
     Logger.error('getStringByRes resource is invalid');
     return '';
   }
-  let string = await getContext(this).resourceManager.getStringValue(resource.id);
+  let string = await getContext(component).resourceManager.getStringValue(resource.id);
   return string;
 }

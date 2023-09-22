@@ -20,7 +20,7 @@ import { PERCENTAGE_100 } from '../../common/constants/Constants';
 @Component
 export default struct TopBarComponent {
   build() {
-    BalanceComponent({ left: this.LogoLayout(), right: this.QRCodeLayout() })
+    BalanceComponent({ left: this.LogoLayout, right: this.QRCodeLayout })
       .width(PERCENTAGE_100)
       .height(TopBar.HEIGHT)
   }

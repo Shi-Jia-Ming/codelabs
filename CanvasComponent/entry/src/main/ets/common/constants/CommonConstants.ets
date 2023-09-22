@@ -192,3 +192,15 @@ export default class CommonConstants {
    */
   static readonly CANVAS_FONT: string = 'px sans-serif';
 }
+
+/**
+ * Enumerated Value.
+ */
+export enum EnumeratedValue {
+  ONE = 1,
+  TWO = 2,
+  THREE = 3,
+  FOUR = 4,
+  FIVE = 5,
+  SIX = 6
+}

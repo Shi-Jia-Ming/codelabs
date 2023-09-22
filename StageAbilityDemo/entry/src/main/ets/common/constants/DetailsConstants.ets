@@ -16,356 +16,356 @@
 /**
  * The constant of GoodsTitleComponent.
  */
-export const GoodsTitle = {
+export class GoodsTitle {
   /**
    * The max lines of title text.
    */
-  MAX_LINE: 2,
+  static readonly MAX_LINE: number = 2;
   /**
    * The line height of title text.
    */
-  LINE_HEIGHT: 32,
+  static readonly LINE_HEIGHT: number = 32;
 };
 
 /**
  * The constant of PanelComponent.
  */
-export const ActionPanel = {
+export class ActionPanel {
 
   /**
    * The image height of PanelComponent.
    */
-  IMAGE_HEIGHT: 18,
+  static readonly IMAGE_HEIGHT: number = 18;
 
   /**
    * The blank width of PanelComponent.
    */
-  BLANK_WIDTH: 4,
+  static readonly BLANK_WIDTH: number = 4;
 };
 
 /**
  * The constant of AddressComponent.
  */
-export const AddressPicker = {
+export class AddressPicker {
 
   /**
    * The size of image to show loaction.
    */
-  IMAGE_SIZE_LOCATION: 18,
+  static readonly IMAGE_SIZE_LOCATION: number = 18;
 
   /**
    * The image size for more operations.
    */
-  IMAGE_SIZE_MORE: 14,
+  static readonly IMAGE_SIZE_MORE: number = 14;
 
   /**
    * The max lines.
    */
-  MAX_LINES: 1,
+  static readonly MAX_LINES: number = 1;
 
   /**
    * The layout weight of left.
    */
-  LAYOUT_WEIGHT_LEFT: '12%',
+  static readonly LAYOUT_WEIGHT_LEFT: string = '12%';
 
   /**
    * The layout weight of center.
    */
-  LAYOUT_WEIGHT_CENTER: '80%',
+  static readonly LAYOUT_WEIGHT_CENTER: string = '80%';
 
   /**
    * The layout weight of right.
    */
-  LAYOUT_WEIGHT_RIGHT: '8%',
+  static readonly LAYOUT_WEIGHT_RIGHT: string = '8%';
 
   /**
    * The margin of right image.
    */
-  MARGIN_RIGHT_IMAGE: '2%',
+  static readonly MARGIN_RIGHT_IMAGE: string = '2%';
 };
 
 /**
  * The constant of CommentsComponent.
  */
-export const CommentList = {
+export class CommentList {
 
   /**
    * The space of List.
    */
-  SPACE: 5,
+  static readonly SPACE: number = 5;
 
   /**
    * The image size of head portrait.
    */
-  IMAGE_SIZE_HEAD_PORTRAIT: 45,
+  static readonly IMAGE_SIZE_HEAD_PORTRAIT: number = 45;
 
   /**
    * The margin of head portrait.
    */
-  MARGIN_HEAD_PORTRAIT: 16,
+  static readonly MARGIN_HEAD_PORTRAIT: number = 16;
 
   /**
    * The line height of phone number text.
    */
-  LINE_HEIGHT_PHONE: 32,
+  static readonly LINE_HEIGHT_PHONE: number = 32;
 
   /**
    * The blank height of phone number text.
    */
-  BLANK_HEIGHT_PHONE: 6,
+  static readonly BLANK_HEIGHT_PHONE: number = 6;
 
   /**
    * The width of blank.
    */
-  MARK_BLANK_WIDTH: 15,
+  static readonly MARK_BLANK_WIDTH: number = 15;
 
   /**
    * The width of image.
    */
-  IMAGE_MARK_WIDTH: 20,
+  static readonly IMAGE_MARK_WIDTH: number = 20;
 
   /**
    * The max lines.
    */
-  COMMENT_MAX_LINES: 1,
+  static readonly COMMENT_MAX_LINES: number = 1;
 
   /**
    * The line height.
    */
-  COMMENT_LINE_HEIGHT: 26,
+  static readonly COMMENT_LINE_HEIGHT: number = 26;
 
   /**
    * The margin of text.
    */
-  MARGIN_TEXT: 5,
+  static readonly MARGIN_TEXT: number = 5;
 
   /**
    * The height of List.
    */
-  HEIGHT: '40%',
+  static readonly HEIGHT: string = '40%';
 };
 
 /**
  * The constant of CommentsHeaderComponent.
  */
-export const CommentHeader = {
+export class CommentHeader {
 
   /**
    * The layout weight.
    */
-  LAYOUT_WEIGHT: '50%',
+  static readonly LAYOUT_WEIGHT: string = '50%';
 
   /**
    * The arrow text.
    */
-  ARROW: '  >',
+  static readonly ARROW: string = '  >';
 
   /**
    * The line height.
    */
-  LINE_HEIGHT: 20,
+  static readonly LINE_HEIGHT: number = 20;
 };
 
 /**
  * The constant of BottomBarComponent.
  */
-export const BottomBar = {
+export class BottomBar {
 
   /**
    * The height of divider.
    */
-  DIVIDER_HEIGHT: 0.5,
+  static readonly DIVIDER_HEIGHT: number = 0.5;
 
   /**
    * The line height of text.
    */
-  TEXT_LINE_HEIGHT: 20,
+  static readonly TEXT_LINE_HEIGHT: number = 20;
 
   /**
    * The width of container.
    */
-  CONTAINER_SIZE_WIDTH: 195,
+  static readonly CONTAINER_SIZE_WIDTH: number = 195;
 
   /**
    * The height of container.
    */
-  CONTAINER_SIZE_HEIGHT: 40,
+  static readonly CONTAINER_SIZE_HEIGHT: number = 40;
 
   /**
    * The padding of right.
    */
-  BAR_PADDING_RIGHT: 12,
+  static readonly BAR_PADDING_RIGHT: number = 12;
 
   /**
    * The padding of top.
    */
-  BAR_PADDING_TOP: 9,
+  static readonly BAR_PADDING_TOP: number = 9;
 
   /**
    * The padding of bottom.
    */
-  BAR_PADDING_BOTTOM: 7,
+  static readonly BAR_PADDING_BOTTOM: number = 7;
 
   /**
    * The width of text.
    */
-  TEXT_WIDTH: '50%',
+  static readonly TEXT_WIDTH: string = '50%';
 };
 
 /**
  * The constant of PickerComponent.
  */
-export const GoodsPicker = {
+export class GoodsPicker {
 
   /**
    * The line height of GoodsPicker text.
    */
-  LINE_HEIGHT_TEXT_SELECTED: 25,
+  static readonly LINE_HEIGHT_TEXT_SELECTED: number = 25;
 
   /**
    * The max lines.
    */
-  MAX_LINES: 2,
+  static readonly MAX_LINES: number = 2;
 
   /**
    * The lines height of description text.
    */
-  LINE_HEIGHT_DESCRIPTION: 25,
+  static readonly LINE_HEIGHT_DESCRIPTION: number = 25;
 
   /**
    * The left margin of description text.
    */
-  MARGIN_LEFT_DESCRIPTION: 15,
+  static readonly MARGIN_LEFT_DESCRIPTION: number = 15;
 
   /**
    * The left weight of layout.
    */
-  LAYOUT_WEIGHT_LEFT: '10%',
+  static readonly LAYOUT_WEIGHT_LEFT: string = '10%';
 
   /**
    * The center weight of layout.
    */
-  LAYOUT_WEIGHT_CENTER: '80%',
+  static readonly LAYOUT_WEIGHT_CENTER: string = '80%';
 
   /**
    * The right weight of layout.
    */
-  LAYOUT_WEIGHT_RIGHT: '10%',
+  static readonly LAYOUT_WEIGHT_RIGHT: string = '10%';
 };
 
 /**
  * The constant of PreviewerComponent.
  */
-export const GoodsPreviewer = {
+export class GoodsPreviewer {
   /**
    * The bottom padding of image.
    */
-  PADDING_IMAGE_BOTTOM: 40,
+  static readonly PADDING_IMAGE_BOTTOM: number = 40;
 
   /**
    * The top padding of image.
    */
-  PADDING_IMAGE_TOP: 20,
+  static readonly PADDING_IMAGE_TOP: number = 20;
 
   /**
    * The text of indicator.
    */
-  INDICATOR_TEXT: '1/4',
+  static readonly INDICATOR_TEXT: string = '1/4';
 
   /**
    * The right margin of indicator.
    */
-  INDICATOR_MARGIN_RIGHT: 24,
+  static readonly INDICATOR_MARGIN_RIGHT: number = 24;
 
   /**
    * The bottom margin of indicator.
    */
-  INDICATOR_MARGIN_BOTTOM: 17,
+  static readonly INDICATOR_MARGIN_BOTTOM: number = 17;
 
   /**
    * The horizontal padding of indicator.
    */
-  INDICATOR_PADDING_HORIZONTAL: 10,
+  static readonly INDICATOR_PADDING_HORIZONTAL: number = 0;
 
   /**
    * The top padding of indicator.
    */
-  INDICATOR_PADDING_TOP: 3,
+  static readonly INDICATOR_PADDING_TOP: number = 3;
 
   /**
    * The bottom padding of indicator.
    */
-  INDICATOR_PADDING_BOTTOM: 2,
+  static readonly INDICATOR_PADDING_BOTTOM: number = 2;
 
   /**
    * The border radius.
    */
-  BORDER_RADIUS: 9,
+  static readonly BORDER_RADIUS: number = 9;
 
   /**
    * The location text.
    */
-  LOCATION: "86%",
+  static readonly LOCATION: string = "86%";
 
   /**
    * The zIndex of layout.
    */
-  INDEX: 2,
+  static readonly INDEX: number = 2;
 };
 
 /**
  * The constant of ServiceItemComponent.
  */
-export const GoodsServiceItem = {
+export class GoodsServiceItem {
   /**
    * The max lines of text.
    */
-  MAX_LINES: 1,
+  static readonly MAX_LINES: number = 1;
 
   /**
    * The size of service image.
    */
-  IMAGE_SIZE_SERVICE: 18,
+  static readonly IMAGE_SIZE_SERVICE: number = 18;
 
   /**
    * The size of more action image.
    */
-  IMAGE_SIZE_MORE: 14,
+  static readonly IMAGE_SIZE_MORE: number = 14;
 
   /**
    * The layout weight of left.
    */
-  LAYOUT_WEIGHT_LEFT: '12%',
+  static readonly LAYOUT_WEIGHT_LEFT: string = '12%';
 
   /**
    * The layout weight of center.
    */
-  LAYOUT_WEIGHT_CENTER: '80%',
+  static readonly LAYOUT_WEIGHT_CENTER: string = '80%';
 
   /**
    * The layout weight of right.
    */
-  LAYOUT_WEIGHT_RIGHT: '8%',
+  static readonly LAYOUT_WEIGHT_RIGHT: string = '8%';
 
   /**
    * The right margin of image.
    */
-  MARGIN_RIGHT_IMAGE: '2%',
+  static readonly MARGIN_RIGHT_IMAGE: string = '2%';
 };
 
 /**
  * The constant of ServicesComponent.
  */
-export const GoodsService = {
+export class GoodsService {
   /**
    * The space of List.
    */
-  SPACE: 20,
+  static readonly SPACE: number = 20;
 
   /**
    * The height of List.
    */
-  LIST_HEIGHT: 94,
+  static readonly LIST_HEIGHT: number = 94;
 };
 
 

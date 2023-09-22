@@ -15,16 +15,19 @@
 
 import Window from '@ohos.window';
 import Logger from '../util/Logger';
+import { GlobalContext } from './GlobalContext';
 
 class ScreenUtil {
   setScreenSize(): void {
     Window.getLastWindow(getContext(this))
-      .then((windowClass) => {
-        globalThis.screenWidth = px2fp(windowClass.getWindowProperties().windowRect.width);
-        globalThis.screenHeight = px2fp(windowClass.getWindowProperties().windowRect.height);
-        globalThis.windowClass = windowClass;
+      .then((windowClass: Window.Window) => {
+        let screenWidth = px2fp(windowClass.getWindowProperties().windowRect.width);
+        let screenHeight = px2fp(windowClass.getWindowProperties().windowRect.height);
+        GlobalContext.getContext().setObject('screenWidth', screenWidth);
+        GlobalContext.getContext().setObject('screenHeight', screenHeight);
+        GlobalContext.getContext().setObject('windowClass', windowClass);
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         Logger.error('[ScreenUtil] Failed to obtain the window size. Cause: ' + JSON.stringify(error));
       })
   }

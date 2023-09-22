@@ -21,17 +21,17 @@ import { RefreshConstants, RefreshState, RefreshHeaderStyle } from '../common/co
 @Component
 export default struct RefreshComponent {
   private headerStyle: RefreshHeaderStyle = RefreshHeaderStyle.DEFAULT;
-  private displayHeight: number;
+  private displayHeight: number = 0;
   private listController: Scroller = new Scroller();
-  private onRefresh: () => void;
+  private onRefresh?: () => void;
   @State headerOffset: number = 0;
   @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateChanged') state: number;
-  @BuilderParam itemLayout: () => void;
+  @BuilderParam itemLayout?: () => void;
 
   private onStateChanged() {
     switch (this.state) {
       case RefreshState.REFRESHING:
-        if (this.onRefresh !== null) {
+        if (this.onRefresh !== undefined) {
           this.onRefresh();
         }
         break;
@@ -49,7 +49,7 @@ export default struct RefreshComponent {
       this.state = RefreshState.IDLE;
       this.headerOffset = -RefreshConstants.REFRESH_HEADER_HEIGHT;
     }
-    this.displayHeight += RefreshConstants.REFRESH_HEADER_HEIGHT;
+    this.displayHeight = RefreshConstants.REFRESH_HEADER_HEIGHT + Number(this.displayHeight);
   }
 
   build() {
@@ -61,12 +61,12 @@ export default struct RefreshComponent {
           } else if (this.headerStyle === RefreshHeaderStyle.CLOUD) {
             RefreshAnimHeader().height(RefreshConstants.REFRESH_HEADER_HEIGHT)
           }
-          if (this.itemLayout !== null) {
+          if (this.itemLayout !== undefined) {
             this.itemLayout()
           }
         }
         .width(CommonConstants.FULL_LENGTH)
-        .height(this.displayHeight + RefreshConstants.REFRESH_LAYOUT_EXTRA_HEIGHT)
+        .height(Number(this.displayHeight) + RefreshConstants.REFRESH_LAYOUT_EXTRA_HEIGHT)
       }
     }
     .edgeEffect(EdgeEffect.Spring)
@@ -84,7 +84,10 @@ export default struct RefreshComponent {
         }
       }
     })
-    .onTouch((event) => {
+    .onTouch((event?: TouchEvent) => {
+      if (!event) {
+        return;
+      }
       switch (event.type) {
         case TouchType.Down:
           if (this.state === RefreshState.IDLE) {

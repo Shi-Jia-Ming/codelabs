@@ -47,12 +47,12 @@ export class RefreshConstants {
 /**
  * refresh state enum
  */
-export const RefreshState = {
-  IDLE: 0,
-  DRAGGING: 1,
-  DRAGGING_REFRESHABLE: 2,
-  REFRESHING: 3,
-  COMPLETE: 4
+export enum RefreshState {
+  IDLE = 0,
+  DRAGGING = 1,
+  DRAGGING_REFRESHABLE = 2,
+  REFRESHING = 3,
+  COMPLETE = 4
 }
 
 /**

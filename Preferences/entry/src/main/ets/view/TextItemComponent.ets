@@ -22,14 +22,14 @@ import Fruit from '../common/bean/Fruit';
  */
 @Component
 export default struct TextItemComponent {
-  private textResource: Resource;
-  private placeholderResource: Resource;
-  private marginBottom: string;
-  private marginTop: string;
-  private textInputType: InputType;
-  private textFlag: number;
+  private textResource: Resource = $r('app.string.empty');
+  private placeholderResource: Resource = $r('app.string.empty');
+  private marginBottom: string = '';
+  private marginTop: string = '';
+  private textInputType: InputType = InputType.Normal;
+  private textFlag: number = 0;
   @Link fruit: Fruit;
-  private textInputCallBack: (value: string) => void;
+  private textInputCallBack = (value: string) => {};
 
   aboutToAppear() {
     if (this.textFlag === CommonConstants.FRUIT_FLAG) {

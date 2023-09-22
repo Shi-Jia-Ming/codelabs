@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import fs from '@ohos.file.fs';
 import image from '@ohos.multimedia.image';
 import Logger from './LoggerUtil';
 import { CommonConstants } from '../common/constant/CommonConstants';
@@ -25,12 +26,13 @@ const TAG: string = 'imageEdit_Decode';
  * @return file fd.
  */
 async function getResourceFd() {
-  const resourceMgr = getContext(this).resourceManager;
-  let pictureFd: number = 0;
-  const descriptor = await resourceMgr.getRawFd(CommonConstants.RAW_FILE_NAME);
-  pictureFd = descriptor?.fd;
-  Logger.info(TAG, `file's fd is ${pictureFd}`);
-  return pictureFd;
+  const context = getContext(this);
+  const resourceMgr = context.resourceManager;
+  let imageBuffer = await resourceMgr.getMediaContent($r("app.media.ic_low"))
+  let filePath = context.cacheDir + '/' + CommonConstants.RAW_FILE_NAME;
+  let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
+  fs.writeSync(file.fd, imageBuffer.buffer);
+  return file.fd;
 }
 
 /**

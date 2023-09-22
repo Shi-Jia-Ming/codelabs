@@ -59,6 +59,10 @@
     {
       "name": "write_success_msg",
       "value": "写入数据成功！"
+    },
+    {
+      "name": "empty",
+      "value": "empty"
     }
   ]
 }

@@ -13,26 +13,25 @@
  * limitations under the License.
  */
 
-import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE,ALL_PERCENT } from '../common/Constants/CommonConstants';
-import {getFlexModuleList} from '../viewmodel/AttributeModuleData';
-import {ContainerModuleItem} from '../common/bean/ContainerModuleItem';
+import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
+import { getFlexModuleList } from '../viewmodel/AttributeModuleData';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *Set Axis Alignment in Flex
  */
 @Component
 export struct FlexAxisAlignRadioList {
-  private flexModuleList :ContainerModuleItem[] =  getFlexModuleList();
-  private groupName: string = this.flexModuleList[2]['groupName'];
-  private moduleName: Resource =  this.flexModuleList[2]['moduleName'];
-  private radioList: Array<string> =this.flexModuleList[2]['attributeList'];
+  private flexModuleList: ContainerModuleItem[] = getFlexModuleList();
+  private groupName: string = this.flexModuleList[2].groupName;
+  private moduleName: Resource = this.flexModuleList[2].moduleName;
+  private radioList: Array<string> = this.flexModuleList[2].attributeList;
 
   build() {
     Column({ space: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN }) {
       Row() {
         Text(this.moduleName)
           .fontSize(MARGIN_FONT_SIZE_SPACE.FOURTH_MARGIN)
-
       }
       .margin({ left: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN })
 
@@ -41,10 +40,10 @@ export struct FlexAxisAlignRadioList {
         justifyContent: FlexAlign.SpaceBetween,
         wrap: FlexWrap.NoWrap
       }) {
-        ForEach(this.radioList, (item, index) => {
+        ForEach(this.radioList, (item: string, index: number | undefined) => {
           AxisAlignRadioItem({ textName: item, groupName: this.groupName, isChecked: index === 0 ? true : false })
             .margin({ right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN })
-        }, item => JSON.stringify(item))
+        }, (item: string) => JSON.stringify(item))
       }
       .width(ALL_PERCENT)
       .height(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
@@ -57,9 +56,9 @@ export struct FlexAxisAlignRadioList {
 
 @Component
 struct AxisAlignRadioItem {
-  private textName: string;
-  private groupName: string;
-  private isChecked: boolean;
+  private textName: string = '';
+  private groupName: string = '';
+  private isChecked: boolean = false;
   @Consume currentFlexAlignItems: ItemAlign;
 
   build() {
@@ -81,7 +80,9 @@ struct AxisAlignRadioItem {
               break;
           }
         })
-      Text(this.textName).fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN).opacity(ATTRIBUTE_OPACITY)
+      Text(this.textName)
+        .fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN)
+        .opacity(ATTRIBUTE_OPACITY)
     }
   }
 }

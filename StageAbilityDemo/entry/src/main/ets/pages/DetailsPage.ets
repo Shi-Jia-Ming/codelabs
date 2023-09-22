@@ -42,10 +42,12 @@ let position = AppStorage.Get<number>(KEY);
 @Entry
 @Component
 struct DetailsPage {
-  private goodsDetails: GoodsData;
+  private goodsDetails: GoodsData = new GoodsData();
 
   aboutToAppear() {
-    this.goodsDetails = viewModel.loadDetails(position);
+    if (position !== undefined) {
+      this.goodsDetails = viewModel.loadDetails(position);
+    }
   }
 
   onBackPress() {
@@ -93,7 +95,7 @@ struct DetailsPage {
   }
 
   @Builder TopBarLayout() {
-    BalanceComponent({ left: this.BackLayout(), right: this.ShareLayout() })
+    BalanceComponent({ left: this.BackLayout, right: this.ShareLayout })
       .width(PERCENTAGE_100)
       .padding(DetailsPageStyle.MARGIN_TOP_LAYOUT)
   }

@@ -21,8 +21,8 @@ import { PlayConstants } from '../common/constants/PlayConstants';
 
 @Component
 export struct PlayTitle {
-  private  playVideoModel: VideoController;
-  @State @Watch('watchSpeed')playSpeed: number = 1;
+  private playVideoModel: VideoController = new VideoController();
+  @State @Watch('watchSpeed') playSpeed: number = 1;
   @State loop: boolean = false;
   @State customPopup: boolean = false;
   dialogController: CustomDialogController = new CustomDialogController({
@@ -31,12 +31,13 @@ export struct PlayTitle {
     }),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
-    offset: { dx: PlayConstants.PLAY_TITLE.DX, dy: PlayConstants.PLAY_TITLE.DY },
-    gridCount: PlayConstants.PLAY_TITLE.GRID_COUNT,
+    offset: { dx: PlayConstants.DX, dy: PlayConstants.DY },
+    gridCount: PlayConstants.GRID_COUNT,
     customStyle: false
   })
 
-  @Builder popupBuilder() {
+  @Builder
+  popupBuilder() {
     Column() {
       Row() {
         Image($r('app.media.ic_speed'))
@@ -48,8 +49,8 @@ export struct PlayTitle {
           .margin({ left: $r('app.float.title_popup_text_left') })
       }
       .width(CommonConstants.FULL_PERCENT)
-      .height(PlayConstants.PLAY_TITLE.POPUP.ROW_HEIGHT)
-      .margin({ top: PlayConstants.PLAY_TITLE.POPUP.ROW_MARGIN_TOP })
+      .height(PlayConstants.POPUP_ROW_HEIGHT)
+      .margin({ top: PlayConstants.POPUP_ROW_MARGIN_TOP })
       .onClick(() => {
         this.customPopup = !this.customPopup;
         this.dialogController.open();
@@ -57,11 +58,11 @@ export struct PlayTitle {
 
       Row() {
         Divider()
-          .strokeWidth(PlayConstants.PLAY_TITLE.POPUP.DIVIDER_STROKE_WIDTH)
+          .strokeWidth(PlayConstants.POPUP_DIVIDER_STROKE_WIDTH)
           .color($r('app.color.divider_color'))
           .margin({
             left: $r('app.float.title_popup_divider_left'),
-            right: PlayConstants.PLAY_TITLE.POPUP.DIVIDER_MARGIN_RIGHT
+            right: PlayConstants.POPUP_DIVIDER_MARGIN_RIGHT
           })
       }
       .width(CommonConstants.FULL_PERCENT)
@@ -76,19 +77,19 @@ export struct PlayTitle {
           .margin({ left: $r('app.float.title_popup_text_left') })
       }
       .width(CommonConstants.FULL_PERCENT)
-      .height(PlayConstants.PLAY_TITLE.POPUP.ROW_HEIGHT)
+      .height(PlayConstants.POPUP_ROW_HEIGHT)
       .onClick(() => {
         this.loop = !this.loop;
         this.playVideoModel.setLoop();
         setTimeout(() => {
           this.customPopup = !this.customPopup;
-        },  PlayConstants.PLAY_TITLE.POPUP.CLOSE_TIME);
+        }, PlayConstants.POPUP_CLOSE_TIME);
       })
     }
     .justifyContent(FlexAlign.Center)
     .alignItems(HorizontalAlign.Center)
-    .width(PlayConstants.PLAY_TITLE.POPUP.COLUMN_WIDTH)
-    .height(PlayConstants.PLAY_TITLE.POPUP.COLUMN_HEIGHT)
+    .width(PlayConstants.POPUP_COLUMN_WIDTH)
+    .height(PlayConstants.POPUP_COLUMN_HEIGHT)
   }
 
   aboutToAppear() {
@@ -113,7 +114,7 @@ export struct PlayTitle {
         Text($r('app.string.video_playback'))
           .fontColor(Color.White)
           .fontSize($r('app.float.title_font_size'))
-          .margin({ left: PlayConstants.PLAY_TITLE.TEXT_MARGIN_LEFT })
+          .margin({ left: PlayConstants.TEXT_MARGIN_LEFT })
           .layoutWeight(1)
         Image($r('app.media.ic_more'))
           .width($r('app.float.title_image_size'))
@@ -128,7 +129,7 @@ export struct PlayTitle {
             this.customPopup = !this.customPopup;
           })
       }
-      .width(PlayConstants.PLAY_TITLE.ROW_WIDTH)
+      .width(PlayConstants.ROW_WIDTH)
     }
     .width(CommonConstants.FULL_PERCENT)
     .height(CommonConstants.FULL_PERCENT)

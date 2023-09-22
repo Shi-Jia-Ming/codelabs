@@ -27,23 +27,23 @@ export function initializePictures(initType: string): Array<PictureItem> {
   let imageDataArray: Array<PictureItem> = [];
   switch (initType) {
     case PictureType.BANNER:
-      PICTURE_BANNER.forEach((item) => {
-        imageDataArray.push(new PictureItem(item.id, item.name, item.description, item.image));
+      PICTURE_BANNER.forEach((item: PictureItem) => {
+        imageDataArray.push(item);
       })
       break;
     case PictureType.RECENTLY:
-      PICTURE_RECENTLY.forEach((item) => {
-        imageDataArray.push(new PictureItem(item.id, item.name, item.description, item.image));
+      PICTURE_RECENTLY.forEach((item: PictureItem) => {
+        imageDataArray.push(item);
       })
       break;
     case PictureType.PHOTO:
-      PICTURE_PHOTO.forEach((item) => {
-        imageDataArray.push(new PictureItem(item.id, item.name, item.description, item.image));
+      PICTURE_PHOTO.forEach((item: PictureItem) => {
+        imageDataArray.push(item);
       })
       break;
     case PictureType.LATEST:
-      PICTURE_LATEST.forEach((item) => {
-        imageDataArray.push(new PictureItem(item.id, item.name, item.description, item.image));
+      PICTURE_LATEST.forEach((item: PictureItem) => {
+        imageDataArray.push(item);
       })
       break;
     default:
@@ -59,7 +59,7 @@ let timerIds: number[] = [];
  *
  * @param swiperController Controller.
  */
-export function startPlay(swiperController: SwiperController) {
+export function startPlay(swiperController: SwiperController): void {
   let timerId = setInterval(() => {
     swiperController.showNext();
   }, CommonConstants.SWIPER_TIME);
@@ -69,8 +69,8 @@ export function startPlay(swiperController: SwiperController) {
 /**
  * stop scheduled task.
  */
-export function stopPlay() {
-  timerIds.forEach((item) => {
+export function stopPlay(): void {
+  timerIds.forEach((item: number) => {
     clearTimeout(item);
   })
 }

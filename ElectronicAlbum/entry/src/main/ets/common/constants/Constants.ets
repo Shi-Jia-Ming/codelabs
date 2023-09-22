@@ -67,10 +67,10 @@ export default class Constants {
    * index page img arr
    */
   static readonly IMG_ARR: Resource[][] = [
-    [...Constants.SCENE_LIST, ...Constants.LIFE_LIST, ...Constants.MEN_LIST],
-    [...Constants.MEN_LIST, ...Constants.LIFE_LIST, ...Constants.SCENE_LIST],
-    [...Constants.FOOD_LIST, ...Constants.SCENE_LIST, ...Constants.SCENE_LIST],
-    [...Constants.LIFE_LIST, ...Constants.FOOD_LIST, ...Constants.MEN_LIST]
+    new Array<Resource>().concat(Constants.SCENE_LIST, Constants.LIFE_LIST, Constants.MEN_LIST),
+    new Array<Resource>().concat(Constants.MEN_LIST, Constants.LIFE_LIST, Constants.SCENE_LIST),
+    new Array<Resource>().concat(Constants.FOOD_LIST, Constants.SCENE_LIST, Constants.SCENE_LIST),
+    new Array<Resource>().concat(Constants.LIFE_LIST, Constants.FOOD_LIST, Constants.MEN_LIST)
   ];
 
   /**

@@ -98,7 +98,7 @@ struct NativeTemplate {
             .margin({ left: $r('app.float.text_input_margin_left') })
             .layoutWeight(CommonContants.TEXTINPUT_LAYOUT_WEIGHT)
             .onChange(value => {
-              this.numX = parseFloat(value);
+              this.numX = Number.parseFloat(value);
             })
         }
         .height($r('app.float.tips_num_height'))
@@ -117,7 +117,7 @@ struct NativeTemplate {
             .margin({ left: $r('app.float.text_input_margin_left') })
             .layoutWeight(CommonContants.TEXTINPUT_LAYOUT_WEIGHT)
             .onChange(value => {
-              this.numY = parseFloat(value);
+              this.numY = Number.parseFloat(value);
             })
         }
         .height($r('app.float.tips_num_height'))

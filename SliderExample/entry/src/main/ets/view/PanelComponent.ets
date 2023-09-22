@@ -17,11 +17,11 @@ import { Constants, SliderMode } from '../common/Constants';
 
 @Component
 export struct PanelComponent {
-  @Prop text: string ;
-  private title: Resource;
-  private mode: SliderMode;
+  @Prop text: string = '';
+  private title?: Resource;
+  private mode?: SliderMode;
   private options?: SliderOptions;
-  private callback: (value: number, mode: SliderChangeMode) => void;
+  private callback: (value: number, mode: SliderChangeMode) => void = () => {};
 
   build() {
     Column() {

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-//export { AlarmSettingBean };
-
 /**
  * Alarm setting type enum description.
  */

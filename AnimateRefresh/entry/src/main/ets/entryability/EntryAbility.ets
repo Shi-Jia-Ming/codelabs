@@ -15,15 +15,17 @@
 
 import window from '@ohos.window';
 import display from '@ohos.display';
+import Want from '@ohos.app.ability.Want';
 import Ability from '@ohos.app.ability.UIAbility';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 export default class EntryAbility extends Ability {
-  onCreate(want) {
-    globalThis.abilityWant = want;
+  onCreate(want: Want) {
+    GlobalContext.getContext().setObject('abilityWant', want);
   }
 
   async onWindowStageCreate(windowStage: window.WindowStage) {
-    globalThis.display = await display.getDefaultDisplaySync();
+    GlobalContext.getContext().setObject('display', await display.getDefaultDisplaySync());
     windowStage.loadContent('pages/TabIndex');
   }
 };

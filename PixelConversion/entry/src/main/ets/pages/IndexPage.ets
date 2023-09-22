@@ -22,8 +22,8 @@ import Logger from '../common/utils/Logger';
 struct IndexPage {
   jumpPage(url: string) {
     router.pushUrl({ url })
-      .catch((error) => {
-        Logger.error(Constants.INDEX_PAGE_TAG, error);
+      .catch((error: Error) => {
+        Logger.error(Constants.INDEX_PAGE_TAG, JSON.stringify(error));
       });
   }
 

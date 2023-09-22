@@ -57,176 +57,176 @@ export const Text_Margin = 18;
 /**
  * The style of CardComponent.
  */
-export const CardStyle = {
+export class CardStyle {
   /**
    * The horizontal margin of CardComponent.
    */
-  CARD_MARGIN_HORIZONTAL: 16,
+  static readonly CARD_MARGIN_HORIZONTAL: number = 16;
 
   /**
    * The top margin of CardComponent.
    */
-  CARD_MARGIN_TOP: 24,
+  static readonly CARD_MARGIN_TOP: number = 24;
 
   /**
    * The vertical padding of CardComponent.
    */
-  CARD_PADDING_VERTICAL: 25,
+  static readonly CARD_PADDING_VERTICAL: number = 25;
 
   /**
    * The horizontal padding of CardComponent.
    */
-  CARD_PADDING_HORIZONTAL: 16,
+  static readonly CARD_PADDING_HORIZONTAL: number = 16;
 
   /**
    * The border radius of CardComponent.
    */
-  CARD_RADIUS: 18,
+  static readonly CARD_RADIUS: number = 18;
 };
 
 /**
  * The style of BalanceComponent.
  */
-export const BalanceStyle = {
+export class BalanceStyle {
   /**
    * The layout weight of BalanceComponent.
    */
-  LAYOUT_WEIGHT: 1,
+  static readonly LAYOUT_WEIGHT: number = 1;
 };
 
 /**
  * The style of ToolBarComponent.
  */
-export const ToolBarStyle = {
+export class ToolBarStyle {
   /**
    * The bottom margin.
    */
-  MARGIN_BOTTOM: 10,
+  static readonly MARGIN_BOTTOM: number = 10;
 
   /**
    * The size of image.
    */
-  IMAGE_SIZE: 24,
+  static readonly IMAGE_SIZE: number = 24;
 
   /**
    * The weight of layout.
    */
-  LAYOUT_WEIGHT: '25%',
+  static readonly LAYOUT_WEIGHT: string = '25%';
 
   /**
    * The height of divider.
    */
-  DIVIDER_HEIGHT: 0.5,
+  static readonly DIVIDER_HEIGHT: number = 0.5;
 
   /**
    * The opacity of divider.
    */
-  DIVIDER_OPACITY: 0.05
+  static readonly DIVIDER_OPACITY: number = 0.05;
 };
 
 /**
  * The style of NavPage.
  */
-export const NavPageStyle = {
+export class NavPageStyle {
   /**
    * The height of Tabs.
    */
-  BAR_HEIGHT: 0,
+  static readonly BAR_HEIGHT: number = 0;
 
   /**
    * The default position of Tabs.
    */
-  POSITION_INITIAL: 0,
+  static readonly POSITION_INITIAL: number = 0;
 };
 
 /**
  * The style of HomePage.
  */
-export const HomePageStyle = {
+export class HomePageStyle {
   /**
    * The vertical padding.
    */
-  PADDING_VERTICAL: 8,
+  static readonly PADDING_VERTICAL: number = 8;
 
   /**
    * The horizontal padding.
    */
-  PADDING_HORIZONTAL: 16,
+  static readonly PADDING_HORIZONTAL: number = 16;
 
   /**
    * The height of blank.
    */
-  BLANK_HEIGHT: 15,
+  static readonly BLANK_HEIGHT: number = 15;
 };
 
 /**
  * The style of DetailsPage.
  */
-export const DetailsPageStyle = {
+export class DetailsPageStyle {
   /**
    * The size of top image.
    */
-  TOP_IMAGE_SIZE: 32,
+  static readonly TOP_IMAGE_SIZE: number = 32;
 
   /**
    * The margin of top.
    */
-  MARGIN_TOP_LAYOUT: 16,
+  static readonly MARGIN_TOP_LAYOUT: number = 16;
 
   /**
    * The top margin of title.
    */
-  TITLE_MARGIN_TOP: 4,
+  static readonly TITLE_MARGIN_TOP: number = 4;
 
   /**
    * The bottom margin of title.
    */
-  TITLE_MARGIN_BOTTOM: 20,
+  static readonly TITLE_MARGIN_BOTTOM: number = 20;
 
   /**
    * The height of divider.
    */
-  DIVIDER_HEIGHT: 0.25,
+  static readonly DIVIDER_HEIGHT: number = 0.25;
 
   /**
    * The left margin of divider.
    */
-  DIVIDER_MARGIN_LEFT: '12%',
+  static readonly DIVIDER_MARGIN_LEFT: string = '12%';
 
   /**
    * The top margin of divider.
    */
-  DIVIDER_MARGIN_TOP: 10,
+  static readonly DIVIDER_MARGIN_TOP: number = 10;
 
   /**
    * The bottom margin of divider.
    */
-  DIVIDER_MARGIN_BOTTOM: 18,
+  static readonly DIVIDER_MARGIN_BOTTOM: number = 18;
 
   /**
    * The top margin of comment list.
    */
-  COMMENT_LIST_MARGIN_TOP: 10,
+  static readonly COMMENT_LIST_MARGIN_TOP: number = 10;
 
   /**
    * The height of top layout.
    */
-  TOP_LAYOUT_HEIGHT: '45%',
+  static readonly TOP_LAYOUT_HEIGHT: string = '45%';
 
   /**
    * The height of scroll layout.
    */
-  SCROLL_LAYOUT_WEIGHT: '93%',
+  static readonly SCROLL_LAYOUT_WEIGHT: string = '93%';
 
   /**
    * The weight of tool bar layout.
    */
-  TOOLBAR_WEIGHT: '7%',
+  static readonly TOOLBAR_WEIGHT: string = '7%';
 
   /**
    * The image size for more action.
    */
-  IMAGE_SIZE_MORE: 14
+  static readonly IMAGE_SIZE_MORE: number = 14;
 };
 
 /**

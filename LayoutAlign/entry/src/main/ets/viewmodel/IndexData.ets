@@ -15,41 +15,42 @@
 
 import { CONTAINER, CONTAINER_TYPE } from '../common/Constants/CommonConstants';
 import { FLEX_MODULE, COLUMN_MODULE, ROW_MODULE, STACK_MODULE } from '../viewmodel/AttributeModuleData';
-import {IndexListItem} from '../common/bean/IndexListItem'
+import { IndexListItem } from '../common/bean/IndexListItem'
 
 /**
  * get Index page dataList
  */
-export function getIndexList() :Array<IndexListItem>{
+export function getIndexList(): Array<IndexListItem> {
   let indexModuleArray: Array<IndexListItem> = []
-  INDEX_LIST.forEach(item => {
-    indexModuleArray.push(new IndexListItem(item['name'], item['icon'], item['containerType'],item['moduleList']));
+  INDEX_LIST.forEach((item: IndexListItem) => {
+    indexModuleArray.push(item);
   })
   return indexModuleArray;
-};
+}
 
-export const INDEX_LIST: Object[] = [
-  { name: CONTAINER.FLEX,
-    icon: $r("app.media.ic_flex"),
+export const INDEX_LIST: IndexListItem[] = [
+  {
+    name: CONTAINER.FLEX,
+    icon: $r('app.media.ic_flex'),
     containerType: CONTAINER_TYPE.FLEX,
     moduleList: FLEX_MODULE
   },
   {
     name: CONTAINER.COLUMN,
-    icon: $r("app.media.ic_column"),
+    icon: $r('app.media.ic_column'),
     containerType: CONTAINER_TYPE.COLUMN,
     moduleList: COLUMN_MODULE
   },
-  { name: CONTAINER.ROW,
-    icon: $r("app.media.ic_row"),
+  {
+    name: CONTAINER.ROW,
+    icon: $r('app.media.ic_row'),
     containerType: CONTAINER_TYPE.ROW,
     moduleList: ROW_MODULE
   },
   {
     name: CONTAINER.STACK,
-    icon: $r("app.media.ic_stack"),
+    icon: $r('app.media.ic_stack'),
     containerType: CONTAINER_TYPE.STACK,
     moduleList: STACK_MODULE
   },
 ];
-

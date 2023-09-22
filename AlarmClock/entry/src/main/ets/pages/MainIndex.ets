@@ -25,7 +25,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 @Entry
 @Component
 struct MainIndex {
-  private mainModel: MainModel = MainModel.getInstant();
+  private mainModel: MainModel = MainModel.instant;
   @State alarmItems: Array<AlarmItem> = new Array();
   @State isAuth: boolean = false;
 
@@ -65,7 +65,7 @@ struct MainIndex {
         top: DimensionUtil.getVp($r('app.float.new_alarm_button_margin_vertical'))
       })
       .onClick(() => {
-        router.pushUrl({ url: "pages/DetailIndex" });
+        router.pushUrl({ url: 'pages/DetailIndex' });
       })
     }
     .width(CommonConstants.FULL_LENGTH)

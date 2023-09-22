@@ -39,12 +39,11 @@ struct RankPage {
   }
 
   onBackPress() {
-    let options = {
-      message: $r('app.string.prompt_text'),
-      duration: TIME
-    }
     if (this.isShowToast()) {
-      prompt.showToast(options);
+      prompt.showToast({
+        message: $r('app.string.prompt_text'),
+        duration: TIME
+      });
       this.clickBackTimeRecord = new Date().getTime();
       return true;
     }
@@ -83,13 +82,13 @@ struct RankPage {
     Column() {
       List() {
         ForEach(this.isSwitchDataSource ? this.dataSource1 : this.dataSource2,
-          (item, index) => {
+          (item: RankData, index?: number) => {
             ListItem() {
-              ListItemComponent({ index: index + 1, name: item.name, vote: item.vote,
+              ListItemComponent({ index: (Number(index) + 1), name: item.name, vote: item.vote,
                 isSwitchDataSource: this.isSwitchDataSource
               })
             }
-          }, item => JSON.stringify(item))
+          }, (item: RankData) => JSON.stringify(item))
       }
       .width(WEIGHT)
       .height(Style.LIST_HEIGHT)

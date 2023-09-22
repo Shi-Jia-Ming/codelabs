@@ -25,7 +25,7 @@ import { CommonConstants } from '../common/constants/CommonConstant';
 struct Verify {
   fileAccess: boolean = true;
   controller: web_webview.WebviewController = new web_webview.WebviewController();
-  isRedirect: boolean;
+  isRedirect: boolean = false;
 
   onPageShow(): void {
     this.isRedirect = false;
@@ -81,7 +81,7 @@ struct Verify {
             this.isRedirect = true;
             showDialog(originCookie);
           } catch (error) {
-            showDialog(`ErrorCode: ${error.code},  Message: ${error.message}`);
+            showDialog('Failed to load the web page.'+JSON.stringify(error));
           }
         })
     }

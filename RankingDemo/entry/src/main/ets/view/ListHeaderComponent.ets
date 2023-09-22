@@ -17,8 +17,8 @@ import { FontSize, ListHeaderStyle } from '../common/constants/Constants';
 
 @Component
 export struct ListHeaderComponent {
-  paddingValue: Padding | Length;
-  widthValue: Length;
+  paddingValue: Padding | Length = 0;
+  widthValue: Length = 0;
 
   build() {
     Row() {

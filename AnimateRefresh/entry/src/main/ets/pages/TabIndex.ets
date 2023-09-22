@@ -16,6 +16,7 @@
 import FileManagerIndex from './FileManagerIndex';
 import CommonConstants from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
+import CardModel from '../common/bean/CardModel';
 
 /**
  * Navigation path on the home page.
@@ -25,7 +26,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 struct TabIndex {
   @State currentPage: number = CommonConstants.INDEX_DEFAULT_SELECT;
 
-  @Builder TabBuilder(item, index) {
+  @Builder TabBuilder(item: CardModel, index: number | undefined) {
     Column() {
       Image(this.currentPage === index ? item.selectedIcon : item.defaultIcon)
         .width(DimensionUtil.getVp($r('app.float.index_tab_icon_size')))
@@ -46,19 +47,19 @@ struct TabIndex {
 
   build() {
     Tabs({ barPosition: BarPosition.End, index: this.currentPage }) {
-      ForEach(CommonConstants.INDEX_TAB, (item, index) => {
+      ForEach(CommonConstants.INDEX_TAB, (item: CardModel, index: number | undefined) => {
         TabContent() {
           if (index === CommonConstants.INDEX_DEFAULT_SELECT) {
             FileManagerIndex()
           }
         }
         .tabBar(this.TabBuilder(item, index))
-      }, item => JSON.stringify(item))
+      }, (item: CardModel) => JSON.stringify(item))
     }
     .width(CommonConstants.FULL_LENGTH)
     .height(CommonConstants.FULL_LENGTH)
     .barMode(BarMode.Fixed)
-    .onChange((index) => {
+    .onChange((index: number) => {
       this.currentPage = index;
     })
   }

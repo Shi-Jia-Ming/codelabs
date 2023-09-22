@@ -19,10 +19,10 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 
 @Component
 export default struct BackContainer {
-  private header: string | Resource;
-  private backImgRes: string | Resource;
-  private backFunc: () => void;
-  @BuilderParam closer: () => void;
+  private header: string | Resource = $r('app.string.new_alarm');
+  private backImgRes: string | Resource = $r('app.media.ic_cancel');
+  private backFunc?: () => void;
+  @BuilderParam closer?: () => void;
 
   build() {
     Row() {

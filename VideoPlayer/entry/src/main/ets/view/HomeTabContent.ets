@@ -20,13 +20,13 @@ import { CommonConstants } from '../common/constants/CommonConstants';
 
 @Component
 export struct HomeTabContent {
-  private currIndex: number;
+  private currIndex: number = 0;
   @Provide videoList: Array<VideoBean> = [];
 
   build() {
     Column() {
-      HomeTabContentList({currIndex: this.currIndex});
-      HomeTabContentButton({currIndex: this.currIndex});
+      HomeTabContentList({ currIndex: this.currIndex });
+      HomeTabContentButton({ currIndex: this.currIndex });
     }
     .width(CommonConstants.FULL_PERCENT)
     .height(CommonConstants.FULL_PERCENT)

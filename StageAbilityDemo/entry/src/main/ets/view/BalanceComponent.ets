@@ -22,8 +22,8 @@ import { BalanceStyle } from '../common/constants/Constants';
  */
 @Component
 export default struct BalanceComponent {
-  @BuilderParam right: any;
-  @BuilderParam left: any;
+  @BuilderParam right: () => void = () => {};
+  @BuilderParam left: () => void = () => {};
 
   build() {
     Row() {

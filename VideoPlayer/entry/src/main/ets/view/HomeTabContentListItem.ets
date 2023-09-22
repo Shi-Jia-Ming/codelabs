@@ -16,16 +16,17 @@
 import { VideoBean } from '../common/bean/VideoBean';
 import { HomeConstants } from '../common/constants/HomeConstants';
 import { CommonConstants } from '../common/constants/CommonConstants';
+import resourceManager from '@ohos.resourceManager';
 
 @Component
 export struct HomeTabContentListItem {
-  private item: VideoBean;
+  private item: VideoBean = new VideoBean('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4');
 
   build() {
     Row() {
       Image(this.item.pixelMap === undefined ? $r('app.media.ic_internet') : this.item.pixelMap)
-        .height(HomeConstants.HOME_TAB_LIST.IMAGE_HEIGHT)
-        .width(HomeConstants.HOME_TAB_LIST.IMAGE_WIDTH)
+        .height(HomeConstants.IMAGE_HEIGHT)
+        .width(HomeConstants.IMAGE_WIDTH)
         .margin({ left: $r('app.float.item_image_margin_left') })
         .borderRadius($r('app.float.image_border_radius'))
       Column() {
@@ -43,7 +44,7 @@ export struct HomeTabContentListItem {
         .alignItems(HorizontalAlign.Start)
 
         Divider()
-          .strokeWidth(HomeConstants.HOME_TAB_LIST.DIVIDER_STROKE_WIDTH)
+          .strokeWidth(HomeConstants.DIVIDER_STROKE_WIDTH)
           .color($r('app.color.divider_color'))
           .margin({
             left: $r('app.float.item_divider_margin_left'),
@@ -51,9 +52,9 @@ export struct HomeTabContentListItem {
           })
       }
       .height(CommonConstants.FULL_PERCENT)
-      .width(HomeConstants.HOME_TAB_LIST.LIST_ITEM_ROW_COLUMN_WIDTH)
+      .width(HomeConstants.LIST_ITEM_ROW_COLUMN_WIDTH)
     }
     .width(CommonConstants.FULL_PERCENT)
-    .height(HomeConstants.HOME_TAB_LIST.LIST_ITEM_ROW_HEIGHT)
+    .height(HomeConstants.LIST_ITEM_ROW_HEIGHT)
   }
 }

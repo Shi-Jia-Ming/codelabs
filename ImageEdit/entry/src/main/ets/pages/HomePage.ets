@@ -54,38 +54,47 @@ struct HomePage {
 
   @State currentIndex: number = 0;
   @State currentCropIndex: number = 0;
-  @Provide pixelMap: image.PixelMap = undefined;
-  @State tempPixelMap: image.PixelMap = undefined;
-  originalPixelMap: PixelMap = undefined;
-  @Provide imageInfo: image.ImageInfo = undefined;
-  @Provide currentAdjustData: Array<number> = CommonConstants.ADJUST_SLIDER_VALUE.map((item) => item);
+  @Provide pixelMap?: image.PixelMap = undefined;
+  @State tempPixelMap?: image.PixelMap = undefined;
+  originalPixelMap?: PixelMap;
+  @Provide imageInfo: image.ImageInfo = {size: { height: 0, width: 0 } , density: 0};
+  @Provide currentAdjustData: Array<number> = CommonConstants.ADJUST_SLIDER_VALUE.map((item: number) => item);
   menuIconChangeList = menuIconList;
-  cropIconChange = cropIconChangeList;
+  cropIconChange: Array<IconStatus> = cropIconChangeList;
+  @Provide isPixelMapChange: boolean = false;
 
   async cropImage(proportion: CropType) {
+     if (!this.pixelMap) {
+       return;
+     }
     const imageInfo = await this.pixelMap.getImageInfo();
-    const { size } = imageInfo;
+    const size = imageInfo.size;
     const imageWidth = size?.width;
     const imageHeight = size?.height;
-    if (proportion === CropType.ORIGINAL_IMAGE) {
-      this.pixelInit();
-      return;
-    }
     switch (proportion) {
+      case CropType.ORIGINAL_IMAGE:
+        this.pixelInit();
+        break;
       case CropType.SQUARE:
-        square(this.pixelMap, imageWidth, imageHeight).then(() => {
-          this.flushPixelMap();
-        });
+        if (this.pixelMap) {
+          square(this.pixelMap, imageWidth, imageHeight).then(() => {
+            this.flushPixelMapNew();
+          });
+        }
         break;
       case CropType.BANNER:
-        banner(this.pixelMap, imageWidth, imageHeight).then(() => {
-          this.flushPixelMap();
-        });
+        if (this.pixelMap) {
+          banner(this.pixelMap, imageWidth, imageHeight).then(() => {
+            this.flushPixelMapNew();
+          });
+        }
         break;
       case CropType.RECTANGLE:
-        rectangle(this.pixelMap, imageWidth, imageHeight).then(() => {
-          this.flushPixelMap();
-        });
+         if (this.pixelMap) {
+           rectangle(this.pixelMap, imageWidth, imageHeight).then(() => {
+             this.flushPixelMapNew();
+           });
+         }
         break;
       default:
         break;
@@ -94,20 +103,26 @@ struct HomePage {
 
   rotateImage(rotateType: RotateType) {
     if (rotateType === RotateType.CLOCKWISE) {
+      if (!this.pixelMap) {
+        return;
+      }
       try {
         this.pixelMap.rotate(CommonConstants.CLOCK_WISE)
           .then(() => {
-            this.flushPixelMap();
+            this.flushPixelMapNew();
           })
       } catch (error) {
         Logger.error(TAG, `there is a error in rotate process with ${error?.code}`);
       }
     }
     if (rotateType === RotateType.ANTI_CLOCK) {
+      if (!this.pixelMap) {
+        return;
+      }
       try {
         this.pixelMap.rotate(CommonConstants.ANTI_CLOCK)
           .then(() => {
-            this.flushPixelMap();
+            this.flushPixelMapNew();
           })
       } catch (error) {
         Logger.error(TAG, `there is a error in rotate process with ${error?.code}`);
@@ -121,11 +136,18 @@ struct HomePage {
     this.pixelMap = temp;
   }
 
+  flushPixelMapNew() {
+    this.isPixelMapChange = !this.isPixelMapChange;
+  }
+
   pixelInit() {
-    getPixelMap().then(pixelMap => {
-      this.pixelMap = pixelMap;
+    getPixelMap().then((pixelMap?: image.PixelMap) => {
+      if (pixelMap) {
+        this.isPixelMapChange = !this.isPixelMapChange;
+        this.pixelMap = pixelMap;
+      }
       this.currentCropIndex = 0;
-      this.currentAdjustData = CommonConstants.ADJUST_SLIDER_VALUE.map((item) => item);
+      this.currentAdjustData = CommonConstants.ADJUST_SLIDER_VALUE.map((item: number) => item);
     })
   }
 
@@ -165,7 +187,9 @@ struct HomePage {
           primaryButton: {
             value: $r('app.string.save'),
             action: () => {
-              encode(this.pixelMap);
+              if (this.pixelMap) {
+                encode(this, this.pixelMap);
+              }
             }
           },
           secondaryButton: {
@@ -184,8 +208,13 @@ struct HomePage {
       Stack() {
         Column() {
           Column() {
-            Image(this.pixelMap)
-              .objectFit(ImageFit.None)
+            if (this.isPixelMapChange) {
+              Image(this.pixelMap ? this.pixelMap : '')
+                .objectFit(ImageFit.Contain)
+            } else {
+              Image(this.pixelMap ? this.pixelMap : '')
+                .objectFit(ImageFit.Contain)
+            }
           }
           .width(CommonConstants.LAYOUT_FULL_SCREEN)
           .height(CommonConstants.IMAGE_SHOW_HEIGHT)
@@ -194,15 +223,17 @@ struct HomePage {
             Tabs({ barPosition: BarPosition.End }) {
               TabContent() {
                 Row() {
-                  ForEach(this.cropIconChange, (item: IconStatus, index: number) => {
+                  ForEach(this.cropIconChange, (item: IconStatus, index?: number | undefined) => {
                     Image(this.currentCropIndex === index ? item?.chosen : item?.normal)
                       .width($r('app.float.crop_image_width'))
                       .height($r('app.float.crop_image_height'))
                       .onClick(() => {
-                        this.currentCropIndex = index;
-                        this.cropImage(index);
+                        if (index) {
+                          this.currentCropIndex = index;
+                          this.cropImage(index);
+                        }
                       })
-                  }, item => JSON.stringify(item))
+                  }, (item: IconStatus) => JSON.stringify(item))
                 }
                 .width(CommonConstants.LAYOUT_FULL_SCREEN)
                 .height(CommonConstants.LAYOUT_FULL_SCREEN)

@@ -41,7 +41,7 @@ import ConversionItem from '../common/bean/ConversionItem';
 
 @Component
 export default struct ConversionItemComponent {
-  model: ConversionItem;
+  model: ConversionItem = new ConversionItem();
 
   build() {
     Column() {

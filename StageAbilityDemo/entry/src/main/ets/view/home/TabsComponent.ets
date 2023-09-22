@@ -18,16 +18,16 @@ import { GoodsTabs } from '../../common/constants/HomeConstants';
 
 @Component
 export default struct TabsComponent {
-  private tabMenus: Resource[];
+  private tabMenus: Resource[] = [];
 
   build() {
     Row() {
       Tabs({ barPosition: BarPosition.Start, }) {
-        ForEach(this.tabMenus, (item, index) => {
+        ForEach(this.tabMenus, (item: Resource, index?: number) => {
           TabContent() {
           }
-          .tabBar(this.TabBuilder(index))
-        }, item => JSON.stringify(item))
+          .tabBar(this.TabBuilder(index ? index : 0))
+        }, (item: Resource) => JSON.stringify(item))
       }
       .vertical(false)
       .scrollable(true)
@@ -68,7 +68,7 @@ export default struct TabsComponent {
     .align(Alignment.Start)
   }
 
-  isIndexPageWithinTabs(position): boolean {
+  isIndexPageWithinTabs(position: number): boolean {
     return GoodsTabs.TABVIEW_POSITION_INDEX_PAGE === position;
   }
 }

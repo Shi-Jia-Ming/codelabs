@@ -21,10 +21,10 @@ import { ItemDirection } from '../common/bean/ItemDirection';
  * Set view model, providing page display data.
  */
 export class SetViewModel {
-  chatArr: Array<ChatData> = null;
+  chatArr: Array<ChatData> = [];
 
   initChatData(): Array<ChatData> {
-    if (this.chatArr === null) {
+    if (this.chatArr.length === 0) {
       this.chatArr = new Array();
       let chatData = new ChatData();
       chatData.itemDirection = ItemDirection.RIGHT;

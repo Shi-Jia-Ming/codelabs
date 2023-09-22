@@ -17,12 +17,13 @@ import nativeRender from 'libnativerender.so';
 import { ContextType } from '../entryability/EntryAbility';
 import CommonConstants from '../common/CommonConstants';
 
-const nativePageLifecycle = nativeRender.getContext(ContextType.PAGE_LIFECYCLE);
+const nativePageLifecycle: Record<string, () => void> =
+  nativeRender.getContext(ContextType.PAGE_LIFECYCLE) as Record<string, () => void>;
 
 @Entry
 @Component
 struct Index {
-  private xComponentContext = null;
+  private xComponentContext: Record<string, () => void> = {};
 
   aboutToAppear(): void {
     console.log('[LIFECYCLE-Index] aboutToAppear');
@@ -65,8 +66,10 @@ struct Index {
           type: CommonConstants.XCOMPONENT_TYPE,
           libraryname: CommonConstants.XCOMPONENT_LIBRARY_NAME
         })
-          .onLoad((xComponentContext) => {
-            this.xComponentContext = xComponentContext;
+          .onLoad((xComponentContext?: object | Record<string, () => void>) => {
+            if (xComponentContext) {
+              this.xComponentContext = xComponentContext as Record<string, () => void>;
+            }
           })
       }
       .margin({

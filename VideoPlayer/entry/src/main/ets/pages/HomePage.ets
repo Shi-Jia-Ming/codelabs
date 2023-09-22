@@ -21,31 +21,32 @@ import { HomeTabContent } from '../view/HomeTabContent';
 @Entry
 @Component
 struct HomePage {
-  @State currentIndex: number = HomeConstants.HOME_TAB.CURRENT_INDEX;
+  @State currentIndex: number = HomeConstants.CURRENT_INDEX;
   private controller: TabsController = new TabsController();
 
   aboutToAppear() {
     ScreenUtil.setScreenSize();
   }
 
-  @Builder TabBuilder(index: number, name: Resource) {
+  @Builder
+  TabBuilder(index: number, name: Resource) {
     Column() {
       Text(name)
         .fontColor(this.currentIndex === index ?
           $r('app.color.index_tab_selected_font_color') : $r('app.color.index_tab_font_color'))
         .fontSize($r('app.float.home_page_font_size'))
         .fontWeight(this.currentIndex === index ?
-        HomeConstants.HOME_TAB.FONT_WEIGHT_SELECT : HomeConstants.HOME_TAB.FONT_WEIGHT_UNSELECT)
-        .lineHeight(HomeConstants.HOME_TAB.LINE_HEIGHT)
+        HomeConstants.FONT_WEIGHT_SELECT : HomeConstants.FONT_WEIGHT_UNSELECT)
+        .lineHeight(HomeConstants.LINE_HEIGHT)
         .margin({
-          top: HomeConstants.HOME_TAB.MARGIN_TOP_TWO,
-          bottom: HomeConstants.HOME_TAB.MARGIN_BOTTOM
+          top: HomeConstants.MARGIN_TOP_TWO,
+          bottom: HomeConstants.MARGIN_BOTTOM
         })
       Divider()
-        .strokeWidth(HomeConstants.HOME_TAB.STROKE_WIDTH)
+        .strokeWidth(HomeConstants.STROKE_WIDTH)
         .color($r('app.color.index_tab_selected_font_color'))
         .opacity(this.currentIndex === index ?
-        HomeConstants.HOME_TAB.TAB_BAR_SECOND : HomeConstants.HOME_TAB.TAB_BAR_FIRST)
+        HomeConstants.TAB_BAR_SECOND : HomeConstants.TAB_BAR_FIRST)
     }
     .width(CommonConstants.FULL_PERCENT)
   }
@@ -54,17 +55,17 @@ struct HomePage {
     Column() {
       Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
         TabContent() {
-          HomeTabContent({ currIndex: HomeConstants.HOME_TAB.TAB_BAR_FIRST });
-        }.tabBar(this.TabBuilder(HomeConstants.HOME_TAB.TAB_BAR_FIRST, $r('app.string.index_tab_local_video')))
+          HomeTabContent({ currIndex: HomeConstants.TAB_BAR_FIRST });
+        }.tabBar(this.TabBuilder(HomeConstants.TAB_BAR_FIRST, $r('app.string.index_tab_local_video')))
 
         TabContent() {
-          HomeTabContent({ currIndex: HomeConstants.HOME_TAB.TAB_BAR_SECOND });
-        }.tabBar(this.TabBuilder(HomeConstants.HOME_TAB.TAB_BAR_SECOND, $r('app.string.index_tab_internet_video')))
+          HomeTabContent({ currIndex: HomeConstants.TAB_BAR_SECOND });
+        }.tabBar(this.TabBuilder(HomeConstants.TAB_BAR_SECOND, $r('app.string.index_tab_internet_video')))
       }
       .vertical(false)
       .barMode(BarMode.Fixed)
-      .barWidth(HomeConstants.HOME_TAB.BAR_WIDTH)
-      .barHeight(HomeConstants.HOME_TAB.BAR_HEIGHT)
+      .barWidth(HomeConstants.BAR_WIDTH)
+      .barHeight(HomeConstants.BAR_HEIGHT)
       .onChange((index: number) => {
         this.currentIndex = index;
       })

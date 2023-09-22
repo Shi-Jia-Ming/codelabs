@@ -55,10 +55,20 @@ export const TAG: string = 'RankPage';
  */
 export const TITLE: Resource = $r('app.string.title');
 
+class style {
+  RANK_PADDING: number = 15;
+  CONTENT_WIDTH: string = '90%';
+  BORDER_RADIUS: number = 20;
+  STROKE_WIDTH: number = 1;
+  HEADER_MARGIN_TOP: number = 20;
+  HEADER_MARGIN_BOTTOM: number = 15;
+  LIST_HEIGHT: string = '65%';
+}
+
 /**
  * The Style of RankPage.
  */
-export const Style = {
+export const Style: style = {
   /**
    * The padding of ranking.
    */
@@ -95,10 +105,17 @@ export const Style = {
   LIST_HEIGHT: '65%'
 };
 
+class listHeaderStyle {
+  FONT_WEIGHT: number = 400;
+  LAYOUT_WEIGHT_LEFT: string = '30%';
+  LAYOUT_WEIGHT_CENTER: string = '50%';
+  LAYOUT_WEIGHT_RIGHT: string = '20%';
+}
+
 /**
  * The Style of ListHeaderComponent.
  */
-export const ListHeaderStyle = {
+export const ListHeaderStyle: listHeaderStyle = {
   /**
    * The weight of font.
    */
@@ -120,10 +137,25 @@ export const ListHeaderStyle = {
   LAYOUT_WEIGHT_RIGHT: '20%',
 };
 
+class itemStyle {
+  TEXT_LAYOUT_SIZE: number = 24;
+  CIRCLE_TEXT_BORDER_RADIUS: number = 24;
+  CIRCLE_TEXT_SIZE: number = 24;
+  CIRCLE_TEXT_COLOR_STOP_1: number = 0.5;
+  CIRCLE_TEXT_COLOR_STOP_2: number = 1.0;
+  BAR_HEIGHT: number = 48;
+  LAYOUT_WEIGHT_LEFT: string = '30%';
+  LAYOUT_WEIGHT_CENTER: string = '50%';
+  LAYOUT_WEIGHT_RIGHT: string = '20%';
+  BORDER_WIDTH: number = 1;
+  COLOR_BLUE: Resource = $r('app.color.item_color');
+  COLOR_BLACK: Resource = $r('app.color.item_color_black');
+}
+
 /**
  * The Style of ListItemComponent.
  */
-export const ItemStyle = {
+export const ItemStyle: itemStyle = {
   /**
    * The line height of text.
    */
@@ -137,7 +169,7 @@ export const ItemStyle = {
   /**
    * The size of circle text.
    */
-  CIRCLE_TEXT_SIZE:24,
+  CIRCLE_TEXT_SIZE: 24,
 
   /**
    * Gradient color proportion.
@@ -185,10 +217,20 @@ export const ItemStyle = {
   COLOR_BLACK: $r('app.color.item_color_black')
 };
 
+class titleBarStyle {
+  IMAGE_BACK_SIZE: number = 21;
+  IMAGE_BACK_MARGIN_RIGHT: number = 18;
+  IMAGE_LOADING_SIZE: number = 22;
+  BAR_HEIGHT: number = 47;
+  BAR_MARGIN_HORIZONTAL: number = 26;
+  BAR_MARGIN_TOP: number = 10;
+  WEIGHT: string = '50%';
+}
+
 /**
  * The Style of TitleComponent.
  */
-export const TitleBarStyle = {
+export const TitleBarStyle: titleBarStyle = {
   /**
    * The image size of back button.
    */

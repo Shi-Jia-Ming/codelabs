@@ -19,7 +19,7 @@ import { GoodsListItem } from '../../common/constants/HomeConstants';
 
 @Component
 export default struct GoodsItemComponent {
-  private config: GoodsData;
+  private config: GoodsData = new GoodsData();
 
   build() {
     Column() {

@@ -18,7 +18,7 @@ import { GoodsTitle } from '../../common/constants/DetailsConstants';
 
 @Component
 export default struct GoodsTitleComponent {
-  private title: Resource
+  private title: Resource = $r('app.string.goods_list_item_1');
 
   build() {
     Column() {

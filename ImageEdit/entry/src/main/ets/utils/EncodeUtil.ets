@@ -26,7 +26,7 @@ const TAG: string = 'imageEdit_Encode';
  *
  * @param pixelMap.
  */
-export async function encode(pixelMap: PixelMap) {
+export async function encode(component: Object, pixelMap: PixelMap) {
   const newPixelMap = pixelMap;
   // Packing image.
   const imagePackerApi = image.createImagePacker();
@@ -37,7 +37,7 @@ export async function encode(pixelMap: PixelMap) {
   const imageData = await imagePackerApi.packing(newPixelMap, packOptions);
   Logger.info(TAG, `imageData's length is ${imageData.byteLength}`);
   // Get album's path.
-  const context = getContext(this);
+  const context = getContext(component);
   const media = mediaLibrary.getMediaLibrary(context);
   const publicPath = await media.getPublicDirectory(mediaLibrary.DirectoryType.DIR_IMAGE);
   const currentTime = new Date().getTime();

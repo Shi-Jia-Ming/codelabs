@@ -20,64 +20,44 @@ export class HomeConstants {
   /**
    * Constants on the tab page of the main interface.
    */
-  static readonly HOME_TAB = {
-    CURRENT_INDEX: 0,
-    TAB_BAR_FIRST: 0,
-    TAB_BAR_SECOND: 1,
-    BAR_WIDTH: 360,
-    BAR_HEIGHT: 60,
-    FONT_WEIGHT_SELECT: 500,
-    FONT_WEIGHT_UNSELECT: 400,
-    LINE_HEIGHT: 22,
-    MARGIN_TOP_TWO: 17,
-    MARGIN_BOTTOM: 7,
-    STROKE_WIDTH: 2
-  }
-
+  static readonly CURRENT_INDEX: number = 0;
+  static readonly TAB_BAR_FIRST: number = 0;
+  static readonly TAB_BAR_SECOND: number = 1;
+  static readonly BAR_WIDTH: number = 360;
+  static readonly BAR_HEIGHT: number = 60;
+  static readonly FONT_WEIGHT_SELECT: number = 500;
+  static readonly FONT_WEIGHT_UNSELECT: number = 400;
+  static readonly LINE_HEIGHT: number = 22;
+  static readonly MARGIN_TOP_TWO: number = 17;
+  static readonly MARGIN_BOTTOM: number = 7;
+  static readonly STROKE_WIDTH: number = 2;
   /**
    * Constant of the video list.
    */
-  static readonly HOME_TAB_LIST = {
-    COLUMN_WIDTH: '86.7%',
-    LIST_SPACE: 20,
-    LIST_INITIAL_INDEX: 0,
-    IMAGE_HEIGHT: '84.8%',
-    IMAGE_WIDTH: '26.7%',
-    DIVIDER_STROKE_WIDTH: 1,
-    LIST_ITEM_ROW_COLUMN_WIDTH: '73.3%',
-    LIST_ITEM_ROW_HEIGHT: '12.3%',
-    WIDTH: 720,
-    HEIGHT: 720
-  }
-
+  static readonly COLUMN_WIDTH: string = '86.7%';
+  static readonly LIST_SPACE: number = 20;
+  static readonly LIST_INITIAL_INDEX: number = 0;
+  static readonly IMAGE_HEIGHT: string = '84.8%';
+  static readonly IMAGE_WIDTH: string = '26.7%';
+  static readonly DIVIDER_STROKE_WIDTH: number = 1;
+  static readonly LIST_ITEM_ROW_COLUMN_WIDTH: string = '73.3%';
+  static readonly LIST_ITEM_ROW_HEIGHT: string = '12.3%';
+  static readonly WIDTH: number = 720;
+  static readonly HEIGHT: number = 720;
   /**
    * Scan local video and add network video buttons.
    */
-  static readonly HOME_TAB_BUTTON = {
-    HEIGHT: '51%',
-    COLUMN_HEIGHT: '10%'
-  }
-
+  static readonly TAB_BUTTON_HEIGHT: string = '51%';
+  static readonly TAB_COLUMN_HEIGHT: string = '10%';
   /**
    * Add Network Video dialog box.
    */
-  static readonly INTERNET_ADD_DIALOG= {
-    OFFSET_DX: 0,
-    OFFSET_DY: -20,
-    GRID_COUNT: 4,
-    TEXT_HEIGHT: '6.7%',
-    TEXT_MARGIN_TOP: '3.1%',
-    DURATION: 1000,
-    DURATION_ONE: -1,
-    DURATION_TWO: 0
-  }
-
-  /**
-   * The video player is used to verify the video link.
-   */
-  static readonly X_COMPONENT = {
-    ID: '',
-    TYPE: 'surface',
-    LIBRARY_NAME: '',
-  }
+  static readonly OFFSET_DX: number = 0;
+  static readonly OFFSET_DY: number = -20;
+  static readonly GRID_COUNT: number = 4;
+  static readonly TEXT_HEIGHT: string = '6.7%';
+  static readonly TEXT_MARGIN_TOP: string = '3.1%';
+  static readonly DURATION: number = 1000;
+  static readonly DURATION_ONE: number = -1;
+  static readonly DURATION_TWO: number = 0;
 }

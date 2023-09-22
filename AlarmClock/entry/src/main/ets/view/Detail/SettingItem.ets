@@ -63,7 +63,7 @@ export default struct SettingItem {
 
   build() {
     Column() {
-      ForEach(this.settingInfo, (item: AlarmSettingBean, index: number) => {
+      ForEach(this.settingInfo, (item: AlarmSettingBean, index: number | undefined) => {
         Divider()
           .visibility(index === 0 ? Visibility.Hidden : Visibility.Visible)
           .opacity($r('app.float.divider_opacity'))
@@ -101,7 +101,7 @@ export default struct SettingItem {
         .onClick(() => {
           this.showSettingDialog(item.sType);
         })
-      }, (item, index) => JSON.stringify(item) + index)
+      }, (item: AlarmSettingBean, index: number | undefined) => JSON.stringify(item) + index)
     }
     .margin({
       bottom: DimensionUtil.getVp($r('app.float.setting_item_interval')),

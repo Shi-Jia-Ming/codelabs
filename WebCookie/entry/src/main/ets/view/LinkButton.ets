@@ -17,15 +17,14 @@ import web_webview from '@ohos.web.webview';
 import router from '@ohos.router';
 import { showDialog } from '../common/utils/DialogUtil';
 import { CommonConstants, CookieOperation } from '../common/constants/CommonConstant';
-import Logger from '../common/utils/Logger';
 
 /**
  * Link component.
  */
 @Component
 export struct LinkButton {
-  buttonType: string;
-  isNeedDivider: boolean;
+  buttonType?: string;
+  isNeedDivider?: boolean;
 
   build() {
     Row() {
@@ -48,37 +47,24 @@ export struct LinkButton {
   }
 
   operationMethod(): void {
-    switch (this.buttonType) {
-      case CookieOperation.GET_COOKIE:
-        try {
-          let originCookie = web_webview.WebCookieManager.getCookie(CommonConstants.USER_CENTER_URL);
-          showDialog(originCookie);
-        } catch (error) {
-          showDialog(`ErrorCode: ${error.code},  Message: ${error.message}`);
-        }
-        break;
-      case CookieOperation.SET_COOKIE:
-        try {
-          web_webview.WebCookieManager.setCookie(CommonConstants.USER_ABOUT_URL, 'info=测试cookie写入');
-          showDialog($r('app.string.write_success'));
-        } catch (error) {
-          showDialog(`ErrorCode: ${error.code},  Message: ${error.message}`);
-        }
-        break;
-      case CookieOperation.DELETE_COOKIE:
+    try {
+      if (this.buttonType === CookieOperation.GET_COOKIE) {
+        let originCookie = web_webview.WebCookieManager.getCookie(CommonConstants.USER_CENTER_URL);
+        showDialog(originCookie);
+      } else if (this.buttonType === CookieOperation.SET_COOKIE) {
+        web_webview.WebCookieManager.setCookie(CommonConstants.USER_ABOUT_URL, 'info=测试cookie写入');
+        showDialog($r('app.string.write_success'));
+      } else if (this.buttonType === CookieOperation.DELETE_COOKIE) {
         web_webview.WebCookieManager.deleteEntireCookie();
         let deleteMessage = $r('app.string.delete_success');
         showDialog(deleteMessage);
-        break;
-      case CookieOperation.VERIFY_COOKIE:
+      } else {
         router.pushUrl({
           url: CommonConstants.PAGE_VERIFY
-        }).catch((err: Error) => {
-            Logger.error(`[LinkButton] push url fail: ${err}`);
-        });
-        break;
-      default:
-        break;
+        })
+      }
+    } catch (error) {
+      showDialog('Operation failed.'+JSON.stringify(error));
     }
   }
 }

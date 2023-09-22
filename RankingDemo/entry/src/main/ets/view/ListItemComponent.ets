@@ -17,10 +17,10 @@ import { FontSize, FontWeight, ItemStyle, WEIGHT } from '../common/constants/Con
 
 @Component
 export struct ListItemComponent {
-  index: number;
-  private name: Resource;
-  @Prop vote: string;
-  @Prop isSwitchDataSource: boolean;
+  index?: number;
+  private name?: Resource;
+  @Prop vote: string = '';
+  @Prop isSwitchDataSource: boolean = false;
   // The state is related to the font color of ListItemComponent.
   @State isChange: boolean = false;
 
@@ -28,9 +28,11 @@ export struct ListItemComponent {
     Row() {
       Column() {
         if (this.isRenderCircleText()) {
-          this.CircleText(this.index);
+          if (this.index !== undefined) {
+            this.CircleText(this.index);
+          }
         } else {
-          Text(this.index.toString())
+          Text(this.index?.toString())
             .lineHeight(ItemStyle.TEXT_LAYOUT_SIZE)
             .textAlign(TextAlign.Center)
             .width(ItemStyle.TEXT_LAYOUT_SIZE)
@@ -62,7 +64,7 @@ export struct ListItemComponent {
 
   @Builder CircleText(index: number) {
     Row() {
-      Text(this.index.toString())
+      Text(this.index?.toString())
         .fontWeight(FontWeight.BOLD)
         .fontSize(FontSize.SMALL)
         .fontColor(Color.White);

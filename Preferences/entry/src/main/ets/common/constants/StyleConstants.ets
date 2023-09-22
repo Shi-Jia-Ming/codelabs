@@ -80,7 +80,7 @@ class StyleConstants {
   /**
    * Big margin bottom
    */
-  MARGIN_BOTTOM_BIG = '390vp';
+  MARGIN_BOTTOM_BIG = '340vp';
 
   /**
    * The height of button component.

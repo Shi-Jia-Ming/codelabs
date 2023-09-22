@@ -20,7 +20,7 @@ import { MARGIN_FONT_SIZE_SPACE } from '../common/Constants/CommonConstants';
  */
 @Component
 export struct CommonItem {
-  private item: number;
+  private item: number = 0;
 
   build() {
     Text(this.item.toString())

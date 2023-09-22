@@ -24,7 +24,8 @@ export default struct CommonEventListComponent {
   @State commonEventData: CommonEventBean[] = MainPageViewModel.getCommonEventData();
   @State toastMsg: Resource = $r('app.string.initial_empty');
 
-  @Builder navigationTitle() {
+  @Builder
+  navigationTitle() {
     Column() {
       Text($r('app.string.system_common_event'))
         .width(CommonConstants.FULL_SCREEN_WIDTH)
@@ -40,7 +41,7 @@ export default struct CommonEventListComponent {
   build() {
     Navigation() {
       Column() {
-        ForEach(this.commonEventData, (item: CommonEventBean, index: number) => {
+        ForEach(this.commonEventData, (item: CommonEventBean, index?: number) => {
           Column() {
             Row() {
               Row() {
@@ -60,10 +61,12 @@ export default struct CommonEventListComponent {
                 .fontSize($r('app.float.sub_btn_font_size'))
                 .fontColor(item.isSubscribe ? $r('app.color.sub_color_check') : $r('app.color.sub_color_uncheck'))
                 .backgroundColor(item.isSubscribe ? $r('app.color.sub_bgColor_check')
-                                                  : $r('app.color.sub_bgColor_uncheck'))
+                  : $r('app.color.sub_bgColor_uncheck'))
                 .fontWeight(CommonConstants.FONT_WEIGHT_500)
                 .onClick(() => {
-                  this.subscribeEvent(item, index);
+                  if (index !== undefined) {
+                    this.subscribeEvent(item, index);
+                  }
                 })
             }
             .width(CommonConstants.FULL_SCREEN_WIDTH)
@@ -94,7 +97,7 @@ export default struct CommonEventListComponent {
           .borderRadius($r('app.float.full_border_radius'))
           .padding({ left: $r('app.float.full_padding_left'), right: $r('app.float.full_padding_right') })
           .margin({ top: $r('app.float.full_margin_top') })
-        }, item => JSON.stringify(item))
+        }, (item: CommonEventBean) => JSON.stringify(item))
       }
       .width(CommonConstants.FULL_SCREEN_WIDTH)
       .height(CommonConstants.FULL_SCREEN_HEIGHT)
@@ -108,7 +111,7 @@ export default struct CommonEventListComponent {
 
   subscribeEvent(item: CommonEventBean, index: number): void {
     if (item.isSubscribe === false) {
-      CommonEventUtil.subscribe(item, (commonEvent: CommonEventBean, toast?: Resource) => {
+      CommonEventUtil.subscribe(item, (commonEvent: CommonEventBean, toast: Resource) => {
         this.commonEventData[index] = commonEvent;
         this.commonEventData = this.commonEventData.splice(0);
         if (commonEvent.changeState === false) {

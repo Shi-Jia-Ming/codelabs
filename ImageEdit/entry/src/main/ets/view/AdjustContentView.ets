@@ -19,6 +19,7 @@ import { adjustOpacity } from '../utils/OpacityUtil';
 import { CommonConstants } from '../common/constant/CommonConstants';
 import { AdjustId } from '../viewModel/OptionViewModel';
 import { MessageItem } from '../common/bean/MessageItem'
+import image from '@ohos.multimedia.image';
 
 @Component
 export default struct AdjustContentView {
@@ -85,9 +86,11 @@ struct SliderCustom {
   @Link currentAdjustData: number[];
   @Prop min: number;
   @Prop max: number;
-  @Consume pixelMap: PixelMap;
+  @Consume pixelMap?: PixelMap;
+  @Consume isPixelMapChange: boolean;
+  private pixelMapTemp: PixelMap;
   private postState: boolean = true;
-  workerInstance: worker.ThreadWorker = undefined;
+  private workerInstance?: worker.ThreadWorker;
   saturationLastSlider: number = CommonConstants.SLIDER_MAX;
   brightnessLastSlider: number = CommonConstants.SLIDER_MAX;
   deviceListDialogController: CustomDialogController = new CustomDialogController({
@@ -113,7 +116,9 @@ struct SliderCustom {
           .trackColor(Color.White)
           .width(CommonConstants.SLIDER_WIDTH)
           .showSteps(true)
-          .onChange(this.sliderChange.bind(this))
+          .onChange((value: number, mode: SliderChangeMode) => {
+            this.sliderChange(value, mode);
+          })
       }
       .width(CommonConstants.LAYOUT_FULL_SCREEN)
       .justifyContent(FlexAlign.Center)
@@ -128,11 +133,15 @@ struct SliderCustom {
           this.postToWorker(AdjustId.BRIGHTNESS, value, CommonConstants.BRIGHTNESS_WORKER_FILE);
           break;
         case AdjustId.TRANSPARENCY:
-          adjustOpacity(this.pixelMap, Math.round(value))
-            .then(pixelMap => {
-              this.pixelMap = undefined;
-              this.pixelMap = pixelMap;
-            });
+          if (this.pixelMap) {
+            adjustOpacity(this.pixelMap, Math.round(value))
+              .then((pixelMap?: PixelMap) => {
+                if(pixelMap) {
+                  this.pixelMap = pixelMap;
+                  this.isPixelMapChange = !this.isPixelMapChange;
+                }
+              });
+          }
           break;
         case AdjustId.SATURATION:
           this.postToWorker(AdjustId.SATURATION, value, CommonConstants.SATURATION_WORKER_FILE);
@@ -144,6 +153,9 @@ struct SliderCustom {
   }
 
   postToWorker(type: AdjustId, value: number, workerName: string) {
+    if (!this.pixelMap) {
+      return;
+    }
     let sliderValue = type === AdjustId.BRIGHTNESS ? this.brightnessLastSlider : this.saturationLastSlider;
     let workerInstance = new worker.ThreadWorker(workerName);
     const bufferArray = new ArrayBuffer(this.pixelMap.getPixelBytesNumber());
@@ -154,7 +166,9 @@ struct SliderCustom {
         this.deviceListDialogController.open();
       }
       this.postState = false;
-      workerInstance.onmessage = this.updatePixelMap.bind(this);
+      workerInstance.onmessage = (event: MessageEvents) => {
+       this.updatePixelMap(event);
+      }
       if (type === AdjustId.BRIGHTNESS) {
         this.brightnessLastSlider = Math.round(value);
       } else {
@@ -171,8 +185,8 @@ struct SliderCustom {
   updatePixelMap(event: MessageEvents) {
     const newPixel = this.pixelMap;
     newPixel.writeBufferToPixels(event.data);
-    this.pixelMap = undefined;
     this.pixelMap = newPixel;
+    this.isPixelMapChange = !this.isPixelMapChange;
     this.deviceListDialogController.close();
     this.postState = true;
   }
@@ -180,7 +194,7 @@ struct SliderCustom {
 
 @CustomDialog
 export struct Dialog {
-  controller: CustomDialogController;
+  controller?: CustomDialogController;
 
   build() {
     Column() {

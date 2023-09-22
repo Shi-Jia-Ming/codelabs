@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import { PARAM_KEY, CommonConstants } from '../common/constants/CommonConstants';
+import { CommonConstants } from '../common/constants/CommonConstants';
 import AlarmItem from '../common/bean/AlarmItemBean';
 import AlarmSettingBean from '../common/bean/AlarmSettingBean';
 import { AlarmSettingType } from '../common/constants/AlarmSettingType';
@@ -32,13 +32,19 @@ struct DetailIndex {
   @State repeatSettingArr: Array<AlarmSettingBean> = [];
   @State alarmSettingInfoArr: Array<AlarmSettingBean> = [];
   private isNow: boolean = true;
-  private viewModel: DetailModel = DetailModel.getInstant();
+  private viewModel: DetailModel = DetailModel.instant;
 
   aboutToAppear() {
-    if (router.getParams() != null && router.getParams().hasOwnProperty(PARAM_KEY)) {
-      this.isNow = false;
-      this.alarmItem = router.getParams()[PARAM_KEY];
-      this.viewModel.setAlarmDefaultTime(this.alarmItem);
+    let params = router.getParams() as Record<string, Object|undefined>;
+    if (params !== undefined) {
+      let alarmItem: AlarmItem = params.alarmItem as AlarmItem;
+      if (alarmItem !== undefined) {
+        this.isNow = false;
+        this.alarmItem = alarmItem;
+        this.viewModel.setAlarmDefaultTime(this.alarmItem);
+      }else {
+        this.viewModel.setAlarmDefaultTime();
+      }
     } else {
       this.viewModel.setAlarmDefaultTime();
     }

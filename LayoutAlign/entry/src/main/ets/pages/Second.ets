@@ -21,14 +21,12 @@ import { StackComponent } from '../view/StackComponent';
 import {
   MARGIN_FONT_SIZE_SPACE,
   COMMON_FONT_WEIGHT,
-  MODULE_LIST,
-  COMPONENT_NAME,
-  CONTAINER_TYPE_STR,
   LIST,
   ATTRIBUTE,
   CONTAINER_TYPE,
   ALL_PERCENT
 } from '../common/Constants/CommonConstants';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *second page
@@ -36,9 +34,9 @@ import {
 @Entry
 @Component
 struct Second {
-  private moduleList: any[] = router.getParams()[MODULE_LIST];
-  private componentName: string = router.getParams()[COMPONENT_NAME];
-  @Provide containerType: number = router.getParams()[CONTAINER_TYPE_STR];
+  private moduleList: ContainerModuleItem[] = [];
+  private componentName: string = '';
+  @Provide containerType: number = 0;
   @Provide currentFlexDirection: FlexDirection = FlexDirection.Column;
   @Provide currentFlexJustifyContent: FlexAlign = FlexAlign.Start;
   @Provide currentFlexAlignItems: ItemAlign = ItemAlign.Start;
@@ -51,6 +49,13 @@ struct Second {
   @Provide currentStackAlignContent: Alignment = Alignment.TopStart;
   @Provide message: string = ATTRIBUTE.TOP_START;
   @Provide list: number[] = LIST;
+
+  aboutToAppear() {
+    let params = router.getParams() as Record<string, Object>;
+    this.moduleList = params.moduleList as ContainerModuleItem[];
+    this.componentName = params.componentName as string;
+    this.containerType = params.containerType as number;
+  }
 
   build() {
     Row() {
@@ -79,7 +84,7 @@ struct Second {
 @Component
 struct BackComp {
   private backIconResource: Resource = $r('app.media.icon_back');
-  private componentName: string;
+  private componentName: string = '';
 
   build() {
     Row() {

@@ -18,8 +18,8 @@ import { GoodsPicker } from '../../common/constants/DetailsConstants';
 
 @Component
 export default struct PickerComponent {
-  private goodsDescription: string | Resource
-  @BuilderParam actionMoreBuilder: () => void;
+  private goodsDescription: string | Resource = ''
+  @BuilderParam actionMoreBuilder: () => void = () => {};
 
   build() {
     Row() {

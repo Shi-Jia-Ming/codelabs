@@ -18,20 +18,11 @@
  */
 export default class DataTypeUtils {
   /**
-   * return value is number.
-   *
-   * @return boolean.
-   */
-  static isNumber(value): boolean{
-    return typeof value === 'number' && isFinite(value);
-  }
-
-  /**
    * return obj is null.
    *
    * @return boolean.
    */
-  static isNull(obj): boolean {
+  static isNull(obj: Object): boolean {
     return (typeof obj === 'undefined' || obj == null || obj === '');
   }
 
@@ -40,18 +31,10 @@ export default class DataTypeUtils {
    *
    * @return type in obj.
    */
-  static deepCopy(obj) {
-    var newObj = obj.constructor === Array ? [] : {};
-    if (typeof obj !== 'object') {
-      return obj;
-    } else {
-      for (var i in obj) {
-        if (typeof obj[i] === 'object') {
-          newObj[i] = this.deepCopy(obj[i]);
-        } else {
-          newObj[i] = obj[i];
-        }
-      }
+  static deepCopy(obj: number[]) {
+    let newObj: number[] = [];
+    for (let i = 0; i < obj.length; i++) {
+      newObj[i] = JSON.parse(JSON.stringify(obj[i]));
     }
     return newObj;
   }

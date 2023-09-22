@@ -21,6 +21,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
+import SettingData from '../common/bean/SettingData';
 
 const TAG = '[HomePage]';
 
@@ -74,19 +75,20 @@ struct HomePage {
 
   @Builder SettingItems() {
     List() {
-      ForEach(this.settingArr.slice(CommonConstants.START_INDEX, CommonConstants.END_INDEX), (item, index) => {
+      ForEach(this.settingArr.slice(CommonConstants.START_INDEX, CommonConstants.END_INDEX),
+        (item: SettingData, index?: number) => {
         ListItem() {
           SettingItemComponent({ setting: item, changeFontSize: this.changeFontSize, itemClick: () => {
             if (index === CommonConstants.SET_FONT_INDEX) {
               router.pushUrl({
                 url: CommonConstants.SET_URL
-              }).catch((error) => {
+              }).catch((error: Error) => {
                 Logger.info(TAG, 'HomePage push error' + JSON.stringify(error));
               });
             }
           } })
         }
-      }, item => item.settingName.id.toString())
+      }, (item: SettingData) => JSON.stringify(item))
     }
     .divider({
       strokeWidth: $r('app.float.setting_item_divider_width'),

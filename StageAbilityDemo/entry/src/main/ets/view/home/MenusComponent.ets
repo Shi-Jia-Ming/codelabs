@@ -19,11 +19,11 @@ import { Menus } from '../../common/constants/HomeConstants';
 
 @Component
 export default struct MenusComponent {
-  menus: MenuData[];
+  menus: MenuData[] = [];
 
   build() {
     Row() {
-      ForEach(this.menus, (item) => {
+      ForEach(this.menus, (item: MenuData) => {
         Column() {
           Text(item?.menuName)
             .fontColor(item?.fontColor)
@@ -37,7 +37,7 @@ export default struct MenusComponent {
         .width(Menus.LAYOUT_WEIGHT)
         .padding({ top: Menus.ITEM_PADDING_VERTICAL,
           bottom: Menus.ITEM_PADDING_VERTICAL })
-      }, item => JSON.stringify(item))
+      }, (item: MenuData) => JSON.stringify(item))
     }
     .justifyContent(FlexAlign.Center)
     .padding({ top: Menus.CONTAINER_PADDING_VERTICAL,

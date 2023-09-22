@@ -25,7 +25,8 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
  * @param fontSize Font size.
  * @param fontWeight Font weight.
  */
-@Extend(Text) function textStyle(fontSize: number, fontWeight: number) {
+@Extend(Text)
+function textStyle(fontSize: number, fontWeight: number) {
   .fontSize(fontSize)
   .fontColor($r('app.color.start_window_background'))
   .fontWeight(fontWeight)
@@ -54,7 +55,7 @@ export struct Banner {
 
   build() {
     Swiper(this.swiperController) {
-      ForEach(this.imageArray, item => {
+      ForEach(this.imageArray, (item: PictureItem) => {
         Stack({ alignContent: Alignment.TopStart }) {
           Image(item.image)
             .objectFit(ImageFit.Fill)
@@ -80,7 +81,7 @@ export struct Banner {
         }
         .height(CommonConstants.FULL_HEIGHT)
         .width(CommonConstants.FULL_WIDTH)
-      }, item => JSON.stringify(item))
+      }, (item: PictureItem) => JSON.stringify(item))
     }
     .width(CommonConstants.PAGE_WIDTH)
     .height(CommonConstants.HEIGHT_BANNER)

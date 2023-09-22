@@ -37,7 +37,6 @@ export struct NavigationView {
           .lineHeight(CommonConstants.LINE_HEIGHT_NAVIGATION)
       }
     }
-    .position({ x: CommonConstants.START_POSITION, y: CommonConstants.START_POSITION })
-    .margin({ left: CommonConstants.LEFT_NAVIGATION, top: CommonConstants.TOP_IMAGE_VOTE })
+    .position({ x: CommonConstants.LEFT_POSITION, y: CommonConstants.START_POSITION })
   }
 }

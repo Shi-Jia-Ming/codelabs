@@ -17,13 +17,13 @@ import router from '@ohos.router';
 import { APPLE, SMILE, BRUSH_TEETH, SLEEP, DRINK, GET_UP } from '../common/Const';
 
 class TaskInfo {
-  taskID: number;
-  taskName: string;
-  icon: string;
-  targetValue: string;
+  taskID: number = 0;
+  taskName: string = '';
+  icon: string = '';
+  targetValue: string = '';
 }
 
-const TASK_LIST = [
+const TASK_LIST: Array<TaskInfo> = [
   {
     taskID: 1,
     taskName: GET_UP,

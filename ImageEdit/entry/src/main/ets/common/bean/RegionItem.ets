@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export interface RegionItem {
+export class RegionItem {
   /**
    * width coordinate.
    */
@@ -23,4 +23,9 @@ export interface RegionItem {
    * height coordinate.
    */
   y: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
 }

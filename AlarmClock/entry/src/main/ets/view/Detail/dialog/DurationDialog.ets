@@ -23,7 +23,7 @@ import DimensionUtil from '../../../common/utils/DimensionUtil';
 export default struct DurationDialog {
   @Consume(DetailConstant.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem;
   private durations: Array<number> = DetailConstant.RING_DURATION; //响铃时长，分钟
-  controller: CustomDialogController;
+  controller?: CustomDialogController;
 
   build() {
     Flex() {
@@ -31,17 +31,20 @@ export default struct DurationDialog {
         title: $r('app.string.ring_duration'),
         controller: this.controller
       }) {
-        ForEach(this.durations, item => {
+        ForEach(this.durations, (item: number) => {
           Row() {
             Text(item + CommonConstants.DEFAULT_STRING_SPACE + DetailConstant.DEFAULT_STRING_MINUTE)
               .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
               .fontColor($r('app.color.grey_divider'))
               .fontSize(DimensionUtil.getFp($r('app.float.duration_dialog_content_font_size')))
-            Radio({ value: item, group: DetailConstant.DEFAULT_STRING_GROUP_NAME })
+            Radio({ value: item.toString(), group: DetailConstant.DEFAULT_STRING_GROUP_NAME })
               .checked(item === this.alarmItem.duration ? true : false)
               .height(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
               .width(DimensionUtil.getVp($r('app.float.duration_dialog_radio_size')))
               .onChange(() => {
+                if (!this.controller) {
+                  return;
+                }
                 this.controller.close();
                 this.alarmItem.duration = item
               })

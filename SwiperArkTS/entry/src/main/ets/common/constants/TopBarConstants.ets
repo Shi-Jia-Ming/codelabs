@@ -19,10 +19,10 @@ import { TopBarItem } from '../bean/TopBarItem';
  * Data of top bar.
  */
 export const TOP_BAR_DATA: TopBarItem[] = [
-  { 'id': 0, 'name': '全部' },
-  { 'id': 1, 'name': '电影' },
-  { 'id': 2, 'name': '电视剧' },
-  { 'id': 3, 'name': '综艺' },
-  { 'id': 4, 'name': '直播' },
-  { 'id': 5, 'name': '游戏' }
+  new TopBarItem(0, '全部'),
+  new TopBarItem(1, '电影'),
+  new TopBarItem(2, '电视剧'),
+  new TopBarItem(3, '综艺'),
+  new TopBarItem(4, '直播'),
+  new TopBarItem(5, '游戏')
 ]

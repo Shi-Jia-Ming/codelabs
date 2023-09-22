@@ -14,7 +14,13 @@
  */
 
 export class RankData {
-  public fruitName: Resource;
-  private vote: string; // Number of votes
-  private id: string;
+  name: Resource;
+  vote: string; // Number of votes
+  id: string;
+
+  constructor(id: string, name: Resource, vote: string) {
+    this.id = id;
+    this.name = name;
+    this.vote = vote;
+  }
 }

@@ -43,7 +43,7 @@ export default struct FlexLayout {
               })
               .textOverflow({ overflow: TextOverflow.Ellipsis })
               .maxLines(StyleConstants.TEXT_MAX_LINE)
-          }, item => JSON.stringify(item))
+          }, (item: string) => JSON.stringify(item))
         }
       }
       .margin({

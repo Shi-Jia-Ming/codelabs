@@ -35,7 +35,7 @@ class Logger {
      *
      * @param args Indicates the log parameters.
      */
-    debug(...args: any[]) {
+    debug(...args: string[]) {
         hilog.debug(this.domain, this.prefix, this.format, args);
     }
 
@@ -44,7 +44,7 @@ class Logger {
      *
      * @param args Indicates the log parameters.
      */
-    info(...args: any[]) {
+    info(...args: string[]) {
         hilog.info(this.domain, this.prefix, this.format, args);
     }
 
@@ -53,7 +53,7 @@ class Logger {
      *
      * @param args Indicates the log parameters.
      */
-    warn(...args: any[]) {
+    warn(...args: string[]) {
         hilog.warn(this.domain, this.prefix, this.format, args);
     }
 
@@ -62,7 +62,7 @@ class Logger {
      *
      * @param args Indicates the log parameters.
      */
-    error(...args: any[]) {
+    error(...args: string[]) {
         hilog.error(this.domain, this.prefix, this.format, args);
     }
 }

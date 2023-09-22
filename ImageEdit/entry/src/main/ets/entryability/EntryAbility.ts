@@ -44,7 +44,7 @@ export default class EntryAbility extends UIAbility {
                 hilog.info(0x0000, 'testTag', 'Succeeded in requestPermission. Data: %{public}s',
                     JSON.stringify(data) ?? '');
             }
-        })
+        });
 
         windowStage.loadContent('pages/HomePage', (err, data) => {
             if (err.code) {

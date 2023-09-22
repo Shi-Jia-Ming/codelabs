@@ -20,10 +20,10 @@ export default class SettingData {
   /**
    * Setting list item name.
    */
-  settingName: Resource;
+  settingName: Resource = $r('app.string.empty');
 
   /**
    * Setting list item image.
    */
-  settingImage: Resource;
+  settingImage: Resource = $r('app.string.empty');
 }
