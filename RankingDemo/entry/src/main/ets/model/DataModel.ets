@@ -13,97 +13,35 @@
  * limitations under the License.
  */
 
+import { RankData } from '../common/bean/RankData';
+
 /*
  * the Mock file instead of network data.
  */
 export { rankData1, rankData2 }
 
-const rankData1: object[] = [
-  {
-    'id': '1',
-    'name': $r('app.string.fruit_apple'),
-    'vote': '12080',
-  },
-  {
-    'id': '2',
-    'name': $r('app.string.fruit_grapes'),
-    'vote': '10320',
-  },
-  { 'id': '3',
-    'name': $r('app.string.fruit_watermelon'),
-    'vote': '9801',
-  },
-  {
-    'id': '4',
-    'name': $r('app.string.fruit_banana'),
-    'vote': '8431',
-  },
-  { 'id': '5',
-    'name': $r('app.string.fruit_pineapple'),
-    'vote': '7546',
-  },
-  { 'id': '6',
-    'name': $r('app.string.fruit_durian'),
-    'vote': '7431',
-  },
-  { 'id': '7',
-    'name': $r('app.string.fruit_red_grape'),
-    'vote': '7187',
-  },
-  { 'id': '8',
-    'name': $r('app.string.fruit_pears'),
-    'vote': '7003',
-  },
-  { 'id': '9',
-    'name': $r('app.string.fruit_carambola'),
-    'vote': '6794',
-  },
-  { 'id': '10',
-    'name': $r('app.string.fruit_guava'),
-    'vote': '6721',
-  },
+const rankData1: RankData[] = [
+  new RankData('1', $r('app.string.fruit_apple'), '12080'),
+  new RankData('2', $r('app.string.fruit_grapes'), '10320'),
+  new RankData('3', $r('app.string.fruit_watermelon'), '9801'),
+  new RankData('4', $r('app.string.fruit_banana'), '8431'),
+  new RankData('5', $r('app.string.fruit_pineapple'), '7546'),
+  new RankData('6', $r('app.string.fruit_durian'), '7431'),
+  new RankData('7', $r('app.string.fruit_red_grape'), '7187'),
+  new RankData('8', $r('app.string.fruit_pears'), '7003'),
+  new RankData('9', $r('app.string.fruit_carambola'), '6794'),
+  new RankData('10', $r('app.string.fruit_guava'), '6721')
 ];
 
-const rankData2: object[] = [
-  { 'id': '11',
-    'name': $r('app.string.fruit_watermelon'),
-    'vote': '8836',
-  },
-  { 'id': '12',
-    'name': $r('app.string.fruit_apple'),
-    'vote': '8521',
-  },
-
-  { 'id': '13',
-    'name': $r('app.string.fruit_banana'),
-    'vote': '8431',
-  },
-  { 'id': '14',
-    'name': $r('app.string.fruit_grapes'),
-    'vote': '7909',
-  },
-  { 'id': '15',
-    'name': $r('app.string.fruit_red_grape'),
-    'vote': '7547',
-  },
-  { 'id': '16',
-    'name': $r('app.string.fruit_pears'),
-    'vote': '7433',
-  },
-  { 'id': '17',
-    'name': $r('app.string.fruit_pineapple'),
-    'vote': '7186',
-  },
-  { 'id': '18',
-    'name': $r('app.string.fruit_durian'),
-    'vote': '7023',
-  },
-  { 'id': '19',
-    'name': $r('app.string.fruit_guava'),
-    'vote': '6794',
-  },
-  { 'id': '20',
-    'name': $r('app.string.fruit_carambola'),
-    'vote': '6721',
-  },
+const rankData2: RankData[] = [
+  new RankData('11', $r('app.string.fruit_watermelon'), '8836'),
+  new RankData('12', $r('app.string.fruit_apple'), '8521'),
+  new RankData('13', $r('app.string.fruit_banana'), '8431'),
+  new RankData('14', $r('app.string.fruit_grapes'), '7909'),
+  new RankData('15', $r('app.string.fruit_red_grape'), '7547'),
+  new RankData('16', $r('app.string.fruit_pears'), '7433'),
+  new RankData('17', $r('app.string.fruit_pineapple'), '7186'),
+  new RankData('18', $r('app.string.fruit_durian'), '7023'),
+  new RankData('19', $r('app.string.fruit_guava'), '6794'),
+  new RankData('20', $r('app.string.fruit_carambola'), '6721')
 ];

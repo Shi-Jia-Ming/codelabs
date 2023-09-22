@@ -13,16 +13,17 @@
  * limitations under the License.
  */
 
+import { RankData } from '../common/bean/RankData';
 import { rankData1, rankData2 } from '../model/DataModel';
 
 export class RankViewModel {
   // Load data from the rankData1 of the Mock file.
-  loadRankDataSource1(): any[] {
+  loadRankDataSource1(): RankData[] {
     return rankData1;
   }
 
   // Load data from the rankData2 of the Mock file,but rankData2 is different from rankData1.
-  loadRankDataSource2(): any[] {
+  loadRankDataSource2(): RankData[] {
     return rankData2;
   }
 }
