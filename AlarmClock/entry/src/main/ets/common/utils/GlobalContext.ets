@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License,Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,29 +13,25 @@
  * limitations under the License.
  */
 
-/**
- * Data type utils.
- */
-export default class DataTypeUtils {
-  /**
-   * return obj is null.
-   *
-   * @return boolean.
-   */
-  static isNull(obj: Object): boolean {
-    return (typeof obj === 'undefined' || obj == null || obj === '');
+export class GlobalContext {
+  private constructor() {
   }
 
-  /**
-   * return new deep copy object from obj.
-   *
-   * @return type in obj.
-   */
-  static deepCopy(obj: number[]) {
-    let newObj: number[] = [];
-    for (let i = 0; i < obj.length; i++) {
-      newObj[i] = JSON.parse(JSON.stringify(obj[i]));
+  private static instance: GlobalContext;
+  private _objects = new Map<string, Object>();
+
+  public static getContext(): GlobalContext {
+    if (!GlobalContext.instance) {
+      GlobalContext.instance = new GlobalContext();
     }
-    return newObj;
+    return GlobalContext.instance;
+  }
+
+  getObject(value: string): Object | undefined {
+    return this._objects.get(value);
+  }
+
+  setObject(key: string, objectClass: Object): void {
+    this._objects.set(key, objectClass);
   }
 }

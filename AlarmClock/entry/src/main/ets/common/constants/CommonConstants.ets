@@ -13,174 +13,130 @@
  * limitations under the License.
  */
 
-/**
- * database preference id.
- */
-export const PREFERENCE_ID = 'storageId';
-
-/**
- * database alarm data key.
- */
-export const ALARM_KEY = 'alarmData';
-
-/**
- * database alarm item key.
- */
-export const PARAM_KEY = 'alarmItem';
-
-export const CommonConstants = {
+export class CommonConstants {
+  /**
+   * database preference id.
+   */
+  static readonly PREFERENCE_ID = 'storageId';
+  /**
+   * database alarm data key.
+   */
+  static readonly ALARM_KEY = 'alarmData';
   /**
    * common full length
    */
-  FULL_LENGTH: '100%',
-
+  static readonly FULL_LENGTH: string = '100%';
   /**
    * default string space.
    */
-  DEFAULT_STRING_SPACE: ' ',
-
+  static readonly DEFAULT_STRING_SPACE: string = ' ';
   /**
    * default string comma.
    */
-  DEFAULT_STRING_COMMA: '，',
-
+  static readonly DEFAULT_STRING_COMMA: string = '，';
   /**
    * default string no repeat.
    */
-  DEFAULT_STRING_NO_REPEAT: '不重复',
-
+  static readonly DEFAULT_STRING_NO_REPEAT: string = '不重复';
   /**
    * default number negative.
    */
-  DEFAULT_NUMBER_NEGATIVE: -1,
-
+  static readonly DEFAULT_NUMBER_NEGATIVE: number = -1;
   /**
    * default layout weight.
    */
-  DEFAULT_LAYOUT_WEIGHT: 1,
-
-  /**
-   * default number monday.
-   */
-  DEFAULT_NUMBER_MONDAY: 1,
-
-  /**
-   * default number tuesday.
-   */
-  DEFAULT_NUMBER_TUESDAY: 2,
-
-  /**
-   * default number wednesday.
-   */
-  DEFAULT_NUMBER_WEDNESDAY: 3,
-
-  /**
-   * default number thursday.
-   */
-  DEFAULT_NUMBER_THURSDAY: 4,
-
-  /**
-   * default number friday.
-   */
-  DEFAULT_NUMBER_FRIDAY: 5,
-
-  /**
-   * default number saturday.
-   */
-  DEFAULT_NUMBER_SATURDAY: 6,
-
-  /**
-   * default number sunday.
-   */
-  DEFAULT_NUMBER_SUNDAY: 7,
-
+  static readonly DEFAULT_LAYOUT_WEIGHT: number = 1;
   /**
    * default single.
    */
-  DEFAULT_SINGLE: 1,
-
+  static readonly DEFAULT_SINGLE: number = 1;
   /**
-  * default double.
-  */
-  DEFAULT_DOUBLE: 2,
-
+   * default double.
+   */
+  static readonly DEFAULT_DOUBLE: number = 2;
   /**
    * default data picker hour selection.
    */
-  DEFAULT_DATA_PICKER_HOUR_SELECTION: 2,
-
+  static readonly DEFAULT_DATA_PICKER_HOUR_SELECTION: number = 2;
   /**
    * default total minute.
    */
-  DEFAULT_TOTAL_MINUTE: 60,
-
+  static readonly DEFAULT_TOTAL_MINUTE: number = 60;
   /**
    * default string monday.
    */
-  DEFAULT_STRING_MONDAY: '周一',
-
+  static readonly DEFAULT_STRING_MONDAY: string = '周一';
   /**
    * default string tuesday.
    */
-  DEFAULT_STRING_TUESDAY: '周二',
-
+  static readonly DEFAULT_STRING_TUESDAY: string = '周二';
   /**
    * default string wednesday.
    */
-  DEFAULT_STRING_WEDNESDAY: '周三',
-
+  static readonly DEFAULT_STRING_WEDNESDAY: string = '周三';
   /**
    * default string thursday.
    */
-  DEFAULT_STRING_THURSDAY: '周四',
-
+  static readonly DEFAULT_STRING_THURSDAY: string = '周四';
   /**
    * default string friday.
    */
-  DEFAULT_STRING_FRIDAY: '周五',
-
+  static readonly DEFAULT_STRING_FRIDAY: string = '周五';
   /**
    * default string saturday.
    */
-  DEFAULT_STRING_SATURDAY: '周六',
-
+  static readonly DEFAULT_STRING_SATURDAY: string = '周六';
   /**
    * default string sunday.
    */
-  DEFAULT_STRING_SUNDAY: '周日',
-
+  static readonly DEFAULT_STRING_SUNDAY: string = '周日';
   /**
    * default number moment.
    */
-  DEFAULT_NUMBER_MOMENT: 3,
-
+  static readonly DEFAULT_NUMBER_MOMENT: number = 3;
   /**
    * default interval step.
    */
-  DEFAULT_INTERVAL_STEP: 5,
-
+  static readonly DEFAULT_INTERVAL_STEP: number = 5;
   /**
    * default common degree
    */
-  DEFAULT_COMMON_DEGREE: 6,
-
+  static readonly DEFAULT_COMMON_DEGREE: number = 6;
   /**
    * default pointer width.
    */
-  DEFAULT_POINTER_WIDTH: 10,
-
+  static readonly DEFAULT_POINTER_WIDTH: number = 10;
   /**
    * default total hour.
    */
-  DEFAULT_TOTAL_HOUR: 12,
-
+  static readonly DEFAULT_TOTAL_HOUR: number = 12;
   /**
    * default interval time max.
    */
-  DEFAULT_INTERVAL_TIME_MAX: 10,
-
+  static readonly DEFAULT_INTERVAL_TIME_MAX: number = 10;
   /**
    * default interval minute max.
    */
-  DEFAULT_INTERVAL_MINUTE_MAX: 30,
+  static readonly DEFAULT_INTERVAL_MINUTE_MAX: number = 30;
+  /**
+   * bundle name.
+   */
+  static readonly BUNDLE_NAME: string = 'com.huawei.alarmclock';
+  /**
+   * ability name.
+   */
+  static readonly ABILITY_NAME: string = 'EntryAbility';
+}
+
+/**
+ * Default number for a week.
+ */
+export enum WeekDays {
+  DEFAULT_NUMBER_MONDAY = 1,
+  DEFAULT_NUMBER_TUESDAY = 2,
+  DEFAULT_NUMBER_WEDNESDAY = 3,
+  DEFAULT_NUMBER_THURSDAY = 4,
+  DEFAULT_NUMBER_FRIDAY = 5,
+  DEFAULT_NUMBER_SATURDAY = 6,
+  DEFAULT_NUMBER_SUNDAY = 7
 }

@@ -20,8 +20,8 @@ import DimensionUtil from '../../common/utils/DimensionUtil';
 
 @Component
 export default struct AlarmListItem {
-  private mainModel: MainModel = MainModel.getInstant();
-  private alarmItem: AlarmItem;
+  private mainModel: MainModel = MainModel.instant;
+  private alarmItem: AlarmItem = new AlarmItem();
 
   build() {
     Row() {
@@ -40,7 +40,7 @@ export default struct AlarmListItem {
           .CommonTextAttr(DimensionUtil.getFp($r('app.float.alarms_item_dec_font_size')),
             FontWeight.Normal,
             { top: DimensionUtil.getVp($r('app.float.alarms_item_dec_margin_top')) },
-          $r('app.float.alarms_item_desc_text_opacity'))
+            $r('app.float.alarms_item_desc_text_opacity'))
       }
       .width(CommonConstants.FULL_LENGTH)
       .alignItems(HorizontalAlign.Start)
@@ -64,10 +64,12 @@ export default struct AlarmListItem {
   }
 }
 
-@Extend(Text) function CommonTextAttr (fontSize: number, fontWeight: number, margin?, opacity?) {
+@Extend(Text)
+function CommonTextAttr(fontSize: number, fontWeight: number, margin?: Margin,
+                        opacity?: Resource) {
   .fontColor($r('app.color.grey_divider'))
   .fontSize(fontSize)
   .fontWeight(fontWeight)
-  .margin(margin)
-  .opacity(opacity)
+  .margin(margin != undefined ? margin : 0)
+  .opacity(opacity != undefined ? opacity : 1)
 }

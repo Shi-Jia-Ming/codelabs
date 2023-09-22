@@ -12,72 +12,70 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import DayDataBean from '../bean/DayDataBean'
 
 /**
  * Detail page constant description.
  */
-export const DetailConstant = {
+export class DetailConstant {
   /**
    * detail page day data.
    */
-  DAY_DATA: [
-    { timeType: 0, delSelect: 0, data: ['上午', '下午'] },
-    { timeType: 1, delSelect: 0, data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'] },
-    { timeType: 2, delSelect: 0, data: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
-    '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
-    '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36',
-    '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48',
-    '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '00',
-    ] }
-  ],
-
+  static readonly DAY_DATA: DayDataBean[] = [
+    { timeType: 0, delSelect: 0, data: ['上午', '下午'] } as DayDataBean,
+    { timeType: 1, delSelect: 0, data:
+    [
+      '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+    ]
+    } as DayDataBean,
+    { timeType: 2, delSelect: 0, data:
+    [
+      '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
+      '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24',
+      '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36',
+      '37', '38', '39', '40', '41', '42', '43', '44', '45', '46', '47', '48',
+      '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '00',
+    ]
+    } as DayDataBean
+  ];
   /**
    * week day data.
    */
-  WEEKDAY_DATA: [1, 2, 3, 4, 5, 6, 7],
-
+  static readonly WEEKDAY_DATA: number[] = [1, 2, 3, 4, 5, 6, 7];
   /**
    * ring duration list data.
    */
-  RING_DURATION: [1, 5, 10, 15, 20, 30],
-
+  static readonly RING_DURATION: number[] = [1, 5, 10, 15, 20, 30];
   /**
    * default string minute.
    */
-  DEFAULT_STRING_MINUTE: '分钟',
-
+  static readonly DEFAULT_STRING_MINUTE: string = '分钟';
   /**
    * default string group name.
    */
-  DEFAULT_STRING_GROUP_NAME: 'radioGroup',
-
+  static readonly DEFAULT_STRING_GROUP_NAME: string = 'radioGroup';
   /**
    * default string provider key.
    */
-  DEFAULT_PROVIDER_KEY: 'alarmItemProvide',
-
+  static readonly DEFAULT_PROVIDER_KEY: string = 'alarmItemProvide';
   /**
    * default string repeat.
    */
-  DEFAULT_STRING_REPEAT: '重复',
-
+  static readonly DEFAULT_STRING_REPEAT: string = '重复';
   /**
    * default string alarm name.
    */
-  DEFAULT_STRING_ALARM_NAME: '闹钟名',
-
+  static readonly DEFAULT_STRING_ALARM_NAME: string = '闹钟名';
   /**
    * default string interval.
    */
-  DEFAULT_STRING_INTERVAL: '再响间隔',
-
+  static readonly DEFAULT_STRING_INTERVAL: string = '再响间隔';
   /**
    * default string duration.
    */
-  DEFAULT_STRING_DURATION: '闹铃时长',
-
+  static readonly DEFAULT_STRING_DURATION: string = '闹铃时长';
   /**
    * default string times.
    */
-  DEFAULT_STRING_TIMES: '次',
+  static readonly DEFAULT_STRING_TIMES: string = '次';
 }

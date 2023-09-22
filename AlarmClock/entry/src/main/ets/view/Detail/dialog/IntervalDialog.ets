@@ -24,7 +24,7 @@ export default struct IntervalDialog {
   @Consume(DetailConstant.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem;
   @State intervalMinuteSelect: number = 0;
   @State intervalTimesSelect: number = 0;
-  controller: CustomDialogController;
+  controller?: CustomDialogController;
 
   aboutToAppear(): void{
     this.intervalMinuteSelect = this.alarmItem.intervalMinute;

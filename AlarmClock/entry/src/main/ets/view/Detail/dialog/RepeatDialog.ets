@@ -24,9 +24,12 @@ import DimensionUtil from '../../../common/utils/DimensionUtil';
 @CustomDialog
 export default struct RepeatDialog {
   @Consume(DetailConstant.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem;
-  private viewModel: DetailModel = DetailModel.getInstant();
+  private viewModel: DetailModel = DetailModel.instant;
   private selects: number[] = [];
-  controller: CustomDialogController;
+  controller: CustomDialogController = new CustomDialogController({
+    builder: RepeatDialog(),
+    autoCancel: true
+  });
 
   aboutToAppear() {
     this.selects = DataTypeUtils.deepCopy(this.alarmItem.repeatDays);
@@ -43,14 +46,14 @@ export default struct RepeatDialog {
           this.alarmItem.isRepeat = this.selects.length > 0;
         }
       }) {
-        ForEach(DetailConstant.WEEKDAY_DATA, (item) => {
+        ForEach(DetailConstant.WEEKDAY_DATA, (item: number) => {
           Row() {
             Text(this.viewModel.transAlarmRepeatDayContent(item))
               .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
               .fontColor($r('app.color.grey_divider'))
               .fontSize(DimensionUtil.getFp($r('app.float.repeat_dialog_check_font_size')))
 
-            Checkbox({ name: item })
+            Checkbox({ name: item.toString() })
               .select(this.alarmItem.repeatDays.indexOf(item) !== CommonConstants.DEFAULT_NUMBER_NEGATIVE)
               .width(DimensionUtil.getVp($r('app.float.repeat_dialog_check_box_size')))
               .height(DimensionUtil.getVp($r('app.float.repeat_dialog_check_box_size')))

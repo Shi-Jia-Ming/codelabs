@@ -22,5 +22,5 @@ export default interface PreferencesListener {
    *
    * @param key string
    */
-  onDataChanged(key: string): void
+  onDataChanged: (key: string) => void
 }

@@ -16,79 +16,65 @@
 /**
  * Main page constant description.
  */
-export const MainConstant = {
+export class MainConstant {
   /**
    * Main page times list.
    */
-  TIMES: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2],
-
+  static readonly TIMES: number[] = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
   /**
    * Default single digit max.
    */
-  DEFAULT_SINGLE_DIGIT_MAX: 9,
-
+  static readonly DEFAULT_SINGLE_DIGIT_MAX: number = 9;
   /**
    * Default horizontal angle.
    */
-  DEFAULT_HORIZONTAL_ANGLE: 180,
-
+  static readonly DEFAULT_HORIZONTAL_ANGLE: number = 180;
   /**
    * Default one second ms.
    */
-  DEFAULT_ONE_SECOND_MS: 1000,
-
+  static readonly DEFAULT_ONE_SECOND_MS: number = 1000;
   /**
    * Default zeroing.
    */
-  DEFAULT_ZEROING: "0",
-
+  static readonly DEFAULT_ZEROING: string = '0';
   /**
    * Default string morning.
    */
-  DEFAULT_STRING_MORNING: '上午',
-
+  static readonly DEFAULT_STRING_MORNING: string = '上午';
   /**
    * Default string afternoon.
    */
-  DEFAULT_STRING_AFTERNOON: '下午',
-
+  static readonly DEFAULT_STRING_AFTERNOON: string = '下午';
   /**
    * Default string alarm name.
    */
-  DEFAULT_STRING_ALARM: '闹钟',
-
+  static readonly DEFAULT_STRING_ALARM: string = '闹钟';
   /**
    * Default string quotation.
    */
-  DEFAULT_STRING_NULL: "",
-
+  static readonly DEFAULT_STRING_NULL: string = '';
   /**
    * Default string colon.
    */
-  DEFAULT_STRING_COLON: ':',
-
+  static readonly DEFAULT_STRING_COLON: string = ':';
   /**
    * Default clock time font size unit.
    */
-  CLOCK_TIME_FONT_SIZE_UNIT: 'px',
-
+  static readonly CLOCK_TIME_FONT_SIZE_UNIT: string = 'px';
   /**
    * Hour pointer image url.
    */
-  HOUR_POINTER_IMAGE_URL: "../../../resources/base/media/ic_hour_pointer.png",
-
+  static readonly HOUR_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_hour_pointer.png';
   /**
    * Minute pointer image url.
    */
-  MINUTE_POINTER_IMAGE_URL: "../../../resources/base/media/ic_minute_pointer.png",
-
+  static readonly MINUTE_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_minute_pointer.png';
   /**
    * Second pointer image url.
    */
-  SECOND_POINTER_IMAGE_URL: "../../../resources/base/media/ic_second_pointer.png",
-
+  static readonly SECOND_POINTER_IMAGE_URL: string = '../../../resources/base/media/ic_second_pointer.png';
   /**
    * Clock pan image url.
    */
-  CLOCK_PAN_IMAGE_URL: '../../../resources/base/media/ic_clock_pan.png',
+  static readonly CLOCK_PAN_IMAGE_URL: string = '../../../resources/base/media/ic_clock_pan.png';
 }

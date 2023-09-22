@@ -29,7 +29,7 @@ export default class ReminderService {
   public openNotificationPermission() {
     notification.requestEnableNotification().then(() => {
       Logger.info('Enable notification success');
-    }).catch((err) => {
+    }).catch((err: Error) => {
       Logger.error('Enable notification failed because ' + JSON.stringify(err));
     });
   }
@@ -42,7 +42,7 @@ export default class ReminderService {
    */
   public addReminder(alarmItem: ReminderItem, callback?: (reminderId: number) => void) {
     let reminder = this.initReminder(alarmItem);
-    reminderAgent.publishReminder(reminder, (err, reminderId) => {
+    reminderAgent.publishReminder(reminder, (err, reminderId: number) => {
       if (callback != null) {
         callback(reminderId);
       }
@@ -79,8 +79,8 @@ export default class ReminderService {
         },
       ],
       wantAgent: {
-        pkgName: globalThis.bundleName,
-        abilityName: globalThis.abilityName
+        pkgName: CommonConstants.BUNDLE_NAME,
+        abilityName: CommonConstants.ABILITY_NAME
       },
       notificationId: item.notificationId,
       expiredContent: 'this reminder has expired',

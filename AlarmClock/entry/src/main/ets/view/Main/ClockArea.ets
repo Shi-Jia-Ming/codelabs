@@ -20,19 +20,13 @@ import DimensionUtil from '../../common/utils/DimensionUtil';
 
 @Component
 export default struct ClockArea {
-  private mainModel: MainModel;
-  private drawInterval: any = CommonConstants.DEFAULT_NUMBER_NEGATIVE;
+  private mainModel: MainModel = MainModel.instant;
+  private drawInterval: number = CommonConstants.DEFAULT_NUMBER_NEGATIVE;
   @State showClock: boolean = true;
-  private canvasSize: number;
-  private clockRadius: number;
+  private canvasSize: number = DimensionUtil.getVp($r('app.float.clock_size'));
+  private clockRadius: number = this.canvasSize / CommonConstants.DEFAULT_DOUBLE - CommonConstants.DEFAULT_DOUBLE;
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private renderContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
-
-  aboutToAppear() {
-    this.mainModel = MainModel.getInstant();
-    this.canvasSize = DimensionUtil.getVp($r('app.float.clock_size'));
-    this.clockRadius = this.canvasSize / CommonConstants.DEFAULT_DOUBLE - CommonConstants.DEFAULT_DOUBLE;
-  }
 
   aboutToDisappear() {
     clearInterval(this.drawInterval);
@@ -65,7 +59,7 @@ export default struct ClockArea {
   }
 
   // 开始绘制时钟区域
-  private drawClockArea(): void{
+  private drawClockArea(): void {
     this.renderContext.clearRect(
       -this.canvasSize,
       -this.canvasSize / CommonConstants.DEFAULT_DOUBLE,
@@ -81,7 +75,7 @@ export default struct ClockArea {
         CommonConstants.DEFAULT_INTERVAL_MINUTE_MAX * (hours > CommonConstants.DEFAULT_TOTAL_HOUR
           ? hours - CommonConstants.DEFAULT_TOTAL_HOUR
           : hours)
-        + minutes / CommonConstants.DEFAULT_TOTAL_HOUR * CommonConstants.DEFAULT_COMMON_DEGREE
+          + minutes / CommonConstants.DEFAULT_TOTAL_HOUR * CommonConstants.DEFAULT_COMMON_DEGREE
         , MainConstant.HOUR_POINTER_IMAGE_URL);
       this.drawPointer(CommonConstants.DEFAULT_COMMON_DEGREE * minutes, MainConstant.MINUTE_POINTER_IMAGE_URL);
       this.drawPointer(CommonConstants.DEFAULT_COMMON_DEGREE * seconds, MainConstant.SECOND_POINTER_IMAGE_URL);
@@ -91,7 +85,7 @@ export default struct ClockArea {
   }
 
   // 绘制表盘
-  private drawPan(): void{
+  private drawPan(): void {
     this.renderContext.beginPath();
     let secondImg = new ImageBitmap(MainConstant.CLOCK_PAN_IMAGE_URL);
     let imgWidth = this.clockRadius * 2;
@@ -100,9 +94,9 @@ export default struct ClockArea {
   }
 
   // 绘制时针、分针、秒针
-  private drawPointer(degree, pointerImgRes) {
+  private drawPointer(degree: number, pointerImgRes: string) {
     this.renderContext.save();
-    var theta = (degree + MainConstant.DEFAULT_HORIZONTAL_ANGLE) * Math.PI / MainConstant.DEFAULT_HORIZONTAL_ANGLE;
+    let theta = (degree + MainConstant.DEFAULT_HORIZONTAL_ANGLE) * Math.PI / MainConstant.DEFAULT_HORIZONTAL_ANGLE;
     this.renderContext.rotate(theta);
     this.renderContext.beginPath();
     let secondImg = new ImageBitmap(pointerImgRes);
@@ -117,15 +111,15 @@ export default struct ClockArea {
   }
 
   // 绘制完整时间回显
-  private drawTime(hour: number, minute: number, second: number): void{
+  private drawTime(hour: number, minute: number, second: number): void {
     let time = this.mainModel.fillZero(hour)
-    + MainConstant.DEFAULT_STRING_COLON
-    + this.mainModel.fillZero(minute)
-    + MainConstant.DEFAULT_STRING_COLON
-    + this.mainModel.fillZero(second);
+      + MainConstant.DEFAULT_STRING_COLON
+      + this.mainModel.fillZero(minute)
+      + MainConstant.DEFAULT_STRING_COLON
+      + this.mainModel.fillZero(second);
     this.renderContext.save();
     this.renderContext.font = DimensionUtil.getPx($r('app.float.clock_time_font_size'))
-    + MainConstant.CLOCK_TIME_FONT_SIZE_UNIT;
+      + MainConstant.CLOCK_TIME_FONT_SIZE_UNIT;
     this.renderContext.beginPath();
     this.renderContext.textAlign = 'center';
     this.renderContext.fillText(time, 0, 0);

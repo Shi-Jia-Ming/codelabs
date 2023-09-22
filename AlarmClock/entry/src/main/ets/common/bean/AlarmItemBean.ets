@@ -48,9 +48,4 @@ import ReminderItem from './ReminderItemBean';
    * Custom alarm interval times.
    */
   intervalTimes: number = 3;
-
-  /**
-   * Custom alarm notification id.
-   */
-  notificationId: number;
 }

@@ -39,7 +39,7 @@
         "reason": "$string:reason",
         "usedScene": {
           "abilities": [
-            "EntryAbility"    
+            "EntryAbility"
           ],
           "when": "inuse"
         }

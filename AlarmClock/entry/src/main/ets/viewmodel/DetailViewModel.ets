@@ -14,34 +14,25 @@
  */
 
 import { DetailConstant } from '../common/constants/DetailConstant';
-import { ALARM_KEY, CommonConstants } from '../common/constants/CommonConstants';
+import { CommonConstants, WeekDays } from '../common/constants/CommonConstants';
 import AlarmItem from '../common/bean/AlarmItemBean';
 import ReminderService from '../model/ReminderService';
 import DataTypeUtils from '../common/utils/DataTypeUtils';
+import { GlobalContext } from '../common/utils/GlobalContext';
+import PreferencesHandler from '../model/database/PreferencesHandler';
+import DayDataBean from '../common/bean/DayDataBean';
 
 /**
  * Detail page view model description
  */
 export default class DetailViewModel {
-  private static instant;
+  static instant: DetailViewModel = new DetailViewModel();
   private reminderService: ReminderService;
   private alarms: Array<AlarmItem>;
 
   private constructor() {
     this.reminderService = new ReminderService();
-    this.alarms = new Array();
-  }
-
-  /**
-   * Get DetailViewModel instance.
-   *
-   * @return instance
-   */
-  public static getInstant() {
-    if (this.instant == null) {
-      this.instant = new DetailViewModel();
-    }
-    return this.instant;
+    this.alarms = new Array<AlarmItem>();
   }
 
   /**
@@ -51,27 +42,27 @@ export default class DetailViewModel {
    * @return repeatContent string
    */
   public transAlarmRepeatDayContent(repeatDay: number): string {
-    let repeatContent;
+    let repeatContent: string = CommonConstants.DEFAULT_STRING_MONDAY;
     switch (repeatDay) {
-      case CommonConstants.DEFAULT_NUMBER_MONDAY:
+      case WeekDays.DEFAULT_NUMBER_MONDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_MONDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_TUESDAY:
+      case WeekDays.DEFAULT_NUMBER_TUESDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_TUESDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_WEDNESDAY:
+      case WeekDays.DEFAULT_NUMBER_WEDNESDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_WEDNESDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_THURSDAY:
+      case WeekDays.DEFAULT_NUMBER_THURSDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_THURSDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_FRIDAY:
+      case WeekDays.DEFAULT_NUMBER_FRIDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_FRIDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_SATURDAY:
+      case WeekDays.DEFAULT_NUMBER_SATURDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_SATURDAY;
         break;
-      case CommonConstants.DEFAULT_NUMBER_SUNDAY:
+      case WeekDays.DEFAULT_NUMBER_SUNDAY:
         repeatContent = CommonConstants.DEFAULT_STRING_SUNDAY;
         break;
       default:
@@ -86,8 +77,8 @@ export default class DetailViewModel {
    * @param alarmItem AlarmItem
    */
   public setAlarmDefaultTime(alarmItem?: AlarmItem) {
-    let hour;
-    let minute;
+    let hour: number;
+    let minute: number;
     if (alarmItem == null) {
       let date = new Date();
       hour = date.getHours();
@@ -104,7 +95,7 @@ export default class DetailViewModel {
       : (hour > CommonConstants.DEFAULT_TOTAL_HOUR ? hour - CommonConstants.DEFAULT_TOTAL_HOUR : hour))
       - CommonConstants.DEFAULT_SINGLE;
     DetailConstant.DAY_DATA[CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION].delSelect =
-    (minute === 0 ? CommonConstants.DEFAULT_TOTAL_MINUTE : minute) - CommonConstants.DEFAULT_SINGLE;
+      (minute === 0 ? CommonConstants.DEFAULT_TOTAL_MINUTE : minute) - CommonConstants.DEFAULT_SINGLE;
   }
 
   /**
@@ -117,19 +108,18 @@ export default class DetailViewModel {
     alarmItem.minute = this.getAlarmTime(CommonConstants.DEFAULT_DATA_PICKER_HOUR_SELECTION);
     let index = await this.findAlarmWithId(alarmItem.id);
     if (index !== CommonConstants.DEFAULT_NUMBER_NEGATIVE) {
-      // The reminder already exists. Delete the original reminder.
       this.reminderService.deleteReminder(alarmItem.id);
     } else {
-      // If the alarm does not exist, add alarm data based on the data length of notificationId.
       index = this.alarms.length;
       alarmItem.notificationId = index;
       this.alarms.push(alarmItem);
     }
-    this.reminderService.addReminder(alarmItem, (newId) => {
+    this.reminderService.addReminder(alarmItem, (newId: number) => {
       alarmItem.id = newId;
       alarmItem.isOpen = true;
       this.alarms[index] = alarmItem;
-      globalThis.preference.set(ALARM_KEY, JSON.stringify(this.alarms));
+      let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+      preference.set(CommonConstants.ALARM_KEY, JSON.stringify(this.alarms));
     })
   }
 
@@ -144,27 +134,29 @@ export default class DetailViewModel {
     if (index !== CommonConstants.DEFAULT_NUMBER_NEGATIVE) {
       this.alarms.splice(index, CommonConstants.DEFAULT_SINGLE);
     }
-    globalThis.preference.set(ALARM_KEY, JSON.stringify(this.alarms));
+    let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+    preference.set(CommonConstants.ALARM_KEY, JSON.stringify(this.alarms));
   }
 
   private getAlarmTime(aType: number): number {
-    let times = DetailConstant.DAY_DATA[aType];
+    let times:DayDataBean = DetailConstant.DAY_DATA[aType];
     let selectedIndex = times.delSelect;
     let time = Number(times.data[selectedIndex]);
     if (aType === CommonConstants.DEFAULT_SINGLE) {
       time = (time === CommonConstants.DEFAULT_TOTAL_HOUR ? 0 : time)
-      + (DetailConstant.DAY_DATA[0].delSelect === CommonConstants.DEFAULT_SINGLE
-        ? CommonConstants.DEFAULT_TOTAL_HOUR
-        : 0);
+        + (DetailConstant.DAY_DATA[0].delSelect === CommonConstants.DEFAULT_SINGLE
+          ? CommonConstants.DEFAULT_TOTAL_HOUR
+          : 0);
     }
     return time;
   }
 
   private async findAlarmWithId(id: number) {
-    let data = await globalThis.preference.get(ALARM_KEY);
+    let preference = GlobalContext.getContext().getObject('preference') as PreferencesHandler;
+    let data = await preference.get(CommonConstants.ALARM_KEY);
     if (!DataTypeUtils.isNull(data)) {
       this.alarms = JSON.parse(data);
-      for (let i = 0; i < this.alarms.length; i++) {
+      for (let i = 0;i < this.alarms.length; i++) {
         if (this.alarms[i].id === id) {
           return i;
         }

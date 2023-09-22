@@ -14,15 +14,15 @@
  */
 
 import data_preferences from '@ohos.data.preferences';
-import { PREFERENCE_ID } from '../../common/constants/CommonConstants';
+import { CommonConstants } from '../../common/constants/CommonConstants';
 import PreferencesListener from './PreferencesListener';
 
 /**
  * Based on lightweight databases preferences handler.
  */
 export default class PreferencesHandler {
-  private static instance: PreferencesHandler;
-  private preferences;
+  static instance: PreferencesHandler = new PreferencesHandler();
+  private preferences: data_preferences.Preferences | null = null;
   private defaultValue = '';
   private listeners: PreferencesListener[];
 
@@ -31,27 +31,15 @@ export default class PreferencesHandler {
   }
 
   /**
-   * Get PreferencesHandler instance.
-   *
-   * @return instance
-   */
-  public static getInstance() {
-    if (this.instance == null) {
-      this.instance = new PreferencesHandler();
-    }
-    return this.instance;
-  }
-
-  /**
    * Configure PreferencesHandler.
    *
    * @param context Context
    */
-  public async configure(context) {
-    this.preferences = await data_preferences.getPreferences(context, PREFERENCE_ID);
-    this.preferences.on('change', (key) => {
+  public async configure(context: Context) {
+    this.preferences = await data_preferences.getPreferences(context, CommonConstants.PREFERENCE_ID);
+    this.preferences.on('change', (data: Record<string, Object>) => {
       for (let preferencesListener of this.listeners) {
-        preferencesListener.onDataChanged(key);
+        preferencesListener.onDataChanged(data.key as string);
       }
     });
   }
@@ -62,7 +50,7 @@ export default class PreferencesHandler {
    * @param key string
    * @param value any
    */
-  public async set(key: string, value) {
+  public async set(key: string, value: string) {
     if (this.preferences != null) {
       await this.preferences.put(key, value);
       await this.preferences.flush();
@@ -76,10 +64,10 @@ export default class PreferencesHandler {
    * @param defValue any
    * @return data about key
    */
-  public async get(key: string, defValue?) {
-    let data;
+  public async get(key: string) {
+    let data: string = '';
     if (this.preferences != null) {
-      data = await this.preferences.get(key, defValue == null ? this.defaultValue : defValue);
+      data = await this.preferences.get(key, this.defaultValue) as string;
     }
     return data;
   }
@@ -91,19 +79,6 @@ export default class PreferencesHandler {
     if (this.preferences != null) {
       this.preferences.clear();
     }
-  }
-
-  /**
-   * Get all data in PreferencesHandler.
-   *
-   * @return data
-   */
-  public async getAll() {
-    let data;
-    if (this.preferences != null) {
-      data = await this.preferences.getAll();
-    }
-    return data;
   }
 
   /**
