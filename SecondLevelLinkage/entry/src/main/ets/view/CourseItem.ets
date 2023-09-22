@@ -18,8 +18,8 @@ import CourseModel from '../common/bean/CourseModel';
 
 @Component
 export default struct CourseItem {
-  @Prop itemStr: string;
-  item: CourseModel;
+  @Prop itemStr: string = '';
+  item?: CourseModel;
 
   aboutToAppear() {
     this.item = JSON.parse(this.itemStr);
@@ -27,11 +27,11 @@ export default struct CourseItem {
 
   build() {
     Row() {
-      Image(this.item.imageUrl)
+      Image(this.item !== undefined ? this.item?.imageUrl : '')
         .height(Constants.FULL_PERCENT)
         .aspectRatio(1)
       Column() {
-        Text(this.item.courseName)
+        Text(this.item?.courseName)
           .fontSize($r('app.float.normal_font_size'))
           .fontColor($r('app.color.base_font_color'))
           .fontFamily($r('app.string.hei_ti_medium'))
@@ -39,7 +39,7 @@ export default struct CourseItem {
           .textOverflow({ overflow: TextOverflow.Clip })
           .lineHeight($r('app.float.title_line_height'))
           .width(Constants.FULL_PERCENT)
-        Text(this.item.price === 0 ? $r('app.string.free_price') : $r('app.string.price_str', this.item.price))
+        Text(this.item?.price === 0 ? $r('app.string.free_price') : $r('app.string.price_str', this.item?.price))
           .fontSize($r('app.float.header_font_size'))
           .fontColor($r('app.color.price_color'))
           .fontFamily($r('app.string.hei_ti_medium'))

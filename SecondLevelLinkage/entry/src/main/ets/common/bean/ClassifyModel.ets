@@ -31,4 +31,10 @@ export default class ClassifyModel {
    * course list of the classify.
    */
   courseList: Array<CourseModel>;
+
+  constructor(classifyId: number, classifyName: string, courseList: Array<CourseModel>) {
+    this.classifyId = classifyId;
+    this.classifyName = classifyName;
+    this.courseList = courseList;
+  }
 }
