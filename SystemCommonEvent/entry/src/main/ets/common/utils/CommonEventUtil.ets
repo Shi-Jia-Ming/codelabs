@@ -15,7 +15,7 @@
 
 import CommonEventManager from '@ohos.commonEventManager';
 import { CommonEventBean } from '../bean/CommonEventBean';
-import { CommonConstants } from '../constants/CommonConst';
+import { BatteryChargeState, CommonConstants, WifiState } from '../constants/CommonConst';
 import Logger from './Logger';
 
 class CommonEventUtil {
@@ -51,39 +51,45 @@ class CommonEventUtil {
           callback(commonEvent, toastMsg);
           return;
         }
-        if (data.event === CommonConstants.SUB_EVENTS.BATTERY_CHANGED) {
-          switch (data?.parameters[CommonConstants.EXTRA_CHARGE_STATE]) {
-            case CommonConstants.BATTERY_CHARGE_STATE[0]:
+        let params = data?.parameters as Record<string, number>;
+        if (data.event === CommonConstants.BATTERY_CHANGED && params !== undefined) {
+          let extraChargeState: number = params[CommonConstants.EXTRA_CHARGE_STATE];
+          switch (extraChargeState) {
+            case BatteryChargeState.NO_CHARGE:
               commonEvent.state = $r('app.string.battery_not_charged');
               break;
-            case CommonConstants.BATTERY_CHARGE_STATE[1]:
+            case BatteryChargeState.CHARGING:
               commonEvent.state = $r('app.string.battery_charging');
               break;
-            case CommonConstants.BATTERY_CHARGE_STATE[2]:
+            case BatteryChargeState.STOP:
               commonEvent.state = $r('app.string.battery_stop');
               break;
-            case CommonConstants.BATTERY_CHARGE_STATE[3]:
+            case BatteryChargeState.FULL_CHARGED:
               commonEvent.state = $r('app.string.battery_fully_charged');
               break;
             default:
               break;
           }
         }
-        if (data.event === CommonConstants.SUB_EVENTS.CONN_STATE) {
-          switch (data?.data) {
-            case CommonConstants.WIFI_STATE[0]:
+        if (data.event === CommonConstants.CONN_STATE) {
+          let connState: string | undefined = data?.data;
+          if (connState === undefined) {
+            return;
+          }
+          switch (connState) {
+            case WifiState.CONNECTING:
               commonEvent.state = $r('app.string.wifi_state_connecting');
               break;
-            case CommonConstants.WIFI_STATE[1]:
+            case WifiState.DISCONNECTED:
               commonEvent.state = $r('app.string.wifi_state_disconnected');
               break;
-            case CommonConstants.WIFI_STATE[2]:
+            case WifiState.DISCONNECTING:
               commonEvent.state = $r('app.string.wifi_state_disconnecting');
               break;
-            case CommonConstants.WIFI_STATE[3]:
+            case WifiState.UNKNOWN_STATE:
               commonEvent.state = $r('app.string.state_unknown');
               break;
-            case CommonConstants.WIFI_STATE[4]:
+            case WifiState.AP_CONNECTED:
               commonEvent.state = $r('app.string.wifi_state_connected');
               break;
             default:

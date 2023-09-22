@@ -15,61 +15,56 @@
 
 export class CommonConstants {
   /**
-   * The state enum of wifi.
-   */
-  static readonly WIFI_STATE = [
-    'Connecting',
-    'Disconnected',
-    'Disconnecting',
-    'UnknownState',
-    'ApConnected'
-  ];
-
-  /**
-   * The enum of battery charge state message.
-   */
-  static readonly BATTERY_CHARGE_STATE = [
-    0,
-    1,
-    2,
-    3
-  ];
-
-  /**
    * The width of full screen.
    */
   static readonly FULL_SCREEN_WIDTH: string = '100%';
-
   /**
    * The height of full screen.
    */
   static readonly FULL_SCREEN_HEIGHT: string = '100%';
-
   /**
    * The font weight of 500.
    */
   static readonly FONT_WEIGHT_500: number = 500;
-
   /**
-   * The enum of subscribe information events.
+   * Wi-Fi link status.
    */
-  static readonly SUB_EVENTS = {
-    CONN_STATE: 'usual.event.wifi.CONN_STATE',
-    BATTERY_CHANGED: 'usual.event.BATTERY_CHANGED'
-  };
-
+  static readonly CONN_STATE: string = 'usual.event.wifi.CONN_STATE';
+  /**
+   * Battery Change Event.
+   */
+  static readonly BATTERY_CHANGED: string = 'usual.event.BATTERY_CHANGED';
   /**
    * The enum of battery charge state.
    */
   static readonly EXTRA_CHARGE_STATE: string = '7';
-
   /**
    * The auto close time of toast dialog.
    */
   static readonly AUTO_CLOSE_TIME: number = 1500;
-
   /**
    * Position of the pop-up window border from the bottom of the screen.
    */
   static readonly TOAST_BOTTOM: string = '48vp';
+}
+
+/**
+ * The enum of battery charge state message.
+ */
+export enum BatteryChargeState {
+  NO_CHARGE = 0,
+  CHARGING = 1,
+  STOP = 2,
+  FULL_CHARGED = 3
+}
+
+/**
+ * The state enum of wifi.
+ */
+export enum WifiState {
+  CONNECTING = 'Connecting',
+  DISCONNECTED = 'Disconnected',
+  DISCONNECTING = 'Disconnecting',
+  UNKNOWN_STATE = 'UnknownState',
+  AP_CONNECTED = 'ApConnected'
 }
