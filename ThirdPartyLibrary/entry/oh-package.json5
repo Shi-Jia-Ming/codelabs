@@ -7,7 +7,7 @@
   "main": "",
   "version": "1.0.0",
   "dependencies": {
-    "@ohos/lottie": "^2.0.0",
+    "@ohos/lottie": "2.0.0",
     "@ohos/library": "file:../library"
   }
 }

@@ -14,7 +14,7 @@
  */
 
 class ButtonViewModel {
-  fetchType(shape) {
+  fetchType(shape: string) {
     let ret: ButtonType;
     switch (shape) {
       case 'capsule':
@@ -33,8 +33,8 @@ class ButtonViewModel {
     return ret
   }
 
-  fetchBackgroundColor(type) {
-    let ret;
+  fetchBackgroundColor(type: string) {
+    let ret: Resource;
     switch (type) {
       case 'success':
         ret = $r('app.color.success');

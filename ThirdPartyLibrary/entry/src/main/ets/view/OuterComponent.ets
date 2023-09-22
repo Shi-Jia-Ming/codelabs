@@ -13,18 +13,17 @@
  * limitations under the License.
  */
 
-import lottie from '@ohos/lottie';
+import lottie, { AnimationItem } from '@ohos/lottie';
 import Logger from '../common/utils/log/logger';
 import { CommonConstants } from '../common/constants/CommonConst';
-
 
 @Component
 export struct Outer {
   private renderingSettings: RenderingContextSettings = new RenderingContextSettings(true);
   private renderingContext: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.renderingSettings);
   private animateName: string = CommonConstants.ANIMATE_NAME;
-  private animateItem: any = null;
-  @State canvasTitle: Resource = undefined;
+  private animateItem: AnimationItem | null = null;
+  @State canvasTitle: Resource | undefined = undefined;
 
   aboutToDisappear(): void {
     Logger.info(CommonConstants.OUTER_TAG, `aboutToDisappear`);
@@ -42,8 +41,10 @@ export struct Outer {
   }
 
   build() {
-    Flex({ direction: FlexDirection.Column, justifyContent: FlexAlign.SpaceBetween }) {
-
+    Flex({
+      direction: FlexDirection.Column,
+      justifyContent: FlexAlign.SpaceBetween
+    }) {
       // Canvas area
       Column() {
         Canvas(this.renderingContext)
@@ -82,8 +83,8 @@ export struct Outer {
         .backgroundColor($r('app.color.outer_button_bg'))
         .onClick(() => {
           if (this.animateItem !== null) {
-            this.animateItem.destroy()
-            this.animateItem = null
+            this.animateItem.destroy();
+            this.animateItem = null;
           }
           this.canvasTitle = $r('app.string.outer_button_load');
           this.animateItem = lottie.loadAnimation({

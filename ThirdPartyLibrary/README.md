@@ -16,7 +16,6 @@
 
 -   [Canvas](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-components-canvas-canvas-0000001427744852-V3?catalogVersion=V3)：画布组件，用于自定义绘制图形。
 
-
 ### 使用说明
 
 1. 进入首页可以看见本地调用和社区调用两个tab页。
@@ -27,4 +26,4 @@
 
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
 2. 本示例为Stage模型，支持API version 9。
-3. 本示例需要使用DevEco Studio 3.1 Release进行编译运行。
+3. 本示例需要使用DevEco Studio 3.1 Release版本进行编译运行。

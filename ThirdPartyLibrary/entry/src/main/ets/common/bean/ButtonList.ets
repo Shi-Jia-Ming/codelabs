@@ -17,12 +17,12 @@
  * ButtonList item information
  */
 export class ButtonList {
-  title: string
-  subtitle: string
-  backgroundImage: string
-  buttonText: string
-  buttonShape: string
-  buttonType: string
-  stateEffect: boolean
-  fontColor: string
+  title: string = '';
+  subtitle: string = '';
+  backgroundImage: string = '';
+  buttonText: string = '';
+  buttonShape: string = '';
+  buttonType: string = '';
+  stateEffect: boolean = false;
+  fontColor: string = '';
 }
