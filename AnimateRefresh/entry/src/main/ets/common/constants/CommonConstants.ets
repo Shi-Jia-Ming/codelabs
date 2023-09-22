@@ -13,6 +13,13 @@
  * limitations under the License.
  */
 
+import display from '@ohos.display';
+import ClassifyModel from '../bean/AnimationModel';
+import CardModel from '../bean/CardModel';
+import { GlobalContext } from '../utils/GlobalContext';
+
+let deviceDisplay: display.Display = GlobalContext.getContext().getObject('display') as display.Display;
+
 /**
  * constant about common feature
  */
@@ -56,32 +63,12 @@ export default class CommonConstants {
   /**
    * refresh header item feature
    */
-  static readonly REFRESH_HEADER_FEATURE = [
-    {
-      imgRes: $r('app.media.ic_loading_game'),
-      posX: (px2vp(globalThis.display.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 100,
-      delay: 400
-    },
-    {
-      imgRes: $r('app.media.ic_loading_heart'),
-      posX: (px2vp(globalThis.display.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 50,
-      delay: 800
-    },
-    {
-      imgRes: $r('app.media.ic_loading_louder'),
-      posX: px2vp(globalThis.display.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2,
-      delay: 1200
-    },
-    {
-      imgRes: $r('app.media.ic_loading_bag'),
-      posX: (px2vp(globalThis.display.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 50,
-      delay: 1600
-    },
-    {
-      imgRes: $r('app.media.ic_loading_file'),
-      posX: (px2vp(globalThis.display.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 100,
-      delay: 2000
-    }
+  static readonly REFRESH_HEADER_FEATURE: ClassifyModel[] = [
+    new ClassifyModel($r('app.media.ic_loading_game'), (px2vp(deviceDisplay.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 100, 400),
+    new ClassifyModel($r('app.media.ic_loading_heart'), (px2vp(deviceDisplay.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 50, 800),
+    new ClassifyModel($r('app.media.ic_loading_louder'), px2vp(deviceDisplay.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2, 1200),
+    new ClassifyModel($r('app.media.ic_loading_bag'), (px2vp(deviceDisplay.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 50, 1600),
+    new ClassifyModel($r('app.media.ic_loading_file'), (px2vp(deviceDisplay.width) / 2 - CommonConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 100, 2000)
   ];
 
   /**
@@ -98,30 +85,10 @@ export default class CommonConstants {
    * index tab item feature
    */
   static readonly INDEX_TAB = [
-    {
-      selectedIcon: $r('app.media.ic_tab_main_select'),
-      defaultIcon: $r('app.media.ic_tab_main_default'),
-      content: '首页'
-    },
-    {
-      selectedIcon: $r('app.media.ic_tab_file_select'),
-      defaultIcon: $r('app.media.ic_tab_file_default'),
-      content: '文件'
-    },
-    {
-      selectedIcon: $r('app.media.ic_tab_cloud_select'),
-      defaultIcon: $r('app.media.ic_tab_cloud_default'),
-      content: '云村'
-    },
-    {
-      selectedIcon: $r('app.media.ic_tab_copy_select'),
-      defaultIcon: $r('app.media.ic_tab_copy_default'),
-      content: '备份'
-    },
-    {
-      selectedIcon: $r('app.media.ic_tab_mine_select'),
-      defaultIcon: $r('app.media.ic_tab_mine_default'),
-      content: '我的'
-    }
+    new CardModel($r('app.media.ic_tab_main_select'),$r('app.media.ic_tab_main_default'),'首页'),
+    new CardModel($r('app.media.ic_tab_file_select'),$r('app.media.ic_tab_file_default'),'文件'),
+    new CardModel($r('app.media.ic_tab_cloud_select'),$r('app.media.ic_tab_cloud_default'),'云村'),
+    new CardModel($r('app.media.ic_tab_copy_select'),$r('app.media.ic_tab_copy_default'),'备份'),
+    new CardModel($r('app.media.ic_tab_mine_select'),$r('app.media.ic_tab_mine_default'),'我的')
   ];
 }
