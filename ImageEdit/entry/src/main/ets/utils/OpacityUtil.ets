@@ -30,7 +30,7 @@ export async function adjustOpacity(pixelMap: PixelMap, value: number) {
     return;
   }
   const newPixelMap = pixelMap;
-  newPixelMap.opacity(value / CommonConstants.SLIDER_MAX, err => {
+  newPixelMap.opacity(value / CommonConstants.SLIDER_MAX, (err: Error) => {
     if (err) {
       Logger.error(TAG, `Failed adjust opacity with ${err}`);
     }

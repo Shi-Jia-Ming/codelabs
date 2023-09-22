@@ -59,7 +59,8 @@ export async function cropCommon(pixelMap: PixelMap, cropWidth: number, cropHeig
       width: cropWidth,
       height: cropHeight
     },
-    ...cropPosition
+    x: cropPosition.x,
+    y: cropPosition.y
   });
 }
 
@@ -74,30 +75,21 @@ export async function banner(pixelMap: PixelMap, width: number, height: number) 
   if (width <= height) {
     const cropWidth = width;
     const cropHeight = Math.floor(width * CommonConstants.CROP_RATE_4_3);
-    const cropPosition = {
-      x: 0,
-      y: Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH)
-    };
+    const cropPosition = new RegionItem(0, Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH));
     cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
     return;
   }
   if (width * CommonConstants.CROP_RATE_4_3 >= height) {
     const cropWidth = Math.floor(height / CommonConstants.CROP_RATE_4_3);
     const cropHeight = height;
-    const cropPosition = {
-      x: Math.floor((width - cropWidth) / CommonConstants.AVERAGE_WEIGHT_WIDTH),
-      y: 0
-    };
+    const cropPosition = new RegionItem(Math.floor((width - cropWidth) / CommonConstants.AVERAGE_WEIGHT_WIDTH), 0);
     cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
     return;
   }
 
   const cropWidth = width;
   const cropHeight = Math.floor(width * CommonConstants.CROP_RATE_4_3);
-  const cropPosition = {
-    x: 0,
-    y: Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH)
-  }
+  const cropPosition = new RegionItem(0, Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH));
   cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
 }
 
@@ -112,30 +104,21 @@ export async function rectangle(pixelMap: PixelMap, width: number, height: numbe
   if (width <= height) {
     const cropWidth = width;
     const cropHeight = Math.floor(width * (CommonConstants.CROP_RATE_9_16));
-    const cropPosition = {
-      x: 0,
-      y: Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH)
-    };
+    const cropPosition = new RegionItem(0, Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH));
     cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
     return;
   }
   if (width * (CommonConstants.CROP_RATE_9_16) >= height) {
     const cropWidth = Math.floor(height / (CommonConstants.CROP_RATE_9_16));
     const cropHeight = height;
-    const cropPosition = {
-      x: Math.floor((width - cropWidth) / CommonConstants.AVERAGE_WEIGHT_WIDTH),
-      y: 0
-    };
+    const cropPosition = new RegionItem(Math.floor((width - cropWidth) / CommonConstants.AVERAGE_WEIGHT_WIDTH), 0);
     cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
     return;
   }
 
   const cropWidth = width;
   const cropHeight = Math.floor(width * (CommonConstants.CROP_RATE_9_16));
-  const cropPosition = {
-    x: 0,
-    y: Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH)
-  };
+  const cropPosition = new RegionItem(0, Math.floor((height - cropHeight) / CommonConstants.AVERAGE_WEIGHT_WIDTH));
   cropCommon(pixelMap, cropWidth, cropHeight, cropPosition);
 }
 

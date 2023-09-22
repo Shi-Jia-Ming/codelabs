@@ -16,66 +16,41 @@
 /**
  * Icon status.
  */
-export interface IconStatus {
-  normal: Resource,
-  chosen: Resource
+export class IconStatus {
+  normal: Resource;
+  chosen: Resource;
+
+  constructor(normal: Resource, chosen: Resource) {
+    this.normal = normal;
+    this.chosen = chosen;
+  }
 }
 
 /**
  * Bottom menu icon.
  */
 export const menuIconList: Array<IconStatus> = [
-  {
-    normal: $r('app.media.ic_crop'),
-    chosen: $r('app.media.ic_crop_filled')
-  },
-  {
-    normal: $r('app.media.ic_rotate'),
-    chosen: $r('app.media.ic_rotate_filled')
-  },
-  {
-    normal: $r('app.media.ic_adjust'),
-    chosen: $r('app.media.ic_adjust_filled')
-  }
+  new IconStatus($r('app.media.ic_crop'), $r('app.media.ic_crop_filled')),
+  new IconStatus($r('app.media.ic_rotate'), $r('app.media.ic_rotate_filled')),
+  new IconStatus($r('app.media.ic_adjust'), $r('app.media.ic_adjust_filled'))
 ]
 
 /**
  * Crop icon.
  */
 export const cropIconChangeList: Array<IconStatus> = [
-  {
-    normal: $r('app.media.ic_original'),
-    chosen: $r('app.media.ic_original_filled'),
-  },
-  {
-    normal: $r('app.media.ic_one2one'),
-    chosen: $r('app.media.ic_one2one_filled')
-  },
-  {
-    normal: $r('app.media.ic_four2three'),
-    chosen: $r('app.media.ic_four2three_filled')
-  },
-  {
-    normal: $r('app.media.ic_sixteen2nine'),
-    chosen: $r('app.media.ic_sixteen2nine_filled')
-  }
+  new IconStatus($r('app.media.ic_original'),$r('app.media.ic_original_filled') ),
+  new IconStatus($r('app.media.ic_one2one'), $r('app.media.ic_one2one_filled')),
+  new IconStatus($r('app.media.ic_four2three'), $r('app.media.ic_four2three_filled')),
+  new IconStatus($r('app.media.ic_sixteen2nine'), $r('app.media.ic_sixteen2nine_filled'))
 ]
 
 /**
  * Adjust icon.
  */
 export const adjustIconList: Array<IconStatus> = [
-  {
-    normal: $r('app.media.ic_brightness'),
-    chosen: $r('app.media.ic_brightness_filled')
-  },
-  {
-    normal: $r('app.media.ic_transparency'),
-    chosen: $r('app.media.ic_transparency_filled')
-  },
-  {
-    normal: $r('app.media.ic_saturation'),
-    chosen: $r('app.media.ic_saturation_filled')
-  }
+  new IconStatus($r('app.media.ic_brightness'), $r('app.media.ic_brightness_filled')),
+  new IconStatus($r('app.media.ic_transparency'), $r('app.media.ic_transparency_filled')),
+  new IconStatus($r('app.media.ic_saturation'), $r('app.media.ic_saturation_filled'))
 ]
 
