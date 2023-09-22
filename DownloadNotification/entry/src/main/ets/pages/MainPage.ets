@@ -15,9 +15,9 @@
 
 import common from '@ohos.app.ability.common';
 import notification from '@ohos.notificationManager';
-import { WantAgent } from '@ohos.app.ability.wantAgent';
+import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
 import promptAction from '@ohos.promptAction';
-import { createWantAgent, publishNotification } from '../common/utils/NotificationUtil';
+import { createWantAgent, publishNotification, openNotificationPermission } from '../common/utils/NotificationUtil';
 import { getStringByRes } from '../common/utils/ResourseUtil';
 import Logger from '../common/utils/Logger';
 import CommonConstants, { DOWNLOAD_STATUS } from '../common/constants/CommonConstants';
@@ -30,15 +30,16 @@ struct MainPage {
   private context = getContext(this) as common.UIAbilityContext;
   private isSupport: boolean = true;
   private notificationTitle: string = '';
-  private wantAgentObj: WantAgent = null;
+  private wantAgentObj: WantAgent = new Object();
   private interval: number = -1;
 
   aboutToAppear() {
+    openNotificationPermission();
     let bundleName = this.context.abilityInfo.bundleName;
     let abilityName = this.context.abilityInfo.name;
     createWantAgent(bundleName, abilityName).then(want => {
       this.wantAgentObj = want;
-    }).catch(err => {
+    }).catch((err: Error) => {
       Logger.error(`getWantAgent fail, err: ${JSON.stringify(err)}`);
     });
     notification.isSupportTemplate('downloadTemplate').then(isSupport => {
@@ -103,19 +104,19 @@ struct MainPage {
               .lineHeight($r('app.float.name_font_height'))
               .opacity(CommonConstants.FONT_OPACITY)
             if (this.downloadStatus === DOWNLOAD_STATUS.INITIAL) {
-              this.customButton($r('app.string.button_download'), this.start.bind(this))
+              this.customButton($r('app.string.button_download'), (): Promise<void> => this.start())
             } else if (this.downloadStatus === DOWNLOAD_STATUS.DOWNLOADING) {
               Row() {
                 this.cancelButton()
-                this.customButton($r('app.string.button_pause'), this.pause.bind(this))
+                this.customButton($r('app.string.button_pause'), (): Promise<void> => this.pause())
               }
             } else if (this.downloadStatus === DOWNLOAD_STATUS.PAUSE) {
               Row() {
                 this.cancelButton()
-                this.customButton($r('app.string.button_resume'), this.resume.bind(this))
+                this.customButton($r('app.string.button_resume'), (): Promise<void> => this.resume())
               }
             } else {
-              this.customButton($r('app.string.button_finish'), this.open.bind(this))
+              this.customButton($r('app.string.button_finish'), (): void => this.open())
             }
           }
           .width(CommonConstants.FULL_LENGTH)
@@ -143,7 +144,7 @@ struct MainPage {
   download() {
     this.interval = setInterval(async () => {
       if (this.downloadProgress === CommonConstants.PROGRESS_TOTAL) {
-        this.notificationTitle = await getStringByRes($r('app.string.notification_title_finish'));
+        this.notificationTitle = await getStringByRes($r('app.string.notification_title_finish'), this);
         this.downloadStatus = DOWNLOAD_STATUS.FINISHED;
         clearInterval(this.interval);
       } else {
@@ -159,7 +160,7 @@ struct MainPage {
    * Click to download.
    */
   async start() {
-    this.notificationTitle = await getStringByRes($r('app.string.notification_title_download'));
+    this.notificationTitle = await getStringByRes($r('app.string.notification_title_download'), this);
     this.downloadStatus = DOWNLOAD_STATUS.DOWNLOADING;
     this.downloadProgress = 0;
     this.download();
@@ -169,7 +170,7 @@ struct MainPage {
    * Click pause.
    */
   async pause() {
-    this.notificationTitle = await getStringByRes($r('app.string.notification_title_pause'));
+    this.notificationTitle = await getStringByRes($r('app.string.notification_title_pause'), this);
     clearInterval(this.interval);
     this.downloadStatus = DOWNLOAD_STATUS.PAUSE;
     if (this.isSupport) {
@@ -181,7 +182,7 @@ struct MainPage {
    * Click resume.
    */
   async resume() {
-    this.notificationTitle = await getStringByRes($r('app.string.notification_title_download'));
+    this.notificationTitle = await getStringByRes($r('app.string.notification_title_download'), this);
     this.download();
     this.downloadStatus = DOWNLOAD_STATUS.DOWNLOADING;
   }
@@ -205,7 +206,9 @@ struct MainPage {
     })
   }
 
-  @Builder customButton(textResource: Resource, click: Function) {
+  @Builder
+  customButton(textResource: Resource, click: Function = () => {
+  }) {
     Button(textResource)
       .backgroundColor($r('app.color.button_color'))
       .buttonStyle()
@@ -214,7 +217,8 @@ struct MainPage {
       })
   }
 
-  @Builder cancelButton() {
+  @Builder
+  cancelButton() {
     Button($r('app.string.button_cancel'))
       .buttonStyle()
       .backgroundColor($r('app.color.cancel_button_color'))
@@ -226,7 +230,8 @@ struct MainPage {
   }
 }
 
-@Extend(Button) function buttonStyle() {
+@Extend(Button)
+function buttonStyle() {
   .constraintSize({ minWidth: $r('app.float.button_width') })
   .height($r('app.float.button_height'))
   .borderRadius($r('app.float.button_border_radius'))
