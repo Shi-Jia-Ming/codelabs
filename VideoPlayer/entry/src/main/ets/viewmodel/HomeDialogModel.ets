@@ -21,10 +21,10 @@ import { AvplayerStatus, Events } from '../common/constants/CommonConstants';
 
 export class HomeDialogModel {
   private context;
-  private avPlayer;
-  private url;
-  private duration;
-  private checkFlag;
+  private avPlayer: media.AVPlayer | null = null;
+  private url: string = '';
+  private duration: number = 0;
+  private checkFlag: number = 0;
   private isLoading;
 
   constructor(context) {
@@ -36,7 +36,7 @@ export class HomeDialogModel {
    * Creates a videoPlayer object.
    */
   createAvPlayer() {
-    media.createAVPlayer().then((video) => {
+    media.createAVPlayer().then((video: media.AVPlayer) => {
       if (video != null) {
         this.avPlayer = video;
         this.bindState();
@@ -45,37 +45,35 @@ export class HomeDialogModel {
       } else {
         Logger.info(`[HomeDialogModel] createAVPlayer fail`);
       }
-    }).catch((err) => {
+    }).catch((err: Error) => {
       this.failureCallback(err);
     });
   }
 
   bindState() {
-    this.avPlayer.on(Events.STATE_CHANGE, async (state) => {
-      switch (state) {
-        case AvplayerStatus.IDLE:
-          break;
-        case AvplayerStatus.INITIALIZED:
-          this.avPlayer.prepare();
-          break;
-        case AvplayerStatus.PREPARED:
-          this.duration = this.avPlayer.duration;
-          this.checkUrlValidity();
-          break;
-        case AvplayerStatus.RELEASED:
-          break;
-        case Events.ERROR:
-          this.avPlayer.reset();
-          break;
-        default:
-          break;
+    if (this.avPlayer === null) {
+      return;
+    }
+    this.avPlayer.on(Events.STATE_CHANGE, async (state: media.AVPlayerState) => {
+      if (this.avPlayer === null) {
+        return;
+      }
+      if (state === AvplayerStatus.INITIALIZED) {
+        this.avPlayer.prepare();
+      } else if (state === AvplayerStatus.PREPARED) {
+        this.duration = this.avPlayer.duration;
+        this.checkUrlValidity();
+      } else if (state === AvplayerStatus.ERROR) {
+        this.avPlayer.reset();
       }
     });
-    this.avPlayer.on(Events.ERROR, (error) => {
+    this.avPlayer.on(Events.ERROR, (error: Error) => {
       this.isLoading = false;
       this.context.linkCheck = $r('app.string.link_check');
       this.context.loadColor = $r('app.color.index_tab_selected_font_color');
-      this.avPlayer.release();
+      if (this.avPlayer !== null) {
+        this.avPlayer.release();
+      }
       this.failureCallback(error);
     })
   }
@@ -103,12 +101,14 @@ export class HomeDialogModel {
     this.isLoading = false;
     this.context.linkCheck = $r('app.string.link_check');
     this.context.loadColor = $r('app.color.index_tab_selected_font_color');
-    this.avPlayer.release();
-    if (this.duration === HomeConstants.INTERNET_ADD_DIALOG.DURATION_TWO) {
+    if (this.avPlayer !== null) {
+      this.avPlayer.release();
+    }
+    if (this.duration === HomeConstants.DURATION_TWO) {
       // Failed to verify the link
       this.showPrompt($r('app.string.link_check_fail'));
       this.context.result = false;
-    } else if (this.duration === HomeConstants.INTERNET_ADD_DIALOG.DURATION_ONE) {
+    } else if (this.duration === HomeConstants.DURATION_ONE) {
       // The address is incorrect or no network is available
       this.showPrompt($r('app.string.link_check_address_internet'));
       this.context.result = false;
@@ -128,7 +128,7 @@ export class HomeDialogModel {
    *
    * @param error Error information.
    */
-  failureCallback(error) {
+  failureCallback(error: Error) {
     Logger.error(`[HomeDialogModel] error happened: ` + JSON.stringify(error));
     this.context.result = false;
     this.showPrompt($r('app.string.link_check_fail'));
@@ -141,7 +141,7 @@ export class HomeDialogModel {
    */
   showPrompt(msg: Resource) {
     prompt.showToast({
-      duration: HomeConstants.INTERNET_ADD_DIALOG.DURATION,
+      duration: HomeConstants.DURATION,
       message: msg
     });
   }
@@ -149,13 +149,13 @@ export class HomeDialogModel {
   /**
    * Check whether the playback path is empty.
    */
-  checkSrcNull() {
+  checkSrcNull(): boolean {
     if (this.isLoading) {
-      return;
+      return false;
     }
     if (this.context.src.trim() === '') {
       prompt.showToast({
-        duration: HomeConstants.INTERNET_ADD_DIALOG.DURATION,
+        duration: HomeConstants.DURATION,
         message: $r('app.string.place_holder_src')
       });
       return false;
@@ -166,13 +166,13 @@ export class HomeDialogModel {
   /**
    * Check whether the name is empty.
    */
-  checkNameNull() {
+  checkNameNull(): boolean {
     if (this.isLoading) {
-      return;
+      return false;
     }
     if (this.context.name.trim() === '') {
       prompt.showToast({
-        duration: HomeConstants.INTERNET_ADD_DIALOG.DURATION,
+        duration: HomeConstants.DURATION,
         message: $r('app.string.place_holder_name')
       });
       return false;

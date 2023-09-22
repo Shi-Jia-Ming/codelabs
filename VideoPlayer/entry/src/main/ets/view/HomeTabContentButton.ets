@@ -18,10 +18,11 @@ import { VideoBean } from '../common/bean/VideoBean';
 import HomeVideoListModel from '../viewmodel/HomeVideoListModel';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import { HomeConstants } from '../common/constants/HomeConstants';
+import { GlobalContext } from '../common/util/GlobalContext';
 
 @Component
 export struct HomeTabContentButton {
-  private currIndex: number;
+  private currIndex: number = 0;
   @Consume videoList: Array<VideoBean>;
   @State name: string = '';
   @State src: string = '';
@@ -35,16 +36,17 @@ export struct HomeTabContentButton {
     autoCancel: true,
     alignment: DialogAlignment.Default,
     offset: {
-      dx: HomeConstants.INTERNET_ADD_DIALOG.OFFSET_DX,
-      dy: HomeConstants.INTERNET_ADD_DIALOG.OFFSET_DY
+      dx: HomeConstants.OFFSET_DX,
+      dy: HomeConstants.OFFSET_DY
     },
-    gridCount: HomeConstants.INTERNET_ADD_DIALOG.GRID_COUNT,
+    gridCount: HomeConstants.GRID_COUNT,
     customStyle: false
   });
 
   confirm() {
     HomeVideoListModel.setInternetVideo(this.name, this.src);
-    this.videoList = globalThis.videoInternetList;
+    let videoInternetList = GlobalContext.getContext().getObject('videoInternetList') as VideoBean[];
+    this.videoList = videoInternetList;
     this.src = '';
     this.name = '';
   }
@@ -57,7 +59,7 @@ export struct HomeTabContentButton {
       })
         .borderRadius($r('app.float.tab_border_radius'))
         .fontSize($r('app.float.button_font_size'))
-        .height(HomeConstants.HOME_TAB_BUTTON.HEIGHT)
+        .height(HomeConstants.TAB_BUTTON_HEIGHT)
         .backgroundColor($r('app.color.button_back_ground_color'))
         .onClick(async () => {
           if (this.currIndex === 0) {
@@ -68,7 +70,7 @@ export struct HomeTabContentButton {
         })
     }
     .width(CommonConstants.FULL_PERCENT)
-    .height(HomeConstants.HOME_TAB_BUTTON.COLUMN_HEIGHT)
+    .height(HomeConstants.TAB_COLUMN_HEIGHT)
     .justifyContent(FlexAlign.Center)
   }
 }

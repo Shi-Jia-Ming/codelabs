@@ -20,106 +20,86 @@ export class PlayConstants {
   /**
    * Playback page constant.
    */
-  static readonly PLAY_PAGE = {
-    PLAY_SPEED: 1,
-    VOLUME: 0.5,
-    VOLUME_SHOW: false,
-    BRIGHT: 0.5,
-    BRIGHT_SHOW: false,
-    POSITION_X: 0,
-    POSITION_Y: 0,
-    HEIGHT: '7.2%',
-    PLAY_PLAYER_HEIGHT: '25.6%',
-    PLAY_PLAYER_HEIGHT_FULL: '75.4%',
-    PLAY_PROGRESS_HEIGHT: '7.1%',
-    COLUMN_HEIGHT_ONE: '26.9%',
-    COLUMN_HEIGHT_TWO: '22.9%',
-    MIN_ANGLE: 0,
-    MAX_ANGLE: 30,
-    MIN_VALUE: 0,
-    MAX_VALUE: 1,
-    DISAPPEAR_TIME: 200,
-    MARGIN_ZERO: '0'
-  }
-
+  static readonly PLAY_SPEED: number = 1;
+  static readonly VOLUME: number = 0.5;
+  static readonly VOLUME_SHOW: boolean = false;
+  static readonly BRIGHT: number = 0.5;
+  static readonly BRIGHT_SHOW: boolean = false;
+  static readonly POSITION_X: number = 0;
+  static readonly POSITION_Y: number = 0;
+  static readonly HEIGHT: string = '7.2%';
+  static readonly PLAY_PLAYER_HEIGHT: string = '25.6%';
+  static readonly PLAY_PLAYER_HEIGHT_FULL: string = '75.4%';
+  static readonly PLAY_PROGRESS_HEIGHT: string = '7.1%';
+  static readonly COLUMN_HEIGHT_ONE: string = '26.9%';
+  static readonly COLUMN_HEIGHT_TWO: string = '22.9%';
+  static readonly MIN_ANGLE: number = 0;
+  static readonly MAX_ANGLE: number = 30;
+  static readonly MIN_VALUE: number = 0;
+  static readonly MAX_VALUE: number = 1;
+  static readonly DISAPPEAR_TIME: number = 200;
+  static readonly MARGIN_ZERO: string = '0';
   /**
    * Playback Page Header Constant.
    */
-  static readonly PLAY_TITLE = {
-    DX: 0,
-    DY: -20,
-    GRID_COUNT: 4,
-    TEXT_MARGIN_LEFT: '4.4%',
-    ROW_WIDTH: '86.6%',
-    POPUP: {
-      ROW_HEIGHT: '45.3%',
-      ROW_MARGIN_TOP: '3.8%',
-      DIVIDER_STROKE_WIDTH: 1,
-      DIVIDER_MARGIN_RIGHT: '10.2%',
-      COLUMN_WIDTH: '43.3%',
-      COLUMN_HEIGHT: '13.5%',
-      CLOSE_TIME: 500
-    },
-  }
-
+  static readonly DX: number = 0;
+  static readonly DY: number = -20;
+  static readonly GRID_COUNT: number = 4;
+  static readonly TEXT_MARGIN_LEFT: string = '4.4%';
+  static readonly ROW_WIDTH: string = '86.6%';
+  static readonly POPUP_ROW_HEIGHT: string = '45.3%';
+  static readonly POPUP_ROW_MARGIN_TOP: string = '3.8%';
+  static readonly POPUP_DIVIDER_STROKE_WIDTH: number = 1;
+  static readonly POPUP_DIVIDER_MARGIN_RIGHT: string = '10.2%';
+  static readonly POPUP_COLUMN_WIDTH: string = '43.3%';
+  static readonly POPUP_COLUMN_HEIGHT: string = '13.5%';
+  static readonly POPUP_CLOSE_TIME: number = 500;
   /**
    * Constants for setting the playback speed.
    */
-  static readonly PLAY_TITLE_DIALOG = {
-    ROW_HEIGHT: '25%',
-    ROW_WIDTH: '86.6%',
-    COLUMNS_TEMPLATE: '1fr 1fr 1fr',
-    ROWS_TEMPLATE: '1fr 1fr',
-    COLUMNS_GAP: 10,
-    ROWS_GAP: 10,
-    COLUMN_WIDTH: '39.2%'
-  }
-
+  static readonly TITLE_DIALOG_ROW_HEIGHT: string = '25%';
+  static readonly TITLE_DIALOG_ROW_WIDTH: string = '86.6%';
+  static readonly TITLE_DIALOG_COLUMNS_TEMPLATE: string = '1fr 1fr 1fr';
+  static readonly TITLE_DIALOG_ROWS_TEMPLATE: string = '1fr 1fr';
+  static readonly TITLE_DIALOG_COLUMNS_GAP: number = 10;
+  static readonly TITLE_DIALOG_ROWS_GAP: number = 10;
+  static readonly TITLE_DIALOG_COLUMN_WIDTH: string = '39.2%';
   /**
    * Video playback constant.
    */
-  static  readonly PLAY_PLAYER = {
-    ID: '',
-    TYPE: 'surface',
-    LIBRARY_NAME: '',
-    SURFACE_WIDTH: 1920,
-    SURFACE_HEIGHT: 1080,
-    STACK_WIDTH: '16.7%',
-    IMAGE_WIDTH: '95%',
-    FIRST: 0,
-    NEXT: 1,
-    DURATION: 0
-  }
-
+  static readonly PLAYER_ID: string = '';
+  static readonly PLAYER_TYPE: string = 'surface';
+  static readonly PLAYER_LIBRARY_NAME: string = '';
+  static readonly PLAYER_SURFACE_WIDTH: number = 1920;
+  static readonly PLAYER_SURFACE_HEIGHT: number = 1080;
+  static readonly PLAYER_STACK_WIDTH: string = '16.7%';
+  static readonly PLAYER_IMAGE_WIDTH: string = '95%';
+  static readonly PLAYER_FIRST: number = 0;
+  static readonly PLAYER_NEXT: number = 1;
+  static readonly PLAYER_DURATION: number = 0;
   /**
    * Video playback control constant.
    */
-  static readonly PLAY_CONTROL = {
-    ROW_WIDTH: '68.8%',
-    PLAY_START: 1,
-    PLAY_PAUSE: 2,
-    NEXT: 1,
-    FIRST: 0
-  }
-
+  static readonly CONTROL_ROW_WIDTH: string = '68.8%';
+  static readonly CONTROL_PLAY_START: number = 1;
+  static readonly CONTROL_PLAY_PAUSE: number = 2;
+  static readonly CONTROL_NEXT: number = 1;
+  static readonly CONTROL_FIRST: number = 0;
   /**
    * Progress bar page constant.
    */
-  static readonly PLAY_PROGRESS = {
-    CURRENT_TIME: '00:00',
-    TOTAL_TIME: '00:00',
-    PROGRESS_VAL: 0,
-    INTERVAL: -1,
-    STEP: 1,
-    TRACK_THICKNESS: 1,
-    SLIDER_WIDTH: '68.9%',
-    MARGIN_LEFT: '2.2%',
-    SEEK_TIME: 0,
-    ROW_WIDTH: '93.4%'
-  }
-
+  static readonly PROGRESS_CURRENT_TIME: string = '00:00';
+  static readonly PROGRESS_TOTAL_TIME: string = '00:00';
+  static readonly PROGRESS_PROGRESS_VAL: number = 0;
+  static readonly PROGRESS_INTERVAL: number = -1;
+  static readonly PROGRESS_STEP: number = 1;
+  static readonly PROGRESS_TRACK_THICKNESS: number = 1;
+  static readonly PROGRESS_SLIDER_WIDTH: string = '68.9%';
+  static readonly PROGRESS_MARGIN_LEFT: string = '2.2%';
+  static readonly PROGRESS_SEEK_TIME: number = 0;
+  static readonly PROGRESS_ROW_WIDTH: string = '93.4%';
   /**
    * Network video playback error notification duration
    */
-  static readonly PLAY_ERROR_TIME = 3000;
+  static readonly PLAY_ERROR_TIME: number = 3000;
 }

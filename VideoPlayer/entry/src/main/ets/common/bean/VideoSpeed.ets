@@ -13,22 +13,12 @@
  * limitations under the License.
  */
 
-import { VideoBean } from '../common/bean/VideoBean';
-import { HomeTabContentList } from './HomeTabContentList';
-import { HomeTabContentButton } from './HomeTabContentButton';
-import { CommonConstants } from '../common/constants/CommonConstants';
+export class VideoSpeed {
+  text: string;
+  value: number;
 
-@Component
-export struct HomeTabContent {
-  private currIndex: number = 0;
-  @Provide videoList: Array<VideoBean> = [];
-
-  build() {
-    Column() {
-      HomeTabContentList({ currIndex: this.currIndex });
-      HomeTabContentButton({ currIndex: this.currIndex });
-    }
-    .width(CommonConstants.FULL_PERCENT)
-    .height(CommonConstants.FULL_PERCENT)
+  constructor(text: string, value: number) {
+    this.text = text;
+    this.value = value;
   }
 }

@@ -27,22 +27,29 @@ export struct HomeTabContentDialog {
   @Link name: string;
   @Link src: string;
   @Link videoList: Array<VideoBean>;
-  controller: CustomDialogController;
-  confirm: () => void;
+  controller: CustomDialogController = new CustomDialogController({
+    builder: HomeTabContentDialog({
+      name: '',
+      src: '',
+      videoList: []
+    }),
+  });
+  confirm: () => void = () => {
+  };
 
   build() {
     Column() {
       TextInput({ placeholder: $r('app.string.link_placeholder'), text: this.src })
-        .height(HomeConstants.INTERNET_ADD_DIALOG.TEXT_HEIGHT)
+        .height(HomeConstants.TEXT_HEIGHT)
         .width(CommonConstants.NINETY_PERCENT)
-        .margin({ top: HomeConstants.INTERNET_ADD_DIALOG.TEXT_MARGIN_TOP })
+        .margin({ top: HomeConstants.TEXT_MARGIN_TOP })
         .onChange((value: string) => {
           this.src = value;
         })
       TextInput({ placeholder: $r('app.string.name_placeholder'), text: this.name })
-        .height(HomeConstants.INTERNET_ADD_DIALOG.TEXT_HEIGHT)
+        .height(HomeConstants.TEXT_HEIGHT)
         .width(CommonConstants.NINETY_PERCENT)
-        .margin({ top: HomeConstants.INTERNET_ADD_DIALOG.TEXT_MARGIN_TOP })
+        .margin({ top: HomeConstants.TEXT_MARGIN_TOP })
         .onChange((value: string) => {
           this.name = value;
         })

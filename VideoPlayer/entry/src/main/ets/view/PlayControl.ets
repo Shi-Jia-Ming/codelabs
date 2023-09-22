@@ -19,7 +19,7 @@ import { PlayConstants } from '../common/constants/PlayConstants';
 
 @Component
 export struct PlayControl {
-  private playVideoModel: VideoController;
+  private playVideoModel: VideoController | null = null;
   @Consume status: number;
 
   build() {
@@ -29,30 +29,37 @@ export struct PlayControl {
           .width($r('app.float.control_image_width'))
           .aspectRatio(CommonConstants.ASPECT_RATIO)
           .onClick(async () => {
-            this.playVideoModel.previousVideo();
+            if (this.playVideoModel !== null) {
+              this.playVideoModel.previousVideo();
+            }
             this.status = CommonConstants.STATUS_START;
           })
         Column() {
           Image(this.status === CommonConstants.STATUS_START ?
-            $r('app.media.ic_pause') : $r('app.media.ic_play'))
+          $r('app.media.ic_pause') : $r('app.media.ic_play'))
             .width($r('app.float.control_image_width'))
             .aspectRatio(CommonConstants.ASPECT_RATIO)
             .onClick(async () => {
-              let curStatus = (this.playVideoModel.getStatus() === CommonConstants.STATUS_START);
-              this.status = curStatus ? CommonConstants.STATUS_PAUSE : CommonConstants.STATUS_START;
-              this.playVideoModel.switchPlayOrPause();
+              if (this.playVideoModel !== null) {
+                let curStatus = (this.playVideoModel.getStatus() === CommonConstants.STATUS_START);
+                this.status = curStatus ? CommonConstants.STATUS_PAUSE : CommonConstants.STATUS_START;
+                this.playVideoModel.switchPlayOrPause();
+              }
             })
         }
         .layoutWeight(1)
+
         Image($r('app.media.ic_next'))
           .width($r('app.float.control_image_width'))
           .aspectRatio(CommonConstants.ASPECT_RATIO)
           .onClick(() => {
-            this.playVideoModel.nextVideo();
+            if (this.playVideoModel !== null) {
+              this.playVideoModel.nextVideo();
+            }
             this.status = CommonConstants.STATUS_START;
           })
       }
-      .width(PlayConstants.PLAY_CONTROL.ROW_WIDTH)
+      .width(PlayConstants.CONTROL_ROW_WIDTH)
     }
     .width(CommonConstants.FULL_PERCENT)
     .height(CommonConstants.FULL_PERCENT)
