@@ -38,7 +38,7 @@ export struct TopBar {
             .onClick(() => {
               this.index = item.id;
             })
-        }, item => JSON.stringify(item))
+        }, (item: TopBarItem) => JSON.stringify(item))
     }
     .margin({ left: CommonConstants.ADS_LEFT })
     .width(CommonConstants.FULL_WIDTH)

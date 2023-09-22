@@ -22,7 +22,7 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
  */
 @Component
 export struct PictureView {
-  private photos: PictureItem;
+  private photos: PictureItem = new PictureItem();
 
   build() {
     Column() {

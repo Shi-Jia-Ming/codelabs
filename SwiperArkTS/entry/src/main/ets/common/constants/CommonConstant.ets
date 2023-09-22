@@ -155,7 +155,7 @@ export class CommonConstants {
   /**
    * margin of navigation left.
    */
-  static readonly LEFT_NAVIGATION = 20;
+  static readonly LEFT_POSITION = '3%';
 
   /**
    * margin of banner left.

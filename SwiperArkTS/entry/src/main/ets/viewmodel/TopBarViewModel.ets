@@ -21,7 +21,7 @@ import { TOP_BAR_DATA } from '../common/constants/TopBarConstants';
  */
 export function initializeOnStartup(): Array<TopBarItem> {
   let tabDataArray: Array<TopBarItem> = []
-  TOP_BAR_DATA.forEach(item => {
+  TOP_BAR_DATA.forEach((item: TopBarItem) => {
     tabDataArray.push(new TopBarItem(item.id, item.name));
   })
   return tabDataArray;

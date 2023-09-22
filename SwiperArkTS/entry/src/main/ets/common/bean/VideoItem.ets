@@ -16,20 +16,12 @@
 /**
  * Video entity class.
  */
-@Observed export class VideoItem {
-  id: string;
-  src: Resource;
-  likesCount: number;
-  isLikes: boolean;
-  commentCount: number;
-  shareTimes: number;
-
-  constructor(id: string, src: Resource, likesCount: number, isLikes: boolean, commentCount: number, shareTimes: number) {
-    this.id = id;
-    this.src = src;
-    this.likesCount = likesCount;
-    this.isLikes = isLikes;
-    this.commentCount = commentCount;
-    this.shareTimes = shareTimes;
-  }
+@Observed
+export class VideoItem {
+  id: string = '';
+  src: Resource = $rawfile('video1.mp4');
+  likesCount: number = 0;
+  isLikes: boolean = false;
+  commentCount: number = 102;
+  shareTimes: number = 666;
 }

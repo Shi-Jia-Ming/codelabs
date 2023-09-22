@@ -20,20 +20,20 @@ import { VideoItem } from '../bean/VideoItem';
  */
 export const VIDEO_DATA: VideoItem[] = [
   {
-    'id': '1',
-    'src': $rawfile('video1.mp4'),
-    'likesCount': 0,
-    'isLikes': false,
-    'commentCount': 102,
-    'shareTimes': 666
+    id: '1',
+    src: $rawfile('video1.mp4'),
+    likesCount: 0,
+    isLikes: false,
+    commentCount: 102,
+    shareTimes: 666
   },
   {
-    'id': '2',
-    'src': $rawfile('video2.mp4'),
-    'likesCount': 8654,
-    'isLikes': true,
-    'commentCount': 0,
-    'shareTimes': 0
+    id: '2',
+    src: $rawfile('video2.mp4'),
+    likesCount: 8654,
+    isLikes: true,
+    commentCount: 0,
+    shareTimes: 0
   }
 ];
 

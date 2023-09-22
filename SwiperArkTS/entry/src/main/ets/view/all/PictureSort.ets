@@ -25,7 +25,8 @@ import { CommonConstants } from '../../common/constants/CommonConstant';
  * @param fontSize Font size.
  * @param fontWeight Font weight.
  */
-@Extend(Text) function textStyle(fontSize: number, fontWeight: number) {
+@Extend(Text)
+function textStyle(fontSize: number, fontWeight: number) {
   .fontSize(fontSize)
   .fontWeight(fontWeight)
   .fontColor($r('app.color.font_black'))
@@ -69,9 +70,9 @@ export struct PictureSort {
       Grid() {
         ForEach(this.photos, (item: PictureItem) => {
           GridItem() {
-            PictureView({ photos: item });
+            PictureView({ photos: item })
           }
-        }, item => JSON.stringify(item))
+        }, (item: PictureItem) => JSON.stringify(item))
       }
       .columnsTemplate(CommonConstants.TWO_COLUMNS)
       .rowsTemplate(CommonConstants.TWO_ROWS)

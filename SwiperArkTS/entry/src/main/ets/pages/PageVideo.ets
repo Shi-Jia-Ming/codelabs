@@ -31,14 +31,14 @@ struct PageVideo {
   build() {
     Column() {
       Swiper() {
-        ForEach(this.videoArray, (item: VideoItem, index: number) => {
+        ForEach(this.videoArray, (item: VideoItem, index: number | undefined) => {
           PlayView({
             index: $index,
             pageShow: $pageShow,
             item: item,
             barPosition: index
           });
-        }, item => JSON.stringify(item))
+        }, (item: VideoItem) => JSON.stringify(item))
       }
       .width(CommonConstants.FULL_WIDTH)
       .height(CommonConstants.FULL_HEIGHT)
