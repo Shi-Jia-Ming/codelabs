@@ -32,10 +32,11 @@ import { getIndexList } from '../viewmodel/IndexData';
 @Entry
 @Component
 struct LayoutAlignIndex {
-  private indexList : IndexListItem[] = getIndexList();
+  private indexList: IndexListItem[] = getIndexList();
+
   build() {
     Column() {
-      Text($r("app.string.index_title"))
+      Text($r('app.string.index_title'))
         .width(ALL_PERCENT)
         .fontSize(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
         .fontWeight(TITLE_FONT_WEIGHT)
@@ -43,12 +44,15 @@ struct LayoutAlignIndex {
         .fontColor(Color.Black)
         .margin({ top: EIGHT_POINT_TWO_PERCENT })
       List() {
-        ForEach(this.indexList, (item) => {
+        ForEach(this.indexList, (item: IndexListItem) => {
           ListItem() {
-            ListItemComp({ item: item }).margin({ top: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN })
+            ListItemComp({ item: item })
+              .margin({ top: MARGIN_FONT_SIZE_SPACE.SECOND_MARGIN })
           }
-        }, item => JSON.stringify(item))
+        }, (item: IndexListItem) => JSON.stringify(item))
       }
+      .height(ALL_PERCENT)
+      .width(ALL_PERCENT)
       .listDirection(Axis.Vertical)
       .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
     }
@@ -62,11 +66,11 @@ struct LayoutAlignIndex {
 
 @Component
 struct ListItemComp {
-  private item: IndexListItem;
+  private item: IndexListItem = new IndexListItem();
 
   build() {
     Row() {
-      Image(this.item['icon'])
+      Image(this.item.icon)
         .height(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
         .width(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
         .margin({
@@ -74,7 +78,7 @@ struct ListItemComp {
           top: MARGIN_FONT_SIZE_SPACE.SIXTH_MARGIN,
           bottom: MARGIN_FONT_SIZE_SPACE.SIXTH_MARGIN
         })
-      Text(this.item['name'])
+      Text(this.item.name)
         .fontSize(MARGIN_FONT_SIZE_SPACE.FIFTH_MARGIN)
         .fontColor(Color.Black)
         .fontWeight(COMMON_FONT_WEIGHT)
@@ -90,9 +94,9 @@ struct ListItemComp {
       router.pushUrl({
         url: SECOND_PAGE,
         params: {
-          containerType: this.item['containerType'],
-          componentName: this.item['name'],
-          moduleList: this.item['moduleList']
+          containerType: this.item.containerType,
+          componentName: this.item.name,
+          moduleList: this.item.moduleList
         }
       });
     })

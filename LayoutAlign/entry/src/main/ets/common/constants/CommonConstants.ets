@@ -19,21 +19,6 @@
 export const SECOND_PAGE: string = 'pages/Second';
 
 /**
- *moduleList of string
- */
-export const MODULE_LIST: string = 'moduleList';
-
-/**
- *componentName of string
- */
-export const COMPONENT_NAME: string = 'componentName';
-
-/**
- *containerType of string
- */
-export const CONTAINER_TYPE_STR: string = 'containerType';
-
-/**
  * height percent of the list item
  */
 export const EIGHT_POINT_TWO_PERCENT: string = '8.2%';
@@ -51,7 +36,7 @@ export const ALL_PERCENT: string = '100%';
 /**
  * opacity of text
  */
-export const ATTRIBUTE_OPACITY: number = parseFloat('0.6');
+export const ATTRIBUTE_OPACITY: number = Number.parseFloat('0.6');
 
 /**
  * title font weight

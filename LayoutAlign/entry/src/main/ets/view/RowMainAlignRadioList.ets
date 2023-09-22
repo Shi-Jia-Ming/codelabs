@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE,ALL_PERCENT } from '../common/Constants/CommonConstants';
-import {getRowModuleList} from '../viewmodel/AttributeModuleData';
-import {ContainerModuleItem} from '../common/bean/ContainerModuleItem';
+import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
+import { getRowModuleList } from '../viewmodel/AttributeModuleData';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *Set Main Alignment in Row
  */
 @Component
 export struct RowMainAlignRadioList {
-  private rowModuleList :ContainerModuleItem[] =  getRowModuleList();
-  private groupName: string = this.rowModuleList[0]['groupName'];
-  private moduleName: Resource =  this.rowModuleList[0]['moduleName'];
-  private radioList: Array<string> =this.rowModuleList[0]['attributeList'];
+  private rowModuleList: ContainerModuleItem[] = getRowModuleList();
+  private groupName: string = this.rowModuleList[0].groupName;
+  private moduleName: Resource = this.rowModuleList[0].moduleName;
+  private radioList: Array<string> = this.rowModuleList[0].attributeList;
 
   build() {
     Column({ space: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN }) {
@@ -41,10 +41,10 @@ export struct RowMainAlignRadioList {
         justifyContent: FlexAlign.SpaceBetween,
         wrap: FlexWrap.NoWrap
       }) {
-        ForEach(this.radioList, (item, index) => {
+        ForEach(this.radioList, (item: string, index: number | undefined) => {
           MainAlignRadioItem({ textName: item, groupName: this.groupName, isChecked: index === 0 ? true : false })
             .margin({ right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN })
-        }, item => JSON.stringify(item))
+        }, (item: string) => JSON.stringify(item))
       }
       .width(ALL_PERCENT)
       .height(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
@@ -57,9 +57,9 @@ export struct RowMainAlignRadioList {
 
 @Component
 struct MainAlignRadioItem {
-  private textName: string;
-  private groupName: string;
-  private isChecked: boolean;
+  private textName: string = '';
+  private groupName: string = '';
+  private isChecked: boolean = false;
   @Consume currentRowJustifyContent: FlexAlign;
 
   build() {
@@ -81,7 +81,9 @@ struct MainAlignRadioItem {
               break;
           }
         })
-      Text(this.textName).fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN).opacity(ATTRIBUTE_OPACITY)
+      Text(this.textName)
+        .fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN)
+        .opacity(ATTRIBUTE_OPACITY)
     }
   }
 }

@@ -14,15 +14,15 @@
  */
 
 import { ATTRIBUTE, GROUP } from '../common/Constants/CommonConstants';
-import {ContainerModuleItem} from '../common/bean/ContainerModuleItem';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *Get  Module List Data in Flex
  */
-export function getFlexModuleList() :Array<ContainerModuleItem>{
+export function getFlexModuleList(): Array<ContainerModuleItem> {
   let flexModuleArray: Array<ContainerModuleItem> = []
-  FLEX_MODULE.forEach(item => {
-    flexModuleArray.push(new ContainerModuleItem(item['groupName'], item['moduleName'], item['attributeList']));
+  FLEX_MODULE.forEach((item: ContainerModuleItem) => {
+    flexModuleArray.push(item);
   })
   return flexModuleArray;
 }
@@ -30,10 +30,10 @@ export function getFlexModuleList() :Array<ContainerModuleItem>{
 /**
  *Get  Module List Data in Column
  */
-export function getColumnModuleList() :Array<ContainerModuleItem>{
+export function getColumnModuleList(): Array<ContainerModuleItem> {
   let columnModuleArray: Array<ContainerModuleItem> = []
-  COLUMN_MODULE.forEach(item => {
-    columnModuleArray.push(new ContainerModuleItem(item['groupName'], item['moduleName'], item['attributeList']));
+  COLUMN_MODULE.forEach((item: ContainerModuleItem) => {
+    columnModuleArray.push(item);
   })
   return columnModuleArray;
 }
@@ -41,10 +41,10 @@ export function getColumnModuleList() :Array<ContainerModuleItem>{
 /**
  *Get  Module List Data in Row
  */
-export function getRowModuleList() :Array<ContainerModuleItem>{
+export function getRowModuleList(): Array<ContainerModuleItem> {
   let rowModuleArray: Array<ContainerModuleItem> = []
-  ROW_MODULE.forEach(item => {
-    rowModuleArray.push(new ContainerModuleItem(item['groupName'], item['moduleName'], item['attributeList']));
+  ROW_MODULE.forEach((item: ContainerModuleItem) => {
+    rowModuleArray.push(item);
   })
   return rowModuleArray;
 }
@@ -52,18 +52,18 @@ export function getRowModuleList() :Array<ContainerModuleItem>{
 /**
  *Get  Module List Data in Stack
  */
-export function getStackModuleList() :Array<ContainerModuleItem>{
+export function getStackModuleList(): Array<ContainerModuleItem> {
   let stackModuleArray: Array<ContainerModuleItem> = []
-  STACK_MODULE.forEach(item => {
-    stackModuleArray.push(new ContainerModuleItem(item['groupName'], item['moduleName'], item['attributeList']));
+  STACK_MODULE.forEach((item:ContainerModuleItem) => {
+    stackModuleArray.push(item);
   })
   return stackModuleArray;
 }
 
-export const FLEX_MODULE: object[] = [
+export const FLEX_MODULE: ContainerModuleItem[] = [
   {
     groupName: GROUP.MAIN_DIRECTION,
-    moduleName: $r("app.string.main_direction"),
+    moduleName: $r('app.string.main_direction'),
     attributeList: [ATTRIBUTE.COLUMN, ATTRIBUTE.ROW, ATTRIBUTE.COLUMN_REVERSE]
   },
   {
@@ -78,7 +78,7 @@ export const FLEX_MODULE: object[] = [
   }
 ];
 
-export const COLUMN_MODULE: object[] = [
+export const COLUMN_MODULE: ContainerModuleItem[] = [
   {
     groupName: GROUP.MAIN_ALIGN,
     moduleName: $r("app.string.main_align"),
@@ -91,7 +91,7 @@ export const COLUMN_MODULE: object[] = [
   }
 ];
 
-export const ROW_MODULE: object[] = [
+export const ROW_MODULE: ContainerModuleItem[] = [
   {
     groupName: GROUP.MAIN_ALIGN,
     moduleName: $r("app.string.main_align"),
@@ -104,10 +104,10 @@ export const ROW_MODULE: object[] = [
   }
 ];
 
-export const STACK_MODULE: object[] = [
+export const STACK_MODULE: ContainerModuleItem[] = [
   {
     groupName: GROUP.ALIGN_TYPE,
-    moduleName: $r("app.string.align_type"),
+    moduleName: $r('app.string.align_type'),
     attributeList: [ATTRIBUTE.TOP_START, ATTRIBUTE.BOTTOM_START, ATTRIBUTE.TOP_END, ATTRIBUTE.BOTTOM_END, ATTRIBUTE.CENTER]
-  }
+  },
 ];

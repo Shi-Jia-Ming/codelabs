@@ -1,4 +1,3 @@
-
 /*
  * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +14,12 @@
  */
 
 import { CommonItem } from './CommonComponent';
-import { MARGIN_FONT_SIZE_SPACE, LIST, SHOW_LIST_HEIGHT_PERCENT,ALL_PERCENT } from '../common/Constants/CommonConstants';
+import {
+  MARGIN_FONT_SIZE_SPACE,
+  LIST,
+  SHOW_LIST_HEIGHT_PERCENT,
+  ALL_PERCENT
+} from '../common/Constants/CommonConstants';
 import { ColumnAxisAlignRadioList } from './ColumnAxisAlignRadioList';
 import { ColumnMainAlignRadioList } from './ColumnMainAlignRadioList';
 
@@ -31,9 +35,9 @@ export struct ColumnShowList {
     Column() {
       // Column中元素对齐方式布局
       Column() {
-        ForEach(LIST, (item) => {
+        ForEach(LIST, (item: number) => {
           CommonItem({ item: item })
-        }, item => JSON.stringify(item))
+        }, (item: number) => JSON.stringify(item))
       }
       .alignItems(this.currentColumnAlignItems)
       .justifyContent(this.currentColumnJustifyContent)
@@ -42,18 +46,16 @@ export struct ColumnShowList {
       .height(SHOW_LIST_HEIGHT_PERCENT.COLUMN_ROW_SHOW_LIST_HEIGHT)
       .backgroundColor($r("app.color.show_list_backgroundColor"))
       .margin({ top: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN })
+
       // set main align
       ColumnMainAlignRadioList()
-        .margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
+        .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
       // set axis align
       ColumnAxisAlignRadioList()
-        .margin({top:MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN})
+        .margin({ top: MARGIN_FONT_SIZE_SPACE.EIGHTH_MARGIN })
     }
     .layoutWeight(1)
     .height(ALL_PERCENT)
     .width(ALL_PERCENT)
   }
 }
-
-
-

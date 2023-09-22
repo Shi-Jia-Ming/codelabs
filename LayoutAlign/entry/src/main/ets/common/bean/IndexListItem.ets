@@ -12,21 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import {ContainerModuleItem} from './ContainerModuleItem'
+import { FLEX_MODULE } from '../../viewmodel/AttributeModuleData';
+import { CONTAINER, CONTAINER_TYPE } from '../constants/CommonConstants';
+import { ContainerModuleItem } from './ContainerModuleItem'
 
 /*
  * class for IndexListItem
  */
-export class IndexListItem{
-  private name : string;
-  private  icon :Resource;
-  private containerType : number
-  private moduleList :ContainerModuleItem[];
-  constructor(name : string,icon:Resource,containerType :number,moduleList :ContainerModuleItem[]){
-    this.name = name;
-    this.icon = icon;
-    this.containerType = containerType;
-    this.moduleList = moduleList;
-  }
+export class IndexListItem {
+  name: string = CONTAINER.FLEX;
+  icon: Resource = $r('app.media.ic_flex');
+  containerType: number = CONTAINER_TYPE.FLEX;
+  moduleList: ContainerModuleItem[] = FLEX_MODULE;
 }

@@ -13,19 +13,19 @@
  * limitations under the License.
  */
 
-import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE,ALL_PERCENT } from '../common/Constants/CommonConstants';
-import {getStackModuleList} from '../viewmodel/AttributeModuleData';
-import {ContainerModuleItem} from '../common/bean/ContainerModuleItem';
+import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
+import { getStackModuleList } from '../viewmodel/AttributeModuleData';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *Set  Alignment in Stack
  */
 @Component
 export struct StackAlignRadioList {
-  private stackModuleList :ContainerModuleItem[] =  getStackModuleList();
-  private groupName: string = this.stackModuleList[0]['groupName'];
-  private moduleName: Resource =  this.stackModuleList[0]['moduleName'];
-  private radioList: Array<string> =this.stackModuleList[0]['attributeList'];
+  private stackModuleList: ContainerModuleItem[] = getStackModuleList();
+  private groupName: string = this.stackModuleList[0].groupName;
+  private moduleName: Resource = this.stackModuleList[0].moduleName;
+  private radioList: Array<string> = this.stackModuleList[0].attributeList;
 
   build() {
     Column({ space: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN }) {
@@ -40,10 +40,10 @@ export struct StackAlignRadioList {
         justifyContent: FlexAlign.Start,
         wrap: FlexWrap.Wrap
       }) {
-        ForEach(this.radioList, (item, index) => {
+        ForEach(this.radioList, (item: string, index: number | undefined) => {
           StackAlignRadioListItem({ textName: item, groupName: this.groupName, isChecked: index === 0 ? true : false })
             .margin({ right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN })
-        }, item => JSON.stringify(item))
+        }, (item: string) => JSON.stringify(item))
       }
       .width(ALL_PERCENT)
       .height(ALL_PERCENT)
@@ -56,9 +56,9 @@ export struct StackAlignRadioList {
 
 @Component
 export struct StackAlignRadioListItem {
-  private textName: string;
-  private groupName: string;
-  private isChecked: boolean;
+  private textName: string = '';
+  private groupName: string = '';
+  private isChecked: boolean = false;
   @Consume currentStackAlignContent: Alignment;
   @Consume message: string;
 
@@ -92,7 +92,9 @@ export struct StackAlignRadioListItem {
               break;
           }
         })
-      Text(this.textName).fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN).opacity(ATTRIBUTE_OPACITY)
+      Text(this.textName)
+        .fontSize(MARGIN_FONT_SIZE_SPACE.THIRD_MARGIN)
+        .opacity(ATTRIBUTE_OPACITY)
     }
   }
 }

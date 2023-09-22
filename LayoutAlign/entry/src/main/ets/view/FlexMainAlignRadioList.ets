@@ -13,20 +13,19 @@
  * limitations under the License.
  */
 
-import { MARGIN_FONT_SIZE_SPACE,ATTRIBUTE_OPACITY,ATTRIBUTE,ALL_PERCENT } from '../common/Constants/CommonConstants';
-import {getFlexModuleList} from '../viewmodel/AttributeModuleData';
-import {ContainerModuleItem} from '../common/bean/ContainerModuleItem';
+import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
+import { getFlexModuleList } from '../viewmodel/AttributeModuleData';
+import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
 
 /**
  *Set Main Alignment in Flex
  */
 @Component
 export struct FlexMainAlignRadioList {
-  private flexModuleList :ContainerModuleItem[] =  getFlexModuleList();
-  private groupName: string = this.flexModuleList[1]['groupName'];
-  private moduleName: Resource =  this.flexModuleList[1]['moduleName'];
-  private radioList: Array<string> =this.flexModuleList[1]['attributeList'];
-
+  private flexModuleList: ContainerModuleItem[] = getFlexModuleList();
+  private groupName: string = this.flexModuleList[1].groupName;
+  private moduleName: Resource = this.flexModuleList[1].moduleName;
+  private radioList: Array<string> = this.flexModuleList[1].attributeList;
 
   build() {
     Column({ space: MARGIN_FONT_SIZE_SPACE.FIRST_MARGIN }) {
@@ -39,13 +38,13 @@ export struct FlexMainAlignRadioList {
 
       Flex({
         direction: FlexDirection.Row,
-        justifyContent:  FlexAlign.SpaceBetween ,
-        wrap:  FlexWrap.NoWrap
+        justifyContent: FlexAlign.SpaceBetween,
+        wrap: FlexWrap.NoWrap
       }) {
-        ForEach(this.radioList, (item, index) => {
+        ForEach(this.radioList, (item: string, index: number | undefined) => {
           MainAlignRadioItem({ textName: item, groupName: this.groupName, isChecked: index === 0 ? true : false })
-            .margin({right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN})
-        }, item => JSON.stringify(item))
+            .margin({ right: MARGIN_FONT_SIZE_SPACE.COMMON_MARGIN })
+        }, (item: string) => JSON.stringify(item))
       }
       .width(ALL_PERCENT)
       .height(MARGIN_FONT_SIZE_SPACE.SEVENTH_MARGIN)
@@ -58,11 +57,10 @@ export struct FlexMainAlignRadioList {
 
 @Component
 struct MainAlignRadioItem {
-  private textName: string;
-  private groupName: string;
-  private isChecked: boolean;
+  private textName: string = '';
+  private groupName: string = '';
+  private isChecked: boolean = false;
   @Consume currentFlexJustifyContent: FlexAlign;
-
 
   build() {
     Row() {
