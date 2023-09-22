@@ -30,7 +30,7 @@ export default struct ServicesComponent {
 
   build() {
     List({ space: GoodsService.SPACE }) {
-      ForEach(goodsServiceList, (item) => {
+      ForEach(goodsServiceList, (item: GoodsServiceData) => {
         ListItem() {
           ServiceItemComponent({
             serviceName: item?.name,
@@ -38,7 +38,7 @@ export default struct ServicesComponent {
             isShowActionMore: item?.name != null
           })
         }
-      }, item => JSON.stringify(item))
+      }, (item: GoodsServiceData) => JSON.stringify(item))
 
     }
     .width(PERCENTAGE_100)

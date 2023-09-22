@@ -19,16 +19,16 @@ import { PERCENTAGE_100, PERCENTAGE_20 } from '../../common/constants/Constants'
 
 @Component
 export default struct BannerComponent {
-  bannerList: BannerData[];
+  bannerList: BannerData[] = [];
 
   build() {
     Column({ space: Banner.SPACE }) {
       Swiper() {
-        ForEach(this.bannerList, (item) => {
+        ForEach(this.bannerList, (item: BannerData) => {
           Image(item.imgSrc)
             .width(PERCENTAGE_100)
             .objectFit(ImageFit.Contain)
-        }, item => JSON.stringify(item))
+        }, (item: BannerData) => JSON.stringify(item))
       }
       .cachedCount(Banner.CACHE_COUNT)
       .index(Banner.POSITION)

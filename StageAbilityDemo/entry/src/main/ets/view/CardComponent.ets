@@ -20,28 +20,28 @@ import { CardStyle } from '../common/constants/Constants';
  */
 @Component
 export default struct CardComponent {
-  @BuilderParam children: () => void;
-  paddingValue: Padding | Length;
-  marginValue: Margin | Length;
-  colorValue: ResourceColor;
-  radiusValue: Length;
+  @BuilderParam children: () => void = () => {};
+  paddingValue: Padding | Length = {
+    top: CardStyle.CARD_PADDING_VERTICAL,
+    bottom: CardStyle.CARD_PADDING_VERTICAL,
+    left: CardStyle.CARD_PADDING_HORIZONTAL,
+    right: CardStyle.CARD_PADDING_HORIZONTAL
+  };
+  marginValue: Margin | Length = {
+    top: CardStyle.CARD_MARGIN_TOP,
+    left: CardStyle.CARD_MARGIN_HORIZONTAL,
+    right: CardStyle.CARD_MARGIN_HORIZONTAL
+  };
+  colorValue: ResourceColor = $r('app.color.background1');
+  radiusValue: Length = CardStyle.CARD_RADIUS;
 
   build() {
     Column() {
       this.children()
     }
-    .padding(this.paddingValue??{
-      top: CardStyle.CARD_PADDING_VERTICAL,
-      bottom: CardStyle.CARD_PADDING_VERTICAL,
-      left: CardStyle.CARD_PADDING_HORIZONTAL,
-      right: CardStyle.CARD_PADDING_HORIZONTAL
-    })
-    .margin(this.marginValue??{
-      top: CardStyle.CARD_MARGIN_TOP,
-      left: CardStyle.CARD_MARGIN_HORIZONTAL,
-      right: CardStyle.CARD_MARGIN_HORIZONTAL
-    })
-    .backgroundColor(this.colorValue??$r('app.color.background1'))
-    .borderRadius(this.radiusValue??CardStyle.CARD_RADIUS)
+    .padding(this.paddingValue)
+    .margin(this.marginValue)
+    .backgroundColor(this.colorValue)
+    .borderRadius(this.radiusValue)
   }
 }

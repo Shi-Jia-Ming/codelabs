@@ -17,7 +17,7 @@
  * GoodsData is used to initialize ServicesComponent.
  */
 export default class GoodsServiceData {
-  id: number;
-  name: Resource;
-  description: Resource;
+  id: number = 0;
+  name: Resource | null = null;
+  description: Resource = $r('app.string.goods_service_1_desc');
 }

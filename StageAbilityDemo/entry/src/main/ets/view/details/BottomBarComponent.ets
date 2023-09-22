@@ -26,7 +26,7 @@ import { BottomBar } from '../../common/constants/DetailsConstants';
 
 @Component
 export default struct BottomBarComponent {
-  private barHeight: Length;
+  private barHeight: Length = 0;
 
   build() {
     Column() {

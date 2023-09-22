@@ -20,8 +20,8 @@ import { NavPageStyle } from '../common/constants/Constants';
 @Component
 export default struct ToolBarComponent {
   @State navCurrentPosition: number = NavPageStyle.POSITION_INITIAL;
-  toolBarConfigs: ToolBarData[];
-  controller: TabsController;
+  toolBarConfigs: ToolBarData[] = [];
+  controller: TabsController = new TabsController();
 
   build() {
     Column() {
@@ -30,7 +30,7 @@ export default struct ToolBarComponent {
         .height(ToolBarStyle.DIVIDER_HEIGHT)
         .opacity(ToolBarStyle.DIVIDER_OPACITY)
       Row() {
-        ForEach(this.toolBarConfigs, (item, index) => {
+        ForEach(this.toolBarConfigs, (item: ToolBarData, index?: number) => {
           Column() {
             Image(this.navCurrentPosition === index ? item?.icon_after : item?.icon)
               .height(ToolBarStyle.IMAGE_SIZE)
@@ -47,7 +47,7 @@ export default struct ToolBarComponent {
             this.navCurrentPosition = item.num
             this.controller.changeIndex(this.navCurrentPosition)
           })
-        }, item => JSON.stringify(item))
+        }, (item: ToolBarData) => JSON.stringify(item))
       }
     }
   }

@@ -17,8 +17,8 @@
  * ToolBarData is used to initialize ToolBarComponent.
  */
 export default class ToolBarData {
-  num: number;
-  text: Resource;
-  icon_after: Resource;
-  icon: Resource;
+  num: number = 0;
+  text: Resource = $r('app.string.nav_index');
+  icon_after: Resource = $rawfile('index/home.png');
+  icon: Resource = $rawfile('index/home_selected.png');
 }

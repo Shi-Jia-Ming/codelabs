@@ -47,7 +47,7 @@ struct NavPage {
   build() {
     Navigation() {
       Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
-        ForEach(this.toolBarConfigs, (item: ToolBarData, index) => {
+        ForEach(this.toolBarConfigs, (item: ToolBarData, index?: number) => {
           TabContent() {
             if (index === HOME) {
               HomePage()
@@ -55,7 +55,7 @@ struct NavPage {
               this.HolderPage(item?.text)
             }
           }
-        }, item => JSON.stringify(item))
+        }, (item: ToolBarData) => JSON.stringify(item))
       }.setTabStyle()
     }
     .toolBar(this.ToolBarBuilder())

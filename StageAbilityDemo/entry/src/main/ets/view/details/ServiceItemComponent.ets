@@ -18,9 +18,9 @@ import { GoodsServiceItem } from '../../common/constants/DetailsConstants';
 
 @Component
 export default struct ServiceItemComponent {
-  serviceName: string;
-  description: string;
-  isShowActionMore: boolean;
+  serviceName?: Resource | null;
+  description?: Resource;
+  isShowActionMore?: boolean = false;
 
   build() {
     Row() {

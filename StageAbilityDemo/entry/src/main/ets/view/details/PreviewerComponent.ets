@@ -18,7 +18,7 @@ import { GoodsPreviewer } from '../../common/constants/DetailsConstants';
 
 @Component
 export default struct PreviewerComponent {
-  goodsImg: string | Resource;
+  goodsImg: string | Resource = '';
 
   build() {
     Column() {

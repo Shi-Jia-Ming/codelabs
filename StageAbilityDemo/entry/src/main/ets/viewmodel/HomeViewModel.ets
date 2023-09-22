@@ -19,6 +19,8 @@ import GoodsData from '../common/bean/GoodsData';
 import BannerData from '../common/bean/BannerData';
 import MenuData from '../common/bean/MenuData';
 import { DETAILS_ABILITY_NAME } from '../common/constants/Constants';
+import common from '@ohos.app.ability.common';
+import Want from '@ohos.app.ability.Want';
 
 const TAG = 'HomeViewModel';
 const HOME_PAGE_DOMAIN = 0x00004;
@@ -40,8 +42,8 @@ export default class HomeViewModel {
     return DataModel.BANNER;
   }
 
-  public startDetailsAbility(context, index: number): void {
-    const want = {
+  public startDetailsAbility(context: common.UIAbilityContext, index: number): void {
+    const want: Want = {
       bundleName: getContext(context).applicationInfo.name,
       abilityName: DETAILS_ABILITY_NAME,
       parameters: {

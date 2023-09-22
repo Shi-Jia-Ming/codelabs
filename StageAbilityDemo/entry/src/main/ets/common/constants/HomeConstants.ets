@@ -16,273 +16,273 @@
 /**
  * The constant of BannerComponent.
  */
-export const Banner = {
+export class Banner {
   /**
    * The size of indicator.
    */
-  INDICATOR_SIZE: 12,
+  static readonly INDICATOR_SIZE: number = 12;
 
   /**
    * The width of banner.
    */
-  WIDTH: '93%',
+  static readonly WIDTH: string = '93%';
 
   /**
    * The space of column.
    */
-  SPACE: 5,
+  static readonly SPACE: number = 5;
 
   /**
    * The cache count of Swiper.
    */
-  CACHE_COUNT: 2,
+  static readonly CACHE_COUNT: number = 2;
 
   /**
    * The default index of Swiper.
    */
-  POSITION: 1,
+  static readonly POSITION: number = 1;
 
   /**
    * The interval time of Swiper.
    */
-  TIME: 4000,
+  static readonly TIME: number = 4000;
 
   /**
    * The duration of Swiper.
    */
-  DURATION: 1000,
+  static readonly DURATION: number = 1000;
 
   /**
    * The item space of Swiper.
    */
-  ITEM_SPACE: 0
+  static readonly ITEM_SPACE: number = 0;
 };
 
 /**
  * The constant of GoodsComponent.
  */
-export const GoodsList = {
+export class GoodsList {
   /**
    * The padding of grid.
    */
-  GRID_PADDING: 12,
+  static readonly GRID_PADDING: number = 12;
 
   /**
    * The columnsGap of grid.
    */
-  SPACE: 8,
+  static readonly SPACE: number = 8;
 
 
   /**
    * The layout direction of grid.
    */
-  HORIZONTAL: 0,
+  static readonly HORIZONTAL: number = 0;
 
   /**
    * The columns template of grid.
    */
-  GRID_STYLE: '1fr 1fr',
+  static readonly GRID_STYLE: string = '1fr 1fr';
 };
 
 /**
  * The constant of GoodsItemComponent.
  */
-export const GoodsListItem = {
+export class GoodsListItem {
   /**
    * The container height of goods name.
    */
-  CONTAINER_GOODS_NAME_HEIGHT: 40,
+  static readonly CONTAINER_GOODS_NAME_HEIGHT: number = 40;
 
   /**
    * The max line of goods name.
    */
-  MAX_LINE_GOODS_NAME: 2,
+  static readonly MAX_LINE_GOODS_NAME: number = 2;
 
   /**
    * The margin of goods discounts.
    */
-  MARGIN_DISCOUNTS: 5,
+  static readonly MARGIN_DISCOUNTS: number = 5;
 
   /**
    * The size of goods image.
    */
-  GOODS_IMAGE_SIZE: 130,
+  static readonly GOODS_IMAGE_SIZE: number = 130;
 
   /**
    * The top margin of goods image.
    */
-  GOODS_IMAGE_MARGIN_TOP: 10,
+  static readonly GOODS_IMAGE_MARGIN_TOP: number = 10;
 
   /**
    * The border radius of goods label.
    */
-  BORDER_RADIUS_LABEL: 5,
+  static readonly BORDER_RADIUS_LABEL: number = 5;
 
   /**
    * The verical padding of goods label.
    */
-  PADDING_LABEL_VERTICAL: 8,
+  static readonly PADDING_LABEL_VERTICAL: number = 8;
 
   /**
    * The horizontal padding of goods label.
    */
-  PADDING_LABEL_HORIZONTAL: 2,
+  static readonly PADDING_LABEL_HORIZONTAL: number = 2;
 
   /**
    * The top margin of goods label container.
    */
-  CONTAINER_LABEL_MARGIN_TOP: 6,
+  static readonly CONTAINER_LABEL_MARGIN_TOP: number = 6;
 
   /**
    * The bottom margin of goods label container.
    */
-  CONTAINER_LABEL_MARGIN_BOTTOM: 12,
+  static readonly CONTAINER_LABEL_MARGIN_BOTTOM: number = 12;
 
   /**
    * The top margin of text container.
    */
-  TEXT_LAYER_MARGIN_TOP: 20,
+  static readonly TEXT_LAYER_MARGIN_TOP: number = 20;
 
   /**
    * The width of text container.
    */
-  TEXT_LAYER_WIDTH: "98%",
+  static readonly TEXT_LAYER_WIDTH: string = "98%";
 
   /**
    * The horizontal padding of item.
    */
-  ITEM_PADDING_HORIZONTAL: 10,
+  static readonly ITEM_PADDING_HORIZONTAL: number = 10;
 
   /**
    * The width of border.
    */
-  BORDER_WIDTH: 1,
+  static readonly BORDER_WIDTH: number = 1;
 
   /**
    * The value of border radius.
    */
-  BORDER_RADIUS: 10,
+  static readonly BORDER_RADIUS: number = 10;
 };
 
 /**
  * The constant of TabsComponent.
  */
-export const GoodsTabs = {
+export class GoodsTabs {
   /**
    * The height of GoodsTabs.
    */
-  BAR_HEIGHT: 50,
+  static readonly BAR_HEIGHT: number = 50;
 
   /**
    * The default index of GoodsTabs.
    */
-  TABVIEW_POSITION_INDEX_PAGE: 0,
+  static readonly TABVIEW_POSITION_INDEX_PAGE: number = 0;
 
   /**
    * The width of image.
    */
-  IMAGE_SIZE_WIDTH: 12,
+  static readonly IMAGE_SIZE_WIDTH: number = 12;
 
   /**
    * The height of image.
    */
-  IMAGE_SIZE_HEIGHT: 16,
+  static readonly IMAGE_SIZE_HEIGHT: number = 16;
 
 
   /**
    * The width of tab.
    */
-  TAB_WIDTH: '90%',
+  static readonly TAB_WIDTH: string = '90%';
 
   /**
    * The animation duration of Tabs.
    */
-  TIME: 400,
+  static readonly TIME: number = 400;
 
   /**
    * The blank width of Tabs setting.
    */
-  SETTING_BLANK_WIDTH: 4,
+  static readonly SETTING_BLANK_WIDTH: number = 4;
 
   /**
    * The layout weight of Tabs setting.
    */
-  SETTING_LAYOUT: '10%',
+  static readonly SETTING_LAYOUT: string = '10%';
 
   /**
    * The padding of right.
    */
-  PADDING_RIGHT: '9%',
+  static readonly PADDING_RIGHT: string = '9%';
 };
 
 /**
  * The constant of MenusComponent.
  */
-export const Menus = {
+export class Menus {
   /**
    * The vertical padding of container.
    */
-  CONTAINER_PADDING_VERTICAL: 12,
+  static readonly CONTAINER_PADDING_VERTICAL: number = 12;
 
   /**
    * The vertical padding of item.
    */
-  ITEM_PADDING_VERTICAL: 16,
+  static readonly ITEM_PADDING_VERTICAL: number = 16;
 
   /**
    * The weight of layout.
    */
-  LAYOUT_WEIGHT: '25%',
+  static readonly LAYOUT_WEIGHT: string = '25%';
 };
 
 /**
  * The constant of SearchComponent.
  */
-export const SearchBar = {
+export class SearchBar {
   /**
    * The width of layout.
    */
-  WEIGHT: '90%',
+  static readonly WEIGHT: string = '90%';
 
   /**
    * The size of image.
    */
-  IMAGE_SIZE: 20,
+  static readonly IMAGE_SIZE: number = 20;
 
   /**
    * The height of SearchBar.
    */
-  BAR_HEIGHT: 40,
+  static readonly BAR_HEIGHT: number = 40;
 
   /**
    * The right margin of input.
    */
-  TEXT_INPUT_MARGIN_RIGHT: 20,
+  static readonly TEXT_INPUT_MARGIN_RIGHT: number = 20;
 
   /**
    * The left padding of container.
    */
-  CONTAINER_PADDING_LEFT: 10,
+  static readonly CONTAINER_PADDING_LEFT: number = 10;
 
   /**
    * The border radius.
    */
-  BORDER_RADIUS: 36,
+  static readonly BORDER_RADIUS: number = 36;
 };
 
 /**
  * The constant of TopBarComponent.
  */
-export const TopBar = {
+export class TopBar {
   /**
    * The size of image.
    */
-  IMAGE_SIZE: 30,
+  static readonly IMAGE_SIZE: number = 30;
 
   /**
    * The height of BalanceComponent.
    */
-  HEIGHT: '4%',
+  static readonly HEIGHT: string = '4%';
 };
 
 

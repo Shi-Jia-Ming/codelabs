@@ -17,8 +17,8 @@
  * MenuData is used to initialize MenusComponent.
  */
 export default class MenuData {
-  menuName: Resource;
-  menuContent: Resource;
-  fontWeight: string;
-  fontColor: string;
+  menuName: Resource = $r('app.string.home_menu_all');
+  menuContent: Resource = $r('app.string.home_menu_all_content');
+  fontWeight: string = '';
+  fontColor: string = '';
 }

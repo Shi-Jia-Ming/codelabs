@@ -17,5 +17,5 @@
  * BannerData is used to initialize the BannerComponent.
  */
 export default class BannerData {
-  imgSrc: Resource;
+  imgSrc: Resource = $rawfile('index/banner1.png');
 }
