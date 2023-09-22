@@ -32,7 +32,7 @@ export default async function httpGet(url: string) {
     header: { 'Content-Type': 'application/json' },
     readTimeout: CommonConstant.READ_TIMEOUT,
     connectTimeout: CommonConstant.CONNECT_TIMEOUT
-  };
+  } as http.HttpRequestOptions;
   let result = await request.request(url, options);
   return result;
 }

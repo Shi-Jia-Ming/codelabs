@@ -70,7 +70,9 @@ struct WebPage {
           .width(StyleConstant.BUTTON_WIDTH)
           .height($r('app.float.button_height'))
           .fontWeight(FontWeight.Bold)
-          .onClick(this.onRequest.bind(this))
+          .onClick(() => {
+            this.onRequest();
+          })
       }
       .height($r('app.float.default_row_height'))
     }
