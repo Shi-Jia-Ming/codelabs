@@ -23,7 +23,7 @@ class CheckEmptyUtils {
    * @param {object} obj
    * @return {boolean} true(empty)
    */
-  isEmptyObj(obj) {
+  isEmptyObj(obj: object | string) {
     return (typeof obj === 'undefined' || obj === null || obj === '');
   }
 
@@ -33,7 +33,7 @@ class CheckEmptyUtils {
    * @param {string} str
    * @return {boolean} true(empty)
    */
-  isEmptyStr(str) {
+  isEmptyStr(str: string) {
     return str.trim().length === 0;
   }
 
@@ -43,7 +43,7 @@ class CheckEmptyUtils {
    * @param {Array}arr
    * @return {boolean} true(empty)
    */
-  isEmptyArr(arr) {
+  isEmptyArr(arr: Array<string>) {
     return arr.length === 0;
   }
 }
