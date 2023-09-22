@@ -16,9 +16,20 @@
 export default class ConversionItem {
   title: string;
   subTitle: string;
-  value: number;
+  value: number = 0;
   conversionTitle: string;
   conversionSubTitle: string;
   conversionValue: number;
-  notice: Resource;
+  notice?: Resource | string;
+
+  constructor(title?: string, subTitle?: string, value?: number, conversionTitle?: string, conversionSubTitle?: string,
+              conversionValue?: number, notice?: Resource | string) {
+    this.title = title ? title : '';
+    this.subTitle = subTitle ? subTitle : '';
+    this.value = value ? value : 0;
+    this.conversionTitle = conversionTitle ? conversionTitle : '';
+    this.conversionSubTitle = conversionSubTitle ? conversionSubTitle : '';
+    this.conversionValue = conversionValue ? conversionValue : 0;
+    this.notice = notice ? notice : '';
+  }
 }

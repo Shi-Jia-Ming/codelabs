@@ -15,9 +15,20 @@
 
 export default class IntroductionItem {
   name: string;
-  title: Resource;
-  subTitle: Resource;
+  title: Resource | string;
+  subTitle: Resource | string;
   value: string;
   smallFontSize: number;
   largeFontSize: number;
+
+  constructor(name?: string, title?: Resource | string, subTitle?: Resource | string, value?: string,
+              smallFontSize?: number, largeFontSize?: number) {
+
+    this.name = name ? name : '';
+    this.title = title ? title : '';
+    this.subTitle = subTitle ? subTitle : '';
+    this.value = value ? value : '';
+    this.smallFontSize = smallFontSize ? smallFontSize : 0;
+    this.largeFontSize = largeFontSize ? largeFontSize : 0;
+  }
 }

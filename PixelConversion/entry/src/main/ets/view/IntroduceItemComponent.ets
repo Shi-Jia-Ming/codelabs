@@ -24,7 +24,7 @@ import IntroductionItem from '../common/bean/IntroductionItem';
 
 @Component
 export default struct IntroduceItemComponent {
-  model: IntroductionItem;
+  model: IntroductionItem = new IntroductionItem();
 
   build() {
     Column() {
