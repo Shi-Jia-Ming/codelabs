@@ -26,7 +26,7 @@ import StyleConstants from '../common/constants/StyleConstants';
 @Entry
 @Component
 struct Index {
-  @State fruit: Fruit = new Fruit('', '');
+  @State fruit: Fruit = new Fruit();
 
   build() {
     Column() {
@@ -36,7 +36,7 @@ struct Index {
         placeholderResource: $r('app.string.fruit_placeholder'),
         textFlag: CommonConstants.FRUIT_FLAG,
         fruit: $fruit,
-        textInputCallBack: (value) => {
+        textInputCallBack: (value: string) => {
           this.fruit.fruitName = value;
         }
       })
@@ -47,7 +47,7 @@ struct Index {
         placeholderResource: $r('app.string.number_placeholder'),
         textFlag: CommonConstants.NUMBER_FLAG,
         fruit: $fruit,
-        textInputCallBack: (value) => {
+        textInputCallBack: (value: string) => {
           this.fruit.fruitNum = value;
         }
       })
@@ -64,8 +64,10 @@ struct Index {
     // Get the lightweight storage db file from memory.
     await PreferenceModel.getPreferencesFromStorage();
     // Get the key value with the key name fruit from the lightweight storage db file.
-    PreferenceModel.getFruitData().then(resultData => {
-      this.fruit = resultData;
+    PreferenceModel.getFruitData().then((resultData: Fruit) => {
+      if (resultData) {
+        this.fruit = resultData;
+      }
     });
   }
 }

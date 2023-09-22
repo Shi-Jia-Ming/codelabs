@@ -28,7 +28,7 @@ export default struct ButtonComponent {
 
   build() {
     Column() {
-      ForEach(this.buttonItemValues, (item) => {
+      ForEach(this.buttonItemValues, (item: ButtonItemData) => {
         Button(item.resource, { type: ButtonType.Capsule, stateEffect: true })
           .backgroundColor($r('app.color.button_background_color'))
           .width(StyleConstants.BUTTON_WIDTH)
@@ -39,7 +39,7 @@ export default struct ButtonComponent {
           .onClick(() => {
             item.clickMethod();
           })
-      }, item => JSON.stringify(item))
+      }, (item: ButtonItemData) => JSON.stringify(item))
     }
   }
 
@@ -59,8 +59,10 @@ export default struct ButtonComponent {
         $r('app.string.read_data_btn_text'),
         () => {
           // Get data from the preferences database.
-          PreferenceModel.getFruitData().then(resultData => {
-            this.fruit = resultData;
+          PreferenceModel.getFruitData().then((resultData: Fruit) => {
+            if (resultData) {
+              this.fruit = resultData;
+            }
           });
         }
       ),

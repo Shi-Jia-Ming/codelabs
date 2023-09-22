@@ -20,7 +20,8 @@ import CommonConstants from '../common/constants/CommonConstants';
 import Fruit from '../common/bean/Fruit';
 
 let context = getContext(this);
-let preference: dataPreferences.Preferences = null;
+let preference: dataPreferences.Preferences;
+let preferenceTemp: dataPreferences.Preferences;
 
 /**
  * Preference model.
@@ -28,7 +29,7 @@ let preference: dataPreferences.Preferences = null;
  * @param fruitData Fruit data.
  */
 class PreferenceModel {
-  private fruitData: Fruit;
+  private fruitData: Fruit = new Fruit();
 
   /**
    * Read the specified Preferences persistence file and load the data into the Preferences instance.
@@ -50,7 +51,7 @@ class PreferenceModel {
     } catch(err) {
       Logger.error(CommonConstants.TAG, `Failed to delete preferences, Cause: ${err}`);
     };
-    preference = null;
+    preference = preferenceTemp;
     this.showToastMessage($r('app.string.delete_success_msg'));
   }
 
@@ -60,7 +61,7 @@ class PreferenceModel {
    * @param fruit Fruit data.
    */
   async putPreference(fruit: Fruit) {
-    if (preference === null) {
+    if (!preference) {
       await this.getPreferencesFromStorage();
     }
     // The fruit name and fruit quantity data entered by the user are saved to the cached Preference instance.
@@ -78,11 +79,11 @@ class PreferenceModel {
    */
   async getPreference() {
     let fruit = '';
-    if (preference === null) {
+    if (!preference) {
       await this.getPreferencesFromStorage();
     }
     try {
-      fruit = <string> await preference.get(CommonConstants.KEY_NAME, '');
+      fruit = (await preference.get(CommonConstants.KEY_NAME, '')).toString();
     } catch (err) {
       Logger.error(CommonConstants.TAG, `Failed to get value, Cause: ${err}`);
     }

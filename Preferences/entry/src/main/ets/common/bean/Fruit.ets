@@ -23,21 +23,10 @@ export default class Fruit {
     /**
      * Fruit name.
      */
-    fruitName: string;
+    fruitName: string = '';
 
     /**
      * Fruit num.
      */
-    fruitNum: string;
-
-    /**
-     * The constructor of Fruit.
-     *
-     * @param fruitName Fruit name.
-     * @param fruitNum Fruit num.
-     */
-    constructor(fruitName: string, fruitNum: string) {
-        this.fruitName = fruitName;
-        this.fruitNum = fruitNum;
-    }
+    fruitNum: string = '';
 }
