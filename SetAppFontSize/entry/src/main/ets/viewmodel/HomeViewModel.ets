@@ -19,10 +19,10 @@ import SettingData from '../common/bean/SettingData';
  * Home view model, providing page display data.
  */
 export class HomeViewModel {
-  settingArr: Array<SettingData> = null;
+  settingArr: Array<SettingData> = [];
 
   initSettingData(): Array<SettingData> {
-    if (this.settingArr === null) {
+    if (this.settingArr.length === 0) {
       this.settingArr = new Array();
       let settingData = new SettingData();
       settingData.settingName = $r('app.string.home_display_and_brightness');

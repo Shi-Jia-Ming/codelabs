@@ -22,10 +22,10 @@ export default class ChatData {
   /**
    * Chat list item direction.
    */
-  itemDirection: ItemDirection;
+  itemDirection: ItemDirection = ItemDirection.LEFT;
 
   /**
    * Chat list item content.
    */
-  content: Resource;
+  content: Resource = $r('app.string.empty');
 }

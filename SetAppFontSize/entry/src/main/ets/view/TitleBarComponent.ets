@@ -22,7 +22,7 @@ import StyleConstants from '../common/constants/StyleConstants';
 @Component
 export default struct TitleBarComponent {
   isBack: boolean = true;
-  title: Resource;
+  title: Resource = $r('app.string.empty');
 
   build() {
     Row() {

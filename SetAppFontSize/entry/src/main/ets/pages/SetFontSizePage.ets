@@ -20,6 +20,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
+import ChatData from '../common/bean/ChatData';
 
 const TAG = '[SetFontSizePage]';
 
@@ -49,11 +50,11 @@ struct SetFontSizePage {
 
       if (this.changeFontSize > 0) {
         List() {
-          ForEach(this.contentArr, item => {
+          ForEach(this.contentArr, (item: ChatData) => {
             ListItem() {
               ChatItemComponent({ item: item, changeFontSize: this.changeFontSize })
             }
-          }, item => item.content.id.toString())
+          }, (item: ChatData) => JSON.stringify(item))
         }
         .layoutWeight(StyleConstants.WEIGHT_FULL)
       }
@@ -103,8 +104,14 @@ struct SliderLayout {
           })
             .showSteps(true)
             .width(StyleConstants.SLIDER_WIDTH_PERCENT)
-            .onChange((value: number) => {
-              this.changeFontSize = value === CommonConstants.SET_SLIDER_MAX ? CommonConstants.SET_SIZE_HUGE : value;
+            .onChange(async (value: number) => {
+              if (this.changeFontSize === 0) {
+                this.changeFontSize = await PreferencesUtil.getChangeFontSize();
+                this.fontSizeText = SetViewModel.getTextByFontSize(value);
+                return;
+              }
+              this.changeFontSize = (value === CommonConstants.SET_SLIDER_MAX ?
+                CommonConstants.SET_SIZE_HUGE : value);
               this.fontSizeText = SetViewModel.getTextByFontSize(this.changeFontSize);
               PreferencesUtil.saveChangeFontSize(this.changeFontSize);
             })

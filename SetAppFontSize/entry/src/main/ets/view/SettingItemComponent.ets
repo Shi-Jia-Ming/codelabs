@@ -21,9 +21,10 @@ import StyleConstants from '../common/constants/StyleConstants';
  */
 @Component
 export default struct SettingItemComponent {
-  setting: SettingData;
-  @Prop changeFontSize: number;
-  itemClick: () => void;
+  setting: SettingData = new SettingData();
+  @Prop changeFontSize: number = 0;
+  itemClick: Function = () => {
+  };
 
   build() {
     Row() {
