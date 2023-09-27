@@ -1,0 +1,140 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "multi device"
+    },
+    {
+      "name": "page_show",
+      "value": "page from npm package"
+    },
+    {
+      "name": "shared_desc",
+      "value": "描述"
+    },
+    {
+      "name": "live_title",
+      "value": "蒲公英直播"
+    },
+    {
+      "name": "live_one",
+      "value": "醉美雪山"
+    },
+    {
+      "name": "live_one_introduction",
+      "value": "知名旅行博主带你一起观赏云南最美雪山。"
+    },
+    {
+      "name": "live_two",
+      "value": "快速制作减脂餐"
+    },
+    {
+      "name": "live_two_introduction",
+      "value": "专业营养师带你一起5分钟搞定营养沙拉。"
+    },
+    {
+      "name": "live_three",
+      "value": "昆虫的世界"
+    },
+    {
+      "name": "live_three_introduction",
+      "value": "动物学家带你了解昆虫的第三世界。"
+    },
+    {
+      "name": "comment_title",
+      "value": "评论"
+    },
+    {
+      "name": "wonderful_comment",
+      "value": "精彩评论（999+）"
+    },
+    {
+      "name": "new_comment",
+      "value": "最新评论"
+    },
+    {
+      "name": "collection_num",
+      "value": "12.5万"
+    },
+    {
+      "name": "list_name",
+      "value": "独立民谣"
+    },
+    {
+      "name": "playlist_Introduction",
+      "value": "歌单选取了一些比较受关注的民谣歌曲。"
+    },
+    {
+      "name": "play_all",
+      "value": "播放全部(%d)"
+    },
+    {
+      "name": "collect",
+      "value": "收藏"
+    },
+    {
+      "name": "download",
+      "value": "下载"
+    },
+    {
+      "name": "comment",
+      "value": "评论"
+    },
+    {
+      "name": "share",
+      "value": "分享"
+    },
+    {
+      "name": "play_list",
+      "value": "歌单"
+    },
+    {
+      "name": "song_name",
+      "value": "不知道"
+    },
+    {
+      "name": "singer",
+      "value": "小碗你好"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "music_title",
+      "value": "民谣魂"
+    },
+    {
+      "name": "music_description",
+      "value": "歌单选取了一些比较受关注的民谣歌曲，一曲民谣抚慰生活。"
+    },
+    {
+      "name": "button_music",
+      "value": "播放音乐"
+    },
+    {
+      "name": "live_description",
+      "value": "选取了一些大家喜欢的直播专题。"
+    },
+    {
+      "name": "button_live",
+      "value": "观看直播"
+    },
+    {
+      "name": "reason_background",
+      "value": "保持在后台运行"
+    }
+  ]
+}
