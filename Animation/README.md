@@ -19,7 +19,6 @@
  
 - [Slider](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-slider-0000001427744820-V3?catalogVersion=V3)：滑动条组件，通常用于快速调节设置值，如音量调节、亮度调节等应用场景。
 
- 
 ### 使用说明
 1. 进入首页点击按钮会有相应数量的图标由中心旋转而出，再次点击突变会由四周旋转缩回原点。
 2. 滑动下方滑动条控制动画图标数量，最少显示3个动画图标，最多6个。
@@ -28,5 +27,5 @@
  
 ### 约束与限制
 1. 本示例仅支持标准系统上运行，支持设备：华为手机或运行在DevEco Studio上的华为手机设备模拟器。
-2. 本示例为Stage模型，支持API version 9版本SDK。
+2. 本示例为Stage模型，支持API version 9。
 3. 本示例需要使用DevEco Studio 3.1 Release版本进行编译运行。
