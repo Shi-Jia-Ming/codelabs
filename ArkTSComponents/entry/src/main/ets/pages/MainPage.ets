@@ -56,7 +56,7 @@ struct MainPage {
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))
       .tabBar(this.TabBuilder(CommonConstants.HOME_TITLE, CommonConstants.HOME_TAB_INDEX,
-      $r('app.media.home_selected'), $r('app.media.home_normal')))
+        $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
         Setting()
@@ -64,7 +64,7 @@ struct MainPage {
       .padding({ left: $r('app.float.mainPage_padding'), right: $r('app.float.mainPage_padding') })
       .backgroundColor($r('app.color.mainPage_backgroundColor'))
       .tabBar(this.TabBuilder(CommonConstants.MINE_TITLE, CommonConstants.MINE_TAB_INDEX,
-      $r('app.media.mine_selected'), $r('app.media.mine_normal')))
+        $r('app.media.mine_selected'), $r('app.media.mine_normal')))
     }
     .width(CommonConstants.FULL_PARENT)
     .backgroundColor(Color.White)

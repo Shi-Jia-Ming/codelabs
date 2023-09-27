@@ -89,9 +89,11 @@ export default struct Setting {
               this.settingCell(item)
             }
             .height($r('app.float.setting_list_height'))
-          }, item => JSON.stringify(item))
+          }, (item:ItemData) => JSON.stringify(item))
         }
         .backgroundColor(Color.White)
+        .width(CommonConstants.FULL_PARENT)
+        .height(CommonConstants.SET_LIST_WIDTH)
         .divider({
           strokeWidth: $r('app.float.setting_list_strokeWidth'),
           color: Color.Grey,

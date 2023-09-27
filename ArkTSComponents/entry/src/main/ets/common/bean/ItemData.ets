@@ -24,13 +24,13 @@ export default class PageResource {
   /**
    * Image of list item.
    */
-  img?: Resource;
+  img: Resource;
   /**
    * Other resource of list item.
    */
   others?: Resource;
 
-  constructor(title: Resource, img?: Resource, others?: Resource) {
+  constructor(title: Resource, img: Resource, others?: Resource) {
     this.title = title;
     this.img = img;
     this.others = others;
