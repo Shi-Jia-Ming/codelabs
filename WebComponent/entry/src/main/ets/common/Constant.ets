@@ -13,68 +13,68 @@
  * limitations under the License.
  */
 
-export const WEB_PAGE_URI: string = 'pages/WebPage';
+export class CommonConstant {
 
-export const LOCAL_PATH: Resource = $rawfile('index.html');
+  static readonly WEB_PAGE_URI: string = 'pages/WebPage';
 
-/**
- * The host address of the server.
- */
-export const CLOUD_PATH: string = 'http://xxx.xxx.xxx.xxx:9588/index.html';
+  static readonly LOCAL_PATH: Resource = $rawfile('index.html');
 
-export const WEB_ALERT_DIALOG_TEXT_VALUE: string = '恭喜您抽中:';
+  /**
+   * The host address of the server.
+   */
+  static readonly CLOUD_PATH: string = 'http://xxx.xxx.xxx.xxx:9588/index.html';
 
-export const WebConstant = {
-  FULL_WIDTH: '100%',
-  FULL_HEIGHT: '100%',
-  WIDTH: '93.3%',
-  HEIGHT: '55.9%',
-  MARGIN_TOP: '7.1%',
-  MARGIN_LEFT: '3.3%',
-  MARGIN_RIGHT: '3.3%',
-  TOP_ROW_HEIGHT: '7.2%',
-  IMAGE_WIDTH: '5.6%',
-  IMAGE_HEIGHT: '32%',
-  IMAGE_MARGIN_LEFT: '7.2%',
-  TEXT_VALUE_WIDTH: '35.6%',
-  TEXT_VALUE_HEIGHT: '3.1%',
-  TEXT_VALUE_MARGIN_TOP: '3.1%',
-  TEXT_VALUE_FONT_SIZE: 18,
-  TEXT_VALUE_FONT_WEIGHT: 500,
-  TIP_TEXT_VALUE_WIDTH: '15.6%',
-  TIP_TEXT_VALUE_HEIGHT: '2.4%',
-  TIP_TEXT_VALUE_FONT_SIZE: 14,
-  TIP_TEXT_VALUE_MARGIN_TOP: '0.9%',
-  TIP_TEXT_VALUE_OPACITY: 0.6,
-  TOP_TEXT_WIDTH: '82.2%',
-  TOP_TEXT_HEIGHT: '50%',
-  TOP_TEXT_MARGIN_LEFT: '5%',
-  TOP_TEXT_FONT_SIZE: 20,
-  BUTTON_WIDTH: '86.7%',
-  BUTTON_HEIGHT: '5.1%',
-  BUTTON_MARGIN_TOP: '10%',
-  BUTTON_BORDER_RADIUS: '20',
-  BUTTON_FONT_SIZE: 16,
-  DURATION: 3000,
-  PROGRESS_MIN: 0,
-  PROGRESS_MAX: 100,
-  PROGRESS_STEP: 10,
-  MILLI_SECONDS: 100,
-  PROGRESS_STROKE_WIDTH: 15,
-  PROGRESS_SCALE_COUNT: 15,
-  PROGRESS_SCALE_WIDTH: 5,
-  PROGRESS_WIDTH: 80,
-  PROGRESS_POSITION_X: '40%',
-  PROGRESS_POSITION_Y: '30%'
+  static readonly WEB_ALERT_DIALOG_TEXT_VALUE: string = '恭喜您抽中:';
+
+  static readonly WebConstant_FULL_WIDTH: string = '100%';
+  static readonly WebConstant_FULL_HEIGHT: string = '100%';
+  static readonly WebConstant_WIDTH: string = '93.3%';
+  static readonly WebConstant_HEIGHT: string = '55.9%';
+  static readonly WebConstant_MARGIN_TOP: string = '7.1%';
+  static readonly WebConstant_MARGIN_LEFT: string = '3.3%';
+  static readonly WebConstant_MARGIN_RIGHT: string = '3.3%';
+  static readonly WebConstant_TOP_ROW_HEIGHT: string = '7.2%';
+  static readonly WebConstant_IMAGE_WIDTH: string = '5.6%';
+  static readonly WebConstant_IMAGE_HEIGHT: string = '32%';
+  static readonly WebConstant_IMAGE_MARGIN_LEFT: string = '7.2%';
+  static readonly WebConstant_TEXT_VALUE_WIDTH: string = '35.6%';
+  static readonly WebConstant_TEXT_VALUE_HEIGHT: string = '3.1%';
+  static readonly WebConstant_TEXT_VALUE_MARGIN_TOP: string = '3.1%';
+  static readonly WebConstant_TEXT_VALUE_FONT_SIZE: number = 18;
+  static readonly WebConstant_TEXT_VALUE_FONT_WEIGHT: number = 500;
+  static readonly WebConstant_TIP_TEXT_VALUE_WIDTH: string = '15.6%';
+  static readonly WebConstant_TIP_TEXT_VALUE_HEIGHT: string = '2.4%';
+  static readonly WebConstant_TIP_TEXT_VALUE_FONT_SIZE: number = 14;
+  static readonly WebConstant_TIP_TEXT_VALUE_MARGIN_TOP: string = '0.9%';
+  static readonly WebConstant_TIP_TEXT_VALUE_OPACITY: number = 0.6;
+  static readonly WebConstant_TOP_TEXT_WIDTH: string = '82.2%';
+  static readonly WebConstant_TOP_TEXT_HEIGHT: string = '50%';
+  static readonly WebConstant_TOP_TEXT_MARGIN_LEFT: string = '5%';
+  static readonly WebConstant_TOP_TEXT_FONT_SIZE: number = 20;
+  static readonly WebConstant_BUTTON_WIDTH: string = '86.7%';
+  static readonly WebConstant_BUTTON_HEIGHT: string = '5.1%';
+  static readonly WebConstant_BUTTON_MARGIN_TOP: string = '10%';
+  static readonly WebConstant_BUTTON_BORDER_RADIUS: string = '20';
+  static readonly WebConstant_BUTTON_FONT_SIZE: number = 16;
+  static readonly WebConstant_DURATION: number = 3000;
+  static readonly WebConstant_PROGRESS_MIN: number = 0;
+  static readonly WebConstant_PROGRESS_MAX: number = 100;
+  static readonly WebConstant_PROGRESS_STEP: number = 10;
+  static readonly WebConstant_MILLI_SECONDS: number = 100;
+  static readonly WebConstant_PROGRESS_STROKE_WIDTH: number = 15;
+  static readonly WebConstant_PROGRESS_SCALE_COUNT: number = 15;
+  static readonly WebConstant_PROGRESS_SCALE_WIDTH: number = 5;
+  static readonly WebConstant_PROGRESS_WIDTH: number = 80;
+  static readonly WebConstant_PROGRESS_POSITION_X: string = '40%';
+  static readonly WebConstant_PROGRESS_POSITION_Y: string = '30%';
+
+  static readonly MainConstant_FULL_HEIGHT: string = '100%';
+  static readonly MainConstant_IMAGE_HEIGHT: string = '38.7%';
+  static readonly MainConstant_BUTTON_MARGIN_TOP_BUTTON: string = '3.1%';
+  static readonly MainConstant_BUTTON_HEIGHT: string = '5.1%';
+  static readonly MainConstant_BUTTON_MARGIN_TOP: string = '4.6%';
+  static readonly MainConstant_BUTTON_WIDTH: string = '86.7%';
+  static readonly MainConstant_BUTTON_BORDER_RADIUS: number = 20;
+  static readonly MainConstant_BUTTON_FONT_SIZE: number = 16;
 }
 
-export const MainConstant = {
-  FULL_HEIGHT: '100%',
-  IMAGE_HEIGHT: '38.7%',
-  BUTTON_MARGIN_TOP_BUTTON: '3.1%',
-  BUTTON_HEIGHT: '5.1%',
-  BUTTON_MARGIN_TOP: '4.6%',
-  BUTTON_WIDTH: '86.7%',
-  BUTTON_BORDER_RADIUS: 20,
-  BUTTON_FONT_SIZE: 16
-}
