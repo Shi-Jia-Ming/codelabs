@@ -12,33 +12,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { HorizontalVideoItem } from '../common/bean/HorizontalVideoItem';
+import { SwiperVideoItem } from '../common/bean/SwiperVideoItem';
 
-export const SWIPER_VIDEOS: object[] = [
-  {
-    "image": $r('app.media.banner1')
-  },
-  {
-    "image": $r('app.media.banner2')
-  },
-  {
-    "image": $r('app.media.banner3')
-  }
+export const SWIPER_VIDEOS: SwiperVideoItem[] = [
+  new SwiperVideoItem($r('app.media.banner1')),
+  new SwiperVideoItem($r('app.media.banner2')),
+  new SwiperVideoItem($r('app.media.banner3'))
 ];
 
-export const HORIZONTAL_VIDEOS: object[] = [
-  {
-    "id": 1,
-    "image": $r('app.media.video_list0'),
-    "name": '视频1'
-  },
-  {
-    "id": 2,
-    "image": $r('app.media.video_list1'),
-    "name": '视频2'
-  },
-  {
-    "id": 3,
-    "image": $r('app.media.video_list2'),
-    "name": '视频3'
-  }
+export const HORIZONTAL_VIDEOS: HorizontalVideoItem[] = [
+  new HorizontalVideoItem(1, $r('app.media.video_list0'), '视频1'),
+  new HorizontalVideoItem(2, $r('app.media.video_list1'), '视频2'),
+  new HorizontalVideoItem(3, $r('app.media.video_list2'), '视频3')
 ];

@@ -51,7 +51,7 @@ export const SPLIT: string = ':';
 /**
  * default opacity
  */
-export const DEFAULT_OPACITY: number = parseFloat('0.2');
+export const DEFAULT_OPACITY: number = Number.parseFloat('0.2');
 
 /**
  * slider small track thick ness
@@ -102,13 +102,13 @@ export const IMAGE_SIZE: number = 24;
  * component with or height percent
  */
 export const enum STRING_PERCENT {
-  SLIDER_WITH = '56.7%',
-  NINETY_PERCENT = '90%',
+  SLIDER_WITH = '46.7%',
+  NINETY_PERCENT = '88%',
   INDEX_COMPONENT_WITH_PERCENT = '93.3%',
   INDEX_SWIPER_HEIGHT_PERCENT = '24.1%',
   INDEX_MODULE_HEIGHT_PERCENT = '22.8%',
   INDEX_SWIPER_LEFT_RIGHT_MARGIN = '3.3%'
-};
+}
 
 /**
  * margin or font size
@@ -121,7 +121,7 @@ export const enum MARGIN_FONT_SIZE {
   FIFTH_MARGIN = 50,
   SIXTH_MARGIN = 94,
   SEVENTH_MARGIN = 132
-};
+}
 
 /**
  * video resource type
@@ -129,20 +129,20 @@ export const enum MARGIN_FONT_SIZE {
 export const enum VIDEO_TYPE {
   INNER = 'inner',
   NET = 'net'
-};
+}
 
 /**
  * Attribute Styles in a Stack Layout
  */
-export const STACK_STYLE = {
-  IMAGE_Z_INDEX: 2,
-  PROGRESS_VALUE: 0,
-  PROGRESS_TOTAL: 100,
-  PROGRESS_STROKE_WIDTH: 15,
-  PROGRESS_SCALE_COUNT: 15,
-  PROGRESS_SCALE_WIDTH: 5,
-  PROGRESS_Z_INDEX: 1,
-  PROGRESS_WIDTH: 80,
-  PROGRESS_STEP: 10,
-  MILLI_SECONDS: 100
+export const enum STACK_STYLE {
+  IMAGE_Z_INDEX = 2,
+  PROGRESS_VALUE = 0,
+  PROGRESS_TOTAL = 100,
+  PROGRESS_STROKE_WIDTH = 15,
+  PROGRESS_SCALE_COUNT = 15,
+  PROGRESS_SCALE_WIDTH = 5,
+  PROGRESS_Z_INDEX = 1,
+  PROGRESS_WIDTH = 80,
+  PROGRESS_STEP = 10,
+  MILLI_SECONDS = 100
 }

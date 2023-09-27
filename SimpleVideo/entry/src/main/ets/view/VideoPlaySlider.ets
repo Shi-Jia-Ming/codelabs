@@ -30,11 +30,11 @@ import {
 @Component
 export struct VideoSlider {
   @Consume isOpacity: boolean;
-  private controller: VideoController;
-  @Consume  currentStringTime: string;
-  @Consume  currentTime: number;
-  @Consume durationTime: number ;
-  @Consume durationStringTime: string ;
+  private controller: VideoController = new VideoController();
+  @Consume currentStringTime: string;
+  @Consume currentTime: number;
+  @Consume durationTime: number;
+  @Consume durationStringTime: string;
   @Consume isPlay: boolean;
   @Consume flag: boolean;
   @Consume isLoading: boolean;
@@ -47,7 +47,7 @@ export struct VideoSlider {
         .height(IMAGE_SIZE)
         .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN })
         .onClick(() => {
-          iconOnclick.call(this);
+          iconOnclick(this);
         })
       Text(this.currentStringTime)
         .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
@@ -68,7 +68,7 @@ export struct VideoSlider {
         .showTips(true)
         .trackThickness(this.isOpacity ? SMALL_TRACK_THICK_NESS : BIG_TRACK_THICK_NESS)
         .onChange((value: number, mode: SliderChangeMode) => {
-          sliderOnchange.call(this, value, mode);
+          sliderOnchange(this, value, mode);
         })
       Text(this.durationStringTime)
         .fontSize(MARGIN_FONT_SIZE.SECOND_MARGIN)
@@ -77,5 +77,7 @@ export struct VideoSlider {
     }
     .opacity(this.isOpacity ? DEFAULT_OPACITY : 1)
     .width(ALL_PERCENT)
+    .alignItems(VerticalAlign.Center)
+    .justifyContent(FlexAlign.Center)
   }
 }
