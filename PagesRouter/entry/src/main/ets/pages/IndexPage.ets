@@ -45,7 +45,7 @@ struct IndexPage {
               params: {
                 src: CommonConstants.SECOND_SRC_MSG
               }
-            }).catch((error) => {
+            }).catch((error: Error) => {
               Logger.info(TAG, 'IndexPage push error' + JSON.stringify(error));
             });
           })

@@ -23,7 +23,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 @Component
 struct SecondPage {
   @State message: string = CommonConstants.SECOND_MESSAGE;
-  @State src: string = router.getParams()?.[CommonConstants.SECOND_SRC_PARAM];
+  @State src: string = (router.getParams() as Record<string, string>)[CommonConstants.SECOND_SRC_PARAM];
 
   build() {
     Row() {

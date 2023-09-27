@@ -14,17 +14,20 @@
  */
 
 import UIAbility from '@ohos.app.ability.UIAbility'
+import Want from '@ohos.app.ability.Want';
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
+import window from '@ohos.window';
 import Logger from '../common/utils/Logger';
 
 const TAG = '[EntryAbility]';
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want, launchParam) {
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
     Logger.info(TAG, 'onCreate');
-    globalThis.abilityWant = want;
+    AppStorage.SetOrCreate('abilityWant', want);
   }
 
-  onWindowStageCreate(windowStage) {
+  onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability
     Logger.info(TAG, 'onWindowStageCreate');
     windowStage.loadContent('pages/IndexPage', (err, data) => {
