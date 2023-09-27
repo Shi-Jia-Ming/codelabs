@@ -86,7 +86,7 @@ class TrainsMapModel {
   }
 
   fetchDirection(startX: number, startY: number, endX: number, endY: number): number {
-    let ret;
+    let ret: number = 0;
     if (startX === endX) {
       return startY > endY ? 0 : Const.DIRECTION * 2;
     }
@@ -144,7 +144,7 @@ export default trainsMapModel as TrainsMapModel;
 
 export const PositionList: Array<TrainsMap> = [
   {
-    imgBg: new ImageBitmap("common/images/ic_line1.png"),
+    imgBg: new ImageBitmap('common/images/ic_line1.png'),
     interval: 10,
     lineData: [
       { x: 318, y: 132 },

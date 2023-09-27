@@ -21,9 +21,9 @@ import TrainsTrack from './TrainsTrack';
 @Component
 export struct Trains {
   @State trainsMapData: TrainsMap[] = PositionList;
-  @StorageLink("showLineOne") showLineOne: boolean = false;
-  @StorageLink("showLineTwo") showLineTwo: boolean = false;
-  @StorageLink("showLineThree") showLineThree: boolean = false;
+  @StorageLink('showLineOne') showLineOne: boolean = false;
+  @StorageLink('showLineTwo') showLineTwo: boolean = false;
+  @StorageLink('showLineThree') showLineThree: boolean = false;
 
   /**
    * Determine whether the small train is in operation.
@@ -31,7 +31,10 @@ export struct Trains {
    * @param line route.
    * @returns boolean
    */
-  isOperating(line: number): boolean {
+  isOperating(line?: number): boolean {
+    if (line === undefined) {
+      return false;
+    }
     let ret: boolean;
     switch (line) {
       case TrainsLine.LINE_ONE:
@@ -42,9 +45,9 @@ export struct Trains {
         break;
       case TrainsLine.LINE_THREE:
         ret = (this.checkTime(Const.LINE_THREE_START_TIME, Const.LINE_THREE_END_TIME) &&
-        !this.checkWeekend()) ||
-        (this.checkTime(Const.LINE_THREE_WEEKEND_START_TIME, Const.LINE_THREE_WEEKEND_END_TIME) &&
-        this.checkWeekend());
+          !this.checkWeekend()) ||
+          (this.checkTime(Const.LINE_THREE_WEEKEND_START_TIME, Const.LINE_THREE_WEEKEND_END_TIME) &&
+          this.checkWeekend());
         break;
       default:
         ret = true;
@@ -73,7 +76,10 @@ export struct Trains {
     return weekday === 0 || weekday === 6;
   }
 
-  changeShowMap(line: number) {
+  changeShowMap(line?: number) {
+    if (line === undefined) {
+      return;
+    }
     switch (line) {
       case TrainsLine.LINE_ONE:
         this.showLineOne = !this.showLineOne;
@@ -87,7 +93,10 @@ export struct Trains {
     }
   }
 
-  fetchShowMap(line: number): boolean {
+  fetchShowMap(line?: number): boolean {
+    if (line === undefined) {
+      return false;
+    }
     let ret: boolean;
     switch (line) {
       case TrainsLine.LINE_ONE:
@@ -114,13 +123,13 @@ export struct Trains {
           .borderRadius(Const.TRAIN_BORDER_RADIUS)
 
         List({ space: Const.TRAIN_SPACE }) {
-          ForEach(this.trainsMapData, (item: TrainsMap, index: number) => {
+          ForEach(this.trainsMapData, (item: TrainsMap, index?: number) => {
             ListItem() {
               Column({ space: Const.TRAIN_SPACE }) {
                 Row() {
                   Text() {
-                    Span($r("app.string.line", `${index + 1}`))
-                    Span(this.isOperating(index) ? $r("app.string.in_operation") : $r("app.string.non_operational"))
+                    Span($r('app.string.line', `${index ? index + 1 : 1}`))
+                    Span(this.isOperating(index) ? $r('app.string.in_operation') : $r('app.string.non_operational'))
                       .fontColor(this.isOperating(index) ? $r("app.color.in_operation") : $r("app.color.non_operational"))
                       .fontSize($r("app.float.operation_font_size"))
                       .fontWeight(Const.OPERATION_FONT_WEIGHT)
@@ -142,7 +151,7 @@ export struct Trains {
                 })
 
                 if (this.fetchShowMap(index) && this.isOperating(index)) {
-                  TrainsTrack({ trainsInfo: this.trainsMapData[index], trainLine: index })
+                  TrainsTrack({ trainsInfo: this.trainsMapData[index?index:0], trainLine: index })
                 }
               }
               .borderRadius(Const.TRAIN_BORDER_RADIUS)
@@ -154,7 +163,7 @@ export struct Trains {
               })
               .backgroundColor($r("app.color.train_list_background"))
             }
-          }, item => JSON.stringify(item))
+          }, (item: TrainsMap) => JSON.stringify(item))
         }
         .layoutWeight(1)
         .edgeEffect(EdgeEffect.None)

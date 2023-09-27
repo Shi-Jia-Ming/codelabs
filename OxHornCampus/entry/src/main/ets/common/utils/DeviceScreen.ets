@@ -23,7 +23,7 @@ export class DeviceScreen {
    *
    * @returns promise of window.
    */
-  public static getDeviceSize(context): Promise<window.Window> {
+  public static getDeviceSize(context: Context): Promise<window.Window> {
     return window.getLastWindow(context);
   }
 

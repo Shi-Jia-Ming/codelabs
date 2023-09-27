@@ -18,18 +18,19 @@ import ZonesItem from '../common/bean/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { DeviceScreen } from '../common/utils/DeviceScreen';
 import { Animation } from '../common/utils/Animation';
+import SwiperListItem from '../view/SwiperListItem';
 import BuildListItem from '../view/BuildListItem';
 import StyleListItem from '../view/StyleListItem';
 import SubTitleItem from '../view/SubTitleItem';
 import zonesViewModel from '../viewmodel/ZonesViewModel';
-import SwiperListItem from '../view/SwiperListItem'
+import { RouteTitle } from '../common/bean/TrainsMap';
 
 @Entry
 @Component
 struct IntroductionPage {
   @State zoneList: ZonesItem[] = zonesViewModel.getZonesList();
   @Provide('introductionData') introductionData: ZonesItem = zonesViewModel.getZonesList()[0];
-  @State currentZoneId: number = router.getParams()['id'];
+  @State currentZoneId: number = 0;
   @State screenHeight: number = 0;
   @State listPosition: number = Const.LIST_POSITION_BEGIN;
   @State imageHeight: number = Const.FULL_PERCENT_NUMBER;
@@ -39,17 +40,15 @@ struct IntroductionPage {
   @State offsetSum: number = 0;
   private scrollerForList: Scroller = new Scroller();
   @State scaleIcon: Array<number> = [Const.OPACITY_MAX, Const.OPACITY_MIN,
-  Const.OPACITY_MIN];
+    Const.OPACITY_MIN];
   @State iconTitle: string = Const.ICON_SUBTITLE_ARRAY[0];
   @State isReachStart: boolean = false;
   @State geographicPicType: string = Const.GEOGRAPHY_LIGHT;
   @State buildingType: string = Const.BUILDING_TEXT;
   @State homeIconOpacity: number = Const.OPACITY_MIN;
 
-  @Builder TitleIcon($$: {
-    src: Resource,
-    scale: number
-  }) {
+  @Builder
+  TitleIcon($$: RouteTitle) {
     Column() {
       Image($$.src)
         .width($r('app.float.title_icon_width'))
@@ -62,8 +61,9 @@ struct IntroductionPage {
         })
     }
   }
-  
-  @Builder StickyHeader() {
+
+  @Builder
+  StickyHeader() {
     Column() {
       Image(this.introductionData.subPicBottom)
         .height($r('app.float.picture_bottom_height'))
@@ -98,13 +98,17 @@ struct IntroductionPage {
     .alignItems(HorizontalAlign.Center)
   }
 
-  @Builder StickyFooter() {
+  @Builder
+  StickyFooter() {
     Column()
       .height($r('app.float.introduction_page_padding_bottom'))
   }
 
-  pageTransition(){
-    PageTransitionEnter({duration: Const.SHARED_DURATION})
+  /**
+   * The transition animation from page to page.
+   */
+  pageTransition() {
+    PageTransitionEnter({ duration: Const.SHARED_DURATION })
       .slide(SlideEffect.Bottom)
       .scale({
         x: 0,
@@ -113,7 +117,7 @@ struct IntroductionPage {
         centerX: Const.HALF_PERCENT,
         centerY: Const.HALF_PERCENT
       })
-    PageTransitionExit({delay: Const.SWIPER_DURATION})
+    PageTransitionExit({ delay: Const.SWIPER_DURATION })
       .slide(SlideEffect.Bottom)
       .scale({
         x: 0,
@@ -123,6 +127,7 @@ struct IntroductionPage {
         centerY: Const.HALF_PERCENT
       })
   }
+
   build() {
     Column() {
       Stack({ alignContent: Alignment.Bottom }) {
@@ -162,7 +167,7 @@ struct IntroductionPage {
           .onReachStart(() => {
             this.resetParameters();
           })
-          .onScrollIndex((start) => {
+          .onScrollIndex((start: number) => {
             this.currentListIndex = start;
           })
           .onReachEnd(() => {
@@ -172,7 +177,7 @@ struct IntroductionPage {
             this.startAnimation();
           })
           .onScrollFrameBegin((offset: number, state: ScrollState) => {
-            let realOffset = Animation.controlImageScale.call(this, offset, state);
+            let realOffset = Animation.controlImageScale(this, offset, state);
             return { offsetRemain: realOffset };
           })
         }
@@ -197,8 +202,6 @@ struct IntroductionPage {
           .onClick(() => {
             router.back();
           })
-          // .opacity(this.homeIconOpacity)
-
       }
       .backgroundColor($r('app.color.introduction_page_color'))
       .height(Const.FULL_SIZE)
@@ -207,6 +210,10 @@ struct IntroductionPage {
   }
 
   aboutToAppear() {
+    // 整改后的代码
+    let params = router.getParams() as Record<string, Object>;
+    this.currentZoneId = params.id as number;
+
     this.getIntroductionData();
     this.screenHeight = DeviceScreen.getDeviceHeight();
   }
@@ -234,7 +241,7 @@ struct IntroductionPage {
    * Start animation when scroll the list.
    */
   startAnimation() {
-    Animation.changeTitleIcon.apply(this);
+    Animation.changeTitleIcon(this);
   }
 
   /**

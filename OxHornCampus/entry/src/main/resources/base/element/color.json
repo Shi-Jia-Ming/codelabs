@@ -155,6 +155,22 @@
     {
       "name": "train_list_background",
       "value": "#FFFFFF"
+    },
+    {
+      "name": "introduction_page_blue_lighter",
+      "value": "#8ECCE7"
+    },
+    {
+      "name": "introduction_b_page_blue",
+      "value": "#82B9FB"
+    },
+    {
+      "name": "introduction_c_page_blue",
+      "value": "#84C6E2"
+    },
+    {
+      "name": "introduction_d_page_blue",
+      "value": "#8EA9D2"
     }
   ]
 }

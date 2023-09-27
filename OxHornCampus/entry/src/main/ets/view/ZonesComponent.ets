@@ -26,7 +26,10 @@ export struct Zones {
   @State aheadIndex: number = ZoneConst.HALF_COUNT;
   @State marginBottom: number = 0;
 
-  getImgCoefficients(index: number): number {
+  getImgCoefficients(index?: number): number {
+    if (index === undefined) {
+      return 0;
+    }
     let coefficient = this.aheadIndex - index;
     let tempCoefficient = Math.abs(coefficient);
     if (tempCoefficient <= ZoneConst.HALF_COUNT) {
@@ -43,7 +46,10 @@ export struct Zones {
     return 0;
   }
 
-  getOffSetY(index: number): number {
+  getOffSetY(index?: number): number {
+    if (index === undefined) {
+      return 0;
+    }
     let offsetIndex = this.getImgCoefficients(index);
     let tempOffset = Math.abs(offsetIndex);
     let offsetY = this.marginBottom / (tempOffset + 1);
@@ -59,7 +65,7 @@ export struct Zones {
     animateTo({
       duration: Const.SWIPER_DURATION,
     }, () => {
-      let dataLength = this.zonesList.length
+      let dataLength = this.zonesList.length;
       let tempIndex = isUp ? this.aheadIndex + 1 : dataLength + this.aheadIndex - 1;
       this.aheadIndex = tempIndex % dataLength;
       this.marginBottom = 0;
@@ -81,7 +87,7 @@ export struct Zones {
   build() {
     Navigation() {
       Stack() {
-        ForEach(this.zonesList, (item: ZonesItem, index: number) => {
+        ForEach(this.zonesList, (item: ZonesItem, index?: number) => {
           Row() {
             Image(item.thumbnail)
               .objectFit(ImageFit.Cover)
@@ -95,7 +101,6 @@ export struct Zones {
               .opacity(1 - Math.min(ZoneConst.HALF_COUNT,
                 Math.abs(this.getImgCoefficients(index))) * ZoneConst.OPACITY_COEFFICIENTS)
               .blur(ZoneConst.OFFSET_COEFFICIENTS * Math.abs(this.getImgCoefficients(index)))
-            
           }
           .width(index != this.aheadIndex && this.getImgCoefficients(index) === 0
             ? Const.SWIPER_DEFAULT_WIDTH
@@ -116,11 +121,17 @@ export struct Zones {
       })
       .gesture(
         PanGesture({ direction: PanDirection.Vertical })
-          .onActionStart((event: GestureEvent) => {
+          .onActionStart((event: GestureEvent | undefined) => {
+            if (!event) {
+              return;
+            }
             this.changedIndex = false;
             this.handlePanGesture(event.offsetY);
           })
-          .onActionUpdate((event: GestureEvent) => {
+          .onActionUpdate((event: GestureEvent | undefined) => {
+            if (!event) {
+              return;
+            }
             this.handlePanGesture(event.offsetY);
           })
           .onActionEnd(() => {

@@ -18,7 +18,7 @@ import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 @Component
 export default struct BuildListItem {
-  @Prop type: string;
+  @Prop type: string = '';
   @Consume('introductionData') introductionData: ZonesItem;
 
   build() {

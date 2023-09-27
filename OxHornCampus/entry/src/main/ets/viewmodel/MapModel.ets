@@ -24,7 +24,7 @@ import MapController from '../controller/MapController';
  */
 export class MapModel {
   private mapContext: any;
-  private data: AddressItem;
+  private data?: AddressItem;
   private addressArray: Array<AddressItem> = new Array(Const.MAP_LANDMARKS_LENGTH).fill(undefined);
 
   /**

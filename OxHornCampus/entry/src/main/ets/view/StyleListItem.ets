@@ -23,12 +23,12 @@ export default struct StyleListItem {
 
   build() {
     Column() {
-      ForEach(this.introductionData.content, (item) => {
+      ForEach(this.introductionData.content, (item: ResourceStr) => {
         Text(item)
           .width(Const.CONTENT_WIDTH_PERCENT)
           .fontSize($r('app.float.font_size_normal'))
           .margin({ bottom: $r('app.float.content_margin_bottom') })
-      }, item => JSON.stringify(item))
+      }, (item: ResourceStr) => JSON.stringify(item))
       Column() {
         ImageAnimation()
       }
@@ -36,7 +36,7 @@ export default struct StyleListItem {
       .height(Const.IMAGE_CONTAINER_HEIGHT)
       .margin({
         top: $r('app.float.content_container_margin_top'),
-        bottom: $r('app.float.content_container_margin_bottom')})
+        bottom: $r('app.float.content_container_margin_bottom') })
       .justifyContent(FlexAlign.Center)
     }
     .width(Const.FULL_SIZE)

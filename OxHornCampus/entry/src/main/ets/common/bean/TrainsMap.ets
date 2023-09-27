@@ -15,16 +15,20 @@
 
 @Observed
 export class TrainsMap {
-  imgBg: ImageBitmap;
-  interval: number;
-
+  imgBg: ImageBitmap = new ImageBitmap('common/images/ic_line1.png');
+  interval: number = 0;
   /**
    * Points of train routes.
    */
-  lineData: Array<Position>;
+  lineData: Array<Position> = [];
 }
 
 export class Position {
-  x: number;
-  y: number;
+  x: number = 0;
+  y: number = 0;
+}
+
+export class RouteTitle {
+  src: Resource = $r('app.media.ic_design_style');
+  scale: number = 0;
 }
