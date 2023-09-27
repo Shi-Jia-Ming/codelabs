@@ -15,38 +15,51 @@
 
 import router from '@ohos.router';
 import common from '@ohos.app.ability.common';
+import notificationManager from '@ohos.notificationManager';
 import Logger from '../common/utils/Logger';
 import { ITaskItem } from '../model/TaskInitList';
-import * as commonConst from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { NavList, TabId } from '../model/NavItemModel';
 import HomeIndex from '../view/HomeComponent';
 import { AchievementIndex } from '../view/AchievementComponent';
 import { MineIndex } from './MinePage';
 import { HomeStore } from '../viewmodel/HomeViewModel';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
+import GlobalInfo from '../common/bean/GlobalInfo';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 @Styles function allSize() {
-  .width(commonConst.THOUSANDTH_1000)
-  .height(commonConst.THOUSANDTH_1000)
+  .width(Const.THOUSANDTH_1000)
+  .height(Const.THOUSANDTH_1000)
 }
 
 @Entry
 @Component
 struct Index {
   @State currentPage: number = 0;
-  @State editedTaskInfo: ITaskItem = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
+  @State editedTaskInfo: ITaskItem = router.getParams() ? (router.getParams() as Record<string, Object>).editTask as ITaskItem : {} as ITaskItem;
   @State editedTaskID: string = '0';
   @State homeStore: HomeStore = new HomeStore(new Date());
   private tabController: TabsController = new TabsController();
 
+  aboutToAppear() {
+    notificationManager.requestEnableNotification().then(() => {
+      Logger.info('onPageShow', `requestEnableNotification success`);
+    }).catch((err: Error) => {
+      Logger.error('onPageShow', `requestEnableNotification failed, message is ${err.message}`);
+    });
+  }
+
   onPageShow() {
     Logger.info('onPageShow', JSON.stringify(router.getParams()));
-    this.editedTaskInfo = JSON.parse(router.getParams() ? router.getParams()['editTask'] : '{}');
+    let params = (router.getParams() ? router.getParams() : {}) as Record<string, Object>;
+    let result = params.editTask ? params.editTask as string : '{}';
+    this.editedTaskInfo = JSON.parse(result);
     this.editedTaskID = JSON.stringify(this.editedTaskInfo);
-    if (globalThis.isForeground) {
-      globalThis.isForeground = false;
+    if ((GlobalContext.getContext().getObject('isForeground') as boolean)) {
+      GlobalContext.getContext().setObject('isForeground', false);
       if (this.homeStore.currentDate.getDate() !== (new Date()).getDate()) {
-        globalThis.taskListChange = true;
+        GlobalContext.getContext().setObject('taskListChange', true);
         this.homeStore = new HomeStore(new Date());
       }
       this.checkCurrentTime();
@@ -54,10 +67,10 @@ struct Index {
   }
 
   checkCurrentTime() {
-    GlobalInfoApi.query((result) => {
+    GlobalInfoApi.query((result: GlobalInfo) => {
       let predate = new Date(result.lastDate);
       let date = new Date();
-      if (result.length !== 0 && date.getTime() < predate.getTime()) {
+      if (result && date.getTime() < predate.getTime()) {
         AlertDialog.show(
           {
             title: $r('app.string.alert'),
@@ -91,7 +104,7 @@ struct Index {
         .objectFit(ImageFit.Contain);
       Text(NavList[index].text)
         .fontSize($r('app.float.default_10'))
-        .fontWeight(commonConst.FONT_WEIGHT_500)
+        .fontWeight(Const.FONT_WEIGHT_500)
         .fontColor(this.currentPage === index ? $r('app.color.blueColor') : $r('app.color.tabTitleColor'))
         .margin({ top: $r('app.float.default_4') })
     }.justifyContent(FlexAlign.Center).allSize()
@@ -121,7 +134,7 @@ struct Index {
     }
     .scrollable(false)
     .allSize()
-    .barWidth(commonConst.THOUSANDTH_940)
+    .barWidth(Const.THOUSANDTH_940)
     .barMode(BarMode.Fixed)
     .vertical(false)
     .onChange((index) => {

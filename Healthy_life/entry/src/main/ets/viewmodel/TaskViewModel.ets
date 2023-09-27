@@ -13,33 +13,27 @@
  * limitations under the License.
  */
 
-import {
-  EVERYDAY,
-  GLOBAL_KEY,
-  DRINK_STEP,
-  DRINK_MAX_RANGE,
-  EAT_APPLE_RANGE,
-  TIMES_100
-} from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
 import reminder from '../service/ReminderAgent';
 import TaskInfoApi from '../common/database/tables/TaskInfoApi';
 import { padTo2Digits } from '../common/utils/Utils';
 import TaskInfo, { oneWeek } from '../common/bean/TaskInfo';
 import { TaskMapById, RemindContentMap, ITaskItem } from '../model/TaskInitList';
+import PublishReminderInfo from '../common/bean/PublishReminderInfo';
 
-const { publishReminder, cancelReminder, hasNotificationId } = reminder;
-export const taskOriginData: ITaskItem[] = Object.keys(TaskMapById).map(item => {
-  return TaskMapById[item];
-})
+const publishReminder = reminder.publishReminder;
+const cancelReminder = reminder.cancelReminder;
+const hasNotificationId = reminder.hasNotificationId;
+export const taskOriginData: ITaskItem[] = TaskMapById;
 
 /**
  * @description Get all task status
  * @return object[] Database query results
  */
-export const getAllTask = async () => {
-  return new Promise((resolve) => {
-    TaskInfoApi.query(GLOBAL_KEY, true, (res) => {
+export const getAllTask = () => {
+  return new Promise<TaskInfo[]>((resolve) => {
+    TaskInfoApi.query(Const.GLOBAL_KEY, true, (res: TaskInfo[]) => {
       if (res?.length === 0) {
         Logger.warn('queryTaskList', 'has no data!!');
         resolve(res ?? []);
@@ -61,14 +55,14 @@ export const getAllTask = async () => {
  */
 const useReminder = (params: TaskInfo, context: Context) => {
   try {
-    publishReminder({
-      hour: Number(params?.startTime.split(':')[0]),
-      minute: Number(params?.startTime.split(':')[1]),
-      daysOfWeek: params?.frequency.split(',').map(item => Number(item)),
-      title: RemindContentMap[params?.taskID].title,
-      content: RemindContentMap[params?.taskID].content,
-      notificationId: params?.taskID,
-    }, context);
+    let publishReminderInfo = new PublishReminderInfo();
+    publishReminderInfo.hour = Number(params?.startTime.split(':')[0]);
+    publishReminderInfo.minute = Number(params?.startTime.split(':')[1]);
+    publishReminderInfo.daysOfWeek = params?.frequency.split(',').map(item => Number(item));
+    publishReminderInfo.title = RemindContentMap[params?.taskID - 1].title;
+    publishReminderInfo.content = RemindContentMap[params?.taskID - 1].content;
+    publishReminderInfo.notificationId = params?.taskID;
+    publishReminder(publishReminderInfo, context);
   } catch (error) {
     Logger.error('publishReminder', JSON.stringify(error));
   }
@@ -91,7 +85,7 @@ const useCancelReminder = (reminderId: number, context: Context) => {
  * @param notificationId Notification ID
  */
 const isHasNotificationId = (notificationId: number) => {
-  return new Promise((resolve) => {
+  return new Promise<boolean>((resolve) => {
     resolve(hasNotificationId(notificationId));
   });
 }
@@ -102,35 +96,41 @@ const isHasNotificationId = (notificationId: number) => {
 export const addTask = (params: TaskInfo, context: Context) => {
   if (!params) {
     Logger.error('addTask', 'params is null!');
-    return;
+    return new Promise<number>((resolve) => {
+      resolve(-1);
+    });
   }
-  return new Promise((resolve, reject) => {
+  return new Promise<number>(async (resolve, reject) => {
     Logger.info('TaskViewModel', 'addTask');
     if (params?.isOpen) {
       if (params?.isAlarm) {
         useReminder(params, context);
       } else {
-        isHasNotificationId(params?.taskID).then(flag => {
+        isHasNotificationId(params?.taskID).then((flag: boolean) => {
           if (flag) {
             useCancelReminder(params.taskID, context);
           }
         });
       }
     } else {
-      isHasNotificationId(params?.taskID).then(flag => {
+      isHasNotificationId(params?.taskID).then((flag: boolean) => {
         if (flag) {
           useCancelReminder(params.taskID, context);
         }
       });
     }
-    TaskInfoApi.updateDataByDate(params, (flag) => {
+    TaskInfoApi.updateDataByDate(params, (flag: number) => {
       if (!flag) {
         Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
         reject(flag);
       }
       resolve(flag);
     });
-    TaskInfoApi.updateDataByDate({ ...params, date: new Date().toDateString(), isDone: true }, (flag) => {
+    let taskInfoStr = JSON.stringify(params);
+    let taskInfo: TaskInfo = JSON.parse(taskInfoStr);
+    taskInfo.date = new Date().toDateString();
+    taskInfo.isDone = true;
+    TaskInfoApi.updateDataByDate(taskInfo, (flag: number) => {
       if (!flag) {
         Logger.error('insertTaskSetting', 'updateTaskSetting Error!');
         reject(flag);
@@ -145,7 +145,7 @@ export const addTask = (params: TaskInfo, context: Context) => {
  * @param taskInitList Task list initial data
  * @param taskInfoData Database query data
  */
-export const taskIndexDataInit = (taskInitList, taskInfoData) => {
+export const taskIndexDataInit = (taskInitList: ITaskItem[], taskInfoData: TaskInfo[]) => {
   const afterInitData = taskInitList.map((content) => {
     taskInfoData.forEach((item) => {
       if (item?.taskID === content?.taskID) {
@@ -166,7 +166,7 @@ export const taskIndexDataInit = (taskInitList, taskInfoData) => {
  * @description format data as json string
  * @param params = {}
  */
-export const formatParams = (params = {}) => {
+export const formatParams = (params: ITaskItem) => {
   return JSON.stringify(params);
 }
 
@@ -175,14 +175,14 @@ export const formatParams = (params = {}) => {
  * @param frequencyIdCollection
  * @return string Frequency string
  */
-export const initFrequencyString = (frequencyIdCollection) => {
+export const initFrequencyString = (frequencyIdCollection: string) => {
   if (frequencyIdCollection === '') {
-    return EVERYDAY;
+    return Const.EVERYDAY;
   }
-  const frequencyIdArray = frequencyIdCollection.split(',').map(item => Number(item));
+  const frequencyIdArray: Array<number> = frequencyIdCollection.split(',').map(item => Number(item) - 1);
   const length = frequencyIdArray.length;
   if (length === 7) {
-    return EVERYDAY;
+    return Const.EVERYDAY;
   }
   const frequencyString = frequencyIdArray.reduce((pre, current) => {
     return pre + ' ' + oneWeek[current];
@@ -205,7 +205,9 @@ export function returnTimeStamp(currentTime: string) {
  * @param value
  */
 export const formatTime = (value: TimePickerResult) => {
-  return `${padTo2Digits(value?.hour)}:${padTo2Digits(value?.minute)}`;
+  let hour = value?.hour ? value?.hour : 8;
+  let minute = value?.minute ? value?.minute : 0;
+  return `${padTo2Digits(hour)}:${padTo2Digits(minute)}`;
 }
 
 /**
@@ -213,9 +215,9 @@ export const formatTime = (value: TimePickerResult) => {
  * @return Array<string>
  */
 export const createDrinkRange = () => {
-  const drinkRangeArr = []
-  for (let i = DRINK_STEP; i <= DRINK_MAX_RANGE; i += DRINK_STEP) {
-    drinkRangeArr.push(`${i / TIMES_100} L`);
+  const drinkRangeArr: Array<string> = []
+  for (let i = Const.DRINK_STEP; i <= Const.DRINK_MAX_RANGE; i += Const.DRINK_STEP) {
+    drinkRangeArr.push(`${i / Const.TIMES_100} L`);
   }
   return drinkRangeArr;
 }
@@ -225,8 +227,8 @@ export const createDrinkRange = () => {
  * @return Array<string>
  */
 export const createAppleRange = () => {
-  const appleRangeArr = []
-  for (let i = 1; i <= EAT_APPLE_RANGE; i++) {
+  const appleRangeArr: Array<string> = [];
+  for (let i = 1; i <= Const.EAT_APPLE_RANGE; i++) {
     appleRangeArr.push(`${i} 个`);
   }
   return appleRangeArr;

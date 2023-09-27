@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { FrequencyContentType } from '../../model/TaskInitList';
 
 const CHINESE_OF_WEEK: string[] = ['一', '二', '三', '四', '五', '六', '日'];
 const YEAR: string = '年';
@@ -22,7 +23,7 @@ const DAYS_OF_WEEK: number = 7;
 const SUNDAY_FIRST_SHIFT: number = 6;
 
 export const weekTitleFunc = () => {
-    const weekTitleArr = [];
+    const weekTitleArr: Array<string> = [];
     for (let index = 0;index < CHINESE_OF_WEEK.length; index++) {
         weekTitleArr.push(CHINESE_OF_WEEK[(index + SUNDAY_FIRST_SHIFT) % DAYS_OF_WEEK]); // Sunday is the first day
     }
@@ -73,21 +74,21 @@ export function ratio2percent(ratio: number): string {
 }
 
 export const frequencyRange = () => {
-    const frequencyRangeArr = []
+    const frequencyRangeArr: FrequencyContentType[] = [];
     CHINESE_OF_WEEK.forEach((item, index) => {
         frequencyRangeArr.push({
             id: (index + 1),
             label: `${WEEK}${item}`,
             isChecked: false
-        })
+        } as FrequencyContentType)
     });
     return frequencyRangeArr;
 }
 
 export const oneWeekDictFunc = () => {
-    const oneWeekDict = {};
+    const oneWeekDict: Array<string> = [];
     for (let index = 0;index < CHINESE_OF_WEEK.length; index++) {
-        oneWeekDict[index + 1] = `${WEEK}${CHINESE_OF_WEEK[index]}`;
+        oneWeekDict[index] = `${WEEK}${CHINESE_OF_WEEK[index]}`;
     }
     return oneWeekDict;
 }

@@ -15,7 +15,7 @@
 
 import dataRdb from '@ohos.data.relationalStore';
 import FormInfo from '../../bean/FormInfo';
-import { FORM_INFO } from '../../constants/CommonConstants';
+import { CommonConstants as Const } from '../../constants/CommonConstants';
 import RdbUtils from '../Rdb/RdbUtils';
 import Logger from '../../utils/Logger';
 
@@ -40,7 +40,7 @@ class FormInfoApi {
    * @param {Function} callback Return processing callback
    */
   public queryFormData(callback: Function): void {
-    let predicates = new dataRdb.RdbPredicates(FORM_INFO.tableName);
+    let predicates = new dataRdb.RdbPredicates(Const.FORM_INFO.tableName ? Const.FORM_INFO.tableName : '');
     RdbUtils.query(predicates).then(resultSet => {
       let count = resultSet.rowCount;
       if (count === 0) {
@@ -58,7 +58,7 @@ class FormInfoApi {
         resultSet.close();
         callback(resultArray);
       }
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error('FormInfoTable', 'queryFormData error ' + JSON.stringify(error));
     });
   }
@@ -69,9 +69,9 @@ class FormInfoApi {
    * @param {string} formId Form ID
    */
   public deleteFormData(formId: string): void {
-    let predicates = new dataRdb.RdbPredicates(FORM_INFO.tableName);
+    let predicates = new dataRdb.RdbPredicates(Const.FORM_INFO.tableName ? Const.FORM_INFO.tableName : '');
     predicates.equalTo('formId', formId);
-    RdbUtils.del(predicates).catch((error) => {
+    RdbUtils.del(predicates).catch((error: Error) => {
       Logger.error('FormInfoTable', 'deleteFormData error ' + JSON.stringify(error));
     });
   }
@@ -79,10 +79,22 @@ class FormInfoApi {
 }
 
 function generateBucket(formInfo: FormInfo): dataRdb.ValuesBucket {
-  let valueBucket = {};
-  FORM_INFO.columns.forEach((item: string) => {
+  let valueBucket = {} as dataRdb.ValuesBucket;
+  Const.FORM_INFO.columns?.forEach((item: string) => {
     if (item !== 'id') {
-      valueBucket[item] = formInfo[item];
+      switch (item) {
+        case 'formId':
+          valueBucket[item] = formInfo.formId;
+          break;
+        case 'formName':
+          valueBucket[item] = formInfo.formName;
+          break;
+        case 'formDimension':
+          valueBucket[item] = formInfo.formDimension;
+          break;
+        default:
+          break;
+      }
     }
   });
   return valueBucket;

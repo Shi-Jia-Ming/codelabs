@@ -19,10 +19,10 @@ import { HomeStore } from '../../viewmodel/HomeViewModel';
 import HealthText from '../../view/HealthTextComponent';
 import { WeekDateModel } from '../../model/WeekCalendarModel';
 import { sameDate } from '../../common/utils/Utils';
-import * as commonConst from '../../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../../common/constants/CommonConstants';
 import Logger from '../../common/utils/Logger';
 
-export const WEEK_DAY_WIDTH: number = 100 / commonConst.WEEK_DAY_NUM;
+export const WEEK_DAY_WIDTH: number = 100 / Const.WEEK_DAY_NUM;
 const DEFAULT_SCROLL_WIDTH = 336; // default calendar width
 const DEFAULT_SCROLL_PERCENT = 0.934; // default calendar width percent
 
@@ -64,9 +64,9 @@ export struct WeekCalendar {
     }
     .width($r('app.float.default_20'))
     .height($r('app.float.default_20'))
-    .rotate({ z: 1, angle: isRight ? 0 : commonConst.DEFAULT_180 })
+    .rotate({ z: 1, angle: isRight ? 0 : Const.DEFAULT_180 })
     .justifyContent(FlexAlign.Center)
-    .onClick(() => isRight ? WeekCalendarMethods.goToNextWeek.call(this) : WeekCalendarMethods.gotoPreviousWeek.call(this))
+    .onClick(() => isRight ? WeekCalendarMethods.goToNextWeek(this) : WeekCalendarMethods.gotoPreviousWeek(this))
   }
 
   build() {
@@ -82,44 +82,44 @@ export struct WeekCalendar {
 
         Scroll(this.scroller) {
           Row() {
-            ForEach(this.homeStore.dateArr, (item: WeekDateModel, index: number) => {
+            ForEach(this.homeStore.dateArr, (item: WeekDateModel, index?: number) => {
               Column() {
                 Text(item.weekTitle)
                   .fontSize($r('app.float.default_12'))
-                  .fontWeight(commonConst.FONT_WEIGHT_500)
+                  .fontWeight(Const.FONT_WEIGHT_500)
                   .fontColor(sameDate(item.date, this.homeStore.showDate) ? $r('app.color.blueColor') : $r('app.color.titleColor'))
                   .fontFamily($r('app.string.HarmonyHeiTi_Medium'))
-                  .opacity(commonConst.OPACITY_6)
+                  .opacity(Const.OPACITY_6)
                 Divider()
-                  .margin({top: commonConst.DEFAULT_2, bottom: $r('app.float.default_4')})
+                  .margin({top: Const.DEFAULT_2, bottom: $r('app.float.default_4')})
                   .width($r('app.float.default_12'))
                   .color(sameDate(item.date, this.homeStore.showDate) ? $r('app.color.blueColor') : $r('app.color.white'))
                 Image(this.getProgressImg(item))
                   .height($r('app.float.default_28'))
                   .objectFit(ImageFit.Contain)
-                  .margin({ top: commonConst.THOUSANDTH_80 })
+                  .margin({ top: Const.THOUSANDTH_80 })
               }
               .width(`${WEEK_DAY_WIDTH}%`)
               .justifyContent(FlexAlign.SpaceBetween)
-              .onClick(() => WeekCalendarMethods.calenderItemClickAction.call(this, item, index))
+              .onClick(() => WeekCalendarMethods.calenderItemClickAction(this, item, index))
             })
           }
         }
         .scrollBar(BarState.Off)
         .scrollable(ScrollDirection.Horizontal)
-        .width(commonConst.THOUSANDTH_1000)
-        .onScrollStop(() => WeekCalendarMethods.onScrollEndAction.call(this))
-        .onScrollEdge(() => WeekCalendarMethods.onScrollEdgeAction.call(this))
+        .width(Const.THOUSANDTH_1000)
+        .onScrollStop(() => WeekCalendarMethods.onScrollEndAction(this))
+        .onScrollEdge(() => WeekCalendarMethods.onScrollEdgeAction(this))
       }
       .borderRadius($r('app.float.default_24'))
       .backgroundColor($r('app.color.white'))
-      .width(commonConst.THOUSANDTH_1000)
-      .height(commonConst.THOUSANDTH_1000)
-      .padding({ top: commonConst.THOUSANDTH_50, bottom: commonConst.THOUSANDTH_120 })
+      .width(Const.THOUSANDTH_1000)
+      .height(Const.THOUSANDTH_1000)
+      .padding({ top: Const.THOUSANDTH_50, bottom: Const.THOUSANDTH_120 })
 
     }
-    .width(commonConst.THOUSANDTH_1000)
-    .height(commonConst.THOUSANDTH_420)
-    .padding(commonConst.THOUSANDTH_33)
+    .width(Const.THOUSANDTH_1000)
+    .height(Const.THOUSANDTH_420)
+    .padding(Const.THOUSANDTH_33)
   }
 }

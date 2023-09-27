@@ -15,7 +15,7 @@
 
 import dataRdb from '@ohos.data.relationalStore';
 import TaskInfo from '../../bean/TaskInfo';
-import { TASK_INFO } from '../../constants/CommonConstants';
+import { CommonConstants as Const } from '../../constants/CommonConstants';
 import RdbUtils from '../Rdb/RdbUtils';
 import Logger from '../../utils/Logger';
 
@@ -26,7 +26,7 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  insertData(taskInfo: TaskInfo, callback): void {
+  insertData(taskInfo: TaskInfo, callback: Function): void {
     const valueBucket = generateBucket(taskInfo);
     RdbUtils.insert('taskInfo', valueBucket).then(result => {
       callback(result);
@@ -40,8 +40,12 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  deleteDataByID(taskInfo: TaskInfo, callback): void {
-    let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
+  deleteDataByID(taskInfo: TaskInfo, callback: Function): void {
+    let tableName = Const.TASK_INFO.tableName;
+    if (!tableName) {
+      return;
+    }
+    let predicates = new dataRdb.RdbPredicates(tableName);
     predicates.equalTo('date', taskInfo.date).and().equalTo('taskID', taskInfo.taskID);
     RdbUtils.del(predicates).then(result => {
       callback(result);
@@ -55,11 +59,15 @@ class TaskInfoApi {
    * @param taskInfo
    * @param callback
    */
-  updateDataByDate(taskInfo: TaskInfo, callback): void {
+  updateDataByDate(taskInfo: TaskInfo, callback: Function): void {
     const valueBucket = generateBucket(taskInfo);
-    let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
+    let tableName = Const.TASK_INFO.tableName;
+    if (!tableName) {
+      return;
+    }
+    let predicates = new dataRdb.RdbPredicates(tableName);
     predicates.equalTo('date', taskInfo.date).and().equalTo('taskID', taskInfo.taskID);
-    RdbUtils.update(valueBucket, predicates).then(result => {
+    RdbUtils.update(valueBucket, predicates).then((result: number) => {
       callback(result);
     });
     Logger.info('TaskInfoTable', `Update data {${taskInfo.date}:${taskInfo.taskID}} finished.`);
@@ -71,8 +79,12 @@ class TaskInfoApi {
    * @param date
    * @param callback
    */
-  query(date: string, isOpen: boolean = true, callback): void {
-    let predicates = new dataRdb.RdbPredicates(TASK_INFO.tableName);
+  query(date: string, isOpen: boolean = true, callback: Function): void {
+    let tableName = Const.TASK_INFO.tableName;
+    if (!tableName) {
+      return;
+    }
+    let predicates = new dataRdb.RdbPredicates(tableName);
     predicates.equalTo('date', date);
     if (isOpen) {
       predicates.equalTo('isOpen', true);
@@ -82,10 +94,11 @@ class TaskInfoApi {
       let count = resultSet.rowCount;
       if (count === 0 || typeof count === 'string') {
         Logger.error('TaskInfoTable', `${date} query no results!`);
-        callback([]);
+        const result: TaskInfo[] = [];
+        callback(result);
       } else {
         resultSet.goToFirstRow();
-        const result = [];
+        const result: TaskInfo[] = [];
         for (let i = 0; i < count; i++) {
           let tmp = new TaskInfo(0, '', 0, '', false, '', '', '', false, '');
           tmp.isOpen = resultSet.getDouble(resultSet.getColumnIndex('isOpen')) ? true : false;
@@ -109,10 +122,43 @@ class TaskInfoApi {
 }
 
 function generateBucket(taskInfo: TaskInfo): dataRdb.ValuesBucket {
-  let valueBucket = {};
-  TASK_INFO.columns.forEach((item: string) => {
+  let valueBucket = {} as dataRdb.ValuesBucket;
+  Const.TASK_INFO.columns?.forEach((item: string) => {
     if (item !== 'id') {
-      valueBucket[item] = taskInfo[item];
+      switch (item) {
+        case 'date':
+          valueBucket[item] = taskInfo.date;
+          break;
+        case 'taskID':
+          valueBucket[item] = taskInfo.taskID;
+          break;
+        case 'targetValue':
+          valueBucket[item] = taskInfo.targetValue;
+          break;
+        case 'isAlarm':
+          valueBucket[item] = taskInfo.isAlarm;
+          break;
+        case 'startTime':
+          valueBucket[item] = taskInfo.startTime;
+          break;
+        case 'endTime':
+          valueBucket[item] = taskInfo.endTime;
+          break;
+        case 'frequency':
+          valueBucket[item] = taskInfo.frequency;
+          break;
+        case 'isDone':
+          valueBucket[item] = taskInfo.isDone;
+          break;
+        case 'finValue':
+          valueBucket[item] = taskInfo.finValue;
+          break;
+        case 'isOpen':
+          valueBucket[item] = taskInfo.isOpen;
+          break;
+        default:
+          break;
+      }
     }
   });
   return valueBucket;

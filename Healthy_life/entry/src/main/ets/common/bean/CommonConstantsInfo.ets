@@ -14,43 +14,10 @@
  */
 
 /**
- * Agency card task info
+ * Common constants info
  */
-export default class AgencyCardInfo {
-  /**
-   * Task type
-   */
-  taskType?: string;
-
-  /**
-   * Total targets
-   */
-  targetValue?: string;
-
-  /**
-   * Total completed
-   */
-  finValue?: string;
-
-  /**
-   * Task unit
-   */
-  unit?: string;
-
-  /**
-   * Task date type
-   */
-  dateType?: boolean;
-
-  /**
-   * Whether there is a task target value
-   */
-  hasTargetValue?: boolean;
-
-  /**
-   * Completed quantity is empty.
-   */
-  finValueIsNull?:boolean;
-
-  isDone?: boolean;
+export default class CommonConstantsInfo {
+  dbName?: string = '';
+  tableName?: string = '';
+  columns?: Array<string> = [];
 }

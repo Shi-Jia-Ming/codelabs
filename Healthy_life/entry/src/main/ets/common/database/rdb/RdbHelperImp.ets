@@ -21,8 +21,8 @@ import Logger from '../../utils/Logger';
 
 export class RdbHelperImp implements RdbHelper {
   private mDatabaseName: string;
-  private rdbStore: dataRdb.RdbStore = null;
-  private storeConfig: dataRdb.StoreConfig;
+  private rdbStore: dataRdb.RdbStore = {} as dataRdb.RdbStore;
+  private storeConfig: dataRdb.StoreConfig = {  name: '', securityLevel: dataRdb.SecurityLevel.S1 } as dataRdb.StoreConfig;
 
   constructor(databaseName: string) {
     this.mDatabaseName = databaseName;
@@ -40,7 +40,7 @@ export class RdbHelperImp implements RdbHelper {
       dataRdb.getRdbStore(context, this.storeConfig).then(dbStore => {
         this.rdbStore = dbStore;
         success(this);
-      }).catch(err => {
+      }).catch((err: Error) => {
         Logger.error(`initRdb err : ${JSON.stringify(err)}`);
         error(err);
       })
@@ -78,14 +78,14 @@ export class RdbHelperImp implements RdbHelper {
         error(0);
         return;
       }
-      if (Array.isArray(values)) {
+      if (values instanceof Array) {
         Logger.info(`insert values isArray = ${values.length}`);
         this.rdbStore.beginTransaction();
         this.saveArray(tableName, values).then(data => {
           Logger.info(`insert success, data : ${JSON.stringify(data)}`);
           success(data);
           this.rdbStore.commit();
-        }).catch(err => {
+        }).catch((err: Error) => {
           Logger.error(`insert failed, err : ${err}`);
           error(err);
           this.rdbStore.commit();
@@ -95,7 +95,7 @@ export class RdbHelperImp implements RdbHelper {
           Logger.info(`insert success id : ${data}`);
           success(data);
           this.rdbStore.commit();
-        }).catch(err => {
+        }).catch((err: Error) => {
           Logger.error(`insert failed, err : ${JSON.stringify(err)}`);
           error(err);
           this.rdbStore.commit();
@@ -106,12 +106,12 @@ export class RdbHelperImp implements RdbHelper {
 
   private saveArray(tableName: string, values: Array<dataRdb.ValuesBucket>): Promise<number> {
     return new Promise<number>((success, error) => {
-      if (!values || values.length == 0) {
+      if (!values || values.length === 0) {
         error(0);
         return;
       }
       let index = 0
-      let callback = (data, err) => {
+      let callback = (data: number, err: Error) => {
         if (err) {
           Logger.info(`saveArray failed, err : ${err}`);
           error(err);
@@ -129,12 +129,12 @@ export class RdbHelperImp implements RdbHelper {
     })
   }
 
-  private saveData(tableName: string, values: Array<dataRdb.ValuesBucket>, index: number, callback): void   {
+  private saveData(tableName: string, values: Array<dataRdb.ValuesBucket>, index: number, callback: Function): void   {
     Logger.info(`saveData tableName : ${tableName}, index : ${JSON.stringify(index)}`);
-    this.rdbStore.insert(tableName, values[index]).then(data => {
+    this.rdbStore.insert(tableName, values[index]).then((data: number) => {
       Logger.info(`saveData success id : ${data}`);
       callback(data);
-    }).catch(err => {
+    }).catch((err: Error) => {
       Logger.error(`saveData failed, err : ${err}`);
       callback(err);
     })
@@ -146,7 +146,7 @@ export class RdbHelperImp implements RdbHelper {
 
   query(rdbPredicates: dataRdb.RdbPredicates, columns?: Array<string>): Promise<dataRdb.ResultSet> {
     Logger.info(`query rdbPredicates : ${JSON.stringify(rdbPredicates)}`);
-    return this.rdbStore.query(rdbPredicates, columns)
+    return this.rdbStore.query(rdbPredicates, columns);
   }
 
   queryAll(tableName: string): Promise<dataRdb.ResultSet> {

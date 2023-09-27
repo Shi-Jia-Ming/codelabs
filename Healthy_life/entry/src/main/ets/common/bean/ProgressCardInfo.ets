@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import AgencyCardInfo from './AgencyCardInfo';
 
 /**
  * Progress card task info
@@ -20,7 +21,7 @@ export default class ProgressCardInfo {
   /**
    * Task list
    */
-  taskList?: any[];
+  taskList?: AgencyCardInfo[];
 
   /**
    * Target completion quantity

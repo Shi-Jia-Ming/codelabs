@@ -17,26 +17,31 @@ import reminderAgent from '@ohos.reminderAgentManager';
 import notification from '@ohos.notificationManager';
 import preferences from '@ohos.data.preferences';
 import Logger from '../common/utils/Logger';
-import { H_STORE, REMINDER_AGENT_TAG, PACKAGE_NAME, ENTRY_ABILITY } from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
+import ReminderInfo from '../common/bean/ReminderInfo';
+import PublishReminderInfo from '../common/bean/PublishReminderInfo';
 
 // publishReminder
-function publishReminder(params: any, context: Context) {
+function publishReminder(params: PublishReminderInfo, context: Context) {
   if (!params) {
-    Logger.error(REMINDER_AGENT_TAG, 'publishReminder params is empty');
+    Logger.error(Const.REMINDER_AGENT_TAG, 'publishReminder params is empty');
     return;
   }
-  let notifyId = params.notificationId.toString();
+  let notifyId: string = params.notificationId.toString();
   hasPreferencesValue(context, notifyId, (preferences: preferences.Preferences, hasValue: boolean) => {
     if (hasValue) {
-      preferences.get(notifyId, -1, (error: Error, value: number) => {
+      preferences.get(notifyId, -1, (error: Error, value: preferences.ValueType) => {
+        if (typeof value !== 'number') {
+          return;
+        }
         if (value >= 0) {
           reminderAgent.cancelReminder(value).then(() => {
             processReminderData(params, preferences, notifyId);
-          }).catch((err) => {
-            Logger.error(REMINDER_AGENT_TAG, `cancelReminder err: ${err}`);
+          }).catch((err: Error) => {
+            Logger.error(Const.REMINDER_AGENT_TAG, `cancelReminder err: ${err}`);
           });
         } else {
-          Logger.error(REMINDER_AGENT_TAG, 'preferences get value error ' + JSON.stringify(error));
+          Logger.error(Const.REMINDER_AGENT_TAG, 'preferences get value error ' + JSON.stringify(error));
         }
       });
     } else {
@@ -46,15 +51,15 @@ function publishReminder(params: any, context: Context) {
 }
 
 // cancelReminder
-function cancelReminder(reminderId, context) {
+function cancelReminder(reminderId: number, context: Context) {
   if (!reminderId) {
-    Logger.error(REMINDER_AGENT_TAG, 'cancelReminder reminderId is empty');
+    Logger.error(Const.REMINDER_AGENT_TAG, 'cancelReminder reminderId is empty');
     return;
   }
-  let reminder = reminderId.toString();
+  let reminder: string = reminderId.toString();
   hasPreferencesValue(context, reminder, (preferences: preferences.Preferences, hasValue: boolean) => {
     if (!hasValue) {
-      Logger.error(REMINDER_AGENT_TAG, 'cancelReminder preferences value is empty');
+      Logger.error(Const.REMINDER_AGENT_TAG, 'cancelReminder preferences value is empty');
       return;
     }
     getPreferencesValue(preferences, reminder);
@@ -64,16 +69,19 @@ function cancelReminder(reminderId, context) {
 // hasNotificationId
 function hasNotificationId(params: number) {
   if (!params) {
-    Logger.error(REMINDER_AGENT_TAG, 'hasNotificationId params is undefined');
+    Logger.error(Const.REMINDER_AGENT_TAG, 'hasNotificationId params is undefined');
     return;
   }
   return reminderAgent.getValidReminders().then((reminders) => {
     if (!reminders.length) {
       return false;
     }
-    let notificationIdList = [];
+    let notificationIdList: Array<number> = [];
     for (let i = 0; i < reminders.length; i++) {
-      notificationIdList.push(reminders[i].notificationId);
+      let notificationId = reminders[i].notificationId;
+      if (notificationId) {
+        notificationIdList.push(notificationId);
+      }
     }
     const flag = notificationIdList.indexOf(params);
 
@@ -82,7 +90,7 @@ function hasNotificationId(params: number) {
 }
 
 function hasPreferencesValue(context: Context, hasKey: string, callback: Function) {
-  let preferencesPromise = preferences.getPreferences(context, H_STORE);
+  let preferencesPromise = preferences.getPreferences(context, Const.H_STORE);
   preferencesPromise.then((preferences: preferences.Preferences) => {
     preferences.has(hasKey).then((hasValue: boolean) => {
       callback(preferences, hasValue);
@@ -91,25 +99,25 @@ function hasPreferencesValue(context: Context, hasKey: string, callback: Functio
 }
 
 // processReminderData
-function processReminderData(params: object, preferences: preferences.Preferences, notifyId: string) {
+function processReminderData(params: PublishReminderInfo, preferences: preferences.Preferences, notifyId: string) {
   let timer = fetchData(params);
   reminderAgent.publishReminder(timer).then((reminderId: number) => {
     putPreferencesValue(preferences, notifyId, reminderId);
-  }).catch((err) => {
-    Logger.error(REMINDER_AGENT_TAG, `publishReminder err: ${err}`);
+  }).catch((err: Error) => {
+    Logger.error(Const.REMINDER_AGENT_TAG, `publishReminder err: ${err}`);
   });
 }
 
 // fetchData
-function fetchData(params): reminderAgent.ReminderRequestAlarm {
+function fetchData(params: PublishReminderInfo): reminderAgent.ReminderRequestAlarm {
   return {
     reminderType: reminderAgent.ReminderType.REMINDER_TYPE_ALARM,
     hour: params.hour || 0,
     minute: params.minute || 0,
     daysOfWeek: params.daysOfWeek || [],
     wantAgent: {
-      pkgName: PACKAGE_NAME,
-      abilityName: ENTRY_ABILITY
+      pkgName: Const.PACKAGE_NAME,
+      abilityName: Const.ENTRY_ABILITY
     },
     title: params.title || '',
     content: params.content || '',
@@ -121,29 +129,32 @@ function fetchData(params): reminderAgent.ReminderRequestAlarm {
 function putPreferencesValue(preferences: preferences.Preferences, putKey: string, putValue: number) {
   preferences.put(putKey, putValue).then(() => {
     preferences.flush();
-  }).catch((error) => {
-    Logger.error(REMINDER_AGENT_TAG, 'preferences put value error ' + JSON.stringify(error));
+  }).catch((error: Error) => {
+    Logger.error(Const.REMINDER_AGENT_TAG, 'preferences put value error ' + JSON.stringify(error));
   });
 }
 
 function getPreferencesValue(preferences: preferences.Preferences, getKey: string) {
-  preferences.get(getKey, -1).then((value: number) => {
+  preferences.get(getKey, -1).then((value: preferences.ValueType) => {
+    if (typeof value !== 'number') {
+      return;
+    }
     if (value >= 0) {
       reminderAgent.cancelReminder(value).then(() => {
-        Logger.info(REMINDER_AGENT_TAG, 'cancelReminder promise success');
-      }).catch((err) => {
-        Logger.error(REMINDER_AGENT_TAG, `cancelReminder err: ${err}`);
+        Logger.info(Const.REMINDER_AGENT_TAG, 'cancelReminder promise success');
+      }).catch((err: Error) => {
+        Logger.error(Const.REMINDER_AGENT_TAG, `cancelReminder err: ${err}`);
       });
     }
-  }).catch((error) => {
-    Logger.error(REMINDER_AGENT_TAG, 'preferences get value error ' + JSON.stringify(error));
+  }).catch((error: Error) => {
+    Logger.error(Const.REMINDER_AGENT_TAG, 'preferences get value error ' + JSON.stringify(error));
   });
 }
 
 const reminder = {
-  publishReminder,
-  cancelReminder,
-  hasNotificationId
-}
+  publishReminder: publishReminder,
+  cancelReminder: cancelReminder,
+  hasNotificationId: hasNotificationId
+} as ReminderInfo
 
 export default reminder;

@@ -20,7 +20,7 @@ import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 export const ACHIEVEMENT_LEVEL_KEY = 'AchievementLevelKey';
 
 export function getAchievementLevel() {
-  GlobalInfoApi.query((res) => {
+  GlobalInfoApi.query((res: GlobalInfo) => {
     let globalInfo: GlobalInfo = res;
 
     let achievementStr = globalInfo.achievements??'';

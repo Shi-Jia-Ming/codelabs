@@ -15,50 +15,56 @@
 
 import { TaskMapById } from '../../model/TaskInitList';
 import HealthText from '../../view/HealthTextComponent';
-import * as commonConst from '../../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../../common/constants/CommonConstants';
+import TaskInfo from '../../common/bean/TaskInfo';
 
 @Styles function allSize () {
-  .width(commonConst.THOUSANDTH_1000)
-  .height(commonConst.THOUSANDTH_1000)
+  .width(Const.THOUSANDTH_1000)
+  .height(Const.THOUSANDTH_1000)
 }
 
 @Extend(Text) function labelTextStyle () {
   .fontSize($r('app.float.default_16'))
-  .fontWeight(commonConst.FONT_WEIGHT_500)
-  .opacity(commonConst.OPACITY_6)
+  .fontWeight(Const.FONT_WEIGHT_500)
+  .opacity(Const.OPACITY_6)
   .fontFamily($r('app.string.HarmonyHeiTi'))
 }
 
 @Component
 export struct TaskCard {
-  @Prop taskInfoStr: string;
-  clickAction: (isClick: boolean) => void;
+  @Prop taskInfoStr: string = '';
+  clickAction: Function = (isClick: boolean) => {};
+  @State taskInfo: TaskInfo = new TaskInfo(-1, '', -1, '', false, '', '', '', false, '', false);
+
+  aboutToAppear() {
+    this.taskInfo = JSON.parse(this.taskInfoStr);
+  }
 
   @Builder targetValueBuilder() {
-    if (JSON.parse(this.taskInfoStr).isDone) {
+    if (this.taskInfo.isDone) {
       HealthText({ title: '', titleResource: $r('app.string.task_done') })
     } else {
       Row() {
         HealthText({
-          title: JSON.parse(this.taskInfoStr).finValue || `--`,
+          title: this.taskInfo.finValue || `--`,
           fontSize: $r('app.float.default_24')
         })
-        Text(` / ${JSON.parse(this.taskInfoStr).targetValue} ${TaskMapById[JSON.parse(this.taskInfoStr).taskID].unit}`)
+        Text(` / ${this.taskInfo.targetValue} ${TaskMapById[this.taskInfo.taskID - 1].unit}`)
           .labelTextStyle()
-          .fontWeight(commonConst.FONT_WEIGHT_400)
+          .fontWeight(Const.FONT_WEIGHT_400)
       }
     }
   }
 
   build() {
     Row() {
-      Row({ space: commonConst.DEFAULT_6 }) {
-        Image(TaskMapById[JSON.parse(this.taskInfoStr).taskID].icon)
+      Row({ space: Const.DEFAULT_6 }) {
+        Image(TaskMapById[this.taskInfo.taskID - 1].icon)
           .width($r('app.float.default_36')).height($r('app.float.default_36'))
           .objectFit(ImageFit.Contain)
         HealthText({
           title: '',
-          titleResource: TaskMapById[JSON.parse(this.taskInfoStr).taskID].taskName,
+          titleResource: TaskMapById[this.taskInfo.taskID - 1].taskName,
           fontFamily: $r('app.string.HarmonyHeiTi')
         })
       }
@@ -68,7 +74,7 @@ export struct TaskCard {
     .allSize()
     .justifyContent(FlexAlign.SpaceBetween)
     .borderRadius($r('app.float.default_24'))
-    .padding({ left: commonConst.THOUSANDTH_50, right: commonConst.THOUSANDTH_33 })
+    .padding({ left: Const.THOUSANDTH_50, right: Const.THOUSANDTH_33 })
     .backgroundColor($r('app.color.white'))
     .onClick(() => this.clickAction(true))
     .gesture(LongPressGesture().onAction(() => this.clickAction(false)))

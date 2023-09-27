@@ -27,10 +27,11 @@ export class HealthDataSrcMgr {
   }
 
   public static getInstance(): HealthDataSrcMgr {
-    if (AppStorage.Get(APP_KEY_GROUP_DATA_SOURCE_MANAGER) == null) {
-      AppStorage.SetOrCreate(APP_KEY_GROUP_DATA_SOURCE_MANAGER, new HealthDataSrcMgr());
+    if (!AppStorage.Get<HealthDataSrcMgr>(APP_KEY_GROUP_DATA_SOURCE_MANAGER)) {
+      AppStorage.SetOrCreate<HealthDataSrcMgr>(APP_KEY_GROUP_DATA_SOURCE_MANAGER, new HealthDataSrcMgr());
     }
-    return AppStorage.Get(APP_KEY_GROUP_DATA_SOURCE_MANAGER);
+    let healthDataSrcMgr = AppStorage.Get<HealthDataSrcMgr>(APP_KEY_GROUP_DATA_SOURCE_MANAGER);
+    return healthDataSrcMgr ? healthDataSrcMgr : new HealthDataSrcMgr();
   }
 
   public getBroadCast(): BroadCast {

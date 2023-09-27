@@ -14,7 +14,7 @@
  */
 
 import TaskDetail from '../view/task/TaskDetailComponent';
-import { THOUSANDTH_1000, EDIT_TASK_TITLE } from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 @Entry
 @Component
@@ -25,14 +25,14 @@ struct TaskEdit {
         Column() {
           TaskDetail()
         }
-        .width(THOUSANDTH_1000)
-        .height(THOUSANDTH_1000)
+        .width(Const.THOUSANDTH_1000)
+        .height(Const.THOUSANDTH_1000)
       }
-      .size({ width: THOUSANDTH_1000, height: THOUSANDTH_1000 })
-      .title(EDIT_TASK_TITLE)
+      .size({ width: Const.THOUSANDTH_1000, height: Const.THOUSANDTH_1000 })
+      .title(Const.EDIT_TASK_TITLE)
       .titleMode(NavigationTitleMode.Mini)
     }
-    .height(THOUSANDTH_1000)
+    .height(Const.THOUSANDTH_1000)
     .backgroundColor($r('app.color.primaryBgColor'))
   }
 }

@@ -16,118 +16,37 @@
 import ColumnInfo from '../common/bean/ColumnInfo';
 
 export const columnGlobalInfoList: Array<ColumnInfo> = [
-  {
-    name: 'id',
-    type: 'integer',
-    primary: true,
-    nullable: true
-  },
-  {
-    name: 'firstDate',
-    type: 'text'
-  },
-  {
-    name: 'lastDate',
-    type: 'text'
-  },
-  {
-    name: 'checkInDays',
-    type: 'integer',
-    nullable: true
-  },
-  {
-    name: 'achievements',
-    type: 'text'
-  }
+  new ColumnInfo('id', 'integer', -1, true, true, false),
+  new ColumnInfo('firstDate', 'text', -1, false, false, false),
+  new ColumnInfo('lastDate', 'text', -1, false, false, false),
+  new ColumnInfo('checkInDays', 'integer', -1, true, false, false),
+  new ColumnInfo('achievements', 'text', -1, false, false, false)
 ];
 
 export const columnDayInfoList: Array<ColumnInfo> = [
-  {
-    name: 'date',
-    type: 'text',
-    primary: true
-  },
-  {
-    name: 'targetTaskNum',
-    type: 'integer',
-    nullable: true
-  },
-  {
-    name: 'finTaskNum',
-    type: 'integer',
-    nullable: true
-  }
+  new ColumnInfo('date', 'text', -1, false, true, false),
+  new ColumnInfo('targetTaskNum', 'integer', -1, true, false, false),
+  new ColumnInfo('finTaskNum', 'integer', -1, true, false, false)
 ];
 
 export const columnTaskInfoInfoList: Array<ColumnInfo> = [
-  {
-    name: 'id',
-    type: 'integer',
-    primary: true,
-    autoincrement: true
-  },
-  {
-    name: 'date',
-    type: 'TEXT'
-  },
-  {
-    name: 'taskID',
-    type: 'integer'
-  },
-  {
-    name: 'targetValue',
-    type: 'text'
-  },
-  {
-    name: 'isAlarm',
-    type: 'boolean'
-  },
-  {
-    name: 'startTime',
-    type: 'text'
-  },
-  {
-    name: 'endTime',
-    type: 'text'
-  },
-  {
-    name: 'frequency',
-    type: 'text'
-  },
-  {
-    name: 'isDone',
-    type: 'boolean',
-    nullable: true
-  },
-  {
-    name: 'finValue',
-    type: 'text'
-  },
-  {
-    name: 'isOpen',
-    type: 'boolean',
-    nullable: true
-  }
+  new ColumnInfo('id', 'integer', -1, false, true, true),
+  new ColumnInfo('date', 'TEXT', -1, false, false, false),
+  new ColumnInfo('taskID', 'integer', -1, false, false, false),
+  new ColumnInfo('targetValue', 'text', -1, false, false, false),
+  new ColumnInfo('isAlarm', 'boolean', -1, false, false, false),
+  new ColumnInfo('startTime', 'text', -1, false, false, false),
+  new ColumnInfo('endTime', 'text', -1, false, false, false),
+  new ColumnInfo('frequency', 'text', -1, false, false, false),
+  new ColumnInfo('isDone', 'boolean', -1, true, false, false),
+  new ColumnInfo('finValue', 'text', -1, false, false, false),
+  new ColumnInfo('isOpen', 'boolean', -1, true, false, false)
 ];
 
 export const columnFormInfoList: Array<ColumnInfo> = [
-  {
-    name: 'id',
-    type: 'integer',
-    primary: true,
-    nullable: true
-  },
-  {
-    name: 'formId',
-    type: 'text'
-  },
-  {
-    name: 'formName',
-    type: 'text'
-  },
-  {
-    name: 'formDimension',
-    type: 'integer'
-  }
+  new ColumnInfo('id', 'integer', -1, true, true, false),
+  new ColumnInfo('formId', 'text', -1, false, false, false),
+  new ColumnInfo('formName', 'text', -1, false, false, false),
+  new ColumnInfo('formDimension', 'integer', -1, false, false, false)
 ];
 

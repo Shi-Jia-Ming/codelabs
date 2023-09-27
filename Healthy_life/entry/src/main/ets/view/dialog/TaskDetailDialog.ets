@@ -16,7 +16,8 @@
 import { CustomDialogCallback } from './CustomDialogView';
 import TaskInfo from '../../common/bean/TaskInfo';
 import { TaskMapById } from '../../model/TaskInitList';
-import { DEFAULT_8, DEFAULT_12 } from '../../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../../common/constants/CommonConstants';
+import { GlobalContext } from '../../common/utils/GlobalContext';
 
 @Extend(Text) function textStyle () {
   .fontColor($r('app.color.white'))
@@ -30,7 +31,7 @@ import { DEFAULT_8, DEFAULT_12 } from '../../common/constants/CommonConstants';
 
 @CustomDialog
 export struct TaskDetailDialog {
-  controller: CustomDialogController;
+  controller: CustomDialogController = new CustomDialogController({ builder: '' });
   @Consume currentTask: TaskInfo;
   @State showButton: boolean = true;
   @Consume dialogCallBack: CustomDialogCallback;
@@ -38,7 +39,7 @@ export struct TaskDetailDialog {
   build() {
     Column() {
       TaskBaseInfo({
-        taskName: TaskMapById[this.currentTask?.taskID].taskName
+        taskName: TaskMapById[this.currentTask?.taskID - 1].taskName
       });
 
       TaskClock({
@@ -54,7 +55,7 @@ export struct TaskDetailDialog {
     }
     .height($r('app.float.default_451'))
     .width($r('app.float.default_316'))
-    .backgroundImage(TaskMapById[this.currentTask?.taskID].dialogBg, ImageRepeat.NoRepeat)
+    .backgroundImage(TaskMapById[this.currentTask?.taskID - 1].dialogBg, ImageRepeat.NoRepeat)
     .backgroundImageSize({
       width: '100%',
       height: '100%'
@@ -69,10 +70,10 @@ export struct TaskDetailDialog {
 
 @Component
 struct TaskBaseInfo {
-  taskName: string | Resource;
+  taskName: string | Resource = '';
 
   build() {
-    Column({ space: DEFAULT_8 }) {
+    Column({ space: Const.DEFAULT_8 }) {
       Text(this.taskName)
         .fontSize($r('app.float.default_22'))
         .fontWeight(FontWeight.Bold)
@@ -86,12 +87,12 @@ struct TaskBaseInfo {
 
 @Component
 struct TaskClock {
-  confirm: () => void;
-  cancel: () => void;
+  confirm: Function = () => {};
+  cancel: Function = () => {};
   showButton: boolean = false;
 
   build() {
-    Column({ space: DEFAULT_12 }) {
+    Column({ space: Const.DEFAULT_12 }) {
       Button() {
         Text($r('app.string.clock_in'))
           .height($r('app.float.default_42'))
@@ -103,7 +104,7 @@ struct TaskClock {
       .borderRadius($r('app.float.default_24'))
       .backgroundColor('rgba(255,255,255,0.40)')
       .onClick(() => {
-        globalThis.taskListChange = true;
+        GlobalContext.getContext().setObject('taskListChange', true);
         this.confirm();
       })
       .visibility(!this.showButton ? Visibility.None : Visibility.Visible)

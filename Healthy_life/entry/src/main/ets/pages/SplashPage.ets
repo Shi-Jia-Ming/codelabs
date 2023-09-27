@@ -18,7 +18,7 @@ import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
 import data_preferences from '@ohos.data.preferences';
 import Logger from '../common/utils/Logger';
-import * as commonConst from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import UserPrivacyDialog from '../view/dialog/UserPrivacyDialog';
 
 // app preferences name
@@ -32,36 +32,36 @@ struct SplashIndex {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: UserPrivacyDialog(
       {
-        cancel: this.exitApp.bind(this),
-        confirm: this.onConfirm.bind(this)
+        cancel: () => { this.exitApp(this) },
+        confirm: () => { this.onConfirm(this) }
       }),
-    cancel: this.exitApp.bind(this),
+    cancel: () => { this.exitApp(this) },
     autoCancel: false,
     alignment: DialogAlignment.Bottom,
-    offset: { dx: 0, dy: commonConst.OFFSET_24 }
+    offset: { dx: 0, dy: Const.OFFSET_24 }
   });
 
-  onConfirm() {
-    let preferences = data_preferences.getPreferences(this.context, H_STORE);
+  onConfirm(that) {
+    let preferences = data_preferences.getPreferences(that.context, H_STORE);
     preferences.then((res) => {
       res.put(IS_PRIVACY, true).then(() => {
         res.flush();
         Logger.info('SplashPage','isPrivacy is put success');
-      }).catch((err) => {
+      }).catch((err: Error) => {
         Logger.info('SplashPage','isPrivacy put failed. Cause:' + err);
       });
     })
-    this.jumpAdPage();
+    that.jumpAdPage();
   }
 
-  exitApp() {
-    this.context.terminateSelf();
+  exitApp(that) {
+    that.context.terminateSelf();
   }
 
   jumpAdPage() {
     setTimeout(() => {
       router.replaceUrl({ url: 'pages/AdvertisingPage' });
-    }, commonConst.LAUNCHER_DELAY_TIME);
+    }, Const.LAUNCHER_DELAY_TIME);
   }
 
   aboutToAppear() {
@@ -91,17 +91,17 @@ struct SplashIndex {
         .fontFamily($r('app.string.HarmonyHeiTi_Bold'))
         .fontSize($r('app.float.default_24'))
         .fontColor($r('app.color.titleColor'))
-        .fontWeight(commonConst.FONT_WEIGHT_700)
-        .letterSpacing(commonConst.LETTER_1)
+        .fontWeight(Const.FONT_WEIGHT_700)
+        .letterSpacing(Const.LETTER_1)
         .margin({
           top: $r('app.float.default_20'),
           bottom: $r('app.float.default_8') })
       Text($r('app.string.EntryAbility_desc'))
         .fontFamily($r('app.string.HarmonyHeiTi'))
         .fontColor($r('app.color.titleColor'))
-        .fontWeight(commonConst.FONT_WEIGHT_400)
-        .letterSpacing(commonConst.LETTER_34)
-        .opacity(commonConst.OPACITY_6)
+        .fontWeight(Const.FONT_WEIGHT_400)
+        .letterSpacing(Const.LETTER_34)
+        .opacity(Const.OPACITY_6)
         .fontSize($r('app.float.default_16'))
     }
     .width('100%')

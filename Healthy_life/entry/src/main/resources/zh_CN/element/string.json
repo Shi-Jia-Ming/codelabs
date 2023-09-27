@@ -27,6 +27,10 @@
     {
       "name": "task_reason",
       "value": "用于发布/取消任务提醒"
+    },
+    {
+      "name": "empty",
+      "value": "empty"
     }
   ]
 }

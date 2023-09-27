@@ -18,7 +18,7 @@ let agencyStorage = new LocalStorage();
 @Entry(agencyStorage)
 @Component
 struct AgencyCard {
-  @LocalStorageProp('taskList') taskList: [] = [];
+  @LocalStorageProp('taskList') taskList: AgencyCardInfo[] = [];
   @LocalStorageProp('showWidget') showWidget: boolean = false;
   private iconList = {
     getup: $r('app.media.ic_task_morning'),
@@ -27,7 +27,7 @@ struct AgencyCard {
     smile: $r('app.media.ic_task_smile'),
     clean: $r('app.media.ic_task_brush'),
     sleep: $r('app.media.ic_task_night')
-  }
+  } as iconInfo;
   /*
    * The action type.
    */
@@ -113,18 +113,45 @@ struct AgencyCard {
    */
   readonly TEXT_SLIGHTLY_BOLD: number = 500;
 
+  getIconByCardTaskType(key?: string): Resource {
+    let result: Resource = $r('app.string.empty');
+    switch (key) {
+      case 'getup':
+        result = $r('app.media.ic_task_morning');
+        break;
+      case 'drink':
+        result = $r('app.media.ic_task_water');
+        break;
+      case 'apple':
+        result = $r('app.media.ic_task_apple');
+        break;
+      case 'smile':
+        result = $r('app.media.ic_task_smile');
+        break;
+      case 'clean':
+        result = $r('app.media.ic_task_brush');
+        break;
+      case 'sleep':
+        result = $r('app.media.ic_task_night');
+        break;
+      default:
+        break;
+    }
+    return result;
+  }
+
   build() {
     Column() {
       if (this.showWidget) {
         List({ space: this.LIST_SPACE }) {
-          ForEach(this.taskList, (taskItem) => {
+          ForEach(this.taskList, (taskItem: AgencyCardInfo) => {
             ListItem() {
               this.AgencyComponent(taskItem)
             }
             .margin({ right: $r("app.float.agency_item_margin") })
             .borderRadius($r("app.float.agency_item_radius"))
             .backgroundColor(Color.White)
-          }, item => JSON.stringify(item))
+          }, (taskItem: AgencyCardInfo) => JSON.stringify(taskItem))
         }
         .padding({
           left: $r('app.float.agency_padding_left'),
@@ -164,9 +191,9 @@ struct AgencyCard {
     })
   }
 
-  @Builder AgencyComponent(taskItem) {
+  @Builder AgencyComponent(taskItem: AgencyCardInfo) {
     Row() {
-      Image(this.iconList[taskItem.taskType])
+      Image(this.getIconByCardTaskType(taskItem.taskType))
         .width($r('app.float.agency_image_size'))
         .height($r('app.float.agency_image_size'))
         .objectFit(ImageFit.Contain)
@@ -218,4 +245,24 @@ struct AgencyCard {
       'abilityName': this.ABILITY_NAME
     });
   }
+}
+
+class AgencyCardInfo {
+  taskType?: string;
+  targetValue?: string;
+  finValue?: string;
+  unit?: string;
+  dateType?: boolean;
+  hasTargetValue?: boolean;
+  finValueIsNull?:boolean;
+  isDone?: boolean;
+}
+
+interface iconInfo {
+  getup: Resource;
+  drink: Resource;
+  apple: Resource;
+  smile: Resource;
+  clean: Resource;
+  sleep: Resource;
 }

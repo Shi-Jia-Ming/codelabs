@@ -45,7 +45,7 @@ export class RdbUtils {
         rdbHelper.getRdb(dbContext).then(data => {
           this.rdbHelpers.set(dbName, data);
           success(data);
-        }).catch(err => {
+        }).catch((err: Error) => {
           error(err);
         })
       } else {
@@ -54,7 +54,7 @@ export class RdbUtils {
     })
   }
 
-  deleteDb(context: any, dbName: string): Promise<void> {
+  deleteDb(context: Context, dbName: string): Promise<void> {
     this.rdbHelpers.delete(dbName);
     return dataRdb.deleteRdbStore(context, dbName);
   }
@@ -62,13 +62,13 @@ export class RdbUtils {
   createTable(tableName: string, columns: Array<ColumnInfo>): Promise<void> {
     return this.createDb().then(dbHelper => {
       return dbHelper.createTable(tableName, columns);
-    })
+    });
   }
 
   isCreateTable(tableName: string, columns: Array<ColumnInfo>): Promise<boolean> {
     return this.createTable(tableName, columns).then(() => {
       return true;
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error('RdbUtils', 'create table error ' + JSON.stringify(error));
       return false;
     });

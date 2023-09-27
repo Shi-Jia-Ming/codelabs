@@ -14,43 +14,13 @@
  */
 
 /**
- * Agency card task info
+ * Week Calendar Method Info
  */
-export default class AgencyCardInfo {
-  /**
-   * Task type
-   */
-  taskType?: string;
+export default class WeekCalendarMethodInfo {
+  gotoPreviousWeek: Function = () => {};
+  goToNextWeek: Function = () => {};
+  onScrollEndAction: Function = () => {};
+  onScrollEdgeAction: Function = () => {};
+  calenderItemClickAction: Function = () => {};
 
-  /**
-   * Total targets
-   */
-  targetValue?: string;
-
-  /**
-   * Total completed
-   */
-  finValue?: string;
-
-  /**
-   * Task unit
-   */
-  unit?: string;
-
-  /**
-   * Task date type
-   */
-  dateType?: boolean;
-
-  /**
-   * Whether there is a task target value
-   */
-  hasTargetValue?: boolean;
-
-  /**
-   * Completed quantity is empty.
-   */
-  finValueIsNull?:boolean;
-
-  isDone?: boolean;
 }

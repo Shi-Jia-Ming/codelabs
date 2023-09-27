@@ -15,7 +15,7 @@
 - [Toggle](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-toggle-0000001478061705-V3?catalogVersion=V3)： 组件提供勾选框样式、状态按钮样式及开关样式。
 - [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/data-persistence-by-rdb-store-0000001505752421-V3?catalogVersion=V3)：一种基于关系模型来管理数据的数据库。
 - [首选项](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/data-persistence-by-preferences-0000001505432513-V3?catalogVersion=V3)：首选项为应用提供Key-Value键值型的数据处理能力，支持应用持久化轻量级数据，并对其修改和查询。
-- [后台代理提醒](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/reminder-agent-development-0000001493903928-V3?catalogVersion=V3)：后台代理提醒功能主要提供后台提醒通知发布接口，开发者可调用这些接口创建定时提醒，包括倒计时、日历、闹钟三种提醒类型。
+- [后台代理提醒](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/agent-powered-reminder-0000001663585481-V3?catalogVersion=V3)：后台代理提醒功能主要提供后台提醒通知发布接口，开发者可调用这些接口创建定时提醒，包括倒计时、日历、闹钟三种提醒类型。
 - [ArkTS卡片](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-ui-widget-working-principles-0000001485485850-V3)：卡片框架的运作机制分三大模块：卡片使用方、卡片管理服务和卡片提供方。
   - 卡片使用方：负责卡片的创建、删除、请求更新以及卡片服务通信。
   - 卡片管理服务：负责卡片的周期性刷新、卡片缓存管理、卡片生命周期管理以及卡片使用对象管理。

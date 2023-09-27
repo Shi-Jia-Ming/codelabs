@@ -14,43 +14,14 @@
  */
 
 /**
- * Agency card task info
+ * Publish reminder info
  */
-export default class AgencyCardInfo {
-  /**
-   * Task type
-   */
-  taskType?: string;
+export default class PublishReminderInfo {
+  hour: number = 0;
+  minute: number = 0;
+  daysOfWeek: Array<number> = [];
+  title: string = '';
+  content: string = '';
+  notificationId: number = 0;
 
-  /**
-   * Total targets
-   */
-  targetValue?: string;
-
-  /**
-   * Total completed
-   */
-  finValue?: string;
-
-  /**
-   * Task unit
-   */
-  unit?: string;
-
-  /**
-   * Task date type
-   */
-  dateType?: boolean;
-
-  /**
-   * Whether there is a task target value
-   */
-  hasTargetValue?: boolean;
-
-  /**
-   * Completed quantity is empty.
-   */
-  finValueIsNull?:boolean;
-
-  isDone?: boolean;
 }

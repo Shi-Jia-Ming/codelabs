@@ -12,22 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import AchievementMapInfo from '../common/bean/AchievementMapInfo';
 
 import TaskInfo from '../common/bean/TaskInfo';
-import {
-  GET_UP_TASK_NAME,
-  DRINK_TASK_NAME,
-  EAT_APPLE_TASK_NAME,
-  SMILE_TASK_NAME,
-  BRUSH_TEETH_TASK_NAME,
-  SLEEP_TASK_NAME,
-  GET_UP_CONTENT,
-  DRINK_CONTENT,
-  EAT_APPLE_CONTENT,
-  SMILE_CONTENT,
-  BRUSH_TEETH_CONTENT,
-  SLEEP_CONTENT
-} from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 export interface ITaskItem {
   taskID: number;
@@ -45,8 +33,9 @@ export interface ITaskItem {
   step: number;
 }
 
-export interface TaskInitListType {
-  [key: number]: ITaskItem;
+export interface RemindContentItem {
+  title: string;
+  content: string;
 }
 
 export interface FrequencyContentType {
@@ -56,104 +45,19 @@ export interface FrequencyContentType {
 }
 
 export const TaskList: TaskInfo[] = [
-  {
-    id: 0,
-    taskID: 1,
-    isOpen: true,
-    date: '',
-    targetValue: '7:00',
-    isAlarm: true,
-    startTime: '',
-    endTime: ';',
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  },
-  {
-    id: 1,
-    taskID: 2,
-    isOpen: true,
-    date: '',
-    targetValue: '1.5',
-    isAlarm: true,
-    startTime: '',
-    endTime: ';',
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  },
-  {
-    id: 2,
-    taskID: 3,
-    isOpen: true,
-    date: '',
-    targetValue: '3',
-    startTime: '08: 00',
-    endTime: '',
-    isAlarm: true,
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  },
-  {
-    id: 3,
-    taskID: 4,
-    isOpen: true,
-    date: '',
-    targetValue: '1',
-    isAlarm: true,
-    startTime: '',
-    endTime: ';',
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  },
-  {
-    id: 4,
-    taskID: 5,
-    isOpen: true,
-    date: '',
-    targetValue: '21:30',
-    isAlarm: true,
-    startTime: '',
-    endTime: ';',
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  },
-  {
-    id: 5,
-    taskID: 6,
-    isOpen: true,
-    date: '',
-    targetValue: '22:00',
-    isAlarm: true,
-    startTime: '',
-    endTime: ';',
-    frequency: '',
-    isDone: false,
-    finValue: ''
-  }
+  new TaskInfo(0, '', 1, '7:00', true, '', ';', '', false, '', true),
+  new TaskInfo(1, '', 2, '1.5', true, '', ';', '', false, '', true),
+  new TaskInfo(2, '', 3, '3', true, '08: 00', '', '', false, '', true),
+  new TaskInfo(3, '', 4, '1', true, '', ';', '', false, '', true),
+  new TaskInfo(4, '', 5, '21:30', true, '', ';', '', false, '', true),
+  new TaskInfo(5, '', 6, '22:00', true, '', ';', '', false, '', true)
 ]
 
-export const AchievementMap = {
-  '3_off': $r('app.media.ic_badge_3_off'),
-  '3_on': $r('app.media.ic_badge_3_on'),
-  '7_off': $r('app.media.ic_badge_7_off'),
-  '7_on': $r('app.media.ic_badge_7_on'),
-  '30_off': $r('app.media.ic_badge_30_off'),
-  '30_on': $r('app.media.ic_badge_30_on'),
-  '50_off': $r('app.media.ic_badge_50_off'),
-  '50_on': $r('app.media.ic_badge_50_on'),
-  '73_off': $r('app.media.ic_badge_73_off'),
-  '73_on': $r('app.media.ic_badge_73_on'),
-  '99_off': $r('app.media.ic_badge_99_off'),
-  '99_on': $r('app.media.ic_badge_99_on')
-}
+let achievementMap = new AchievementMapInfo();
+export const AchievementMap = achievementMap;
 
-
-export const TaskMapById: TaskInitListType = {
-  1: {
+export const TaskMapById: Array<ITaskItem> = [
+  {
     taskID: 1,
     taskName: $r('app.string.task_morning'),
     icon: $r("app.media.ic_task_morning"),
@@ -168,7 +72,7 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   },
-  2: {
+  {
     taskID: 2,
     taskName: $r('app.string.task_water'),
     icon: $r("app.media.ic_task_water"),
@@ -183,7 +87,7 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   },
-  3: {
+  {
     taskID: 3,
     taskName: $r('app.string.task_apple'),
     icon: $r("app.media.ic_task_apple"),
@@ -198,7 +102,7 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   },
-  4: {
+  {
     taskID: 4,
     taskName: $r('app.string.task_smile'),
     icon: $r("app.media.ic_task_smile"),
@@ -213,7 +117,7 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   },
-  5: {
+  {
     taskID: 5,
     taskName: $r('app.string.task_brush'),
     icon: $r("app.media.ic_task_brush"),
@@ -228,7 +132,7 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   },
-  6: {
+  {
     taskID: 6,
     taskName: $r('app.string.task_night'),
     icon: $r("app.media.ic_task_night"),
@@ -243,47 +147,35 @@ export const TaskMapById: TaskInitListType = {
     endTime: '00: 00',
     frequency: '1, 2, 3, 4, 5, 6, 7'
   }
-}
+]
 
-export const TaskItem: TaskInfo = {
-  id: 1,
-  taskID: 0,
-  isOpen: false,
-  date: '',
-  targetValue: '7:00',
-  isAlarm: true,
-  startTime: 'string',
-  endTime: 'string;',
-  frequency: '',
-  isDone: true,
-  finValue: '6:58'
-};
+export const TaskItem = new TaskInfo(1, '', 0, '7:00', true, 'string', 'string;', '', true, '6:58', false);
 
-export const RemindContentMap = {
-  1: {
-    title: GET_UP_TASK_NAME,
-    content: GET_UP_CONTENT
+export const RemindContentMap: Array<RemindContentItem> = [
+  {
+    title: Const.GET_UP_TASK_NAME,
+    content: Const.GET_UP_CONTENT
   },
-  2: {
-    title: DRINK_TASK_NAME,
-    content: DRINK_CONTENT
+  {
+    title: Const.DRINK_TASK_NAME,
+    content: Const.DRINK_CONTENT
   },
-  3: {
-    title: EAT_APPLE_TASK_NAME,
-    content: EAT_APPLE_CONTENT
+  {
+    title: Const.EAT_APPLE_TASK_NAME,
+    content: Const.EAT_APPLE_CONTENT
   },
-  4: {
-    title: SMILE_TASK_NAME,
-    content: SMILE_CONTENT
+  {
+    title: Const.SMILE_TASK_NAME,
+    content: Const.SMILE_CONTENT
   },
-  5: {
-    title: BRUSH_TEETH_TASK_NAME,
-    content: BRUSH_TEETH_CONTENT
+  {
+    title: Const.BRUSH_TEETH_TASK_NAME,
+    content: Const.BRUSH_TEETH_CONTENT
   },
-  6: {
-    title: SLEEP_TASK_NAME,
-    content: SLEEP_CONTENT
-  },
-};
+  {
+    title: Const.SLEEP_TASK_NAME,
+    content: Const.SLEEP_CONTENT
+  }
+];
 
 export const ACHIEVEMENT_LEVEL_LIST = [3, 7, 30, 50, 73, 99];

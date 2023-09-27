@@ -17,6 +17,7 @@ import TaskInfo from '../common/bean/TaskInfo';
 import DayInfo from '../common/bean/DayInfo';
 import { WEEK_TITLES, dateToStr } from '../common/utils/Utils'
 import Logger from '../common/utils/Logger'
+import WeekCalendarInfo from '../common/bean/WeekCalendarInfo';
 
 // day number of on week
 export const WEEK_DAY_NUM: number = 7;
@@ -25,7 +26,7 @@ export class WeekDateModel {
   weekTitle: string;
   dateStr: string;
   date: Date;
-  dayInfo: DayInfo;
+  dayInfo: DayInfo = new DayInfo('', 0, 0);
   taskList: TaskInfo[] = [];
 
   constructor(weekTitle: string, dateStr: string, date: Date) {
@@ -40,8 +41,10 @@ export class WeekDateModel {
  *
  * @param date  today str
  */
-export function initializeOnStartUp(date: Date): [Array<WeekDateModel>, Array<string>] {
-  let [arr, strArr] = [[], []]; // getPreviousWeek(date);
+export function initializeOnStartUp(date: Date): WeekCalendarInfo {
+  let weekCalendarInfo: WeekCalendarInfo = new WeekCalendarInfo();
+  let arr: Array<WeekDateModel> = [];
+  let strArr: Array<string> = [];
   let currentDay = date.getDay() - 1;
   if (date.getDay() === 0) {
     currentDay = 6;
@@ -57,7 +60,9 @@ export function initializeOnStartUp(date: Date): [Array<WeekDateModel>, Array<st
     arr.push(new WeekDateModel(WEEK_TITLES[tempDate.getDay()], dateStr, tempDate))
   }
   Logger.debug('WeekCalendarModel', 'initialWeekDate' + JSON.stringify(arr))
-  return [arr, strArr];
+  weekCalendarInfo.arr = arr;
+  weekCalendarInfo.strArr = strArr;
+  return weekCalendarInfo;
 }
 
 /**
@@ -65,8 +70,9 @@ export function initializeOnStartUp(date: Date): [Array<WeekDateModel>, Array<st
  *
  * @param showDate  base data
  */
-export function getPreviousWeek(showDate: Date): [Array<WeekDateModel>, Array<string>] {
-  Logger.debug('WeekCalendarModel', 'get week date by date: ' + showDate.toDateString())
+export function getPreviousWeek(showDate: Date): WeekCalendarInfo {
+  Logger.debug('WeekCalendarModel', 'get week date by date: ' + showDate.toDateString());
+  let weekCalendarInfo: WeekCalendarInfo = new WeekCalendarInfo();
   let arr: Array<WeekDateModel> = [];
   let strArr: Array<string> = [];
   let currentDay = showDate.getDay() - 1;
@@ -77,9 +83,11 @@ export function getPreviousWeek(showDate: Date): [Array<WeekDateModel>, Array<st
     tempDate.setDate(showDate.getDate() - index);
     let dateStr = dateToStr(tempDate);
     strArr.push(dateStr);
-    arr.push(new WeekDateModel(WEEK_TITLES[tempDate.getDay()], dateStr, tempDate))
+    arr.push(new WeekDateModel(WEEK_TITLES[tempDate.getDay()], dateStr, tempDate));
   }
-  Logger.debug('WeekCalendarModel', JSON.stringify(arr))
-  return [arr, strArr];
+  Logger.debug('WeekCalendarModel', JSON.stringify(arr));
+  weekCalendarInfo.arr = arr;
+  weekCalendarInfo.strArr = strArr;
+  return weekCalendarInfo;
 }
 

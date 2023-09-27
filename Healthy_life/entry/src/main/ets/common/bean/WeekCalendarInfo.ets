@@ -12,26 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { WeekDateModel } from '../../model/WeekCalendarModel';
 
-import { ListInfo } from '../view/ListInfo';
-import { UserBaseInfo } from '../view/UserBaseInfo';
-import { CommonConstants as Const } from '../common/constants/CommonConstants';
-
-@Component
-export struct MineIndex {
-  @State nickname: string = Const.NICK_NAME;
-  @State signature: string = Const.SIGNATURE;
-
-  build() {
-    Column() {
-      UserBaseInfo({
-        nickname: this.nickname,
-        signature: this.signature
-      });
-
-      ListInfo();
-    }
-    .height(Const.FULL_HEIGHT)
-    .backgroundColor($r('app.color.mineBgColor'))
-  }
+/**
+ * Week calendar info
+ *
+ */
+export default class WeekCalendarInfo {
+  arr: Array<WeekDateModel> = [];
+  strArr: Array<string> = [];
 }
