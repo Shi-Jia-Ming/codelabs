@@ -17,11 +17,15 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 import window from '@ohos.window';
 import abilityAccessCtrl from '@ohos.abilityAccessCtrl';
 import Logger from '../common/utils/Logger';
+import { GlobalContext } from '../common/bean/GlobalContext';
+import Want from '@ohos.app.ability.Want';
+
 
 export default class EntryAbility extends UIAbility {
-  onCreate(want) {
+  onCreate(want: Want) {
     Logger.info('testTag', '%{public}s', 'Ability onCreate');
-    globalThis.abilityWant = want;
+    // globalThis.abilityWant = want;
+    GlobalContext.getContext().setObject('abilityWant', want);
   }
 
   onDestroy() {
@@ -49,7 +53,7 @@ export default class EntryAbility extends UIAbility {
 
   onForeground() {
     // Ability has brought to foreground.
-    globalThis.isBackRouter = false;
+    GlobalContext.getContext().setObject('isBackRouter', false)
     Logger.info('testTag', '%{public}s', 'Ability onForeground');
   }
 
@@ -61,10 +65,11 @@ export default class EntryAbility extends UIAbility {
   private requestPermissions() {
     let atManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.context, ['ohos.permission.READ_MEDIA'])
-      .then(data => {
+      .then((data) => {
+        abilityAccessCtrl
         Logger.info('testTag', '%{public}s', `request permission data result: ${data}`);
       })
-      .catch(err => {
+      .catch((err: Error) => {
         Logger.error('testTag', '%{public}s', `fail to request permission error:${err}`)
       });
   }

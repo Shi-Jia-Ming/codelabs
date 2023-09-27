@@ -17,7 +17,7 @@ import Constants from '../common/constants/Constants';
 
 @Component
 export default struct FailureLayout {
-  reloadAction: () => void;
+  reloadAction = () => {};
 
   build() {
     Column() {

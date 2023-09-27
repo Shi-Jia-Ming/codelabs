@@ -69,10 +69,10 @@ export default class RefreshListViewModel {
         }
         if (this.isPullRefreshOperation) {
           // Touch up pull refresh.
-          this.touchUpPullRefresh.call(this);
+          this.touchUpPullRefresh();
         } else {
           // Touch up load more.
-          this.touchUpLoadMore.call(this);
+          this.touchUpLoadMore();
         }
         break;
       default:
@@ -105,7 +105,7 @@ export default class RefreshListViewModel {
       this.pullRefreshState(RefreshState.Refreshing);
       this.currentPage = 1;
       setTimeout(() => {
-        NewsViewModel.getNewsList(this.currentPage, this.pageSize).then((data) => {
+        NewsViewModel.getNewsList(this.currentPage, this.pageSize).then((data: NewsData[]) => {
           if (data.length === this.pageSize) {
             this.currentPage++;
             this.hasMore = true;
@@ -114,7 +114,7 @@ export default class RefreshListViewModel {
           }
           this.newsData = data;
           this.closeRefresh(true);
-        }).catch((errMsg) => {
+        }).catch((errMsg: string | Resource) => {
           prompt.showToast({ message: errMsg });
           this.closeRefresh(false);
         })
@@ -198,21 +198,21 @@ export default class RefreshListViewModel {
     if (this.isCanLoadMore && this.hasMore) {
       this.isLoading = true;
       setTimeout(() => {
-        NewsViewModel.getNewsList(this.currentPage, this.pageSize).then((data) => {
+        NewsViewModel.getNewsList(this.currentPage, this.pageSize).then((data: NewsData[]) => {
           if (data.length === this.pageSize) {
             this.currentPage++;
             this.hasMore = true;
           } else {
             this.hasMore = false;
           }
-          this.newsData = [...this.newsData, ...data];
-        }).catch((errMsg) => {
+          this.newsData = this.newsData.concat(data);
+        }).catch((errMsg: string | Resource) => {
           prompt.showToast({ message: errMsg });
         })
-        this.closeLoadMore.call(this);
+        this.closeLoadMore();
       }, Constants.DELAY_TIME);
     } else {
-      this.closeLoadMore.call(this);
+      this.closeLoadMore();
     }
   }
 

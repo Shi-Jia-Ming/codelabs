@@ -37,15 +37,15 @@ export async function fileSelect(): Promise<string> {
       let imgUri = photoSelectResult.photoUris[0];
       if (imgUri.indexOf('media/image')<0) {
         showToast($r('app.string.prompt_select_img'));
-        return null;
+        return '';
       }
       return photoSelectResult.photoUris[0];
     } else {
-      return null;
+      return '';
     }
   } catch (err) {
     Logger.error('SelectedImage failed', JSON.stringify(err));
-    return null;
+    return '';
   }
 }
 
@@ -62,7 +62,7 @@ export function fileUpload(context: Context, fileUri: string): Promise<ResponseR
   let imgName = fileUri.split('/').pop() + '.jpg';
   let dstPath = cacheDir + '/' + imgName;
   let url: string = Constants.SERVER + Constants.UPLOAD_FILE;
-  let uploadRequestOptions = {
+  let uploadRequestOptions: request.UploadConfig = {
     url: url,
     header: {
       'Content-Type': ContentType.FORM
@@ -78,7 +78,7 @@ export function fileUpload(context: Context, fileUri: string): Promise<ResponseR
   };
 
   let serverData = new ResponseResult();
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve: Function, reject: Function) => {
     try {
       // Copy the URI to the cacheDir directory and upload the file.
       let srcFile = fs.openSync(fileUri);
@@ -88,7 +88,7 @@ export function fileUpload(context: Context, fileUri: string): Promise<ResponseR
       fs.closeSync(dstFile);
 
       // Upload the file.
-      request.uploadFile(context, uploadRequestOptions).then((data) => {
+      request.uploadFile(context, uploadRequestOptions).then((data: request.UploadTask) => {
         data.on(UploadingState.COMPLETE, (result: Array<request.TaskState>) => {
           Logger.info('uploadFile success', JSON.stringify(result));
           if (result && result.length >= 1) {
@@ -105,7 +105,7 @@ export function fileUpload(context: Context, fileUri: string): Promise<ResponseR
             reject(serverData);
           }
         })
-      }).catch((err) => {
+      }).catch((err: Error) => {
         Logger.error('uploadFile failed', JSON.stringify(err));
         reject(serverData);
       });

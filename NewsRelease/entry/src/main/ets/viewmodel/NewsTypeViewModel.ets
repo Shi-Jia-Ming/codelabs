@@ -14,17 +14,18 @@
  */
 
 import NewsTypeBean from '../common/bean/NewsTypeBean'
+import ResponseResult from '../common/bean/ResponseResult';
 import Constants from '../common/constants/Constants';
 import { httpRequestGet } from '../common/utils/HttpUtil';
 
 const DEFAULT_NEWS_TYPES: NewsTypeBean[] = [
-  { id: 0, name: $r('app.string.tab_all') },
-  { id: 1, name: $r('app.string.tab_domestic') },
-  { id: 2, name: $r('app.string.tab_international') },
-  { id: 3, name: $r('app.string.tab_fun') },
-  { id: 4, name: $r('app.string.tab_military') },
-  { id: 5, name: $r('app.string.tab_sports') },
-  { id: 6, name: $r('app.string.tab_science') }
+  new NewsTypeBean(0, $r('app.string.tab_all')),
+  new NewsTypeBean(1, $r('app.string.tab_domestic')),
+  new NewsTypeBean(2, $r('app.string.tab_international')),
+  new NewsTypeBean(3, $r('app.string.tab_fun')),
+  new NewsTypeBean(4, $r('app.string.tab_military')),
+  new NewsTypeBean(5, $r('app.string.tab_sports')),
+  new NewsTypeBean(6, $r('app.string.tab_science'))
 ];
 
 class NewsTypeViewModel {
@@ -34,9 +35,9 @@ class NewsTypeViewModel {
    * @return NewsTypeBean[] newsTypeList
    */
   getNewsTypeList(): Promise<NewsTypeBean[]> {
-    return new Promise((resolve) => {
+    return new Promise((resolve: Function) => {
       let url = `${Constants.SERVER}/${Constants.GET_NEWS_TYPE}`;
-      httpRequestGet(url).then((data) => {
+      httpRequestGet(url).then((data: ResponseResult) => {
         if (data.code === Constants.SERVER_CODE_SUCCESS) {
           resolve(data.data);
         } else {

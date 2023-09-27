@@ -30,7 +30,7 @@ import RefreshListViewModel from '../viewmodel/RefreshListViewModel';
  */
 @Component
 export default struct NewsList {
-  index: number;
+  index: number = 0;
   @Watch('changeCategory') @Link currentIndex: number;
   @State refreshStore: RefreshListViewModel = new RefreshListViewModel();
 
@@ -39,7 +39,7 @@ export default struct NewsList {
       return;
     }
     this.refreshStore.currentPage = 1;
-    NewsViewModel.getNewsList(this.refreshStore.currentPage, this.refreshStore.pageSize).then((data) => {
+    NewsViewModel.getNewsList(this.refreshStore.currentPage, this.refreshStore.pageSize).then((data: NewsData[]) => {
       this.refreshStore.pageState = PageState.Success;
       if (data.length === this.refreshStore.pageSize) {
         this.refreshStore.currentPage++;
@@ -48,7 +48,7 @@ export default struct NewsList {
         this.refreshStore.hasMore = false;
       }
       this.refreshStore.newsData = data;
-    }).catch((err) => {
+    }).catch((err: string | Resource) => {
       showToast(err);
       this.refreshStore.pageState = PageState.Fail;
     });
@@ -71,15 +71,19 @@ export default struct NewsList {
       } else if (this.refreshStore.pageState === PageState.Success) {
         this.ListLayout()
       } else {
-        FailureLayout({ reloadAction: this.reloadAction.bind(this) })
+        FailureLayout({ reloadAction: () => {
+          this.reloadAction();
+        } })
       }
     }
     .width(Constants.FULL_PERCENT)
     .height(Constants.FULL_PERCENT)
     .justifyContent(FlexAlign.Center)
-    .onTouch((event) => {
-      if (this.refreshStore.pageState === PageState.Success) {
-        this.refreshStore.listTouchEvent(event);
+    .onTouch((event?: TouchEvent) => {
+      if (event) {
+        if (this.refreshStore.pageState === PageState.Success) {
+          this.refreshStore.listTouchEvent(event);
+        }
       }
     })
   }
@@ -95,7 +99,7 @@ export default struct NewsList {
         }
         .backgroundColor($r('app.color.white'))
         .borderRadius($r('app.float.item_border_radius'))
-      }, (item: NewsData, index: number) => JSON.stringify(item) + index)
+      }, (item: NewsData, index?: number) => JSON.stringify(item) + index)
       ListItem() {
         if (this.refreshStore.hasMore) {
           LoadMoreLayout({ loadMoreLayoutClass: this.refreshStore.loadingMoreClass })

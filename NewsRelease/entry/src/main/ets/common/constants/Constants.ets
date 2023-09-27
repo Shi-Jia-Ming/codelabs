@@ -156,10 +156,10 @@ export default class Constants {
 /**
  * The RefreshConstant constants.
  */
-export const RefreshConstant = {
-  DELAY_PULL_DOWN_REFRESH: 50,
-  CLOSE_PULL_DOWN_REFRESH_TIME: 150,
-  DELAY_SHRINK_ANIMATION_TIME: 500,
+export const enum RefreshConstant {
+  DELAY_PULL_DOWN_REFRESH = 50,
+  CLOSE_PULL_DOWN_REFRESH_TIME = 150,
+  DELAY_SHRINK_ANIMATION_TIME = 500
 }
 
 /**

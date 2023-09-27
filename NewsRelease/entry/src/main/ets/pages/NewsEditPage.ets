@@ -20,6 +20,8 @@ import { NewsFile, NewsData } from '../common/bean/NewsData';
 import NewsViewModel from '../viewmodel/NewsViewModel';
 import { showToast } from '../common/utils/ToastUtil';
 import UploadingLayout from '../view/UploadingLayout';
+import ResponseResult from '../common/bean/ResponseResult';
+import { GlobalContext } from '../common/bean/GlobalContext';
 
 /**
  * NewsEditPage.
@@ -33,33 +35,40 @@ struct NewsEditPage {
   @State isUploading: boolean = false;
 
   selectImage() {
-    fileSelect().then((uri) => {
+    fileSelect().then((uri: string) => {
       this.imageUri = uri || '';
     });
   }
 
   uploadNewsData() {
-    if (!this.title) {
+    if (this.title === '') {
       showToast($r('app.string.prompt_no_title'));
       return;
     }
-    if (!this.content) {
+    if (this.content === '') {
       showToast($r('app.string.prompt_no_content'));
       return;
     }
-    if (!this.imageUri) {
+    if (this.imageUri === '') {
       showToast($r('app.string.prompt_no_file'));
       return;
     }
     this.isUploading = true;
     let serverData = fileUpload(getContext(this), this.imageUri);
-    serverData.then((data) => {
+    serverData.then((data: ResponseResult) => {
       let imageUrl = data.data;
-      let newsFile = new NewsFile(0, imageUrl, 0, 0);
-      let newsData: NewsData = new NewsData(this.title, this.content, [newsFile], '');
+      let newsFile = new NewsFile();
+      newsFile.id = 0;
+      newsFile.url = imageUrl;
+      newsFile.type = 0;
+      newsFile.newsId = 0;
+      let newsData: NewsData = new NewsData();
+      newsData.title = this.title;
+      newsData.content = this.content;
+      newsData.imagesUrl = [newsFile];
       NewsViewModel.uploadNews(newsData).then(() => {
         this.isUploading = false;
-        globalThis.isBackRouter = true;
+        GlobalContext.getContext().setObject('isBackRouter', true);
         router.back();
       }).catch(() => {
         this.isUploading = false;
@@ -107,7 +116,7 @@ struct NewsEditPage {
                   .width($r('app.float.img_size'))
                   .height($r('app.float.img_size'))
                   .objectFit(ImageFit.Cover)
-                  .onClick(this.selectImage.bind(this))
+                  .onClick(() => this.selectImage())
               }
               .padding($r('app.float.common_padding'))
             }
@@ -124,7 +133,7 @@ struct NewsEditPage {
             .height($r('app.float.release_btn_height'))
             .width($r('app.float.release_btn_width'))
             .margin({ bottom: $r('app.float.common_padding') })
-            .onClick(this.uploadNewsData.bind(this))
+            .onClick(() => this.uploadNewsData())
         }
         .padding({
           left: $r('app.float.common_padding'),
