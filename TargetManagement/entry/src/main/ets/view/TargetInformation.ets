@@ -17,9 +17,9 @@ import { CommonConstants } from '../common/constant/CommonConstant';
 
 @Component
 export default struct TargetInformation {
-  @Prop latestUpdateDate: string;
-  @Prop totalTasksNumber: number;
-  @Prop completedTasksNumber: number;
+  @Prop latestUpdateDate: string = '';
+  @Prop totalTasksNumber: number = 0;
+  @Prop completedTasksNumber: number = 0;
 
   build() {
     Column() {

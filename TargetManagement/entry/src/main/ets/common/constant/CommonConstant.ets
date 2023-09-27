@@ -227,7 +227,7 @@ export class CommonConstants {
    * default click index.
    */
   static readonly DEFAULT_CLICK_INDEX: number = -1;
-  
+
   /**
    * default SliderChangeMode.
    */

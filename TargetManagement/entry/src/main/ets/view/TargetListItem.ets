@@ -15,25 +15,26 @@
 
 import TaskItemBean from '../common/bean/TaskItemBean';
 import { CommonConstants } from '../common/constant/CommonConstant';
-import { changeProgress } from '../viewmodel/TaskListItemModel';
+import getCurrentTime from '../common/utils/DateUtil';
+import DataModel from '../viewmodel/DataModel';
 import ProgressEditPanel from './ProgressEditPanel';
 
 @Component
 export default struct TargetListItem {
-  private taskItem: TaskItemBean;
-  @State latestProgress: number = 0;
-  @State updateDate: string = '';
+  private taskItem?: TaskItemBean;
+  @State latestProgress?: number = 0;
+  @State updateDate?: string = '';
   @Link selectArr: Array<boolean>;
-  @Prop isEditMode: boolean;
+  @Prop isEditMode: boolean = false;
   @Link @Watch('onClickIndexChanged') clickIndex: number;
   @State isExpanded: boolean = false;
   @Consume overAllProgressChanged: boolean;
   @State sliderMode: number = CommonConstants.DEFAULT_SLIDER_MODE;
-  private index: number;
+  public index: number = 0;
 
   aboutToAppear() {
-    this.latestProgress = this.taskItem.progressValue;
-    this.updateDate = this.taskItem.updateDate;
+    this.latestProgress = this.taskItem?.progressValue;
+    this.updateDate = this.taskItem?.updateDate;
   }
 
   /**
@@ -54,7 +55,15 @@ export default struct TargetListItem {
           ProgressEditPanel({
             slidingProgress: this.latestProgress,
             onCancel: () => this.isExpanded = false,
-            onClickOK: changeProgress.bind(this),
+            onClickOK: (progress: number): void => {
+              this.latestProgress = progress;
+              this.updateDate = getCurrentTime();
+              let result = DataModel.updateProgress(this.index, this.latestProgress, this.updateDate);
+              if (result) {
+                this.overAllProgressChanged = !this.overAllProgressChanged;
+              }
+              this.isExpanded = false;
+            },
             sliderMode: $sliderMode
           })
             .transition({
@@ -113,7 +122,7 @@ export default struct TargetListItem {
 
   @Builder TargetItem() {
     Row() {
-      Text(this.taskItem.taskName)
+      Text(this.taskItem?.taskName)
         .fontSize($r('app.float.list_font'))
         .fontWeight(CommonConstants.FONT_WEIGHT)
         .fontColor($r('app.color.title_black_color'))
