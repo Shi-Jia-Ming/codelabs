@@ -39,18 +39,26 @@ struct FullCustomTransition {
   }
 
   /**
-   * 页面转场通过全局pageTransition方法进行配置转场参数
+   * Page transition parameters are configured using the global pageTransition method.
    *
-   * 进场过程中会逐帧触发onEnter回调，入参为动效的归一化进度(0 - 1)
-   * 进场过程中会逐帧触发onExit回调，入参为动效的归一化进度(0 - 1)
+   * Enter: During the entry process, the onEnter callback is triggered frame by frame. 
+   * The input parameter is the normalization progress of the dynamic effect (0–1).
+   * Exit: The onExit callback is triggered frame by frame during entry. 
+   * The input parameter is the normalization progress of the dynamic effect (0–1).
    */
   pageTransition() {
     PageTransitionEnter({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
-      .onEnter((type: RouteType, progress: number) => {
+      .onEnter((type?: RouteType, progress?: number) => {
+        if (!progress) {
+          return;
+        }
         this.animValue = progress;
       });
     PageTransitionExit({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
-      .onExit((type: RouteType, progress: number) => {
+      .onExit((type?: RouteType, progress?: number) => {
+        if (!progress) {
+          return;
+        }
         this.animValue = FULL_CUSTOM_TRANSITION_DEFAULT_ANIM_VALUE - progress;
       });
   }

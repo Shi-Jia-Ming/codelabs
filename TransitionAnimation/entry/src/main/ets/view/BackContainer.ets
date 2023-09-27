@@ -19,7 +19,7 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 
 @Component
 export default struct BackContainer {
-  private header: string | Resource;
+  private header?: string | Resource;
 
   build() {
     Row() {

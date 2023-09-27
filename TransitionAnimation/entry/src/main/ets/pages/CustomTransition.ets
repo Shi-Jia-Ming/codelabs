@@ -31,10 +31,10 @@ struct CustomTransition {
   }
 
   /**
-   * 页面转场通过全局pageTransition方法进行配置转场参数
+   * Page transition parameters are configured using the global pageTransition method.
    *
-   * 进场时透明度设置从0.2到1；x、y轴缩放从0变化到1
-   * 退场时x、y轴的偏移量为500
+   * The transparency is set from 0.2 to 1 when entering the site. The x and y axes are scaled from 0 to 1.
+   * The offset of the x and y axes at exit is 500.
    */
   pageTransition() {
     PageTransitionEnter({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })

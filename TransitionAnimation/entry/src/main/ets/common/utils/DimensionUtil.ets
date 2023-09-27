@@ -14,8 +14,10 @@
  */
 
 import ctx from '@ohos.app.ability.common';
+import display from '@ohos.display';
+import { GlobalContext } from './GlobalContext';
 
-var context = getContext(this) as ctx.Context;
+let context = getContext(this) as ctx.Context;
 
 /**
  * Design drawing width.
@@ -37,7 +39,7 @@ export default class DimensionUtil {
    * @return number
    */
   static adaptDimension(value: number): number {
-    let deviceDisplay = globalThis.display;
+    let deviceDisplay: display.Display = GlobalContext.getContext().getObject('display') as display.Display;
     let widthScale = deviceDisplay.width / DESIGN_WIDTH;
     let virtualHeight = widthScale * DESIGN_HEIGHT;
     let designDim = Math.sqrt(DESIGN_WIDTH * DESIGN_WIDTH + DESIGN_HEIGHT * DESIGN_HEIGHT);
@@ -52,7 +54,7 @@ export default class DimensionUtil {
    */
   static getPx(value: Resource): number {
     let beforeVp = context.resourceManager.getNumber(value.id);
-    return this.adaptDimension(beforeVp);
+    return DimensionUtil.adaptDimension(beforeVp);
   }
 
   /**
@@ -62,7 +64,7 @@ export default class DimensionUtil {
    */
   static getVp(value: Resource): number {
     let beforeVp = context.resourceManager.getNumber(value.id);
-    return px2vp(this.adaptDimension(beforeVp));
+    return px2vp(DimensionUtil.adaptDimension(beforeVp));
   }
 
   /**
@@ -72,6 +74,6 @@ export default class DimensionUtil {
    */
   static getFp(value: Resource): number {
     let beforeFp = context.resourceManager.getNumber(value.id);
-    return px2fp(this.adaptDimension(beforeFp));
+    return px2fp(DimensionUtil.adaptDimension(beforeFp));
   }
 }

@@ -13,19 +13,22 @@
  * limitations under the License.
  */
 
+import AnimationModel from '../bean/AnimationModel'
+
 /**
  * Index page button animation mode.
  */
-export const INDEX_ANIMATION_MODE = [
-  { imgRes: $r('app.media.bg_bottom_anim_transition'), url: 'pages/BottomTransition' },
-  { imgRes: $r('app.media.bg_custom1_anim_transition'), url: 'pages/CustomTransition' },
-  { imgRes: $r('app.media.bg_custom2_anim_transition'), url: 'pages/FullCustomTransition' },
-  { imgRes: $r('app.media.bg_element_anim_transition'), url: 'pages/ComponentTransition' },
-  { imgRes: $r('app.media.bg_share_anim_transition'), url: 'pages/ShareItem' }
+
+export const INDEX_ANIMATION_MODE: AnimationModel[] = [
+  new AnimationModel($r('app.media.bg_bottom_anim_transition'), 'pages/BottomTransition'),
+  new AnimationModel($r('app.media.bg_custom1_anim_transition'), 'pages/CustomTransition'),
+  new AnimationModel($r('app.media.bg_custom2_anim_transition'), 'pages/FullCustomTransition'),
+  new AnimationModel($r('app.media.bg_element_anim_transition'), 'pages/ComponentTransition'),
+  new AnimationModel($r('app.media.bg_share_anim_transition'), 'pages/ShareItem')
 ];
 
 /**
- * common full length
+ * common full length.
  */
 export const FULL_LENGTH = '100%';
 
@@ -47,22 +50,34 @@ export const SHARE_TRANSITION_ID: string = 'shareId';
 /**
  * Component transition scale.
  */
-export const COMPONENT_TRANSITION_SCALE = { x: 0.5, y: 0.5 };
+export const COMPONENT_TRANSITION_SCALE: CustomTransition = { x: 0.5, y: 0.5 };
 
 /**
  * Component transition opacity.
  */
 export const COMPONENT_TRANSITION_OPACITY = 0;
 
+class ComponentTransitionRotate {
+  x: number = 0;
+  y: number = 0;
+  z: number = 0;
+  angle: number = 360;
+}
+
 /**
  * Component transition rotate.
  */
-export const COMPONENT_TRANSITION_ROTATE = { x: 0, y: 1, z: 0, angle: 360 };
+export const COMPONENT_TRANSITION_ROTATE: ComponentTransitionRotate = { x: 0, y: 1, z: 0, angle: 360 };
+
+class CustomTransition {
+  x: number = 0;
+  y: number = 0;
+}
 
 /**
  * Custom transition scale.
  */
-export const CUSTOM_TRANSITION_SCALE = { x: 0, y: 0 };
+export const CUSTOM_TRANSITION_SCALE: CustomTransition = { x: 0, y: 0 };
 
 /**
  * Custom transition opacity.
@@ -72,7 +87,7 @@ export const CUSTOM_TRANSITION_OPACITY = 0.2;
 /**
  * Custom transition translate.
  */
-export const CUSTOM_TRANSITION_TRANSLATE = { x: 500, y: 500 };
+export const CUSTOM_TRANSITION_TRANSLATE: CustomTransition = { x: 500, y: 500 };
 
 /**
  * Full custom transition default animation value.

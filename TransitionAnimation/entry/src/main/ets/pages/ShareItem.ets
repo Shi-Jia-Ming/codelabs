@@ -45,7 +45,7 @@ struct ShareItem {
         })
         .onClick(() => {
           router.pushUrl({ url: SHARE_PAGE_URL })
-            .catch(err => {
+            .catch((err: Error) => {
               hilog.error(DOMAIN, PREFIX, FORMAT, err);
             });
         })

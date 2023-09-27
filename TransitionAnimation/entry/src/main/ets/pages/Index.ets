@@ -25,6 +25,7 @@ import {
 } from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
 import hilog from '@ohos.hilog';
+import AnimationModel from '../common/bean/AnimationModel';
 
 @Entry
 @Component
@@ -43,9 +44,9 @@ struct Index {
 
       Scroll() {
         Column() {
-          ForEach(INDEX_ANIMATION_MODE, ({ imgRes , url }) => {
+          ForEach(INDEX_ANIMATION_MODE, (item: AnimationModel) => {
             Row()
-              .backgroundImage(imgRes)
+              .backgroundImage(item.imgRes)
               .backgroundImageSize(ImageSize.Cover)
               .backgroundColor($r('app.color.trans_parent'))
               .height(DimensionUtil.getVp($r('app.float.main_page_body_height')))
@@ -53,12 +54,12 @@ struct Index {
               .width(FULL_LENGTH)
               .borderRadius(BORDER_RADIUS)
               .onClick(() => {
-                router.pushUrl({ url: url })
-                  .catch(err => {
+                router.pushUrl({ url: item.url })
+                  .catch((err: Error) => {
                     hilog.error(DOMAIN, PREFIX, FORMAT, err);
                   });
               })
-          }, item => JSON.stringify(item))
+          }, (item: AnimationModel) => JSON.stringify(item))
         }
       }
       .align(Alignment.Top)
