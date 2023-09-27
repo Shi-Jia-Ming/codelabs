@@ -49,7 +49,7 @@ export struct Recommended {
                   .margin({ bottom: $r('app.float.home_margin1') })
               }
             }
-          }, item => JSON.stringify(item))
+          }, (item: HomeTabsItem) => JSON.stringify(item))
         }
         .width(Const.FULL_SIZE)
         .height($r('app.float.home_list_height2'))

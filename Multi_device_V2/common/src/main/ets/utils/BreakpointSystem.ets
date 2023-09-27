@@ -18,9 +18,9 @@ import { CommonConstants as Const } from '../constants/CommonConstants';
 
 export class BreakpointSystem {
   private currentBreakpoint: string = Const.MD;
-  private smListener: mediaQuery.MediaQueryListener;
-  private mdListener: mediaQuery.MediaQueryListener;
-  private lgListener: mediaQuery.MediaQueryListener;
+  private smListener: mediaQuery.MediaQueryListener = mediaQuery.matchMediaSync(Const.BREAKPOINTS_SCOPE_1);
+  private mdListener: mediaQuery.MediaQueryListener = mediaQuery.matchMediaSync(Const.BREAKPOINTS_SCOPE_2);
+  private lgListener: mediaQuery.MediaQueryListener = mediaQuery.matchMediaSync(Const.BREAKPOINTS_SCOPE_3);
 
   private updateCurrentBreakpoint(breakpoint: string) {
     if (this.currentBreakpoint !== breakpoint) {
@@ -29,19 +29,19 @@ export class BreakpointSystem {
     }
   }
 
-  private isBreakpointSM = (mediaQueryResult) => {
+  private isBreakpointSM = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(Const.SM);
     }
   }
 
-  private isBreakpointMD = (mediaQueryResult) => {
+  private isBreakpointMD = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(Const.MD);
     }
   }
 
-  private isBreakpointLG = (mediaQueryResult) => {
+  private isBreakpointLG = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(Const.LG);
     }

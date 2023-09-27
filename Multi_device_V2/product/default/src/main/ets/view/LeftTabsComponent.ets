@@ -60,7 +60,7 @@ export struct LeftTabs {
         .onClick(() => {
           this.bottomTabIndex = BottomTabsList.indexOf(item);
         })
-      }, item => JSON.stringify(item))
+      }, (item: BottomTabsItem) => JSON.stringify(item))
 
       Row()
         .width(Const.FULL_SIZE)

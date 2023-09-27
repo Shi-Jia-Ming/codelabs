@@ -13,10 +13,10 @@
  * limitations under the License.
  */
 
-export type { BottomTabsItem } from './src/main/ets/bean/BottomTabsItem';
-export type { HomeTabsItem } from './src/main/ets/bean/HomeTabsItem';
-export type { FindTabsItem } from './src/main/ets/bean/FindTabsItem';
-export type { DriveTabsItem } from './src/main/ets/bean/DriveTabsItem';
-export type { MineTabsItem } from './src/main/ets/bean/MineTabsItem';
+export { BottomTabsItem } from './src/main/ets/bean/BottomTabsItem';
+export { HomeTabsItem } from './src/main/ets/bean/HomeTabsItem';
+export { FindTabsItem } from './src/main/ets/bean/FindTabsItem';
+export { DriveTabsItem } from './src/main/ets/bean/DriveTabsItem';
+export { MineTabsItem } from './src/main/ets/bean/MineTabsItem';
 export { CommonConstants } from './src/main/ets/constants/CommonConstants';
 export { BreakpointSystem } from './src/main/ets/utils/BreakpointSystem';

@@ -78,13 +78,13 @@ export struct HomeTabs {
                 .alignItems(HorizontalAlign.Start)
                 .margin({ top: $r('app.float.home_text_margin_3'), left: $r('app.float.home_text_margin_2') })
               }
-            }, item => JSON.stringify(item))
+            }, (item: HomeTabsItem) => JSON.stringify(item))
           }
           .height($r('app.float.home_swiper_height'))
           .itemSpace(Const.ITEM_SPACE)
           .autoPlay(true)
           .displayCount(this.currentBreakpoint === Const.LG ?
-          Const.NUM_3 : (this.currentBreakpoint === Const.MD ? Const.NUM_2 : Const.NUM_1))
+            Const.NUM_3 : (this.currentBreakpoint === Const.MD ? Const.NUM_2 : Const.NUM_1))
         }
         .height($r('app.float.home_grid_height2'))
 
