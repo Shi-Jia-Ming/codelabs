@@ -13,13 +13,14 @@
  * limitations under the License.
  */
 
+import { OrderType } from '@ohos/common';
 import { IconButtonModel } from '../bean/IconButtonModel';
 import { PersonalConstants } from '../constants/PersonalConstants';
 
 @Component
 export struct IconButton {
   @ObjectLink props: IconButtonModel;
-  click: (key: string) => void;
+  click?: (key: OrderType) => void = () => {};
 
   build() {
     Column() {
@@ -45,6 +46,10 @@ export struct IconButton {
         .margin({ top: $r('app.float.vp_twelve') })
     }
     .height($r('app.float.vp_fifty_six'))
-    .onClick(this.click?.bind(this.props.key))
+    .onClick(() => {
+      if (this.click !== undefined && this.props.key !== undefined) {
+        this.click(this.props.key);
+      }
+    })
   }
 }

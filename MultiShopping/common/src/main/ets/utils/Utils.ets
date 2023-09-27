@@ -15,6 +15,7 @@
 
 import { Logger } from './Logger';
 import { StyleConstants } from '../constants/StyleConstants';
+import { Opt } from '../bean/CommodityModel';
 
 /**
  * Format date.
@@ -23,25 +24,39 @@ import { StyleConstants } from '../constants/StyleConstants';
  * @param format = "yyyy-mm-dd"
  * @returns res
  */
-export function formatDate(timestamp, format = 'yyyy-mm-dd') {
+export function formatDate(timestamp: number, format = 'yyyy-mm-dd') {
   let res = "";
   try {
     const date = new Date(timestamp);
-    const opt = {
-      "y+": date.getFullYear().toString(),
-      "m+": (date.getMonth() + 1).toString(),
-      "d+": date.getDate().toString(),
-      "H+": date.getHours().toString(),
-      "M+": date.getMinutes().toString(),
-      "S+": date.getSeconds().toString(),
+    const opt: Opt = {
+      yy: date.getFullYear().toString(),
+      mm: (date.getMonth() + 1).toString(),
+      dd: date.getDate().toString(),
+      HH: date.getHours().toString(),
+      MM: date.getMinutes().toString(),
+      SS: date.getSeconds().toString(),
     };
-    for (let key in opt) {
-      const reg = new RegExp(key);
+
+    const regKeys: string[] = ['y+', 'm+', 'd+', 'H+', 'M+', 'S+'];
+    for (let i = 0; i < regKeys.length; i++) {
+      const regKey = regKeys[i];
+      const reg = new RegExp(regKey);
       let ret = reg.exec(format);
       if (ret) {
-        format = format.replace(
-          reg, ret.length === 1 ? opt[key] : opt[key].padStart(ret.length, "0")
-        );
+        switch (regKey) {
+          case 'y+':
+            format = format.replace(reg, ret.length === 1 ? opt.yy : opt.yy.padStart(ret.length, "0"));
+          case 'm+':
+            format = format.replace(reg, ret.length === 1 ? opt.mm : opt.mm.padStart(ret.length, "0"));
+          case 'd+':
+            format = format.replace(reg, ret.length === 1 ? opt.dd : opt.dd.padStart(ret.length, "0"));
+          case 'H+':
+            format = format.replace(reg, ret.length === 1 ? opt.HH : opt.HH.padStart(ret.length, "0"));
+          case 'M+':
+            format = format.replace(reg, ret.length === 1 ? opt.MM : opt.MM.padStart(ret.length, "0"));
+          case 'S+':
+            format = format.replace(reg, ret.length === 1 ? opt.SS : opt.SS.padStart(ret.length, "0"));
+        }
       }
     }
     res = format;

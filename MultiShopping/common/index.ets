@@ -2,11 +2,11 @@ export { BreakpointSystem, BreakPointType } from './src/main/ets/utils/Breakpoin
 export { commodityData } from './src/main/ets/viewmodel/ShopData';
 export { CommodityList } from './src/main/ets/components/CommodityList';
 export { Commodity } from './src/main/ets/bean/CommodityModel';
-export type { Specification, KV } from './src/main/ets/bean/CommodityModel';
+export { Specification, KV } from './src/main/ets/bean/CommodityModel';
 export { LocalDataManager } from './src/main/ets/utils/LocalDataManager';
 export { Logger } from './src/main/ets/utils/Logger';
 export { CounterProduct } from './src/main/ets/components/CounterProduct';
-export { Product } from './src/main/ets/bean/ProductModel';
+export { Product, ProductSpecification } from './src/main/ets/bean/ProductModel';
 export { EmptyComponent } from './src/main/ets/components/EmptyComponent';
 export { Order, OrderType, OrderOperationStatus } from './src/main/ets/bean/OrderModel';
 export { formatDate, getID } from './src/main/ets/utils/Utils';

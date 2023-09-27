@@ -77,26 +77,15 @@ export class OrderDetailConstants{
   /**
    * Order status.
    */
-  static readonly STATUS_ENUM = {
-    0: '待支付',
-    1: '卖家已发货',
-    2: '已完成'
-  };
+  static readonly STATUS_ENUM = ['待支付', '卖家已发货', '已完成'];
 
   /**
    * Describe of order status.
    */
-  static readonly STATUS_DESC_ENUM = {
-    0: '您提交了订单，请等待系统确认',
-    1: '您的订单已发货，请耐心等待',
-    2: '您的订单已完成，感谢支持~'
-  };
+  static readonly STATUS_DESC_ENUM = ['您提交了订单，请等待系统确认', '您的订单已发货，请耐心等待', '您的订单已完成，感谢支持~'];
 
   /**
    * Payment string enum.
    */
-  static readonly PAYMENT_ENUM = {
-    1: '支付',
-    2: '确认收货'
-  };
+  static readonly PAYMENT_ENUM = ['支付', '确认收货'];
 }

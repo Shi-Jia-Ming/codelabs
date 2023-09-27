@@ -53,31 +53,31 @@ export class CommonDataSource<T> implements IDataSource {
 	}
 
 	notifyDataReload(): void {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener: DataChangeListener) => {
 			listener.onDataReloaded();
 		})
 	}
 
 	notifyDataAdd(index: number): void {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener: DataChangeListener) => {
 			listener.onDataAdd(index);
 		})
 	}
 
 	notifyDataChange(index: number): void {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener: DataChangeListener) => {
 			listener.onDataChange(index);
 		})
 	}
 
 	notifyDataDelete(index: number): void {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener: DataChangeListener) => {
 			listener.onDataDelete(index);
 		})
 	}
 
 	notifyDataMove(from: number, to: number): void {
-		this.listeners.forEach(listener => {
+		this.listeners.forEach((listener: DataChangeListener) => {
 			listener.onDataMove(from, to);
 		})
 	}

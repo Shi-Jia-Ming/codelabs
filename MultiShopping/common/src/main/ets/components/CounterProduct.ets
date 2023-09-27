@@ -54,7 +54,7 @@ export struct CounterProduct {
         .width($r('app.float.vp_twenty_four'))
         .height($r('app.float.vp_twenty_four'))
         .onClick(() => {
-          this.quantityCount = Math.min(this.quantityCount + 1, Infinity);
+          this.quantityCount = Math.min(this.quantityCount + 1, Number.MAX_VALUE);
           this.onNumberChange(this.quantityCount);
         })
     }

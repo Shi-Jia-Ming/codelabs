@@ -13,39 +13,42 @@
  * limitations under the License.
  */
 
-export type KV = {
-	key: string;
-	value: string,
-	image?: string
-};
+export class KV {
+  key: string = '';
+  value: string = '';
+  image?: string = ''
+}
 
-export type Specification = {
-	id: string;
-	title: string;
-	data: KV[];
+export class Specification {
+  id: string = '';
+  title: string = '';
+  data: KV[] = [];
 }
 
 export class Commodity {
-	id: string = '';
-	title: string = '';
-	promotion?: string = '';
-  description?: string = '';
+  category_id?: string = '';
+  id: string = '';
+  title: string = '';
+  promotion?: string = '';
+  description: string = '';
   images: string[] = [];
-	detail?: string[] = [];
-	price: number = 0;
+  detail?: string[] = [];
+  price: number = 0;
   specifications?: Specification[] = [];
+}
 
-	constructor(props?: Commodity) {
-		if (!props) {
-      return;
-    }
-		this.id = props.id;
-		this.title = props.title;
-		this.promotion = props.promotion;
-		this.description = props.description;
-		this.images = props.images;
-		this.detail = props.detail;
-		this.price = props.price;
-		this.specifications = props.specifications;
-	}
+export class Opt {
+  yy: string = '';
+  mm: string = '';
+  dd: string = '';
+  HH: string = '';
+  MM: string = '';
+  SS: string = '';
+}
+
+export class InsertOrderParams {
+  orderId: string = '';
+  uid: string = '';
+  status: number = 0;
+  createTime: string = '';
 }

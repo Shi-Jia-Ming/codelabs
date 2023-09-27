@@ -37,9 +37,9 @@ export class BreakPointType<T> {
 
 export class BreakpointSystem {
   private currentBreakpoint: string = '';
-  private smListener: mediaQuery.MediaQueryListener;
-  private mdListener: mediaQuery.MediaQueryListener;
-  private lgListener: mediaQuery.MediaQueryListener;
+  private smListener?: mediaQuery.MediaQueryListener;
+  private mdListener?: mediaQuery.MediaQueryListener;
+  private lgListener?: mediaQuery.MediaQueryListener;
 
   private updateCurrentBreakpoint(breakpoint: string) {
     if (this.currentBreakpoint !== breakpoint) {
@@ -48,19 +48,19 @@ export class BreakpointSystem {
     }
   }
 
-  private isBreakpointSM = (mediaQueryResult) => {
+  private isBreakpointSM = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(BreakpointConstants.BREAKPOINT_SM);
     }
   }
 
-  private isBreakpointMD = (mediaQueryResult) => {
+  private isBreakpointMD = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(BreakpointConstants.BREAKPOINT_MD);
     }
   }
 
-  private isBreakpointLG = (mediaQueryResult) => {
+  private isBreakpointLG = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentBreakpoint(BreakpointConstants.BREAKPOINT_LG);
     }
@@ -76,8 +76,8 @@ export class BreakpointSystem {
   }
 
   public unregister() {
-    this.smListener.off('change', this.isBreakpointSM);
-    this.mdListener.off('change', this.isBreakpointMD);
-    this.lgListener.off('change', this.isBreakpointLG);
+    this.smListener?.off('change', this.isBreakpointSM);
+    this.mdListener?.off('change', this.isBreakpointMD);
+    this.lgListener?.off('change', this.isBreakpointLG);
   }
 }

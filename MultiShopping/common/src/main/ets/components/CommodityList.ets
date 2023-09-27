@@ -24,10 +24,11 @@ import { CommonDataSource } from '../utils/CommonDataSource';
 @Component
 export struct CommodityList {
   @Link commodityList: Commodity[];
-  @Prop column: number;
-  private onClickItem: (Commodity) => void;
+  @Prop column: number = 0;
+  private onClickItem? = (Commodity: Commodity) => {};
 
-  @Builder CommodityItem(info) {
+  @Builder
+  CommodityItem(info: Commodity) {
     Column() {
       Image($rawfile(info.images[0]))
         .width($r('app.float.commodity_item_image_size'))
@@ -76,13 +77,17 @@ export struct CommodityList {
   build() {
     if (this.commodityList.length > 0) {
       List({ space: StyleConstants.TWELVE_SPACE }) {
-        LazyForEach(new CommonDataSource<Commodity>(this.commodityList), (item: Commodity) =>{
+        LazyForEach(new CommonDataSource<Commodity>(this.commodityList), (item: Commodity) => {
           ListItem() {
             this.CommodityItem(item)
           }
           .margin({ left: $r('app.float.vp_six'), right: $r('app.float.vp_six') })
-          .onClick(() => this.onClickItem(item))
-        }, item => JSON.stringify(item))
+          .onClick(() => {
+            if (this.onClickItem !== undefined) {
+              this.onClickItem(item);
+            }
+          })
+        }, (item: Commodity) => JSON.stringify(item))
       }
       .margin({ left: $r('app.float.commodity_list_margin'), right: $r('app.float.commodity_list_margin') })
       .listDirection(Axis.Vertical)

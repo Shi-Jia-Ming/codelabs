@@ -28,7 +28,7 @@ export struct CapsuleGroupButton {
 
   build() {
     Flex() {
-      ForEach(this.configs, (config: ButtonType, index: number) => {
+      ForEach(this.configs, (config: ButtonType, index?: number) => {
         Flex({ justifyContent: FlexAlign.Center, alignItems: ItemAlign.Center }) {
           Text(config.text)
             .fontColor(Color.White)
@@ -44,8 +44,8 @@ export struct CapsuleGroupButton {
             bottomRight: !!index ? $r('app.float.vp_twenty') : 0
           }
         })
-        .onClick((event) => config.onClick(event))
-      }, config => JSON.stringify(config))
+        .onClick((event?: ClickEvent) => config.onClick(event))
+      }, (config: ButtonType) => JSON.stringify(config))
     }
     .backgroundImage($r('app.media.btn_background'), ImageRepeat.NoRepeat)
     .backgroundImageSize({ width: StyleConstants.HUNDRED_FIFTEEN_WIDTH, height: StyleConstants.FULL_HEIGHT })

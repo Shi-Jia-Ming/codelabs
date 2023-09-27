@@ -16,17 +16,17 @@
 import router from '@ohos.router';
 import { LocalDataManager, Commodity } from '@ohos/common';
 import { CommodityDetail } from '@ohos/commoditydetail';
-import { PageConstants } from '../constants/PageConstants';
 
 @Entry
 @Component
 struct CommodityDetailPage {
   @State commodityId: string = '';
-  @State info: Commodity = undefined;
+  @State info?: Commodity = undefined;
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
   aboutToAppear() {
-    this.commodityId = (router.getParams() || {})[PageConstants.ID_KEY];
+    let params = router.getParams() as Record<string, Object>;
+    this.commodityId = params.id as string;
     this.info = this.localDataManager.queryCommodityListById(this.commodityId);
   }
 

@@ -24,85 +24,106 @@ import {
   Commodity,
   Product,
   StyleConstants,
-  BreakpointConstants
+  BreakpointConstants,
+  Order
 } from '@ohos/common';
+import { SelectProducts, UpdateShopProps } from '@ohos/common/src/main/ets/bean/ProductModel';
 
 @Component
 export struct ShopCart {
-  private onNeedUpdate: () => void;
+  private onNeedUpdate?: () => void;
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm';
   @Link @Watch('onListChange') products: Array<Product>;
   @State sumPrice: number = 0;
   @State isSelectAll: boolean = false;
   @State commodityList: Commodity[] = [];
-  @State selectProducts: { [K: string]: boolean } = {};
+  @State @Watch('selectProductChange') selectProducts: SelectProducts[] = [];
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
   aboutToAppear() {
     const sortRes = this.localDataManager.queryCommodityList();
     sortRes.sort(() => (Math.random() - StyleConstants.HALF_ONE) > 0 ? 1 : StyleConstants.MINUS_ONE);
-    this.commodityList = [...sortRes];
+    this.commodityList = sortRes;
     this.onListChange();
   }
 
   needUpdateShopCart() {
-    this.onNeedUpdate();
+    if (this.onNeedUpdate !== undefined) {
+      this.onNeedUpdate();
+    }
     this.countSumPrice();
   }
 
   private countSumPrice() {
     this.sumPrice = 0;
-    this.isSelectAll = Object.values(this.selectProducts).every(item => item);
-    this.sumPrice = Object.keys(this.selectProducts).reduce((sum: number, key: string) => {
-      const selected = this.selectProducts[key];
-      const data = this.products.find(item => item.id === key);
-      const ins = (selected ? data.price * data.count : 0);
-      return sum + ins;
-    }, 0);
+
+    this.isSelectAll = this.selectProducts.every((item: SelectProducts) => item.selected);
+    let tempPrice: number = 0;
+    this.selectProducts.forEach((item: SelectProducts) => {
+      if (item.selected) {
+        let data = this.products.find((value: Product) => value.id === item.key);
+        const ins = (data !== undefined ? data.price * data.count : 0);
+        tempPrice += ins;
+      }
+    })
+    this.sumPrice = tempPrice;
   }
 
   settleAccounts() {
     const orderList = this.products
-      .filter(item => this.selectProducts[item.id])
-      .map(item => {
-        return {
-          id: item.id,
-          commodityId: item.commodityId,
+      .filter((item: Product, index: number) =>
+        item.id === this.selectProducts[index].key && this.selectProducts[index].selected === true)
+      .map((item: Product) => {
+        let returnParams: Order = {
+          orderId: item.id,
+          commodityId: Number.parseInt(item.commodityId),
           price: item.price,
           count: item.count,
           specifications: item.specifications,
-          images: [item.img],
+          image: item.img[0],
           description: item.description,
           title: item.name
         }
+        return returnParams;
       });
     Logger.info('settleAccounts orderList length: ' + orderList.length);
     router.pushUrl({
       url: ShopCartConstants.CONFIRM_ORDER_PAGE_URL,
       params: { orderList: orderList }
-    }).catch(err => {
+    }).catch((err: Error) => {
       Logger.error(JSON.stringify(err));
     });
   }
 
   onListChange() {
-    let payload = {};
-    this.products.forEach(item => {
-      payload[item.id] = !!item.selected;
+    this.selectProducts = [];
+    this.products.forEach((item: Product) => {
+      let payload: SelectProducts = { selected: false, key: '' };
+      payload.selected = !!item.selected;
+      payload.key = item.id;
+      this.selectProducts.push(payload);
     })
-    this.selectProducts = payload;
     this.countSumPrice();
   }
 
-  onChangeCount = (count, info) => {
-    this.localDataManager.updateShopCart({
+  selectProductChange(index: number): boolean {
+    if (this.selectProducts[index] !== undefined) {
+      return this.selectProducts[index].selected;
+    }
+    return false;
+  }
+
+  onChangeCount = (count: number, info: Product): void => {
+    let updateShopCartParams: UpdateShopProps = {
       id: info.id,
       count: count
-    })
+    };
+    this.localDataManager.updateShopCart(updateShopCartParams);
     this.needUpdateShopCart();
   }
 
-  @Builder ItemDelete(item: Product) {
+  @Builder
+  ItemDelete(item: Product) {
     Flex({
       direction: FlexDirection.Column,
       justifyContent: FlexAlign.Center,
@@ -129,7 +150,8 @@ export struct ShopCart {
     .margin({ left: $r('app.float.item_delete_margin_left') })
   }
 
-  @Builder CartItem(item: Product, index: number) {
+  @Builder
+  CartItem(item: Product, index: number) {
     Flex({ direction: FlexDirection.Row, alignItems: ItemAlign.Center }) {
       Checkbox({
         name: `${ShopCartConstants.CHECKBOX}${index}`,
@@ -138,16 +160,21 @@ export struct ShopCart {
         .width($r('app.float.vp_twenty_four'))
         .height($r('app.float.vp_twenty_four'))
         .selectedColor($r('app.color.select_color'))
-        .select(!!this.selectProducts[item.id])
+        .select(this.selectProductChange(index))
         .onClick(() => {
-          this.selectProducts[item.id] = !this.selectProducts[item.id];
-          this.localDataManager.updateShopCart({
+          let tempData: SelectProducts = {
+            key: this.selectProducts[index].key,
+            selected: !this.selectProducts[index].selected
+          }
+          this.selectProducts.splice(index, 1, tempData)
+          let updateShopCartParams: UpdateShopProps = {
             id: item.id,
-            selected: this.selectProducts[item.id]
-          })
+            selected: this.selectProducts[index].selected
+          };
+          this.localDataManager.updateShopCart(updateShopCartParams);
           this.needUpdateShopCart();
         })
-      Image($rawfile(item.img))
+      Image($rawfile(item.img[0]))
         .height($r('app.float.card_image_size'))
         .width($r('app.float.card_image_size'))
         .objectFit(ImageFit.Cover)
@@ -159,7 +186,13 @@ export struct ShopCart {
           .textOverflow({ overflow: TextOverflow.Ellipsis })
           .maxLines(StyleConstants.TWO_TEXT_LINE)
           .width(StyleConstants.FULL_WIDTH)
-        Text(`${Object.values(item.specifications).join('，')}`)
+        Text(item.specifications.length === 2 ?
+            item.specifications[0].value + '，' + item.specifications[1].value:
+            item.specifications.length === 3 ?
+            item.specifications[0].value + '，' + item.specifications[1].value + '，' + item.specifications[2].value :
+            item.specifications.length === 4 ?
+            item.specifications[0].value + '，' + item.specifications[1].value + '，' + item.specifications[2].value + '，' + item.specifications[3].value : ''
+        )
           .fontSize($r('app.float.smaller_font_size'))
           .maxLines(1)
           .fontColor($r('app.color.sixty_alpha_black'))
@@ -200,7 +233,8 @@ export struct ShopCart {
     .height($r('app.float.item_delete_height'))
   }
 
-  @Builder Settle() {
+  @Builder
+  Settle() {
     Flex({ justifyContent: FlexAlign.SpaceBetween }) {
       Flex({ alignItems: ItemAlign.Center }) {
         Checkbox({ name: ShopCartConstants.CHECKBOX, group: ShopCartConstants.CHECKBOX_GROUP })
@@ -208,13 +242,14 @@ export struct ShopCart {
           .select(this.isSelectAll)
           .onClick(() => {
             this.isSelectAll = !this.isSelectAll;
-            this.products.map(item => {
-              return this.localDataManager.updateShopCart({
+            this.products.map((item: Product): void => {
+              let returnParams = this.localDataManager.updateShopCart({
                 id: item.id,
                 count: item.count,
                 selected: !!this.isSelectAll,
-                specifications: {}
+                specifications: []
               });
+              return returnParams;
             })
             this.needUpdateShopCart();
           })
@@ -274,12 +309,14 @@ export struct ShopCart {
         Column() {
           if (this.products.length > 0) {
             List({ space: StyleConstants.FIFTEEN_SPACE }) {
-              ForEach(this.products, (item: Product, index: number) => {
+              ForEach(this.products, (item: Product, index?: number): void => {
                 ListItem() {
-                  this.CartItem(item, index)
+                  if (index !== undefined) {
+                    this.CartItem(item, index)
+                  }
                 }
-                .swipeAction({ end: this.ItemDelete.bind(this, item) })
-              }, item => item.id)
+                .swipeAction({ end: this.ItemDelete(item) })
+              }, (item: Product) => item.id)
             }
           } else {
             Column() {
@@ -306,7 +343,7 @@ export struct ShopCart {
               router.pushUrl({
                 url: ShopCartConstants.COMMODITY_DETAIL_PAGE_URL,
                 params: { id: data.id }
-              }).catch(err => {
+              }).catch((err: Error) => {
                 Logger.error(JSON.stringify(err));
               });
             }
@@ -320,7 +357,7 @@ export struct ShopCart {
       })
       .height(StyleConstants.FULL_HEIGHT)
 
-      if ((Object.values(this.selectProducts)).some((i =>!!i))) {
+      if ((this.selectProducts).some(((item: SelectProducts) => item.selected === true))) {
         this.Settle()
       }
     }

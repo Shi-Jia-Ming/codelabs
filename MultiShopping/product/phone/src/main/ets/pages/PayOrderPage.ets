@@ -16,7 +16,6 @@
 import router from '@ohos.router';
 import { PayOrder } from '@ohos/orderdetail';
 import { LocalDataManager, Order } from '@ohos/common';
-import { PageConstants } from '../constants/PageConstants';
 
 @Entry
 @Component
@@ -26,8 +25,9 @@ struct PayOrderPage {
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
   aboutToAppear() {
-    const order = router.getParams()[PageConstants.ORDER_KEY];
-    const orderIds = router.getParams()[PageConstants.ORDER_IDS_KEY];
+    let params = router.getParams() as Record<string, Object>;
+    let order: Order = params.order as Order;
+    let orderIds: string[] = params.orderIds as string[];
     if (order) {
       this.data = [order];
     }

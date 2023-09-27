@@ -17,7 +17,7 @@ import { StyleConstants } from '@ohos/common';
 
 @Component
 export struct HeaderBar {
-  private title: string | Resource;
+  private title: string | Resource = '';
   private onBack: () => void = () => {};
 
   build() {

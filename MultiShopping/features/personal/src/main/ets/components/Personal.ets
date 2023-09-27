@@ -19,28 +19,46 @@ import { orderButton, memberButton, activityButton, liveData } from '../viewmode
 import { IconButton } from '../components/IconButton';
 import { LiveList } from '../components/LiveList';
 import { PersonalConstants } from '../constants/PersonalConstants';
-import { IconButtonModel } from '../bean/IconButtonModel';
+import { IconButtonModel, OrderCount } from '../bean/IconButtonModel';
 
 @Component
 export struct Personal {
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'md';
-  @Link @Watch('onOrderCountChange') orderCount: { [key: string]: number };
+  @Link @Watch('onOrderCountChange') orderCount: OrderCount;
   @State orderIconButton: IconButtonModel[] = orderButton;
 
   aboutToAppear() {
-    this.orderIconButton.forEach((item: IconButtonModel) => {
-      item.count = this.orderCount[item.key];
-    })
+    this.onOrderCountChange();
   }
 
   onOrderCountChange() {
     this.orderIconButton.forEach((item: IconButtonModel) => {
-      item.count = this.orderCount[item.key];
+      if (item.key !== undefined) {
+        switch (item.key) {
+          case OrderType.PAYMENT:
+            item.count = this.orderCount.payment;
+            break;
+          case OrderType.SHIP:
+            item.count = this.orderCount.ship;
+            break;
+          case OrderType.RECEIPT:
+            item.count = this.orderCount.receipt;
+            break;
+          case OrderType.EVALUATION:
+            item.count = this.orderCount.evaluation;
+            break;
+          case OrderType.SALE:
+            item.count = this.orderCount.sale;
+            break;
+          default:
+            break;
+        }
+      }
     })
   }
 
   onOrderButtonClick(key: OrderType) {
-    let tabIndex;
+    let tabIndex: number = 0;
     switch (key) {
       case OrderType.PAYMENT:
         tabIndex = PersonalConstants.PENDING_PAYMENT_INDEX;
@@ -60,19 +78,21 @@ export struct Personal {
     router.pushUrl({
       url: PersonalConstants.ORDER_LIST_PAGE_URL,
       params: { tabIndex: tabIndex }
-    }).catch(err => {
+    }).catch((err: Error) => {
       Logger.error(JSON.stringify(err));
     });
   }
 
-  @Styles cardStyle(){
+  @Styles
+  cardStyle(){
     .width(StyleConstants.FULL_WIDTH)
     .backgroundColor(Color.White)
     .borderRadius($r('app.float.vp_sixteen'))
     .margin({ bottom: $r('app.float.vp_twelve') })
   }
 
-  @Builder Avatar() {
+  @Builder
+  Avatar() {
     Column() {
       Row() {
         Image($r('app.media.ic_person'))
@@ -141,7 +161,8 @@ export struct Personal {
     .width(StyleConstants.FULL_WIDTH)
   }
 
-  @Builder AccountPoints(pointValue: Resource, pointName: Resource) {
+  @Builder
+  AccountPoints(pointValue: Resource, pointName: Resource) {
     Column() {
       Text(pointValue)
         .fontSize($r('app.float.small_font_size'))
@@ -159,7 +180,8 @@ export struct Personal {
     }
   }
 
-  @Builder Order() {
+  @Builder
+  Order() {
     Flex({ direction: FlexDirection.Column }) {
       Flex({
         justifyContent: FlexAlign.SpaceBetween,
@@ -180,7 +202,7 @@ export struct Personal {
           router.pushUrl({
             url: PersonalConstants.ORDER_LIST_PAGE_URL,
             params: { tabIndex: 0 }
-          }).catch(err => {
+          }).catch((err: Error) => {
             Logger.error(JSON.stringify(err));
           });
         })
@@ -194,9 +216,9 @@ export struct Personal {
         ForEach(this.orderIconButton, (iconButton: IconButtonModel) => {
           IconButton({
             props: iconButton,
-            click: this.onOrderButtonClick.bind(this, iconButton.key)
+            click: this.onOrderButtonClick
           })
-        }, (iconButton) => JSON.stringify(iconButton))
+        }, (iconButton: IconButtonModel) => JSON.stringify(iconButton))
       }
       .width(StyleConstants.FULL_WIDTH)
     }
@@ -205,7 +227,8 @@ export struct Personal {
     .cardStyle()
   }
 
-  @Builder IconDock(buttons: IconButtonModel[]) {
+  @Builder
+  IconDock(buttons: IconButtonModel[]) {
     Flex({
       justifyContent: FlexAlign.SpaceAround,
       alignItems: ItemAlign.Center
@@ -214,14 +237,15 @@ export struct Personal {
         IconButton({
           props: iconButton
         })
-      }, (iconButton) => JSON.stringify(iconButton))
+      }, (iconButton: IconButtonModel[]) => JSON.stringify(iconButton))
     }
     .height($r('app.float.icon_dock_height'))
     .padding($r('app.float.vp_twelve'))
     .cardStyle()
   }
 
-  @Builder LiveTitle() {
+  @Builder
+  LiveTitle() {
     Row() {
       Text($r('app.string.live_watch'))
         .fontSize($r('app.float.middle_font_size'))

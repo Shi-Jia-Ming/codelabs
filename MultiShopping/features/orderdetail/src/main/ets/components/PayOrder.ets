@@ -27,6 +27,7 @@ import {
   StyleConstants,
   GridConstants
 } from '@ohos/common';
+import { updateOrderProps } from '@ohos/common/src/main/ets/bean/OrderModel';
 
 @Component
 export struct PayOrder {
@@ -38,16 +39,17 @@ export struct PayOrder {
   @Builder OrderStatus() {
     Row() {
       Column() {
-        Text(OrderDetailConstants.STATUS_ENUM[this.data[0].status])
+        Text(OrderDetailConstants.STATUS_ENUM[this.data[0].status !== undefined?this.data[0].status:0])
           .fontSize($r('app.float.big_font_size'))
           .margin({ bottom: $r('app.float.vp_two') })
           .fontColor(Color.White)
-        Text(OrderDetailConstants.STATUS_DESC_ENUM[this.data[0].status])
+        Text(OrderDetailConstants.STATUS_DESC_ENUM[this.data[0]?.status !== undefined?this.data[0]?.status:0])
           .fontSize($r('app.float.smaller_font_size'))
           .opacity(StyleConstants.SIXTY_OPACITY)
           .margin({ bottom: $r('app.float.vp_two') })
           .fontColor(Color.White)
-        Text(formatDate(new Date(this.data[0].createTime).valueOf(), OrderDetailConstants.DATE_FORMAT))
+        Text(this.data[0].createTime !== undefined ?
+          formatDate(new Date(this.data[0].createTime).valueOf(), OrderDetailConstants.DATE_FORMAT) : '')
           .fontSize($r('app.float.smaller_font_size'))
           .opacity(StyleConstants.SIXTY_OPACITY)
           .fontColor(Color.White)
@@ -112,13 +114,16 @@ export struct PayOrder {
           .width(StyleConstants.FULL_WIDTH)
           .onClick(() => {
             this.data.forEach((item: Order) => {
-              this.localDataManager.updateOrder({
-                orderId: item.orderId,
-                status: OrderOperationStatus.DELIVERED
-              });
+              if (item.orderId !== undefined) {
+                let UpdateOrderParameter: updateOrderProps = {
+                  orderId: item.orderId,
+                  status: OrderOperationStatus.DELIVERED
+                }
+                this.localDataManager.updateOrder(UpdateOrderParameter);
+              }
             })
             promptAction.showToast({
-              message: $r('app.string.info_success', OrderDetailConstants.PAYMENT_ENUM[OrderOperationStatus.DELIVERED])
+              message: $r('app.string.info_success', OrderDetailConstants.PAYMENT_ENUM[OrderOperationStatus.UN_PAY])
             });
             router.back();
           })
@@ -128,14 +133,17 @@ export struct PayOrder {
           .width(StyleConstants.FULL_WIDTH)
           .backgroundColor($r('app.color.focus_color'))
           .onClick(() => {
-            this.localDataManager.updateOrder({
-              orderId: this.data[0].orderId,
-              status: OrderOperationStatus.RECEIPT
-            });
-            promptAction.showToast({
-              message: $r('app.string.info_success', OrderDetailConstants.PAYMENT_ENUM[OrderOperationStatus.RECEIPT])
-            });
-            router.back();
+            if (this.data[0].orderId !== undefined) {
+              let UpdateOrderParameter: updateOrderProps = {
+                orderId: this.data[0].orderId,
+                status: OrderOperationStatus.RECEIPT
+              }
+              this.localDataManager.updateOrder(UpdateOrderParameter);
+              promptAction.showToast({
+                message: $r('app.string.info_success', OrderDetailConstants.PAYMENT_ENUM[OrderOperationStatus.DELIVERED])
+              });
+              router.back();
+            }
           })
       } else {
         Row()

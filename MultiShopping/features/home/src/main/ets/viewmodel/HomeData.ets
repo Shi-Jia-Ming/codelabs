@@ -37,9 +37,9 @@ const swiperImage: Resource[] = [
   $r('app.media.ic_banner04')
 ]
 
-type ActivityTitleModel = {
-  title: Resource,
-  desc: Resource
+class ActivityTitleModel {
+  title?: Resource
+  desc?: Resource
 }
 
 const activityTitle: ActivityTitleModel[] = [

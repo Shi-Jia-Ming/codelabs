@@ -26,7 +26,7 @@ export struct CommodityOrderList {
         CommodityOrderItem({
           orderData: item
         });
-      }, (item, index) => JSON.stringify(item) + index);
+      }, (item: Order, index?: number) => JSON.stringify(item) + index);
       Flex({ justifyContent: FlexAlign.SpaceBetween }) {
         Text($r('app.string.order_list_reward'))
           .fontSize($r('app.float.small_font_size'))

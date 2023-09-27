@@ -14,11 +14,11 @@
  */
 
 import { StyleConstants } from '@ohos/common';
-import { addressInfo } from '../viewmodel/OrderData';
+import { addressInfo, AddressInfoParams } from '../viewmodel/OrderData';
 
 @Component
 export struct AddressInfo {
-  private info;
+  private info?: AddressInfoParams;
 
   aboutToAppear() {
     this.info = addressInfo[0];
@@ -39,16 +39,16 @@ export struct AddressInfo {
       }) {
         Column(){
           Row() {
-            Text(this.info.name)
+            Text(this.info?.name)
               .fontSize($r('app.float.small_font_size'))
               .margin({ right: $r('app.float.vp_twelve') })
               .fontColor(Color.Black)
-            Text(this.info.phone)
+            Text(this.info?.phone)
               .fontSize($r('app.float.small_font_size'))
               .fontColor($r("app.color.sixty_alpha_black"))
           }
           .margin({ bottom: $r('app.float.vp_eight') })
-          Text(`${this.info.province}${this.info.city}${this.info.region} ${this.info.detailAddress}`)
+          Text(`${this.info?.province}${this.info?.city}${this.info?.region} ${this.info?.detailAddress}`)
             .fontSize($r('app.float.smaller_font_size'))
             .fontColor($r("app.color.sixty_alpha_black"))
         }
