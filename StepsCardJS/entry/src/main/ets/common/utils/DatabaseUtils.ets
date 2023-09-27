@@ -26,6 +26,7 @@ import ChartDataUtils from '../utils/ChartDataUtils';
 import CommonConstants from '../constants/CommonConstants';
 import FormData from '../bean/FormData';
 import Logger from '../utils/Logger';
+import { GlobalContext } from './GlobalContext';
 
 /**
  * Database operation tool class.
@@ -38,23 +39,23 @@ export class DatabaseUtils {
    * @return {globalThis.rdbStore} return rdbStore RDB database
    */
   async createRdbStore(context: Context) {
-    if (!globalThis.rdbStore) {
+    if (!GlobalContext.getContext().getObject('rdbStore')) {
       await DataRdb.getRdbStore(context, CommonConstants.RDB_STORE_CONFIG)
         .then((rdbStore: DataRdb.RdbStore) => {
           if (rdbStore) {
-            rdbStore.executeSql(CommonConstants.CREATE_TABLE_FORM).catch((error) => {
+            rdbStore.executeSql(CommonConstants.CREATE_TABLE_FORM).catch((error: Error) => {
               Logger.error(CommonConstants.DATABASE_TAG, 'executeSql Form error ' + JSON.stringify(error));
             });
-            rdbStore.executeSql(CommonConstants.CREATE_TABLE_SENSOR_DATA).catch((error) => {
+            rdbStore.executeSql(CommonConstants.CREATE_TABLE_SENSOR_DATA).catch((error: Error) => {
               Logger.error(CommonConstants.DATABASE_TAG, 'executeSql Sensor error ' + JSON.stringify(error));
             });
-            globalThis.rdbStore = rdbStore;
+            GlobalContext.getContext().setObject('rdbStore', rdbStore);
           }
-        }).catch((error) => {
+        }).catch((error: Error) => {
           Logger.error(CommonConstants.DATABASE_TAG, 'createRdbStore error ' + JSON.stringify(error));
         });
     }
-    return globalThis.rdbStore;
+    return GlobalContext.getContext().getObject('rdbStore');
   }
 
   /**
@@ -65,7 +66,7 @@ export class DatabaseUtils {
    * @return Return the operation information.
    */
   insertForm(form: Form, rdbStore: DataRdb.RdbStore) {
-    rdbStore.insert(CommonConstants.TABLE_FORM, form.toValuesBucket()).catch((error) => {
+    rdbStore.insert(CommonConstants.TABLE_FORM, form.toValuesBucket()).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'insertForm error ' + JSON.stringify(error));
     });
   }
@@ -89,7 +90,7 @@ export class DatabaseUtils {
       todayData.stepsValue = sensorData.stepsValue;
       let predicates: DataRdb.RdbPredicates = new DataRdb.RdbPredicates(CommonConstants.TABLE_SENSOR);
       predicates.equalTo(CommonConstants.FIELD_DATE_NAME, now);
-      rdbStore.update(todayData.toValuesBucket(), predicates).catch((error) => {
+      rdbStore.update(todayData.toValuesBucket(), predicates).catch((error: Error) => {
         Logger.error(CommonConstants.DATABASE_TAG, 'insertValues update error ' + JSON.stringify(error));
       });
     }
@@ -116,15 +117,15 @@ export class DatabaseUtils {
         ChartDataUtils.getFormData(formId, stepValue, dimension, rdbStore).then((formData: FormData) => {
           // Update multiple cards.
           FormProvider.updateForm(formData.formId, FormBindingData.createFormBindingData(formData))
-            .catch((error) => {
+            .catch((error: Error) => {
               Logger.error(CommonConstants.DATABASE_TAG, 'updateForm error ' + JSON.stringify(error));
             });
-        }).catch((error) => {
+        }).catch((error: Error) => {
           Logger.error(CommonConstants.DATABASE_TAG, 'updateForms getFormData error ' + JSON.stringify(error));
         });
       } while (resultSet.goToNextRow());
       resultSet.close();
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'updateForms query error ' + JSON.stringify(error));
     });
   }
@@ -139,6 +140,7 @@ export class DatabaseUtils {
     let formPredicates: DataRdb.RdbPredicates = new DataRdb.RdbPredicates(CommonConstants.TABLE_SENSOR);
     formPredicates.equalTo(CommonConstants.FIELD_DATE_NAME, date);
     let sensorData: SensorData;
+    sensorData = new SensorData();
     await rdbStore.query(formPredicates).then((resultSet: DataRdb.ResultSet) => {
       if (resultSet.rowCount <= 0) {
         Logger.error(CommonConstants.DATABASE_TAG, 'getSensorData rowCount <=0');
@@ -148,10 +150,9 @@ export class DatabaseUtils {
       let date: string = resultSet.getString(resultSet.getColumnIndex(CommonConstants.FIELD_DATE_NAME));
       let stepsValue: number = resultSet.getLong(resultSet.getColumnIndex(CommonConstants.FIELD_STEPS_NAME));
       resultSet.close();
-      sensorData = new SensorData();
       sensorData.date = date;
       sensorData.stepsValue = stepsValue;
-    }).catch((err) => {
+    }).catch((err: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'Get Sensor Data, err: ' + JSON.stringify(err));
     });
     return sensorData;
@@ -166,7 +167,7 @@ export class DatabaseUtils {
   deleteFormData(formId: string, rdbStore: DataRdb.RdbStore) {
     let predicates: DataRdb.RdbPredicates = new DataRdb.RdbPredicates(CommonConstants.TABLE_FORM);
     predicates.equalTo(CommonConstants.FIELD_FORM_ID, formId);
-    rdbStore.delete(predicates).catch((error) => {
+    rdbStore.delete(predicates).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'deleteFormData delete error ' + JSON.stringify(error));
     });
   }
@@ -191,7 +192,7 @@ export class DatabaseUtils {
           results.push(ChartDataUtils.getChartPoint(stepsValue));
         }
         resultSet.close();
-      }).catch((err) => {
+      }).catch((err: Error) => {
         Logger.error(CommonConstants.DATABASE_TAG, 'getLastThreeDaysValue err: ' + JSON.stringify(err));
       });
       index--;
@@ -209,10 +210,10 @@ export class DatabaseUtils {
     let Language: string = I18n.System.getSystemLanguage();
     if (Language.match(CommonConstants.CHINESE_LANGUAGE)) {
       notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_ZH +
-        stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_ZH;
+      stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_ZH;
     } else {
       notificationBarTitle = CommonConstants.NOTIFICATIONS_TITLE_GONE_TODAY_EN +
-        stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_EN;
+      stepsValue + CommonConstants.NOTIFICATIONS_TITLE_STEPS_EN;
     }
     // Construct the notificationRequest object.
     let notificationRequest = {
@@ -227,7 +228,7 @@ export class DatabaseUtils {
     };
     Notification.publish(notificationRequest).then(() => {
       Logger.info(CommonConstants.DATABASE_TAG, 'publish promise success req.id : ' + notificationRequest.id);
-    }).catch((err) => {
+    }).catch((err: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'publish promise failed because ' + JSON.stringify(err));
     });
   }
@@ -246,21 +247,21 @@ export class DatabaseUtils {
     let yesterday: SensorData = new SensorData();
     yesterday.date = DateUtils.getDate(CommonConstants.YESTERDAY);
     yesterday.stepsValue = CommonConstants.SIMULATION_YESTERDAY_VALUE;
-    rdbStore.insert(CommonConstants.TABLE_SENSOR, yesterday.toValuesBucket()).catch((error) => {
+    rdbStore.insert(CommonConstants.TABLE_SENSOR, yesterday.toValuesBucket()).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'yesterday insert error ' + JSON.stringify(error));
     });
     // Add the simulation data of the day before yesterday.
     let beforeYesterday: SensorData = new SensorData();
     beforeYesterday.date = DateUtils.getDate(CommonConstants.BEFORE_YESTERDAY)
     beforeYesterday.stepsValue = CommonConstants.SIMULATION_BEFORE_YESTERDAY_VALUE;
-    rdbStore.insert(CommonConstants.TABLE_SENSOR, beforeYesterday.toValuesBucket()).catch((error) => {
+    rdbStore.insert(CommonConstants.TABLE_SENSOR, beforeYesterday.toValuesBucket()).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'beforeYesterday insert error ' + JSON.stringify(error));
     });
     // Add the simulation data of three days ago.
     let threeDaysAgo: SensorData = new SensorData();
     threeDaysAgo.date = DateUtils.getDate(CommonConstants.THREE_DAYS_AGO);
     threeDaysAgo.stepsValue = CommonConstants.SIMULATION_THREE_DAYS_AGO_VALUE;
-    rdbStore.insert(CommonConstants.TABLE_SENSOR, threeDaysAgo.toValuesBucket()).catch((error) => {
+    rdbStore.insert(CommonConstants.TABLE_SENSOR, threeDaysAgo.toValuesBucket()).catch((error: Error) => {
       Logger.error(CommonConstants.DATABASE_TAG, 'threeDaysAgo insert error ' + JSON.stringify(error));
     });
   }

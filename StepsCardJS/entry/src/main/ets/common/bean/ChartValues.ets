@@ -22,20 +22,20 @@ export default class ChartValues {
   /**
    * Chart fill color.
    */
-  fillColor: string;
+  fillColor: string = '';
 
   /**
    * Chart line color.
    */
-  strokeColor: string;
+  strokeColor: string = '';
 
   /**
    * Sets whether to display the fill gradient color.
    */
-  gradient: boolean;
+  gradient: boolean = false;
 
   /**
    * Draw a set of points in a line type chart.
    */
-  data: Array<ChartPoint>;
+  data: Array<ChartPoint> = [];
 }

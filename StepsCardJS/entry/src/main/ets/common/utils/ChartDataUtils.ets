@@ -33,7 +33,7 @@ export class ChartDataUtils {
    * @return Return the steps value of the last three days.
    */
   async getChartPoints(rdbStore: DataRdb.RdbStore) {
-    let chartPoints = await DatabaseUtils.getLastThreeDaysValue(rdbStore).catch((error) => {
+    let chartPoints = await DatabaseUtils.getLastThreeDaysValue(rdbStore).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_CHART, 'getLastThreeDaysValue error ' + JSON.stringify(error));
     });
     return chartPoints;
@@ -54,16 +54,16 @@ export class ChartDataUtils {
     chartValues.strokeColor = CommonConstants.CHART_VALUES_STROKE_COLOR;
     chartValues.gradient = true;
     // Gets a collection of points from the previous three days.
-    let chartPoints: Array<ChartPoint>;
-    await this.getChartPoints(rdbStore).then((pointArray: Array<ChartPoint>) => {
-      chartPoints = pointArray;
-    }).catch((error) => {
+    let chartPoints: ChartPoint[];
+    await this.getChartPoints(rdbStore).then((pointArray: ChartPoint[] | void) => {
+      chartPoints = pointArray as ChartPoint[];
+      let nowChartPoint: ChartPoint = this.getChartPoint(stepsValue);
+      // Join today's steps value.
+      chartPoints.push(nowChartPoint);
+      chartValues.data = chartPoints;
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_CHART, 'getChartPoints error ' + JSON.stringify(error));
     });
-    let nowChartPoint: ChartPoint = this.getChartPoint(stepsValue);
-    // Join today's steps value.
-    chartPoints.push(nowChartPoint);
-    chartValues.data = chartPoints;
     return chartValues;
   }
 
@@ -116,7 +116,7 @@ export class ChartDataUtils {
       // Get chart point set data.
       await this.getChartValues(stepValue, rdbStore).then((result) => {
         dataSets.push(result);
-      }).catch((error) => {
+      }).catch((error: Error) => {
         Logger.error(CommonConstants.TAG_CHART, 'getFormData chartValues error ' + JSON.stringify(error));
       });
       // Add Field.

@@ -22,25 +22,29 @@ export default class ChartPoint {
   /**
    * Step value.
    */
-  value: number;
-
+  value: number = 0;
   /**
    * Style of chart points.
    */
-  pointStyle: PointStyle;
+  pointStyle: PointStyle = {
+    shape: '',
+    fillColor: '',
+    strokeColor: '',
+    size: 0
+  };
 
   /**
    * Description of icon points.
    */
-  description: string;
+  description: string = '';
 
   /**
    * Chart text position.
    */
-  textLocation: string;
+  textLocation: string = '';
 
   /**
    * Chart text color.
    */
-  textColor: string;
+  textColor: string='';
 }

@@ -22,25 +22,25 @@ export default class FormData {
   /**
    * Form ID
    */
-  formId: string;
+  formId: string = '';
 
   /**
    * Step percentage.
    */
-  percent: number;
+  percent: number = 0;
 
   /**
    * Form steps.
    */
-  steps: number;
+  steps: number = 0;
 
   /**
    * Chart data point collection.
    */
-  datasets: Array<ChartValues>;
+  datasets: Array<ChartValues> = [];
 
   /**
    * Travel mileage.
    */
-  mileage: number;
+  mileage: number = 0;
 }

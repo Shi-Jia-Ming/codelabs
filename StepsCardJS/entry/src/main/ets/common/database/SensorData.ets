@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+import relationalStore from '@ohos.data.relationalStore';
+
 /**
  * Database sensor steps entity class.
  */
@@ -20,19 +22,19 @@ export default class SensorData {
   /**
    * Time of walking steps.
    */
-  date: string;
+  date: string = '';
 
   /**
    * Value of steps.
    */
-  stepsValue: number;
+  stepsValue: number = 0;
 
   /**
    * Gets the number of steps to insert a form.
    *
    * @return Return steps.
    */
-  toValuesBucket() {
+  toValuesBucket():relationalStore.ValuesBucket {
     return {
       'date': this.date,
       'stepsValue': this.stepsValue
