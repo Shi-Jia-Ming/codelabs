@@ -18,6 +18,7 @@ import DataSource from '../common/datasource/DataSource';
 import MovieDataBean from '../common/bean/MovieDataBean';
 import MovieItem from '../view/MovieItem';
 import CommonUtils from '../common/utils/CommonUtils';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * MovieListPage is the program entry and displays movie ranking data.
@@ -28,7 +29,7 @@ import CommonUtils from '../common/utils/CommonUtils';
 @Component
 struct MovieListPage {
   // Lazy loading of matching data sources.
-  private dataSource: DataSource<MovieDataBean>;
+  private dataSource: DataSource<MovieDataBean> = new DataSource([]);
 
   aboutToAppear() {
     this.dataSource = new DataSource(CommonUtils.getListData());
@@ -37,7 +38,8 @@ struct MovieListPage {
   }
 
   aboutToDisappear() {
-    clearInterval(globalThis.intervalId);
+    let intervalId = GlobalContext.getContext().getObject('intervalId') as number;
+    clearInterval(intervalId);
   }
 
   build() {
@@ -57,7 +59,7 @@ struct MovieListPage {
           ListItem() {
             MovieItem({ movieItem: item });
           }
-        }, item => JSON.stringify(item))
+        }, (item: MovieDataBean) => JSON.stringify(item))
       }
       .listDirection(Axis.Vertical)
       .edgeEffect(EdgeEffect.None)

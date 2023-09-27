@@ -13,35 +13,25 @@
  * limitations under the License.
  */
 
-import relationalStore from '@ohos.data.relationalStore';
+export class GlobalContext {
+  private constructor() {
+  }
 
-/**
- * Database form entity class.
- */
-export default class FormBean {
-  /**
-   * Form ID
-   */
-  formId: string = '';
-  /**
-   * Form name
-   */
-  formName: string = '';
-  /**
-   * Card dimension
-   */
-  dimension: number = 0;
+  private static instance: GlobalContext;
+  private _objects = new Map<string, Object>();
 
-  /**
-   * Get inserted form data.
-   *
-   * @return Return form data
-   */
-  toValuesBucket(): relationalStore.ValuesBucket {
-    return {
-      'formId': this.formId,
-      'formName': this.formName,
-      'dimension': this.dimension
-    };
+  public static getContext(): GlobalContext {
+    if (!GlobalContext.instance) {
+      GlobalContext.instance = new GlobalContext();
+    }
+    return GlobalContext.instance;
+  }
+
+  getObject(value: string): Object | undefined {
+    return this._objects.get(value);
+  }
+
+  setObject(key: string, objectClass: Object): void {
+    this._objects.set(key, objectClass);
   }
 }

@@ -18,18 +18,18 @@ import StyleConstants from '../common/constants/StyleConstants';
 @Component
 export default struct StarsWidget {
   private rating: string = '';
-  private stars: Resource[];
+  private stars: Resource[] = [];
 
   build() {
     Row() {
       List({ space: StyleConstants.STARS_LIST_SPACE }) {
-        ForEach(this.stars, (item) => {
+        ForEach(this.stars, (item: Resource) => {
           ListItem() {
             Image(item)
               .width($r('app.float.stars_image_size'))
               .height($r('app.float.stars_image_size'))
           }
-        }, (item, index) => JSON.stringify(item) + index)
+        }, (item: Resource) => JSON.stringify(item))
       }
       .listDirection(Axis.Horizontal)
       .edgeEffect(EdgeEffect.None)

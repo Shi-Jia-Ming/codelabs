@@ -19,7 +19,7 @@ import DataSource from '../common/datasource/DataSource';
 
 @Component
 export default struct MovieStarring {
-  private dataSource: DataSource<Resource>;
+  private dataSource: DataSource<Resource> = new DataSource([]);
 
   aboutToAppear() {
     this.dataSource = new DataSource(CommonUtils.getStarringData());
@@ -78,7 +78,7 @@ export default struct MovieStarring {
                 .fontWeight(FontWeight.Normal)
             }
           }
-        }, item => JSON.stringify(item))
+        }, (item: Resource) => JSON.stringify(item))
       }
       .listDirection(Axis.Horizontal)
       .edgeEffect(EdgeEffect.None)

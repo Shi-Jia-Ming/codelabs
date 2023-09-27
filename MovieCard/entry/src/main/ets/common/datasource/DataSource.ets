@@ -32,7 +32,6 @@ export default class DataSource<T> implements IDataSource {
   }
 
   registerDataChangeListener() {
-
   }
 
   unregisterDataChangeListener() {

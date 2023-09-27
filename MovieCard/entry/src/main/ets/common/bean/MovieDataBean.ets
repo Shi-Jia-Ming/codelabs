@@ -20,50 +20,41 @@ export default class MovieDataBean {
   /**
    * Movie sort number
    */
-  sort: number;
-
+  sort: number = 0;
   /**
    * Is show sort image
    */
-  isShowSort: boolean;
-
+  isShowSort: boolean = true;
   /***
    * Movie sort image
    */
-  sortImage: Resource;
-
+  sortImage: Resource = $r('app.media.ic_first');
   /**
    * Movie title
    */
-  title: string;
-
+  title: string = '冰上姐妹';
   /**
    * Movie describe
    */
-  describe: string;
-
+  describe: string = '讲述冰上女运动员之间团结友爱，互帮互助的故事';
   /**
    * Movie image
    */
-  movieImage: Resource;
-
+  movieImage: Resource = $r('app.media.ic_movie_one');
   /**
    * Show card image
    */
-  cardImage: string;
-
+  cardImage: string = '/common/ic_movie_one.png';
   /**
    * Movie stars
    */
-  stars: Resource[];
-
+  stars: Resource[] = [$r('app.media.ic_star')];
   /**
    * Movie rating
    */
-  rating: string;
-
+  rating: string = '9.5';
   /**
    * Movie introduction
    */
-  introduction: string;
+  introduction: string = '默认简介';
 }

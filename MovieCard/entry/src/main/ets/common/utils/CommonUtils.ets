@@ -21,6 +21,8 @@ import CommonConstants from '../constants/CommonConstants';
 import MovieDataBean from '../bean/MovieDataBean';
 import Logger from './Logger';
 import { MOVIE_LIST_DATA, STARRING_DATA, STILLS_DATA } from '../datasource/MovieListData';
+import { GlobalContext } from './GlobalContext';
+import FormDataBean from '../bean/FormDataBean';
 
 /**
  * Movie data common class.
@@ -30,23 +32,20 @@ export class CommonUtils {
    * Create rdb store.
    *
    * @param {context} Context
-   * @return {globalThis.rdbStore} return rdbStore RDB database
+   * @return {rdbStore} return rdbStore RDB database
    */
   async createRdbStore(context: Context) {
-    if (this.isEmpty(globalThis.rdbStore)) {
-      await relationalStore.getRdbStore(context, CommonConstants.STORE_CONFIG)
-        .then((rdbStore: relationalStore.RdbStore) => {
-          if (!this.isEmpty(rdbStore)) {
-            rdbStore.executeSql(CommonConstants.CREATE_TABLE_FORM).catch((error) => {
-              Logger.error(CommonConstants.TAG_COMMON_UTILS, 'executeSql error ' + JSON.stringify(error));
-            });
-            globalThis.rdbStore = rdbStore;
-          }
-        }).catch((error) => {
-          Logger.error(CommonConstants.TAG_COMMON_UTILS, 'createRdbStore error ' + JSON.stringify(error));
+    let rdbStore = GlobalContext.getContext().getObject('rdbStore') as relationalStore.RdbStore;
+    if (this.isEmpty(rdbStore)) {
+      rdbStore = await relationalStore.getRdbStore(context, CommonConstants.STORE_CONFIG);
+      if (!this.isEmpty(rdbStore)) {
+        rdbStore.executeSql(CommonConstants.CREATE_TABLE_FORM).catch((error: Error) => {
+          Logger.error(CommonConstants.TAG_COMMON_UTILS, 'executeSql error ' + JSON.stringify(error));
         });
+        GlobalContext.getContext().setObject('rdbStore', rdbStore);
+      }
     }
-    return globalThis.rdbStore;
+    return rdbStore;
   }
 
   /**
@@ -61,7 +60,7 @@ export class CommonUtils {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'insertForm rdbStore or form is null');
       return;
     }
-    rdbStore.insert(CommonConstants.TABLE_NAME, form.toValuesBucket()).catch((error) => {
+    rdbStore.insert(CommonConstants.TABLE_NAME, form.toValuesBucket()).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'insertForm error ' + JSON.stringify(error));
     });
   }
@@ -88,12 +87,12 @@ export class CommonUtils {
         let formData = this.getFormData(listData);
         let formId: string = resultSet.getString(resultSet.getColumnIndex(CommonConstants.FORM_ID));
         formProvider.updateForm(formId, formBindingData.createFormBindingData(formData))
-          .catch((error) => {
+          .catch((error: Error) => {
             Logger.error(CommonConstants.TAG_COMMON_UTILS, 'updateForm error ' + JSON.stringify(error));
           });
       } while (resultSet.goToNextRow());
       resultSet.close();
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'updateCardMovieData error ' + JSON.stringify(error));
     });
   }
@@ -124,7 +123,7 @@ export class CommonUtils {
     }
     let predicates: relationalStore.RdbPredicates = new relationalStore.RdbPredicates(CommonConstants.TABLE_NAME);
     predicates.equalTo(CommonConstants.FORM_ID, formId);
-    rdbStore.delete(predicates).catch((error) => {
+    rdbStore.delete(predicates).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'deleteFormData error ' + JSON.stringify(error));
     });
   }
@@ -135,26 +134,12 @@ export class CommonUtils {
    * @return {listMovieData} return list movie data
    */
   getListData(): MovieDataBean[] {
-    if (this.isEmptyArr(globalThis.listMovieData)) {
-      let listMovieData: MovieDataBean[] = [];
-      MOVIE_LIST_DATA.forEach((itemMovie) => {
-        let movieItem: MovieDataBean = {
-          sort: itemMovie.sort,
-          isShowSort: itemMovie.isShowSort,
-          sortImage: itemMovie.sortImage,
-          title: itemMovie.title,
-          describe: itemMovie.describe,
-          movieImage: itemMovie.movieImage,
-          cardImage: itemMovie.cardImage,
-          stars: itemMovie.stars,
-          rating: itemMovie.rating,
-          introduction: itemMovie.introduction,
-        };
-        listMovieData.push(movieItem);
-      });
-      globalThis.listMovieData = listMovieData;
+    let listMovieData = GlobalContext.getContext().getObject('listMovieData') as MovieDataBean[];
+    if (this.isEmptyArr(listMovieData)) {
+      listMovieData = MOVIE_LIST_DATA;
+      GlobalContext.getContext().setObject('listMovieData', listMovieData);
     }
-    return globalThis.listMovieData;
+    return listMovieData;
   }
 
   /**
@@ -165,7 +150,7 @@ export class CommonUtils {
   getFormData(listData: MovieDataBean[]): object {
     if (this.isEmptyArr(listData)) {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'getFormData listData is empty');
-      return;
+      return [];
     }
     let oneRandom: number = this.getRandomInt(listData.length);
     let twoRandom: number = this.getRandomInt(oneRandom);
@@ -180,7 +165,7 @@ export class CommonUtils {
       bottomMovieImage: bottomMovie.cardImage,
       bottomTitle: bottomMovie.title,
       bottomDescribe: bottomMovie.describe
-    };
+    } as FormDataBean;
     return formData;
   }
 
@@ -188,11 +173,14 @@ export class CommonUtils {
    * Start timer
    */
   startTimer() {
-    if (this.isEmpty(globalThis.intervalId)) {
-      globalThis.intervalId = setInterval(() => {
-        this.updateMovieCardData(globalThis.rdbStore);
+    let intervalId = GlobalContext.getContext().getObject('intervalId') as number;
+    if (this.isEmpty(intervalId)) {
+      intervalId = setInterval(() => {
+        let rdbStore = GlobalContext.getContext().getObject('rdbStore') as relationalStore.RdbStore;
+        this.updateMovieCardData(rdbStore);
       }, CommonConstants.INTERVAL_DELAY_TIME);
     }
+    GlobalContext.getContext().setObject('intervalId', intervalId)
   }
 
   /**
@@ -227,7 +215,7 @@ export class CommonUtils {
    * @param {object} obj
    * @return {boolean} true(empty)
    */
-  isEmpty(obj): boolean {
+  isEmpty(obj: object | string | number): boolean {
     return (obj === undefined || obj === null || obj === '');
   }
 
@@ -237,7 +225,7 @@ export class CommonUtils {
    * @param {Array}array
    * @return {boolean} true(empty)
    */
-  isEmptyArr(array): boolean {
+  isEmptyArr(array: MovieDataBean[]): boolean {
     return (this.isEmpty(array) || array.length === 0);
   }
 }
