@@ -20,136 +20,34 @@ export class PressKeysBeanViewModel {
   /**
    * Key array data.
    */
-  getPressKeys(): Array<Array<PressKeysBean>>{
+  getPressKeys(): Array<Array<PressKeysBean>> {
     return [
       [
-        {
-          flag: 0,
-          width: '32vp',
-          height: '32vp',
-          value: 'clean',
-          source: $r('app.media.ic_clean')
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '7'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '4'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '1'
-        },
-        {
-          flag: 1,
-          width: '25vp',
-          height: '43vp',
-          value: '%'
-        }
+        new PressKeysBean(0, '32vp', '32vp', 'clean', $r('app.media.ic_clean')),
+        new PressKeysBean(1, '19vp', '43vp', '7'),
+        new PressKeysBean(1, '19vp', '43vp', '4'),
+        new PressKeysBean(1, '19vp', '43vp', '1'),
+        new PressKeysBean(1, '25vp', '43vp', '%')
       ],
       [
-        {
-          flag: 0,
-          width: '32vp',
-          height: '32vp',
-          value: 'div',
-          source: $r('app.media.ic_div')
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '8'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '5'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '2'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '0'
-        }
+        new PressKeysBean(0, '32vp', '32vp', 'div', $r('app.media.ic_div')),
+        new PressKeysBean(1, '19vp', '43vp', '8'),
+        new PressKeysBean(1, '19vp', '43vp', '5'),
+        new PressKeysBean(1, '19vp', '43vp', '2'),
+        new PressKeysBean(1, '19vp', '43vp', '0')
       ],
       [
-        {
-          flag: 0,
-          width: '32vp',
-          height: '32vp',
-          value: 'mul',
-          source: $r('app.media.ic_mul')
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '9'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '6'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '3'
-        },
-        {
-          flag: 1,
-          width: '19vp',
-          height: '43vp',
-          value: '.'
-        }
+        new PressKeysBean(0, '32vp', '32vp', 'mul', $r('app.media.ic_mul')),
+        new PressKeysBean(1, '19vp', '43vp', '9'),
+        new PressKeysBean(1, '19vp', '43vp', '6'),
+        new PressKeysBean(1, '19vp', '43vp', '3'),
+        new PressKeysBean(1, '19vp', '43vp', '.')
       ],
       [
-        {
-          flag: 0,
-          width: '30.48vp',
-          height: '20vp',
-          value: 'del',
-          source: $r('app.media.ic_del')
-        },
-        {
-          flag: 0,
-          width: '24vp',
-          height: '24vp',
-          value: 'min',
-          source: $r('app.media.ic_min')
-        },
-        {
-          flag: 0,
-          width: '32vp',
-          height: '32vp',
-          value: 'add',
-          source: $r('app.media.ic_add')
-        },
-        {
-          flag: 0,
-          width: '32vp',
-          height: '32vp',
-          value: 'equ',
-          source: $r('app.media.ic_equ')
-        }
+        new PressKeysBean(0, '30.48vp', '20vp', 'del', $r('app.media.ic_del')),
+        new PressKeysBean(0, '24vp', '24vp', 'min', $r('app.media.ic_min')),
+        new PressKeysBean(0, '32vp', '32vp', 'add', $r('app.media.ic_add')),
+        new PressKeysBean(0, '32vp', '32vp', 'equ', $r('app.media.ic_equ'))
       ]
     ];
   }

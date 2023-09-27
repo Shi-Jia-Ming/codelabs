@@ -22,7 +22,7 @@ class CheckEmptyUtil {
    * @param {object} obj
    * @return {boolean} true(empty)
    */
-  isEmpty(obj) {
+  isEmpty(obj: object | string): boolean {
     return (typeof obj === 'undefined' || obj === null || obj === '');
   }
 
@@ -32,7 +32,7 @@ class CheckEmptyUtil {
    * @param {string} str
    * @return {boolean} true(empty)
    */
-  checkStrIsEmpty(str) {
+  checkStrIsEmpty(str: string): boolean {
     return str.trim().length === 0;
   }
 
@@ -42,7 +42,7 @@ class CheckEmptyUtil {
    * @param {Array}arr
    * @return {boolean} true(empty)
    */
-  isEmptyArr(arr) {
+  isEmptyArr(arr: Array<string>) {
     return arr.length === 0;
   }
 }

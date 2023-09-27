@@ -20,7 +20,7 @@ export class PressKeysBean {
   value: string;
   source?: Resource;
 
-  constructor(flag, width, height, value, source) {
+  constructor(flag: number, width: string, height: string, value: string, source?: Resource) {
     this.flag = flag;
     this.width = width;
     this.height = height;

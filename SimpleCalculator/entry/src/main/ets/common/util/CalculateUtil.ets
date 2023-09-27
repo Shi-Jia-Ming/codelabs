@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CommonConstants, Priority } from '../constants/CommonConstants';
+import { CommonConstants, Priority, SymbolicEnumeration } from '../constants/CommonConstants';
 import CheckEmptyUtil from './CheckEmptyUtil';
 
 class CalculateUtil {
@@ -25,7 +25,7 @@ class CalculateUtil {
    */
   isSymbol(value: string) {
     if (CheckEmptyUtil.isEmpty(value)) {
-      return ;
+      return;
     }
     return (CommonConstants.OPERATORS.indexOf(value) !== -1);
   }
@@ -42,12 +42,12 @@ class CalculateUtil {
     }
     let result = 0;
     switch (value) {
-      case CommonConstants.ADD:
-      case CommonConstants.MIN:
+      case SymbolicEnumeration.ADD:
+      case SymbolicEnumeration.MIN:
         result = Priority.MEDIUM;
         break;
-      case CommonConstants.MUL:
-      case CommonConstants.DIV:
+      case SymbolicEnumeration.MUL:
+      case SymbolicEnumeration.DIV:
         result = Priority.HIGH;
         break;
       default:
@@ -66,7 +66,7 @@ class CalculateUtil {
    */
   comparePriority(arg1: string, arg2: string): boolean {
     if (CheckEmptyUtil.isEmpty(arg1) || CheckEmptyUtil.isEmpty(arg2)) {
-      return;
+      return false;
     }
     return (this.getPriority(arg1) <= this.getPriority(arg2));
   }
@@ -76,13 +76,13 @@ class CalculateUtil {
    *
    * @param expressions Expressions.
    */
-  parseExpression(expressions: Array<string>) {
+  parseExpression(expressions: Array<string>): string {
     if (CheckEmptyUtil.isEmpty(expressions)) {
-      return NaN;
+      return 'NaN';
     }
     let len = expressions.length;
-    let outputStack = [];
-    let outputQueue = [];
+    let outputStack: string[] = [];
+    let outputQueue: string[] = [];
     expressions.forEach((item: string, index: number) => {
       // Handle % in the expression
       if (item.indexOf(CommonConstants.PERCENT_SIGN) !== -1) {
@@ -95,21 +95,28 @@ class CalculateUtil {
       }
     });
     while (expressions.length > 0) {
-      let current = expressions.shift();
-      if (this.isSymbol(current)) {
-        // Processing addition, subtraction, multiplication and division.
-        while (outputStack.length > 0 &&
-          this.comparePriority(current, outputStack[outputStack.length - 1])) {
-          outputQueue.push(outputStack.pop());
+      let current: string | undefined = expressions.shift();
+      if (current !== undefined) {
+        if (this.isSymbol(current)) {
+          // Processing addition, subtraction, multiplication and division.
+          while (outputStack.length > 0 && this.comparePriority(current, outputStack[outputStack.length - 1])) {
+            let popValue: string | undefined = outputStack.pop();
+            if (popValue !== undefined) {
+              outputQueue.push(popValue);
+            }
+          }
+          outputStack.push(current);
+        } else {
+          // Processing the numbers.
+          outputQueue.push(current);
         }
-        outputStack.push(current);
-      } else {
-        // Processing the numbers.
-        outputQueue.push(current);
       }
     }
     while (outputStack.length > 0) {
-      outputQueue.push(outputStack.pop());
+      let popValue: string | undefined = outputStack.pop();
+      if (popValue !== undefined) {
+        outputQueue.push(popValue);
+      }
     }
     return this.dealQueue(outputQueue);
   }
@@ -120,26 +127,31 @@ class CalculateUtil {
    * @param queue Expression Queue.
    * @return The end result.
    */
-  dealQueue(queue: Array<string>) {
+  dealQueue(queue: Array<string>): string {
     if (CheckEmptyUtil.isEmpty(queue)) {
-      return NaN;
+      return 'NaN';
     }
-    let outputStack = [];
+    let outputStack: string[] = [];
     while (queue.length > 0) {
-      let current = queue.shift();
-      if (!this.isSymbol(current)) {
-        outputStack.push(current);
-      } else {
-        let second = outputStack.pop();
-        let first = outputStack.pop();
-        outputStack.push(this.calResult(first, second, current));
+      let current: string | undefined = queue.shift();
+      if (current !== undefined) {
+        if (!this.isSymbol(current)) {
+          outputStack.push(current);
+        } else {
+          let second: string | undefined = outputStack.pop();
+          let first: string | undefined = outputStack.pop();
+          if (first !== undefined && second !== undefined) {
+            let calResultValue: string = this.calResult(first, second, current)
+            outputStack.push(calResultValue);
+          }
+        }
       }
     }
     if (outputStack.length !== 1) {
-      return NaN;
+      return 'NaN';
     } else {
-      let end = outputStack[0].endsWith(CommonConstants.DOTS) ?
-        outputStack[0].substring(0,  outputStack[0].length - 1) : outputStack[0];
+      let end: string = outputStack[0]?.endsWith(CommonConstants.DOTS) ?
+        outputStack[0].substring(0, outputStack[0].length - 1) : outputStack[0];
       return end;
     }
   }
@@ -152,22 +164,22 @@ class CalculateUtil {
    * @param symbol Operators.
    * @return Calculation result.
    */
-  calResult(arg1: string, arg2: string, symbol: string) {
-    if (CheckEmptyUtil.isEmpty(arg1) || CheckEmptyUtil.isEmpty(arg2), CheckEmptyUtil.isEmpty(symbol)) {
-      return NaN;
+  calResult(arg1: string, arg2: string, symbol: string): string {
+    if (CheckEmptyUtil.isEmpty(arg1) || CheckEmptyUtil.isEmpty(arg2) || CheckEmptyUtil.isEmpty(symbol)) {
+      return 'NaN';
     }
     let result = 0;
     switch (symbol) {
-      case CommonConstants.ADD:
+      case SymbolicEnumeration.ADD:
         result = this.add(arg1, arg2, CommonConstants.ADD);
         break;
-      case CommonConstants.MIN:
+      case SymbolicEnumeration.MIN:
         result = this.add(arg1, arg2, CommonConstants.MIN);
         break;
-      case CommonConstants.MUL:
+      case SymbolicEnumeration.MUL:
         result = this.mulOrDiv(arg1, arg2, CommonConstants.MUL);
         break;
-      case CommonConstants.DIV:
+      case SymbolicEnumeration.DIV:
         result = this.mulOrDiv(arg1, arg2, CommonConstants.DIV);
         break;
       default:
@@ -187,9 +199,9 @@ class CalculateUtil {
   add(arg1: string, arg2: string, symbol: string): number {
     let addFlag = (symbol === CommonConstants.ADD);
     if (this.containScientificNotation(arg1) || this.containScientificNotation(arg2)) {
-       if (addFlag) {
-         return Number(arg1) + Number(arg2);
-       }
+      if (addFlag) {
+        return Number(arg1) + Number(arg2);
+      }
       return Number(arg1) - Number(arg2);
     }
     arg1 = (arg1 === CommonConstants.ZERO_DOTS) ? '0' : arg1;
@@ -248,11 +260,11 @@ class CalculateUtil {
    * @param result Digital Results.
    */
   numberToScientificNotation(result: number) {
-    if (result === Infinity) {
-      return NaN;
+    if (result === Number.NEGATIVE_INFINITY || result === Number.POSITIVE_INFINITY) {
+      return 'NaN';
     }
     let resultStr = JSON.stringify(result);
-    if ( this.containScientificNotation(resultStr)) {
+    if (this.containScientificNotation(resultStr)) {
       return resultStr;
     }
     let prefixNumber = (resultStr.indexOf(CommonConstants.MIN) === -1) ? 1 : -1;
@@ -268,4 +280,3 @@ class CalculateUtil {
 }
 
 export default new CalculateUtil();
-

@@ -129,3 +129,13 @@ export enum Priority {
   MEDIUM = 1,
   LOW = 0
 }
+
+/**
+ * Enumerated value: addition, subtraction, multiplication, and division.
+ */
+export enum SymbolicEnumeration {
+  ADD = '+',
+  MIN = '-',
+  MUL = '×',
+  DIV = '÷'
+}
