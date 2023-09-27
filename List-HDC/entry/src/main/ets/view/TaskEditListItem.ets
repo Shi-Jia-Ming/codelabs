@@ -26,24 +26,28 @@ import {
 } from '../common/constants/CommonConstant';
 import { taskType } from '../model/TaskInfo'
 
-@Extend(Text) function targetSetCommon() {
+@Extend(Text)
+function targetSetCommon() {
   .fontSize(DEFAULT_16)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
   .align(Alignment.End)
 }
 
-@Extend(Text) function targetSettingStyle(isOpen, taskID) {
+@Extend(Text)
+function targetSettingStyle(isOpen: boolean, taskID: number) {
   .fontColor(isOpen && taskID !== taskType.smile && taskID !== taskType.brushTeeth ?
   $r('app.color.titleColor') :
   $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function remindTimeStyle(isOpen, isAlarm) {
+@Extend(Text)
+function remindTimeStyle(isOpen: boolean, isAlarm: boolean) {
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function frequencyStyle(isOpen) {
+@Extend(Text)
+function frequencyStyle(isOpen: boolean) {
   .fontSize(DEFAULT_12)
   .flexGrow(1)
   .margin({ right: DEFAULT_8 })
@@ -62,7 +66,7 @@ export struct TaskChooseItem {
         .width(DEFAULT_56)
         .height(DEFAULT_32)
         .selectedColor($r('app.color.blueColor'))
-        .onChange((isOn) => {
+        .onChange((isOn: boolean) => {
           this.settingParams.isOpen = isOn;
         })
     }
@@ -115,7 +119,7 @@ export struct OpenRemindItem {
         .width(DEFAULT_56)
         .height(DEFAULT_32)
         .selectedColor($r('app.color.blueColor'))
-        .onChange((isOn) => {
+        .onChange((isOn: boolean) => {
           this.settingParams.isAlarm = isOn;
         })
     }

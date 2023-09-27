@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import { oneWeekDictFunc } from '../viewmodel/FrequencySetting';
-
 export enum taskType {
     'getup' = 1,
     'drinkWater',
@@ -23,5 +21,3 @@ export enum taskType {
     'brushTeeth',
     'sleepEarly'
 }
-
-export const oneWeek = oneWeekDictFunc();

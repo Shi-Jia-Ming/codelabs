@@ -24,17 +24,18 @@ import { FrequencyContentType } from '../model/TaskInitList';
 @CustomDialog
 export struct TargetSettingDialog {
   @Consume settingParams: TaskListItem;
-  controller: CustomDialogController;
+  controller: CustomDialogController = new CustomDialogController({
+    builder: TargetSettingDialog()
+  });
   drinkRange: string[] = createDrinkRange();
   appleRange: string[] = createAppleRange();
   currentValue: string = this.settingParams.taskID === taskType.drinkWater ? commonConst.DEFAULT_TEXT :
   commonConst.DEFAULT_APPLE;
   currentTime: string = commonConst.DEFAULT_TIME;
-  private tip: string = '';
 
   compareTime(startTime: string, endTime: string) {
     if (returnTimeStamp(this.currentTime) < returnTimeStamp(startTime) ||
-    returnTimeStamp(this.currentTime) > returnTimeStamp(endTime)) {
+      returnTimeStamp(this.currentTime) > returnTimeStamp(endTime)) {
       prompt.showToast({
         message: commonConst.CHOOSE_TIME_OUT_RANGE
       })
@@ -62,10 +63,10 @@ export struct TargetSettingDialog {
   }
 
   createSubTitle() {
-    if(this.settingParams?.taskID === taskType.getup) {
+    if (this.settingParams?.taskID === taskType.getup) {
       return commonConst.GET_UP_TIME_RANGE;
     }
-    if(this.settingParams?.taskID === taskType.sleepEarly) {
+    if (this.settingParams?.taskID === taskType.sleepEarly) {
       return commonConst.SLEEP_TIME_RANGE;
     }
     return '';
@@ -95,7 +96,7 @@ export struct TargetSettingDialog {
           value: this.settingParams.targetValue })
           .width(commonConst.THOUSANDTH_900)
           .height(commonConst.THOUSANDTH_800)
-          .onChange((value) => {
+          .onChange((value: string) => {
             this.currentValue = value?.split(' ')[0];
           })
       }
@@ -128,7 +129,9 @@ export struct TargetSettingDialog {
 @CustomDialog
 export struct RemindTimeDialog {
   @Consume settingParams: TaskListItem;
-  controller: CustomDialogController;
+  controller: CustomDialogController = new CustomDialogController({
+    builder: RemindTimeDialog()
+  });
   currentTime: string = commonConst.DEFAULT_TIME;
 
   build() {
@@ -179,21 +182,23 @@ export struct RemindTimeDialog {
 export struct FrequencyDialog {
   @Consume settingParams: TaskListItem;
   @Consume frequency: string;
-  private controller: CustomDialogController;
+  private controller: CustomDialogController = new CustomDialogController({
+    builder: FrequencyDialog()
+  });
   private currentFrequency: string = commonConst.EVERYDAY;
   private frequencyChooseRange: FrequencyContentType[] = frequencyRange();
 
   setFrequency() {
-    const checkedArr = this.frequencyChooseRange.filter((item) => item?.isChecked)
+    const checkedArr = this.frequencyChooseRange.filter((item: FrequencyContentType) => item?.isChecked)
     if (checkedArr.length === this.frequencyChooseRange.length || checkedArr.length === commonConst.NO_LENGTH) {
       this.currentFrequency = commonConst.EVERYDAY;
       this.settingParams.frequency = commonConst.INIT_WEEK_IDS;
       return;
     }
-    this.currentFrequency = checkedArr.reduce((sum, current) => {
+    this.currentFrequency = checkedArr.reduce((sum: string, current: FrequencyContentType) => {
       return sum + ' ' + current?.label;
     }, '')
-    this.settingParams.frequency = checkedArr.reduce((sum, current) => {
+    this.settingParams.frequency = checkedArr.reduce((sum: string, current: FrequencyContentType) => {
       return sum === '' ? sum + current?.id : sum + ',' + current?.id;
     }, '')
   }
@@ -210,12 +215,12 @@ export struct FrequencyDialog {
       .width(commonConst.THOUSANDTH_900)
 
       List() {
-        ForEach(this.frequencyChooseRange, (item) => {
+        ForEach(this.frequencyChooseRange, (item: FrequencyContentType) => {
           ListItem() {
             Row() {
               Text(item?.label).fontSize(commonConst.DEFAULT_20)
               Toggle({ type: ToggleType.Checkbox })
-                .onChange((isOn) => {
+                .onChange((isOn: boolean) => {
                   item.isChecked = isOn;
                 })
             }

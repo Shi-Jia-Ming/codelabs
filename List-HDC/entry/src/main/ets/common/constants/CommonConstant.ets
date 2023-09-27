@@ -46,7 +46,7 @@ export const ADD_TASK_TITLE: string = '添加任务';
 export const EDIT_TASK_TITLE: string = '编辑任务';
 
 // prompt message
-export const SETTING_FINISHED_MESSAGE = '设置完成';
+export const SETTING_FINISHED_MESSAGE = '设置完成！！！';
 export const CHOOSE_TIME_OUT_RANGE: string = '选择时间超出范围';
 
 // date format

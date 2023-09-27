@@ -29,7 +29,8 @@ import { BroadCast, BroadCastType } from '../common/utils/BroadCast';
 import { EventSourceManager } from '../model/EventSourceManager';
 import { CustomDialogView } from './CustomDialogView';
 
-@Styles function listItemStyle() {
+@Styles
+function listItemStyle() {
   .backgroundColor($r('app.color.white'))
   .height(commonConst.DEFAULT_56)
   .borderRadius(commonConst.DEFAULT_10)
@@ -43,18 +44,19 @@ export default struct TaskDetail {
   @Provide frequency: string = commonConst.EVERYDAY;
 
   parseRouterParams() {
-    const routerParams: TaskListItem = JSON.parse(router.getParams()['params']);
+    let params = router.getParams() as Record<string, Object>;
+    const routerParams: TaskListItem = JSON.parse(params.params as string);
     return routerParams;
   }
 
   finishTaskEdit() {
     prompt.showToast({
       message: commonConst.SETTING_FINISHED_MESSAGE
-    })
+    });
   }
 
   aboutToAppear() {
-    this.broadCast.off(null, null);
+    this.broadCast.off();
   }
 
   build() {
@@ -71,12 +73,12 @@ export default struct TaskDetail {
         .listItemStyle()
         .enabled(
           this.settingParams?.isOpen
-          && (this.settingParams?.taskID !== taskType.smile)
-          && (this.settingParams?.taskID !== taskType.brushTeeth)
+            && (this.settingParams?.taskID !== taskType.smile)
+            && (this.settingParams?.taskID !== taskType.brushTeeth)
         )
         .onClick(() => {
           this.broadCast.emit(
-          BroadCastType.SHOW_TARGET_SETTING_DIALOG);
+            BroadCastType.SHOW_TARGET_SETTING_DIALOG);
         })
 
         ListItem() {
@@ -92,7 +94,7 @@ export default struct TaskDetail {
         .enabled(this.settingParams?.isOpen && this.settingParams?.isAlarm)
         .onClick(() => {
           this.broadCast.emit(
-          BroadCastType.SHOW_REMIND_TIME_DIALOG
+            BroadCastType.SHOW_REMIND_TIME_DIALOG
           );
         })
 
@@ -103,7 +105,7 @@ export default struct TaskDetail {
         .enabled(this.settingParams?.isOpen)
         .onClick(() => {
           this.broadCast.emit(
-          BroadCastType.SHOW_FREQUENCY_DIALOG,
+            BroadCastType.SHOW_FREQUENCY_DIALOG,
           );
         })
 
