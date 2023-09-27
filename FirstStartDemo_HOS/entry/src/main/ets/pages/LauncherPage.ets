@@ -19,6 +19,7 @@ import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import CustomDialogComponent from '../view/CustomDialogComponent';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * The LauncherPage is the entry point of the application and shows how to develop the LauncherPage.
@@ -28,14 +29,18 @@ import CustomDialogComponent from '../view/CustomDialogComponent';
 @Entry
 @Component
 struct LauncherPage {
-  private context: common.UIAbilityContext;
+  private context?: common.UIAbilityContext;
   private timerId: number = 0;
   private isJumpToAdvertising: boolean = false;
   dialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogComponent(
       {
-        cancel: this.onCancel.bind(this),
-        confirm: this.onConfirm.bind(this)
+        cancel: () => {
+          this.onCancel();
+        },
+        confirm: () => {
+          this.onConfirm();
+        }
       }),
     alignment: DialogAlignment.Bottom,
     offset: { dx: 0, dy: CommonConstants.DIALOG_CONTROLLER_DY_OFFSET },
@@ -45,7 +50,7 @@ struct LauncherPage {
 
   onCancel() {
     // Exit the application.
-    this.context.terminateSelf();
+    this.context?.terminateSelf();
   }
 
   onConfirm() {
@@ -58,7 +63,8 @@ struct LauncherPage {
     if (this.isJumpToAdvertising) {
       router.clear();
     }
-    globalThis.isJumpPrivacy = true;
+    // globalThis.isJumpPrivacy = true;
+    GlobalContext.getContext().setObject('isJumpPrivacy', true);
     clearTimeout(this.timerId);
   }
 
@@ -70,23 +76,23 @@ struct LauncherPage {
       this.isJumpToAdvertising = true;
       router.pushUrl({
         url: CommonConstants.ADVERTISING_PAGE_URL
-      }).catch((error) => {
+      }).catch((error: Error) => {
         Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'LauncherPage pushUrl error ' + JSON.stringify(error));
       });
     }, CommonConstants.LAUNCHER_DELAY_TIME);
   }
 
   saveIsPrivacy() {
-    let preferences: Promise<preferences.Preferences> = this.getDataPreferences();
+    let preferences: Promise<preferences.Preferences> = this.getDataPreferences(this);
     preferences.then((result: preferences.Preferences) => {
       let privacyPut = result.put(CommonConstants.PREFERENCES_KEY_PRIVACY, false);
       result.flush();
       privacyPut.then(() => {
         Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'Put the value of startup Successfully.');
-      }).catch((err) => {
+      }).catch((err: Error) => {
         Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'Put the value of startup Failed, err: ' + err);
       });
-    }).catch((err) => {
+    }).catch((err: Error) => {
       Logger.error(CommonConstants.LAUNCHER_PAGE_TAG, 'Get the preferences Failed, err: ' + err);
     });
   }
@@ -94,11 +100,12 @@ struct LauncherPage {
   onPageShow() {
     this.context = getContext(this) as common.UIAbilityContext;
     // Get the operation class for saving data.
-    this.getDataPreferences().then((preferences: preferences.Preferences) => {
+    this.getDataPreferences(this).then((preferences: preferences.Preferences) => {
       preferences.get(CommonConstants.PREFERENCES_KEY_PRIVACY, true).then((value: preferences.ValueType) => {
         Logger.info(CommonConstants.LAUNCHER_PAGE_TAG, 'onPageShow value: ' + value);
         if (value) {
-          let isJumpPrivacy: boolean = globalThis.isJumpPrivacy ?? false;
+          // let isJumpPrivacy: boolean = globalThis.isJumpPrivacy ?? false;
+          let isJumpPrivacy: boolean = (GlobalContext.getContext().getObject('isJumpPrivacy') as boolean) ?? false;
           if (!isJumpPrivacy) {
             this.dialogController.open();
           }
@@ -112,8 +119,8 @@ struct LauncherPage {
   /**
    * Get data preferences action.
    */
-  getDataPreferences() {
-    return preferences.getPreferences(this.context, CommonConstants.PREFERENCES_FILE_NAME);
+  getDataPreferences(common: Object) {
+    return preferences.getPreferences(getContext(common), CommonConstants.PREFERENCES_FILE_NAME);
   }
 
   build() {
@@ -131,15 +138,15 @@ struct LauncherPage {
           .height($r('app.float.launcher_life_text_height'))
           .healthyLifeTextStyle(FontWeight.Bold,
             CommonConstants.LAUNCHER_LIFE_TEXT_SPACING,
-              $r('app.float.launcher_text_title_size'),
-              $r('app.color.launcher_text_title_color'))
+            $r('app.float.launcher_text_title_size'),
+            $r('app.color.launcher_text_title_color'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_TITLE_MARGIN_TOP })
         Text($r('app.string.healthy_life_introduce'))
           .height(CommonConstants.LAUNCHER_TEXT_INTRODUCE_HEIGHT)
           .healthyLifeTextStyle(FontWeight.Normal,
             CommonConstants.LAUNCHER_TEXT_INTRODUCE_SPACING,
-              $r('app.float.launcher_text_introduce_size'),
-              $r('app.color.launcher_text_introduce_color'))
+            $r('app.float.launcher_text_introduce_size'),
+            $r('app.color.launcher_text_introduce_color'))
           .opacity($r('app.float.launcher_text_opacity'))
           .margin({ top: CommonConstants.LAUNCHER_TEXT_INTRODUCE_MARGIN_TOP })
       }
