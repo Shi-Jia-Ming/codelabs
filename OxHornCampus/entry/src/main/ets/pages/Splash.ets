@@ -24,24 +24,21 @@ struct Splash {
   private data: Resource[] = [];
   @State countdown: number = Const.COUNTDOWN;
   @State showSwiper: boolean = false;
-  private timer = null;
+  private timer:number = -1;
 
   aboutToAppear(): void {
-    let data: Resource[] = []
     let hours = new Date().getHours();
     if (hours >= Const.MORNING_TIME && hours < Const.EVENING_TIME) {
-      data = splashImages.day;
+      this.data = splashImages.day;
     } else if (hours >= Const.EVENING_TIME && hours <= Const.NIGHT_TIME) {
-      data = splashImages.dusk;
+      this.data = splashImages.dusk;
     } else {
-      data = splashImages.night;
+      this.data = splashImages.night;
     }
-    this.data = data;
     setTimeout(() => {
       this.showSwiper = true;
       this.startTiming();
     }, Const.SPLASH_DURATION);
-
   }
 
   startTiming() {
@@ -55,9 +52,9 @@ struct Splash {
   }
 
   clearTiming() {
-    if (this.timer !== null) {
+    if (this.timer !== -1) {
       clearInterval(this.timer);
-      this.timer = null;
+      this.timer = -1;
     }
   }
 

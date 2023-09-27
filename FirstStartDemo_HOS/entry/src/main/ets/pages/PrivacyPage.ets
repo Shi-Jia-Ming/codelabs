@@ -15,6 +15,7 @@
 
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * The privacy agreement page displays the agreement content.
@@ -43,7 +44,8 @@ struct PrivacyPage {
         .textAlign(TextAlign.Center)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          globalThis.isJumpPrivacy = false;
+          // globalThis.isJumpPrivacy = false;
+          GlobalContext.getContext().setObject('isJumpPrivacy', false);
           router.back();
         })
         .margin({ top: $r('app.float.privacy_bottom_text_margin') })
@@ -53,6 +55,7 @@ struct PrivacyPage {
   }
 
   onBackPress() {
-    globalThis.isJumpPrivacy = false;
+    // globalThis.isJumpPrivacy = false;
+    GlobalContext.getContext().setObject('isJumpPrivacy', false);
   }
 }

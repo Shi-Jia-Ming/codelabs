@@ -24,7 +24,7 @@ export default struct TaskList {
 
   build() {
     List({ space: commonConst.LIST_ITEM_SPACE }) {
-      ForEach(this.taskList, (item) => {
+      ForEach(this.taskList, (item: TaskListItem) => {
         ListItem() {
           Row() {
             Row() {

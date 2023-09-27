@@ -59,7 +59,7 @@ export struct RecentlyPlayed {
                   .opacity(Const.OPACITY)
               }
             }
-          }, item => JSON.stringify(item))
+          }, (item: HomeTabsItem) => JSON.stringify(item))
         }
         .width(Const.FULL_SIZE)
         .height($r('app.float.home_row_height1'))

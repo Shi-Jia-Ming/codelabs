@@ -14,22 +14,13 @@
  */
 
 import router from '@ohos.router';
-import {
-  FONT_WEIGHT_400,
-  FONT_WEIGHT_700,
-  SPACE_4,
-  OPACITY_4,
-  DURATION_1000,
-  LETTER_1,
-  LETTER_34,
-  AD_DURATION
-} from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 @Entry
 @Component
 struct AdvertisingPage {
-  @State duration: number = AD_DURATION;
-  private intervalId: number;
+  @State duration: number = Const.AD_DURATION;
+  private intervalId: number = -1;
 
   goToHomePage() {
     clearInterval(this.intervalId);
@@ -43,7 +34,7 @@ struct AdvertisingPage {
       } else {
         this.goToHomePage();
       }
-    }, DURATION_1000)
+    }, Const.DURATION_1000)
   }
 
   build() {
@@ -53,7 +44,7 @@ struct AdvertisingPage {
           .fontSize($r('app.float.default_12'))
           .fontColor($r('app.color.white'))
           .borderRadius($r('app.float.default_16'))
-          .letterSpacing(LETTER_1)
+          .letterSpacing(Const.LETTER_1)
           .height($r('app.float.default_36'))
           .backgroundColor('rgba(0,0,0,0.20)')
           .border({ color: $r('app.color.white'), width: $r('app.float.default_1') })
@@ -69,19 +60,19 @@ struct AdvertisingPage {
           .width($r('app.float.default_56'))
           .height($r('app.float.default_56'))
           .objectFit(ImageFit.Contain)
-        Column({ space: SPACE_4 }) {
+        Column({ space: Const.SPACE_4 }) {
           Text($r('app.string.EntryAbility_label'))
             .fontFamily($r('app.string.HarmonyHeiTi_Bold'))
             .fontSize($r('app.float.default_26'))
             .fontColor($r('app.color.titleColor'))
-            .fontWeight(FONT_WEIGHT_700)
-            .letterSpacing(LETTER_1)
+            .fontWeight(Const.FONT_WEIGHT_700)
+            .letterSpacing(Const.LETTER_1)
           Text($r('app.string.EntryAbility_desc'))
             .fontFamily($r('app.string.HarmonyHeiTi'))
             .fontColor($r('app.color.titleColor'))
-            .fontWeight(FONT_WEIGHT_400)
-            .letterSpacing(LETTER_34)
-            .opacity(OPACITY_4)
+            .fontWeight(Const.FONT_WEIGHT_400)
+            .letterSpacing(Const.LETTER_34)
+            .opacity(Const.OPACITY_4)
             .fontSize($r('app.float.default_16'))
         }
         .alignItems(HorizontalAlign.Start)

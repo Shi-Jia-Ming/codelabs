@@ -23,13 +23,14 @@ export struct Home {
   @State titleIndex: number = 0;
   @State activityTitleIndex: number = 0;
   private localDataManger: LocalDataManager = LocalDataManager.instance();
-  private onClickItem: (Commodity) => void;
+  private onClickItem = (Commodity: Commodity) => {};
 
   aboutToAppear() {
     this.commodityList = this.localDataManger.queryCommodityList();
   }
 
-  @Builder SearchTitle() {
+  @Builder
+  SearchTitle() {
     Column() {
       Flex({ justifyContent: FlexAlign.SpaceBetween }) {
         Image($r('app.media.ic_eshop'))
@@ -59,7 +60,7 @@ export struct Home {
                 .fontColor(Color.Black)
             }
             .alignItems(HorizontalAlign.Start)
-          }, item => JSON.stringify(item))
+          }, (item: Resource) => JSON.stringify(item))
         }
         .autoPlay(true)
         .loop(true)
@@ -75,18 +76,21 @@ export struct Home {
     .padding({ top: $r('app.float.vp_twelve'), bottom: $r('app.float.vp_twelve') })
   }
 
-  @Builder ClassifyTitle() {
+  @Builder
+  ClassifyTitle() {
     Flex({ justifyContent: FlexAlign.SpaceBetween }) {
-      ForEach(classifyTitle, (item: Resource, index: number) => {
+      ForEach(classifyTitle, (item: Resource, index?: number) => {
         Text(item)
           .fontSize($r('app.float.middle_font_size'))
           .opacity(this.titleIndex === index ? StyleConstants.FULL_OPACITY : StyleConstants.EIGHTY_OPACITY)
           .fontWeight(this.titleIndex === index ? StyleConstants.FONT_WEIGHT_SEVEN : StyleConstants.FONT_WEIGHT_FOUR)
           .fontColor(Color.White)
           .onClick(() => {
-            this.titleIndex = index;
+            if (index !== undefined) {
+              this.titleIndex = index;
+            }
           })
-      }, item => JSON.stringify(item))
+      }, (item: Resource) => JSON.stringify(item))
       Row() {
         Image($r('app.media.ic_split_line'))
           .width($r('app.float.vp_one'))
@@ -103,17 +107,18 @@ export struct Home {
           .fontColor(Color.White)
           .opacity(this.titleIndex === undefined ? StyleConstants.FULL_OPACITY : StyleConstants.EIGHTY_OPACITY)
           .fontWeight(this.titleIndex === undefined ?
-            StyleConstants.FONT_WEIGHT_SEVEN : StyleConstants.FONT_WEIGHT_FOUR)
+          StyleConstants.FONT_WEIGHT_SEVEN : StyleConstants.FONT_WEIGHT_FOUR)
       }
       .onClick(() => {
-        this.titleIndex = undefined;
+        this.titleIndex = 0;
       })
     }
     .margin({ top: $r('app.float.vp_eight') })
     .width(StyleConstants.FULL_WIDTH)
   }
 
-  @Builder CustomSwiper() {
+  @Builder
+  CustomSwiper() {
     Swiper() {
       ForEach(swiperImage, (item: Resource) => {
         Image(item)
@@ -121,7 +126,7 @@ export struct Home {
           .aspectRatio(StyleConstants.IMAGE_ASPECT_RATIO)
           .borderRadius($r('app.float.vp_sixteen'))
           .backgroundColor(Color.White)
-      }, item => JSON.stringify(item))
+      }, (item: Resource) => JSON.stringify(item))
     }
     .indicatorStyle({ selectedColor: $r('app.color.indicator_select') })
     .autoPlay(true)
@@ -134,9 +139,10 @@ export struct Home {
     .margin({ top: $r('app.float.vp_twelve'), bottom: $r('app.float.vp_twelve') })
   }
 
-  @Builder ActivityTitle() {
+  @Builder
+  ActivityTitle() {
     Flex({ justifyContent: FlexAlign.SpaceAround }) {
-      ForEach(activityTitle, (item: ActivityTitleModel, index: number) => {
+      ForEach(activityTitle, (item: ActivityTitleModel, index?: number) => {
         Flex({
           direction: FlexDirection.Column,
           justifyContent: FlexAlign.Center,
@@ -153,10 +159,12 @@ export struct Home {
             .opacity(this.activityTitleIndex === index ? StyleConstants.FULL_OPACITY : StyleConstants.SIXTY_OPACITY)
         }
         .onClick(() => {
-          this.activityTitleIndex = index;
+          if (index !== undefined) {
+            this.activityTitleIndex = index;
+          }
         })
         .height(StyleConstants.FULL_HEIGHT)
-      }, item => JSON.stringify(item))
+      }, (item: ActivityTitleModel) => JSON.stringify(item))
     }
     .height($r('app.float.activity_title_height'))
     .width(StyleConstants.FULL_WIDTH)
@@ -185,7 +193,7 @@ export struct Home {
               column: this.currentBreakpoint === BreakpointConstants.BREAKPOINT_LG ? StyleConstants.DISPLAY_FOUR :
                 (this.currentBreakpoint === BreakpointConstants.BREAKPOINT_MD ?
                 StyleConstants.DISPLAY_THREE : StyleConstants.DISPLAY_TWO),
-              onClickItem: (data: Commodity) => this.onClickItem(data)
+              onClickItem: (data: Commodity): void => this.onClickItem(data)
             })
           }
         }

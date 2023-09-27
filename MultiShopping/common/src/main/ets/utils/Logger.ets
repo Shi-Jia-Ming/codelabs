@@ -21,32 +21,46 @@ import hilog from '@ohos.hilog';
  * @param {string} prefix Identifies the log tag.
  */
 
+
+let domain: number = 0xFF00;
+let prefix: string = 'MultiShopping';
+let format: string = `%{public}s, %{public}s`;
+
 export class Logger {
-  private static domain: number = 0xFF00;
-  private static prefix: string = 'MultiShopping';
-  private static format: string = `%{public}s, %{public}s`;
-
-  static debug(...args: any[]) {
-    hilog.debug(this.domain, this.prefix, this.format, args);
+  static debug(...args: string[]) {
+    hilog.debug(domain, prefix, format, args);
   }
 
-  static info(...args: any[]) {
-    hilog.info(this.domain, this.prefix, this.format, args);
+  static info(...args: string[]) {
+    hilog.info(domain, prefix, format, args);
   }
 
-  static warn(...args: any[]) {
-    hilog.warn(this.domain, this.prefix, this.format, args);
+  static warn(...args: string[]) {
+    hilog.warn(domain, prefix, format, args);
   }
 
-  static error(...args: any[]) {
-    hilog.error(this.domain, this.prefix, this.format, args);
+  static error(...args: string[]) {
+    hilog.error(domain, prefix, format, args);
   }
 
-  static fatal(...args: any[]) {
-    hilog.fatal(this.domain, this.prefix, this.format, args);
+  static fatal(...args: string[]) {
+    hilog.fatal(domain, prefix, format, args);
   }
 
-  static isLoggable(level: number) {
-    hilog.isLoggable(this.domain, this.prefix, level);
+  static isLoggable(level: LogLevel) {
+    hilog.isLoggable(domain, prefix, level);
   }
+}
+
+/**
+ * Log level define
+ *
+ * @syscap SystemCapability.HiviewDFX.HiLog
+ */
+enum LogLevel {
+  DEBUG = 3,
+  INFO = 4,
+  WARN = 5,
+  ERROR = 6,
+  FATAL = 7
 }

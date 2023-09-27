@@ -21,15 +21,15 @@ import zonesViewModel from '../viewmodel/ZonesViewModel';
 export default struct SwiperListItem {
   private swiperController: SwiperController = new SwiperController();
   @State zoneList: ZonesItem[] = zonesViewModel.getZonesList();
-  @Prop imageHeight: number;
-  @Prop currentZoneId: number;
-  @Prop arrowIconOpacity: number;
+  @Prop imageHeight: number = 0;
+  @Prop currentZoneId: number = 0;
+  @Prop arrowIconOpacity: number = 0;
   @Consume('introductionData') introductionData: ZonesItem;
 
   build() {
     Stack({ alignContent: Alignment.Bottom }) {
       Swiper(this.swiperController) {
-        ForEach(this.zoneList, (item) => {
+        ForEach(this.zoneList, (item: ZonesItem) => {
           Image(item.swiperPic)
             .width(Const.FULL_SIZE)
             .height(this.imageHeight + '%')
@@ -39,7 +39,7 @@ export default struct SwiperListItem {
               curve: Curve.Smooth,
               delay: 0
             })
-        }, item => JSON.stringify(item))
+        }, (item: ZonesItem) => JSON.stringify(item))
       }
       .index(this.currentZoneId)
       .indicator(this.imageHeight < Const.FULL_PERCENT_NUMBER ? false : true)
@@ -50,7 +50,7 @@ export default struct SwiperListItem {
       .indicatorStyle({
         bottom: $r('app.float.swiper_indicator_margin_bottom')
       })
-      .onChange((index) => {
+      .onChange((index: number) => {
         this.currentZoneId = index;
         this.getIntroductionData();
       })
@@ -63,7 +63,7 @@ export default struct SwiperListItem {
       .indicatorStyle({
         bottom: $r('app.float.swiper_indicator_margin_bottom')
       })
-      .onChange((index) => {
+      .onChange((index: number) => {
         this.currentZoneId = index;
         this.getIntroductionData();
       })

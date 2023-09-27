@@ -49,7 +49,7 @@ export class MapController {
    * @param event Kneading gesture event.
    */
   pinchUpdate(event: GestureEvent): void {
-    let scale = parseFloat(event.scale.toFixed(Const.MAP_SCALE_ACCURACY));
+    let scale = Number.parseFloat(event.scale.toFixed(Const.MAP_SCALE_ACCURACY));
     let ratio = 1;
     if (this.previousScale !== scale) {
       if (event.scale < 1) {
@@ -70,9 +70,9 @@ export class MapController {
       this.mapContext.mapWidth *= ratio;
       this.mapContext.mapHeight *= ratio;
       let offsetX = (1 - ratio) * (this.mapContext.screenMapWidth /
-        Const.DOUBLE_OR_HALF - this.mapContext.mapX);
+      Const.DOUBLE_OR_HALF - this.mapContext.mapX);
       let offsetY = (1 - ratio) * (this.mapContext.mapHeight /
-        Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
+      Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
       this.mapContext.mapX += offsetX;
       this.mapContext.mapY += offsetY;
       this.calLandmarksPosition();
@@ -93,11 +93,16 @@ export class MapController {
       this.mapContext.mapY = 0;
     }
     // Lower right corner.
-    if ((this.mapContext.mapX + this.mapContext.mapWidth) < this.mapContext.screenMapWidth) {
-      this.mapContext.mapX = this.mapContext.screenMapWidth - this.mapContext.mapWidth;
+    const mapX: number = this.mapContext.mapX;
+    const mapWidth: number = this.mapContext.mapWidth;
+    const screenMapWidth: number = this.mapContext.screenMapWidth;
+    if ((mapX + mapWidth) < screenMapWidth) {
+      this.mapContext.mapX = screenMapWidth - mapWidth;
     }
-    if ((this.mapContext.mapY + this.mapContext.mapHeight) < (this.mapContext.mapHeight / this.mapMultiples())) {
-      this.mapContext.mapY = this.mapContext.mapHeight / this.mapMultiples() - this.mapContext.mapHeight;
+    const mapY: number = this.mapContext.mapY;
+    const mapHeight: number = this.mapContext.mapHeight;
+    if ((mapY + mapHeight) < (mapHeight / this.mapMultiples())) {
+      this.mapContext.mapY = mapHeight / this.mapMultiples() - mapHeight;
     }
   }
 
@@ -123,7 +128,7 @@ export class MapController {
     let offsetX = (1 - Const.MAP_ZOOM_RATIO) *
       (this.mapContext.screenMapWidth / Const.DOUBLE_OR_HALF - this.mapContext.mapX);
     let offsetY = (1 - Const.MAP_ZOOM_RATIO) * (this.mapContext.mapHeight /
-      Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
+    Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
     this.mapContext.mapX += offsetX;
     this.mapContext.mapY += offsetY;
     this.calLandmarksPosition();
@@ -139,8 +144,8 @@ export class MapController {
    * @param event Events when panning.
    */
   panUpdate(event: GestureEvent): void {
-    let panX = parseInt(event.offsetX.toFixed(0));
-    let panY = parseInt(event.offsetY.toFixed(0));
+    let panX = Number.parseInt(event.offsetX.toFixed(0));
+    let panY = Number.parseInt(event.offsetY.toFixed(0));
     if ((this.panX !== panX) || (this.panY !== panY)) {
       this.panCheck(panX, panY);
     }
@@ -162,7 +167,7 @@ export class MapController {
    * @param panX Map Move Horizontal Distance.
    * @param panY Map Move Longitudinal Distance.
    */
-  panCheck(panX, panY): void {
+  panCheck(panX: number, panY: number): void {
     let mapPanX = panX - this.panX;
     let mapPanY = panY - this.panY;
     this.mapContext.mapX += mapPanX;
@@ -207,7 +212,7 @@ export class MapController {
    * When selecting a landmark, place the first coordinate in the middle of the screen horizontally.
    */
   setFirstLandmarksCenter(): void {
-    let locations = this.mapContext.data.locations;
+    let locations: Location[] = this.mapContext.data.locations;
     if (locations.length > 0) {
       // Horizontally centered.
       this.mapContext.mapX = this.mapContext.screenMapWidth / Const.DOUBLE_OR_HALF - locations[0].positionX;

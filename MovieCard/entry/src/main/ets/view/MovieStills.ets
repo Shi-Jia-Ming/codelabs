@@ -19,7 +19,7 @@ import DataSource from '../common/datasource/DataSource';
 
 @Component
 export default struct MovieStills {
-  private dataSource: DataSource<Resource>;
+  private dataSource: DataSource<Resource> = new DataSource([]);
 
   aboutToAppear() {
     this.dataSource = new DataSource(CommonUtils.getStillsData());
@@ -61,7 +61,7 @@ export default struct MovieStills {
               .height($r('app.float.stills_image_height'))
               .borderRadius($r('app.float.stills_image_radius'))
           }
-        }, item => JSON.stringify(item))
+        }, (item: Resource) => JSON.stringify(item))
       }
       .listDirection(Axis.Horizontal)
       .edgeEffect(EdgeEffect.None)

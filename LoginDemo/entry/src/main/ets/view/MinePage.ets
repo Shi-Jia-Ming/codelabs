@@ -124,7 +124,7 @@ struct MineListView {
           Item({ item: item })
         }
         .height($r('app.float.mine_list_height'))
-      }, item => JSON.stringify(item))
+      }, (item: ItemData) => JSON.stringify(item))
     }
     .width(StyleConstants.FULL_PARENT)
     .backgroundColor(Color.White)
@@ -144,11 +144,11 @@ struct MineListView {
 
 @Component
 struct Item {
-  private item: ItemData;
-  private itemCellImage: Resource;
-  private itemCellTitle: Resource;
-  private itemCellOthers: Resource;
-  private itemClickPrompt: Resource;
+  private item?: ItemData;
+  private itemCellImage?: Resource;
+  private itemCellTitle?: Resource;
+  private itemCellOthers?: Resource;
+  private itemClickPrompt?: Resource;
 
   aboutToAppear() {
     if (this.item) {
@@ -163,9 +163,11 @@ struct Item {
   build() {
     Row() {
       Row({ space: StyleConstants.COMMON_SPACE }) {
-        Image(this.itemCellImage)
-          .width($r('app.float.mine_item_size'))
-          .height($r('app.float.mine_item_size'))
+        if (this.itemCellImage) {
+          Image(this.itemCellImage)
+            .width($r('app.float.mine_item_size'))
+            .height($r('app.float.mine_item_size'))
+        }
         Text(this.itemCellTitle)
           .fontSize($r('app.float.normal_text_size'))
       }
@@ -189,7 +191,7 @@ struct Item {
       right: $r('app.float.mine_item_margin')
     })
     .onClick(() => {
-      if (this.itemCellOthers === null) {
+      if (this.itemCellOthers === null && this.itemClickPrompt) {
         CommonUtils.showToastContent(this.itemClickPrompt);
       }
     })

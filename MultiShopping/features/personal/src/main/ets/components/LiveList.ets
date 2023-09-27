@@ -23,8 +23,8 @@ import { LiveDataModel } from '../viewmodel/PersonalData';
 @Component
 export struct LiveList {
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'md';
-  @Prop count: number;
-  private liveList;
+  @Prop count: number = 0;
+  private liveList: LiveDataModel[] = [];
 
   build() {
     if (this.liveList.length > 0) {
@@ -34,7 +34,7 @@ export struct LiveList {
             this.LiveItem(item)
           }
           .margin({ left: $r('app.float.vp_six'), right: $r('app.float.vp_six') })
-        }, item => JSON.stringify(item))
+        }, (item: LiveDataModel) => JSON.stringify(item))
       }
       .margin({ left: $r('app.float.commodity_list_margin'), right: $r('app.float.commodity_list_margin') })
       .lanes(this.count)

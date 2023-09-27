@@ -32,19 +32,22 @@ import FormData from '../common/bean/FormData';
  */
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
-    let formId: string = want.parameters[CommonConstants.FORM_PARAM_IDENTITY_KEY] as string;
-    let formName: string = want.parameters[CommonConstants.FORM_PARAM_NAME_KEY] as string;
-    let dimensionFlag: number = want.parameters[CommonConstants.FORM_PARAM_DIMENSION_KEY] as number;
-    DatabaseUtils.createRdbStore(this.context).then((rdbStore: DataRdb.RdbStore) => {
+    let formId: string = want.parameters !== undefined ?
+      want.parameters[CommonConstants.FORM_PARAM_IDENTITY_KEY] as string : '';
+    let formName: string = want.parameters !== undefined ?
+      want.parameters[CommonConstants.FORM_PARAM_NAME_KEY] as string : '';
+    let dimensionFlag: number = want.parameters !== undefined ?
+      want.parameters[CommonConstants.FORM_PARAM_DIMENSION_KEY] as number : 0;
+    DatabaseUtils.createRdbStore(this.context).then((rdbStore: Object | undefined) => {
       // Stores card information.
       let form: Form = new Form();
       form.formId = formId;
       form.formName = formName;
       form.dimension = dimensionFlag;
-      DatabaseUtils.addSimulationData(rdbStore);
-      DatabaseUtils.insertForm(form, rdbStore);
-      getToDaySteps(rdbStore, dimensionFlag, formId);
-    }).catch((error) => {
+      DatabaseUtils.addSimulationData(rdbStore as DataRdb.RdbStore);
+      DatabaseUtils.insertForm(form, rdbStore as DataRdb.RdbStore);
+      getToDaySteps(rdbStore as DataRdb.RdbStore, dimensionFlag, formId);
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'onAddForm rdb error ' + JSON.stringify(error));
     });
     // Refresh every five minutes.
@@ -61,8 +64,8 @@ export default class EntryFormAbility extends FormExtensionAbility {
     return FormBindingData.createFormBindingData(formData);
   }
 
-  onUpdateForm(formId: string) {
-    updateSensorData();
+  onUpdateForm(formId: string): void {
+    this.updateSensorData();
     // Refresh every five minutes.
     FormProvider.setFormNextRefreshTime(formId, CommonConstants.FORM_NEXT_REFRESH_TIME, (error, data) => {
       if (error) {
@@ -73,16 +76,43 @@ export default class EntryFormAbility extends FormExtensionAbility {
     });
   }
 
-  onRemoveForm(formId: string) {
+  onRemoveForm(formId: string): void {
     //  Deleting card information from the database.
-    DatabaseUtils.createRdbStore(this.context).then((rdbStore: DataRdb.RdbStore) => {
+    DatabaseUtils.createRdbStore(this.context).then((rdbStore: Object | undefined) => {
       if (!rdbStore) {
         Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'update sensor data rdbStore is null');
         return;
       }
-      DatabaseUtils.deleteFormData(formId, rdbStore);
-    }).catch((error) => {
+      DatabaseUtils.deleteFormData(formId, rdbStore as DataRdb.RdbStore);
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'onRemoveForm rdb error ' + JSON.stringify(error));
+    });
+  }
+
+
+  /**
+   * Update Steps.
+   */
+  updateSensorData() {
+    // Get today's steps.
+    DatabaseUtils.createRdbStore(this.context).then((rdbStore: Object | undefined) => {
+      if (!rdbStore) {
+        Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'update sensor data rdbStore is null');
+        return;
+      }
+      let getSensorData: Promise<SensorData> =
+        DatabaseUtils.getSensorData(rdbStore as DataRdb.RdbStore, DateUtils.getDate(0));
+      getSensorData.then((sensorData: SensorData) => {
+        let stepValue: number = 0;
+        if (sensorData) {
+          stepValue = sensorData.stepsValue;
+        }
+        DatabaseUtils.updateForms(stepValue, rdbStore as DataRdb.RdbStore);
+      }).catch((error: Error) => {
+        Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'updateSensor getSensorData err ' + JSON.stringify(error));
+      });
+    }).catch((error: Error) => {
+      Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'updateSensor rdb err ' + JSON.stringify(error));
     });
   }
 };
@@ -102,35 +132,11 @@ function getToDaySteps(rdbStore: DataRdb.RdbStore, dimensionFlag: number, formId
       stepValue = sensorData.stepsValue;
     }
     getFormData(formId, stepValue, dimensionFlag, rdbStore);
-  }).catch((error) => {
+  }).catch((error: Error) => {
     Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'getToDaySteps error ' + JSON.stringify(error));
   });
 }
 
-/**
- * Update Steps.
- */
-function updateSensorData() {
-  // Get today's steps.
-  DatabaseUtils.createRdbStore(this.context).then((rdbStore: DataRdb.RdbStore) => {
-    if (!rdbStore) {
-      Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'update sensor data rdbStore is null');
-      return;
-    }
-    let getSensorData: Promise<SensorData> = DatabaseUtils.getSensorData(rdbStore, DateUtils.getDate(0));
-    getSensorData.then((sensorData: SensorData) => {
-      let stepValue: number = 0;
-      if (sensorData) {
-        stepValue = sensorData.stepsValue;
-      }
-      DatabaseUtils.updateForms(stepValue, rdbStore);
-    }).catch((error) => {
-      Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'updateSensor getSensorData err ' + JSON.stringify(error));
-    });
-  }).catch((error) => {
-    Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'updateSensor rdb err ' + JSON.stringify(error));
-  });
-}
 
 /**
  * Get form and update data.
@@ -144,7 +150,7 @@ function getFormData(formId: string, stepValue: number, dimensionFlag: number, r
   ChartDataUtils.getFormData(formId, stepValue, dimensionFlag, rdbStore)
     .then((formData: FormData) => {
       FormProvider.updateForm(formData.formId, FormBindingData.createFormBindingData(formData));
-    }).catch((error) => {
+    }).catch((error: Error) => {
     Logger.error(CommonConstants.ENTRY_FORM_ABILITY_TAG, 'getFormData formData error ' + JSON.stringify(error));
   });
 }

@@ -23,19 +23,22 @@ import MovieDataBean from '../common/bean/MovieDataBean';
 import StoryIntroduce from '../view/StoryIntroduce';
 import MovieDetailsTitle from '../view/MovieDetailsTitle';
 import Logger from '../common/utils/Logger';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 @Entry
 @Component
 struct MovieDetailPage {
-  private introduction: string;
-  private movieData: MovieDataBean;
+  private introduction: string = '';
+  private movieData: MovieDataBean = new MovieDataBean();
 
   aboutToAppear() {
     let index: number = 0;
-    if (!CommonUtils.isEmpty(router.getParams())) {
-      index = router.getParams()[CommonConstants.INDEX_KEY] ?? 0;
+    let params = router.getParams() as Record<string, Object>;
+    if (!CommonUtils.isEmpty(params)) {
+      index = params.index as number;
     } else {
-      index = globalThis.position ?? 0;
+      let position = GlobalContext.getContext().getObject('position') as number;
+      index = position ?? 0;
     }
     let listData: MovieDataBean[] = CommonUtils.getListData();
     if (CommonUtils.isEmptyArr(listData)) {

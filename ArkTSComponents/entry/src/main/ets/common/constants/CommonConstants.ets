@@ -68,6 +68,11 @@ export default class CommonConstants {
   static readonly BUTTON_WIDTH = '90%';
 
   /**
+   * The width of setting list
+   */
+  static readonly SET_LIST_WIDTH = '42%';
+
+  /**
    * Home tab index
    */
   static readonly HOME_TAB_INDEX = 0;

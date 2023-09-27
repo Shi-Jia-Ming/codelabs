@@ -13,24 +13,27 @@
  * limitations under the License.
  */
 
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import UIAbility from '@ohos.app.ability.UIAbility';
+import Want from '@ohos.app.ability.Want';
 import window from '@ohos.window';
 import CommonConstants from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * Lift cycle management of Ability.
  */
 export default class EntryDetailsAbility extends UIAbility {
-  onCreate(want, launchParam) {
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
     Logger.info(CommonConstants.TAG_DETAILS, 'want =' + JSON.stringify(want));
     Logger.info(CommonConstants.TAG_DETAILS, 'launchParam =' + JSON.stringify(launchParam));
-    let params = want?.parameters?.params;
+    let params = want?.parameters?.params as string;
     Logger.info(CommonConstants.TAG_DETAILS, 'params ' + params);
-    let parseParams = JSON.parse(params);
+    let parseParams = JSON.parse(params) as Record<string, number>;
     Logger.info(CommonConstants.TAG_DETAILS, 'parseParams ' + parseParams);
-    let index = parseParams?.index;
-    globalThis.position = index;
+    let index: number = parseParams?.index as number;
+    GlobalContext.getContext().setObject('position', index);
   }
 
   onWindowStageCreate(windowStage: window.WindowStage) {

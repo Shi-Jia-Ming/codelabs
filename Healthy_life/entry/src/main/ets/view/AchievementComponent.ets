@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import * as commonConst from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { BadgePanel } from './BadgePanelComponent';
 import { TitleBar } from './TitleBarComponent';
 import Logger from '../common/utils/Logger';
@@ -29,13 +29,13 @@ export struct AchievementIndex {
   }
 
   build() {
-    Column({space: commonConst.DEFAULT_20}) {
+    Column({space: Const.DEFAULT_20}) {
       TitleBar()
       BadgePanel()
     }
-    .padding(commonConst.DEFAULT_10)
-    .height(commonConst.FULL_HEIGHT)
-    .width(commonConst.FULL_WIDTH)
+    .padding(Const.DEFAULT_10)
+    .height(Const.FULL_HEIGHT)
+    .width(Const.FULL_WIDTH)
     .backgroundColor($r('app.color.black'))
   }
 }

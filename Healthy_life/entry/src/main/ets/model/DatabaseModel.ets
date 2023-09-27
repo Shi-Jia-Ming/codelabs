@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { GLOBAL_KEY, TASK_NUM } from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import DayInfo from '../common/bean/DayInfo';
 import GlobalInfo from '../common/bean/GlobalInfo';
 import TaskInfo from '../common/bean/TaskInfo';
@@ -30,20 +30,20 @@ export class DatabaseModel {
    * @param date
    * @param callback
    */
-  query(date: string, callback) {
-    let result = [];
+  query(date: string, callback: Function) {
+    let result: TaskInfo[] = [];
     let self = this;
-    GlobalInfoApi.query(function (globalResult) {
-      if (globalResult.length === 0) { // if global information is not found, it is written
-        let globalInfo = new GlobalInfo(date, date, 0, '');
-        GlobalInfoApi.insertData(globalInfo, (isDone) => {
+    GlobalInfoApi.query((globalResult: GlobalInfo) => {
+      if (!globalResult.firstDate) { // if global information is not found, it is written
+        let globalInfo: GlobalInfo = new GlobalInfo(date, date, 0, '');
+        GlobalInfoApi.insertData(globalInfo, (isDone: number) => {
           if (isDone) {
             Logger.info('AppStart', 'Insert globalInfo success: ' + JSON.stringify(globalInfo));
           }
         });
         self.insertGlobalTask();
-        let dayInfo = new DayInfo(date, 0, 0);
-        DayInfoApi.insertData(dayInfo, (isDone) => {
+        let dayInfo: DayInfo = new DayInfo(date, 0, 0);
+        DayInfoApi.insertData(dayInfo, (isDone: number) => {
           if (isDone) {
             Logger.info('AppStart', 'Insert dayInfo success: ' + JSON.stringify(dayInfo));
           }
@@ -54,7 +54,7 @@ export class DatabaseModel {
         let newGlobalInfo = globalResult;
         let preDate = globalResult.lastDate;
         newGlobalInfo.lastDate = date;
-        GlobalInfoApi.updateData(newGlobalInfo, (isDone) => {
+        GlobalInfoApi.updateData(newGlobalInfo, (isDone: number) => {
           if (isDone) {
             Logger.info('AppStart', 'update globalInfo success: ' + JSON.stringify(newGlobalInfo));
           }
@@ -65,9 +65,9 @@ export class DatabaseModel {
   }
 
   insertGlobalTask() {
-    for (let i = 0; i < TASK_NUM; i++) {
-      let tmp = new TaskInfo(0, GLOBAL_KEY, i + 1, '', false, '08: 00', '00: 00', '1,2,3,4,5,6,7', false, '');
-      TaskInfoApi.insertData(tmp, (isDone) => {
+    for (let i = 0; i < Const.TASK_NUM; i++) {
+      let tmp = new TaskInfo(0, Const.GLOBAL_KEY, i + 1, '', false, '08: 00', '00: 00', '1,2,3,4,5,6,7', false, '');
+      TaskInfoApi.insertData(tmp, (isDone: number) => {
         if (isDone) {
           Logger.info('AppStart', 'Insert taskGlobalInfo success: ' + JSON.stringify(tmp));
         }
@@ -75,10 +75,10 @@ export class DatabaseModel {
     }
   }
 
-  insertTask(date) {
-    for (let i = 0; i < TASK_NUM; i++) {
+  insertTask(date: string) {
+    for (let i = 0; i < Const.TASK_NUM; i++) {
       let tmp = new TaskInfo(0, date, i + 1, '', false, '08: 00', '00: 00', '1,2,3,4,5,6,7', false, '');
-      TaskInfoApi.insertData(tmp, (isDone) => {
+      TaskInfoApi.insertData(tmp, (isDone: number) => {
         if (isDone) {
           Logger.info('AppStart', 'Insert taskInfo success: ' + JSON.stringify(tmp));
         }
@@ -86,9 +86,9 @@ export class DatabaseModel {
     }
   }
 
-  queryPreInfo(self, date, preDate, result, callback) {
-    TaskInfoApi.query(date, false, async (taskResult) => { // query the task information for the day
-      let dayInfo = new DayInfo(date, 0, 0);
+  queryPreInfo(self, date: string, preDate: string, result: TaskInfo[], callback: Function) {
+    TaskInfoApi.query(date, false, async (taskResult: TaskInfo[]) => { // query the task information for the day
+      let dayInfo: DayInfo = new DayInfo(date, 0, 0);
       if (taskResult.length === 0) { // if task information for the day is not found, the global task information is queried
         let curDate = new Date(preDate);
         curDate.setDate(curDate.getDate() + 1);
@@ -96,50 +96,50 @@ export class DatabaseModel {
         let finDate = new Date(date);
         finDate.setDate(finDate.getDate() + 1);
         Logger.info('AppStart', 'insert data end: ' + finDate.toDateString())
-        TaskInfoApi.query(GLOBAL_KEY, false, async (globalTaskResult) => {
+        TaskInfoApi.query(Const.GLOBAL_KEY, false, async (globalTaskResult: TaskInfo[]) => {
           result = globalTaskResult;
           dayInfo.targetTaskNum = self.calTaskNum(result);
           self.insertPreInfo(curDate, finDate, result, dayInfo);
-          let finResult = []
+          let finResult: TaskInfo[] = [];
           for (let i = 0; i < 6; i++) {
-            if (result[i].isOpen == true) {
+            if (result[i].isOpen === true) {
               finResult.push(result[i]);
             }
           }
           callback(finResult, dayInfo);
         })
       } else {
-        let dayInfoList = self.calFinishNum(taskResult, result);
-        dayInfo.targetTaskNum = dayInfoList[0];
-        dayInfo.finTaskNum = dayInfoList[1];
+        let dayInfoList: DayInfo = self.calFinishNum(taskResult, result);
+        dayInfo.targetTaskNum = dayInfoList.targetTaskNum;
+        dayInfo.finTaskNum = dayInfoList.finTaskNum;
         callback(result, dayInfo);
       }
     });
   }
 
-  calTaskNum(result) {
+  calTaskNum(result: TaskInfo[]) {
     let taskNum = 0;
-    for (let i = 0; i < TASK_NUM; i++) {
-      if (result[i].isOpen) {
+    for (let i = 0; i < Const.TASK_NUM; i++) {
+      if (result[i]?.isOpen) {
         taskNum += 1;
       }
     }
     return taskNum;
   }
 
-  insertPreInfo(curDate, finDate, result, dayInfo) {
+  insertPreInfo(curDate: Date, finDate: Date, result: TaskInfo[], dayInfo: DayInfo) {
     while (curDate.toDateString() !== finDate.toDateString()) {
       dayInfo.date = curDate.toDateString();
-      DayInfoApi.insertData(dayInfo, (isDone) => {
+      DayInfoApi.insertData(dayInfo, (isDone: number) => {
         if (isDone) {
           Logger.info('AppStart', 'insert dayInfo success: ' + JSON.stringify(dayInfo));
         }
       })
-      for (let i = 0; i < TASK_NUM; i++) {
+      for (let i = 0; i < Const.TASK_NUM; i++) {
         let tmp = new TaskInfo(0, '', 0, '', false, '', '', '', false, '');
         tmp = result[i];
         tmp.date = curDate.toDateString();
-        TaskInfoApi.insertData(tmp, (isDone) => {
+        TaskInfoApi.insertData(tmp, (isDone: number) => {
           if (isDone) {
             Logger.info('AppStart', 'insert taskInfo success: ' + JSON.stringify(tmp));
           }
@@ -150,10 +150,10 @@ export class DatabaseModel {
 
   }
 
-  calFinishNum(taskResult, result) {
+  calFinishNum(taskResult: TaskInfo[], result: TaskInfo[]) {
     let taskNum = 0;
     let finishNum = 0;
-    for (let i = 0; i < TASK_NUM; i++) {
+    for (let i = 0; i < Const.TASK_NUM; i++) {
       if (taskResult[i].isOpen) {
         result.push(taskResult[i]);
         taskNum += 1;
@@ -162,7 +162,7 @@ export class DatabaseModel {
         }
       }
     }
-    return [taskNum, finishNum];
+    return new DayInfo('', taskNum, finishNum);
   }
 }
 

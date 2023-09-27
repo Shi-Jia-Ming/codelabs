@@ -16,6 +16,7 @@
 import Context from '@ohos.app.ability.common';
 import Logger from './Logger';
 import CommonConstants from '../constants/CommonConstants';
+import HobbyBean from '../bean/HobbyBean';
 
 /**
  * This is a pop-up window tool class, which is used to encapsulate dialog code.
@@ -54,16 +55,16 @@ export class CommonUtils {
   /**
    * Date dialog dialog
    */
-  datePickerDialog(dateCallback) {
+  datePickerDialog(dateCallback: Function) {
     DatePickerDialog.show({
       start: new Date(CommonConstants.START_TIME),
       end: new Date(),
       selected: new Date(CommonConstants.SELECT_TIME),
       lunar: false,
       onAccept: (value: DatePickerResult) => {
-        let year = value.year;
-        let month = value.month + CommonConstants.PLUS_ONE;
-        let day = value.day;
+        let year: number = Number(value.year);
+        let month: number = Number(value.month) + CommonConstants.PLUS_ONE;
+        let day: number = Number(value.day);
         let birthdate: string = this.getBirthDateValue(year, month, day);
         dateCallback(birthdate);
       }
@@ -73,8 +74,8 @@ export class CommonUtils {
   /**
    * Text dialog dialog
    */
-  textPickerDialog(sexArray: Resource, sexCallback) {
-    if (this.isEmptyArr(sexArray)) {
+  textPickerDialog(sexArray: Resource, sexCallback: Function) {
+    if (this.isEmpty(sexArray)) {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'sex is null');
       return;
     }
@@ -110,7 +111,7 @@ export class CommonUtils {
    * @param {object} obj
    * @return {boolean} true(empty)
    */
-  isEmpty(obj): boolean {
+  isEmpty(obj: object | string): boolean {
     return obj === undefined || obj === null || obj === '';
   }
 
@@ -120,7 +121,7 @@ export class CommonUtils {
    * @param {Array}array
    * @return {boolean} true(empty)
    */
-  isEmptyArr(array): boolean {
+  isEmptyArr(array: Array<HobbyBean>): boolean {
     return this.isEmpty(array) || array.length === 0;
   }
 }

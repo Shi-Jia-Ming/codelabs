@@ -20,29 +20,22 @@ export class NewsData {
   /**
    * News list item title.
    */
-  title: string;
+  title: string = '';
 
   /**
    * News list item content.
    */
-  content: string;
+  content: string = '';
 
   /**
    * News list item imagesUrl.
    */
-  imagesUrl: Array<NewsFile>;
+  imagesUrl: Array<NewsFile> = [new NewsFile()];
 
   /**
    * News list item source.
    */
-  source: string;
-
-  constructor(title: string, content: string, imagesUrl: Array<NewsFile>, source: string) {
-    this.title = title;
-    this.content = content;
-    this.imagesUrl = imagesUrl;
-    this.source = source;
-  }
+  source: string = '';
 }
 
 /**
@@ -52,28 +45,21 @@ export class NewsFile {
   /**
    * News image list item id.
    */
-  id: number;
+  id: number = 0;
 
   /**
    * News image list item url.
    */
-  url: string;
+  url:  | Object | ArrayBuffer = '';
 
   /**
    * News image list item type.
    */
-  type: number;
+  type: number = 0;
 
   /**
    * News image list item newsId.
    */
-  newsId: number;
-
-  constructor(id: number, url: string, type: number, newsId: number) {
-    this.id = id;
-    this.type = type;
-    this.url = url;
-    this.newsId = newsId;
-  }
+  newsId: number = 0;
 }
 

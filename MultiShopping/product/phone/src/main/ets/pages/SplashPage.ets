@@ -22,7 +22,7 @@ import { PageConstants } from '../constants/PageConstants';
 struct SplashPage {
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm';
   private breakpointSystem = new BreakpointSystem();
-  private timeOutId: number;
+  private timeOutId: number = 0;
 
   build() {
     Flex({direction: FlexDirection.Column, alignItems: ItemAlign.Center}){
@@ -40,15 +40,15 @@ struct SplashPage {
       .alignItems(HorizontalAlign.Center)
       .flexGrow(StyleConstants.FLEX_GROW)
 
-        Image($r('app.media.ic_title'))
-          .width($r('app.float.text_image_width'))
-          .height($r('app.float.text_image_height'))
-          .objectFit(ImageFit.Contain)
-        Text($r('app.string.splash_desc'))
-          .fontColor($r('app.color.forty_alpha_black'))
-          .fontSize($r('app.float.bigger_font_size'))
-          .letterSpacing(PageConstants.LETTER_SPACE)
-          .margin({ top: $r('app.float.vp_twelve'), bottom: $r('app.float.splash_text_margin_bottom') })
+      Image($r('app.media.ic_title'))
+        .width($r('app.float.text_image_width'))
+        .height($r('app.float.text_image_height'))
+        .objectFit(ImageFit.Contain)
+      Text($r('app.string.splash_desc'))
+        .fontColor($r('app.color.forty_alpha_black'))
+        .fontSize($r('app.float.bigger_font_size'))
+        .letterSpacing(PageConstants.LETTER_SPACE)
+        .margin({ top: $r('app.float.vp_twelve'), bottom: $r('app.float.splash_text_margin_bottom') })
     }
     .height(StyleConstants.FULL_HEIGHT)
     .width(StyleConstants.FULL_WIDTH)
@@ -59,7 +59,7 @@ struct SplashPage {
     this.breakpointSystem.register();
     this.timeOutId = setTimeout(() => {
       router.replaceUrl({ url: PageConstants.MAIN_PAGE_URL })
-        .catch(err => {
+        .catch((err: Error) => {
           Logger.error(JSON.stringify(err));
         })
     }, PageConstants.DELAY_TIME);

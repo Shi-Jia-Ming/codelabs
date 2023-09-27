@@ -19,7 +19,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 export default struct StoryIntroduce {
   @State tipsTextLines: number = CommonConstants.DEFAULT_LINES;
   @State tipsText: Resource = $r("app.string.expand_text");
-  private introduction: string;
+  private introduction: string = '';
 
   build() {
     Column() {

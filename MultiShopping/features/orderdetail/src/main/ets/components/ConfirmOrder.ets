@@ -20,6 +20,7 @@ import { HeaderBar } from '../components/HeaderBar';
 import { OrderDetailConstants } from '../constants/OrderDetailConstants';
 import { CommodityOrderList } from './CommodityOrderList';
 import { LocalDataManager, Order, OrderOperationStatus, GridConstants, StyleConstants } from '@ohos/common';
+import { InsertOrderProps } from '@ohos/common/src/main/ets/bean/OrderModel';
 
 @Component
 export struct ConfirmOrder {
@@ -33,9 +34,15 @@ export struct ConfirmOrder {
    */
   confirmOrder(status: number) {
     this.orderList.map((item: Order) => {
-      const orderId = this.localDataManager.insertOrder({ order: item, status: status });
-      this.localDataManager.deleteShopCart([orderId])
-      this.orderIds.push(orderId);
+      let orderStatus: InsertOrderProps = {
+        order: item,
+        status: status
+      };
+      let orderId: string | undefined = this.localDataManager.insertOrder(orderStatus);
+      if (orderId !== undefined) {
+        this.localDataManager.deleteShopCart([orderId]);
+        this.orderIds.push(orderId);
+      }
     })
   }
 
@@ -48,7 +55,7 @@ export struct ConfirmOrder {
         params: { orderIds: this.orderIds }
       });
     } catch (err) {
-      promptAction.showToast({ message: $r('app.string.order_commit_fail', err.message) });
+      promptAction.showToast({ message: $r('app.string.order_commit_fail', err) });
     }
   }
 
@@ -128,7 +135,7 @@ export struct ConfirmOrder {
             .height($r('app.float.confirm_button_height'))
             .width(StyleConstants.FULL_WIDTH)
             .margin({ top: $r('app.float.vp_eight') })
-            .onClick(() => this.handleConfirmOrder())
+            .onClick((): void => this.handleConfirmOrder())
         }
       }
       .padding({

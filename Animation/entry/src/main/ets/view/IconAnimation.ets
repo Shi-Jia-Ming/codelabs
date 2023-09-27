@@ -27,9 +27,9 @@ export struct IconAnimation {
       .height(Common.ICON_HEIGHT)
       .objectFit(ImageFit.Contain)
       .translate(
-          this.mainFlag
-            ? { x: this.item.point.x, y: this.item.point.y }
-            : { x: 0, y: 0 }
+        this.mainFlag
+          ? { x: this.item.point.x, y: this.item.point.y }
+          : { x: 0, y: 0 }
       )
       .rotate({
         x: 0,
@@ -38,7 +38,7 @@ export struct IconAnimation {
         angle: this.item.clicked ? Common.ROTATE_ANGLE_360 : 0
       })
       .scale(
-          this.item.clicked
+        this.item.clicked
           ? { x: Common.SCALE_RATIO, y: Common.SCALE_RATIO }
           : { x: 1, y: 1 }
       )

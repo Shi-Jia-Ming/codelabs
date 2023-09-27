@@ -31,7 +31,7 @@ export struct MineTabs {
           span: { xs: Const.GRID_4, sm: Const.GRID_4, md: Const.GRID_8, lg: Const.GRID_8 },
           offset: { lg: Const.OFFSET_2 }
         }) {
-          Stack () {
+          Stack() {
             Column() {
               Text($r('app.string.title_mine'))
                 .height($r('app.float.mine_text_height'))
@@ -59,7 +59,9 @@ export struct MineTabs {
                       .height(Const.FULL_SIZE)
                       .layoutWeight(1)
                       .justifyContent(FlexAlign.SpaceBetween)
-                      .borderWidth({ bottom: MineTabsList.indexOf(item) !== Const.NUM_4 ? $r('app.float.mine_row_border_width') : 0 })
+                      .borderWidth({
+                        bottom: MineTabsList.indexOf(item) !== Const.NUM_4 ? $r('app.float.mine_row_border_width') : 0
+                      })
                       .borderColor($r('app.color.background_color'))
                     }
                     .width(Const.FULL_SIZE)
@@ -67,7 +69,7 @@ export struct MineTabs {
                   }
                   .width(Const.FULL_SIZE)
                   .height($r('app.float.mine_list_height'))
-                }, item => JSON.stringify(item))
+                }, (item: MineTabsItem) => JSON.stringify(item))
               }
               .width(Const.FULL_SIZE)
               .height(Const.FULL_SIZE)
@@ -75,10 +77,17 @@ export struct MineTabs {
             }
             .width(Const.FULL_SIZE)
             .height(Const.MINE_COLUMN_HEIGHT)
-            .borderRadius({ topLeft: $r('app.float.mine_list_border_radius'), topRight: $r('app.float.mine_list_border_radius') })
+            .borderRadius({
+              topLeft: $r('app.float.mine_list_border_radius'),
+              topRight: $r('app.float.mine_list_border_radius')
+            })
             .backgroundColor(Color.White)
             .position({ y: Const.MINE_IMAGE_Y })
-            .padding({ top: $r('app.float.mine_list_padding1'), left: $r('app.float.mine_list_padding2'), right: $r('app.float.mine_list_padding2') })
+            .padding({
+              top: $r('app.float.mine_list_padding1'),
+              left: $r('app.float.mine_list_padding2'),
+              right: $r('app.float.mine_list_padding2')
+            })
 
             Image($r('app.media.ic_profile_photo'))
               .width($r('app.float.mine_image_size3'))

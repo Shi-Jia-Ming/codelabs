@@ -51,4 +51,6 @@ export default class AgencyCardInfo {
    * Completed quantity is empty.
    */
   finValueIsNull?:boolean;
+
+  isDone?: boolean;
 }

@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import * as commonConst from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 @Component
 export struct TitleBar {
@@ -22,8 +22,8 @@ export struct TitleBar {
         .fontSize($r('app.float.default_24'))
         .fontColor($r('app.color.white'))
         .align(Alignment.Start)
-        .padding({left: commonConst.ACHIEVE_TITLE_BAR_LEFT,top: commonConst.ACHIEVE_TITLE_BAR_TOP})
+        .padding({left: Const.ACHIEVE_TITLE_BAR_LEFT,top: Const.ACHIEVE_TITLE_BAR_TOP})
     }
-    .width(commonConst.FULL_WIDTH)
+    .width(Const.FULL_WIDTH)
   }
 }

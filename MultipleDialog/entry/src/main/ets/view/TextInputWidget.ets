@@ -17,12 +17,12 @@ import CommonConstants from '../common/constants/CommonConstants';
 
 @Component
 export default struct TextInputWidget {
-  private inputImage: Resource;
-  private hintText: Resource;
+  private inputImage?: Resource;
+  private hintText?: Resource;
 
   build() {
     Row() {
-      Image(this.inputImage)
+      Image(this.inputImage !== undefined ? this.inputImage : '')
         .width($r('app.float.input_image_size'))
         .height($r('app.float.input_image_size'))
         .margin({ left: $r('app.float.input_image_left') })

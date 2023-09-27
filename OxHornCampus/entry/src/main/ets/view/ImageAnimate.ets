@@ -33,7 +33,10 @@ export default struct ImageAnimation {
    * @param index
    * @returns offset coefficients
    */
-  getImgCoefficients(index: number) {
+  getImgCoefficients(index?: number) {
+    if (index === undefined) {
+      return 0;
+    }
     let coefficient = this.currentIndex - index;
     let tempCoefficient = Math.abs(coefficient);
     if (tempCoefficient <= Const.HALF_COUNT) {
@@ -56,7 +59,10 @@ export default struct ImageAnimation {
    * @param index
    * @returns offset
    */
-  getOffSetX(index: number) {
+  getOffSetX(index?: number) {
+    if (index === undefined) {
+      return 0;
+    }
     let offsetIndex = this.getImgCoefficients(index);
     let tempOffset = Math.abs(offsetIndex);
     let offsetX = 0;
@@ -80,13 +86,13 @@ export default struct ImageAnimation {
 
   build() {
     Stack() {
-      ForEach(this.introductionData.imageList, (item: ResourceStr, index: number) => {
+      ForEach(this.introductionData.imageList, (item: ResourceStr, index?: number) => {
         Row() {
           Image(item)
             .objectFit(ImageFit.ScaleDown)
             .borderRadius($r('app.float.small_image_border_radius'))
             .opacity(Const.OPACITY_MAX - Const.IMAGE_OPACITY_REDUCE
-            * Math.min(Const.HALF_COUNT, Math.abs(this.getImgCoefficients(index))))
+              * Math.min(Const.HALF_COUNT, Math.abs(this.getImgCoefficients(index))))
         }
         .aspectRatio(Const.IMAGE_ASPECT_RATIO)
         .borderRadius($r('app.float.small_image_border_radius'))
@@ -95,19 +101,22 @@ export default struct ImageAnimation {
         .zIndex(index !== this.currentIndex && this.getImgCoefficients(index) === 0 ?
           0 : Const.HALF_COUNT - Math.abs(this.getImgCoefficients(index)))
         .height(index !== this.currentIndex && this.getImgCoefficients(index) === 0 ?
-          Const.IMAGE_HEIGHT_MIN : `${Const.FULL_PERCENT_NUMBER -
-          Const.IMAGE_WIDTH_OFFSET * Math.abs(this.getImgCoefficients(index))}%`)
+        Const.IMAGE_HEIGHT_MIN : `${Const.FULL_PERCENT_NUMBER -
+            Const.IMAGE_WIDTH_OFFSET * Math.abs(this.getImgCoefficients(index))}%`)
         .onClick(() => {
           this.dialogController.open();
         })
-      }, item => JSON.stringify(item))
+      }, (item: ResourceStr) => JSON.stringify(item))
     }
     .width(Const.FULL_SIZE)
     .height(Const.FULL_SIZE)
     .alignContent(Alignment.Center)
     .gesture(
       PanGesture({ direction: PanDirection.Horizontal })
-        .onActionStart((event: GestureEvent) => {
+        .onActionStart((event?: GestureEvent) => {
+          if (!event) {
+            return;
+          }
           this.startAnimation(event.offsetX < 0);
         })
     )

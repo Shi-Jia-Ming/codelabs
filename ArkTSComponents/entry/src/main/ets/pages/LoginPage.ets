@@ -17,7 +17,8 @@ import prompt from '@ohos.promptAction';
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
 
-@Extend(TextInput) function inputStyle () {
+@Extend(TextInput)
+function inputStyle() {
   .placeholderColor($r('app.color.placeholder_color'))
   .height($r('app.float.login_input_height'))
   .fontSize($r('app.float.big_text_size'))
@@ -27,13 +28,15 @@ import CommonConstants from '../common/constants/CommonConstants';
   .margin({ top: $r('app.float.input_margin_top') })
 }
 
-@Extend(Line) function lineStyle () {
+@Extend(Line)
+function lineStyle() {
   .width(CommonConstants.FULL_PARENT)
   .height($r('app.float.line_height'))
   .backgroundColor($r('app.color.line_color'))
 }
 
-@Extend(Text) function blueTextStyle () {
+@Extend(Text)
+function blueTextStyle() {
   .fontColor($r('app.color.login_blue_text_color'))
   .fontSize($r('app.float.small_text_size'))
   .fontWeight(FontWeight.Medium)
@@ -48,9 +51,10 @@ struct LoginPage {
   @State account: string = '';
   @State password: string = '';
   @State isShowProgress: boolean = false;
-  private timeOutId = null;
+  private timeOutId: number = -1;
 
-  @Builder imageButton(src: Resource) {
+  @Builder
+  imageButton(src: Resource) {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
       Image(src)
     }
@@ -59,17 +63,17 @@ struct LoginPage {
     .backgroundColor($r('app.color.background'))
   }
 
-  login() {
+  login(): void {
     if (this.account === '' || this.password === '') {
       prompt.showToast({
         message: $r('app.string.input_empty_tips')
       })
     } else {
       this.isShowProgress = true;
-      if (this.timeOutId === null) {
+      if (this.timeOutId === -1) {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
-          this.timeOutId = null;
+          this.timeOutId = -1;
           router.replaceUrl({ url: 'pages/MainPage' });
         }, CommonConstants.LOGIN_DELAY_TIME);
       }
@@ -78,7 +82,7 @@ struct LoginPage {
 
   aboutToDisappear() {
     clearTimeout(this.timeOutId);
-    this.timeOutId = null;
+    this.timeOutId = -1;
   }
 
   build() {

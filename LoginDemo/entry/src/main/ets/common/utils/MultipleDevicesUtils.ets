@@ -18,30 +18,28 @@ import CommonConstants from '../constants/CommonConstants';
 
 class MultipleDevicesUtils {
   private currentDeviceSize: string = '';
-  private smListener: mediaQuery.MediaQueryListener;
-  private mdListener: mediaQuery.MediaQueryListener;
-  private lgListener: mediaQuery.MediaQueryListener;
+  private smListener?: mediaQuery.MediaQueryListener;
+  private mdListener?: mediaQuery.MediaQueryListener;
+  private lgListener?: mediaQuery.MediaQueryListener;
 
-  private updateCurrentDeviceSize(deviceSize: string): void  {
+  private updateCurrentDeviceSize(deviceSize: string): void {
     if (this.currentDeviceSize !== deviceSize) {
       this.currentDeviceSize = deviceSize;
       AppStorage.Set<string>('currentDeviceSize', this.currentDeviceSize);
     }
   }
 
-  private isDeviceSizeSM = (mediaQueryResult) => {
+  private isDeviceSizeSM = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentDeviceSize(CommonConstants.SM);
     }
   }
-
-  private isDeviceSizeMD = (mediaQueryResult) => {
+  private isDeviceSizeMD = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentDeviceSize(CommonConstants.MD);
     }
   }
-
-  private isDeviceSizeLG = (mediaQueryResult) => {
+  private isDeviceSizeLG = (mediaQueryResult: mediaQuery.MediaQueryResult) => {
     if (mediaQueryResult.matches) {
       this.updateCurrentDeviceSize(CommonConstants.LG);
     }
@@ -57,9 +55,10 @@ class MultipleDevicesUtils {
   }
 
   public unregister(): void {
-    this.smListener.off('change', this.isDeviceSizeSM);
-    this.mdListener.off('change', this.isDeviceSizeMD);
-    this.lgListener.off('change', this.isDeviceSizeLG);
+    this.smListener?.off('change', this.isDeviceSizeSM);
+    this.mdListener?.off('change', this.isDeviceSizeMD);
+    this.lgListener?.off('change', this.isDeviceSizeLG);
   }
 }
+
 export default new MultipleDevicesUtils();

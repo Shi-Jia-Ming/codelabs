@@ -15,16 +15,44 @@
 
 import { Specification, CounterProduct, Commodity, KV, GridConstants, StyleConstants } from '@ohos/common';
 import { CapsuleGroupButton } from './CapsuleGroupButton';
-import { FinishType, SelectKeys } from '../bean/TypeModel';
+import { ColorChange, FinishType } from '../bean/TypeModel';
 import { CommodityConstants } from '../constants/CommodityConstants';
+import { ProductSpecification } from '@ohos/common/src/main/ets/bean/ProductModel';
 
 @CustomDialog
 export struct SpecificationDialog {
+  @State colorChange: ColorChange = {
+    颜色: '',
+    版本: '',
+    网络制式: '',
+    类型: ''
+  };
   @Link data: Commodity;
   @Link count: number;
-  @Link selectTags: SelectKeys;
-  controller: CustomDialogController;
-  private onFinish?: (type: FinishType, count: number, selectKeys: SelectKeys) => void;
+  @Link selectTags: ProductSpecification[];
+  @Link productOptions: string;
+  controller?: CustomDialogController;
+  private onFinish?: (type: FinishType, count: number, selectKeys: ProductSpecification[]) => void;
+  aboutToAppear(){
+    this.selectTags.forEach((item) => {
+      switch (item.name) {
+        case '颜色':
+          this.colorChange.颜色 = item.value;
+          break;
+        case '版本':
+          this.colorChange.版本 = item.value;
+          break;
+        case '网络制式':
+          this.colorChange.网络制式 = item.value;
+          break;
+        case '类型':
+          this.colorChange.类型 = item.value;
+          break;
+        default:
+          break;
+      }
+    })
+  }
 
   build() {
     GridRow({ columns: { sm: GridConstants.COLUMN_FOUR, md: GridConstants.COLUMN_EIGHT,
@@ -37,8 +65,10 @@ export struct SpecificationDialog {
             .height($r('app.float.vp_twenty_four'))
             .objectFit(ImageFit.Contain)
             .onClick(() => {
-              this.controller.close();
-              this.onFinish(FinishType.CANCEL, this.count, this.selectTags);
+              this.controller?.close();
+              if (this.onFinish) {
+                this.onFinish(FinishType.CANCEL, this.count, this.selectTags);
+              }
             })
           Row() {
             Image(this.data.images && $rawfile(this.data.images[0]))
@@ -60,8 +90,7 @@ export struct SpecificationDialog {
               }
               .margin({ bottom: $r('app.float.vp_twelve') })
 
-              Text(`${CommodityConstants.SPECIAL_CHOOSE} ：${Object.values(this.selectTags)
-                .join(' ')} ${this.count ? `X${this.count}` : ''}`)
+              Text(`${CommodityConstants.SPECIAL_CHOOSE} ：${this.productOptions} ${this.count ? `X${this.count}` : ''}`)
                 .fontSize($r('app.float.smaller_font_size'))
                 .fontColor(Color.Black)
                 .maxLines(CommodityConstants.MAX_LINE)
@@ -81,14 +110,14 @@ export struct SpecificationDialog {
             Column() {
               ForEach(this.data.specifications || [], (item: Specification) => {
                 this.Specification(item)
-              }, item => item.id)
+              }, (item: Specification) => item.id)
               Flex({ justifyContent: FlexAlign.SpaceBetween, alignItems: ItemAlign.Center }) {
                 Text($r('app.string.quantity'))
                   .fontSize($r('app.float.small_font_size'))
                   .fontColor($r('app.color.sixty_alpha_black'))
                 CounterProduct({
                   count: this.count,
-                  onNumberChange: (num) => this.count = num
+                  onNumberChange: (num: number) => this.count = num
                 })
               }
               .margin({ right: $r('app.float.vp_twenty_four') })
@@ -116,14 +145,18 @@ export struct SpecificationDialog {
         configs: [{
           text: $r('app.string.insert_cart'),
           onClick: () => {
-            this.controller.close();
-            this.onFinish(FinishType.JOIN_SHOPPING_CART, this.count, this.selectTags);
+            this.controller?.close();
+            if (this.onFinish) {
+              this.onFinish(FinishType.JOIN_SHOPPING_CART, this.count, this.selectTags);
+            }
           }
         }, {
           text: $r('app.string.buy_now'),
           onClick: () => {
-            this.controller.close();
-            this.onFinish(FinishType.BUY_NOW, this.count, this.selectTags);
+            this.controller?.close();
+            if (this.onFinish) {
+              this.onFinish(FinishType.BUY_NOW, this.count, this.selectTags);
+            }
           }
         }]
       })
@@ -131,6 +164,26 @@ export struct SpecificationDialog {
     .width(StyleConstants.FULL_WIDTH)
     .height($r('app.float.vp_fifty_six'))
     .padding($r('app.float.vp_twelve'))
+  }
+  colorChanges(key: string): string {
+    let temp: string = ''
+    switch (key) {
+      case '颜色':
+        temp = this.colorChange.颜色;
+        break;
+      case '版本':
+        temp = this.colorChange.版本;
+        break;
+      case '网络制式':
+        temp = this.colorChange.网络制式;
+        break;
+      case '类型':
+        temp = this.colorChange.类型;
+        break;
+      default:
+        break;
+    }
+    return temp;
   }
 
   @Builder Specification(payload: Specification) {
@@ -143,7 +196,7 @@ export struct SpecificationDialog {
         ForEach(payload.data, (item: KV) => {
           Text(item.key)
             .fontSize($r('app.float.smaller_font_size'))
-            .fontColor(this.selectTags[payload?.id] === item.value ? $r('app.color.focus_color') : Color.Black)
+            .fontColor(this.colorChanges(payload.id) === item.value ? $r('app.color.focus_color') : Color.Black)
             .height($r('app.float.vp_twenty_four'))
             .padding({
               top: $r('app.float.vp_six'),
@@ -151,12 +204,12 @@ export struct SpecificationDialog {
               left: $r('app.float.vp_ten'),
               right: $r('app.float.vp_ten')
             })
-            .backgroundColor(this.selectTags[payload?.id] === item.value ?
+            .backgroundColor(this.colorChanges(payload.id) === item.value  ?
               $r('app.color.dialog_select_tag') : $r('app.color.five_alpha_black'))
             .margin({ bottom: $r('app.float.vp_ten'), right: $r('app.float.vp_twelve') })
             .borderRadius($r('app.float.vp_twelve'))
-            .onClick(() => this.onTagSelect(item, payload.id))
-        }, item => JSON.stringify(item.value))
+            .onClick(():void => this.onTagSelect(item, payload.id))
+        }, (item: KV) => JSON.stringify(item.value))
       }
     }
     .alignItems(HorizontalAlign.Start)
@@ -164,7 +217,36 @@ export struct SpecificationDialog {
     .margin({ bottom: $r('app.float.vp_fourteen') })
   }
 
-  onTagSelect(tag, parentId) {
-    this.selectTags[parentId] = tag.value;
+  onTagSelect(tag: KV, parentId: string) {
+    this.selectTags.forEach((item, index) => {
+      if (parentId === item.name) {
+        switch (parentId) {
+          case '颜色':
+            this.colorChange.颜色 = tag.value;
+            break;
+          case '版本':
+            this.colorChange.版本 = tag.value;
+            break;
+          case '网络制式':
+            this.colorChange.网络制式 = tag.value;
+            break;
+          case '类型':
+            this.colorChange.类型 = tag.value;
+            break;
+          default:
+            break;
+        }
+        let data: ProductSpecification = {name:parentId,value:tag.value}
+        this.selectTags.splice(index,1,data);
+      }
+    })
+    this.onSelectKeysChange()
+  }
+
+  onSelectKeysChange(){
+    this.productOptions = '';
+    this.selectTags.forEach((item)=>{
+      this.productOptions += item.value+' ';
+    })
   }
 }

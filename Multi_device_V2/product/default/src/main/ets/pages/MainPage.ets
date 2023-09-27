@@ -29,7 +29,7 @@ struct MainPage {
   private breakpointSystem: BreakpointSystem = new BreakpointSystem();
   private controller: TabsController = new TabsController();
 
-  aboutToAppear(){
+  aboutToAppear() {
     this.breakpointSystem.register();
   }
 

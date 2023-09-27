@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import relationalStore from '@ohos.data.relationalStore';
 
 /**
  * Database form entity class.
@@ -20,24 +21,24 @@ export default class Form {
   /**
    * Form ID.
    */
-  formId: string;
+  formId: string = '';
 
   /**
    * Form name.
    */
-  formName: string;
+  formName: string = '';
 
   /**
    * Card dimension.
    */
-  dimension: number;
+  dimension: number = 0;
 
   /**
    * Get inserted form data.
    *
    * @return Return form data.
    */
-  toValuesBucket() {
+  toValuesBucket(): relationalStore.ValuesBucket {
     return {
       'formId': this.formId,
       'formName': this.formName,

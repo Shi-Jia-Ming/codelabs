@@ -13,79 +13,84 @@
  * limitations under the License.
  */
 
-import { COMMON_NUM_MINUTE, COMMON_NUM_DOUBLE, ZERO_STR, SPLIT, STACK_STYLE } from '../common/constants/CommonConstants';
+import {
+  COMMON_NUM_MINUTE,
+  COMMON_NUM_DOUBLE,
+  ZERO_STR,
+  SPLIT,
+  STACK_STYLE
+} from '../common/constants/CommonConstants';
 
 /**
  * video component prepared callback
  */
-export function prepared(event) {
-  this.durationTime = event.duration;
+export function prepared(that, event) {
+  that.durationTime = event.duration;
   let second: number = event.duration % COMMON_NUM_MINUTE;
-  let min: number = parseInt((event.duration / COMMON_NUM_MINUTE).toString());
+  let min: number = Number.parseInt((event.duration / COMMON_NUM_MINUTE).toString());
   let head = min < COMMON_NUM_DOUBLE ? `${ZERO_STR}${min}` : min;
   let end = second < COMMON_NUM_DOUBLE ? `${ZERO_STR}${second}` : second;
-  this.durationStringTime = `${head}${SPLIT}${end}`;
-  this.flag = true;
-};
+  that.durationStringTime = `${head}${SPLIT}${end}`;
+  that.flag = true;
+}
 
 /**
  * video component finish callback
  */
-export function finish() {
-  this.isPlay = false;
-  this.isOpacity = false;
-};
+export function finish(that) {
+  that.isPlay = false;
+  that.isOpacity = false;
+}
 
 /**
  * video slider component onchange callback
  */
-export function sliderOnchange(value: number, mode: SliderChangeMode) {
-  this.currentTime = parseInt(value.toString());
-  this.controller.setCurrentTime(parseInt(value.toString()), SeekMode.Accurate);
+export function sliderOnchange(that, value: number, mode: SliderChangeMode) {
+  that.currentTime = Number.parseInt(value.toString());
+  that.controller.setCurrentTime(Number.parseInt(value.toString()), SeekMode.Accurate);
   if (mode === SliderChangeMode.Begin) {
-    this.isOpacity = false;
+    that.isOpacity = false;
   }
   if (mode === SliderChangeMode.Moving) {
-    this.isOpacity = false;
+    that.isOpacity = false;
   }
   if (mode === SliderChangeMode.End) {
-    this.isOpacity = true;
+    that.isOpacity = true;
   }
-};
+}
 
 /**
  * get video  string of current time
- * @param  the number of current time
+ * @param the number of current time
  * @return the string of current time
  */
 export function changeSliderTime(value: number): string {
   let second: number = value % COMMON_NUM_MINUTE;
-  let min: number = parseInt((value / COMMON_NUM_MINUTE).toString());
+  let min: number = Number.parseInt((value / COMMON_NUM_MINUTE).toString());
   let head = min < COMMON_NUM_DOUBLE ? `${ZERO_STR}${min}` : min;
   let end = second < COMMON_NUM_DOUBLE ? `${ZERO_STR}${second}` : second;
   let nowTime = `${head}${SPLIT}${end}`;
   return nowTime;
-};
+}
 
 /**
  * icon onclick callback
  */
-export function iconOnclick() {
-  if (this.isPlay) {
-    this.controller.pause()
-    this.isPlay = false;
-    this.isOpacity = false;
+export function iconOnclick(that) {
+  if (that.isPlay === true) {
+    that.controller.pause()
+    that.isPlay = false;
+    that.isOpacity = false;
     return;
   }
-  if(this.flag) {
-    this.controller.start();
-    this.isPlay = true;
-    this.isOpacity = true;
+  if (that.flag === true) {
+    that.controller.start();
+    that.isPlay = true;
+    that.isOpacity = true;
   } else {
-    let that = this;
     that.isLoading = true;
     // The video loading is not complete. The loading action is displayed.
-    let intervalLoading = setInterval(function() {
+    let intervalLoading = setInterval(() => {
       if (that.progressVal >= STACK_STYLE.PROGRESS_TOTAL) {
         that.progressVal = 0;
       } else {
@@ -93,8 +98,8 @@ export function iconOnclick() {
       }
     }, STACK_STYLE.MILLI_SECONDS)
     // The scheduled task determines whether the video loading is complete.
-    let intervalFlag = setInterval(function() {
-      if (that.flag) {
+    let intervalFlag = setInterval(() => {
+      if (that.flag === true) {
         that.controller.start();
         that.isPlay = true;
         that.isOpacity = true;
@@ -104,4 +109,4 @@ export function iconOnclick() {
       }
     }, STACK_STYLE.MILLI_SECONDS);
   }
-};
+}

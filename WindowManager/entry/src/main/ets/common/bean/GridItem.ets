@@ -21,18 +21,16 @@ export default class GridItem {
    * Title of grid item.
    */
   title: Resource;
-
   /**
    * Image of grid item.
    */
-  image?: Resource;
-
+  image: Resource = $r('app.media.ic_love');
   /**
    * Other resource of grid item.
    */
   others?: Resource;
 
-  constructor(title: Resource, image?: Resource, others?: Resource) {
+  constructor(title: Resource, image: Resource, others?: Resource) {
     this.title = title;
     this.image = image;
     this.others = others;

@@ -17,26 +17,38 @@
 export class Product {
   id: string = '';
   name: string = '';
-  img: string = '';
+  img: string[] = [];
   commodityId: string = '';
   description: string = '';
   price: number = 0;
   count: number = 0;
   selected: boolean = false;
-  specifications: { [key: string]: string } = {};
+  specifications: ProductSpecification[] = [];
+  update_time?: string = '';
+  create_time?: string = '';
+  uid?: string = '';
+}
 
-  constructor(props?: Product) {
-    if(!props) {
-      return;
-    }
-    this.id = props.id;
-    this.name = props.name;
-    this.img = props.img;
-    this.commodityId = props.commodityId;
-    this.description = props.description;
-    this.price = props.price;
-    this.count = props.count;
-    this.selected = props.selected;
-    this.specifications = props.specifications;
-  }
+export class ProductSpecification {
+  name: string = '';
+  value: string = '';
+}
+
+export class ShopProps {
+  id: string = '';
+  commodityId: string = '';
+  count: number = 0;
+  specifications: ProductSpecification[] = [];
+}
+
+export class UpdateShopProps {
+  id: string = '';
+  count?: number = 0;
+  selected?: boolean = false;
+  specifications?: ProductSpecification[] = [];
+}
+
+export class SelectProducts {
+  selected: boolean = false;
+  key: string = '';
 }

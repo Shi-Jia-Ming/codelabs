@@ -21,7 +21,6 @@ export default class VerifyItem {
    * Image of verify item.
    */
   image: Resource;
-
   /**
    * Correct characters of verify item.
    */

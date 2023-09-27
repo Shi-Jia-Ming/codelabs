@@ -30,6 +30,7 @@ import {
   BreakpointConstants,
   GridConstants
 } from '@ohos/common';
+import { updateOrderProps } from '@ohos/common/src/main/ets/bean/OrderModel';
 
 @Component
 export struct OrderListContent {
@@ -40,7 +41,8 @@ export struct OrderListContent {
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
   paymentHandler(orderId: string, status: number, msg: string | Resource) {
-    this.orderList = this.localDataManager.updateOrder({ orderId, status });
+    let orderIdStatus: updateOrderProps = { orderId, status }
+    this.orderList = this.localDataManager.updateOrder(orderIdStatus);
     promptAction.showToast({ message: `${msg}${OrderDetailConstants.SUCCESS}` });
   }
 
@@ -67,11 +69,11 @@ export struct OrderListContent {
                 this.orderList.filter(item => item.status === this.status).length > 0) {
                 List() {
                   ForEach(this.status === OrderOperationStatus.ALLStatus ?
-                    this.orderList : this.orderList.filter(item => item.status === this.status), (info: Order) => {
+                  this.orderList : this.orderList.filter(item => item.status === this.status), (info: Order) => {
                     ListItem() {
                       Flex({ direction: FlexDirection.Column }) {
                         Flex({ justifyContent: FlexAlign.End }) {
-                          Text(statusEnum[info.status])
+                          Text(info.status !== undefined ? statusEnum[info.status] : '')
                             .fontSize($r('app.float.smaller_font_size'))
                             .fontColor($r('app.color.focus_color'))
                         }
@@ -111,7 +113,7 @@ export struct OrderListContent {
                           justifyContent: FlexAlign.End
                         }) {
                           Text($r('app.string.goods_count', info.count,
-                            payEnum[info.status], info.price * info.count))
+                            info.status !== undefined ? payEnum[info.status] : '', info.price * info.count))
                             .fontSize($r('app.float.small_font_size'))
                             .margin({
                               bottom: $r('app.float.vp_sixteen')
@@ -124,8 +126,8 @@ export struct OrderListContent {
                                 .backgroundColor($r('app.color.focus_color'))
                                 .borderRadius($r('app.float.vp_fourteen'))
                                 .onClick(() => {
-                                  this.paymentHandler(info.orderId, OrderOperationStatus.DELIVERED,
-                                    OrderDetailConstants.ORDER_PAY);
+                                  this.paymentHandler(info.orderId !== undefined ? info.orderId : '',
+                                    OrderOperationStatus.DELIVERED, OrderDetailConstants.ORDER_PAY);
                                 })
                             } else if (info.status === OrderOperationStatus.DELIVERED) {
                               Button($r('app.string.confirm_harvest'))
@@ -134,8 +136,8 @@ export struct OrderListContent {
                                 .backgroundColor($r('app.color.focus_color'))
                                 .borderRadius($r('app.float.vp_fourteen'))
                                 .onClick(() => {
-                                  this.paymentHandler(info.orderId, OrderOperationStatus.RECEIPT,
-                                    OrderDetailConstants.ORDER_CONFIRM);
+                                  this.paymentHandler(info.orderId !== undefined ? info.orderId : '',
+                                    OrderOperationStatus.RECEIPT, OrderDetailConstants.ORDER_CONFIRM);
                                 })
                             }
                           }
@@ -152,7 +154,7 @@ export struct OrderListContent {
                           params: {
                             order: info
                           }
-                        }).catch(err => {
+                        }).catch((err: Error) => {
                           Logger.error(JSON.stringify(err));
                         });
                       })
@@ -197,7 +199,7 @@ export struct OrderListContent {
                     params: {
                       id: data.id
                     }
-                  }).catch(err => {
+                  }).catch((err: Error) => {
                     Logger.error(JSON.stringify(err));
                   });
                 }

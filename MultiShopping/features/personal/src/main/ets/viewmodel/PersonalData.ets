@@ -50,125 +50,101 @@ const orderButton: IconButtonModel[] = [
 ]
 
 const memberButton: IconButtonModel[] = [
-  {
-    icon: $r('app.media.ic_member'),
-    text: $r('app.string.member_type')
-  },
-  {
-    icon: $r('app.media.ic_score'),
-    text: $r('app.string.bonus_store')
-  },
-  {
-    icon: $r('app.media.ic_interact'),
-    text: $r('app.string.interactive')
-  },
-  {
-    icon: $r('app.media.ic_card'),
-    text: $r('app.string.card_coupon')
-  }
+  new IconButtonModel($r('app.media.ic_member'), $r('app.string.member_type')),
+  new IconButtonModel($r('app.media.ic_score'), $r('app.string.bonus_store')),
+  new IconButtonModel($r('app.media.ic_interact'), $r('app.string.interactive')),
+  new IconButtonModel($r('app.media.ic_card'), $r('app.string.card_coupon'))
 ]
 
 const activityButton: IconButtonModel[] = [
-  {
-    icon: $r('app.media.ic_official'),
-    text: $r('app.string.official_service')
-  },
-  {
-    icon: $r('app.media.ic_cash'),
-    text: $r('app.string.cash')
-  },
-  {
-    icon: $r('app.media.ic_trade'),
-    text: $r('app.string.trade_in')
-  },
-  {
-    icon: $r('app.media.ic_my_evaluation'),
-    text: $r('app.string.my_evaluation')
-  }
+  new IconButtonModel($r('app.media.ic_official'), $r('app.string.official_service')),
+  new IconButtonModel($r('app.media.ic_cash'), $r('app.string.cash')),
+  new IconButtonModel($r('app.media.ic_trade'), $r('app.string.trade_in')),
+  new IconButtonModel($r('app.media.ic_my_evaluation'), $r('app.string.my_evaluation'))
 ]
 
-type LiveDataModel = {
-  liveId: string,
-  living: boolean,
-  watchDesc: string,
-  previewIcon: string,
-  liverIcon: string,
-  liverName: string,
-  liverDesc: string
+class LiveDataModel {
+  liveId: string = '';
+  living: boolean = false;
+  watchDesc: string = '';
+  previewIcon: string = '';
+  liverIcon: string = '';
+  liverName: string = '';
+  liverDesc: string = '';
 }
 
 const liveData: LiveDataModel[] = [
   {
-    'liveId': '1',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/food.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '首席美食家',
-    'liverDesc': '带您品尝各地美食'
+    liveId: '1',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/food.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '首席美食家',
+    liverDesc: '带您品尝各地美食'
   },
   {
-    'liveId': '2',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/scenery.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '大旅游家',
-    'liverDesc': '带您走遍天下奇景'
+    liveId: '2',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/scenery.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '大旅游家',
+    liverDesc: '带您走遍天下奇景'
   },
   {
-    'liveId': '3',
-    'living': false,
-    'watchDesc': '0人观看',
-    'previewIcon': 'common/food.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '首席美食家',
-    'liverDesc': '带您品尝各地美食'
+    liveId: '3',
+    living: false,
+    watchDesc: '0人观看',
+    previewIcon: 'common/food.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '首席美食家',
+    liverDesc: '带您品尝各地美食'
   },
   {
-    'liveId': '4',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/scenery.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '大旅游家',
-    'liverDesc': '带您走遍天下奇景'
+    liveId: '4',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/scenery.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '大旅游家',
+    liverDesc: '带您走遍天下奇景'
   },
   {
-    'liveId': '5',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/food.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '首席美食家',
-    'liverDesc': '带您品尝各地美食'
+    liveId: '5',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/food.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '首席美食家',
+    liverDesc: '带您品尝各地美食'
   },
   {
-    'liveId': '6',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/scenery.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '大旅游家',
-    'liverDesc': '带您走遍天下奇景'
+    liveId: '6',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/scenery.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '大旅游家',
+    liverDesc: '带您走遍天下奇景'
   },
   {
-    'liveId': '7',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/food.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '首席美食家',
-    'liverDesc': '带您品尝各地美食'
+    liveId: '7',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/food.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '首席美食家',
+    liverDesc: '带您品尝各地美食'
   },
   {
-    'liveId': '8',
-    'living': true,
-    'watchDesc': '2.9万人观看',
-    'previewIcon': 'common/scenery.png',
-    'liverIcon': 'common/ic_person.png',
-    'liverName': '大旅游家',
-    'liverDesc': '带您走遍天下奇景'
+    liveId: '8',
+    living: true,
+    watchDesc: '2.9万人观看',
+    previewIcon: 'common/scenery.png',
+    liverIcon: 'common/ic_person.png',
+    liverName: '大旅游家',
+    liverDesc: '带您走遍天下奇景'
   }
 ]
 

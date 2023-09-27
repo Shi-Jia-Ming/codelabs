@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import window from '@ohos.window';
 
 import ZonesItem from '../common/bean/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
@@ -19,16 +20,17 @@ import { DeviceScreen } from '../common/utils/DeviceScreen';
 
 @CustomDialog
 export struct ImageView {
-  private controller: CustomDialogController;
-  private windowClass = null;
+  private controller: CustomDialogController = new CustomDialogController({
+    builder: ImageView(),
+  });
+  private windowClass: window.Window | null = null;
   private deviceWidth: number = 0;
   private deviceHeight: number = 0;
   private imgWidth: number = 0;
   private imgHeight: number = 0;
   private displayHeight: number = 0
-
   @Consume('introductionData') introductionData: ZonesItem;
-  @Prop currentImageId: number;
+  @Prop currentImageId: number = 0;
   @State curIndex: number = this.currentImageId;
   @State isGesture: boolean = false;
   @State imgScale: number = 1;
@@ -40,7 +42,7 @@ export struct ImageView {
 
   aboutToAppear() {
     let deviceSize = DeviceScreen.getDeviceSize(getContext(this));
-    deviceSize.then((data) => {
+    deviceSize.then((data: window.Window) => {
       this.windowClass = data;
       let properties = this.windowClass.getWindowProperties();
       this.deviceWidth = properties.windowRect.width;
@@ -53,7 +55,7 @@ export struct ImageView {
    */
   detectBoundary(): void {
     let maxOffsetX = this.imgScale * this.deviceWidth / 2 - this.deviceWidth / 2;
-    if(vp2px(this.imgOffsetX) > (maxOffsetX)) {
+    if (vp2px(this.imgOffsetX) > (maxOffsetX)) {
       this.imgOffsetX = px2vp(maxOffsetX);
     }
     if (vp2px(this.imgOffsetX) < -(maxOffsetX)) {
@@ -75,8 +77,8 @@ export struct ImageView {
   /**
    * Limit scale to keep the image clear.
    */
-  limitScale(isReset): void {
-    if(this.imgScale < 1) {
+  limitScale(isReset: boolean): void {
+    if (this.imgScale < 1) {
       this.imgScale = 1;
       this.curScale = 1;
       if (isReset) {
@@ -93,7 +95,7 @@ export struct ImageView {
   }
 
   build() {
-    Stack(){
+    Stack() {
       Swiper() {
         ForEach(this.introductionData.imageList, (item: Resource) => {
           Column() {
@@ -110,7 +112,10 @@ export struct ImageView {
                   .onActionStart(() => {
                     this.isGesture = true;
                   })
-                  .onActionUpdate((event: GestureEvent) => {
+                  .onActionUpdate((event?: GestureEvent) => {
+                    if (!event) {
+                      return;
+                    }
                     this.imgScale = this.curScale * event.scale;
                   })
                   .onActionEnd(() => {
@@ -147,6 +152,9 @@ export struct ImageView {
           .scale({ x: this.imgScale, y: this.imgScale })
           .translate({ x: this.imgOffsetX, y: this.imgOffsetY })
           .onComplete((event) => {
+            if (!event) {
+              return;
+            }
             this.imgWidth = event.width;
             this.imgHeight = event.height;
             this.displayHeight = this.deviceWidth * this.imgHeight / this.imgWidth;
@@ -154,8 +162,11 @@ export struct ImageView {
       }
       .gesture(
         PinchGesture()
-          .onActionUpdate((event: GestureEvent) => {
-            this.imgScale = this.curScale * event.scale
+          .onActionUpdate((event?: GestureEvent) => {
+            if (!event) {
+              return;
+            }
+            this.imgScale = this.curScale * event.scale;
           })
           .onActionEnd(() => {
             this.detectBoundary();
@@ -168,7 +179,10 @@ export struct ImageView {
             this.preOffsetX = this.imgOffsetX;
             this.preOffsetY = this.imgOffsetY;
           })
-          .onActionUpdate((event: GestureEvent) => {
+          .onActionUpdate((event?: GestureEvent) => {
+            if (!event) {
+              return;
+            }
             this.imgOffsetX = this.preOffsetX + event.offsetX;
             this.imgOffsetY = this.preOffsetY + event.offsetY;
           })

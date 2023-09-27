@@ -121,7 +121,7 @@ export struct FindTabs {
             .width(Const.FULL_SIZE)
             .margin({ bottom: $r('app.float.find_margin5') })
           }
-        }, item => JSON.stringify(item))
+        }, (item: FindTabsItem) => JSON.stringify(item))
       }
     }
     .width(Const.FULL_SIZE)

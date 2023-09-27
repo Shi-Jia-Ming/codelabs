@@ -23,120 +23,77 @@ export default class CommonConstants {
    * The entry ability tag.
    */
   static readonly TAG_ABILITY: string = 'EntryAbility';
-
   /**
    * The entry details ability tag.
    */
   static readonly TAG_DETAILS: string = 'EntryDetailsAbility';
-
-  /**
-   * The movie list page tag.
-   */
-  static readonly TAG_MOVIE_LIST: string = 'MovieListPage';
-
   /**
    * The movie details page tag.
    */
   static readonly TAG_DETAILS_PAGE: string = 'MovieDetailsPage';
-
   /**
    * The entry form ability tag.
    */
   static readonly TAG_FORM_ABILITY: string = 'EntryFormAbility';
-
   /**
    * The movie item component tag.
    */
   static readonly TAG_MOVIE_ITEM: string = 'MovieItem';
-
   /**
    * The movie details item component tag.
    */
   static readonly TAG_DETAILS_COMPONENT: string = 'MovieDetailTitle';
-
   /**
    *  The common utils tag.
    */
   static readonly TAG_COMMON_UTILS: string = 'CommonUtils';
-
   /**
    * Database store configuration.
    */
   static readonly STORE_CONFIG: relationalStore.StoreConfig = {
     name: 'FormDatabase.db', securityLevel: relationalStore.SecurityLevel.S1, encrypt: false
   };
-
   /**
    * SQL statement for creating a form.
    */
   static readonly CREATE_TABLE_FORM: string = 'CREATE TABLE IF NOT EXISTS Form ' +
     '(id INTEGER PRIMARY KEY AUTOINCREMENT, formId TEXT NOT NULL, formName TEXT NOT NULL, dimension INTEGER)';
-
   /**
    * ID parameter for creating a form.
    */
   static readonly IDENTITY_KEY: string = 'ohos.extra.param.key.form_identity';
-
   /**
    * Name parameter for creating a form.
    */
   static readonly NAME_KEY: string = 'ohos.extra.param.key.form_name';
-
   /**
    * Dimension parameter for creating a form.
    */
   static readonly DIMENSION_KEY: string = 'ohos.extra.param.key.form_dimension';
-
   /**
    * Table name
    */
   static readonly TABLE_NAME: string = 'Form';
-
-  /**
-   * Refresh time in 5 minute.
-   */
-  static readonly FIVE_MINUTES: number = 5;
-
   /**
    * Form ID field in the database table.
    */
   static readonly FORM_ID: string = 'formId';
-
   /**
    * Time interval of the 300000.
    */
   static readonly INTERVAL_DELAY_TIME: number = 300000;
-
-  /**
-   * Notification id of the 1008.
-   */
-  static readonly NOTIFICATIONS_ID: number = 1008;
-
   /**
    * Random multiply ten.
    */
   static readonly MULTIPLY_TEN: number = 10;
-
-  /**
-   * Random minus two.
-   */
-  static readonly MINUS_TWO: number = 2;
-
   /**
    * Default lines of the 5.
    */
   static readonly DEFAULT_LINES: number = 5;
-
   /**
    * Max lines of the 10.
    */
   static readonly MAX_LINES: number = 10;
-
-  /**
-   * Index key
-   */
-  static readonly INDEX_KEY: string = 'index';
-
   /**
    * See button push page url.
    */

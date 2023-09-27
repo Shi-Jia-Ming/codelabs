@@ -1,0 +1,140 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "multi device"
+    },
+    {
+      "name": "page_show",
+      "value": "page from npm package"
+    },
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "live_title",
+      "value": "Dandelion Live"
+    },
+    {
+      "name": "live_one",
+      "value": "Drunk beauty snow mountain"
+    },
+    {
+      "name": "live_one_introduction",
+      "value": "Well-known travel bloggers take you to see the most beautiful snow-capped mountains in Yunnan."
+    },
+    {
+      "name": "live_two",
+      "value": "Quickly make reduced fat meals"
+    },
+    {
+      "name": "live_two_introduction",
+      "value": "Professional dietitian takes you together in 5 minutes to get a nutritious salad."
+    },
+    {
+      "name": "live_three",
+      "value": "The world of insects"
+    },
+    {
+      "name": "live_three_introduction",
+      "value": "Zoologists take you through the third world of insects."
+    },
+    {
+      "name": "comment_title",
+      "value": "comment"
+    },
+    {
+      "name": "wonderful_comment",
+      "value": "Wonderful review（999+）"
+    },
+    {
+      "name": "new_comment",
+      "value": "Latest Reviews"
+    },
+    {
+      "name": "collection_num",
+      "value": "125000"
+    },
+    {
+      "name": "list_name",
+      "value": "Independent folk"
+    },
+    {
+      "name": "playlist_Introduction",
+      "value": "The set list is a selection of popular folk songs."
+    },
+    {
+      "name": "play_all",
+      "value": "Play all(%d)"
+    },
+    {
+      "name": "collect",
+      "value": "collect"
+    },
+    {
+      "name": "download",
+      "value": "download"
+    },
+    {
+      "name": "comment",
+      "value": "comment"
+    },
+    {
+      "name": "share",
+      "value": "share"
+    },
+    {
+      "name": "play_list",
+      "value": "play list"
+    },
+    {
+      "name": "song_name",
+      "value": "I don't know"
+    },
+    {
+      "name": "singer",
+      "value": "Hello xiao wan"
+    },
+    {
+      "name": "EntryFormAbility_desc",
+      "value": "form_description"
+    },
+    {
+      "name": "EntryFormAbility_label",
+      "value": "form_label"
+    },
+    {
+      "name": "music_title",
+      "value": "Folk Soul"
+    },
+    {
+      "name": "music_description",
+      "value": "The song list selects some of the more concerned folk songs, a folk song soothes life."
+    },
+    {
+      "name": "button_music",
+      "value": "Playing music"
+    },
+    {
+      "name": "live_description",
+      "value": "I've selected some of the live features that everyone likes."
+    },
+    {
+      "name": "button_live",
+      "value": "Watch Live"
+    },
+    {
+      "name": "reason_background",
+      "value": "keep background running"
+    }
+  ]
+}

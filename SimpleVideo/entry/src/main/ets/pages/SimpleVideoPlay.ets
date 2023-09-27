@@ -28,7 +28,7 @@ import {
 @Entry
 @Component
 struct Play {
-  private source: string = router.getParams()['source'];
+  private source: string = (router.getParams() as Record<string, Object>).source as string;
   private startIconResource: Resource = $r('app.media.ic_public_play');
   private backIconResource: Resource = $r('app.media.ic_back');
   @Provide isPlay: boolean = false;
@@ -37,6 +37,10 @@ struct Play {
   @Provide isLoading: boolean = false;
   @Provide progressVal: number = 0;
   @Provide flag: boolean = false;
+
+  aboutToAppear() {
+    this.source;
+  }
 
   onPageHide() {
     this.controller.pause();
@@ -59,7 +63,10 @@ struct Play {
           .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN })
       }
       .width(ALL_PERCENT)
-      .margin({ left: MARGIN_FONT_SIZE.FIRST_MARGIN, top: MARGIN_FONT_SIZE.FIRST_MARGIN })
+      .margin({
+        left: MARGIN_FONT_SIZE.FIRST_MARGIN,
+        top: MARGIN_FONT_SIZE.FIRST_MARGIN
+      })
       .justifyContent(FlexAlign.Start)
 
       Stack() {
@@ -90,13 +97,9 @@ struct Play {
           controller: this.controller
         })
           .zIndex(0)
-
       }
     }
     .height(ALL_PERCENT)
     .backgroundColor(Color.Black)
   }
 }
-
-
-

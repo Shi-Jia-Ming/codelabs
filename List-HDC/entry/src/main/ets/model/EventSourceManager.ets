@@ -18,20 +18,22 @@ import { BroadCast } from '../common/utils/BroadCast';
 const APP_KEY_GROUP_DATA_SOURCE_MANAGER = 'app_key_group_data_source_manager'
 
 export class EventSourceManager {
-    private broadCast: BroadCast;
+  private broadCast: BroadCast;
 
-    constructor() {
-        this.broadCast = new BroadCast();
-    }
+  constructor() {
+    this.broadCast = new BroadCast();
+  }
 
-    public static getInstance(): EventSourceManager {
-        if (AppStorage.Get(APP_KEY_GROUP_DATA_SOURCE_MANAGER) == null) {
-            AppStorage.SetOrCreate(APP_KEY_GROUP_DATA_SOURCE_MANAGER, new EventSourceManager());
-        }
-        return AppStorage.Get(APP_KEY_GROUP_DATA_SOURCE_MANAGER);
+  public static getInstance(): EventSourceManager {
+    let eventSourceManager: EventSourceManager | undefined = AppStorage.Get(APP_KEY_GROUP_DATA_SOURCE_MANAGER);
+    if (eventSourceManager === undefined) {
+      eventSourceManager = new EventSourceManager();
+      AppStorage.SetOrCreate(APP_KEY_GROUP_DATA_SOURCE_MANAGER, eventSourceManager);
     }
+    return eventSourceManager;
+  }
 
-    public getBroadCast(): BroadCast {
-        return this.broadCast;
-    }
+  public getBroadCast(): BroadCast {
+    return this.broadCast;
+  }
 }

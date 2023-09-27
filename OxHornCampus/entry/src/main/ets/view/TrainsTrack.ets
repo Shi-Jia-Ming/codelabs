@@ -22,10 +22,10 @@ export default struct TrainsTrack {
   private settings: RenderingContextSettings = new RenderingContextSettings(true);
   private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);
   private settings1: RenderingContextSettings = new RenderingContextSettings(true);
-  private context1: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings1);
+  private contextTrainLine: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings1);
   private imgTrain: ImageBitmap = new ImageBitmap(Const.TRAIN_URL);
   private imgCircle: ImageBitmap = new ImageBitmap(Const.CIRCLE_URL);
-  private trainLine: number;
+  private trainLine: number = 0;
   @State canvasWidth: number = 0;
   @State canvasHeight: number = 0;
   @State trainX: number = 0;
@@ -54,7 +54,7 @@ export default struct TrainsTrack {
     this.calcFirstDistance(this.trainsInfo.lineData, travelDistance);
   }
 
-  fetchStartTime(index): string {
+  fetchStartTime(index: number): string {
     let ret = Const.LINE_ONE_START_TIME;
     const date = new Date();
     const weekday = date.getDay();
@@ -88,7 +88,7 @@ export default struct TrainsTrack {
     }
   }
 
-  calcPosition(x, y, w, h) {
+  calcPosition(x: number, y: number, w: number, h: number) {
     if (x + this.bgX > w - Const.HORIZONTAL_THRESHOLD) {
       this.bgX = Math.abs(this.bgX - w / 2) > Const.CANVAS_WIDTH - w ? -Const.CANVAS_WIDTH + w : this.bgX - w / 2;
     }
@@ -111,7 +111,7 @@ export default struct TrainsTrack {
    */
   drawTrainPosition() {
     if (Math.abs(this.trainX - this.positionEnd.x) <= Const.AVERAGE_ERROR &&
-    Math.abs(this.trainY - this.positionEnd.y) <= Const.AVERAGE_ERROR) {
+      Math.abs(this.trainY - this.positionEnd.y) <= Const.AVERAGE_ERROR) {
       this.trainX = this.positionEnd.x;
       this.trainY = this.positionEnd.y;
       if (this.currentIndex === this.trainsInfo.lineData.length - 2) {
@@ -122,22 +122,23 @@ export default struct TrainsTrack {
     }
     this.positionStart = this.trainsInfo.lineData[this.currentIndex];
     this.positionEnd = this.trainsInfo.lineData[this.currentIndex + 1];
-    this.rotateAngle = Const.BASIC_ROTATE_ANGLE + TrainsMapModel.fetchDirection(this.positionStart.x, this.positionStart.y, this.positionEnd.x, this.positionEnd.y);
+    this.rotateAngle = Const.BASIC_ROTATE_ANGLE +
+      TrainsMapModel.fetchDirection(this.positionStart.x, this.positionStart.y, this.positionEnd.x, this.positionEnd.y);
 
-    this.context1.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
+    this.contextTrainLine.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.trainX += TrainsMapModel.fetchRatioX(this.positionStart, this.positionEnd);
     this.trainY += TrainsMapModel.fetchRatioY(this.positionStart, this.positionEnd);
     this.calcPosition(this.trainX, this.trainY, this.canvasWidth, this.canvasHeight);
     this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     this.context.drawImage(this.trainsInfo.imgBg, this.bgX, this.bgY, Const.CANVAS_WIDTH, Const.CANVAS_HEIGHT);
-    this.context1.drawImage(
+    this.contextTrainLine.drawImage(
       this.imgTrain,
       this.trainX + this.bgX - Const.TRAIN_OFFSET_X,
       this.trainY + this.bgY - Const.TRAIN_OFFSET_Y,
       Const.TRAIN_WIDTH,
       Const.TRAIN_HEIGHT
     );
-    this.context1.drawImage(
+    this.contextTrainLine.drawImage(
       this.imgCircle,
       this.trainX + this.bgX - Const.CIRCLE_OFFSET_X,
       this.trainY + this.bgY - Const.CIRCLE_OFFSET_Y,
@@ -172,19 +173,19 @@ export default struct TrainsTrack {
           angle: this.rotateAngle
         })
 
-      Canvas(this.context1)
+      Canvas(this.contextTrainLine)
         .width(Const.FULL_SIZE)
         .aspectRatio(Const.CANVAS_ASPECT_RADIO)
         .borderRadius(Const.CANVAS_BORDER_RADIUS)
         .onReady(() => {
-          this.context1.drawImage(
+          this.contextTrainLine.drawImage(
             this.imgTrain,
             this.trainX + this.bgX - Const.TRAIN_OFFSET_X,
             this.trainY + this.bgY - Const.TRAIN_OFFSET_Y,
             Const.TRAIN_WIDTH,
             Const.TRAIN_HEIGHT
           );
-          this.context1.drawImage(
+          this.contextTrainLine.drawImage(
             this.imgCircle,
             this.trainX + this.bgX - Const.CIRCLE_OFFSET_X,
             this.trainY + this.bgY - Const.CIRCLE_OFFSET_Y,

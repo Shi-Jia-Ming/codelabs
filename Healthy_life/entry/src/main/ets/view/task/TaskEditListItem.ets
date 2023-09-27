@@ -14,39 +14,30 @@
  */
 
 import { ITaskItem } from '../../model/TaskInitList';
-import {
-  DEFAULT_8,
-  DEFAULT_12,
-  DEFAULT_20,
-  DEFAULT_16,
-  DEFAULT_32,
-  DEFAULT_56,
-  THOUSANDTH_1000,
-  PER_DAY
-} from '../../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../../common/constants/CommonConstants';
 import { taskType } from '../../common/bean/TaskInfo';
 
 @Extend(Text) function targetSetCommon() {
-  .fontSize(DEFAULT_16)
+  .fontSize(Const.DEFAULT_16)
   .flexGrow(1)
-  .margin({ right: DEFAULT_8 })
+  .margin({ right: Const.DEFAULT_8 })
   .align(Alignment.End)
 }
 
-@Extend(Text) function targetSettingStyle(isOpen, taskID) {
+@Extend(Text) function targetSettingStyle(isOpen: boolean, taskID: number) {
   .fontColor(isOpen && taskID !== taskType.smile && taskID !== taskType.brushTeeth ?
   $r('app.color.titleColor') :
   $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function remindTimeStyle(isOpen, isAlarm) {
+@Extend(Text) function remindTimeStyle(isOpen: boolean, isAlarm: boolean) {
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
 
-@Extend(Text) function frequencyStyle(isOpen, isAlarm) {
-  .fontSize(DEFAULT_12)
+@Extend(Text) function frequencyStyle(isOpen: boolean, isAlarm: boolean) {
+  .fontSize(Const.DEFAULT_12)
   .flexGrow(1)
-  .margin({ right: DEFAULT_8 })
+  .margin({ right: Const.DEFAULT_8 })
   .textAlign(TextAlign.End)
   .fontColor(isOpen && isAlarm ? $r('app.color.titleColor') : $r('app.color.disabledColor'))
 }
@@ -58,16 +49,16 @@ export struct TaskChooseItem {
 
   build() {
     Row() {
-      Text(this.settingParams.taskName).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
+      Text(this.settingParams.taskName).fontSize(Const.DEFAULT_20).fontWeight(FontWeight.Medium)
       Toggle({ type: ToggleType.Switch, isOn: this.settingParams.isOpen })
-        .width(DEFAULT_56)
-        .height(DEFAULT_32)
+        .width(Const.DEFAULT_56)
+        .height(Const.DEFAULT_32)
         .selectedColor($r('app.color.blueColor'))
         .onChange((isOn) => {
           this.settingParams.isOpen = isOn;
         })
     }
-    .width(THOUSANDTH_1000)
+    .width(Const.THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }
@@ -79,7 +70,7 @@ export struct TargetSetItem {
   build() {
     Row() {
       Text($r('app.string.target_setting'))
-        .fontSize(DEFAULT_20)
+        .fontSize(Const.DEFAULT_20)
         .fontWeight(FontWeight.Medium)
 
       Blank()
@@ -89,13 +80,13 @@ export struct TargetSetItem {
           .targetSetCommon()
           .targetSettingStyle(this.settingParams?.isOpen, this.settingParams?.taskID)
       } else {
-        Text(`${this.settingParams?.targetValue} ${this.settingParams?.unit} ${PER_DAY}`)
+        Text(`${this.settingParams?.targetValue} ${this.settingParams?.unit} ${Const.PER_DAY}`)
           .targetSetCommon()
           .targetSettingStyle(this.settingParams?.isOpen, this.settingParams?.taskID)
       }
-      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16);
+      Image($r('app.media.ic_right_grey')).width(Const.DEFAULT_8).height(Const.DEFAULT_16);
     }
-    .width(THOUSANDTH_1000)
+    .width(Const.THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }
@@ -107,18 +98,18 @@ export struct OpenRemindItem {
   build() {
     Row() {
       Text($r('app.string.open_reminder'))
-        .fontSize(DEFAULT_20)
+        .fontSize(Const.DEFAULT_20)
         .fontWeight(FontWeight.Medium)
 
       Toggle({ type: ToggleType.Switch, isOn: this.settingParams?.isAlarm })
-        .width(DEFAULT_56)
-        .height(DEFAULT_32)
+        .width(Const.DEFAULT_56)
+        .height(Const.DEFAULT_32)
         .selectedColor($r('app.color.blueColor'))
         .onChange((isOn) => {
           this.settingParams.isAlarm = isOn;
         })
     }
-    .width(THOUSANDTH_1000)
+    .width(Const.THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }
@@ -129,15 +120,15 @@ export struct RemindTimeItem {
 
   build() {
     Row() {
-      Text($r('app.string.remind_time')).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
+      Text($r('app.string.remind_time')).fontSize(Const.DEFAULT_20).fontWeight(FontWeight.Medium)
       Blank()
         .layoutWeight(1)
       Text(this.settingParams?.startTime)
         .targetSetCommon()
         .remindTimeStyle(this.settingParams?.isOpen, this.settingParams?.isAlarm)
-      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16)
+      Image($r('app.media.ic_right_grey')).width(Const.DEFAULT_8).height(Const.DEFAULT_16)
     }
-    .width(THOUSANDTH_1000)
+    .width(Const.THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }
@@ -149,13 +140,13 @@ export struct FrequencyItem {
 
   build() {
     Row() {
-      Text($r('app.string.frequency')).fontSize(DEFAULT_20).fontWeight(FontWeight.Medium)
+      Text($r('app.string.frequency')).fontSize(Const.DEFAULT_20).fontWeight(FontWeight.Medium)
       Text(this.frequency)
         .targetSetCommon()
         .frequencyStyle(this.settingParams?.isOpen, this.settingParams?.isAlarm)
-      Image($r('app.media.ic_right_grey')).width(DEFAULT_8).height(DEFAULT_16)
+      Image($r('app.media.ic_right_grey')).width(Const.DEFAULT_8).height(Const.DEFAULT_16)
     }
-    .width(THOUSANDTH_1000)
+    .width(Const.THOUSANDTH_1000)
     .justifyContent(FlexAlign.SpaceBetween)
   }
 }

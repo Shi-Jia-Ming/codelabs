@@ -29,8 +29,8 @@ import {
  */
 @Component
 export struct VideoPlayer {
-  private source: string | Resource;
-  private controller: VideoController;
+  private source: string | Resource = '';
+  private controller: VideoController = new VideoController();
   private previewUris: Resource = $r('app.media.preview');
   @Provide currentTime: number = 0;
   @Provide durationTime: number = 0;
@@ -56,14 +56,16 @@ export struct VideoPlayer {
         .objectFit(ImageFit.Contain)
         .loop(false)
         .onUpdate((event) => {
-          this.currentTime = event.time;
-          this.currentStringTime = changeSliderTime(this.currentTime);
+          if (event) {
+            this.currentTime = event.time;
+            this.currentStringTime = changeSliderTime(this.currentTime);
+          }
         })
         .onPrepared((event) => {
-          prepared.call(this, event);
+          prepared(this, event);
         })
         .onFinish(() => {
-          finish.call(this);
+          finish(this);
         })
         .onError(() => {
           prompt.showToast({

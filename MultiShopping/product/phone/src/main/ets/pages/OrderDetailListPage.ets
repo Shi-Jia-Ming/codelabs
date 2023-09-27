@@ -16,7 +16,6 @@
 import router from '@ohos.router';
 import { OrderDetailList } from '@ohos/orderdetail';
 import { LocalDataManager, Order, Commodity } from '@ohos/common';
-import { PageConstants } from '../constants/PageConstants';
 
 @Entry
 @Component
@@ -27,7 +26,8 @@ struct OrderDetailListPage {
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
   aboutToAppear() {
-    this.currentTabIndex = router.getParams()[PageConstants.TABLE_INDEX_KEY] || 0;
+    let params = router.getParams() as Record<string, Object>;
+    this.currentTabIndex = params.tabIndex as number || 0;
   }
 
   onPageShow() {

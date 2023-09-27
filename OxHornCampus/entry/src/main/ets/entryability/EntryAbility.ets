@@ -32,11 +32,7 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
     const windowBarMag = new WindowBarManager();
-    windowBarMag.immersiveWindow({
-      windowStage,
-      color: Const.TRANSPARENT_COLOR,
-      isLayoutFullScreen: true
-    })
+    windowBarMag.immersiveWindow(windowStage, Const.TRANSPARENT_COLOR, true);
 
     windowStage.loadContent('pages/Splash', (err, data) => {
       if (err.code) {

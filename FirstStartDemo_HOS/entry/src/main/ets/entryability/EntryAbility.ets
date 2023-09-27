@@ -16,16 +16,18 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
+import Want from '@ohos.app.ability.Want';
+import window from '@ohos.window';
 
 /**
  * Lift cycle management of Ability.
  */
 export default class EntryAbility extends UIAbility {
-  onCreate(want) {
-    globalThis.abilityWant = want;
+  onCreate(want: Want) {
+
   }
 
-  onWindowStageCreate(windowStage) {
+  onWindowStageCreate(windowStage: window.WindowStage) {
     Logger.info(CommonConstants.ENTRY_ABILITY_TAG, 'onWindowStageCreate');
     windowStage.loadContent('pages/LauncherPage', (err, data) => {
       if (err.code) {

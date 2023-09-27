@@ -21,22 +21,23 @@ import window from '@ohos.window';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import DatabaseUtils from '../common/utils/DatabaseUtils';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * Lift cycle management of Ability.
  */
 export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, param: AbilityConstant.LaunchParam) {
-    globalThis.abilityWant = want;
-    globalThis.abilityParam = param;
-    DatabaseUtils.createRdbStore(this.context).then((rdbStore: DataRdb.RdbStore) => {
-      DatabaseUtils.addSimulationData(rdbStore);
-    }).catch((error) => {
+  onCreate(want: Want, param: AbilityConstant.LaunchParam): void {
+    GlobalContext.getContext().setObject('abilityWant', want);
+    GlobalContext.getContext().setObject('abilityParam', param);
+    DatabaseUtils.createRdbStore(this.context).then((rdbStore: Object | undefined) => {
+      DatabaseUtils.addSimulationData(rdbStore as DataRdb.RdbStore);
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.ENTRY_ABILITY_TAG, 'onCreate rdb error ' + JSON.stringify(error));
     });
   }
 
-  onWindowStageCreate(windowStage: window.WindowStage) {
+  onWindowStageCreate(windowStage: window.WindowStage): void {
     Logger.info(CommonConstants.ENTRY_ABILITY_TAG, 'onWindowStageCreate');
     windowStage.loadContent('pages/MainPage', (err, data) => {
       if (err.code) {

@@ -26,13 +26,15 @@ struct BottomTransition {
   }
 
   /**
-   * 页面转场通过全局pageTransition方法进行配置转场参数
+   * Page transition parameters are configured using the global pageTransition method.
    *
-   * SlideEffect.Bottom 入场时从屏幕下方滑入。
-   * SlideEffect.Bottom 退场时从屏幕下方滑出。
+   * SlideEffect.Bottom Slides in from the bottom of the screen when entering.
+   * SlideEffect.Bottom slides out from the bottom of the screen when exiting.
    */
   pageTransition() {
-    PageTransitionEnter({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth }).slide(SlideEffect.Bottom);
-    PageTransitionExit({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth }).slide(SlideEffect.Bottom);
+    PageTransitionEnter({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
+      .slide(SlideEffect.Bottom);
+    PageTransitionExit({ duration: TRANSITION_ANIMATION_DURATION, curve: Curve.Smooth })
+      .slide(SlideEffect.Bottom);
   }
 }

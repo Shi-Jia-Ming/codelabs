@@ -1,7 +1,9 @@
 # 一次开发，多端部署-音乐专辑（ArkTS）
 
 ### 简介
-基于自适应和响应式布局，实现一次开发、多端部署音乐专辑页面。手机效果图如下：
+基于自适应和响应式布局，实现一次开发、多端部署音乐专辑页面。
+
+手机效果图如下：
 
 ![](screenshots/device/AlbumSM.png)
 
@@ -15,10 +17,12 @@
 
 ### 相关概念
 - [一次开发，多端部署](https://developer.harmonyos.com/cn/docs/documentation/doc-guides/harmonyos-features-0000000000011907#section35241557442)：一套代码工程，一次开发上架，多端按需部署。支撑开发者快速高效的开发支持多种终端设备形态的应用，实现对不同设备兼容的同时，提供跨设备的流转、迁移和协同的分布式体验。
-- 自适应布局：当外部容器大小发生变化时，元素可以根据相对关系自动变化以适应外部容器变化的布局能力。相对关系如占比、固定宽高比、显示优先级等。当前自适应布局有4种：[线性布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-linear-0000001504125349-V3?catalogVersion=V3)、[层叠布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-stack-layout-0000001454605342-V3?catalogVersion=V3)、[弹性布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-flex-layout-0000001504525013-V3?catalogVersion=V3)、[相对布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-relative-layout-0000001455042516-V3?catalogVersion=V3)。自适应布局能力可以实现界面显示随外部容器大小连续变化。
+- 自适应布局：当外部容器大小发生变化时，元素可以根据相对关系自动变化以适应外部容器变化的布局能力。相对关系如占比、固定宽高比、显示优先级等。当前自适应布局有4种：[线性布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-linear-0000001504125349-V3?catalogVersion=V3&ha_linker=eyJ0cyI6MTY5MDg5MzczNjczMiwiaWQiOiI4ZjRmOTI2ZTdjOWViNGVlZjc5MmQ5MTczOWFiMzU3MyJ9)、[层叠布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-stack-layout-0000001454605342-V3?catalogVersion=V3)、[弹性布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-flex-layout-0000001504525013-V3?catalogVersion=V3)、[相对布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-relative-layout-0000001455042516-V3?catalogVersion=V3)。自适应布局能力可以实现界面显示随外部容器大小连续变化。
 - 响应式布局：当外部容器大小发生变化时，元素可以根据断点、栅格或特定的特征（如屏幕方向、窗口宽高等）自动变化以适应外部容器变化的布局能力。当前响应式布局能力有2种：[媒体查询](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-media-query-0000001454445606-V3?catalogVersion=V3)、[栅格布局](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-grid-layout-0000001454765270-V3?catalogVersion=V3)。
-- [GridRow](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-gridrow-0000001478181425-V3)：栅格容器组件，仅可以和栅格子组件（GridCol）在栅格布局场景中使用。
+- [GridRow](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-gridrow-0000001478181425-V3?ha_linker=eyJ0cyI6MTY5MDg5MzgzOTg5MywiaWQiOiI4ZjRmOTI2ZTdjOWViNGVlZjc5MmQ5MTczOWFiMzU3MyJ9)：栅格容器组件，仅可以和栅格子组件（GridCol）在栅格布局场景中使用。
 - [GridCol](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-gridcol-0000001427744832-V3)：栅格子组件，必须作为栅格容器组件（GridRow）的子组件使用。
+- [AVPlayer](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-media-0000001427902672-V3?ha_linker=eyJ0cyI6MTY5NDY3MTcxMzA0NSwiaWQiOiJmMDZiYWZkNWQ2NjAyMDUwZmY4NWVjYmE0ODYxNWU3ZCJ9#ZH-CN_TOPIC_0000001523488666__avplayer9)：AVPlayer主要工作是将Audio/Video媒体资源转码为可供渲染的图像和可听见的音频模拟信号，并通过输出设备进行播放，同时对播放任务进行管理，包括开始播放、暂停播放、停止播放、释放资源、设置音量、跳转播放位置、获取轨道信息等功能控制。
+- [后台任务管理](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-resourceschedule-backgroundtaskmanager-0000001544584033-V3?catalogVersion=V3&ha_linker=eyJ0cyI6MTY5NDY3MTcyNjUwNCwiaWQiOiJmMDZiYWZkNWQ2NjAyMDUwZmY4NWVjYmE0ODYxNWU3ZCJ9)：应用中存在用户能够直观感受到的且需要一直在后台运行的业务时（如后台播放音乐），可以使用长时任务机制。
 
 ### 相关权限
 

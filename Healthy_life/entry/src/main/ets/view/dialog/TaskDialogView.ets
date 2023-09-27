@@ -16,7 +16,7 @@
 import { TargetSettingDialog, RemindTimeDialog, FrequencyDialog } from './TaskSettingDialog';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
 import Logger from '../../common/utils/Logger';
-import { ZERO, MINUS_20 } from '../../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../../common/constants/CommonConstants';
 
 export interface CustomDialogCallback {
   confirmCallback: Function;
@@ -29,25 +29,25 @@ export struct TaskDialogView {
   @Consume broadCast: BroadCast;
 
   // target setting dialog
-  targetSettingDialog = new CustomDialogController({
+  targetSettingDialog: CustomDialogController = new CustomDialogController({
     builder: TargetSettingDialog(),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
+    offset: { dx: Const.ZERO, dy: Const.MINUS_20 }
   });
   // remind time dialog
   RemindTimeDialogController: CustomDialogController = new CustomDialogController({
     builder: RemindTimeDialog(),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
+    offset: { dx: Const.ZERO, dy: Const.MINUS_20 }
   });
   // frequency dialog
   FrequencyDialogController: CustomDialogController = new CustomDialogController({
     builder: FrequencyDialog(),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
-    offset: { dx: ZERO, dy: MINUS_20 }
+    offset: { dx: Const.ZERO, dy: Const.MINUS_20 }
   });
 
   aboutToAppear() {

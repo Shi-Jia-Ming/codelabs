@@ -24,11 +24,11 @@ import CommonConstants from '../common/constants/CommonConstants';
 @Component
 struct AdvertisingPage {
   @State countDownSeconds: number = CommonConstants.ADVERTISING_COUNT_DOWN_SECONDS;
-  private timeId: number;
+  private timeId: number = 0;
 
   onPageShow() {
     this.timeId = setInterval(() => {
-      if (this.countDownSeconds == 0) {
+      if (this.countDownSeconds === 0) {
         this.jumpToAppHomePage();
       } else {
         this.countDownSeconds--;
@@ -47,7 +47,7 @@ struct AdvertisingPage {
   jumpToAppHomePage() {
     router.pushUrl({
       url: CommonConstants.APP_HOME_PAGE_URL
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.ADVERTISING_PAGE_TAG, 'AdvertisingPage pushUrl error ' + JSON.stringify(error));
     });
   }

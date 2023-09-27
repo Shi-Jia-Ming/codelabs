@@ -29,7 +29,8 @@ export struct Map {
   @State mapHeight: number = 0;
   @State mapX: number = 0;
   @State mapY: number = 0;
-  @Provide data: AddressItem = new AddressItem(undefined, undefined, [], undefined);
+  @Provide data: AddressItem = new AddressItem($r('app.string.train_station'),
+    $r('app.string.train_station'), [], $r('app.color.train_station_color'));
 
   build() {
     Stack({ alignContent: Alignment.BottomEnd }) {
@@ -51,7 +52,7 @@ export struct Map {
                 x: item.positionX + Const.MAP_TEXT_OFFSET_X,
                 y: item.positionY + Const.MAP_TEXT_OFFSET_Y
               })
-          }, item => JSON.stringify(item))
+          }, (item: Location) => JSON.stringify(item))
         }
         .backgroundImage($r('app.media.ic_nav_map'))
         .backgroundImageSize(ImageSize.Cover)
@@ -73,7 +74,10 @@ export struct Map {
       .gesture(
         GestureGroup(GestureMode.Exclusive,
           PinchGesture({ fingers: Const.MAP_FINGER_COUNT })
-            .onActionUpdate((event: GestureEvent) => {
+            .onActionUpdate((event?: GestureEvent) => {
+              if (!event) {
+                return;
+              }
               MapController.pinchUpdate(event);
             })
             .onActionEnd(() => {
@@ -84,7 +88,10 @@ export struct Map {
               MapController.tapAction();
             }),
           PanGesture(this.panOption)
-            .onActionUpdate((event: GestureEvent) => {
+            .onActionUpdate((event?: GestureEvent) => {
+              if (!event) {
+                return;
+              }
               MapController.panUpdate(event);
             })
             .onActionEnd(() => {
@@ -100,7 +107,7 @@ export struct Map {
 
 @Component
 struct PositionGridView {
-  positionItem: PositionItem;
+  positionItem: PositionItem = new PositionItem();
 
   build() {
     Column() {
@@ -124,8 +131,8 @@ struct CustomPanel {
   @State imageEnable: boolean = true;
   @State iconOpacity: number = Const.PANEL_HIGH_OPACITY;
   @Consume data: AddressItem;
-  @Prop mapWidth: number;
-  @Prop mapHeight: number;
+  @Prop mapWidth: number = 0;
+  @Prop mapHeight: number = 0;
 
   build() {
     Column() {
@@ -157,7 +164,7 @@ struct CustomPanel {
                 MapController.setFirstLandmarksCenter();
                 this.upAndDown();
               }
-            }, item => JSON.stringify(item));
+            }, (item: PositionItem) => JSON.stringify(item));
           })
         Grid() {
           ForEach(this.positionList, (item: PositionItem) => {
@@ -171,7 +178,7 @@ struct CustomPanel {
                   this.upAndDown();
                 })
             }
-          }, item => JSON.stringify(item))
+          }, (item: PositionItem) => JSON.stringify(item))
         }
         .columnsTemplate(Const.GRID_COLUMNS)
         .columnsGap($r('app.float.navigation_column_gap'))

@@ -35,7 +35,7 @@ struct HomePage {
   private sexArray: Resource = $r('app.strarray.sex_array');
   customDialogController: CustomDialogController = new CustomDialogController({
     builder: CustomDialogWidget({
-      hobbies: $hobbies,
+      hobbies: $hobbies
     }),
     alignment: DialogAlignment.Bottom,
     customStyle: true,

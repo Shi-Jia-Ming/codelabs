@@ -15,7 +15,8 @@
 
 import promptAction from '@ohos.promptAction';
 import router from '@ohos.router';
-import { FinishType, SelectKeys } from '../bean/TypeModel';
+import { Order, ProductSpecification } from '@ohos/common';
+import { FinishType } from '../bean/TypeModel';
 import { SpecificationDialog } from './SpecificationDialog';
 import { barData, userEvaluate, moreEvaluate, serviceList, Evaluate, BarData } from '../viewmodel/CommodityDetailData';
 import { CapsuleGroupButton } from '../components/CapsuleGroupButton';
@@ -27,8 +28,10 @@ import {
   StyleConstants,
   GridConstants,
   CommonDataSource,
-  getID
+  getID,
+  Specification
 } from '@ohos/common';
+import { ShopProps } from '@ohos/common/src/main/ets/bean/ProductModel';
 
 @Extend(Button) function titleButton() {
   .backgroundColor($r('app.color.zero_alpha_black'))
@@ -37,33 +40,47 @@ import {
   .borderRadius($r('app.float.vp_four'))
 }
 
+
 @Component
 export struct CommodityDetail {
-  @Prop commodityId: string;
-  @State info: Commodity = undefined;
-  @State selectKeys: SelectKeys = {};
+  @Prop commodityId: string = '';
+  @State info?: Commodity = undefined;
+  @State @Watch('onSelectKeysChange') selectKeys?: ProductSpecification[] = [];
   @State count: number = 1;
   @State swiperIndex: number = 0;
+  @State productOptions: string = '';
   private localDataManager: LocalDataManager = LocalDataManager.instance();
-  private data: CommonDataSource<Evaluate> = new CommonDataSource<Evaluate>(userEvaluate.evaluate);
+  private data: CommonDataSource<Evaluate> = new CommonDataSource<Evaluate>(userEvaluate.evaluate !== undefined ?
+  userEvaluate.evaluate : []);
   dialogController: CustomDialogController = new CustomDialogController({
     builder: SpecificationDialog({
-      onFinish: (...params) => this.onSpecificationFinish(...params),
+      onFinish: (type: FinishType, count: number, selectKeys: ProductSpecification[]): void =>
+        this.onSpecificationFinish(type, count, selectKeys),
       data: $info,
       count: $count,
       selectTags: $selectKeys,
+      productOptions:$productOptions
     }),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
     customStyle: true
   })
 
-  onSpecificationFinish(type: FinishType, count: number, selectKeys: SelectKeys) {
+  onSelectKeysChange() {
+    this.productOptions = '';
+    if (this.selectKeys !== undefined) {
+      this.selectKeys.forEach((item) => {
+        this.productOptions += item.value + ' ';
+      })
+    }
+  }
+
+  onSpecificationFinish(type: FinishType, count: number, selectKeys: ProductSpecification[]) {
     this.count = count;
     this.selectKeys = selectKeys;
-    const params = {
+    const params: ShopProps = {
       id: getID(),
-      commodityId: this.info.id,
+      commodityId: this.info !== undefined ? this.info.id : '',
       count,
       specifications: this.selectKeys
     }
@@ -75,25 +92,46 @@ export struct CommodityDetail {
         });
         break;
       case FinishType.BUY_NOW:
-        router.pushUrl({
-          url: CommodityConstants.CONFIRM_ORDER_PAGE_URL,
-          params: { orderList: [{ ...this.info, ...params }] }
-        }).catch(err => {
-          Logger.error(JSON.stringify(err));
-        });
-        break;
+        if (this.info !== undefined) {
+          let orderList: Order = {
+            orderId: params.id,
+            image: this.info.images[0],
+            title: this.info.title,
+            description: this.info.description,
+            price: this.info.price,
+            count: params.count,
+            commodityId: Number.parseInt(params.commodityId),
+            specifications: this.selectKeys
+          }
+          router.pushUrl({
+            url: CommodityConstants.CONFIRM_ORDER_PAGE_URL,
+            params: { orderList: [orderList] }
+          }).catch((err: Error) => {
+            Logger.error(JSON.stringify(err));
+          });
+          break;
+        }
     }
   }
 
   bottomBtnClick(type: FinishType) {
-    this.onSpecificationFinish(type, this.count, this.selectKeys);
+    if (this.selectKeys !== undefined) {
+      this.onSpecificationFinish(type, this.count, this.selectKeys);
+    }
   }
 
   aboutToAppear() {
-    this.info = this.localDataManager.queryCommodityListById(this.commodityId)
-    this.info.specifications.forEach((item) => {
-      this.selectKeys[item.id] = item.data[0].value;
-    })
+    this.info = this.localDataManager.queryCommodityListById(this.commodityId);
+    if (this.info.specifications !== undefined) {
+      this.info.specifications.forEach((item: Specification) => {
+        if (this.selectKeys !== undefined) {
+          let SpecificationData:ProductSpecification = new ProductSpecification()
+          SpecificationData.name = item.title;
+          SpecificationData.value = item.data[0].key;
+          this.selectKeys.push(SpecificationData)
+        }
+      });
+    }
   }
 
   @Styles backgroundStyle(){
@@ -128,9 +166,9 @@ export struct CommodityDetail {
             top: $r('app.float.vp_twenty'),
             bottom: $r('app.float.vp_twenty')
           })
-        }, item => JSON.stringify(item))
+        }, (item: string) => JSON.stringify(item))
       }
-      .onChange((index) => this.swiperIndex = index)
+      .onChange((index: number) => this.swiperIndex = index)
       .indicator(false)
       .width(StyleConstants.FULL_WIDTH)
       .height(StyleConstants.FULL_HEIGHT)
@@ -153,7 +191,7 @@ export struct CommodityDetail {
     .height($r('app.float.swiper_height'))
   }
 
-  @Builder TitleBar(payload) {
+  @Builder TitleBar(payload: Commodity) {
     Flex({ direction: FlexDirection.Column }) {
       Text() {
         Span($r('app.string.rmb'))
@@ -176,7 +214,7 @@ export struct CommodityDetail {
       Flex({ justifyContent: FlexAlign.SpaceBetween }) {
         ForEach(barData, (item: BarData) => {
           Row() {
-            Image(item.icon)
+            Image(item.icon !== undefined ? item.icon : '')
               .height($r('app.float.vp_fourteen'))
               .width($r('app.float.vp_fourteen'))
               .margin({ right: $r('app.float.vp_four') })
@@ -184,7 +222,7 @@ export struct CommodityDetail {
               .fontSize($r('app.float.micro_font_size'))
               .fontColor($r('app.color.sixty_alpha_black'))
           }
-        }, item => JSON.stringify(item))
+        }, (item: BarData) => JSON.stringify(item))
       }
       .height($r('app.float.vp_fourteen'))
       .margin({ top: $r('app.float.vp_twelve') })
@@ -200,14 +238,14 @@ export struct CommodityDetail {
         .fontWeight(StyleConstants.FONT_WEIGHT_FIVE)
         .margin({ right: $r('app.float.vp_sixteen') })
       Flex({ justifyContent: FlexAlign.SpaceBetween }) {
-        Text(`${Object.values(this.selectKeys).join('·')}·x${this.count}`)
+        Text(`${this.productOptions}x${this.count}`)
           .fontSize($r('app.float.small_font_size'))
         Image($r('app.media.ic_point'))
           .height($r('app.float.vp_twelve'))
           .width($r('app.float.vp_six'))
       }
       .layoutWeight(StyleConstants.LAYOUT_WEIGHT)
-      .onClick(() => this.dialogController.open())
+      .onClick(():void => this.dialogController.open())
     }
     .backgroundStyle()
   }
@@ -264,7 +302,7 @@ export struct CommodityDetail {
           .fontWeight(StyleConstants.FONT_WEIGHT_FIVE)
           .margin({ right: $r('app.float.vp_sixteen') })
         Flex({ direction: FlexDirection.Column }) {
-          ForEach(serviceList, (item: string, index: number) => {
+          ForEach(serviceList, (item: string, index?: number) => {
             Flex({ alignItems: ItemAlign.Center }) {
               Image($r('app.media.ic_supplying'))
                 .width($r('app.float.vp_sixteen'))
@@ -278,7 +316,7 @@ export struct CommodityDetail {
             .margin({
               bottom: index === serviceList.length - 1 ? 0 : $r('app.float.vp_sixteen')
             })
-          }, item => JSON.stringify(item))
+          }, (item: string) => JSON.stringify(item))
         }
         .layoutWeight(StyleConstants.LAYOUT_WEIGHT)
       }
@@ -309,7 +347,7 @@ export struct CommodityDetail {
 
       LazyForEach(this.data, (item: Evaluate) => {
         this.Evaluate(item);
-      }, (item, index) => JSON.stringify(item) + index)
+      }, (item: Evaluate, index?: number) => JSON.stringify(item) + index)
       Text($r('app.string.evaluate_show_more'))
         .fontSize($r('app.float.small_font_size'))
         .width($r('app.float.evaluate_text_width'))
@@ -321,16 +359,18 @@ export struct CommodityDetail {
           radius: $r('app.float.evaluate_text_radius')
         })
         .onClick(() => {
-          this.data.addData(this.data.totalCount(), moreEvaluate);
+          if (this.data !== undefined) {
+            this.data.addData(this.data.totalCount(), moreEvaluate);
+          }
         })
     }
     .backgroundStyle()
   }
 
-  @Builder Evaluate(evaluate) {
+  @Builder Evaluate(evaluate: Evaluate) {
     Column({ space: StyleConstants.TWELVE_SPACE }) {
       Row() {
-        Image($rawfile(evaluate.userIcon))
+        Image(evaluate.userIcon !== undefined ? $rawfile(evaluate.userIcon) : '')
           .objectFit(ImageFit.Contain)
           .width($r('app.float.evaluate_icon_size'))
           .height($r('app.float.evaluate_icon_size'))
@@ -339,7 +379,7 @@ export struct CommodityDetail {
             .fontSize($r('app.float.small_font_size'))
             .fontWeight(StyleConstants.FONT_WEIGHT_FIVE)
             .fontColor(Color.Black)
-          Rating({ rating: evaluate.rating })
+          Rating({ rating: Number(evaluate.rating) })
             .hitTestBehavior(HitTestMode.None)
             .size({
               width: $r('app.float.evaluate_rating_width'),
@@ -360,7 +400,7 @@ export struct CommodityDetail {
     .alignItems(HorizontalAlign.Start)
   }
 
-  @Builder DetailList(images) {
+  @Builder DetailList(images: string[]) {
     Flex({
       direction: FlexDirection.Column,
       alignItems: ItemAlign.Center
@@ -370,7 +410,7 @@ export struct CommodityDetail {
           .width(StyleConstants.FULL_WIDTH)
           .constraintSize({ maxWidth: $r('app.float.detail_image_max_width') })
           .objectFit(ImageFit.Cover)
-      }, image => JSON.stringify(image))
+      }, (image: string) => JSON.stringify(image))
     }
     .width(StyleConstants.FULL_WIDTH)
     .backgroundStyle()
@@ -423,10 +463,10 @@ export struct CommodityDetail {
       CapsuleGroupButton({
         configs: [{
           text: $r('app.string.insert_cart'),
-          onClick: () => this.bottomBtnClick(FinishType.JOIN_SHOPPING_CART)
+          onClick: ():void => this.bottomBtnClick(FinishType.JOIN_SHOPPING_CART)
         }, {
           text: $r('app.string.buy_now'),
-          onClick: () => this.bottomBtnClick(FinishType.BUY_NOW)
+          onClick: ():void => this.bottomBtnClick(FinishType.BUY_NOW)
         }]
       })
     }
@@ -454,7 +494,9 @@ export struct CommodityDetail {
                 md: GridConstants.SPAN_EIGHT,
                 lg: GridConstants.SPAN_TWELVE }
             }) {
-              this.CustomSwiper(this.info.images)
+              if (this.info !== undefined) {
+                this.CustomSwiper(this.info?.images)
+              }
             }
 
             GridCol({

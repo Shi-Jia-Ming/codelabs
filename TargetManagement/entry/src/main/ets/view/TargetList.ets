@@ -15,8 +15,8 @@
 
 import TaskItemBean from '../common/bean/TaskItemBean';
 import TargetListItem from './TargetListItem';
-import { selectAllOrCancel, deleteSelected, isSelectAll, isSelectRows } from '../viewmodel/TaskListViewModel';
 import { CommonConstants } from '../common/constant/CommonConstant';
+import DataModel from '../viewmodel/DataModel';
 
 @Component
 export default struct TargetList {
@@ -26,7 +26,7 @@ export default struct TargetList {
   @State clickIndex: number = CommonConstants.DEFAULT_CLICK_INDEX;
   @State selectAll: boolean = false;
   @Link targetData: Array<TaskItemBean>;
-  onAddClick: () => void;
+  onAddClick?: () => void;
 
   build() {
     Column() {
@@ -44,7 +44,7 @@ export default struct TargetList {
               .onClick(() => {
                 this.selectAll = false;
                 this.isEditMode = false;
-                selectAllOrCancel.call(this, false);
+                this.selectAllOrCancel(false);
               })
             Text($r('app.string.select_all_button'))
               .operateTextStyle($r('app.color.main_blue'))
@@ -52,19 +52,19 @@ export default struct TargetList {
                 left: $r('app.float.operate_button_margin')
               })
             Checkbox()
-              .select(isSelectAll.call(this))
+              .select(this.isSelectAll())
               .selectedColor($r('app.color.main_blue'))
               .width(CommonConstants.CHECKBOX_WIDTH)
               .onClick(() => {
                 this.selectAll = !this.selectAll;
-                selectAllOrCancel.call(this, this.selectAll);
+                this.selectAllOrCancel(this.selectAll);
               })
           } else {
             Text($r('app.string.edit_button'))
               .operateTextStyle($r('app.color.main_blue'))
               .onClick(() => {
                 this.isEditMode = true;
-                selectAllOrCancel.call(this, false);
+                this.selectAllOrCancel(false);
               })
           }
         }
@@ -77,7 +77,7 @@ export default struct TargetList {
       })
 
       List({ space: CommonConstants.LIST_SPACE }) {
-        ForEach(this.targetData, (item: TaskItemBean, index: number) => {
+        ForEach(this.targetData, (item: TaskItemBean, index: number | undefined) => {
           ListItem() {
             TargetListItem({
               taskItem: item,
@@ -87,7 +87,7 @@ export default struct TargetList {
               clickIndex: $clickIndex
             })
           }
-        }, (item, index) => JSON.stringify(item) + index)
+        }, (item: TaskItemBean) => JSON.stringify(item))
       }
       .edgeEffect(EdgeEffect.None)
       .margin({ top: $r('app.float.list_margin_top') })
@@ -97,23 +97,73 @@ export default struct TargetList {
       Blank()
       if (this.isEditMode) {
         Button($r('app.string.delete_button'))
-          .opacity(isSelectRows.call(this) ? CommonConstants.NO_OPACITY : CommonConstants.OPACITY)
-          .enabled(isSelectRows.call(this) ? true : false)
+          .opacity(this.isSelectRows() ? CommonConstants.NO_OPACITY : CommonConstants.OPACITY)
+          .enabled(this.isSelectRows() ? true : false)
           .operateButtonStyle($r('app.color.main_red'))
           .onClick(() => {
-            deleteSelected.call(this);
-            selectAllOrCancel.call(this, false);
+            this.deleteSelected();
+            this.selectAllOrCancel(false);
             this.selectAll = false;
           })
       } else {
         Button($r('app.string.add_task'))
           .operateButtonStyle($r('app.color.main_blue'))
-          .onClick(() => this.onAddClick())
+          .onClick(() => {
+            if (this.onAddClick !== undefined) {
+              this.onAddClick()
+            }
+          })
       }
     }
     .width(CommonConstants.MAIN_BOARD_WIDTH)
     .height(CommonConstants.FULL_HEIGHT)
     .padding({ top: $r('app.float.operate_row_margin') })
+  }
+
+  /**
+   * Delete the selected item and exit the editing mode.
+   */
+  deleteSelected() {
+    DataModel.deleteData(this.selectArray);
+    this.targetData = DataModel.getData();
+    this.overAllProgressChanged = !this.overAllProgressChanged;
+    this.isEditMode = false;
+  }
+
+  /**
+   * Select or deselect all.
+   *
+   * @param selectStatus true: Select all. Otherwise, deselect all.
+   */
+  selectAllOrCancel(selectStatus: boolean) {
+    let newSelectArray: Array<boolean> = [];
+    this.targetData.forEach(() => {
+      newSelectArray.push(selectStatus);
+    });
+    this.selectArray = newSelectArray;
+  }
+
+  /**
+   * Whether to select all.
+   */
+  isSelectAll(): boolean {
+    if (this.selectArray.length === 0) {
+      return false;
+    }
+    let deSelectCount: Length = this.selectArray.filter((selected: boolean) => selected === false).length;
+    if (deSelectCount === 0) {
+      this.selectAll = true;
+      return true;
+    }
+    this.selectAll = false;
+    return false;
+  }
+
+  /**
+   * Check whether there are selected rows.
+   */
+  isSelectRows(): boolean {
+    return this.selectArray.filter((selected: boolean) => selected === true).length !== 0;
   }
 }
 

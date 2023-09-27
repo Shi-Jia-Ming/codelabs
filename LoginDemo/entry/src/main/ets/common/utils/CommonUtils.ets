@@ -94,7 +94,7 @@ export class CommonUtils {
   public routerPage(url: string): void {
     router.replaceUrl({
       url: url
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'replace url error ' + JSON.stringify(error));
     });
   }

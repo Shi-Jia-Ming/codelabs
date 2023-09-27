@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { DEFAULT_100 } from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { isReachNewAchievement, ACHIEVEMENT_LEVEL_KEY } from '../model/AchieveModel';
 import { TaskMapById, ITaskItem, ACHIEVEMENT_LEVEL_LIST } from '../model/TaskInitList';
 import TaskInfo from '../common/bean/TaskInfo';
@@ -25,6 +25,9 @@ import TaskInfoTableApi from '../common/database/tables/TaskInfoApi';
 import DayInfoApi from '../common/database/tables/DayInfoApi';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 import Logger from '../common/utils/Logger';
+import GlobalInfo from '../common/bean/GlobalInfo';
+import WeekCalendarInfo from '../common/bean/WeekCalendarInfo';
+import AchievementInfo from '../common/bean/AchievementInfo';
 
 @Observed
 export class HomeStore {
@@ -33,7 +36,7 @@ export class HomeStore {
   public selectedDay: number; // selected day of on week
   public showDate: number;
   public dateTitle: string;
-  public selectedDayInfo: WeekDateModel; // task info on selected day
+  public selectedDayInfo: WeekDateModel = new WeekDateModel('', '', new Date()); // task info on selected day
 
   constructor(currentDate: Date) {
     this.currentDate = currentDate;
@@ -43,29 +46,25 @@ export class HomeStore {
   }
 
   public initData() {
-    let [initArr, dateArr] = initializeOnStartUp(this.currentDate);
-    this.dateArr = initArr;
+    let weekCalendarInfo: WeekCalendarInfo = initializeOnStartUp(this.currentDate);
+    this.dateArr = weekCalendarInfo.arr;
     Logger.info('this.currentDate', this.currentDate.toDateString());
-    Logger.info('initWeekData dateArr', JSON.stringify(dateArr))
+    Logger.info('initWeekData dateArr', JSON.stringify(weekCalendarInfo.strArr))
     // get data form db
-    DatabaseApi.query(dateToStr(new Date()), (taskList, dayInfo) => {
+    DatabaseApi.query(dateToStr(new Date()), (taskList: TaskInfo[], dayInfo: DayInfo) => {
       Logger.info('Current Day Task Info: ', JSON.stringify(taskList));
-      DayInfoApi.queryList(dateArr, (res: DayInfo[]) => {
+      DayInfoApi.queryList(weekCalendarInfo.strArr, (res: DayInfo[]) => {
         let tempList = res.concat(dayInfo);
         Logger.info('initDayInfoList: ', JSON.stringify(res));
         for (let i = 0; i < this.dateArr.length; i++) {
-          let tempDayInfo = tempList.find((item) => item.date == this.dateArr[i].dateStr) || {
-            date: this.dateArr[i].dateStr,
-            finTaskNum: 0,
-            targetTaskNum: 0
-          };
-          initArr[i].dayInfo = tempDayInfo;
-          if (this.dateArr[i].dateStr == dateToStr(new Date(this.showDate))) {
+          let tempDayInfo = tempList.find((item: DayInfo) => item.date === this.dateArr[i].dateStr) || new DayInfo(this.dateArr[i].dateStr, 0, 0);
+          weekCalendarInfo.arr[i].dayInfo = tempDayInfo;
+          if (this.dateArr[i].dateStr === dateToStr(new Date(this.showDate))) {
             // get tasks of showDate
-            initArr[i].taskList = taskList;
+            weekCalendarInfo.arr[i].taskList = taskList;
           }
         }
-        this.dateArr = initArr;
+        this.dateArr = weekCalendarInfo.arr;
         setTimeout(() => {
           this.setSelectedShowDate(this.showDate);
         }, 0)
@@ -74,17 +73,19 @@ export class HomeStore {
   }
 
   public getPreWeekData(date: Date, callback: Function) {
-    let [initArr, dateArr] = getPreviousWeek(date);
+    let weekCalendarInfo: WeekCalendarInfo = getPreviousWeek(date);
     // get data form db
-    DayInfoApi.queryList(dateArr, (res: DayInfo[]) => {
+    DayInfoApi.queryList(weekCalendarInfo.strArr, (res: DayInfo[]) => {
       Logger.info('getPreWeekData->DayInfoList: ', JSON.stringify(res));
       if (res.length > 0) {
-        for (let i = 0; i < initArr.length; i++) {
-          let dayInfo = res.find((item) => item.date == initArr[i].dateStr) || null;
-          initArr[i].dayInfo = dayInfo;
+        for (let i = 0; i < weekCalendarInfo.arr.length; i++) {
+          let dayInfo = res.find((item) => item.date === weekCalendarInfo.arr[i].dateStr);
+          if (dayInfo) {
+            weekCalendarInfo.arr[i].dayInfo = dayInfo;
+          }
         }
       }
-      this.dateArr = initArr.concat(...this.dateArr);
+      this.dateArr = weekCalendarInfo.arr.concat(...this.dateArr);
       callback();
     })
   }
@@ -98,15 +99,22 @@ export class HomeStore {
     Logger.debug('updateSelectedDayInfo', JSON.stringify(selectedDayInfo));
     if (selectedDayInfo.taskList?.length === 0) {
       // get data form db
-      TaskInfoTableApi.query(selectedDayInfo.dateStr, true, (res) => {
+      TaskInfoTableApi.query(selectedDayInfo.dateStr, true, (res: TaskInfo[]) => {
         Logger.info('Selected TaskInfoList: ', JSON.stringify(res));
         selectedDayInfo.taskList = res;
-        this.dateArr = this.dateArr.map((item: WeekDateModel) =>
-          item.dateStr == selectedDayInfo.dateStr ? { ...item, taskList: res } : item);
-        this.selectedDayInfo = { ...selectedDayInfo };
+        this.dateArr = this.dateArr.map((item: WeekDateModel) => {
+          if(item.dateStr === selectedDayInfo.dateStr) {
+            let taskListStr = JSON.stringify(res);
+            item.taskList = JSON.parse(taskListStr);
+            return item;
+          } else {
+            return item;
+          }
+        })
+        this.selectedDayInfo = selectedDayInfo;
       });
     } else {
-      this.selectedDayInfo = { ...selectedDayInfo };
+      this.selectedDayInfo = selectedDayInfo;
     }
     Logger.info("selectedDayTaskInfo: ", JSON.stringify(selectedDayInfo.taskList));
   }
@@ -114,22 +122,17 @@ export class HomeStore {
   public updateTaskInfoList(editedTaskInfo: ITaskItem) {
     if (editedTaskInfo?.taskID) {
       // edited task
-      const {taskID, targetValue, isAlarm, frequency, startTime, endTime, isOpen } = editedTaskInfo;
-      let task: TaskInfo = {
-        isOpen,
-        id: 0,
-        date: dateToStr(new Date()),
-        isDone: true,
-        taskID,
-        targetValue,
-        isAlarm,
-        frequency,
-        startTime,
-        endTime,
-        finValue: targetValue
-      }
+      let taskID = editedTaskInfo.taskID;
+      let targetValue = editedTaskInfo.targetValue;
+      let isAlarm = editedTaskInfo.isAlarm;
+      let frequency = editedTaskInfo.frequency;
+      let startTime = editedTaskInfo.startTime;
+      let endTime = editedTaskInfo.endTime;
+      let isOpen = editedTaskInfo.isOpen;
+      let task = new TaskInfo(0, dateToStr(new Date()), taskID, targetValue, isAlarm,
+        startTime, endTime, frequency, true, targetValue, isOpen);
       this.dateArr = this.dateArr.map((item: WeekDateModel) => {
-        if (task.date == item.dateStr) {
+        if (task.date === item.dateStr) {
           Logger.info('item', JSON.stringify(item));
           let taskList: TaskInfo[] = item.taskList;
           const dayInfo: DayInfo = item.dayInfo;
@@ -149,7 +152,7 @@ export class HomeStore {
             }
           } else {
             // delete task
-            let taskIndex = taskList.findIndex((taskItem) => taskItem.taskID == taskID);
+            let taskIndex = taskList.findIndex((taskItem) => taskItem.taskID === taskID);
             Logger.info('taskList[taskIndex]', JSON.stringify(taskList[taskIndex]));
             if (taskList[taskIndex]?.isDone) {
               dayInfo.finTaskNum -= 1;
@@ -163,7 +166,11 @@ export class HomeStore {
           DayInfoApi.updateData(dayInfo, () => {
           });
           Logger.debug("tempDayInfo", JSON.stringify(dayInfo));
-          let currentDayInfo = { ...item, taskList, dayInfo };
+          let weekDateModelStr = JSON.stringify(item);
+          let currentDayInfo: WeekDateModel = JSON.parse(weekDateModelStr);
+          currentDayInfo.date = item.date;
+          currentDayInfo.taskList = taskList;
+          currentDayInfo.dayInfo = dayInfo;
           if (this.checkCurrentDay()) {
             this.selectedDayInfo = currentDayInfo;
           }
@@ -180,9 +187,9 @@ export class HomeStore {
     }
     this.showDate = showDateTime;
     this.dateTitle = weekDateFormat(this.showDate);
-    let selectedInfo = this.dateArr.find((item: WeekDateModel) => item.dateStr == dateToStr(new Date(showDateTime)));
+    let selectedInfo = this.dateArr.find((item: WeekDateModel) => item.dateStr === dateToStr(new Date(showDateTime)));
     if (selectedInfo) {
-      this.updateSelectedDayInfo({ ...selectedInfo });
+      this.updateSelectedDayInfo(selectedInfo);
     }
     Logger.info('dateTitle', this.dateTitle);
   }
@@ -192,9 +199,9 @@ export class HomeStore {
     Logger.debug("dayInfo", JSON.stringify(dayInfo));
     if (dayInfo && (dayInfo?.finTaskNum || 0) > 0) {
       if (dayInfo.finTaskNum > dayInfo.targetTaskNum) {
-        return `${DEFAULT_100}`;
+        return `${Const.DEFAULT_100}`;
       }
-      return `${Math.ceil(dayInfo.finTaskNum / dayInfo.targetTaskNum * DEFAULT_100)}`;
+      return `${Math.ceil(dayInfo.finTaskNum / dayInfo.targetTaskNum * Const.DEFAULT_100)}`;
     }
     return '0';
   }
@@ -211,35 +218,37 @@ export class HomeStore {
     let taskItem = await this.updateTask(taskInfo);
     let dateStr = this.selectedDayInfo?.dateStr;
     if (!taskItem) {
-      return Promise.resolve({
+      return {
         achievementLevel: 0,
         showAchievement: false
-      });
+      } as AchievementInfo;
     }
 
     this.selectedDayInfo.taskList = this.selectedDayInfo.taskList.map((item) => {
-      return item.taskID == taskItem?.taskID ? taskItem : item;
+      return item.taskID === taskItem?.taskID ? taskItem : item;
     });
-    let achievementLevel;
+    let achievementLevel: number = 0;
     if (taskItem.isDone) {
       let dayInfo = await this.updateDayInfo();
       if (dayInfo && dayInfo?.finTaskNum === dayInfo?.targetTaskNum) {
         achievementLevel = await this.updateAchievement(this.selectedDayInfo.dayInfo);
       }
     }
-    this.dateArr = this.dateArr.map((item: WeekDateModel) => dateStr == item.dateStr ? this.selectedDayInfo : item);
-    Logger.info('achievementLevel', `${achievementLevel}`);
-    return Promise.resolve({
+    this.dateArr = this.dateArr.map((item: WeekDateModel) => dateStr === item.dateStr ? this.selectedDayInfo : item);
+    return {
       achievementLevel: achievementLevel,
       showAchievement: ACHIEVEMENT_LEVEL_LIST.includes(achievementLevel)
-    });
+    } as AchievementInfo;
   }
 
   updateTask(task: TaskInfo): Promise<TaskInfo> {
     return new Promise((resolve, reject) => {
-      let {taskID, targetValue, finValue} = task;
-      let updateTask = Object.assign({}, task);
-      let step = TaskMapById[taskID].step;
+      let taskID = task.taskID;
+      let targetValue = task.targetValue;
+      let finValue = task.finValue;
+      let updateTask = new TaskInfo(task.id, task.date, taskID, targetValue, task.isAlarm, task.startTime,
+        task.endTime, task.frequency, task.isDone, finValue, task.isOpen);
+      let step = TaskMapById[taskID - 1].step;
       let hasExceed = updateTask.isDone;
       if (step === 0) {
         updateTask.isDone = true;
@@ -249,7 +258,7 @@ export class HomeStore {
         updateTask.isDone = updateTask.isDone || value >= Number(targetValue);
         updateTask.finValue = updateTask.isDone ? targetValue : `${value}`;
       }
-      TaskInfoTableApi.updateDataByDate(updateTask, (res) => {
+      TaskInfoTableApi.updateDataByDate(updateTask, (res: number) => {
         if (!res || hasExceed) {
           Logger.error('taskClock-updateTask', JSON.stringify(res));
           reject(res);
@@ -264,14 +273,15 @@ export class HomeStore {
     dayInfo.finTaskNum += 1;
     dayInfo.targetTaskNum = this.selectedDayInfo.taskList.length;
     return new Promise((resolve, reject) => {
-      DayInfoApi.updateData(dayInfo, (res) => {
+      DayInfoApi.updateData(dayInfo, (res: number) => {
         if (!res) {
           Logger.error('taskClock-updateDayInfo', JSON.stringify(res));
           reject(res);
         }
         Logger.info('taskClock-updateDayInfo', JSON.stringify(dayInfo));
         // 同步界面数据
-        this.selectedDayInfo = { ...this.selectedDayInfo, dayInfo };
+        let dayInfoStr = JSON.stringify(dayInfo);
+        this.selectedDayInfo.dayInfo = JSON.parse(dayInfoStr);
         resolve(dayInfo);
       });
     });
@@ -285,10 +295,10 @@ export class HomeStore {
       preDay = new Date(preDay);
       let preDayStr = dateToStr(preDay);
       Logger.info('taskClock-updateAchievement-1', `${preDayStr}`);
-      DayInfoApi.query(preDayStr, (res) => {
+      DayInfoApi.query(preDayStr, (res: DayInfo) => {
         Logger.info('taskClock-updateAchievement-2', JSON.stringify(res));
-        let isReset = res?.length === 0 || res?.targetTaskNum > res?.finTaskNum;
-        GlobalInfoApi.query((res) => {
+        let isReset = res?.date === '' || res?.targetTaskNum > res?.finTaskNum;
+        GlobalInfoApi.query((res: GlobalInfo) => {
           Logger.info('taskClock-globalInfoApi', JSON.stringify(res));
           let achievementInfo = res;
             isReset ? (achievementInfo.checkInDays = 1) : (achievementInfo.checkInDays += 1);
@@ -297,7 +307,7 @@ export class HomeStore {
             AppStorage.SetOrCreate(ACHIEVEMENT_LEVEL_KEY, achievementInfo.checkInDays);
             achievementInfo.achievements = achievementInfo.achievements + ',' + achievementInfo.checkInDays;
           }
-          GlobalInfoApi.updateData(achievementInfo, (res) => {
+          GlobalInfoApi.updateData(achievementInfo, (res: number) => {
             if (!res) {
               Logger.error('taskClock-updateAchievement', JSON.stringify(res));
               reject(res);

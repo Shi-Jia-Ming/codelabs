@@ -12,32 +12,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { FrequencyContentType } from '../model/TaskInitList';
 
 const chineseNumOfWeek: string[] = ['一', '二', '三', '四', '五', '六', '日'];
 const WEEK: string = '星期';
 
 // one digit or two number convert into two digit time format
 export function padTo2Digits(num: number) {
-    return num.toString().padStart(2, '0');
+  return num.toString().padStart(2, '0');
 }
 
 export const frequencyRange = () => {
-    const frequencyRangeArr = []
-    chineseNumOfWeek.forEach((item, index) => {
-        frequencyRangeArr.push({
-            id: (index + 1),
-            label: `${WEEK}${item}`,
-            isChecked: false
-        })
-    });
-    return frequencyRangeArr;
+  const frequencyRangeArr: FrequencyContentType[] = [];
+  chineseNumOfWeek.forEach((item: string, index: number) => {
+    frequencyRangeArr.push({
+      id: (index + 1),
+      label: `${WEEK}${item}`,
+      isChecked: false
+    })
+  });
+  return frequencyRangeArr;
 }
-
-export const oneWeekDictFunc = () => {
-    const oneWeekDict = {};
-    chineseNumOfWeek.forEach((item, index) => {
-        oneWeekDict[index + 1] = `${WEEK}${chineseNumOfWeek[index]}`;
-    });
-    return oneWeekDict;
-}
-

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export default  class NewsTypeBean {
-  id: number;
-  name: ResourceStr;
+export default class NewsTypeBean {
+  id: number = 0;
+  name: ResourceStr = '';
 }

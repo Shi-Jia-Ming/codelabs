@@ -21,7 +21,8 @@ export struct NewProduct {
   @StorageProp('currentBreakpoint') currentBreakpoint: string = 'sm';
   @State titleIndex: number = 0;
 
-  @Builder CustomSwiper() {
+  @Builder
+  CustomSwiper() {
     Swiper() {
       ForEach(swiperImage, (item: Resource) => {
         Image(item)
@@ -29,7 +30,7 @@ export struct NewProduct {
           .aspectRatio(StyleConstants.IMAGE_ASPECT_RATIO)
           .borderRadius($r('app.float.vp_sixteen'))
           .backgroundColor(Color.White)
-      }, item => JSON.stringify(item))
+      }, (item: Resource) => JSON.stringify(item))
     }
     .indicatorStyle({
       color: $r('app.color.twenty_alpha_black'),
@@ -45,21 +46,24 @@ export struct NewProduct {
       StyleConstants.DISPLAY_TWO : StyleConstants.DISPLAY_ONE))
   }
 
-  @Builder ClassifyTitle() {
+  @Builder
+  ClassifyTitle() {
     Flex({
       justifyContent: FlexAlign.SpaceAround,
       alignItems: ItemAlign.Center
     }) {
-      ForEach(classifyTitle, (item: Resource, index: number) => {
+      ForEach(classifyTitle, (item: Resource, index?: number) => {
         Text(item)
           .fontSize($r('app.float.middle_font_size'))
           .opacity(this.titleIndex === index ? StyleConstants.FULL_OPACITY : StyleConstants.EIGHTY_OPACITY)
           .fontWeight(this.titleIndex === index ? StyleConstants.FONT_WEIGHT_SEVEN : StyleConstants.FONT_WEIGHT_FOUR)
           .fontColor(Color.Black)
           .onClick(() => {
-            this.titleIndex = index;
+            if (index !== undefined) {
+              this.titleIndex = index;
+            }
           })
-      }, item => JSON.stringify(item))
+      }, (item: Resource) => JSON.stringify(item))
       Row() {
         Image($r('app.media.ic_product_split'))
           .width($r('app.float.vp_eighteen'))
@@ -87,7 +91,8 @@ export struct NewProduct {
     })
   }
 
-  @Builder ProductList() {
+  @Builder
+  ProductList() {
     List({ space: StyleConstants.TWELVE_SPACE }) {
       LazyForEach(new CommonDataSource<ProductDataModel>(productData), (item: ProductDataModel) => {
         ListItem() {
@@ -100,7 +105,7 @@ export struct NewProduct {
                 lg: aspectRatio.lg
               }).getValue(this.currentBreakpoint))
               .objectFit(ImageFit.Fill)
-            Column(){
+            Column() {
               if (item.comment) {
                 Text(item.comment)
                   .fontSize($r('app.float.smaller_font_size'))
@@ -151,7 +156,7 @@ export struct NewProduct {
           left: $r('app.float.vp_six'),
           right: $r('app.float.vp_six')
         })
-      }, item => JSON.stringify(item))
+      }, (item: ProductDataModel) => JSON.stringify(item))
     }
     .lanes(this.currentBreakpoint === BreakpointConstants.BREAKPOINT_SM ?
       StyleConstants.DISPLAY_TWO : StyleConstants.DISPLAY_THREE)

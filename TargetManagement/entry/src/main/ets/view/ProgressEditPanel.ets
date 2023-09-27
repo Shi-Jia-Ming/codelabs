@@ -18,9 +18,9 @@ import { CommonConstants } from '../common/constant/CommonConstant';
 @Component
 export default struct ProgressEditPanel {
   @Link sliderMode: number;
-  @Prop slidingProgress: number;
-  onCancel: () => void;
-  onClickOK: (progress: number) => void;
+  @Prop slidingProgress: number = 0;
+  onCancel?: () => void;
+  onClickOK?: (progress: number) => void;
 
   build() {
     Column() {
@@ -51,11 +51,19 @@ export default struct ProgressEditPanel {
         CustomButton({
           buttonText: $r('app.string.cancel_button')
         })
-          .onClick(() => this.onCancel())
+          .onClick(() => {
+            if (this.onCancel !== undefined) {
+              this.onCancel();
+            }
+          })
         CustomButton({
           buttonText: $r('app.string.confirm_button')
         })
-          .onClick(() => this.onClickOK(this.slidingProgress))
+          .onClick(() => {
+            if (this.onClickOK !== undefined) {
+              this.onClickOK(this.slidingProgress);
+            }
+          })
       }
       .margin({ top: CommonConstants.SLIDER_BUTTON_MARGIN })
       .width(CommonConstants.DIALOG_OPERATION_WIDTH)
@@ -70,7 +78,7 @@ export default struct ProgressEditPanel {
 @Component
 struct CustomButton {
   @State buttonColor: Resource = $r('app.color.start_window_background');
-  buttonText: Resource;
+  buttonText?: Resource;
 
   build() {
     Text(this.buttonText)
@@ -78,11 +86,11 @@ struct CustomButton {
       .backgroundColor(this.buttonColor)
       .borderRadius(CommonConstants.LIST_RADIUS)
       .textAlign(TextAlign.Center)
-      .onTouch((event: TouchEvent) => {
-        if (event.type === TouchType.Down) {
+      .onTouch((event?: TouchEvent) => {
+        if (event !== undefined && event.type === TouchType.Down) {
           this.buttonColor = $r('app.color.custom_button_color');
         }
-        if (event.type === TouchType.Up) {
+        if (event !== undefined && event.type === TouchType.Up) {
           this.buttonColor = $r('app.color.start_window_background');
         }
       })

@@ -14,7 +14,7 @@
  */
 
 import { CustomRefreshLoadLayoutClass } from '../common/bean/NewsData';
-import { RefreshLayout, FULL_WIDTH } from '../common/constant/CommonConstant';
+import { CommonConstant as Const } from '../common/constant/CommonConstant';
 
 /**
  * Custom layout to show refresh or load.
@@ -26,19 +26,19 @@ export default struct CustomLayout {
   build() {
     Row() {
       Image(this.customRefreshLoadClass.imageSrc)
-        .width(RefreshLayout.IMAGE_WIDTH)
-        .height(RefreshLayout.IMAGE_HEIGHT)
+        .width(Const.RefreshLayout_IMAGE_WIDTH)
+        .height(Const.RefreshLayout_IMAGE_HEIGHT)
 
       Text(this.customRefreshLoadClass.textValue)
         .margin({
-          left: RefreshLayout.TEXT_MARGIN_LEFT,
-          bottom: RefreshLayout.TEXT_MARGIN_BOTTOM
+          left: Const.RefreshLayout_TEXT_MARGIN_LEFT,
+          bottom: Const.RefreshLayout_TEXT_MARGIN_BOTTOM
         })
-        .fontSize(RefreshLayout.TEXT_FONT_SIZE)
+        .fontSize(Const.RefreshLayout_TEXT_FONT_SIZE)
         .textAlign(TextAlign.Center)
     }
     .clip(true)
-    .width(FULL_WIDTH)
+    .width(Const.FULL_WIDTH)
     .justifyContent(FlexAlign.Center)
     .height(this.customRefreshLoadClass.heightValue)
   }

@@ -18,6 +18,7 @@ import NewsList from '../view/newslist';
 import router from '@ohos.router';
 import NewsTypeViewModel from '../viewmodel/NewsTypeViewModel';
 import NewsTypeBean from '../common/bean/NewsTypeBean';
+import { GlobalContext } from '../common/bean/GlobalContext';
 
 /**
  * MainPage
@@ -51,10 +52,10 @@ struct MainPage {
   }
 
   onPageShow() {
-    if (globalThis.isBackRouter) {
-      globalThis.isBackRouter = false;
+    if (GlobalContext.getContext().getObject('isBackRouter') === true) {
+      GlobalContext.getContext().setObject('isBackRouter', false);
       let tempIndex = this.currentIndex;
-      this.currentIndex = null;
+      this.currentIndex = -1;
       this.currentIndex = tempIndex;
     }
   }
@@ -62,12 +63,12 @@ struct MainPage {
   build() {
     Stack() {
       Tabs() {
-        ForEach(this.tabBarArray, (tabsItem: NewsTypeBean, index: number) => {
+        ForEach(this.tabBarArray, (tabsItem: NewsTypeBean, index?: number) => {
           TabContent() {
             NewsList({ index, currentIndex: $currentIndex })
           }
           .tabBar(this.TabBuilder(tabsItem.id))
-        }, item => item.id);
+        }, (tabsItem: NewsTypeBean) => JSON.stringify(tabsItem));
       }
       .barHeight($r('app.float.nav_height'))
       .height(Constants.FULL_PERCENT)

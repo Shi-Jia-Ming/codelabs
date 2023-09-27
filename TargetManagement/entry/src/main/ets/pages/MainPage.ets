@@ -18,9 +18,9 @@ import AddTargetDialog from '../view/AddTargetDialog';
 import TargetList from '../view/TargetList';
 import TaskItemBean from '../common/bean/TaskItemBean';
 import DataModel from '../viewmodel/DataModel';
-import { saveTask } from '../viewmodel/MainPageModel';
 import { CommonConstants } from '../common/constant/CommonConstant';
 import getCurrentTime from '../common/utils/DateUtil';
+import promptAction from '@ohos.promptAction';
 
 @Entry
 @Component
@@ -32,7 +32,7 @@ struct MainPage {
   @Provide @Watch('onProgressChanged') overAllProgressChanged: boolean = false;
   dialogController: CustomDialogController = new CustomDialogController({
     builder: AddTargetDialog({
-      onClickOk: saveTask.bind(this)
+      onClickOk: (value: string): void => this.saveTask(value)
     }),
     alignment: DialogAlignment.Bottom,
     offset: {
@@ -48,7 +48,7 @@ struct MainPage {
    */
   onProgressChanged() {
     this.totalTasksNumber = this.targetData.length;
-    this.completedTasksNumber = this.targetData.filter((item) => {
+    this.completedTasksNumber = this.targetData.filter((item: TaskItemBean) => {
       return item.progressValue === CommonConstants.SLIDER_MAX_VALUE;
     }).length;
     this.latestUpdateDate = getCurrentTime();
@@ -64,7 +64,7 @@ struct MainPage {
       })
       TargetList({
         targetData: $targetData,
-        onAddClick: () => this.dialogController.open()
+        onAddClick: (): void => this.dialogController.open()
       })
         .height(CommonConstants.LIST_BOARD_HEIGHT)
     }
@@ -85,5 +85,25 @@ struct MainPage {
         top: $r('app.float.title_margin'),
         bottom: $r('app.float.title_margin')
       })
+  }
+
+  /**
+   * Save the progress value and update time after you click OK in the dialog box.
+   *
+   * @param taskName Latest Progress Value.
+   */
+  saveTask(taskName: string) {
+    if (taskName === '') {
+      promptAction.showToast({
+        message: $r('app.string.cannot_input_empty'),
+        duration: CommonConstants.TOAST_TIME,
+        bottom: CommonConstants.TOAST_MARGIN_BOTTOM
+      });
+      return;
+    }
+    DataModel.addData(new TaskItemBean(taskName, 0, getCurrentTime()));
+    this.targetData = DataModel.getData();
+    this.overAllProgressChanged = !this.overAllProgressChanged;
+    this.dialogController.close();
   }
 }

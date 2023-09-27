@@ -55,7 +55,7 @@ export struct BottomTabs {
         .onClick(() => {
           this.bottomTabIndex = BottomTabsList.indexOf(item);
         })
-      }, item => JSON.stringify(item))
+      }, (item: BottomTabsItem) => JSON.stringify(item))
     }
     .width(Const.FULL_SIZE)
     .height(Const.BOTTOM_TAB_HEIGHT)

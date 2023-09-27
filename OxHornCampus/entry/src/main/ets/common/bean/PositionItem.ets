@@ -19,32 +19,32 @@ import { PositionType } from '../constants/CommonConstants';
  * Landmark location data.
  */
 export class PositionItem {
-  icon: Resource;
-  text: Resource;
+  icon: Resource = $r('app.media.ic_train_station');
+  text: Resource = $r('app.string.train_station');
 
   /**
    * Facility Category.
    */
-  type: PositionType;
+  type: PositionType = PositionType.TRAIN_STATION;
 
   /**
    * Facility Point Coordinates.
    */
-  lngLat: Array<GeoCoordinates>;
+  lngLat: Array<GeoCoordinates> = [];
 }
 
 /**
  * Geographical coordinates, longitude and latitude.
  */
 export class GeoCoordinates {
-  longitude: number;
-  latitude: number;
+  longitude: number = 0;
+  latitude: number = 0;
 }
 
 /**
  * PixelCoordinates.
  */
 export class PixelCoordinates{
-  coordinateX: number;
-  coordinateY: number;
+  coordinateX: number = 0;
+  coordinateY: number = 0;
 }

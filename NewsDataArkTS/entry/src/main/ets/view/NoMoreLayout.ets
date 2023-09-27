@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { CUSTOM_LAYOUT_HEIGHT, FULL_WIDTH, NoMoreLayoutConstant } from '../common/constant/CommonConstant'
+import { CommonConstant as Const } from '../common/constant/CommonConstant'
 
 /**
  * The No more data layout component.
@@ -23,12 +23,12 @@ export default struct NoMoreLayout {
   build() {
     Row() {
       Text($r('app.string.prompt_message'))
-        .margin({ left: NoMoreLayoutConstant.NORMAL_PADDING })
-        .fontSize(NoMoreLayoutConstant.TITLE_FONT)
+        .margin({ left: Const.NoMoreLayoutConstant_NORMAL_PADDING })
+        .fontSize(Const.NoMoreLayoutConstant_TITLE_FONT)
         .textAlign(TextAlign.Center)
     }
-    .width(FULL_WIDTH)
+    .width(Const.FULL_WIDTH)
     .justifyContent(FlexAlign.Center)
-    .height(CUSTOM_LAYOUT_HEIGHT)
+    .height(Const.CUSTOM_LAYOUT_HEIGHT)
   }
 }

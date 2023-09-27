@@ -25,11 +25,11 @@ export default function getCurrentTime(): string {
   let day = date.getDate();
   let hours = date.getHours();
   let minutes = date.getMinutes().toString();
-  if (parseInt(minutes) < CommonConstants.TEN) {
+  if (Number.parseInt(minutes) < CommonConstants.TEN) {
     minutes = `0${minutes}`;
   }
   let second = date.getSeconds().toString();
-  if (parseInt(second) < CommonConstants.TEN) {
+  if (Number.parseInt(second) < CommonConstants.TEN) {
     second = `0${second}`;
   }
   return `${year}/${month}/${day} ${hours}:${minutes}:${second}`;

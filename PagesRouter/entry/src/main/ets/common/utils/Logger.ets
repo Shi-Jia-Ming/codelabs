@@ -28,23 +28,23 @@ export class Logger {
     this.domain = 0xFF00;
   }
 
-  debug(...args: any[]) {
+  debug(...args: string[]) {
     hilog.debug(this.domain, this.prefix, this.format, args);
   }
 
-  info(...args: any[]) {
+  info(...args: string[]) {
     hilog.info(this.domain, this.prefix, this.format, args);
   }
 
-  warn(...args: any[]) {
+  warn(...args: string[]) {
     hilog.warn(this.domain, this.prefix, this.format, args);
   }
 
-  error(...args: any[]) {
+  error(...args: string[]) {
     hilog.error(this.domain, this.prefix, this.format, args);
   }
 
-  fatal(...args: any[]) {
+  fatal(...args: string[]) {
     hilog.fatal(this.domain, this.prefix, this.format, args);
   }
 

@@ -18,8 +18,8 @@ import { CommonConstants } from '../common/constant/CommonConstant';
 @CustomDialog
 export default struct AddTargetDialog {
   @State subtaskName: string = '';
-  private controller: CustomDialogController;
-  onClickOk: (value: string) => void;
+  private controller?: CustomDialogController;
+  onClickOk?: (value: string) => void;
 
   build() {
     Column() {
@@ -47,14 +47,16 @@ export default struct AddTargetDialog {
         Button($r('app.string.cancel_button'))
           .dialogButtonStyle()
           .onClick(() => {
-            this.controller.close();
+            this.controller?.close();
           })
         Divider()
           .vertical(true)
         Button($r('app.string.confirm_button'))
           .dialogButtonStyle()
           .onClick(() => {
-            this.onClickOk(this.subtaskName);
+            if (this.onClickOk !== undefined) {
+              this.onClickOk(this.subtaskName);
+            }
           })
       }
       .width(CommonConstants.DIALOG_OPERATION_WIDTH)

@@ -16,15 +16,16 @@
 import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * Custom pop-up window.
  */
 @CustomDialog
 export default struct CustomDialogComponent {
-  controller: CustomDialogController;
-  cancel: () => void;
-  confirm: () => void;
+  controller: CustomDialogController = new CustomDialogController({'builder': ''});
+  cancel: Function = () => {};
+  confirm: Function = () => {};
 
   build() {
     Column() {
@@ -46,10 +47,11 @@ export default struct CustomDialogComponent {
         .fontColor($r('app.color.dialog_text_statement_color'))
         .fontSize($r('app.float.dialog_common_text_size'))
         .onClick(() => {
-          globalThis.isJumpPrivacy = true;
+          // globalThis.isJumpPrivacy = true;
+          GlobalContext.getContext().setObject('isJumpPrivacy', true);
           router.pushUrl({
             url: CommonConstants.PRIVACY_PAGE_URL
-          }).catch((error) => {
+          }).catch((error: Error) => {
             Logger.error(CommonConstants.CUSTOM_DIALOG_TAG, 'CustomDialog pushUrl error ' + JSON.stringify(error));
           });
         })

@@ -20,15 +20,15 @@ export default class FormInfo {
   /**
    * Form ID
    */
-  formId: string;
+  formId: string = '';
 
   /**
    * Form name
    */
-  formName: string;
+  formName: string = '';
 
   /**
    * Card dimension
    */
-  formDimension: number;
+  formDimension: number = 0;
 }

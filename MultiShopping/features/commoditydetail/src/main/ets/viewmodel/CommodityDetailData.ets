@@ -13,17 +13,23 @@
  * limitations under the License.
  */
 
-type BarData = {
-  icon: Resource,
-  text: Resource,
+class BarData {
+  icon?: Resource;
+  text?: Resource;
 }
 
-type Evaluate = {
-  userId: string,
-  userIcon: string,
-  userNumber: string,
-  rating: number,
-  desc: string
+class Evaluate {
+  userId?: string;
+  userIcon?: string;
+  userNumber?: string;
+  rating?: number;
+  desc?: string;
+}
+
+class UserEvaluate {
+  title?: string;
+  favorable?: string;
+  evaluate?: Evaluate[];
 }
 
 const barData: BarData[] = [
@@ -41,62 +47,62 @@ const barData: BarData[] = [
   }
 ]
 
-const userEvaluate = {
-  "title": '用户评价（2万+）',
-  "favorable": '98%',
-  "evaluate": [
+const userEvaluate: UserEvaluate = {
+  title: '用户评价（2万+）',
+  favorable: '98%',
+  evaluate: [
     {
-      'userId': '1',
-      'userIcon': 'common/ic_person.png',
-      'userNumber': '185****1937',
-      'rating': 5,
-      'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+      userId: '1',
+      userIcon: 'common/ic_person.png',
+      userNumber: '185****1937',
+      rating: 5,
+      desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
     },
     {
-      'userId': '2',
-      'userIcon': 'common/ic_person.png',
-      'userNumber': '185****1937',
-      'rating': 4,
-      'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+      userId: '2',
+      userIcon: 'common/ic_person.png',
+      userNumber: '185****1937',
+      rating: 4,
+      desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
     }
   ]
 }
 
 const moreEvaluate: Evaluate[] = [
   {
-    'userId': '3',
-    'userIcon': 'common/ic_person.png',
-    'userNumber': '185****1937',
-    'rating': 5,
-    'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+    userId: '3',
+    userIcon: 'common/ic_person.png',
+    userNumber: '185****1937',
+    rating: 5,
+    desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
   },
   {
-    'userId': '4',
-    'userIcon': 'common/ic_person.png',
-    'userNumber': '185****1937',
-    'rating': 5,
-    'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+    userId: '4',
+    userIcon: 'common/ic_person.png',
+    userNumber: '185****1937',
+    rating: 5,
+    desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
   },
   {
-    'userId': '5',
-    'userIcon': 'common/ic_person.png',
-    'userNumber': '185****1937',
-    'rating': 5,
-    'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+    userId: '5',
+    userIcon: 'common/ic_person.png',
+    userNumber: '185****1937',
+    rating: 5,
+    desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
   },
   {
-    'userId': '5',
-    'userIcon': 'common/ic_person.png',
-    'userNumber': '185****1937',
-    'rating': 4,
-    'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+    userId: '5',
+    userIcon: 'common/ic_person.png',
+    userNumber: '185****1937',
+    rating: 4,
+    desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
   },
   {
-    'userId': '6',
-    'userIcon': 'common/ic_person.png',
-    'userNumber': '185****1937',
-    'rating': 5,
-    'desc': '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
+    userId: '6',
+    userIcon: 'common/ic_person.png',
+    userNumber: '185****1937',
+    rating: 5,
+    desc: '和描述相符合，很喜欢，做工精致，颜色好看，原装正品。'
   }
 ]
 

@@ -12,17 +12,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import { MainConstant, WEB_PAGE_URI, LOCAL_PATH, CLOUD_PATH } from '../common/Constant';
+import { NavigatorBean } from '../common/bean/NavigatorBean';
+import { CommonConstant as Const } from '../common/Constant';
 
 @Extend(Button) function fancy (top: string) {
-  .fontSize(MainConstant.BUTTON_FONT_SIZE)
+  .fontSize(Const.MainConstant_BUTTON_FONT_SIZE)
   .fontColor($r('app.color.start_window_background'))
-  .width(MainConstant.BUTTON_WIDTH)
-  .height(MainConstant.BUTTON_HEIGHT)
+  .width(Const.MainConstant_BUTTON_WIDTH)
+  .height(Const.MainConstant_BUTTON_HEIGHT)
   .margin({ top: top })
   .backgroundColor($r('app.color.blue'))
-  .borderRadius(MainConstant.BUTTON_BORDER_RADIUS)
+  .borderRadius(Const.MainConstant_BUTTON_BORDER_RADIUS)
 }
 
 @Entry
@@ -31,21 +31,21 @@ struct MainPage {
   build() {
     Column() {
       Image($r('app.media.background'))
-        .width(MainConstant.FULL_HEIGHT)
-        .height(MainConstant.IMAGE_HEIGHT)
-      Navigator({ target: WEB_PAGE_URI, type: NavigationType.Push }) {
+        .width(Const.MainConstant_FULL_HEIGHT)
+        .height(Const.MainConstant_IMAGE_HEIGHT)
+      Navigator({ target: Const.WEB_PAGE_URI, type: NavigationType.Push }) {
         Button($r('app.string.loadLocalH5'))
-          .fancy(MainConstant.BUTTON_MARGIN_TOP)
+          .fancy(Const.MainConstant_BUTTON_MARGIN_TOP)
       }
-      .params({ path: LOCAL_PATH, tips: $r('app.string.local') })
+      .params({ path: Const.LOCAL_PATH, tips: $r('app.string.local') } as NavigatorBean)
 
-      Navigator({ target: WEB_PAGE_URI, type: NavigationType.Push }) {
+      Navigator({ target: Const.WEB_PAGE_URI, type: NavigationType.Push }) {
         Button($r('app.string.loadCloudH5'))
-          .fancy(MainConstant.BUTTON_MARGIN_TOP_BUTTON)
+          .fancy(Const.MainConstant_BUTTON_MARGIN_TOP_BUTTON)
       }
-      .params({ path: CLOUD_PATH, tips: $r('app.string.online') })
+      .params({ path: Const.CLOUD_PATH, tips: $r('app.string.online') } as NavigatorBean)
     }
-    .height(MainConstant.FULL_HEIGHT)
+    .height(Const.MainConstant_FULL_HEIGHT)
     .backgroundColor($r('app.color.navy_blue'))
   }
 }

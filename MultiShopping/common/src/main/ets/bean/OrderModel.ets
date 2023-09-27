@@ -12,6 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { ProductSpecification } from './ProductModel';
 
 export enum OrderType {
   PAYMENT = 'payment',
@@ -32,7 +33,7 @@ export enum OrderOperationStatus {
 @Observed
 export class Order {
   uid?: string = '';
-  orderId?: string = '';
+  orderId: string = '';
   image: string = '';
   title: string = '';
   description: string = '';
@@ -45,26 +46,32 @@ export class Order {
   amount?: number = 0;
   status?: number = 0;
   commodityId: number = 0;
-  specifications: { [key: string]: string } = {};
+  specifications: ProductSpecification[] = [];
+}
 
-  constructor(props?: Order) {
-    if (!props) {
-      return;
-    }
-    this.uid = props.uid;
-    this.orderId = props.orderId;
-    this.image = props.image;
-    this.title = props.title;
-    this.description = props.description;
-    this.payTime = props.payTime;
-    this.orderTime = props.orderTime;
-    this.createTime = props.createTime;
-    this.updateTime = props.updateTime;
-    this.price = props.price;
-    this.count = props.count;
-    this.amount = props.amount;
-    this.status = props.status;
-    this.commodityId = props.commodityId;
-    this.specifications = props.specifications;
-  }
+export class DateFormatting {
+  y: string = '';
+  m: string = '';
+  d: string = '';
+  H: string = '';
+  M: string = '';
+  S: string = '';
+}
+
+
+export class InsertOrderProps {
+  order: Order | undefined = undefined;
+  status: number = 0;
+  createTime?: string = '';
+}
+
+export class updateOrderProps {
+  orderId: string = '';
+  status: number = 0;
+  amount?: number;
+}
+
+export class OrderStatus {
+  order?: Order;
+  status?: number;
 }

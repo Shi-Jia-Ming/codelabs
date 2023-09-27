@@ -22,7 +22,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 export default struct CustomDialogWidget {
   @State hobbyBeans: HobbyBean[] = [];
   @Link hobbies: string;
-  private controller: CustomDialogController;
+  private controller?: CustomDialogController;
 
   aboutToAppear() {
     let context: Context = getContext(this);
@@ -57,8 +57,8 @@ export default struct CustomDialogWidget {
     }
     let hobbiesText: string = '';
     hobbiesText = hobbyBeans.filter((isCheckItem: HobbyBean) => isCheckItem?.isChecked)
-      .map((checkedItem: HobbyBean) => {
-        return checkedItem.label;
+      .map<string>((checkedItem: HobbyBean) => {
+        return checkedItem.label!;
       })
       .join(CommonConstants.COMMA);
     if (hobbiesText.length > 0) {
@@ -100,7 +100,7 @@ export default struct CustomDialogWidget {
               bottom: $r('app.float.options_bottom_distance')
             })
           }
-        }, itemHobby => itemHobby.label)
+        }, (itemHobby: HobbyBean) => JSON.stringify(itemHobby.label))
       }
       .margin({
         top: $r('app.float.list_top_distance'),
@@ -119,7 +119,7 @@ export default struct CustomDialogWidget {
         Button($r('app.string.cancel_button'))
           .dialogButtonStyle()
           .onClick(() => {
-            this.controller.close();
+            this.controller?.close();
           })
         Blank()
           .backgroundColor($r('app.color.custom_blank_color'))
@@ -130,7 +130,7 @@ export default struct CustomDialogWidget {
           .dialogButtonStyle()
           .onClick(() => {
             this.setHobbiesValue(this.hobbyBeans);
-            this.controller.close();
+            this.controller?.close();
           })
       }
     }

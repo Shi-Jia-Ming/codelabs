@@ -16,7 +16,6 @@
 import relationalStore from '@ohos.data.relationalStore';
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formBindingData from '@ohos.app.form.formBindingData';
-import formProvider from '@ohos.app.form.formProvider';
 import Want from '@ohos.app.ability.Want';
 import CommonConstants from '../common/constants/CommonConstants';
 import FormBean from '../common/bean/FormBean';
@@ -29,6 +28,9 @@ import Logger from '../common/utils/Logger';
  */
 export default class EntryFormAbility extends FormExtensionAbility {
   onAddForm(want: Want) {
+    if (want.parameters === undefined) {
+      return formBindingData.createFormBindingData();
+    }
     let formId: string = want.parameters[CommonConstants.IDENTITY_KEY] as string;
     let formName: string = want.parameters[CommonConstants.NAME_KEY] as string;
     let dimensionFlag: number = want.parameters[CommonConstants.DIMENSION_KEY] as number;
@@ -38,17 +40,8 @@ export default class EntryFormAbility extends FormExtensionAbility {
       form.formName = formName;
       form.dimension = dimensionFlag;
       CommonUtils.insertForm(form, rdbStore);
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_FORM_ABILITY, 'onAddForm create rdb error ' + JSON.stringify(error));
-    });
-
-    // Refresh every five minutes.
-    formProvider.setFormNextRefreshTime(formId, CommonConstants.FIVE_MINUTES, (error, data) => {
-      if (error) {
-        Logger.error(CommonConstants.TAG_FORM_ABILITY, 'setRefreshTime error ' + JSON.stringify(error));
-      } else {
-        Logger.info(CommonConstants.TAG_FORM_ABILITY, 'setRefreshTime success ' + JSON.stringify(data));
-      }
     });
     let listData: MovieDataBean[] = CommonUtils.getListData();
     let formData = CommonUtils.getFormData(listData);
@@ -58,16 +51,8 @@ export default class EntryFormAbility extends FormExtensionAbility {
   onUpdateForm(formId: string) {
     CommonUtils.createRdbStore(this.context).then((rdbStore: relationalStore.RdbStore) => {
       CommonUtils.updateMovieCardData(rdbStore);
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_FORM_ABILITY, 'onUpdateForm create rdb error ' + JSON.stringify(error));
-    });
-    // Refresh every five minutes.
-    formProvider.setFormNextRefreshTime(formId, CommonConstants.FIVE_MINUTES, (error, data) => {
-      if (error) {
-        Logger.error(CommonConstants.TAG_FORM_ABILITY, 'update setTime error' + JSON.stringify(error));
-      } else {
-        Logger.info(CommonConstants.TAG_FORM_ABILITY, 'update setTime success ' + JSON.stringify(data));
-      }
     });
   }
 
@@ -75,7 +60,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
     // Deleting card information from the database.
     CommonUtils.createRdbStore(this.context).then((rdbStore: relationalStore.RdbStore) => {
       CommonUtils.deleteFormData(formId, rdbStore);
-    }).catch((error) => {
+    }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_FORM_ABILITY, 'removeForm create rdb error ' + JSON.stringify(error));
     });
   }

@@ -17,10 +17,10 @@ import CommonConstants from '../common/constant/CommonConstant';
 
 @Component
 export default struct ToDoItem {
-  private content: string;
+  private content?: string;
   @State isComplete: boolean = false;
 
-  @Builder labelIcon(icon) {
+  @Builder labelIcon(icon: Resource) {
     Image(icon)
       .objectFit(ImageFit.Contain)
       .width($r('app.float.checkbox_width'))

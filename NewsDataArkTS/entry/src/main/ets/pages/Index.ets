@@ -14,7 +14,7 @@
  */
 
 import TabBar from '../view/TabBar';
-import { FULL_WIDTH } from '../common/constant/CommonConstant';
+import { CommonConstant as Const } from '../common/constant/CommonConstant';
 
 /**
  * The Index is the entry point of the application.
@@ -27,7 +27,7 @@ struct Index {
     Column() {
       TabBar()
     }
-    .width(FULL_WIDTH)
+    .width(Const.FULL_WIDTH)
     .backgroundColor($r('app.color.listColor'))
     .justifyContent(FlexAlign.Center)
   }

@@ -28,11 +28,12 @@ struct SimpleVideoIndex {
     Column({ space: MARGIN_FONT_SIZE.FOURTH_MARGIN }) {
       SwiperVideo()
       List() {
-        ForEach(LIST, (item) => {
+        ForEach(LIST, (item: string) => {
           ListItem() {
-            VideoModule({ moduleName: item }).margin({ top: MARGIN_FONT_SIZE.FIRST_MARGIN })
+            VideoModule({ moduleName: item })
+              .margin({ top: MARGIN_FONT_SIZE.FIRST_MARGIN })
           }
-        }, item => JSON.stringify(item))
+        }, (item: string) => JSON.stringify(item))
       }
       .listDirection(Axis.Vertical)
       .margin({ top: MARGIN_FONT_SIZE.THIRD_MARGIN })
@@ -42,4 +43,3 @@ struct SimpleVideoIndex {
     .backgroundColor($r("app.color.index_backgroundColor"))
   }
 }
-

@@ -42,7 +42,7 @@ export struct ListInfo {
           color: $r('app.color.borderColor')
         })
 
-      }, item => item.id);
+      }, (item: InfoItem) => JSON.stringify(item));
     }
     .border({
       radius: {

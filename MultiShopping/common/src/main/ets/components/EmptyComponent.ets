@@ -33,6 +33,6 @@ export struct EmptyComponent {
         .margin({ top: $r('app.float.vp_ten') })
     }
     .width(StyleConstants.FULL_WIDTH)
-    .height(this.outerHeight)
+    .height(this.outerHeight !== undefined ? this.outerHeight : StyleConstants.FULL_HEIGHT)
   }
 }

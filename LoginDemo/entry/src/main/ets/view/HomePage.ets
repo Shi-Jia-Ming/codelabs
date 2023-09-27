@@ -60,7 +60,7 @@ struct SwiperView {
         ForEach(mainViewModel.getSwiperImages(), (item: Resource) => {
           Image(item)
             .borderRadius($r('app.float.swiper_radius'))
-        }, item => JSON.stringify(item))
+        }, (item: Resource) => JSON.stringify(item))
       }
       .displayCount(CommonConstants.SWIPER_CACHE_COUNT)
       .autoPlay(true)
@@ -86,7 +86,7 @@ struct CenterGridView {
           GridItem() {
             GridItemView({ item: item })
           }
-        }, item => JSON.stringify(item))
+        }, (item: ItemData) => JSON.stringify(item))
       }
       .columnsTemplate(StyleConstants.GRID_COLUMNS)
       .rowsTemplate(StyleConstants.GRID_ROWS)
@@ -129,9 +129,12 @@ struct ListImageView {
           .margin({ right: $r('app.float.list_margin') })
           .borderRadius($r('app.float.image_list_radius'))
           .onClick(() => {
+            if (!secondItem?.clickPrompt) {
+              return;
+            }
             CommonUtils.showToastContent(secondItem.clickPrompt);
           })
-        }, secondItem => JSON.stringify(secondItem.id))
+        }, (secondItem: ItemData) => JSON.stringify(secondItem.id))
       }
       .width(StyleConstants.COMMON_WIDTH)
       .margin($r('app.float.common_margin'))
@@ -145,10 +148,10 @@ struct ListImageView {
 
 @Component
 struct GridItemView {
-  private item: ItemData;
-  private gridItemImg: Resource;
-  private gridItemTitle: Resource;
-  private gridItemPrompt: Resource;
+  private item?: ItemData;
+  private gridItemImg?: Resource;
+  private gridItemTitle?: Resource;
+  private gridItemPrompt?: Resource;
 
   aboutToAppear() {
     if (this.item !== undefined) {
@@ -160,14 +163,21 @@ struct GridItemView {
 
   build() {
     Column() {
-      Image(this.gridItemImg)
-        .width($r('app.float.home_cell_size'))
-        .height($r('app.float.home_cell_size'))
-      Text(this.gridItemTitle)
-        .fontSize($r('app.float.little_text_size'))
-        .margin({ top: $r('app.float.home_cell_margin') })
+      if(this.gridItemImg) {
+        Image(this.gridItemImg)
+          .width($r('app.float.home_cell_size'))
+          .height($r('app.float.home_cell_size'))
+      }
+      if (this.gridItemTitle) {
+        Text(this.gridItemTitle)
+          .fontSize($r('app.float.little_text_size'))
+          .margin({ top: $r('app.float.home_cell_margin') })
+      }
     }
     .onClick(() => {
+      if(!this.gridItemPrompt) {
+        return;
+      }
       CommonUtils.showToastContent(this.gridItemPrompt);
     })
   }
@@ -175,10 +185,10 @@ struct GridItemView {
 
 @Component
 struct ImageItemView {
-  private secondItem: ItemData;
-  private listItemImage: Resource;
-  private listItemTitle: Resource;
-  private listItemOthers: Resource;
+  private secondItem?: ItemData;
+  private listItemImage?: Resource;
+  private listItemTitle?: Resource;
+  private listItemOthers?: Resource;
 
   aboutToAppear() {
     if (this.secondItem !== undefined) {
@@ -190,9 +200,11 @@ struct ImageItemView {
 
   build() {
     Stack({ alignContent: Alignment.TopStart }) {
-      Image(this.listItemImage)
-        .objectFit(ImageFit.Cover)
-        .aspectRatio(StyleConstants.GRID_ASPECT_RATIO)
+      if (this.listItemImage) {
+        Image(this.listItemImage)
+          .objectFit(ImageFit.Cover)
+          .aspectRatio(StyleConstants.GRID_ASPECT_RATIO)
+      }
       Column() {
         Text(this.listItemTitle)
           .fontSize($r('app.float.normal_text_size'))

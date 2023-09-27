@@ -23,9 +23,8 @@ export struct CustomDialogView {
   @State isShow: boolean = false;
   @Provide achievementLevel: number = 3;
   @Consume broadCast: BroadCast;
-
   //目标设置
-  targetSettingDialog = new CustomDialogController({
+  targetSettingDialog: CustomDialogController = new CustomDialogController({
     builder: TargetSettingDialog(),
     autoCancel: true,
     alignment: DialogAlignment.Bottom,
@@ -52,21 +51,21 @@ export struct CustomDialogView {
     //目标设置
     this.broadCast.on(
       BroadCastType.SHOW_TARGET_SETTING_DIALOG,
-      function () {
+      () => {
         self.targetSettingDialog.open();
       })
 
     // 提醒时间弹窗
     this.broadCast.on(
       BroadCastType.SHOW_REMIND_TIME_DIALOG,
-      function () {
+      () => {
         self.RemindTimeDialogController.open();
       })
 
     // 频率弹窗
     this.broadCast.on(
       BroadCastType.SHOW_FREQUENCY_DIALOG,
-      function () {
+      () => {
         self.FrequencyDialogController.open();
       })
   }

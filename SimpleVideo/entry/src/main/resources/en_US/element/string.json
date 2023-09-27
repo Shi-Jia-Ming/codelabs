@@ -23,6 +23,10 @@
     {
       "name": "back",
       "value": "video"
+    },
+    {
+      "name": "empty",
+      "value": "empty"
     }
   ]
 }

@@ -46,7 +46,7 @@ export function httpRequestPost(url: string, newsData: NewsData) {
  * @param extraData Additional data of the request.
  * @returns Returns {@link ResponseResult}.
  */
-function httpRequest(url: string, method: http.RequestMethod, params?: Object): Promise<ResponseResult> {
+function httpRequest(url: string, method: http.RequestMethod, params?: NewsData): Promise<ResponseResult> {
   let httpRequest = http.createHttp();
   let responseResult = httpRequest.request(url, {
     method: method,
@@ -55,15 +55,15 @@ function httpRequest(url: string, method: http.RequestMethod, params?: Object): 
       'Content-Type': ContentType.JSON
     },
     connectTimeout: Constants.HTTP_READ_TIMEOUT,
-    extraData: params || {}
+    extraData: params
   });
   let serverData = new ResponseResult();
   // Processes the data and returns.
-  return responseResult.then((value) => {
+  return responseResult.then((value: http.HttpResponse) => {
     if (value.responseCode === Constants.HTTP_CODE_200) {
       // Obtains the returned data.
       let result = `${value.result}`;
-      let resultJson = JSON.parse(result);
+      let resultJson: ResponseResult = JSON.parse(result);
       if (resultJson.code === Constants.SERVER_CODE_SUCCESS) {
         serverData.data = resultJson.data;
       }

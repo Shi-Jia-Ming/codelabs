@@ -15,12 +15,12 @@
 
 import { ListInfo } from '../view/ListInfo';
 import { UserBaseInfo } from '../view/UserBaseInfo';
-import { NICK_NAME, SIGNATURE, FULL_HEIGHT } from '../common/constants/CommonConstants';
+import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 @Component
 export struct MineIndex {
-  @State nickname: string = NICK_NAME;
-  @State signature: string = SIGNATURE;
+  @State nickname: string = Const.NICK_NAME;
+  @State signature: string = Const.SIGNATURE;
 
   build() {
     Column() {
@@ -31,7 +31,7 @@ export struct MineIndex {
 
       ListInfo();
     }
-    .height(FULL_HEIGHT)
+    .height(Const.FULL_HEIGHT)
     .backgroundColor($r('app.color.mineBgColor'))
   }
 }

@@ -1,0 +1,116 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "live_title_color",
+      "value": "#FF182431"
+    },
+    {
+      "name": "live_introduction",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "comment_title_color",
+      "value": "#e6000000"
+    },
+    {
+      "name": "list_divider",
+      "value": "#1a182431"
+    },
+    {
+      "name": "header_font_color",
+      "value": "#e6000000"
+    },
+    {
+      "name": "nickname_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "time_color",
+      "value": "#66182431"
+    },
+    {
+      "name": "content_color",
+      "value": "#182431"
+    },
+    {
+      "name": "span_color",
+      "value": "#66000000"
+    },
+    {
+      "name": "review_color",
+      "value": "#0d000000"
+    },
+    {
+      "name": "info_title_color",
+      "value": "#e6000000"
+    },
+    {
+      "name": "info_singer_color",
+      "value": "#e6000000"
+    },
+    {
+      "name": "album_background",
+      "value": "#e4ecf7"
+    },
+    {
+      "name": "album_name_introduction",
+      "value": "#556B89"
+    },
+    {
+      "name": "title_color",
+      "value": "#556B89"
+    },
+    {
+      "name": "singer",
+      "value": "#000000"
+    },
+    {
+      "name": "song_name",
+      "value": "#000000"
+    },
+    {
+      "name": "player_background",
+      "value": "#F6F9FC"
+    },
+    {
+      "name": "title_font",
+      "value": "#E5FFFFFF"
+    },
+    {
+      "name": "page_background_sm",
+      "value": "#e4ecf7"
+    },
+    {
+      "name": "page_background_other",
+      "value": "#f6f9fc"
+    },
+    {
+      "name": "text_color",
+      "value": "#376668"
+    },
+    {
+      "name": "text_sixty_color",
+      "value": "#99376668"
+    },
+    {
+      "name": "text_forty_color",
+      "value": "#99376668"
+    },
+    {
+      "name": "text_twenty_color",
+      "value": "#33376668"
+    },
+    {
+      "name": "button_background_color",
+      "value": "#FF1949"
+    }
+  ]
+}

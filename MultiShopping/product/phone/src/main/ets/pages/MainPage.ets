@@ -20,7 +20,6 @@ import {
   Logger,
   Product,
   Commodity,
-  OrderType,
   OrderOperationStatus,
   StyleConstants,
   BreakpointConstants
@@ -31,6 +30,7 @@ import { ShopCart } from '@ohos/shopcart';
 import { Personal } from '@ohos/personal';
 import { buttonInfo, ButtonInfoModel } from '../viewmodel/MainPageData';
 import { PageConstants } from '../constants/PageConstants';
+import { OrderCount } from '@ohos/commoditydetail/src/main/ets/bean/TypeModel';
 
 @Entry
 @Component
@@ -39,7 +39,13 @@ struct MainPage {
   @StorageLink('IndexPage') currentPageIndex: number = 0;
   @State shoppingCartCache: Product[] = [];
   @State shoppingCartList: Product[] = [];
-  @State orderCount: { [key: string]: number } = {};
+  @State orderCount: OrderCount = {
+    payment: 0,
+    ship: 0,
+    receipt: 0,
+    evaluation: 0,
+    sale: 0
+  };
   private breakpointSystem = new BreakpointSystem();
   private localDataManager: LocalDataManager = LocalDataManager.instance();
 
@@ -63,7 +69,7 @@ struct MainPage {
     router.pushUrl({
       url: PageConstants.COMMODITY_DETAIL_PAGE_URL,
       params: { id: data.id }
-    }).catch(err => {
+    }).catch((err: Error) => {
       Logger.error(JSON.stringify(err));
     });
   }
@@ -71,11 +77,11 @@ struct MainPage {
   queryOrderList() {
     const orderList = this.localDataManager.queryOrderList();
     this.orderCount = {
-      [OrderType.PAYMENT]: orderList.filter(item => item.status === OrderOperationStatus.UN_PAY).length,
-      [OrderType.SHIP]: 0,
-      [OrderType.RECEIPT]: orderList.filter(item => item.status === OrderOperationStatus.DELIVERED).length,
-      [OrderType.EVALUATION]: orderList.filter(item => item.status === OrderOperationStatus.RECEIPT).length,
-      [OrderType.SALE]: 0
+      payment: orderList.filter(item => item.status === OrderOperationStatus.UN_PAY).length,
+      ship: 0,
+      receipt: orderList.filter(item => item.status === OrderOperationStatus.DELIVERED).length,
+      evaluation: orderList.filter(item => item.status === OrderOperationStatus.RECEIPT).length,
+      sale: 0
     };
   }
 
@@ -92,7 +98,7 @@ struct MainPage {
       }) {
         TabContent() {
           Home({
-            onClickItem: (data) => this.routerDetailPage(data)
+            onClickItem: (data: Commodity): void => this.routerDetailPage(data)
           })
         }
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.HOME_INDEX]))
@@ -105,7 +111,7 @@ struct MainPage {
         TabContent() {
           ShopCart({
             products: $shoppingCartList,
-            onNeedUpdate: () => this.queryShopCart()
+            onNeedUpdate: (): void => this.queryShopCart()
           })
         }
         .tabBar(this.BottomNavigation(buttonInfo[PageConstants.SHOP_CART_INDEX]))

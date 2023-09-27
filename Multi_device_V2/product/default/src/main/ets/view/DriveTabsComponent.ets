@@ -24,7 +24,7 @@ export struct DriveTabs {
     Scroll(this.scroller) {
       GridRow({
         columns: { xs: Const.GRID_4, sm: Const.GRID_4, md: Const.GRID_8, lg: Const.GRID_12 },
-        gutter: { x : $r('app.float.gutter_drive') },
+        gutter: { x: $r('app.float.gutter_drive') },
         breakpoints: { value: [Const.BREAKPOINTS_SM, Const.BREAKPOINTS_MD, Const.BREAKPOINTS_LG] }
       }) {
         GridCol({ span: { xs: Const.GRID_4, sm: Const.GRID_4, md: Const.GRID_8, lg: Const.GRID_12 } }) {
@@ -41,7 +41,7 @@ export struct DriveTabs {
           }
         }
         .height($r('app.float.title_height'))
-        
+
         ForEach(DriveList, (item: DriveTabsItem) => {
           GridCol({ span: { xs: Const.NUM_2, sm: Const.NUM_2, md: Const.NUM_2, lg: Const.NUM_2 } }) {
             Column() {
@@ -63,7 +63,7 @@ export struct DriveTabs {
                 .margin({ bottom: $r('app.float.drive_text_margin') })
             }
           }
-        }, item => JSON.stringify(item))
+        }, (item: DriveTabsItem) => JSON.stringify(item))
       }
     }
     .width(Const.FULL_SIZE)
@@ -72,4 +72,3 @@ export struct DriveTabs {
     .scrollBar(BarState.Off)
   }
 }
-

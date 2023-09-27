@@ -20,20 +20,20 @@ export default class PointStyle {
   /**
    * The shape of the point.
    */
-  shape: string;
+  shape: string = '';
 
   /**
    * Fill color.
    */
-  fillColor: string;
+  fillColor: string = '';
 
   /**
    * Border color.
    */
-  strokeColor: string;
+  strokeColor: string = '';
 
   /**
    * Size of high bright spots.
    */
-  size: number;
+  size: number = 0;
 }
