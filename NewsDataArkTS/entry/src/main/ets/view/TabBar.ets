@@ -14,7 +14,7 @@
  */
 
 import NewsList from '../view/newslist';
-import { TabBars, FULL_HEIGHT } from '../common/constant/CommonConstant';
+import { CommonConstant as Const } from '../common/constant/CommonConstant';
 import NewsTypeBean from '../common/bean/NewsTypeBean';
 import NewsViewModel from '../viewmodel/NewsViewModel';
 
@@ -30,10 +30,10 @@ export default struct TabBar {
   @Builder TabBuilder(index: number) {
     Column() {
       Text(this.tabBarArray[index].name)
-        .height(FULL_HEIGHT)
-        .padding({ left: TabBars.HORIZONTAL_PADDING, right: TabBars.HORIZONTAL_PADDING })
-        .fontSize(this.currentIndex === index ? TabBars.SELECT_TEXT_FONT_SIZE : TabBars.UN_SELECT_TEXT_FONT_SIZE)
-        .fontWeight(this.currentIndex === index ? TabBars.SELECT_TEXT_FONT_WEIGHT : TabBars.UN_SELECT_TEXT_FONT_WEIGHT)
+        .height(Const.FULL_HEIGHT)
+        .padding({ left: Const.TabBars_HORIZONTAL_PADDING, right: Const.TabBars_HORIZONTAL_PADDING })
+        .fontSize(this.currentIndex === index ? Const.TabBars_SELECT_TEXT_FONT_SIZE : Const.TabBars_UN_SELECT_TEXT_FONT_SIZE)
+        .fontWeight(this.currentIndex === index ? Const.TabBars_SELECT_TEXT_FONT_WEIGHT : Const.TabBars_UN_SELECT_TEXT_FONT_WEIGHT)
         .fontColor($r('app.color.fontColor_text3'))
     }
   }
@@ -49,18 +49,18 @@ export default struct TabBar {
 
   build() {
     Tabs() {
-      ForEach(this.tabBarArray, tabsItem => {
+      ForEach(this.tabBarArray, (tabsItem: NewsTypeBean) => {
         TabContent() {
           Column() {
             NewsList({ currentIndex: $currentIndex })
           }
         }
         .tabBar(this.TabBuilder(tabsItem.id))
-      }, item => JSON.stringify(item));
+      }, (item: NewsTypeBean) => JSON.stringify(item));
     }
-    .barHeight(TabBars.BAR_HEIGHT)
+    .barHeight(Const.TabBars_BAR_HEIGHT)
     .barMode(BarMode.Scrollable)
-    .barWidth(TabBars.BAR_WIDTH)
+    .barWidth(Const.TabBars_BAR_WIDTH)
     .onChange((index: number) => {
       this.currentIndex = index;
       this.currentPage = 1;

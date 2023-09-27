@@ -13,11 +13,12 @@
  * limitations under the License.
  */
 
-import { GET_NEWS_TYPE, SERVER, SERVER_CODE_SUCCESS, TabBars } from '../common/constant/CommonConstant';
+import { CommonConstant as Const } from '../common/constant/CommonConstant';
 import { NewsData } from '../common/bean/NewsData';
 import NewsTypeBean from '../common/bean/NewsTypeBean';
 import { httpRequestGet } from '../common/utils/HttpUtil';
 import Logger from '../common/utils/Logger';
+import ResponseResult from '../common/bean/ResponseResult';
 
 class NewsViewModel {
   /**
@@ -26,16 +27,16 @@ class NewsViewModel {
    * @return NewsTypeBean[] newsTypeList
    */
   getNewsTypeList(): Promise<NewsTypeBean[]> {
-    return new Promise((resolve) => {
-      let url = `${SERVER}/${GET_NEWS_TYPE}`;
-      httpRequestGet(url).then((data) => {
-        if (data.code === SERVER_CODE_SUCCESS) {
+    return new Promise((resolve: Function) => {
+      let url = `${Const.SERVER}/${Const.GET_NEWS_TYPE}`;
+      httpRequestGet(url).then((data: ResponseResult) => {
+        if (data.code === Const.SERVER_CODE_SUCCESS) {
           resolve(data.data);
         } else {
-          resolve(TabBars.DEFAULT_NEWS_TYPES);
+          resolve(Const.TabBars_DEFAULT_NEWS_TYPES);
         }
       }).catch(() => {
-        resolve(TabBars.DEFAULT_NEWS_TYPES);
+        resolve(Const.TabBars_DEFAULT_NEWS_TYPES);
       });
     });
   }
@@ -46,7 +47,7 @@ class NewsViewModel {
    * @return NewsTypeBean[] newsTypeList
    */
   getDefaultTypeList(): NewsTypeBean[] {
-    return TabBars.DEFAULT_NEWS_TYPES;
+    return Const.TabBars_DEFAULT_NEWS_TYPES;
   }
 
   /**
@@ -55,17 +56,17 @@ class NewsViewModel {
    * @return NewsData[] newsDataList
    */
   getNewsList(currentPage: number, pageSize: number, path: string): Promise<NewsData[]> {
-    return new Promise(async (resolve, reject) => {
-      let url = `${SERVER}/${path}`;
+    return new Promise(async (resolve: Function, reject: Function) => {
+      let url = `${Const.SERVER}/${path}`;
       url += '?currentPage=' + currentPage + '&pageSize=' + pageSize;
-      httpRequestGet(url).then((data) => {
-        if (data.code === SERVER_CODE_SUCCESS) {
+      httpRequestGet(url).then((data: ResponseResult) => {
+        if (data.code === Const.SERVER_CODE_SUCCESS) {
           resolve(data.data);
         } else {
           Logger.error('getNewsList failed', JSON.stringify(data));
           reject($r('app.string.page_none_msg'));
         }
-      }).catch((err) => {
+      }).catch((err: Error) => {
         Logger.error('getNewsList failed', JSON.stringify(err));
         reject($r('app.string.http_error_message'));
       });

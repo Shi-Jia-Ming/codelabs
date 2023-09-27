@@ -12,90 +12,91 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import NewsTypeBean from '../bean/NewsTypeBean';
 
-/**
- * The host address of the server.
- */
-export const SERVER: string = 'http://**.**.**.**:9588';
+export class CommonConstant {
 
-/**
- * Get the news type.
- */
-export const GET_NEWS_TYPE: string = 'news/getNewsType';
+  /**
+   * The host address of the server.
+   */
+  static readonly SERVER: string = 'http://**.**.**.**:9588';
 
-/**
- * Get the news list.
- */
-export const GET_NEWS_LIST: string = 'news/getNewsList';
+  /**
+   * Get the news type.
+   */
+  static readonly GET_NEWS_TYPE: string = 'news/getNewsType';
 
-/**
- * The request success status code.
- */
-export const SERVER_CODE_SUCCESS: string = 'success';
+  /**
+   * Get the news list.
+   */
+  static readonly GET_NEWS_LIST: string = 'news/getNewsList';
 
-/**
- * The off set coefficient.
- */
-export const Y_OFF_SET_COEFFICIENT: number = 0.1;
+  /**
+   * The request success status code.
+   */
+  static readonly SERVER_CODE_SUCCESS: string = 'success';
 
-/**
- * The page size.
- */
-export const PAGE_SIZE: number = 4;
+  /**
+   * The off set coefficient.
+   */
+  static readonly Y_OFF_SET_COEFFICIENT: number = 0.1;
 
-/**
- * The refresh and load height.
- */
-export const CUSTOM_LAYOUT_HEIGHT: number = 70;
+  /**
+   * The page size.
+   */
+  static readonly PAGE_SIZE: number = 4;
 
-/**
- * Http request success status code.
- */
-export const HTTP_CODE_200: number = 200;
+  /**
+   * The refresh and load height.
+   */
+  static readonly CUSTOM_LAYOUT_HEIGHT: number = 70;
 
-/**
- * The animation delay time.
- */
-export const DELAY_ANIMATION_DURATION: number = 300;
+  /**
+   * Http request success status code.
+   */
+  static readonly HTTP_CODE_200: number = 200;
 
-/**
- * The delay time.
- */
-export const DELAY_TIME: number = 1000;
+  /**
+   * The animation delay time.
+   */
+  static readonly DELAY_ANIMATION_DURATION: number = 300;
 
-/**
- * The animation duration.
- */
-export const ANIMATION_DURATION: number = 2000;
+  /**
+   * The delay time.
+   */
+  static readonly DELAY_TIME: number = 1000;
 
-/**
- * The http timeout duration.
- */
-export const HTTP_READ_TIMEOUT: number = 10000;
+  /**
+   * The animation duration.
+   */
+  static readonly ANIMATION_DURATION: number = 2000;
 
-/**
- * Full the width.
- */
-export const FULL_WIDTH: string = '100%';
+  /**
+   * The http timeout duration.
+   */
+  static readonly HTTP_READ_TIMEOUT: number = 10000;
 
-/**
- * Full the height.
- */
-export const FULL_HEIGHT: string = '100%';
+  /**
+   * Full the width.
+   */
+  static readonly FULL_WIDTH: string = '100%';
 
-/**
- * The TabBars constants.
- */
-export const TabBars = {
-  UN_SELECT_TEXT_FONT_SIZE: 18,
-  SELECT_TEXT_FONT_SIZE: 24,
-  UN_SELECT_TEXT_FONT_WEIGHT: 400,
-  SELECT_TEXT_FONT_WEIGHT: 700,
-  BAR_HEIGHT: '7.2%',
-  HORIZONTAL_PADDING: '2.2%',
-  BAR_WIDTH: '100%',
-  DEFAULT_NEWS_TYPES:
-  [
+  /**
+   * Full the height.
+   */
+  static readonly FULL_HEIGHT: string = '100%';
+
+  /**
+   * The TabBars constants.
+   */
+  static readonly TabBars_UN_SELECT_TEXT_FONT_SIZE: number = 18;
+  static readonly TabBars_SELECT_TEXT_FONT_SIZE: number = 24;
+  static readonly TabBars_UN_SELECT_TEXT_FONT_WEIGHT: number = 400;
+  static readonly TabBars_SELECT_TEXT_FONT_WEIGHT: number = 700;
+  static readonly TabBars_BAR_HEIGHT: string = '7.2%';
+  static readonly TabBars_HORIZONTAL_PADDING: string  = '2.2%';
+  static readonly TabBars_BAR_WIDTH: string = '100%';
+  static readonly TabBars_DEFAULT_NEWS_TYPES: Array<NewsTypeBean> = [
     { id: 0, name: '全部' },
     { id: 1, name: '国内' },
     { id: 2, name: '国际' },
@@ -104,110 +105,94 @@ export const TabBars = {
     { id: 5, name: '体育' },
     { id: 6, name: '科技' },
     { id: 7, name: '财经' }
-  ]
-}
+  ];
 
-/**
- * The NewsListConstant constants.
- */
-export const NewsListConstant = {
-  LIST_DIVIDER_STROKE_WIDTH: 0.5,
-  GET_TAB_DATA_TYPE_ONE: 1,
-  ITEM_BORDER_RADIUS: 16,
-  NONE_IMAGE_SIZE: 120,
-  NONE_TEXT_opacity: 0.6,
-  NONE_TEXT_size: 16,
-  NONE_TEXT_margin: 12,
-  ITEM_MARGIN_TOP: '1.5%',
-  LIST_MARGIN_LEFT: '3.3%',
-  LIST_MARGIN_RIGHT: '3.3%',
-  ITEM_HEIGHT: '32%',
-  LIST_WIDTH: '93.3%'
-}
+  /**
+   * The NewsListConstant constants.
+   */
+  static readonly NewsListConstant_LIST_DIVIDER_STROKE_WIDTH: number = 0.5;
+  static readonly NewsListConstant_GET_TAB_DATA_TYPE_ONE: number = 1;
+  static readonly NewsListConstant_ITEM_BORDER_RADIUS: number = 16;
+  static readonly NewsListConstant_NONE_IMAGE_SIZE: number = 120;
+  static readonly NewsListConstant_NONE_TEXT_opacity: number = 0.6;
+  static readonly NewsListConstant_NONE_TEXT_size: number = 16;
+  static readonly NewsListConstant_NONE_TEXT_margin: number = 12;
+  static readonly NewsListConstant_ITEM_MARGIN_TOP: string = '1.5%';
+  static readonly NewsListConstant_LIST_MARGIN_LEFT: string = '3.3%';
+  static readonly NewsListConstant_LIST_MARGIN_RIGHT: string = '3.3%';
+  static readonly NewsListConstant_ITEM_HEIGHT: string = '32%';
+  static readonly NewsListConstant_LIST_WIDTH: string =  '93.3%';
 
-/**
- * The NewsTitle constants.
- */
-export const NewsTitle = {
-  TEXT_MAX_LINES: 3,
-  TEXT_FONT_SIZE: 20,
-  TEXT_FONT_WEIGHT: 500,
-  TEXT_MARGIN_LEFT: '2.4%',
-  TEXT_MARGIN_TOP: '7.2%',
-  TEXT_HEIGHT: '9.6%',
-  TEXT_WIDTH: '78.6%',
-  IMAGE_MARGIN_LEFT: '3.5%',
-  IMAGE_MARGIN_TOP: '7.9%',
-  IMAGE_HEIGHT: '8.9%',
-  IMAGE_WIDTH: '11.9%',
-}
+  /**
+   * The NewsTitle constants.
+   */
+  static readonly NewsTitle_TEXT_MAX_LINES: number = 3;
+  static readonly NewsTitle_TEXT_FONT_SIZE: number = 20;
+  static readonly NewsTitle_TEXT_FONT_WEIGHT: number = 500;
+  static readonly NewsTitle_TEXT_MARGIN_LEFT: string = '2.4%';
+  static readonly NewsTitle_TEXT_MARGIN_TOP: string = '7.2%';
+  static readonly NewsTitle_TEXT_HEIGHT: string = '9.6%';
+  static readonly NewsTitle_TEXT_WIDTH: string = '78.6%';
+  static readonly NewsTitle_IMAGE_MARGIN_LEFT: string = '3.5%';
+  static readonly NewsTitle_IMAGE_MARGIN_TOP: string = '7.9%';
+  static readonly NewsTitle_IMAGE_HEIGHT: string = '8.9%';
+  static readonly NewsTitle_IMAGE_WIDTH: string = '11.9%';
 
-/**
- * The NewsContent constants.
- */
-export const NewsContent = {
-  WIDTH: '93%',
-  HEIGHT: '16.8%',
-  MARGIN_LEFT: '3.5%',
-  MARGIN_TOP: '3.4%',
-  MAX_LINES: 2,
-  FONT_SIZE: 15,
-}
+  /**
+   * The NewsContent constants.
+   */
+  static readonly NewsContent_WIDTH: string = '93%';
+  static readonly NewsContent_HEIGHT: string = '16.8%';
+  static readonly NewsContent_MARGIN_LEFT: string = '3.5%';
+  static readonly NewsContent_MARGIN_TOP: string = '3.4%';
+  static readonly NewsContent_MAX_LINES: number = 2;
+  static readonly NewsContent_FONT_SIZE: number = 15;
 
-/**
- * The NewsSource constants.
- */
-export const NewsSource = {
-  MAX_LINES: 1,
-  FONT_SIZE: 12,
-  MARGIN_LEFT: '3.5%',
-  MARGIN_TOP: '3.4%',
-  HEIGHT: '7.2%',
-  WIDTH: '93%',
-}
+  /**
+   * The NewsSource constants.
+   */
+  static readonly NewsSource_MAX_LINES: number = 1;
+  static readonly NewsSource_FONT_SIZE: number = 12;
+  static readonly NewsSource_MARGIN_LEFT: string = '3.5%';
+  static readonly NewsSource_MARGIN_TOP: string = '3.4%';
+  static readonly NewsSource_HEIGHT: string = '7.2%';
+  static readonly NewsSource_WIDTH: string = '93%';
 
-/**
- * The NewsGrid constants.
- */
-export const NewsGrid = {
-  MARGIN_LEFT: '3.5%',
-  MARGIN_RIGHT: '3.5%',
-  MARGIN_TOP: '5.1%',
-  WIDTH: '93%',
-  HEIGHT: '31.5%',
-  ASPECT_RATIO: 4,
-  COLUMNS_GAP: 5,
-  ROWS_TEMPLATE: '1fr',
-  IMAGE_BORDER_RADIUS: 8
-}
+  /**
+   * The NewsGrid constants.
+   */
+  static readonly NewsGrid_MARGIN_LEFT: string = '3.5%';
+  static readonly NewsGrid_MARGIN_RIGHT: string = '3.5%';
+  static readonly NewsGrid_MARGIN_TOP: string = '5.1%';
+  static readonly NewsGrid_WIDTH: string = '93%';
+  static readonly NewsGrid_HEIGHT: string = '31.5%';
+  static readonly NewsGrid_ASPECT_RATIO: number = 4;
+  static readonly NewsGrid_COLUMNS_GAP: number = 5;
+  static readonly NewsGrid_ROWS_TEMPLATE: string = '1fr';
+  static readonly NewsGrid_IMAGE_BORDER_RADIUS: number = 8;
 
-/**
- * The RefreshLayout constants.
- */
-export const RefreshLayout = {
-  MARGIN_LEFT: '40%',
-  TEXT_MARGIN_BOTTOM: 1,
-  TEXT_MARGIN_LEFT: 7,
-  TEXT_FONT_SIZE: 17,
-  IMAGE_WIDTH: 18,
-  IMAGE_HEIGHT: 18
-}
+  /**
+   * The RefreshLayout constants.
+   */
+  static readonly RefreshLayout_MARGIN_LEFT: string = '40%';
+  static readonly RefreshLayout_TEXT_MARGIN_BOTTOM: number = 1;
+  static readonly RefreshLayout_TEXT_MARGIN_LEFT: number = 7;
+  static readonly RefreshLayout_TEXT_FONT_SIZE: number = 17;
+  static readonly RefreshLayout_IMAGE_WIDTH: number = 18;
+  static readonly RefreshLayout_IMAGE_HEIGHT: number = 18;
 
-/**
- * The NoMoreLayout constants.
- */
-export const NoMoreLayoutConstant = {
-  NORMAL_PADDING: 8,
-  TITLE_FONT: '16fp'
-}
+  /**
+   * The NoMoreLayout constants.
+   */
+  static readonly NoMoreLayoutConstant_NORMAL_PADDING: number = 8;
+  static readonly NoMoreLayoutConstant_TITLE_FONT: string = '16fp';
 
-/**
- * The RefreshConstant constants.
- */
-export const RefreshConstant = {
-  DELAY_PULL_DOWN_REFRESH: 50,
-  CLOSE_PULL_DOWN_REFRESH_TIME: 150,
-  DELAY_SHRINK_ANIMATION_TIME: 500,
+  /**
+   * The RefreshConstant constants.
+   */
+  static readonly RefreshConstant_DELAY_PULL_DOWN_REFRESH: number = 50;
+  static readonly RefreshConstant_CLOSE_PULL_DOWN_REFRESH_TIME: number = 150;
+  static readonly RefreshConstant_DELAY_SHRINK_ANIMATION_TIME: number = 500;
 }
 
 /**

@@ -14,51 +14,52 @@
  */
 
 import promptAction from '@ohos.promptAction';
-import { DELAY_TIME, ANIMATION_DURATION, Y_OFF_SET_COEFFICIENT, GET_NEWS_LIST } from '../constant/CommonConstant';
+import { CommonConstant as Const } from '../constant/CommonConstant';
 import NewsViewModel from '../../viewmodel/NewsViewModel';
 import Logger from './Logger';
+import { NewsData } from '../bean/NewsData';
 
-export function touchMoveLoadMore(event: TouchEvent) {
-  if (this.endIndex === this.newsData.length - 1 || this.endIndex === this.newsData.length) {
-    this.offsetY = event.touches[0].y - this.downY;
-    if (Math.abs(this.offsetY) > vp2px(this.pullUpLoadHeight) / 2) {
-      this.isCanLoadMore = true;
-      this.isVisiblePullUpLoad = true;
-      this.offsetY = -vp2px(this.pullUpLoadHeight) + this.offsetY * Y_OFF_SET_COEFFICIENT;
+export function touchMoveLoadMore(that, event: TouchEvent) {
+  if (that.endIndex === that.newsData.length - 1 || that.endIndex === that.newsData.length) {
+    that.offsetY = event.touches[0].y - that.downY;
+    if (Math.abs(that.offsetY) > vp2px(that.pullUpLoadHeight) / 2) {
+      that.isCanLoadMore = true;
+      that.isVisiblePullUpLoad = true;
+      that.offsetY = -vp2px(that.pullUpLoadHeight) + that.offsetY * Const.Y_OFF_SET_COEFFICIENT;
     }
   }
 }
 
-export function touchUpLoadMore() {
-  let self = this;
+export function touchUpLoadMore(that) {
+  let self = that;
   animateTo({
-    duration: ANIMATION_DURATION,
+    duration: Const.ANIMATION_DURATION,
   }, () => {
     self.offsetY = 0;
   })
-  if (self.isCanLoadMore && self.hasMore) {
+  if ((self.isCanLoadMore === true) && (self.hasMore === true)) {
     self.isLoading = true;
     setTimeout(() => {
-      closeLoadMore.call(this);
-      NewsViewModel.getNewsList(self.currentPage, self.pageSize, GET_NEWS_LIST).then((data) => {
+      closeLoadMore(that);
+      NewsViewModel.getNewsList(self.currentPage, self.pageSize, Const.GET_NEWS_LIST).then((data: NewsData[]) => {
         if (data.length === self.pageSize) {
           self.currentPage++;
           self.hasMore = true;
         } else {
           self.hasMore = false;
         }
-        self.newsData = [...self.newsData, ...data];
-      }).catch((err) => {
+        self.newsData = self.newsData.concat(data);
+      }).catch((err: string | Resource) => {
         promptAction.showToast({ message: err });
       })
-    }, DELAY_TIME);
+    }, Const.DELAY_TIME);
   } else {
-    closeLoadMore.call(this);
+    closeLoadMore(self);
   }
 }
 
-export function closeLoadMore() {
-  this.isCanLoadMore = false;
-  this.isLoading = false;
-  this.isVisiblePullUpLoad = false;
+export function closeLoadMore(that) {
+  that.isCanLoadMore = false;
+  that.isLoading = false;
+  that.isVisiblePullUpLoad = false;
 }

@@ -28,11 +28,11 @@ export default class ResponseResult {
   /**
    * Data returned by the network request.
    */
-  data: any;
+  data: string | Object | ArrayBuffer;
 
   constructor() {
     this.code = '';
     this.msg = '';
-    this.data = null;
+    this.data = '';
   }
 }
