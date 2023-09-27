@@ -39,9 +39,9 @@ struct ToDoListPage {
         })
         .textAlign(TextAlign.Start)
 
-      ForEach(this.totalTasks, (item) => {
+      ForEach(this.totalTasks, (item: string) => {
         ToDoItem({ content: item })
-      }, item => JSON.stringify(item))
+      }, (item: string) => JSON.stringify(item))
     }
     .width(CommonConstants.FULL_LENGTH)
     .height(CommonConstants.FULL_LENGTH)
