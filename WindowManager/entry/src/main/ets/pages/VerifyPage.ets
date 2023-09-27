@@ -19,7 +19,8 @@ import Logger from '../common/utils/Logger';
 import VerifyItem from '../common/bean/VerifyItem';
 import WindowViewModel from '../viewmodel/WindowViewModel';
 
-@Extend(Text) function promptTextStyle() {
+@Extend(Text)
+function promptTextStyle() {
   .fontSize($r('app.float.small_text_size'))
   .width(CommonConstants.FULL_PARENT)
   .padding({
@@ -35,19 +36,28 @@ import WindowViewModel from '../viewmodel/WindowViewModel';
 @Component
 struct VerifyPage {
   @State isInputWrong: boolean = false;
-  @State imageId: number = 0;
+  @State verifyItem: VerifyItem = new VerifyItem($r('app.media.ic_verity_character1'), 'XYZK');
   @State inputText: string = '';
+  private imageId: number = 0;
   private verifyMap: Map<number, VerifyItem> = new Map();
 
   aboutToAppear() {
     this.verifyMap = WindowViewModel.getVerifyMap();
+    this.updateVerifyItem();
+  }
+
+  updateVerifyItem() {
+    let verifyItemNew: VerifyItem | undefined = this.verifyMap.get(this.imageId);
+    if (verifyItemNew !== undefined) {
+      this.verifyItem = verifyItemNew;
+    }
   }
 
   build() {
     Column() {
       Column() {
         Row() {
-          Image(this.verifyMap.get(this.imageId).image)
+          Image(this.verifyItem.image)
             .height($r('app.float.verify_image_height'))
             .width($r('app.float.verify_image_width'))
           Text($r('app.string.change_one'))
@@ -57,6 +67,7 @@ struct VerifyPage {
             .textAlign(TextAlign.Center)
             .onClick(() => {
               this.imageId = (this.imageId + 1) % 2;
+              this.updateVerifyItem();
             })
         }
         .padding({
@@ -66,7 +77,6 @@ struct VerifyPage {
         })
         .width(CommonConstants.FULL_PARENT)
         .justifyContent(FlexAlign.SpaceBetween)
-
 
         TextInput({ placeholder: $r('app.string.verify_input_placeholder'), text: this.inputText })
           .placeholderColor($r('app.color.placeholder_color'))
@@ -98,17 +108,18 @@ struct VerifyPage {
             bottom: $r('app.float.verify_ok_margin')
           })
           .onClick(() => {
-            let verifyText: string = this.verifyMap.get(this.imageId).characters;
+            let verifyText: string = this.verifyItem.characters;
             if (this.inputText.toLowerCase() === verifyText.toLowerCase()) {
               router.replaceUrl({
                 url: CommonConstants.SUCCESS_PAGE_URL
-              }).catch(err => {
-                Logger.error(`pushUrl failed, Code:${err.code}, message:${err.message}`);
+              }).catch((err: Error) => {
+                Logger.error(`pushUrl failed, message:${err.message}`);
               });
             } else {
               this.isInputWrong = true;
               this.inputText = '';
               this.imageId = (this.imageId + 1) % 2;
+              this.updateVerifyItem();
             }
           })
       }

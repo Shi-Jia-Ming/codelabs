@@ -14,27 +14,30 @@
  */
 
 import display from '@ohos.display';
+import window from '@ohos.window';
 import CommonConstants from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
-import window from '@ohos.window';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * Window controller model.
  */
 export default class WindowModel {
-  private windowStage: window.WindowStage;
-  private subWindowClass: window.Window;
+  private windowStage?: window.WindowStage;
+  private subWindowClass?: window.Window;
 
   /**
    * Get singleton.
    *
-   * @return {WindowModel} globalThis.WindowModel
+   * @return {WindowModel} WindowModel
    */
   static getInstance(): WindowModel {
-    if (globalThis.WindowModel === undefined) {
-      globalThis.WindowModel = new WindowModel();
+    let instance: WindowModel = GlobalContext.getContext().getObject('windowModel') as WindowModel;
+    if (instance === undefined) {
+      instance = new WindowModel();
+      GlobalContext.getContext().setObject('windowModel', instance)
     }
-    return globalThis.WindowModel;
+    return instance;
   }
 
   /**
@@ -44,13 +47,16 @@ export default class WindowModel {
    */
   setWindowStage(windowStage: window.WindowStage) {
     this.windowStage = windowStage;
-    
   }
 
   /**
    * Create sub window.
    */
   createSubWindow() {
+    if (this.windowStage === undefined) {
+      Logger.error('Failed to create the subWindow.');
+      return;
+    }
     this.windowStage.createSubWindow(CommonConstants.SUB_WINDOW_NAME, (err, data: window.Window) => {
       if (err.code) {
         Logger.error(`Failed to create the window. Code:${err.code}, message:${err.message}`);
@@ -84,6 +90,10 @@ export default class WindowModel {
           Logger.error(`Failed to load the content. Code:${err.code}, message:${err.message}`);
           return;
         }
+        if (this.subWindowClass === undefined) {
+          Logger.error('subWindowClass is undefined.');
+          return;
+        }
         this.subWindowClass.setWindowBackgroundColor('#00000000');
         this.subWindowClass.showWindow((err) => {
           if (err.code) {
@@ -99,6 +109,10 @@ export default class WindowModel {
    * Set the main window immersive.
    */
   setMainWindowImmersive() {
+    if (this.windowStage === undefined) {
+      Logger.error('windowStage is undefined.');
+      return;
+    }
     this.windowStage.getMainWindow((err, windowClass: window.Window) => {
       if (err.code) {
         Logger.error(`Failed to obtain the main window. Code:${err.code}, message:${err.message}`);
@@ -123,6 +137,10 @@ export default class WindowModel {
    * Destroy sub window.
    */
   destroySubWindow() {
+    if (this.subWindowClass === undefined) {
+      Logger.error('subWindowClass is undefined.');
+      return;
+    }
     this.subWindowClass.destroyWindow((err) => {
       if (err.code) {
         Logger.error(`Failed to destroy the window. Code:${err.code}, message:${err.message}`);

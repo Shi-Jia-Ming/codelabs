@@ -25,7 +25,8 @@ import WindowViewModel from '../viewmodel/WindowViewModel';
 struct HomePage {
   private swiperController: SwiperController = new SwiperController();
 
-  @Builder NavigationTitle() {
+  @Builder
+  NavigationTitle() {
     Text($r('app.string.home_title'))
       .fontWeight(FontWeight.Medium)
       .fontSize($r('app.float.page_title_text_size'))
@@ -38,9 +39,9 @@ struct HomePage {
       Scroll() {
         Column({ space: CommonConstants.COMMON_SPACE }) {
           Swiper(this.swiperController) {
-            ForEach(WindowViewModel.getSwiperImages(), (img: Resource, index: number) => {
+            ForEach(WindowViewModel.getSwiperImages(), (img: Resource, index?: number) => {
               Image(img).borderRadius($r('app.float.home_swiper_border_radius'))
-            }, (img, index) => index + JSON.stringify(img.id))
+            }, (img: Resource, index?: number) => index + JSON.stringify(img.id))
           }
           .margin({
             top: $r('app.float.home_swiper_margin')
@@ -48,7 +49,7 @@ struct HomePage {
           .autoPlay(true)
 
           Grid() {
-            ForEach(WindowViewModel.getFirstGridData(), (firstItem: ItemData, index: number) => {
+            ForEach(WindowViewModel.getFirstGridData(), (firstItem: ItemData, index?: number) => {
               GridItem() {
                 Column() {
                   Image(firstItem.image)
@@ -59,7 +60,7 @@ struct HomePage {
                     .margin({ top: $r('app.float.home_home_cell_margin') })
                 }
               }
-            }, (firstItem, index) => index + JSON.stringify(firstItem))
+            }, (firstItem: ItemData, index?: number) => index + JSON.stringify(firstItem))
           }
           .columnsTemplate(CommonConstants.GRID_FOUR_COLUMNS)
           .rowsTemplate(CommonConstants.GRID_TWO_ROWS)
@@ -80,7 +81,7 @@ struct HomePage {
             .margin({ top: $r('app.float.home_text_margin') })
 
           Grid() {
-            ForEach(WindowViewModel.getSecondGridData(), (secondItem: ItemData, index: number) => {
+            ForEach(WindowViewModel.getSecondGridData(), (secondItem: ItemData, index?: number) => {
               GridItem() {
                 Column() {
                   Text(secondItem.title)
@@ -103,7 +104,7 @@ struct HomePage {
               .backgroundImageSize(ImageSize.Cover)
               .width(CommonConstants.FULL_PARENT)
               .height(CommonConstants.FULL_PARENT)
-            }, (secondItem, index) => index + JSON.stringify(secondItem))
+            }, (secondItem: ItemData, index?: number) => index + JSON.stringify(secondItem))
           }
           .width(CommonConstants.FULL_PARENT)
           .height($r('app.float.home_second_grid_height'))

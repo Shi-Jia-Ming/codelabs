@@ -18,7 +18,8 @@ import CommonConstants from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
 import WindowModel from '../model/WindowModel';
 
-@Extend(TextInput) function inputStyle() {
+@Extend(TextInput)
+function inputStyle() {
   .placeholderColor($r('app.color.placeholder_color'))
   .backgroundColor(($r('app.color.start_window_background')))
   .height($r('app.float.login_input_height'))
@@ -29,7 +30,8 @@ import WindowModel from '../model/WindowModel';
   })
 }
 
-@Extend(Text) function blueTextStyle() {
+@Extend(Text)
+function blueTextStyle() {
   .fontColor($r('app.color.login_blue_text_color'))
   .fontSize($r('app.float.small_text_size'))
   .fontWeight(FontWeight.Medium)
@@ -48,15 +50,14 @@ struct LoginPage {
   @State account: string = '';
   @State password: string = '';
   @State isShadow: boolean = false;
-  private windowModel: WindowModel;
+  private windowModel: WindowModel = WindowModel.getInstance();
 
   aboutToAppear() {
-    this.windowModel = WindowModel.getInstance();
     getContext(this).eventHub.on(CommonConstants.HOME_PAGE_ACTION, () => {
       router.replaceUrl({
         url: CommonConstants.HOME_PAGE_URL
-      }).catch(err => {
-        Logger.error(`pushUrl failed, Code:${err.code}, message:${err.message}`);
+      }).catch((err: Error) => {
+        Logger.error(`pushUrl failed, message:${err.message}`);
       });
     });
   }
@@ -148,7 +149,6 @@ struct LoginPage {
       .backgroundColor($r('app.color.background'))
       .height(CommonConstants.FULL_PARENT)
       .width(CommonConstants.FULL_PARENT)
-      .backgroundImage($r('app.media.ic_shadow_background'))
       .padding({
         left: $r('app.float.login_padding'),
         right: $r('app.float.login_padding'),
