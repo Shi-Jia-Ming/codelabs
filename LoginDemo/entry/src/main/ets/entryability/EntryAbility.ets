@@ -18,14 +18,17 @@ import deviceInfo from '@ohos.deviceInfo';
 import window from '@ohos.window';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
+import Want from '@ohos.app.ability.Want';
+import AbilityConstant from '@ohos.app.ability.AbilityConstant';
+import { GlobalContext } from '../common/utils/GlobalContext';
 
 /**
  * Lift cycle management of Ability.
  */
 export default class EntryAbility extends UIAbility {
-  onCreate(want, launchParam) {
-    globalThis.abilityWant = want;
-    globalThis.launchParam = launchParam;
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
+    GlobalContext.getContext().setObject('abilityWant', want);
+    GlobalContext.getContext().setObject('launchParam', launchParam);
     if (deviceInfo.deviceType !== CommonConstants.TABLET_DEVICE_TYPE) {
       window.getLastWindow(this.context, (err, data) => {
         if (err.code) {

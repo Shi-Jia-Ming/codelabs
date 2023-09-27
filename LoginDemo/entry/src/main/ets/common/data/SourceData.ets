@@ -162,31 +162,31 @@ export const MINE_LIST_DATA: Array<ItemData> = [
   {
     title: $r('app.string.mine_list_data'),
     img: $r('app.media.ic_data'),
-    others: null,
+    others: undefined,
     clickPrompt: $r('app.string.open_data')
   },
   {
     title: $r('app.string.mine_list_menu'),
     img: $r('app.media.ic_menu'),
-    others: null,
+    others: undefined,
     clickPrompt: $r('app.string.open_menu')
   },
   {
     title: $r('app.string.mine_list_about'),
     img: $r('app.media.ic_about'),
-    others: null,
+    others: undefined,
     clickPrompt: $r('app.string.open_about')
   },
   {
     title: $r('app.string.mine_list_storage'),
     img: $r('app.media.ic_storage'),
-    others: null,
+    others: undefined,
     clickPrompt: $r('app.string.clear_storage')
   },
   {
     title: $r('app.string.mine_list_privacy'),
     img: $r('app.media.ic_privacy'),
-    others: null,
+    others: undefined,
     clickPrompt: $r('app.string.check_privacy')
   }
 ];

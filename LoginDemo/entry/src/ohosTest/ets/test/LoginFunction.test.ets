@@ -10,22 +10,22 @@ const waitUiReadyMs = 1000;
 
 export default function LoginFunctionTest() {
 
-  describe('loginFunctionTest', function () {
-    it('emptyPasswordTest', 0, function () {
+  describe('loginFunctionTest', () => {
+    it('emptyPasswordTest', 0, () => {
       expect(loginCheck("123", "")).assertEqual(true);
     })
 
-    it('emptyAccountTest', 0, function () {
+    it('emptyAccountTest', 0, () => {
       expect(loginCheck("", "123456")).assertEqual(false);
     })
 
-    it('notEmptyTest', 0, function () {
+    it('notEmptyTest', 0, () => {
       expect(loginCheck("123", "123456")).assertEqual(false);
     })
   });
 
-  describe('verifyLoginTest', function () {
-    it('loginTest', 0, async function () {
+  describe('verifyLoginTest', () => {
+    it('loginTest', 0, async () => {
       await startAbility('com.huawei.logindemo', 'EntryAbility');
       let driver = Driver.create();
       await driver.delayMs(waitUiReadyMs);
@@ -43,9 +43,10 @@ export default function LoginFunctionTest() {
 }
 
 async function startAbility(bundleName: string, abilityName: string) {
-  await delegator.executeShellCommand(`aa start -b ${bundleName} -a ${abilityName}`).then(result => {
+  await delegator.executeShellCommand(`aa start -b ${bundleName} -a ${abilityName}`)
+    .then((result: abilityDelegatorRegistry.ShellCmdResult) => {
     Logger.info(`UiTestCase, start abilityFinished: ${JSON.stringify(result)}`);
-  }).catch(err => {
+  }).catch((err: Error) => {
     Logger.error(`UiTestCase, start abilityFailed: ${JSON.stringify(err)}`);
   })
 }
