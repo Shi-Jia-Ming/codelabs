@@ -20,10 +20,10 @@ export default class HobbyBean {
   /**
    * Hobby title
    */
-  label: string;
+  label?: string;
 
   /**
    * Hobby check status
    */
-  isChecked: boolean;
+  isChecked?: boolean;
 }
