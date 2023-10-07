@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "公共模块"
+    },
+    {
+      "name": "load_failed",
+      "value": "网络加载失败"
+    },
+    {
+      "name": "reload",
+      "value": "重新加载"
+    },
+    {
+      "name": "loading",
+      "value": "正在加载..."
+    },
+    {
+      "name": "no_more",
+      "value": "已经滑至底部"
+    },
+    {
+      "name": "network_error_msg",
+      "value": "网络似乎开小差了"
+    },
+    {
+      "name": "failed_message",
+      "value": "网络请求失败，请重试"
+    }
+  ]
+}

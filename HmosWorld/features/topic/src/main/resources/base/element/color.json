@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "item_white_bg",
+      "value": "#F7F7F7"
+    },
+    {
+      "name": "swiper_jump_bg_color",
+      "value": "#4d182431"
+    },
+    {
+      "name": "topic_color",
+      "value": "#182431"
+    },
+    {
+      "name": "title_color",
+      "value": "#000000"
+    },
+    {
+      "name": "btn_bg",
+      "value": "#0A59F7"
+    }
+  ]
+}

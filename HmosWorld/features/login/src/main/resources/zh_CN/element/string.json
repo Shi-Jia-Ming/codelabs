@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "登录"
+    },
+    {
+      "name": "account",
+      "value": "账号"
+    },
+    {
+      "name": "login_button",
+      "value": "登录"
+    },
+    {
+      "name": "signing_content_1",
+      "value": "正在登录."
+    },
+    {
+      "name": "signing_content_2",
+      "value": "正在登录.."
+    },
+    {
+      "name": "signing_content_3",
+      "value": "正在登录..."
+    },
+    {
+      "name": "privacy_statement",
+      "value": "隐私声明"
+    },
+    {
+      "name": "verification_code_login",
+      "value": "验证码登录"
+    },
+    {
+      "name": "password",
+      "value": "密码"
+    },
+    {
+      "name": "account_description",
+      "value": "登录账号以使用云空间、应用市场及更多服务"
+    },
+    {
+      "name": "account_placeholder",
+      "value": "手机号、邮件地址、账号名"
+    },
+    {
+      "name": "account_password_empty",
+      "value": "账号或密码不能为空"
+    },
+    {
+      "name": "user_exception",
+      "value": "用户异常"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+export { TopicModel } from './src/main/ets/model/TopicModel';

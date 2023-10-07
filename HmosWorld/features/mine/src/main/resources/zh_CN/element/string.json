@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "页面展示"
+    },
+    {
+      "name": "my_collected",
+      "value": "收藏"
+    },
+    {
+      "name": "my_viewed",
+      "value": "浏览"
+    },
+    {
+      "name": "my_achieve",
+      "value": "成就"
+    },
+    {
+      "name": "preference_title",
+      "value": "主题定制"
+    },
+    {
+      "name": "preference_subtitle",
+      "value": "选择你感兴趣的主题获得更精准的内容推荐"
+    },
+    {
+      "name": "topic",
+      "value": "文章"
+    },
+    {
+      "name": "feed",
+      "value": "资讯"
+    },
+    {
+      "name": "next_step",
+      "value": "下一步"
+    },
+    {
+      "name": "complete",
+      "value": "完成"
+    },
+    {
+      "name": "default_login",
+      "value": "登录帐号"
+    },
+    {
+      "name": "default_description",
+      "value": "登录后享受更多精彩服务"
+    },
+    {
+      "name": "font_family_harmony_heiti",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "article",
+      "value": "文章"
+    },
+    {
+      "name": "total_achieve_count",
+      "value": "成就数量 %d/8"
+    },
+    {
+      "name": "to_view",
+      "value": "去浏览第一篇文章或资讯"
+    },
+    {
+      "name": "to_collected",
+      "value": "去添加第一个收藏"
+    }
+  ]
+}

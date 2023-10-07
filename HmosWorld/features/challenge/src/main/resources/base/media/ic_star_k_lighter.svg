@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="314px" height="29px" viewBox="0 0 314 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 29</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板备份-78" transform="translate(-23.000000, -371.000000)">
+            <g id="编组-2" transform="translate(24.000000, 306.000000)">
+                <g id="编组-29" transform="translate(0.000000, 65.000000)">
+                    <line x1="311.999598" y1="14" x2="3.90217764e-06" y2="14.5032252" id="直线-3" stroke="#2B70B5" stroke-width="0.5" opacity="0.40284511" stroke-linecap="square"></line>
+                    <circle id="椭圆形" fill="#2B70B5" cx="133.499598" cy="14" r="3"></circle>
+                    <circle id="椭圆形备份-19" fill="#2B70B5" cx="183.499598" cy="14" r="3"></circle>
+                    <circle id="椭圆形备份-20" fill="#2B70B5" cx="199.499598" cy="14" r="3"></circle>
+                    <circle id="椭圆形备份-17" fill="#2B70B5" cx="117.499598" cy="14" r="3"></circle>
+                    <circle id="椭圆形备份-18" fill="#2B70B5" cx="102.499598" cy="14" r="2"></circle>
+                    <circle id="椭圆形备份-21" fill="#2B70B5" cx="214.499598" cy="14" r="2"></circle>
+                    <polygon id="星形" fill="#2B70B5" transform="translate(158.641734, 14.142136) rotate(-315.000000) translate(-158.641734, -14.142136) " points="158.641734 19.1421356 151.570666 21.2132034 153.641734 14.1421356 151.570666 7.07106781 158.641734 9.14213562 165.712802 7.07106781 163.641734 14.1421356 165.712802 21.2132034"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

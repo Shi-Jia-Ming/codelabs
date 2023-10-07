@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "activity",
+    "type": "shared",
+    "description": "$string:shared_desc",
+    "deviceTypes": [
+      "phone"
+    ],
+    "deliveryWithInstall": true
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "license": "",
+  "devDependencies": {
+    "@ohos/hypium": "1.0.6"
+  },
+  "author": "",
+  "name": "hmosworld",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hw-agconnect/api-ohos": "^1.0.10",
+    "@hw-agconnect/crypto-ohos": "^1.0.10",
+    "@hw-agconnect/function-ohos": "^1.0.10",
+    "@hw-agconnect/base-ohos": "^1.0.10",
+    "@hw-agconnect/core-ohos": "^1.0.10",
+    "@hw-agconnect/auth-ohos": "^1.0.10",
+    "@hw-agconnect/credential-ohos": "^1.0.10",
+    "long": "5.2.1"
+  }
+}

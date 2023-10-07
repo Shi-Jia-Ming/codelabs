@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "topic",
+      "value": "Topic"
+    },
+    {
+      "name": "feed",
+      "value": "Feed"
+    },
+    {
+      "name": "preference_title",
+      "value": "Guess you like"
+    },
+    {
+      "name": "preference_subtitle",
+      "value": "Select topics you're interested in to get more precise content recommendations."
+    },
+    {
+      "name": "complete",
+      "value": "Complete"
+    },
+    {
+      "name": "shared_desc",
+      "value": "Complete"
+    },
+    {
+      "name": "topic_title_main_family",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "topic_title_family",
+      "value": "HarmonyHeiTi"
+    }
+  ]
+}

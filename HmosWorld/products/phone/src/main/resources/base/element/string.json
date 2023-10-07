@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "HMOS World"
+    },
+    {
+      "name": "pull_up_load_text",
+      "value": "Loading in..."
+    },
+    {
+      "name": "network_exception",
+      "value": "The network seems to have deserted"
+    },
+    {
+      "name": "skip",
+      "value": "Jump"
+    },
+    {
+      "name": "tab_discover",
+      "value": "Discover"
+    },
+    {
+      "name": "tab_learning",
+      "value": "Learning"
+    },
+    {
+      "name": "tab_challenge",
+      "value": "Challenge"
+    },
+    {
+      "name": "tab_activity",
+      "value": "Activity"
+    },
+    {
+      "name": "tab_mine",
+      "value": "Mine"
+    },
+    {
+      "name": "topic_title_family",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "topic_title_family_sub",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "splash_main_title",
+      "value": "HarmonyOSWorld"
+    },
+    {
+      "name": "splash_sub_title",
+      "value": "Welcome to HarmonyOS Developer's world"
+    },
+    {
+      "name": "splash_button_title",
+      "value": "Start your learning journey"
+    }
+  ]
+}

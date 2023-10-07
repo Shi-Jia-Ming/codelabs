@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "discover",
+      "value": "Discover"
+    },
+    {
+      "name": "more",
+      "value": "More"
+    },
+    {
+      "name": "technical_articles",
+      "value": "Technical articles"
+    },
+    {
+      "name": "hot_feeds",
+      "value": "Hot feeds"
+    },
+    {
+      "name": "feed",
+      "value": "Feed"
+    },
+    {
+      "name": "article",
+      "value": "Article"
+    },
+    {
+      "name": "like",
+      "value": "Like"
+    },
+    {
+      "name": "collect",
+      "value": "Collect"
+    },
+    {
+      "name": "load_failed",
+      "value": "Load filed"
+    }
+  ]
+}

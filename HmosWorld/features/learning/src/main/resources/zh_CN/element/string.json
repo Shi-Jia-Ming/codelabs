@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "learning_title",
+      "value": "学习导览"
+    },
+    {
+      "name": "welcome_to_unlock",
+      "value": "欢迎解锁学习路径%s，您已获得该勋章"
+    },
+    {
+      "name": "you_has_get_achieve",
+      "value": "您已获得该勋章"
+    },
+    {
+      "name": "look_achieve_to_mine",
+      "value": "请前往\"我的\"，查看该勋章吧"
+    },
+    {
+      "name": "btn_ok",
+      "value": "好的"
+    }
+  ]
+}

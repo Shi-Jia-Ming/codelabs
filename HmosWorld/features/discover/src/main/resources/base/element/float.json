@@ -1,0 +1,168 @@
+{
+  "float": [
+    {
+      "name": "xxl_padding_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "xl_padding_margin",
+      "value": "20vp"
+    },
+    {
+      "name": "lg_padding_margin",
+      "value": "16vp"
+    },
+    {
+      "name": "md_padding_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "sm_padding_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "xs_padding_margin",
+      "value": "4vp"
+    },
+    {
+      "name": "lg_border_radius",
+      "value": "16vp"
+    },
+    {
+      "name": "md_border_radius",
+      "value": "12vp"
+    },
+    {
+      "name": "sm_border_radius",
+      "value": "8vp"
+    },
+    {
+      "name": "xs_border_radius",
+      "value": "4vp"
+    },
+    {
+      "name": "xs_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "sm_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "md_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "lg_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "top_navigation_height",
+      "value": "56vp"
+    },
+    {
+      "name": "top_navigation_button_size",
+      "value": "24vp"
+    },
+    {
+      "name": "interactive_area_height",
+      "value": "72vp"
+    },
+    {
+      "name": "interactive_button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "interactive_bar_icon_size",
+      "value": "22vp"
+    },
+    {
+      "name": "feed_label_width",
+      "value": "0.5vp"
+    },
+    {
+      "name": "view_count_icon_width",
+      "value": "36vp"
+    },
+    {
+      "name": "like_icon_width",
+      "value": "22vp"
+    },
+    {
+      "name": "star_icon_width",
+      "value": "16vp"
+    },
+    {
+      "name": "swiper_height",
+      "value": "144vp"
+    },
+    {
+      "name": "nav_title_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "icon_size",
+      "value": "16vp"
+    },
+    {
+      "name": "detail_page_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "article_card_image_height",
+      "value": "64vp"
+    },
+    {
+      "name": "article_card_image_width",
+      "value": "108vp"
+    },
+    {
+      "name": "article_card_height",
+      "value": "102vp"
+    },
+    {
+      "name": "article_hots_height",
+      "value": "204vp"
+    },
+    {
+      "name": "hot_article_image_size",
+      "value": "48vp"
+    },
+    {
+      "name": "article_hots_divider_width",
+      "value": "1vp"
+    },
+    {
+      "name": "hot_article_height",
+      "value": "64vp"
+    },
+    {
+      "name": "header_font_size",
+      "value": "24fp"
+    },
+    {
+      "name": "hot_feed_area_height",
+      "value": "48vp"
+    },
+    {
+      "name": "more_arrow_icon_width",
+      "value": "12vp"
+    },
+    {
+      "name": "more_arrow_icon_height",
+      "value": "24vp"
+    },
+    {
+      "name": "feed_label_padding",
+      "value": "2vp"
+    },
+    {
+      "name": "feed_card_padding",
+      "value": "6vp"
+    },
+    {
+      "name": "feed_card_height",
+      "value": "174vp"
+    }
+  ]
+}

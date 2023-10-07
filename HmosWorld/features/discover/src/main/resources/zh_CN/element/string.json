@@ -1,0 +1,44 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "探索模块"
+    },
+    {
+      "name": "discover",
+      "value": "探索"
+    },
+    {
+      "name": "technical_articles",
+      "value": "技术文章"
+    },
+    {
+      "name": "hot_feeds",
+      "value": "热门资讯"
+    },
+    {
+      "name": "more",
+      "value": "更多"
+    },
+    {
+      "name": "feed",
+      "value": "资讯"
+    },
+    {
+      "name": "article",
+      "value": "文章"
+    },
+    {
+      "name": "like",
+      "value": "点赞"
+    },
+    {
+      "name": "collect",
+      "value": "收藏"
+    },
+    {
+      "name": "load_failed",
+      "value": "加载失败"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "src": [
+    "pages/IntroductionPage",
+    "pages/ChallengeDetailPage"
+  ]
+}

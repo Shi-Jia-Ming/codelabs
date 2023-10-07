@@ -1,0 +1,80 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "计步器应用"
+    },
+    {
+      "name": "start",
+      "value": "开始"
+    },
+    {
+      "name": "stop",
+      "value": "停止"
+    },
+    {
+      "name": "set_target",
+      "value": "设置目标"
+    },
+    {
+      "name": "step",
+      "value": "%s 步"
+    },
+    {
+      "name": "walking_data",
+      "value": "步行数据"
+    },
+    {
+      "name": "current_steps",
+      "value": "当前步数:"
+    },
+    {
+      "name": "start_position",
+      "value": "起始位置:"
+    },
+    {
+      "name": "current_location",
+      "value": "当前位置:"
+    },
+    {
+      "name": "steps",
+      "value": "步数"
+    },
+    {
+      "name": "placeholder",
+      "value": "可输入目标步数"
+    },
+    {
+      "name": "cancel",
+      "value": "取消"
+    },
+    {
+      "name": "confirm",
+      "value": "确定"
+    },
+    {
+      "name": "reason_motion",
+      "value": "获取计步器数据"
+    },
+    {
+      "name": "reason_internet",
+      "value": "连接网络"
+    },
+    {
+      "name": "reason_location",
+      "value": "获取定位数据"
+    },
+    {
+      "name": "reason_background",
+      "value": "保持后台运行"
+    }
+  ]
+}

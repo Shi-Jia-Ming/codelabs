@@ -1,0 +1,32 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "common module"
+    },
+    {
+      "name": "load_failed",
+      "value": "Failed to load the network"
+    },
+    {
+      "name": "reload",
+      "value": "Reload"
+    },
+    {
+      "name": "loading",
+      "value": "Loading..."
+    },
+    {
+      "name": "no_more",
+      "value": "Mo more resources"
+    },
+    {
+      "name": "network_error_msg",
+      "value": "The network seems to have deserted"
+    },
+    {
+      "name": "failed_message",
+      "value": "network failed, please reload"
+    }
+  ]
+}
