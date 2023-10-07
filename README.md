@@ -78,7 +78,7 @@
   - [应用内字体大小调节（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SetAppFontSize)
   - [应用首次启动（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/FirstStartDemo_HOS)
 - 设备管理
-  - [计步器应用（ArkTS）（API 8）](https://gitee.com/harmonyos/codelabs/tree/master/StepsDemo)
+  - [计步器应用（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/PedometerApp)
 - 分布式
   - [分布式新闻客户端（ArkTS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/DistributeNewsETS)
   - [分布式新闻客户端（JS）（API 7）](https://gitee.com/harmonyos/codelabs/tree/master/DistributeNewsJS)

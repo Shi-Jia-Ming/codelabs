@@ -1,0 +1,80 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "pedometer"
+    },
+    {
+      "name": "start",
+      "value": "start"
+    },
+    {
+      "name": "stop",
+      "value": "start"
+    },
+    {
+      "name": "set_target",
+      "value": "set target"
+    },
+    {
+      "name": "step",
+      "value": "%s step"
+    },
+    {
+      "name": "walking_data",
+      "value": "walking data"
+    },
+    {
+      "name": "current_steps",
+      "value": "current steps:"
+    },
+    {
+      "name": "start_position",
+      "value": "start position:"
+    },
+    {
+      "name": "current_location",
+      "value": "current location:"
+    },
+    {
+      "name": "steps",
+      "value": "steps"
+    },
+    {
+      "name": "placeholder",
+      "value": "placeholder"
+    },
+    {
+      "name": "cancel",
+      "value": "cancel"
+    },
+    {
+      "name": "confirm",
+      "value": "sure"
+    },
+    {
+      "name": "reason_motion",
+      "value": "Get steps data"
+    },
+    {
+      "name": "reason_internet",
+      "value": "internet"
+    },
+    {
+      "name": "reason_location",
+      "value": "Get location data"
+    },
+    {
+      "name": "reason_background",
+      "value": "Keep background running"
+    }
+  ]
+}
