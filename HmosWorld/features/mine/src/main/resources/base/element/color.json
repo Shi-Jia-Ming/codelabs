@@ -1,0 +1,36 @@
+{
+  "color": [
+    {
+      "name": "theme_blue_color",
+      "value": "#0A59F0"
+    },
+    {
+      "name": "theme_blue_background_color",
+      "value": "#1A0A59F7"
+    },
+    {
+      "name": "hmos_black",
+      "value": "#FF000000"
+    },
+    {
+      "name": "hmos_medium_black",
+      "value": "#99000000"
+    },
+    {
+      "name": "hmos_regular_gray",
+      "value": "#66000000"
+    },
+    {
+      "name": "hmos_light_white",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "hmos_background_color_white",
+      "value": "#FAFAFA"
+    },
+    {
+      "name": "hmos_color_white",
+      "value": "#FFFFFF"
+    }
+  ]
+}

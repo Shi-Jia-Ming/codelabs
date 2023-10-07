@@ -1,0 +1,56 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "login"
+    },
+    {
+      "name": "account",
+      "value": "Account"
+    },
+    {
+      "name": "login_button",
+      "value": "Login"
+    },
+    {
+      "name": "signing_content_1",
+      "value": "Login."
+    },
+    {
+      "name": "signing_content_2",
+      "value": "Login.."
+    },
+    {
+      "name": "signing_content_3",
+      "value": "Login..."
+    },
+    {
+      "name": "privacy_statement",
+      "value": "Privacy statement"
+    },
+    {
+      "name": "verification_code_login",
+      "value": "Verification code login"
+    },
+    {
+      "name": "password",
+      "value": "Password"
+    },
+    {
+      "name": "account_description",
+      "value": "Log in to your account to use Cloud Space, App Marketplace and more"
+    },
+    {
+      "name": "account_placeholder",
+      "value": "Mobile, Email, Account"
+    },
+    {
+      "name": "account_password_empty",
+      "value": "The account or password cannot be empty"
+    },
+    {
+      "name": "user_exception",
+      "value": "User exception"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "apiType": 'stageMode',
+  "buildOption": {
+    "arkOptions": {
+      "apPath": "./phone.ap",
+      "obfuscation": {
+        "ruleOptions": {
+          "enable": false
+        }
+      }
+    }
+  },
+  "targets": [
+    {
+      "name": "default",
+    }
+  ]
+}

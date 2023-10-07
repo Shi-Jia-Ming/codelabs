@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_arrowxxxhdpi</title>
+    <defs>
+        <path d="M8.00015813,9 L15.9998787,9 C16.5522304,9 17,9.44776286 17,10.0001063 C17,10.227202 16.9227099,10.4475359 16.7808422,10.6248678 L12.7809819,15.6246183 C12.4359305,16.0559261 11.8065618,16.1258549 11.3752476,15.7808087 C11.3175759,15.734672 11.2651922,15.6822891 11.2190549,15.6246183 L7.2191946,10.6248678 C6.8741432,10.19356 6.94407306,9.56420072 7.3753873,9.21915449 C7.55272186,9.07728897 7.77305909,9 8.00015813,9 Z" id="path-1"></path>
+    </defs>
+    <g id="ic_arrow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="矩形备份" fill="#FFFFFF" xlink:href="#path-1"></use>
+    </g>
+</svg>

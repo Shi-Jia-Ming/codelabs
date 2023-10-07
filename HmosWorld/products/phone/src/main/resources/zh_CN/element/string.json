@@ -1,0 +1,68 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "HMOS世界"
+    },
+    {
+      "name": "pull_up_load_text",
+      "value": "加载中..."
+    },
+    {
+      "name": "network_exception",
+      "value": "网络似乎开小差了"
+    },
+    {
+      "name": "skip",
+      "value": "跳过"
+    },
+    {
+      "name": "tab_discover",
+      "value": "探索"
+    },
+    {
+      "name": "tab_learning",
+      "value": "学习"
+    },
+    {
+      "name": "tab_challenge",
+      "value": "溪村挑战赛"
+    },
+    {
+      "name": "tab_activity",
+      "value": "活动"
+    },
+    {
+      "name": "tab_mine",
+      "value": "我的"
+    },
+    {
+      "name": "topic_title_family",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "topic_title_family_sub",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "splash_main_title",
+      "value": "HarmonyOS世界"
+    },
+    {
+      "name": "splash_sub_title",
+      "value": "欢迎来到HarmonyOS开发者世界"
+    },
+    {
+      "name": "splash_button_title",
+      "value": "开始学习之旅!"
+    }
+  ]
+}

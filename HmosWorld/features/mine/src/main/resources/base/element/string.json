@@ -1,0 +1,72 @@
+{
+  "string": [
+    {
+      "name": "page_show",
+      "value": "page from npm package"
+    },
+    {
+      "name": "my_collected",
+      "value": "Collected"
+    },
+    {
+      "name": "my_viewed",
+      "value": "Viewed"
+    },
+    {
+      "name": "my_achieve",
+      "value": "Achieved"
+    },
+    {
+      "name": "preference_title",
+      "value": "Guess you like"
+    },
+    {
+      "name": "preference_subtitle",
+      "value": "Select topics you're interested in to get more precise content recommendations."
+    },
+    {
+      "name": "topic",
+      "value": "Topic"
+    },
+    {
+      "name": "feed",
+      "value": "Feed"
+    },
+    {
+      "name": "article",
+      "value": "Article"
+    },
+    {
+      "name": "next_step",
+      "value": "Next"
+    },
+    {
+      "name": "complete",
+      "value": "Complete"
+    },
+    {
+      "name": "default_login",
+      "value": "login_account"
+    },
+    {
+      "name": "default_description",
+      "value": "login for more infomation"
+    },
+    {
+      "name": "font_family_harmony_heiti",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "total_achieve_count",
+      "value": "Achieve Count %d/8"
+    },
+    {
+      "name": "to_view",
+      "value": "To view the first article or feed"
+    },
+    {
+      "name": "to_collected",
+      "value": "To add the first favorite"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>矩形 2备份 30</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="矩形-2备份-30">
+            <rect id="矩形" x="6" y="9" width="48" height="48"></rect>
+            <g id="编组-2" fill="#FFFFFF">
+                <path d="M30.8944283,50.2961242 L35.690506,57 L35.690506,57 L23.690506,56.9255626 L28.9777462,50.2493345 C29.3892025,49.7297863 30.1439307,49.6421605 30.6634789,50.0536168 C30.7514185,50.1232606 30.8291585,50.2048911 30.8944283,50.2961242 Z" id="三角形" transform="translate(29.690506, 53.000000) scale(1, -1) translate(-29.690506, -53.000000) "></path>
+                <circle id="椭圆形" cx="30" cy="30" r="21"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

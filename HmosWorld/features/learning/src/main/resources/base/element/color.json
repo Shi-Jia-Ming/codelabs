@@ -1,0 +1,20 @@
+{
+  "color": [
+    {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "common_background_color",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "achieve_grey_text_color",
+      "value": "#99000000"
+    },
+    {
+      "name": "achieve_dialog_mask_color",
+      "value": "#66000000"
+    }
+  ]
+}

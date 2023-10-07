@@ -1,0 +1,36 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "preference_title",
+      "value": "主题定制"
+    },
+    {
+      "name": "preference_subtitle",
+      "value": "选择你感兴趣的主题获得更精准的内容推荐"
+    },
+    {
+      "name": "topic",
+      "value": "文章"
+    },
+    {
+      "name": "feed",
+      "value": "资讯"
+    },
+    {
+      "name": "complete",
+      "value": "完成"
+    },
+    {
+      "name": "topic_title_family",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "topic_title_main_family",
+      "value": "HarmonyHeiTi-Medium"
+    }
+  ]
+}

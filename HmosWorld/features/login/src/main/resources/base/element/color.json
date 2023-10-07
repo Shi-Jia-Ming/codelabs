@@ -1,0 +1,44 @@
+{
+  "color": [
+    {
+      "name": "color_white",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "tab_bar_color",
+      "value": "#99182431"
+    },
+    {
+      "name": "description_font_color",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "line_background_color",
+      "value": "#26FFFFFF"
+    },
+    {
+      "name": "account_line_background_color",
+      "value": "#33000000"
+    },
+    {
+      "name": "input_background_color",
+      "value": "#90FFFFFF"
+    },
+    {
+      "name": "button_background_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "text_input_background_color",
+      "value": "#00000000"
+    },
+    {
+      "name": "text_input_placeholder_color",
+      "value": "#99FFFFFF"
+    },
+    {
+      "name": "selected_account_background_color",
+      "value": "#FFE6EEFE"
+    }
+  ]
+}

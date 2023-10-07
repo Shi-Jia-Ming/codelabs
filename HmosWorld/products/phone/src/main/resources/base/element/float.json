@@ -1,0 +1,104 @@
+ {
+  "float": [
+    {
+      "name": "page_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "small_text_size",
+      "value": "12fp"
+    },
+    {
+      "name": "normal_text_size",
+      "value": "14fp"
+    },
+    {
+      "name": "splash_normal_text_size",
+      "value": "16fp"
+    },
+    {
+      "name": "title_text_size",
+      "value": "20fp"
+    },
+    {
+      "name": "splash_title_text_size",
+      "value": "24fp"
+    },
+    {
+      "name": "tool_bar_height",
+      "value": "56vp"
+    },
+    {
+      "name": "tool_bar_margin",
+      "value": "-56vp"
+    },
+    {
+      "name": "tab_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "tab_border_width",
+      "value": "0.5vp"
+    },
+    {
+      "name": "tab_img_size",
+      "value": "22vp"
+    },
+    {
+      "name": "tab_big_img_width",
+      "value": "32vp"
+    },
+    {
+      "name": "tab_big_img_height",
+      "value": "37vp"
+    },
+    {
+      "name": "tab_margin",
+      "value": "-15vp"
+    },
+    {
+      "name": "tab_title_margin",
+      "value": "5vp"
+    },
+    {
+      "name": "splash_swiper_indicator",
+      "value": "5vp"
+    },
+    {
+      "name": "button_weight",
+      "value": "500vp"
+    },
+    {
+      "name": "button_opacity",
+      "value": "0.8vp"
+    },
+    {
+      "name": "button_width",
+      "value": "312vp"
+    },
+    {
+      "name": "button_height",
+      "value": "40vp"
+    },
+    {
+      "name": "button_borderRadius",
+      "value": "20vp"
+    },
+    {
+      "name": "button_margin",
+      "value": "650vp"
+    },
+    {
+      "name": "image_width",
+      "value": "300vp"
+    },
+    {
+      "name": "text_opacity",
+      "value": "0.7vp"
+    },
+    {
+      "name": "test_margin",
+      "value": "5vp"
+    }
+  ]
+}

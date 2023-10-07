@@ -1,0 +1,19 @@
+{
+  "license": "",
+  "devDependencies": {},
+  "author": "",
+  "name": "phone",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "version": "1.0.0",
+  "dependencies": {
+    "@ohos/activity": "file:../../features/activity",
+    "@ohos/discover": "file:../../features/discover",
+    "@ohos/topic": "file:../../features/topic",
+    "@ohos/mine": "file:../../features/mine",
+    "@ohos/learning": "file:../../features/learning",
+    "@ohos/challenge": "file:../../features/challenge",
+    "@ohos/common": "file:../../common",
+    "@ohos/login": "file:../../features/login"
+  }
+}

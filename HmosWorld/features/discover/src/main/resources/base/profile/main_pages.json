@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/ArticleDetailPage",
+    "pages/FeedDetailPage",
+    "pages/FeedPage"
+  ]
+}

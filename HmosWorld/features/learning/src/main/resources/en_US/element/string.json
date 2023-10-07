@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "shared_desc",
+      "value": "description"
+    },
+    {
+      "name": "learning_title",
+      "value": "Learning Guided Tours"
+    },
+    {
+      "name": "welcome_to_unlock",
+      "value": "welcome to unlock learning path %s,you has got achieve"
+    },
+    {
+      "name": "you_has_get_achieve",
+      "value": "you has got achieve"
+    },
+    {
+      "name": "btn_ok",
+      "value": "ok"
+    },
+    {
+      "name": "look_achieve_to_mine",
+      "value": "please go to mine to look achieves"
+    }
+  ]
+}
