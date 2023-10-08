@@ -38,7 +38,6 @@ export default struct BalanceComponent {
       }
       .layoutWeight(BalanceStyle.LAYOUT_WEIGHT)
       .justifyContent(FlexAlign.End)
-
     }
   }
 }

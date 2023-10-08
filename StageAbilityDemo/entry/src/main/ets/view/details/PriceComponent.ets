@@ -17,7 +17,7 @@ import { AppFontSize, AppFontWeight, PERCENTAGE_100 } from '../../common/constan
 
 @Component
 export default struct PriceComponent {
-  private price: string = ''
+  private price: string = '';
 
   build() {
     Column() {
