@@ -38,6 +38,9 @@ export default class DataModel {
     },
     {
       imgSrc: $rawfile('index/banner2.png')
+    },
+    {
+      imgSrc: $rawfile('index/banner3.png')
     }
   ];
   public static readonly HOME_MENU: MenuData[] = [

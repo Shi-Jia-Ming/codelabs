@@ -22,6 +22,6 @@ export default class GoodsData {
   originalPrice: string = '';
   discounts: Resource = $r('app.string.goods_list_item_1_save');
   label: Resource = $r('app.string.goods_list_activity_new');
-  goodsImg: Resource =  $rawfile('index/good1.png');
+  goodsImg: Resource = $rawfile('index/good1.png');
   goodsDescription: Resource = $r('app.string.goods_list_item_1_desc');
 }
