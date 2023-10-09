@@ -24,12 +24,12 @@ export struct TopicItem {
 
   build() {
     Stack() {
-      if (this.item.isFollowed) {
-        Image($r('app.media.ic_checked'))
-          .size({ width: $r('app.float.topic_icon_size'), height: $r('app.float.topic_icon_size') })
-          .offset({ x: ThemeConstants.TOPIC_ICON_OFFSET_X, y: ThemeConstants.TOPIC_ICON_OFFSET_Y })
-          .zIndex(ThemeConstants.Z_INDEX_TWO)
-      }
+      Image($r('app.media.ic_checked'))
+        .size({ width: $r('app.float.topic_icon_size'), height: $r('app.float.topic_icon_size') })
+        .offset({ x: ThemeConstants.TOPIC_ICON_OFFSET_X, y: ThemeConstants.TOPIC_ICON_OFFSET_Y })
+        .zIndex(ThemeConstants.Z_INDEX_TWO)
+        .visibility(this.item.isFollowed ? Visibility.Visible : Visibility.None)
+
       Column({ space: ThemeConstants.COLUMN_SPACE }) {
         Image(THEME_LIST[this.item.id])
           .interpolation(ImageInterpolation.High)

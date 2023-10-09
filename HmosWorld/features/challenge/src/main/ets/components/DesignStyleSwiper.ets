@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 
+import curves from '@ohos.curves';
 import ZonesItem from '../entity/ZonesItem';
 import { ChallengeConstants as Const } from '../constants/ChallengeConstants';
 import { ImageViewDialog } from './ImageViewDialog';
@@ -21,11 +22,16 @@ import { ImageViewDialog } from './ImageViewDialog';
 export default struct DesignStyleSwiper {
   @State currentIndex: number = Const.HALF_COUNT;
   @Consume('introductionData') introductionData: ZonesItem;
-  dialogController: CustomDialogController = new CustomDialogController({
-    builder: ImageViewDialog({ currentImageId: this.currentIndex }),
-    customStyle: true,
-    alignment: DialogAlignment.Bottom
-  });
+  @State isPresent: boolean = false;
+
+  @Builder
+  PhotoBuilder() {
+    ImageViewDialog({ isPresent: $isPresent, currentIndex: $currentIndex })
+      .width(Const.FULL_PERCENT)
+      .height(Const.FULL_PERCENT)
+      .transition(TransitionEffect.opacity(1))
+      .backgroundBlurStyle(this.isPresent ? BlurStyle.Regular : BlurStyle.NONE, { colorMode: ThemeColorMode.DARK })
+  }
 
   /**
    * Get the image offset coefficients.
@@ -85,6 +91,7 @@ export default struct DesignStyleSwiper {
           Row() {
             Image(item)
               .objectFit(ImageFit.ScaleDown)
+              .geometryTransition(index === this.currentIndex ? 'share_' + this.currentIndex : '')
               .shadow({
                 radius: Const.SHADOW_RADIUS,
                 color: Const.SHADOW_COLOR,
@@ -100,7 +107,9 @@ export default struct DesignStyleSwiper {
               Const.IMAGE_WIDTH_OFFSET * Math.abs(this.getImgCoefficients(index))}%`)
           .aspectRatio(Const.IMAGE_ASPECT_RATIO)
           .onClick(() => {
-            this.dialogController.open();
+            animateTo({ curve: curves.springMotion(Const.SPRING_RESPONSE, Const.DAMPING_FRACTION) }, () => {
+              this.isPresent = !this.isPresent;
+            });
           })
         }
       }, (item: ResourceStr) => JSON.stringify(item))
@@ -108,6 +117,7 @@ export default struct DesignStyleSwiper {
     .width(Const.FULL_PERCENT)
     .height($r('app.float.swiper_height'))
     .alignContent(Alignment.Center)
+    .bindContentCover($$this.isPresent, this.PhotoBuilder, ModalTransition.NONE)
     .gesture(
       PanGesture({ direction: PanDirection.Horizontal })
         .onActionStart((event?: GestureEvent) => {

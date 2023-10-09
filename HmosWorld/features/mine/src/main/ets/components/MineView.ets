@@ -323,8 +323,8 @@ struct UserInfoView {
               .margin({ bottom: $r('app.float.user_image_padding'), top: $r('app.float.user_image_padding') })
 
             Text($r('app.string.default_login'))
+              .fontColor($r('app.color.hmos_color_white'))
               .fontSize($r('app.float.user_account_font_size'))
-              .fontWeight(FontWeight.Bold)
               .padding({ bottom: $r('app.float.login_account_padding_bottom') })
               .onClick(() => {
                 router.pushUrl({ url: LOGIN_ROUTER_PARAMS })
@@ -332,6 +332,7 @@ struct UserInfoView {
           }
 
           Text($r('app.string.default_description'))
+            .width(Constants.FULL_SCREEN)
             .fontSize($r('app.float.login_information_font_size'))
             .fontColor($r('app.color.hmos_color_white'))
         }

@@ -32,6 +32,8 @@ import { ArticleCardView } from './components/article/ArticleCardView';
 import { FeedCardView } from './components/feed/FeedCardView';
 import { DiscoverSkeletonView } from './components/skeleton/DiscoverSkeletonView';
 import { DiscoverModel } from './model/DiscoverModel';
+import LazyDataSource from './model/LazyData';
+import hilog from '@ohos.hilog';
 
 const context = (getContext(this) as common.UIAbilityContext);
 const bundleName = context.applicationInfo.name;
@@ -45,6 +47,7 @@ export struct DiscoverView {
   @State discoverModel: DiscoverModel = DiscoverModel.getInstance();
   topicModel: TopicModel = TopicModel.getInstance();
   @State techArticleList: ObservedArray<LearningResource> = this.discoverModel.techArticleList;
+  @State articlesDataSource: LazyDataSource = new LazyDataSource();
   @State hotFeedList: ObservedArray<LearningResource> = this.discoverModel.hotFeedList;
   @State collectedIds: ObservedArray<string> = this.userModel.collectedIds;
   @State likedIds: ObservedArray<string> = this.userModel.likedIds;
@@ -55,6 +58,21 @@ export struct DiscoverView {
   aboutToAppear() {
     this.userModel.getUserData();
     this.topicChange();
+
+    if (!this.getResource) {
+      this.initLazyData();
+    }
+  }
+
+  initLazyData() {
+    let length = this.articlesDataSource.totalCount();
+    for (let i = length - 1; i >= 0; i--) {
+      this.articlesDataSource.deleteData(i);
+    }
+
+    for (let i = 0; i < this.techArticleList.length; i++) {
+      this.articlesDataSource.pushData(this.techArticleList[i])
+    }
   }
 
   isCollected(resourceId: string): boolean {
@@ -65,17 +83,20 @@ export struct DiscoverView {
     return this.likedIds.some((id: string) => id === resourceId);
   }
 
-  topicChange(): void {
+  topicChange() {
     if (!this.getResource) {
       return;
     }
+
     this.getResource = false;
     this.discoverModel.loadingStatus = LoadingStatus.LOADING;
     if (AppStorage.get<boolean>('shouldUpdate')) {
       AppStorage.delete('shouldUpdate');
       this.topicModel.editTopicsFollowed().then(() => {
         this.topicModel.updateLocalTopic();
-        this.discoverModel.getHomeResources();
+        this.discoverModel.getHomeResources().then(() => {
+          this.initLazyData();
+        });
       }).catch(() => {
         this.discoverModel.loadingStatus = LoadingStatus.SUCCESS;
         promptAction.showToast({
@@ -83,7 +104,9 @@ export struct DiscoverView {
         });
       });
     } else {
-      this.discoverModel.getHomeResources();
+      this.discoverModel.getHomeResources().then(() => {
+        this.initLazyData();
+      });
     }
   }
 
@@ -94,7 +117,11 @@ export struct DiscoverView {
         DiscoverSkeletonView()
       }
       if (this.discoverModel.loadingStatus === LoadingStatus.FAILED) {
-        FailureLayout({ handleReload: () => this.discoverModel.getHomeResources() })
+        FailureLayout({
+          handleReload: () => this.discoverModel.getHomeResources().then(() => {
+            this.initLazyData();
+          })
+        })
       }
       if (this.discoverModel.loadingStatus === LoadingStatus.SUCCESS) {
         List({ space: CommonConstants.SPACE_16 }) {
@@ -179,31 +206,34 @@ export struct DiscoverView {
                   top: $r('app.float.xs_border_radius')
                 })
 
-              Column({ space: CommonConstants.SPACE_12 }) {
-                ForEach(this.techArticleList, (item: LearningResource) => {
-                  ArticleCardView({
-                    articleItem: item,
-                    isLiked: this.isLiked(item.id),
-                    isCollected: this.isCollected(item.id),
-                    onCollected: () => {
-                      context.eventHub.emit(CommonConstants.COLLECTED_EVENT, {
-                        resourceId: item.id,
-                        resourceType: item.type,
-                        actionValue: !this.isCollected(item.id)
-                      });
-                    },
-                    onLiked: () => {
-                      context.eventHub.emit(CommonConstants.LIKED_EVENT, {
-                        resourceId: item.id,
-                        resourceType: item.type,
-                        actionValue: !this.isLiked(item.id)
-                      });
-                    }
-                  })
-                    .onClick(() => router.pushUrl({
-                      url: `@bundle:${bundleName}${CommonConstants.DISCOVER_ARTICLE_DETAIL_PAGE}`,
-                      params: { resourceId: item.id }
-                    }))
+              List({ space: CommonConstants.SPACE_12 }) {
+                LazyForEach(this.articlesDataSource, (item: LearningResource) => {
+                  ListItem() {
+                    ArticleCardView({
+                      articleItem: item,
+                      isLiked: this.isLiked(item.id),
+                      isCollected: this.isCollected(item.id),
+                      onCollected: () => {
+                        context.eventHub.emit(CommonConstants.COLLECTED_EVENT, {
+                          resourceId: item.id,
+                          resourceType: item.type,
+                          actionValue: !this.isCollected(item.id)
+                        });
+                      },
+                      onLiked: () => {
+                        context.eventHub.emit(CommonConstants.LIKED_EVENT, {
+                          resourceId: item.id,
+                          resourceType: item.type,
+                          actionValue: !this.isLiked(item.id)
+                        });
+                      }
+                    })
+                      .reuseId(item.type.toString())
+                      .onClick(() => router.pushUrl({
+                        url: `@bundle:${bundleName}${CommonConstants.DISCOVER_ARTICLE_DETAIL_PAGE}`,
+                        params: { resourceId: item.id }
+                      }))
+                  }
                 }, (item: LearningResource) => item.id)
               }
             }
@@ -229,8 +259,12 @@ export struct DiscoverView {
         .parallelGesture(
           PanGesture({ direction: PanDirection.Up, distance: LOAD_MORE_MIN_DRAG_DISTANCE })
             .onActionStart(() => {
-              if (this.isListReachEnd) {
-                this.discoverModel.loadMoreArticle();
+              if (this.isListReachEnd && this.discoverModel.hasNextArticle) {
+                this.discoverModel.loadMoreArticle().then((data) => {
+                  for (let i = 0; i < data.length; i++) {
+                    this.articlesDataSource.pushData(data[i]);
+                  }
+                });
                 this.isListReachEnd = false;
               }
             })

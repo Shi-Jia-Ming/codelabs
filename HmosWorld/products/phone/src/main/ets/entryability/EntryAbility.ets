@@ -16,9 +16,8 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import webview from '@ohos.web.webview';
 import window from '@ohos.window';
-import agconnect from '@hw-agconnect/api-ohos';
-import '@hw-agconnect/core-ohos';
-import '@hw-agconnect/function-ohos';
+import buffer from '@ohos.buffer';
+import { initialize } from '@hw-agconnect/hmcore';
 import { Logger } from '@ohos/common';
 import { requestFullScreen } from '../utils/WindowUtil';
 import { AppConstants } from '../constants/AppConstants';
@@ -28,15 +27,14 @@ const TAG = '[EntryAbility]';
 export default class EntryAbility extends UIAbility {
   onCreate() {
     Logger.info(TAG, 'Ability onCreate');
-
-    try {
-      // AGC init
-      agconnect.instance().init(this.context.getApplicationContext());
-      Logger.info(TAG, 'AGC init AGC SDK success');
-    } catch {
-      Logger.error(TAG, 'AGC init AGC SDK failed ');
-    }
     webview.WebviewController.initializeWebEngine();
+  }
+
+  async initAgc() {
+    const context = this.context;
+    const value = await context.resourceManager.getRawFileContent("agconnect-services.json");
+    let json: string = buffer.from(value).toString("utf8");
+    initialize(this.context, JSON.parse(json));
   }
 
   onDestroy() {
@@ -46,6 +44,7 @@ export default class EntryAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability
     Logger.info(TAG, 'Ability onWindowStageCreate');
+    this.initAgc();
     AppStorage.setOrCreate<number>('statusBarHeight', AppConstants.DEFAULT_STATUS_HEIGHT);
     requestFullScreen(windowStage, this.context);
     windowStage.loadContent('pages/SplashPage');

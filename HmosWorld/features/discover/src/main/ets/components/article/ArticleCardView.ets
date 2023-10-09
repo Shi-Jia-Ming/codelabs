@@ -13,8 +13,11 @@
  * limitations under the License.
  */
 
-import { ActionButtonView, CommonConstants, LearningResource } from '@ohos/common';
+import { ActionButtonView, CommonConstants, LearningResource, Logger } from '@ohos/common';
 
+const TAG = '[ArticleCardView]';
+
+@Reusable
 @Component
 export struct ArticleCardView {
   @Prop isCollected: boolean = false;
@@ -22,6 +25,11 @@ export struct ArticleCardView {
   @Prop articleItem: LearningResource = new LearningResource();
   onCollected?: () => void;
   onLiked?: () => void;
+
+  aboutToReuse(params: Record<string, Object>): void {
+    this.isCollected = params.isCollected as boolean;
+    this.isLiked = params.isLiked as boolean;
+  }
 
   build() {
     Row({ space: CommonConstants.SPACE_16 }) {

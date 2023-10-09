@@ -39,6 +39,10 @@
     {
       "name": "load_failed",
       "value": "Load filed"
+    },
+    {
+      "name": "failed_message",
+      "value": "network failed, please reload"
     }
   ]
 }

@@ -39,6 +39,10 @@
     {
       "name": "load_failed",
       "value": "加载失败"
+    },
+    {
+      "name": "failed_message",
+      "value": "网络请求失败，请重试"
     }
   ]
 }

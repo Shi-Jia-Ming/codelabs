@@ -185,7 +185,8 @@ struct LoginPage {
                       .alignItems(VerticalAlign.Center)
                       .width($r('app.float.signing_row_width'))
                     }
-                  }.justifyContent(FlexAlign.Center)
+                  }
+                  .justifyContent(FlexAlign.Center)
                   .alignItems(VerticalAlign.Center)
                 }
                 .borderRadius($r('app.float.button_border_radius'))

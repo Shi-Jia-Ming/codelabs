@@ -94,6 +94,7 @@ export struct DiscoverSkeletonView {
           .alignItems(HorizontalAlign.Start)
         }
       }
+      .scrollBar(BarState.Off)
     }
     .height(CommonConstants.FULL_PERCENT)
     .opacity(this.columnOpacity)

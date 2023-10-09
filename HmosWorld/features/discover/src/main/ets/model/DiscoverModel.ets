@@ -78,39 +78,42 @@ export class DiscoverModel {
   /**
    * Data loaded on the home page converts network data into page rendering data
    */
-  getHomeResources(): void {
+  getHomeResources(): Promise<void> {
     this.loadingStatus = LoadingStatus.LOADING;
-    this.resourcesRepository.getHomeResources().then((data: NetworkNewsResources) => {
-      this.swiperData.length = 0;
-      this.hotFeedList.length = 0;
-      this.techArticleList.length = 0;
-      this.swiperData = data.bannerList;
-      data.feedData.resourceList.forEach((res: LearningResource) => {
-        this.hotFeedList.push(new LearningResource(res));
+    return new Promise(resolve => {
+      this.resourcesRepository.getHomeResources().then((data: NetworkNewsResources) => {
+        this.swiperData.length = 0;
+        this.hotFeedList.length = 0;
+        this.techArticleList.length = 0;
+        this.swiperData = data.bannerList;
+        data.feedData.resourceList.forEach((res: LearningResource) => {
+          this.hotFeedList.push(new LearningResource(res));
+        });
+        data.articleData.resourceList.forEach((res: LearningResource) => {
+          this.techArticleList.push(new LearningResource(res));
+        });
+        // load more info
+        this.curArticlePage = data.articleData.currentPage;
+        this.hasNextArticle = data.articleData.hasNext;
+        this.curFeedPage = data.feedData.currentPage;
+        this.hasNextFeed = data.feedData.hasNext;
+        // loading status
+        this.loadingStatus = LoadingStatus.SUCCESS;
+        Logger.info(TAG, JSON.stringify(this.swiperData));
+        resolve();
+      }).catch((err: Error) => {
+        this.loadingStatus = LoadingStatus.FAILED;
+        Logger.error(TAG, `Init failed! Error message is ${err}`);
       });
-      data.articleData.resourceList.forEach((res: LearningResource) => {
-        this.techArticleList.push(new LearningResource(res));
-      });
-      // load more info
-      this.curArticlePage = data.articleData.currentPage;
-      this.hasNextArticle = data.articleData.hasNext;
-      this.curFeedPage = data.feedData.currentPage;
-      this.hasNextFeed = data.feedData.hasNext;
-      // loading status
-      this.loadingStatus = LoadingStatus.SUCCESS;
-      Logger.info(TAG, JSON.stringify(this.swiperData));
-    }).catch((err: Error) => {
-      this.loadingStatus = LoadingStatus.FAILED;
-      Logger.error(TAG, `Init failed! Error message is ${err}`);
     });
   }
 
   /**
    * Load next page article data
    */
-  loadMoreArticle(): void {
-    if (this.hasNextArticle) {
-      this.loadingArticleStatus = LoadingStatus.LOADING;
+  loadMoreArticle(): Promise<LearningResource[]> {
+    this.loadingArticleStatus = LoadingStatus.LOADING;
+    return new Promise((resolve, reject) => {
       this.resourcesRepository.getMoreArticle(this.curArticlePage + 1).then((data: ResourcesData) => {
         data.resourceList.forEach((res: LearningResource) => {
           this.techArticleList.push(new LearningResource(res));
@@ -119,6 +122,7 @@ export class DiscoverModel {
         this.hasNextArticle = data.hasNext;
         this.loadingArticleStatus = LoadingStatus.SUCCESS;
         Logger.info(TAG, 'LoadMore articles success!');
+        resolve(data.resourceList)
       }).catch((err: Error) => {
         this.loadingArticleStatus = LoadingStatus.FAILED;
         promptAction.showToast({
@@ -126,7 +130,7 @@ export class DiscoverModel {
         });
         Logger.error(TAG, `LoadMore articles failed! Error message is ${err}.`);
       });
-    }
+    })
   }
 
   /**

@@ -13,13 +13,13 @@
  * limitations under the License.
  */
 
-import preferences from '@ohos.data.preferences';
 import router from '@ohos.router';
 import common from '@ohos.app.ability.common';
 import { FailureLayout, LoadingLayout, LoadingStatus, Topic } from '@ohos/common';
 import { ThemeConstants } from '../constants/ThemeConstants';
 import { TopicItem } from '../components/TopicItemView';
 import { TopicModel } from '../model/TopicModel';
+import preferences from '@ohos.data.preferences';
 
 @Entry
 @Component

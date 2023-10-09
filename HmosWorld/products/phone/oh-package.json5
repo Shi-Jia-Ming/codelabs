@@ -13,7 +13,7 @@
     "@ohos/mine": "file:../../features/mine",
     "@ohos/learning": "file:../../features/learning",
     "@ohos/challenge": "file:../../features/challenge",
-    "@ohos/common": "file:../../common",
+    "@ohos/common": "file:../../commons/common",
     "@ohos/login": "file:../../features/login"
   }
 }

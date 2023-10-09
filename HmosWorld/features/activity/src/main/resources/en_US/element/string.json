@@ -1,6 +1,10 @@
 {
   "string": [
     {
+      "name": "shared_desc",
+      "value": "activity module"
+    },
+    {
       "name": "page_show",
       "value": "page from npm package"
     }

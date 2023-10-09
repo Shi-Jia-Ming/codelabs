@@ -51,6 +51,10 @@
     {
       "name": "user_exception",
       "value": "User exception"
+    },
+    {
+      "name": "network_error_msg",
+      "value": "The network seems to have deserted"
     }
   ]
 }

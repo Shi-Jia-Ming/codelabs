@@ -85,10 +85,6 @@
       ]
     },
     {
-      "name": "common",
-      "srcPath": "./common"
-    },
-    {
       "name": "mine",
       "srcPath": "./features/mine",
       "targets": [
@@ -103,6 +99,18 @@
     {
       "name": "activity",
       "srcPath": "./features/activity",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "common",
+      "srcPath": "./commons/common",
       "targets": [
         {
           "name": "default",

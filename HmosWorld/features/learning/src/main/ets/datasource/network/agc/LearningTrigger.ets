@@ -18,7 +18,7 @@
  */
 export enum LearningTrigger {
   // Learning Modules - Learning Path
-  LEARNING_PATHS = 'learning-path-$latest',
+  LEARNING_PATHS = 'learning-path',
   // Learning Module - Update Learning Path
-  LEARNING_MODIFY = 'learning-modify-$latest'
+  LEARNING_MODIFY = 'learning-modify'
 }

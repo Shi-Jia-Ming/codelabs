@@ -1,0 +1,240 @@
+{
+  "float": [
+    {
+      "name": "time_font",
+      "value": "9fp"
+    },
+    {
+      "name": "time_text_line",
+      "value": "12vp"
+    },
+    {
+      "name": "time_text_width",
+      "value": "36vp"
+    },
+    {
+      "name": "current_time_left",
+      "value": "24vp"
+    },
+    {
+      "name": "current_time_right",
+      "value": "2vp"
+    },
+    {
+      "name": "total_time_left",
+      "value": "2vp"
+    },
+    {
+      "name": "total_time_right",
+      "value": "24vp"
+    },
+    {
+      "name": "time_row_height",
+      "value": "40vp"
+    },
+    {
+      "name": "icon_size",
+      "value": "24vp"
+    },
+    {
+      "name": "icon_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "icon_row_top",
+      "value": "14vp"
+    },
+    {
+      "name": "icon_row_bottom_sm",
+      "value": "15vp"
+    },
+    {
+      "name": "icon_row_bottom",
+      "value": "24vp"
+    },
+    {
+      "name": "button_row_top_sm",
+      "value": "4vp"
+    },
+    {
+      "name": "button_row_top",
+      "value": "16vp"
+    },
+    {
+      "name": "button_row_bottom_sm",
+      "value": "19vp"
+    },
+    {
+      "name": "button_row_bottom",
+      "value": "28vp"
+    },
+    {
+      "name": "icon_button_row_height",
+      "value": "60vp"
+    },
+    {
+      "name": "back_position_x",
+      "value": "24vp"
+    },
+    {
+      "name": "back_position_y",
+      "value": "12vp"
+    },
+    {
+      "name": "title_selected_font",
+      "value": "24fp"
+    },
+    {
+      "name": "title_selected_line",
+      "value": "33vp"
+    },
+    {
+      "name": "title_selected_width",
+      "value": "48vp"
+    },
+    {
+      "name": "title_selected_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "title_font",
+      "value": "18fp"
+    },
+    {
+      "name": "title_line",
+      "value": "25vp"
+    },
+    {
+      "name": "title_width",
+      "value": "58vp"
+    },
+    {
+      "name": "title_row_top",
+      "value": "25vp"
+    },
+    {
+      "name": "title_row_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "title_row_height",
+      "value": "56vp"
+    },
+    {
+      "name": "playing_size",
+      "value": "10vp"
+    },
+    {
+      "name": "playing_position_x",
+      "value": "8vp"
+    },
+    {
+      "name": "playing_position_y",
+      "value": "36vp"
+    },
+    {
+      "name": "episode_row_radius",
+      "value": "8vp"
+    },
+    {
+      "name": "episode_row_height",
+      "value": "54vp"
+    },
+    {
+      "name": "episode_list_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "episode_list_lanes_space",
+      "value": "12vp"
+    },
+    {
+      "name": "episode_col_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "playing_position_x_side_lg",
+      "value": "8vp"
+    },
+    {
+      "name": "playing_position_x_side",
+      "value": "6vp"
+    },
+    {
+      "name": "playing_position_y_side_lg",
+      "value": "36vp"
+    },
+    {
+      "name": "playing_position_y_side",
+      "value": "28vp"
+    },
+    {
+      "name": "episode_row_width_lg",
+      "value": "69vp"
+    },
+    {
+      "name": "episode_row_width_other",
+      "value": "55vp"
+    },
+    {
+      "name": "episode_row_height_lg",
+      "value": "54vp"
+    },
+    {
+      "name": "episode_row_height_other",
+      "value": "44vp"
+    },
+    {
+      "name": "side_text_font",
+      "value": "16fp"
+    },
+    {
+      "name": "side_text_line",
+      "value": "32vp"
+    },
+    {
+      "name": "button_text_font",
+      "value": "12fp"
+    },
+    {
+      "name": "button_text_margin",
+      "value": "24vp"
+    },
+    {
+      "name": "side_title_width_1",
+      "value": "65vp"
+    },
+    {
+      "name": "side_title_margin",
+      "value": "36vp"
+    },
+    {
+      "name": "side_title_width_2",
+      "value": "51vp"
+    },
+    {
+      "name": "side_row_margin_sm",
+      "value": "8vp"
+    },
+    {
+      "name": "side_row_margin",
+      "value": "12vp"
+    },
+    {
+      "name": "side_col_width",
+      "value": "360vp"
+    },
+    {
+      "name": "lanes_item_space",
+      "value": "12vp"
+    },
+    {
+      "name": "episodes_sidebar_padding_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "episodes_sidebar_padding_left_right",
+      "value": "24vp"
+    }
+  ]
+}

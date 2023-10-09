@@ -1,0 +1,1 @@
+export { SearchView } from './src/main/ets/view/SearchView';
