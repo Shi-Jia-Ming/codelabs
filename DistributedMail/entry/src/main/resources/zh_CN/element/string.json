@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "分布式邮件"
+    },
+    {
+      "name": "new_email_text",
+      "value": "新建电子邮件"
+    },
+    {
+      "name": "recipient_text",
+      "value": "收件人："
+    },
+    {
+      "name": "sender_text",
+      "value": "发件人："
+    },
+    {
+      "name": "subject_text",
+      "value": "主题："
+    },
+    {
+      "name": "photographing_canceled",
+      "value": "拍照已取消"
+    },
+    {
+      "name": "distributed_data_sync",
+      "value": "允许不同设备间的数据交换"
+    },
+    {
+      "name": "appendix_text",
+      "value": "附件："
+    },
+    {
+      "name": "add_txt_file",
+      "value": "添加TXT文件"
+    },
+    {
+      "name": "add_doc_file",
+      "value": "添加DOC文件"
+    },
+    {
+      "name": "add_pdf_file",
+      "value": "添加PDF文件"
+    },
+    {
+      "name": "add_other_file",
+      "value": "其他文件"
+    },
+    {
+      "name": "alert_message_chinese",
+      "value": "不支持中文名称文件或者文件类型不匹配。"
+    }
+  ]
+}

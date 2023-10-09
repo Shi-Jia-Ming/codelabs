@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "Distributed Mail"
+    },
+    {
+      "name": "new_email_text",
+      "value": "New Email"
+    },
+    {
+      "name": "recipient_text",
+      "value": "Recipient:"
+    },
+    {
+      "name": "sender_text",
+      "value": "Sender:"
+    },
+    {
+      "name": "subject_text",
+      "value": "Subject:"
+    },
+    {
+      "name": "photographing_canceled",
+      "value": "Photographing Canceled"
+    },
+    {
+      "name": "distributed_data_sync",
+      "value": "Allows data exchange between different devices."
+    },
+    {
+      "name": "appendix_text",
+      "value": "Appendix:"
+    },
+    {
+      "name": "add_txt_file",
+      "value": "Add TXT File"
+    },
+    {
+      "name": "add_doc_file",
+      "value": "Add DOC File"
+    },
+    {
+      "name": "add_pdf_file",
+      "value": "Add PDF File"
+    },
+    {
+      "name": "add_other_file",
+      "value": "Add Other File"
+    },
+    {
+      "name": "alert_message_chinese",
+      "value": "Not Supported Chinese Or File Type Not Match."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "input_textarea_background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "content_text_color",
+      "value": "#6F7780"
+    },
+    {
+      "name": "text_cursor_color",
+      "value": "#000000"
+    },
+    {
+      "name": "border_divider_color",
+      "value": "#E8EBED"
+    }
+  ]
+}
