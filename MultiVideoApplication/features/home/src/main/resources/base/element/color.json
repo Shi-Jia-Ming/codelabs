@@ -1,0 +1,56 @@
+{
+  "color": [
+    {
+      "name": "tab_normal_color",
+      "value": "#000000"
+    },
+    {
+      "name": "tab_sel_color",
+      "value": "#0A59F7"
+    },
+    {
+      "name": "swiper_indicator",
+      "value": "#4DFFFFFF"
+    },
+    {
+      "name": "swiper_indicator_color",
+      "value": "#E6E6E6"
+    },
+    {
+      "name": "swiper_indicator_color_selected",
+      "value": "#FF007DFF"
+    },
+    {
+      "name": "main_daily_rating_background",
+      "value": "#4D000000"
+    },
+    {
+      "name": "button_background",
+      "value": "#0D000000"
+    },
+    {
+      "name": "previous_one_button_origin",
+      "value": "#ED6F21"
+    },
+    {
+      "name": "home_component_background",
+      "value": "#F1F3F5"
+    },
+    {
+      "name": "side_bar_background",
+      "value": "#4DFFFFFF"
+    },
+    {
+      "name": "top_bar_background",
+      "value": "#00000000"
+    },
+    {
+      "name": "normal_font_color",
+      "value": "#182431"
+    },
+    {
+      "name": "home_content_background",
+      "value": "#222A3E"
+    }
+  ]
+}
