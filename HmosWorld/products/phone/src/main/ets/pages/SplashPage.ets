@@ -100,9 +100,24 @@ struct SplashPage {
       }
       AppStorage.setOrCreate('user', userAccount);
       AppStorage.setOrCreate('isLogged', true);
-      router.replaceUrl({
-        url: `@bundle:${bundleName}/phone/ets/pages/MainPage`
-      });
+      this.checkThemeIsSet().then((isSet: boolean) => {
+        if (isSet) {
+          router.replaceUrl({
+            url: `@bundle:${bundleName}/phone/ets/pages/MainPage`
+          });
+        } else {
+          router.replaceUrl({
+            url: `@bundle:${bundleName}/topic/ets/pages/ThemeSettingPage`,
+            params: {
+              firstTopic: true
+            }
+          });
+        }
+      }).catch(() => {
+        router.replaceUrl({
+          url: `@bundle:${bundleName}/phone/ets/pages/MainPage`
+        });
+      })
     }).catch((err: BusinessError) => {
       router.replaceUrl({
         url: `@bundle:${bundleName}/login/ets/pages/LoginPage`,
@@ -112,6 +127,25 @@ struct SplashPage {
       });
       Logger.error(TAG, `getUserAccount failed: ${err}`);
     });
+  }
+
+  checkThemeIsSet(): Promise<boolean> {
+    let preferences: Promise<preferences.Preferences> = this.getDataPreferences();
+    return new Promise((resolve, reject) => {
+      preferences.then((result: preferences.Preferences) => {
+        result.get('ThemeIsSet', false).then((value: preferences.ValueType) => {
+          Logger.info(TAG, 'check themeIsSet Succeed, isSet: ' + value);
+          resolve(value as boolean);
+        }).catch((err: BusinessError) => {
+          Logger.error(TAG, 'check themeIsSet Failed, err: ' + err);
+          reject();
+        });
+      }).catch((err: BusinessError) => {
+        Logger.error(TAG, 'Get the themeIsSet Failed, err: ' + err);
+        reject();
+      });
+    });
+
   }
 
   getDataPreferences(): Promise<preferences.Preferences> {

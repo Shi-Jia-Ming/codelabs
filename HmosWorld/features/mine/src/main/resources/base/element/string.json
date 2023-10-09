@@ -1,6 +1,10 @@
 {
   "string": [
     {
+      "name": "shared_desc",
+      "value": "mine module"
+    },
+    {
       "name": "page_show",
       "value": "page from npm package"
     },
@@ -67,6 +71,10 @@
     {
       "name": "to_collected",
       "value": "To add the first favorite"
+    },
+    {
+      "name": "failed_message",
+      "value": "network failed, please reload"
     }
   ]
 }

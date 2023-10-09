@@ -13,27 +13,27 @@
  * limitations under the License.
  */
 
+import curves from '@ohos.curves';
 import ZonesItem from '../entity/ZonesItem';
 import { ChallengeConstants as Const } from '../constants/ChallengeConstants';
 
-@CustomDialog
+@Component
 export struct ImageViewDialog {
-  private controller?: CustomDialogController;
   private deviceWidth: number = vp2px(AppStorage.get('deviceWidth') as number);
   private deviceHeight: number = vp2px(AppStorage.get('deviceHeight') as number);
   private imgWidth: number = 0;
   private imgHeight: number = 0;
   private displayHeight: number = 0;
+  private preOffsetX: number = 0;
+  private preOffsetY: number = 0;
+  private curScale: number = 1;
   @Consume('introductionData') introductionData: ZonesItem;
-  @Prop currentImageId: number = 0;
-  @State curIndex: number = this.currentImageId;
   @State isGesture: boolean = false;
   @State imgScale: number = 1;
-  @State curScale: number = 1;
   @State imgOffsetX: number = 0;
   @State imgOffsetY: number = 0;
-  @State preOffsetX: number = 0;
-  @State preOffsetY: number = 0;
+  @Link isPresent: boolean;
+  @Link currentIndex: number;
 
   /**
    * Detect boundary to keep the image in window.
@@ -82,15 +82,17 @@ export struct ImageViewDialog {
   build() {
     Stack() {
       Swiper() {
-        ForEach(this.introductionData.imageList, (item: Resource) => {
+        ForEach(this.introductionData.imageList, (item: Resource, index?: number) => {
           Column() {
             Blank()
               .onClick(() => {
-                this.controller?.close();
+                animateTo({ duration: Const.SWIPER_DURATION }, () => {
+                  this.isPresent = !this.isPresent;
+                });
               })
-
             Image(item)
               .width(Const.FULL_PERCENT)
+              .syncLoad(true)
               .objectFit(ImageFit.Contain)
               .gesture(
                 PinchGesture()
@@ -106,10 +108,12 @@ export struct ImageViewDialog {
                     this.limitScale(false);
                   })
               )
-
+              .geometryTransition(index === this.currentIndex && !this.isGesture ? 'share_' + index : '')
             Blank()
               .onClick(() => {
-                this.controller?.close();
+                animateTo({ duration: Const.SWIPER_DURATION }, () => {
+                  this.isPresent = !this.isPresent;
+                });
               })
           }
           .width(Const.FULL_PERCENT)
@@ -121,14 +125,18 @@ export struct ImageViewDialog {
       .height(Const.FULL_PERCENT)
       .loop(false)
       .indicator(Indicator.dot().color(Color.Gray).bottom($r('app.float.indicator_bottom')))
-      .index(this.curIndex)
+      .index(this.currentIndex)
       .onChange((index: number) => {
-        this.curIndex = index;
+        this.currentIndex = index;
       })
       .visibility(this.isGesture ? Visibility.Hidden : Visibility.Visible)
 
       Row() {
-        Image(this.introductionData.imageList[this.curIndex])
+        Image(this.introductionData.imageList[this.currentIndex])
+          .transition(TransitionEffect.OPACITY.animation({
+            curve: curves.springMotion(Const.SPRING_RESPONSE, Const.DAMPING_FRACTION)
+          }))
+          .geometryTransition(this.isGesture ? 'share_' + this.currentIndex : '')
           .objectFit(ImageFit.Contain)
           .scale({ x: this.imgScale, y: this.imgScale })
           .translate({ x: this.imgOffsetX, y: this.imgOffsetY })
@@ -170,8 +178,5 @@ export struct ImageViewDialog {
       )
       .visibility(this.isGesture ? Visibility.Visible : Visibility.Hidden)
     }
-    .width(Const.FULL_PERCENT)
-    .height(Const.FULL_PERCENT)
-    .backgroundBlurStyle(BlurStyle.Regular, { colorMode: ThemeColorMode.DARK })
   }
 }

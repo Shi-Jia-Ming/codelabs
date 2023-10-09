@@ -9,6 +9,6 @@
   "dependencies": {
     "@ohos/topic": "file:../topic",
     "@ohos/mine": "file:../mine",
-    "@ohos/common": "file:../../common"
+    "@ohos/common": "file:../../commons/common"
   }
 }

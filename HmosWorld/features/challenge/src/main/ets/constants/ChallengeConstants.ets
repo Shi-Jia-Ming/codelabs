@@ -34,6 +34,15 @@ export class ChallengeConstants {
    */
   static readonly HALF_NUMBER: number = 0.5;
   /**
+   * Spring motion response: 0.6.
+   */
+  static readonly SPRING_RESPONSE: number = 0.6;
+
+  /**
+   * Spring motion dampingFraction: 1.2.
+   */
+  static readonly DAMPING_FRACTION: number = 1.2;
+  /**
    * Introduction page top image aspect ratio.
    */
   static readonly IMG_ASPECT_RATIO: number = 10 / 13;

@@ -13,8 +13,6 @@
  * limitations under the License.
  */
 
-import common from '@ohos.app.ability.common';
-import router from '@ohos.router';
 import {
   CommonConstants,
   LearningResource,
@@ -24,6 +22,7 @@ import {
   ObservedArray
 } from '@ohos/common';
 import { FeedCardView } from '../components/feed/FeedCardView';
+import { FeedDetailView } from '../components/FeedDetailView';
 import { TopNavigationView } from '../components/TopNavigationView';
 import { DiscoverModel } from '../model/DiscoverModel';
 
@@ -32,20 +31,52 @@ const LOAD_MORE_MIN_DRAG_DISTANCE = 60;
 @Entry
 @Component
 export struct FeedPage {
-  build() {
-    Column() {
-      TopNavigationView({
-        title: $r('app.string.hot_feeds')
+  @Provide('feedPathStack') pathStack: NavPathStack = new NavPathStack();
+  @State webViewController?: WebviewController = undefined;
+
+  @Builder
+  myRouter(name: string, param: LearningResource) {
+    NavDestination() {
+      FeedDetailView({
+        resourceId: param.id,
+        webViewController: $webViewController,
+        onBackClick: () => {
+          this.onDestinationBack();
+        }
       })
-      HotFeeds()
     }
-    .padding({
-      top: AppStorage.get<number>('statusBarHeight'),
-    })
-    .justifyContent(FlexAlign.Center)
-    .constraintSize({ minHeight: CommonConstants.FULL_PERCENT })
-    .backgroundColor($r('app.color.page_background_color'))
-    .width(CommonConstants.FULL_PERCENT)
+    .hideTitleBar(true)
+    .onBackPressed(() => this.onDestinationBack())
+  }
+
+  onDestinationBack() {
+    if (this.webViewController?.accessBackward()) {
+      this.webViewController.backward();
+    } else {
+      this.pathStack.pop();
+    }
+    return true;
+  }
+
+  build() {
+    Navigation(this.pathStack) {
+      Column() {
+        TopNavigationView({
+          title: $r('app.string.hot_feeds')
+        })
+        HotFeeds()
+      }
+      .padding({
+        top: AppStorage.get<number>('statusBarHeight'),
+      })
+      .justifyContent(FlexAlign.Center)
+      .constraintSize({ minHeight: CommonConstants.FULL_PERCENT })
+      .backgroundColor($r('app.color.page_background_color'))
+      .width(CommonConstants.FULL_PERCENT)
+    }
+    .navDestination(this.myRouter)
+    .mode(NavigationMode.Stack)
+    .hideTitleBar(true)
   }
 }
 
@@ -62,14 +93,9 @@ struct HotFeeds {
           List({ space: CommonConstants.SPACE_12 }) {
             ForEach(this.hotFeedList, (item: LearningResource, index?: number) => {
               ListItem() {
-                FeedCardView({ feedItem: item })
-                  .onClick(() => {
-                    const bundleName = (getContext(this) as common.UIAbilityContext).applicationInfo.name;
-                    router.pushUrl({
-                      url: `@bundle:${bundleName}${CommonConstants.DISCOVER_FEED_DETAIL_PAGE}`,
-                      params: { resourceId: item.id }
-                    })
-                  })
+                NavRouter({ name: '', param: item }) {
+                  FeedCardView({ feedItem: item })
+                }
               }
               .padding({
                 left: index && index % 2 !== 0 ? $r('app.float.feed_card_padding') : 0,

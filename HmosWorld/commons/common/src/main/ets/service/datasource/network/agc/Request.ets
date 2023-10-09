@@ -17,8 +17,7 @@ import Intl from '@ohos.intl';
 import { BusinessError } from '@ohos.base';
 import connection from '@ohos.net.connection';
 import promptAction from '@ohos.promptAction';
-import agconnect from '@hw-agconnect/api-ohos';
-import { FunctionResult } from '@hw-agconnect/function-ohos';
+import cloud, { FunctionResult } from '@hw-agconnect/cloud';
 import Logger from '../../../../logger/Logger';
 import { Triggers } from './Triggers';
 import ErrorCode from '../../../../constants/ErrorCodeConstants';
@@ -49,9 +48,13 @@ class Request {
           reject({ code: ErrorCode.ERROR_NETWORK_CONNECT_FAILED, message: 'The network seems to have deserted' });
           return;
         }
-        let functionCallable = agconnect.function().wrap(trigger);
-        functionCallable.setTimeout(2000);
-        functionCallable.call(params).then((functionResult: FunctionResult) => {
+
+        cloud.callFunction({
+          name: trigger,
+          version: '$latest',
+          timeout: 2000,
+          params: params
+        }).then((functionResult: FunctionResult) => {
           Logger.info(TAG, 'Request call success--------' + JSON.stringify(functionResult));
           resolve(functionResult.getValue().data);
         }).catch((error: RejectError) => {

@@ -13,16 +13,23 @@
  * limitations under the License.
  */
 
-import { CommonConstants, CommonUtil, LearningResource } from '@ohos/common';
+import { CommonConstants, CommonUtil, LearningResource, Logger } from '@ohos/common';
 
 const IMAGE_HEIGHT = '55%';
 const TITLE_HEIGHT = '28%';
 const TOPICS_HEIGHT = '16%';
 const MAX_TOPIC_NUM = 2;
+const TAG = '[FeedCardView]';
 
+@Reusable
 @Component
 export struct FeedCardView {
   @Prop feedItem: LearningResource = new LearningResource();
+
+  aboutToReuse(params: Record<string, Object>) {
+    this.feedItem = params.feedItem as LearningResource;
+    Logger.info(TAG, 'aboutToReuse');
+  }
 
   build() {
     Column() {

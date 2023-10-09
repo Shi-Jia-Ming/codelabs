@@ -59,9 +59,8 @@ export class LearningModel {
   loadLearningPathData(): void {
     this.funNetwork.getLearningPaths().then((data: LearningPath[]) => {
       Logger.info(TAG, 'loadLearningPathData data ' + JSON.stringify(data));
-      let paths: ObservedArray<LearningPath> = new ObservedArray<LearningPath>();
       this.list.forEach((path: LearningPath) => {
-        path.isLearned = !!((paths.find((item) => item.id === path.id))?.isLearned);
+        path.isLearned = !!((data.find((item) => item.id === path.id))?.isLearned);
       });
       Logger.info(TAG, 'loadLearningPathData this.learningPathList: ' + JSON.stringify(this.list));
     }).catch((error: Error) => {

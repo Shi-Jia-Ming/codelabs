@@ -46,7 +46,6 @@ let resource: resourceManager.Resource = {
 
 
 
-
 export class UserModel {
   private userResourcesRepository: UserResourcesRepository = new UserResourcesRepository();
   private userAccountRepository: UserAccountRepository = new UserAccountRepository();

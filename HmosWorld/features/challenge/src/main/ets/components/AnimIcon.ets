@@ -38,24 +38,22 @@ export default struct AnimIcon {
   }
 
   build() {
-    Column() {
-      Stack() {
-        Image($r('app.media.icon_bg'))
-          .height($r('app.float.map_icon_bg_size'))
-          .width($r('app.float.map_icon_bg_size'))
-        Image(this.item.icon)
-          .interpolation(ImageInterpolation.High)
-          .height($r('app.float.map_icon_size'))
-          .width($r('app.float.map_icon_size'))
-      }
-      .onAppear(() => {
-        const randomDelay = Math.floor(Math.random() * Const.ICON_RANDOM_DELAY);
-        setTimeout(() => {
-          this.performAnimation();
-        }, randomDelay);
-      })
-      .translate({ y: this.translateY })
-      .scale({ x: this.scaleX, y: this.scaleY })
+    Stack() {
+      Image($r('app.media.icon_bg'))
+        .height($r('app.float.map_icon_bg_size'))
+        .width($r('app.float.map_icon_bg_size'))
+      Image(this.item.icon)
+        .interpolation(ImageInterpolation.High)
+        .height($r('app.float.map_icon_size'))
+        .width($r('app.float.map_icon_size'))
     }
+    .onAppear(() => {
+      const randomDelay = Math.floor(Math.random() * Const.ICON_RANDOM_DELAY);
+      setTimeout(() => {
+        this.performAnimation();
+      }, randomDelay);
+    })
+    .translate({ y: this.translateY })
+    .scale({ x: this.scaleX, y: this.scaleY })
   }
 }

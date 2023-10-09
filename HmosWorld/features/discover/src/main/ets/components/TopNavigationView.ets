@@ -31,6 +31,7 @@ function imageStyle() {
 export struct TopNavigationView {
   title?: Resource;
   actionButtons: ActionButton[] = [];
+  onBackClick?: () => void = () => router.back();
   detail?: ResourceDetail;
   leftAndRightPadding: Resource = $r('app.float.xxl_padding_margin');
 
@@ -39,7 +40,7 @@ export struct TopNavigationView {
       Image($r('app.media.ic_back'))
         .imageStyle()
         .margin({ right: $r('app.float.lg_padding_margin') })
-        .onClick(() => router.back())
+        .onClick(this.onBackClick)
 
       Text(this.title)
         .fontSize($r('app.float.nav_title_font_size'))

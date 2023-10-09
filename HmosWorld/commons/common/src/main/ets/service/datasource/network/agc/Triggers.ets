@@ -15,35 +15,27 @@
 
 export enum Triggers {
   // Login
-  LOGIN = 'login-$latest',
+  LOGIN = 'login',
   // Discovery Modules - Get All Topics
-  TOPICS = 'topics-$latest',
-  // Discovery Module - Get Followed Topics
-  TOPIC_FOLLOWED = 'topics-followed-$latest',
+  TOPICS = 'topics',
   // Discovery Module - Modify Focused Topics
-  TOPIC_MODIFY = 'topic-modify-$latest',
-  // Discovery Module - Get Common Resources
-  RESOURCE = 'resource-$latest',
-  // Discovery Module - Get Popular Resources
-  HOT_RESOURCE = 'hot-$latest',
-  // Discovery Module - Get Child Theme Resources
-  TOPIC_RESOURCE = 'topic-resource-$latest',
+  TOPIC_MODIFY = 'topic-modify',
   // Discovery Module - Get Details Page
-  DETAIL = 'detail-$latest',
+  DETAIL = 'detail',
   // Discovery Module - Like
-  LIKE = 'like-$latest',
+  LIKE = 'like',
   // Discovery Module - Favorites
-  COLLECT_MODIFY = 'collect-modify-$latest',
+  COLLECT_MODIFY = 'collect-modify',
   // Mine Modules - Get List of Favorites
-  COLLECT = 'collect-$latest',
+  COLLECT = 'collect',
   // Mine Module - Get Browsing History List
-  HISTORY = 'history-$latest',
+  HISTORY = 'history',
   // Mine Modules - Achievements
-  ACHIEVE = 'achieve-$latest',
+  ACHIEVE = 'achieve',
   // Mine module - Get user data
-  USER_DATA = 'user-data-$latest',
+  USER_DATA = 'user-data',
   // Discovery Module - Home Data
-  HOME_DATA = 'home-resource-$latest',
+  HOME_DATA = 'home-resource',
   // Discovery module paging interface
-  RESOURCE_PAGE = 'resource-list-$latest'
+  RESOURCE_PAGE = 'resource-list'
 }

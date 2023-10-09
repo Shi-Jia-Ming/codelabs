@@ -1,6 +1,10 @@
 {
   "color": [
     {
+      "name": "white",
+      "value": "#FFFFFF"
+    },
+    {
       "name": "theme_black_color",
       "value": "#000000"
     },

@@ -1,6 +1,10 @@
 {
   "string": [
     {
+      "name": "shared_desc",
+      "value": "我的模块"
+    },
+    {
       "name": "page_show",
       "value": "页面展示"
     },
@@ -67,6 +71,10 @@
     {
       "name": "to_collected",
       "value": "去添加第一个收藏"
+    },
+    {
+      "name": "failed_message",
+      "value": "网络请求失败，请重试"
     }
   ]
 }

@@ -8,6 +8,6 @@
   "version": "1.0.0",
   "dependencies": {
     "@ohos/mine": "file:../mine",
-    "@ohos/common": "file:../../common"
+    "@ohos/common": "file:../../commons/common"
   }
 }
