@@ -398,7 +398,7 @@ export class HomeConstants {
   /**
    * Daily video description height.
    */
-  static readonly DAILY_VIDEO_DESCRIPTION_HEIGHT: number[] = [102, 62];
+  static readonly DAILY_VIDEO_DESCRIPTION_HEIGHT: number[] = [103, 62];
 
   /**
    * Previous two ratio list.
