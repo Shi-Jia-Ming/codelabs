@@ -1,0 +1,234 @@
+{
+  "float": [
+    {
+      "name": "title_height",
+      "value": "41vp"
+    },
+    {
+      "name": "title_font_size",
+      "value": "30fp"
+    },
+    {
+      "name": "title_padding",
+      "value": "24vp"
+    },
+    {
+      "name": "title_margin_top",
+      "value": "7vp"
+    },
+    {
+      "name": "title_margin_bottom",
+      "value": "16vp"
+    },
+    {
+      "name": "audio_title_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "audio_title_height",
+      "value": "22vp"
+    },
+    {
+      "name": "audio_title_margin_top",
+      "value": "10vp"
+    },
+    {
+      "name": "audio_title_margin_bottom",
+      "value": "2vp"
+    },
+    {
+      "name": "audio_time_font_size",
+      "value": "14fp"
+    },
+    {
+      "name": "audio_time_height",
+      "value": "19vp"
+    },
+    {
+      "name": "audio_time_margin",
+      "value": "11vp"
+    },
+    {
+      "name": "audio_data_width",
+      "value": "195vp"
+    },
+    {
+      "name": "audio_duration_font_size",
+      "value": "14vp"
+    },
+    {
+      "name": "audio_duration_width",
+      "value": "59vp"
+    },
+    {
+      "name": "audio_little_icon_size",
+      "value": "24vp"
+    },
+    {
+      "name": "audio_play_row_width",
+      "value": "95vp"
+    },
+    {
+      "name": "audio_play_row_height",
+      "value": "50vp"
+    },
+    {
+      "name": "progress_height",
+      "value": "4vp"
+    },
+    {
+      "name": "progress_margin",
+      "value": "10vp"
+    },
+    {
+      "name": "progress_column_height",
+      "value": "24vp"
+    },
+    {
+      "name": "progress_time_font_size",
+      "value": "10fp"
+    },
+    {
+      "name": "progress_row_height",
+      "value": "14vp"
+    },
+    {
+      "name": "progress_row_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "audio_item_height",
+      "value": "72vp"
+    },
+    {
+      "name": "audio_item_height_open",
+      "value": "118vp"
+    },
+    {
+      "name": "audio_item_border_radius",
+      "value": "24vp"
+    },
+    {
+      "name": "audio_item_padding_top",
+      "value": "4vp"
+    },
+    {
+      "name": "audio_item_padding_left",
+      "value": "12vp"
+    },
+    {
+      "name": "audio_item_margin_bottom",
+      "value": "12vp"
+    },
+    {
+      "name": "audio_list_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "button_size",
+      "value": "54vp"
+    },
+    {
+      "name": "button_mark_anchor",
+      "value": "27vp"
+    },
+    {
+      "name": "icon_back_width",
+      "value": "20vp"
+    },
+    {
+      "name": "icon_back_height",
+      "value": "18vp"
+    },
+    {
+      "name": "icon_back_margin_left",
+      "value": "26vp"
+    },
+    {
+      "name": "icon_back_margin_right",
+      "value": "18vp"
+    },
+    {
+      "name": "file_name_font_size",
+      "value": "20fp"
+    },
+    {
+      "name": "file_name_row_height",
+      "value": "56vp"
+    },
+    {
+      "name": "file_name_row_margin",
+      "value": "8vp"
+    },
+    {
+      "name": "audio_little_icon_mark_anchor",
+      "value": "12vp"
+    },
+    {
+      "name": "time_slider_font_size",
+      "value": "12fp"
+    },
+    {
+      "name": "time_slider_height",
+      "value": "12vp"
+    },
+    {
+      "name": "time_slider_image_height",
+      "value": "19vp"
+    },
+    {
+      "name": "time_slider_bg_height",
+      "value": "201vp"
+    },
+    {
+      "name": "cur_time_text_font_size",
+      "value": "48fp"
+    },
+    {
+      "name": "cur_time_text_width",
+      "value": "192vp"
+    },
+    {
+      "name": "cur_time_text_height",
+      "value": "64vp"
+    },
+    {
+      "name": "duration_font_size",
+      "value": "16fp"
+    },
+    {
+      "name": "duration_width",
+      "value": "64vp"
+    },
+    {
+      "name": "duration_height",
+      "value": "21vp"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -63,6 +63,7 @@
 - 窗口管理
   - [窗口管理（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/WindowManager)
 - 媒体
+  - [录音机（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/Recorder)
   - [视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/VideoPlayer)
   - [图片编辑（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/ImageEdit)
   - [简易视频播放器（ArkTS）（API 9）](https://gitee.com/harmonyos/codelabs/tree/master/SimpleVideo)
