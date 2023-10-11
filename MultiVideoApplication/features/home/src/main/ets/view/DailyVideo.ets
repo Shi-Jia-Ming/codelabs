@@ -212,7 +212,7 @@ export struct DailyVideo {
 
   getDailyVideoHeight(currentBreakpoint: string, windowWidth: number, isMain: boolean): string {
     // Obtain the window width and subtract the blank parts on both sides.
-    let result: number = px2vp(windowWidth) - HomeConstants.VIDEO_GRID_MARGIN - HomeConstants.VIDEO_GRID_ITEM_SPACE * 2;
+    let result: number = px2vp(windowWidth) - HomeConstants.VIDEO_GRID_MARGIN - HomeConstants.VIDEO_GRID_ITEM_SPACE;
     // Calculate the width of a single image based on the number of grid columns.
     if (currentBreakpoint === BreakpointConstants.BREAKPOINT_LG) {
       result = (result - HomeConstants.LG_SIDEBAR_WIDTH) / HomeConstants.TWO;
