@@ -34,6 +34,10 @@
 6. 在我的页面查看收藏和浏览过的文章和资讯，并且可以进行文章浏览、收藏、点赞等操作，点击卡片进入文章详情页。
 7. 在我的页面查看获得的成就情况。
 
+### 注意
+运行时需设置引用所有HSP模块。点击Run > Edit Configurations，选择Deploy Multi Hap标签页，勾选Deploy Multi Hap Packages， 选择使用方模块（phone）和所有HSP模块，点击OK。单击Run > Run “模块名称”（如Run ”entry“）或![](screenshots/device/run.PNG)来启动应用/服务的编译构建。
+![](screenshots/device/config.PNG)
+
 ### 约束与限制
 
 1. 本示例运行设备需要联网环境。
