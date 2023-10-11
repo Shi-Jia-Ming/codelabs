@@ -1,0 +1,7 @@
+{
+  "src": [
+    "pages/MainPage",
+    "pages/PlayPage",
+    "pages/RecordPage"
+  ]
+}
