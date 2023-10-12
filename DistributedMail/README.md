@@ -7,7 +7,6 @@
 2. 通过点击系统Dock栏，使应用接续并进行数据传输。
 3. 使用分布式文件系统跨设备获取图片。
 
-![ShoppingApps](screenshots/device/DistributedMail.gif)
 ### 相关概念
 - 跨端迁移：跨端迁移的主要工作是实现将应用当前任务（包括页面控件状态变量等）迁移到目标设备，能在目标设备上接续。
 - 分布式跨端拍照组件：该模块提供了组件CollaborationCameraMenuItems和CollaborationCameraStateDialog，两者需要配合使用，完成分布式跨端拍照，如在PC端跨端调用手机端拍照。
