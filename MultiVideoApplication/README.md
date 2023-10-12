@@ -6,7 +6,7 @@
 
 手机效果如图所示：
 
-![](screenshots/device/multiVideoApplication.gif)
+![](screenshots/device/homePage3.png)
 
 折叠屏展开态效果如图所示：
 
