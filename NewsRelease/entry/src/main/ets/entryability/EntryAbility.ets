@@ -24,7 +24,6 @@ import Want from '@ohos.app.ability.Want';
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want) {
     Logger.info('testTag', '%{public}s', 'Ability onCreate');
-    // globalThis.abilityWant = want;
     GlobalContext.getContext().setObject('abilityWant', want);
   }
 
@@ -53,7 +52,7 @@ export default class EntryAbility extends UIAbility {
 
   onForeground() {
     // Ability has brought to foreground.
-    GlobalContext.getContext().setObject('isBackRouter', false)
+    GlobalContext.getContext().setObject('isBackRouter', false);
     Logger.info('testTag', '%{public}s', 'Ability onForeground');
   }
 
@@ -66,7 +65,6 @@ export default class EntryAbility extends UIAbility {
     let atManager = abilityAccessCtrl.createAtManager();
     atManager.requestPermissionsFromUser(this.context, ['ohos.permission.READ_MEDIA'])
       .then((data) => {
-        abilityAccessCtrl
         Logger.info('testTag', '%{public}s', `request permission data result: ${data}`);
       })
       .catch((err: Error) => {
