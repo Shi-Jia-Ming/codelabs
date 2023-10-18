@@ -22,7 +22,7 @@ import { TopicModel } from '@ohos/topic';
 import { UserModel } from '@ohos/mine';
 import { DiscoverModel } from '@ohos/discover/src/main/ets/model/DiscoverModel';
 import { SplashConstants, BgInfo } from '../constants/SplashConstants';
-import { SplashSource } from '../constants/bean/SplashSource';
+import { SplashSource } from '../constants/viewmodel/SplashSource';
 
 const TAG: string = '[SplashPage]';
 
