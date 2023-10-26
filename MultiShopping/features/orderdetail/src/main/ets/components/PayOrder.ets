@@ -27,7 +27,7 @@ import {
   StyleConstants,
   GridConstants
 } from '@ohos/common';
-import { updateOrderProps } from '@ohos/common/src/main/ets/bean/OrderModel';
+import { updateOrderProps } from '@ohos/common/src/main/ets/viewmodel/OrderModel';
 
 @Component
 export struct PayOrder {

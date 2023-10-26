@@ -15,9 +15,9 @@
 
 import { Specification, CounterProduct, Commodity, KV, GridConstants, StyleConstants } from '@ohos/common';
 import { CapsuleGroupButton } from './CapsuleGroupButton';
-import { ColorChange, FinishType } from '../bean/TypeModel';
+import { ColorChange, FinishType } from '../viewmodel/TypeModel';
 import { CommodityConstants } from '../constants/CommodityConstants';
-import { ProductSpecification } from '@ohos/common/src/main/ets/bean/ProductModel';
+import { ProductSpecification } from '@ohos/common/src/main/ets/viewmodel/ProductModel';
 
 @CustomDialog
 export struct SpecificationDialog {

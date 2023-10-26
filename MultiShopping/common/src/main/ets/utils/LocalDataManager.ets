@@ -14,8 +14,8 @@
  */
 
 import { commodityData, shopCartData, orderData } from '../viewmodel/ShopData';
-import { Product, ShopProps, UpdateShopProps } from '../bean/ProductModel';
-import { InsertOrderProps, Order, updateOrderProps } from '../bean/OrderModel';
+import { Product, ShopProps, UpdateShopProps } from '../viewmodel/ProductModel';
+import { InsertOrderProps, Order, updateOrderProps } from '../viewmodel/OrderModel';
 import { getID } from './Utils';
 
 /**

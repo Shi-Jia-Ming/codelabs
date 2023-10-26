@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import { Commodity } from '../bean/CommodityModel';
-import { Order } from '../bean/OrderModel';
-import { Product } from '../bean/ProductModel';
+import { Commodity } from './CommodityModel';
+import { Order } from './OrderModel';
+import { Product } from './ProductModel';
 
 /**
  * Application simulation data can be obtained from the server by developers.
