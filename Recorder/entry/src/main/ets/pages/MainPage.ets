@@ -15,7 +15,7 @@
 
 import router from '@ohos.router';
 import AbilityAccessCtrl, { Permissions } from '@ohos.abilityAccessCtrl';
-import AudioData from '../common/bean/AudioData';
+import AudioData from '../viewmodel/AudioData';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
 import utils from '../common/utils/Utils';
