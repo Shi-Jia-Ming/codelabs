@@ -15,7 +15,7 @@
 
 import { CONTAINER, CONTAINER_TYPE } from '../common/Constants/CommonConstants';
 import { FLEX_MODULE, COLUMN_MODULE, ROW_MODULE, STACK_MODULE } from '../viewmodel/AttributeModuleData';
-import { IndexListItem } from '../common/bean/IndexListItem'
+import { IndexListItem } from './IndexListItem'
 
 /**
  * get Index page dataList

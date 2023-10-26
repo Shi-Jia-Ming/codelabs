@@ -26,7 +26,7 @@ import {
   CONTAINER_TYPE,
   ALL_PERCENT
 } from '../common/Constants/CommonConstants';
-import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
+import { ContainerModuleItem } from '../viewmodel/ContainerModuleItem';
 
 /**
  *second page

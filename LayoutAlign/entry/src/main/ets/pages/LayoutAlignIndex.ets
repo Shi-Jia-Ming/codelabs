@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import { IndexListItem } from '../common/bean/IndexListItem';
+import { IndexListItem } from '../viewmodel/IndexListItem';
 import {
   TITLE_FONT_WEIGHT,
   MARGIN_FONT_SIZE_SPACE,

@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { FLEX_MODULE } from '../../viewmodel/AttributeModuleData';
-import { CONTAINER, CONTAINER_TYPE } from '../constants/CommonConstants';
+import { FLEX_MODULE } from './AttributeModuleData';
+import { CONTAINER, CONTAINER_TYPE } from '../common/constants/CommonConstants';
 import { ContainerModuleItem } from './ContainerModuleItem'
 
 /*

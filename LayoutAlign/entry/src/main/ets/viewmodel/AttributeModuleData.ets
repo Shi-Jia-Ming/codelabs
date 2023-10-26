@@ -14,7 +14,7 @@
  */
 
 import { ATTRIBUTE, GROUP } from '../common/Constants/CommonConstants';
-import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
+import { ContainerModuleItem } from './ContainerModuleItem';
 
 /**
  *Get  Module List Data in Flex
