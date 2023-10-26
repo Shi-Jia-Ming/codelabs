@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import GridItem from '../common/bean/GridItem';
-import VerifyItem from '../common/bean/VerifyItem';
+import GridItem from './GridItem';
+import VerifyItem from './VerifyItem';
 
 /**
  * Binds data to components and provides interfaces.

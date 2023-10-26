@@ -14,7 +14,7 @@
  */
 
 import CommonConstants from '../common/constants/CommonConstants';
-import ItemData from '../common/bean/GridItem';
+import ItemData from '../viewmodel/GridItem';
 import WindowViewModel from '../viewmodel/WindowViewModel';
 
 /**
