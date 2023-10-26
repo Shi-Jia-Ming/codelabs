@@ -14,7 +14,7 @@
  */
 
 import dataRdb from '@ohos.data.relationalStore';
-import GlobalInfo from '../../bean/GlobalInfo';
+import GlobalInfo from '../../../viewmodel/GlobalInfo';
 import { CommonConstants as Const } from '../../constants/CommonConstants'
 import RdbUtils from '../Rdb/RdbUtils';
 import Logger from '../../utils/Logger';

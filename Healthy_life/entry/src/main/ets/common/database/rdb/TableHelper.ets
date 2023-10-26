@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ColumnInfo from '../../bean/ColumnInfo';
+import ColumnInfo from '../../../viewmodel/ColumnInfo';
 import Logger from '../../utils/Logger';
 
 class TableHelper {

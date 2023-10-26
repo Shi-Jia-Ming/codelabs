@@ -13,30 +13,30 @@
  * limitations under the License.
  */
 
-import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
 import HealthText from './HealthTextComponent';
 import AddBtn from '../view/home/AddBtnComponent';
 import { TaskCard } from '../view/home//TaskCardComponent';
 import HomeTopView from '../view/home/HomeTopComponent';
 import { CustomDialogView, CustomDialogCallback } from '../view/dialog/CustomDialogView';
-import TaskInfo from '../common/bean/TaskInfo';
-import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
+import TaskInfo from '../viewmodel/TaskInfo';
 import { HomeStore } from '../viewmodel/HomeViewModel';
 import { ITaskItem, TaskMapById } from '../model/TaskInitList';
 import { HealthDataSrcMgr } from '../common/utils/HealthDataSrcMgr';
 import { BroadCast, BroadCastType } from '../common/utils/BroadCast';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import AchievementInfo from '../common/bean/AchievementInfo';
+import AchievementInfo from '../viewmodel/AchievementInfo';
 
 const WHITE_COLOR_0X = 255;
 
-@Styles function allSize() {
+@Styles
+function allSize() {
   .width(Const.THOUSANDTH_1000)
   .height(Const.THOUSANDTH_1000)
 }
 
-@Extend(Text) function titleTextStyle() {
+@Extend(Text)
+function titleTextStyle() {
   .fontSize($r('app.float.default_16'))
   .fontWeight(Const.FONT_WEIGHT_500)
   .width(Const.THOUSANDTH_1000)
@@ -69,7 +69,10 @@ export default struct HomeIndex {
     }
     if (isClick) {
       // click to clock
-      let callback: CustomDialogCallback ={ confirmCallback: (taskTemp) => { this.onConfirm(taskTemp, this) }, cancelCallback: () => {} };
+      let callback: CustomDialogCallback = { confirmCallback: (taskTemp: TaskInfo) => {
+        this.onConfirm(taskTemp)
+      }, cancelCallback: () => {
+      } };
       this.broadCast.emit(BroadCastType.SHOW_TASK_DETAIL_DIALOG, [item, callback]);
     } else {
       // edit task
@@ -85,31 +88,31 @@ export default struct HomeIndex {
   }
 
   //confirm clockL
-  onConfirm(task: TaskInfo, that?) {
-    that.homeStore.taskClock(task).then((res: AchievementInfo) => {
+  onConfirm(task: TaskInfo) {
+    this.homeStore.taskClock(task).then((res: AchievementInfo) => {
       if (res.showAchievement) {
         let achievementLevel = res.achievementLevel;
         if (achievementLevel) {
-          that.broadCast.emit(BroadCastType.SHOW_ACHIEVEMENT_DIALOG, achievementLevel);
+          this.broadCast.emit(BroadCastType.SHOW_ACHIEVEMENT_DIALOG, achievementLevel);
         } else {
-          that.broadCast.emit(BroadCastType.SHOW_ACHIEVEMENT_DIALOG);
+          this.broadCast.emit(BroadCastType.SHOW_ACHIEVEMENT_DIALOG);
         }
       }
     })
   }
 
   // change navigator alpha when scrolling the Scroll component
-  onScrollAction(that) {
-    that.yOffset = that.scroller.currentOffset().yOffset;
-    if (that.yOffset > Const.DEFAULT_56) {
-      that.naviAlpha = 1;
+  onScrollAction() {
+    this.yOffset = this.scroller.currentOffset().yOffset;
+    if (this.yOffset > Const.DEFAULT_56) {
+      this.naviAlpha = 1;
     } else {
-      that.naviAlpha = that.yOffset / Const.DEFAULT_56;
+      this.naviAlpha = this.yOffset / Const.DEFAULT_56;
     }
   }
 
-  editTaskAction(that) {
-    if (that.homeStore.checkCurrentDay()) {
+  editTaskAction() {
+    if (this.homeStore.checkCurrentDay()) {
       router.pushUrl({ url: 'pages/TaskListPage' });
     }
   }
@@ -154,10 +157,14 @@ export default struct HomeIndex {
       }
       .scrollBar(BarState.Off)
       .allSize()
-      .onScroll(() => { this.onScrollAction(this) })
+      .onScroll(() => {
+        this.onScrollAction()
+      })
       .align(Alignment.TopStart)
 
-      AddBtn({ clickAction: () => { this.editTaskAction(this) } })
+      AddBtn({ clickAction: () => {
+        this.editTaskAction()
+      } })
       Row() {
         Text($r('app.string.EntryAbility_label'))
           .titleTextStyle()

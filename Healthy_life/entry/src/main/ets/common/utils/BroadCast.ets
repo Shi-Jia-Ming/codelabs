@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 import { CustomDialogCallback } from '../../view/dialog/CustomDialogView';
-import BroadCastCallBackInfo from '../bean/BroadCastCallBackInfo';
-import TaskInfo from '../bean/TaskInfo';
+import BroadCastCallBackInfo from '../../viewmodel/BroadCastCallBackInfo';
+import TaskInfo from '../../viewmodel/TaskInfo';
 
 import Logger from './Logger';
 

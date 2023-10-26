@@ -24,7 +24,7 @@ const SUNDAY_FIRST_SHIFT: number = 6;
 
 export const weekTitleFunc = () => {
     const weekTitleArr: Array<string> = [];
-    for (let index = 0;index < CHINESE_OF_WEEK.length; index++) {
+    for (let index = 0; index < CHINESE_OF_WEEK.length; index++) {
         weekTitleArr.push(CHINESE_OF_WEEK[(index + SUNDAY_FIRST_SHIFT) % DAYS_OF_WEEK]); // Sunday is the first day
     }
     return weekTitleArr;
@@ -87,7 +87,7 @@ export const frequencyRange = () => {
 
 export const oneWeekDictFunc = () => {
     const oneWeekDict: Array<string> = [];
-    for (let index = 0;index < CHINESE_OF_WEEK.length; index++) {
+    for (let index = 0; index < CHINESE_OF_WEEK.length; index++) {
         oneWeekDict[index] = `${WEEK}${CHINESE_OF_WEEK[index]}`;
     }
     return oneWeekDict;

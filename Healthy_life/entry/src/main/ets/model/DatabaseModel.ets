@@ -14,16 +14,15 @@
  */
 
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import DayInfo from '../common/bean/DayInfo';
-import GlobalInfo from '../common/bean/GlobalInfo';
-import TaskInfo from '../common/bean/TaskInfo';
+import DayInfo from '../viewmodel/DayInfo';
+import GlobalInfo from '../viewmodel/GlobalInfo';
+import TaskInfo from '../viewmodel/TaskInfo';
 import DayInfoApi from '../common/database/tables/DayInfoApi';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 import TaskInfoApi from '../common/database/tables/TaskInfoApi';
 import Logger from '../common/utils/Logger';
 
 export class DatabaseModel {
-
   /**
    * Init when open the app
    *
@@ -59,7 +58,7 @@ export class DatabaseModel {
             Logger.info('AppStart', 'update globalInfo success: ' + JSON.stringify(newGlobalInfo));
           }
         });
-        self.queryPreInfo(self, date, preDate, result, callback);
+        self.queryPreInfo(date, preDate, result, callback);
       }
     });
   }
@@ -86,7 +85,7 @@ export class DatabaseModel {
     }
   }
 
-  queryPreInfo(self, date: string, preDate: string, result: TaskInfo[], callback: Function) {
+  queryPreInfo(date: string, preDate: string, result: TaskInfo[], callback: Function) {
     TaskInfoApi.query(date, false, async (taskResult: TaskInfo[]) => { // query the task information for the day
       let dayInfo: DayInfo = new DayInfo(date, 0, 0);
       if (taskResult.length === 0) { // if task information for the day is not found, the global task information is queried
@@ -98,8 +97,8 @@ export class DatabaseModel {
         Logger.info('AppStart', 'insert data end: ' + finDate.toDateString())
         TaskInfoApi.query(Const.GLOBAL_KEY, false, async (globalTaskResult: TaskInfo[]) => {
           result = globalTaskResult;
-          dayInfo.targetTaskNum = self.calTaskNum(result);
-          self.insertPreInfo(curDate, finDate, result, dayInfo);
+          dayInfo.targetTaskNum = this.calTaskNum(result);
+          this.insertPreInfo(curDate, finDate, result, dayInfo);
           let finResult: TaskInfo[] = [];
           for (let i = 0; i < 6; i++) {
             if (result[i].isOpen === true) {
@@ -109,7 +108,7 @@ export class DatabaseModel {
           callback(finResult, dayInfo);
         })
       } else {
-        let dayInfoList: DayInfo = self.calFinishNum(taskResult, result);
+        let dayInfoList: DayInfo = this.calFinishNum(taskResult, result);
         dayInfo.targetTaskNum = dayInfoList.targetTaskNum;
         dayInfo.finTaskNum = dayInfoList.finTaskNum;
         callback(result, dayInfo);
@@ -147,7 +146,6 @@ export class DatabaseModel {
       }
       curDate.setDate(curDate.getDate() + 1);
     }
-
   }
 
   calFinishNum(taskResult: TaskInfo[], result: TaskInfo[]) {

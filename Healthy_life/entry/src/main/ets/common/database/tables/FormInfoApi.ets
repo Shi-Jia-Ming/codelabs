@@ -14,7 +14,7 @@
  */
 
 import dataRdb from '@ohos.data.relationalStore';
-import FormInfo from '../../bean/FormInfo';
+import FormInfo from '../../../viewmodel/FormInfo';
 import { CommonConstants as Const } from '../../constants/CommonConstants';
 import RdbUtils from '../Rdb/RdbUtils';
 import Logger from '../../utils/Logger';

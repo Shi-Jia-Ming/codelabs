@@ -17,7 +17,7 @@ import { AchievementDialog } from './AchievementDialog';
 import { TaskDetailDialog } from './TaskDetailDialog';
 import { BroadCast, BroadCastType } from '../../common/utils/BroadCast';
 import { TaskItem } from '../../model/TaskInitList';
-import TaskInfo from '../../common/bean/TaskInfo';
+import TaskInfo from '../../viewmodel/TaskInfo';
 import Logger from '../../common/utils/Logger';
 
 export class CustomDialogCallback {

@@ -14,7 +14,7 @@
  */
 
 import { CustomDialogCallback } from './CustomDialogView';
-import TaskInfo from '../../common/bean/TaskInfo';
+import TaskInfo from '../../viewmodel/TaskInfo';
 import { TaskMapById } from '../../model/TaskInitList';
 import { CommonConstants as Const } from '../../common/constants/CommonConstants';
 import { GlobalContext } from '../../common/utils/GlobalContext';

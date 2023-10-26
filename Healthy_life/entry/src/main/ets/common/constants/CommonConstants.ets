@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import CommonConstantsInfo from '../bean/CommonConstantsInfo';
+import CommonConstantsInfo from '../../viewmodel/CommonConstantsInfo';
 
 export class CommonConstants {
   static readonly RDB_NAME = { dbName: 'taskInfo.db' } as CommonConstantsInfo; // db name
@@ -275,10 +275,7 @@ export class CommonConstants {
   static readonly DEFAULT_DIMENSION_2X4 = 3;
   static readonly WIDGET_NAME_AGENCY = "agency";
   static readonly WIDGET_NAME_PROGRESS = "progress";
-
 }
-
-
 
 export enum TaskType {
   Getup = 'getup',
