@@ -16,7 +16,7 @@
 import NewsItem from './NewsItem';
 import LoadMoreLayout from './LoadMoreLayout';
 import RefreshLayout from './RefreshLayout';
-import { NewsData } from '../common/bean/NewsData';
+import { NewsData } from '../viewmodel/NewsData';
 import Constants, { PageState } from '../common/constants/Constants';
 import NewsViewModel from '../viewmodel/NewsViewModel';
 import { showToast } from '../common/utils/ToastUtil';

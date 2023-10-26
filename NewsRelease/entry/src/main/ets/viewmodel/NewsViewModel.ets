@@ -11,8 +11,8 @@
  *  limitations under the License.
  */
 
-import { NewsData } from '../common/bean/NewsData';
-import ResponseResult from '../common/bean/ResponseResult';
+import { NewsData } from './NewsData';
+import ResponseResult from './ResponseResult';
 import Constants from '../common/constants/Constants';
 import { httpRequestGet, httpRequestPost } from '../common/utils/HttpUtil';
 import Logger from '../common/utils/Logger';

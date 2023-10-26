@@ -16,8 +16,8 @@
 import prompt from '@ohos.promptAction';
 import Constants, { RefreshState, RefreshConstant, PageState } from '../common/constants/Constants';
 import NewsViewModel from './NewsViewModel';
-import { NewsData } from '../common/bean/NewsData';
-import RefreshLoadingClass from '../common/bean/RefreshLoadingClass';
+import { NewsData } from './NewsData';
+import RefreshLoadingClass from './RefreshLoadingClass';
 
 @Observed
 export default class RefreshListViewModel {
@@ -32,7 +32,7 @@ export default class RefreshListViewModel {
   public endIndex = 0;
   public newsData: Array<NewsData> = [];
   public currentPage: number = 1;
-  public pageSize: number = 10;
+  public pageSize: number = 4;
   public offsetY: number = 0;
   public hasMore: boolean = true;
   public refreshLayoutClass: RefreshLoadingClass = new RefreshLoadingClass($r('app.media.ic_pull_down_refresh'),

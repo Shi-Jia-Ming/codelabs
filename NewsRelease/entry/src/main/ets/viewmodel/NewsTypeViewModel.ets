@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import NewsTypeBean from '../common/bean/NewsTypeBean'
-import ResponseResult from '../common/bean/ResponseResult';
+import NewsTypeBean from './NewsTypeBean'
+import ResponseResult from './ResponseResult';
 import Constants from '../common/constants/Constants';
 import { httpRequestGet } from '../common/utils/HttpUtil';
 
