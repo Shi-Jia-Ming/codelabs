@@ -14,8 +14,8 @@
  */
 
 import Common from '../common/constants/Const';
-import IconItem from '../common/bean/IconItem';
-import Point from '../common/bean/Point';
+import IconItem from './IconItem';
+import Point from './Point';
 
 const TWO_PI: number = 2 * Math.PI;
 

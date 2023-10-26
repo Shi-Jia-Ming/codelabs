@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import IconItem from '../common/bean/IconItem';
+import IconItem from '../viewmodel/IconItem';
 import Common from '../common/constants/Const';
 
 @Component
