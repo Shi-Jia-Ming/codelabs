@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { CustomRefreshLoadLayoutClass } from '../common/bean/NewsData';
 import { CommonConstant as Const } from '../common/constant/CommonConstant';
+import { CustomRefreshLoadLayoutClass } from '../viewmodel/NewsViewModel';
 
 /**
  * Custom layout to show refresh or load.

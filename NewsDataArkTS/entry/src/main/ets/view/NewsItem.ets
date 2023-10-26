@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { NewsData, NewsFile } from '../common/bean/NewsData';
-import { CommonConstant as Const } from '../common/constant/CommonConstant';
+import { CommonConstant, CommonConstant as Const } from '../common/constant/CommonConstant';
+import { NewsData, NewsFile } from '../viewmodel/NewsViewModel';
 
 /**
  * The news list item component.
@@ -28,22 +28,23 @@ export default struct NewsItem {
       Row() {
         Image($r('app.media.news'))
           .width(Const.NewsTitle_IMAGE_WIDTH)
-          .height(Const.NewsTitle_IMAGE_HEIGHT)
-          .margin({
-            top: Const.NewsTitle_IMAGE_MARGIN_TOP,
-            left: Const.NewsTitle_IMAGE_MARGIN_LEFT
-          })
+          .height($r('app.float.news_title_image_height'))
           .objectFit(ImageFit.Fill)
         Text(this.newsData.title)
           .fontSize(Const.NewsTitle_TEXT_FONT_SIZE)
           .fontColor($r('app.color.fontColor_text'))
-          .height(Const.NewsTitle_TEXT_HEIGHT)
           .width(Const.NewsTitle_TEXT_WIDTH)
-          .maxLines(Const.NewsTitle_TEXT_MAX_LINES)
-          .margin({ left: Const.NewsTitle_TEXT_MARGIN_LEFT, top: Const.NewsTitle_TEXT_MARGIN_TOP })
+          .maxLines(1)
+          .margin({ left: Const.NewsTitle_TEXT_MARGIN_LEFT })
           .textOverflow({ overflow: TextOverflow.Ellipsis })
           .fontWeight(Const.NewsTitle_TEXT_FONT_WEIGHT)
       }
+      .alignItems(VerticalAlign.Center)
+      .height($r('app.float.news_title_row_height'))
+      .margin({
+        top: $r('app.float.news_title_row_margin_top'),
+        left: Const.NewsTitle_IMAGE_MARGIN_LEFT
+      })
 
       Text(this.newsData.content)
         .fontSize(Const.NewsContent_FONT_SIZE)
@@ -63,7 +64,7 @@ export default struct NewsItem {
           }
         }, (itemImg: NewsFile, index?: number) => JSON.stringify(itemImg) + index)
       }
-      .columnsTemplate('1fr '.repeat(this.newsData.imagesUrl.length))
+      .columnsTemplate(CommonConstant.GRID_COLUMN_TEMPLATES.repeat(this.newsData.imagesUrl.length))
       .columnsGap(Const.NewsGrid_COLUMNS_GAP)
       .rowsTemplate(Const.NewsGrid_ROWS_TEMPLATE)
       .width(Const.NewsGrid_WIDTH)

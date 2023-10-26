@@ -14,11 +14,8 @@
  */
 
 import { CommonConstant as Const } from '../common/constant/CommonConstant';
-import { NewsData } from '../common/bean/NewsData';
-import NewsTypeBean from '../common/bean/NewsTypeBean';
 import { httpRequestGet } from '../common/utils/HttpUtil';
 import Logger from '../common/utils/Logger';
-import ResponseResult from '../common/bean/ResponseResult';
 
 class NewsViewModel {
   /**
@@ -77,3 +74,114 @@ class NewsViewModel {
 let newsViewModel = new NewsViewModel();
 
 export default newsViewModel as NewsViewModel;
+
+/**
+ * News list item info.
+ */
+export class NewsData {
+  /**
+   * News list item title.
+   */
+  title: string = '';
+
+  /**
+   * News list item content.
+   */
+  content: string = '';
+
+  /**
+   * News list item imagesUrl.
+   */
+  imagesUrl: Array<NewsFile> = [new NewsFile()];
+
+  /**
+   * News list item source.
+   */
+  source: string = '';
+}
+
+/**
+ * News image list item info.
+ */
+export class NewsFile {
+  /**
+   * News image list item id.
+   */
+  id: number = 0;
+
+  /**
+   * News image list item url.
+   */
+  url: string = '';
+
+  /**
+   * News image list item type.
+   */
+  type: number = 0;
+
+  /**
+   * News image list item newsId.
+   */
+  newsId: number = 0;
+}
+
+/**
+ * Custom refresh load layout data.
+ */
+@Observed
+export class CustomRefreshLoadLayoutClass {
+  /**
+   * Custom refresh load layout isVisible.
+   */
+  isVisible: boolean;
+
+  /**
+   * Custom refresh load layout imageSrc.
+   */
+  imageSrc: Resource;
+
+  /**
+   * Custom refresh load layout textValue.
+   */
+  textValue: Resource;
+
+  /**
+   * Custom refresh load layout heightValue.
+   */
+  heightValue: number;
+
+  constructor(isVisible: boolean, imageSrc: Resource, textValue: Resource, heightValue: number) {
+    this.isVisible = isVisible;
+    this.imageSrc = imageSrc;
+    this.textValue = textValue;
+    this.heightValue = heightValue;
+  }
+}
+
+export class NewsTypeBean {
+  id: number = 0;
+  name: ResourceStr = '';
+}
+
+export class ResponseResult {
+  /**
+   * Code returned by the network request: success, fail.
+   */
+  code: string;
+
+  /**
+   * Message returned by the network request.
+   */
+  msg: string | Resource;
+
+  /**
+   * Data returned by the network request.
+   */
+  data: string | Object | ArrayBuffer;
+
+  constructor() {
+    this.code = '';
+    this.msg = '';
+    this.data = '';
+  }
+}

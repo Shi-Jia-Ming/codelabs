@@ -14,9 +14,8 @@
  */
 
 import http from '@ohos.net.http';
-import ResponseResult from '../bean/ResponseResult';
+import { ResponseResult } from '../../viewmodel/NewsViewModel';
 import { CommonConstant as Const, ContentType } from '../constant/CommonConstant';
-
 
 /**
  * Initiates an HTTP request to a given URL.

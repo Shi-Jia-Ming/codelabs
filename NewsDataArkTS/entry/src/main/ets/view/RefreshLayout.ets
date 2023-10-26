@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
+import { CustomRefreshLoadLayoutClass } from '../viewmodel/NewsViewModel';
 import CustomRefreshLoadLayout from './CustomRefreshLoadLayout';
-import { CustomRefreshLoadLayoutClass } from '../common/bean/NewsData';
 
 /**
  * The refresh layout component.
