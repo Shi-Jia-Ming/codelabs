@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PlayControlModel } from '../common/bean/PlayControlModel';
+import { PlayControlModel } from './PlayControlModel';
 import { ControlConstants } from '../common/constants/ControlConstants';
 
 const playImage: PlayControlModel[] = [

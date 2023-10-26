@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { LiveStream } from '../common/bean/LiveStream';
+import { LiveStream } from '../viewmodel/LiveStream';
 import { LiveConstants } from '../common/constants/LiveConstants';
 import { LiveStreamViewModel } from '../viewmodel/LiveStreamViewModel';
 

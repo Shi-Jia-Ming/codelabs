@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from './SongData';
 
 export class SongDataSource implements IDataSource {
   private dataArray: SongItem[] = [];

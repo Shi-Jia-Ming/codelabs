@@ -15,7 +15,7 @@
 
 import { BreakpointConstants } from '../common/constants/BreakpointConstants'
 import { StyleConstants } from '../common/constants/StyleConstants'
-import { Comment } from '../common/bean/Comment';
+import { Comment } from '../viewmodel/Comment';
 import CommentViewModel from '../viewmodel/CommentViewModel';
 import { ListItemComponent } from '../view/ListItemComponent';
 import { HeadComponent } from '../view/HeadComponent';

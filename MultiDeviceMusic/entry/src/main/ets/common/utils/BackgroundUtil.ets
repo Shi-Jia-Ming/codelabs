@@ -47,11 +47,11 @@ export class BackgroundUtil {
         backgroundTaskManager.startBackgroundRunning(context,
           backgroundTaskManager.BackgroundMode.AUDIO_PLAYBACK, wantAgentObj).then(() => {
           Logger.info('this avPlayer: ', 'startBackgroundRunning succeeded');
-        }).catch((error) => {
-          Logger.error('this avPlayer: ', `startBackgroundRunning failed Cause: code ${error.code}`);
+        }).catch((error: Error) => {
+          Logger.error('this avPlayer: ', `startBackgroundRunning failed Cause: ${JSON.stringify(error)}`);
         });
       } catch (error) {
-        Logger.error('this avPlayer: ', `startBackgroundRunning failed. code ${error.code} message ${error.message}`);
+        Logger.error('this avPlayer: ', `startBackgroundRunning failed. Error cause : ${JSON.stringify(error)}`);
       }
     });
   }
@@ -65,11 +65,11 @@ export class BackgroundUtil {
     try {
       backgroundTaskManager.stopBackgroundRunning(context).then(() => {
         Logger.info('this avPlayer: ', 'stopBackgroundRunning succeeded');
-      }).catch((error) => {
-        Logger.error('this avPlayer: ', `stopBackgroundRunning failed Cause: code ${error.code}`);
+      }).catch((error: Error) => {
+        Logger.error('this avPlayer: ', `stopBackgroundRunning failed Cause: ${JSON.stringify(error)}`);
       });
     } catch (error) {
-      Logger.error('this avPlayer: ', `stopBackgroundRunning failed. code ${error.code} message ${error.message}`);
+      Logger.error('this avPlayer: ', `stopBackgroundRunning failed. Error cause : ${JSON.stringify(error)}`);
     }
   }
 }

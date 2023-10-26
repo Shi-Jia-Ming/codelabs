@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { LiveStream } from '../common/bean/LiveStream'
+import { LiveStream } from './LiveStream'
 export class LiveStreamViewModel {
   getLiveStreamList(): LiveStream[] {
     let LiveStreamList: Array<LiveStream> = [];

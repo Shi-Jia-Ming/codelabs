@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import IndexItem from '../common/bean/IndexItem';
+import IndexItem from '../viewmodel/IndexItem';
 import IndexViewModel from '../viewmodel/IndexViewModel';
 import { StyleConstants } from '../common/constants/StyleConstants';
 import { BreakpointConstants } from '../common/constants/BreakpointConstants';

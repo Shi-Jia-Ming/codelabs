@@ -15,7 +15,7 @@
 
 import router from '@ohos.router';
 import { Logger } from '../common/utils/Logger';
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from '../viewmodel/SongData';
 import { MusicList } from '../viewmodel/MusicListViewModel';
 import { RouterUrlConstants } from '../common/constants/RouterUrlConstants';
 import { StyleConstants } from '../common/constants/StyleConstants';
@@ -54,8 +54,8 @@ export struct MusicInfoComponent {
         .onClick(() => {
           router.pushUrl({
             url: RouterUrlConstants.MUSIC_PLAY
-          }, router.RouterMode.Single).catch(error => {
-            Logger.error('pushUrl failed :' + JSON.stringify(error))
+          }, router.RouterMode.Single).catch((error: Error) => {
+            Logger.error('pushUrl failed :' + JSON.stringify(error));
           });
         })
     }

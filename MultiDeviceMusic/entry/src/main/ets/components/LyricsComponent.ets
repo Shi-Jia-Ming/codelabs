@@ -14,7 +14,7 @@
  */
 
 import { BreakpointType } from '../common/utils/BreakpointSystem';
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from '../viewmodel/SongData';
 import { MusicList } from '../viewmodel/MusicListViewModel';
 import { PlayConstants } from '../common/constants/PlayConstants';
 import { StyleConstants } from '../common/constants/StyleConstants';

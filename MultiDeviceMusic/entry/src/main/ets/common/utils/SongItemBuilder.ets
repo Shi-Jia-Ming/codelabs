@@ -15,7 +15,7 @@
 
 import common from '@ohos.app.ability.common';
 import resourceManager from '@ohos.resourceManager';
-import { SongItem } from '../bean/SongData';
+import { SongItem } from '../../viewmodel/SongData';
 import { Logger } from './Logger';
 
 export default class SongItemBuilder {
@@ -29,8 +29,8 @@ export default class SongItemBuilder {
       return this.songItem;
     }
     let rawfileFd = await this.context.resourceManager.getRawFd(songItem.src)
-      .catch((error) => {
-        Logger.error(`resourceManager error code ${error.code}`);
+      .catch((error: Error) => {
+        Logger.error(`resourceManager error cause : ${JSON.stringify(error)}`);
       })
     if (rawfileFd) {
       this.realUrl = rawfileFd;

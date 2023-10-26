@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from './SongData';
 
 const MusicList: SongItem[] = [
   { id: 1, title: '不知道', singer: '小碗你好', mark: $r('app.media.ic_vip'),

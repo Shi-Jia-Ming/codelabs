@@ -18,7 +18,7 @@ import { MediaService } from '../common/utils/MediaService';
 import { Logger } from '../common/utils/Logger';
 import { BreakpointType } from '../common/utils/BreakpointSystem';
 import { MusicPlayMode } from '../viewmodel/MusicData';
-import { PlayControlModel } from '../common/bean/PlayControlModel';
+import { PlayControlModel } from '../viewmodel/PlayControlModel';
 import { ControlConstants } from '../common/constants/ControlConstants';
 import { PlayConstants } from '../common/constants/PlayConstants';
 

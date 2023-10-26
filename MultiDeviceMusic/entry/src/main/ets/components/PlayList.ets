@@ -20,7 +20,7 @@ import { BreakpointConstants } from '../common/constants/BreakpointConstants';
 import { MediaService } from '../common/utils/MediaService';
 import { Logger } from '../common/utils/Logger';
 import { BreakpointType } from '../common/utils/BreakpointSystem';
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from '../viewmodel/SongData';
 import { MusicList } from '../viewmodel/MusicListViewModel'
 import { SongDataSource } from '../viewmodel/SongDataSource';
 import { ContentConstants } from '../common/constants/ContentConstants';
@@ -107,8 +107,8 @@ export struct PlayList {
       router.pushUrl({
         url: RouterUrlConstants.MUSIC_PLAY
       }, router.RouterMode.Single)
-        .catch(error => {
-          Logger.error('pushUrl failed :' + JSON.stringify(error))
+        .catch((error: Error) => {
+          Logger.error('pushUrl failed :' + JSON.stringify(error));
         })
     })
     .height($r('app.float.list_item_height'))

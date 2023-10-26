@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Comment } from '../common/bean/Comment';
+import { Comment } from './Comment';
 
 /**
  * Review data generation class.
