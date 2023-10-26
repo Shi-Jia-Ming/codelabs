@@ -16,7 +16,7 @@
 /**
  * NewsData params info.
  */
-export class NavigatorBean {
+export class NavigatorModel {
   /**
    * Jumping Path.
    */
