@@ -25,7 +25,7 @@ import {
 } from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
 import hilog from '@ohos.hilog';
-import AnimationModel from '../common/bean/AnimationModel';
+import AnimationModel from '../viewmodel/AnimationModel';
 
 @Entry
 @Component

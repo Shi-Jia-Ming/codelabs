@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import AnimationModel from '../bean/AnimationModel'
+import AnimationModel from '../../viewmodel/AnimationModel'
 
 /**
  * Index page button animation mode.
