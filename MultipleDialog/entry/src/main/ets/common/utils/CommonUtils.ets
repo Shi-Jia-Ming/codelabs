@@ -16,7 +16,7 @@
 import Context from '@ohos.app.ability.common';
 import Logger from './Logger';
 import CommonConstants from '../constants/CommonConstants';
-import HobbyBean from '../bean/HobbyBean';
+import HobbyBean from '../../viewmodel/HobbyBean';
 
 /**
  * This is a pop-up window tool class, which is used to encapsulate dialog code.
