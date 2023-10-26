@@ -14,8 +14,8 @@
  */
 
 import PreferenceModel from '../model/PreferenceModel';
-import ButtonItemData from '../common/bean/ButtonItemData';
-import Fruit from '../common/bean/Fruit';
+import ButtonItemData from '../viewmodel/ButtonItemData';
+import Fruit from '../viewmodel/Fruit';
 import StyleConstants from '../common/constants/StyleConstants';
 
 /**
