@@ -15,7 +15,7 @@
 
 import MainModel from './../../viewmodel/MainViewModel';
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import AlarmItem from '../../common/bean/AlarmItemBean';
+import AlarmItem from '../../viewmodel/AlarmItemBean';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 
 @Component

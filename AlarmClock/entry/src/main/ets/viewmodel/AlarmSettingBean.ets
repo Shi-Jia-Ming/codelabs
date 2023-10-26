@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { AlarmSettingType } from '../constants/AlarmSettingType';
+import { AlarmSettingType } from '../common/constants/AlarmSettingType';
 
 /**
  * Alarm setting bean information.

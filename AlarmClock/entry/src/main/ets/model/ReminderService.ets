@@ -16,7 +16,7 @@
 import reminderAgent from '@ohos.reminderAgentManager';
 import notification from '@ohos.notificationManager';
 import { CommonConstants } from '../common/constants/CommonConstants';
-import ReminderItem from '../common/bean/ReminderItemBean';
+import ReminderItem from '../viewmodel/ReminderItemBean';
 import Logger from '../common/utils/Logger';
 
 /**

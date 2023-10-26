@@ -15,12 +15,12 @@
 
 import { DetailConstant } from '../common/constants/DetailConstant';
 import { CommonConstants, WeekDays } from '../common/constants/CommonConstants';
-import AlarmItem from '../common/bean/AlarmItemBean';
+import AlarmItem from './AlarmItemBean';
 import ReminderService from '../model/ReminderService';
 import DataTypeUtils from '../common/utils/DataTypeUtils';
 import { GlobalContext } from '../common/utils/GlobalContext';
 import PreferencesHandler from '../model/database/PreferencesHandler';
-import DayDataBean from '../common/bean/DayDataBean';
+import DayDataBean from './DayDataBean';
 
 /**
  * Detail page view model description
