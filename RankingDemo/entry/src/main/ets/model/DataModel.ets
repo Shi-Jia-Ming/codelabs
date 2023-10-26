@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { RankData } from '../common/bean/RankData';
+import { RankData } from '../viewmodel/RankData';
 
 /*
  * the Mock file instead of network data.
