@@ -14,11 +14,11 @@
  */
 
 import worker, { MessageEvents} from '@ohos.worker';
-import { adjustIconList, IconStatus } from '../viewModel/IconListViewModel';
+import { adjustIconList, IconStatus } from '../viewmodel/IconListViewModel';
 import { adjustOpacity } from '../utils/OpacityUtil';
 import { CommonConstants } from '../common/constant/CommonConstants';
-import { AdjustId } from '../viewModel/OptionViewModel';
-import { MessageItem } from '../common/bean/MessageItem'
+import { AdjustId } from '../viewmodel/OptionViewModel';
+import { MessageItem } from '../viewmodel/MessageItem'
 import image from '@ohos.multimedia.image';
 
 @Component
@@ -88,7 +88,7 @@ struct SliderCustom {
   @Prop max: number;
   @Consume pixelMap?: PixelMap;
   @Consume isPixelMapChange: boolean;
-  private pixelMapTemp: PixelMap;
+  private pixelMapTemp?: PixelMap;
   private postState: boolean = true;
   private workerInstance?: worker.ThreadWorker;
   saturationLastSlider: number = CommonConstants.SLIDER_MAX;
@@ -183,8 +183,10 @@ struct SliderCustom {
   }
 
   updatePixelMap(event: MessageEvents) {
-    const newPixel = this.pixelMap;
-    newPixel.writeBufferToPixels(event.data);
+    const newPixel: image.PixelMap | undefined = this.pixelMap;
+    if (newPixel !== undefined) {
+      newPixel.writeBufferToPixels(event.data);
+    }
     this.pixelMap = newPixel;
     this.isPixelMapChange = !this.isPixelMapChange;
     this.deviceListDialogController.close();

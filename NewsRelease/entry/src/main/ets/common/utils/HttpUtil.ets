@@ -14,8 +14,8 @@
  */
 
 import http from '@ohos.net.http';
-import { NewsData } from '../bean/NewsData';
-import ResponseResult from '../bean/ResponseResult';
+import { NewsData } from '../../viewmodel/NewsData';
+import ResponseResult from '../../viewmodel/ResponseResult';
 import Constants, { ContentType } from '../constants/Constants';
 
 /**

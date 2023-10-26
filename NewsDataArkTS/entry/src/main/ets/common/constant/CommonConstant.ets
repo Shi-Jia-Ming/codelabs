@@ -12,7 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import NewsTypeBean from '../bean/NewsTypeBean';
+
+import { NewsTypeBean } from '../../viewmodel/NewsViewModel';
 
 export class CommonConstant {
 
@@ -117,25 +118,20 @@ export class CommonConstant {
   static readonly NewsListConstant_NONE_TEXT_opacity: number = 0.6;
   static readonly NewsListConstant_NONE_TEXT_size: number = 16;
   static readonly NewsListConstant_NONE_TEXT_margin: number = 12;
-  static readonly NewsListConstant_ITEM_MARGIN_TOP: string = '1.5%';
+  // static readonly NewsListConstant_ITEM_MARGIN_TOP: string = '1.5%';
   static readonly NewsListConstant_LIST_MARGIN_LEFT: string = '3.3%';
   static readonly NewsListConstant_LIST_MARGIN_RIGHT: string = '3.3%';
-  static readonly NewsListConstant_ITEM_HEIGHT: string = '32%';
+  // static readonly NewsListConstant_ITEM_HEIGHT: string = '32%';
   static readonly NewsListConstant_LIST_WIDTH: string =  '93.3%';
 
   /**
    * The NewsTitle constants.
    */
-  static readonly NewsTitle_TEXT_MAX_LINES: number = 3;
   static readonly NewsTitle_TEXT_FONT_SIZE: number = 20;
   static readonly NewsTitle_TEXT_FONT_WEIGHT: number = 500;
   static readonly NewsTitle_TEXT_MARGIN_LEFT: string = '2.4%';
-  static readonly NewsTitle_TEXT_MARGIN_TOP: string = '7.2%';
-  static readonly NewsTitle_TEXT_HEIGHT: string = '9.6%';
   static readonly NewsTitle_TEXT_WIDTH: string = '78.6%';
   static readonly NewsTitle_IMAGE_MARGIN_LEFT: string = '3.5%';
-  static readonly NewsTitle_IMAGE_MARGIN_TOP: string = '7.9%';
-  static readonly NewsTitle_IMAGE_HEIGHT: string = '8.9%';
   static readonly NewsTitle_IMAGE_WIDTH: string = '11.9%';
 
   /**
@@ -193,6 +189,16 @@ export class CommonConstant {
   static readonly RefreshConstant_DELAY_PULL_DOWN_REFRESH: number = 50;
   static readonly RefreshConstant_CLOSE_PULL_DOWN_REFRESH_TIME: number = 150;
   static readonly RefreshConstant_DELAY_SHRINK_ANIMATION_TIME: number = 500;
+
+  /**
+   * Grid column templates.
+   */
+  static readonly GRID_COLUMN_TEMPLATES: string = '1fr ';
+
+  /**
+   * List offset unit.
+   */
+  static readonly LIST_OFFSET_UNIT: string = 'px';
 }
 
 /**

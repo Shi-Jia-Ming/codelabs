@@ -17,7 +17,7 @@ import dataPreferences from '@ohos.data.preferences';
 import promptAction from '@ohos.promptAction';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
-import Fruit from '../common/bean/Fruit';
+import Fruit from '../viewmodel/Fruit';
 
 let context = getContext(this);
 let preference: dataPreferences.Preferences;

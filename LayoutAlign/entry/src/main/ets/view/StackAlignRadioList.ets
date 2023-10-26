@@ -15,7 +15,7 @@
 
 import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
 import { getStackModuleList } from '../viewmodel/AttributeModuleData';
-import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
+import { ContainerModuleItem } from '../viewmodel/ContainerModuleItem';
 
 /**
  *Set  Alignment in Stack

@@ -14,7 +14,7 @@
  */
 
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import ProductBean from '../common/bean/ProductBean';
+import ProductBean from '../viewmodel/ProductBean';
 import { waterFlowData } from '../viewmodel/HomeViewModel';
 
 /**

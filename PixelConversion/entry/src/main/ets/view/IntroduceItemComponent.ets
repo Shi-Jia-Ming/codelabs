@@ -14,7 +14,7 @@
  */
 
 import Constants from '../common/constants/Constants';
-import IntroductionItem from '../common/bean/IntroductionItem';
+import IntroductionItem from '../viewmodel/IntroductionItem';
 
 @Extend(Text) function titleTextStyle() {
   .fontColor($r('app.color.title_font'))

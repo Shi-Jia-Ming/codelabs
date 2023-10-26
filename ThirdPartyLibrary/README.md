@@ -10,11 +10,11 @@
 
 ### 相关概念
 
--   [Navigation](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-navigation-0000001478341133-V3?catalogVersion=V3)：一般作为Page页面的根容器，通过属性设置来展示页面的标题、工具栏、菜单。
+[Navigation](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-basic-components-navigation-0000001478341133-V3?catalogVersion=V3)：一般作为Page页面的根容器，通过属性设置来展示页面的标题、工具栏、菜单。
 
--   [Tabs](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-tabs-0000001478181433-V3?catalogVersion=V3)：一种可以通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
+[Tabs](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-tabs-0000001478181433-V3?catalogVersion=V3)：一种可以通过页签进行内容视图切换的容器组件，每个页签对应一个内容视图。
 
--   [Canvas](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-components-canvas-canvas-0000001427744852-V3?catalogVersion=V3)：画布组件，用于自定义绘制图形。
+[Canvas](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-components-canvas-canvas-0000001427744852-V3?catalogVersion=V3)：画布组件，用于自定义绘制图形。
 
 ### 使用说明
 

@@ -16,7 +16,7 @@
 import promptAction from '@ohos.promptAction';
 import router from '@ohos.router';
 import { Order, ProductSpecification } from '@ohos/common';
-import { FinishType } from '../bean/TypeModel';
+import { FinishType } from '../viewmodel/TypeModel';
 import { SpecificationDialog } from './SpecificationDialog';
 import { barData, userEvaluate, moreEvaluate, serviceList, Evaluate, BarData } from '../viewmodel/CommodityDetailData';
 import { CapsuleGroupButton } from '../components/CapsuleGroupButton';
@@ -31,7 +31,7 @@ import {
   getID,
   Specification
 } from '@ohos/common';
-import { ShopProps } from '@ohos/common/src/main/ets/bean/ProductModel';
+import { ShopProps } from '@ohos/common/src/main/ets/viewmodel/ProductModel';
 
 @Extend(Button) function titleButton() {
   .backgroundColor($r('app.color.zero_alpha_black'))

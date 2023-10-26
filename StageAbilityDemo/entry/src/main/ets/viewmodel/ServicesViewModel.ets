@@ -14,7 +14,7 @@
  */
 
 import DataModel from '../model/DataModel';
-import Service from '../common/bean/GoodsServiceData';
+import Service from './GoodsServiceData';
 
 export default class ServicesViewModel {
   // Load the data of goods service for the GoodsServiceList view.

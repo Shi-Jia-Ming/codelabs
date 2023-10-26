@@ -17,7 +17,7 @@ import window from '@ohos.window';
 import Logger from '../common/utils/Logger';
 import DrawModel from '../viewmodel/DrawModel';
 import PrizeDialog from '../view/PrizeDialog';
-import PrizeData from '../common/bean/PrizeData';
+import PrizeData from '../viewmodel/PrizeData';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonConstants from '../common/constants/CommonConstants';
 

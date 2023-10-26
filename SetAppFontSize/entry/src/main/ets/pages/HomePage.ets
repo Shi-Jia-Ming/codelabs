@@ -21,7 +21,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
-import SettingData from '../common/bean/SettingData';
+import SettingData from '../viewmodel/SettingData';
 
 const TAG = '[HomePage]';
 

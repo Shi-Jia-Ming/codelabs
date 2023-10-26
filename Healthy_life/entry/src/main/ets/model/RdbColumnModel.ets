@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ColumnInfo from '../common/bean/ColumnInfo';
+import ColumnInfo from '../viewmodel/ColumnInfo';
 
 export const columnGlobalInfoList: Array<ColumnInfo> = [
   new ColumnInfo('id', 'integer', -1, true, true, false),

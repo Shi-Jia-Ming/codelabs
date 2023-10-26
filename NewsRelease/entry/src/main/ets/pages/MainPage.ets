@@ -17,8 +17,8 @@ import Constants from '../common/constants/Constants';
 import NewsList from '../view/newslist';
 import router from '@ohos.router';
 import NewsTypeViewModel from '../viewmodel/NewsTypeViewModel';
-import NewsTypeBean from '../common/bean/NewsTypeBean';
-import { GlobalContext } from '../common/bean/GlobalContext';
+import NewsTypeBean from '../viewmodel/NewsTypeBean';
+import { GlobalContext } from '../viewmodel/GlobalContext';
 
 /**
  * MainPage

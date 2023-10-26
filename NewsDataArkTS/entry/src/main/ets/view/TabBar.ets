@@ -15,8 +15,7 @@
 
 import NewsList from '../view/newslist';
 import { CommonConstant as Const } from '../common/constant/CommonConstant';
-import NewsTypeBean from '../common/bean/NewsTypeBean';
-import NewsViewModel from '../viewmodel/NewsViewModel';
+import NewsViewModel, { NewsTypeBean } from '../viewmodel/NewsViewModel';
 
 /**
  * The tabBar component.

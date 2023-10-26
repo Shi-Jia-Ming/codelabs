@@ -18,8 +18,8 @@ import notification from '@ohos.notificationManager';
 import preferences from '@ohos.data.preferences';
 import Logger from '../common/utils/Logger';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import ReminderInfo from '../common/bean/ReminderInfo';
-import PublishReminderInfo from '../common/bean/PublishReminderInfo';
+import ReminderInfo from '../viewmodel/ReminderInfo';
+import PublishReminderInfo from '../viewmodel/PublishReminderInfo';
 
 // publishReminder
 function publishReminder(params: PublishReminderInfo, context: Context) {

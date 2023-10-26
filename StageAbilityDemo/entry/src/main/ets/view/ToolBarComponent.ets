@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ToolBarData from '../common/bean/ToolBarData';
+import ToolBarData from '../viewmodel/ToolBarData';
 import { AppFontSize, AppFontWeight, PERCENTAGE_100, ToolBarStyle } from '../common/constants/Constants';
 import { NavPageStyle } from '../common/constants/Constants';
 

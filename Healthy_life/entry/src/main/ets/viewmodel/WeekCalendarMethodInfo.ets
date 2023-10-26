@@ -13,7 +13,11 @@
  * limitations under the License.
  */
 
-export default class NewsTypeBean {
-  id: number = 0;
-  name: ResourceStr = '';
+/**
+ * Week Calendar Method Info
+ */
+export default class WeekCalendarMethodInfo {
+  gotoPreviousWeek: Function = () => {};
+  goToNextWeek: Function = () => {};
+  calenderItemClickAction: Function = () => {};
 }

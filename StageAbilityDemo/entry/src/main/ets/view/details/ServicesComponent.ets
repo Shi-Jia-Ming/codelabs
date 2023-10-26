@@ -15,7 +15,7 @@
 
 import ServiceItemComponent from './ServiceItemComponent';
 import ServicesViewModel from '../../viewmodel/ServicesViewModel';
-import GoodsServiceData from '../../common/bean/GoodsServiceData';
+import GoodsServiceData from '../../viewmodel/GoodsServiceData';
 import { PERCENTAGE_100 } from '../../common/constants/Constants';
 import { GoodsService } from '../../common/constants/DetailsConstants';
 

@@ -16,7 +16,7 @@
 import PreferenceModel from '../model/PreferenceModel';
 import ButtonComponent from '../view/ButtonComponent';
 import TextItemComponent from '../view/TextItemComponent';
-import Fruit from '../common/bean/Fruit';
+import Fruit from '../viewmodel/Fruit';
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 

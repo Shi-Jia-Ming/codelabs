@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import TaskItemBean from '../common/bean/TaskItemBean';
 import { CommonConstants } from '../common/constant/CommonConstant';
 import getCurrentTime from '../common/utils/DateUtil';
-import DataModel from '../viewmodel/DataModel';
+import DataModel, { TaskItemBean } from '../viewmodel/DataModel';
 import ProgressEditPanel from './ProgressEditPanel';
 
 @Component

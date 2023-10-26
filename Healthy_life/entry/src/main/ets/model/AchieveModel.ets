@@ -14,7 +14,7 @@
  */
 
 import { ACHIEVEMENT_LEVEL_LIST } from './TaskInitList';
-import GlobalInfo from '../common/bean/GlobalInfo';
+import GlobalInfo from '../viewmodel/GlobalInfo';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 
 export const ACHIEVEMENT_LEVEL_KEY = 'AchievementLevelKey';

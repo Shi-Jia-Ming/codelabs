@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PressKeysBean } from '../common/bean/PressKeysBean';
+import { PressKeysBean } from './PressKeysBean';
 
 export class PressKeysBeanViewModel {
 

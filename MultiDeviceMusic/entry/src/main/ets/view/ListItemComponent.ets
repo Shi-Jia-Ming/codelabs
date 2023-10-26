@@ -14,7 +14,7 @@
  */
 
 import { StyleConstants } from '../common/constants/StyleConstants';
-import { Comment } from '../common/bean/Comment';
+import { Comment } from '../viewmodel/Comment';
 import { CommonConstants } from '../common/constants/CommonConstants';
 
 @Component

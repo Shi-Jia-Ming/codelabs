@@ -32,17 +32,17 @@ struct SplashIndex {
   dialogController: CustomDialogController = new CustomDialogController({
     builder: UserPrivacyDialog(
       {
-        cancel: () => { this.exitApp(this) },
-        confirm: () => { this.onConfirm(this) }
+        cancel: () => { this.exitApp() },
+        confirm: () => { this.onConfirm() }
       }),
-    cancel: () => { this.exitApp(this) },
+    cancel: () => { this.exitApp() },
     autoCancel: false,
     alignment: DialogAlignment.Bottom,
     offset: { dx: 0, dy: Const.OFFSET_24 }
   });
 
-  onConfirm(that) {
-    let preferences = data_preferences.getPreferences(that.context, H_STORE);
+  onConfirm() {
+    let preferences = data_preferences.getPreferences(this.context, H_STORE);
     preferences.then((res) => {
       res.put(IS_PRIVACY, true).then(() => {
         res.flush();
@@ -51,11 +51,11 @@ struct SplashIndex {
         Logger.info('SplashPage','isPrivacy put failed. Cause:' + err);
       });
     })
-    that.jumpAdPage();
+    this.jumpAdPage();
   }
 
-  exitApp(that) {
-    that.context.terminateSelf();
+  exitApp() {
+    this.context.terminateSelf();
   }
 
   jumpAdPage() {

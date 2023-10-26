@@ -16,7 +16,7 @@
 import { DetailConstant } from '../../common/constants/DetailConstant';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import DimensionUtil from '../../common/utils/DimensionUtil';
-import DayDataBean from '../../common/bean/DayDataBean';
+import DayDataBean from '../../viewmodel/DayDataBean';
 
 @Component
 export default struct DatePickArea {

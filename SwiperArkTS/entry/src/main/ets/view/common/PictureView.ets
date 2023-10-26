@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import { PictureItem } from '../../common/bean/PictureItem';
+import { PictureItem } from '../../viewmodel/PictureItem';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
 /**

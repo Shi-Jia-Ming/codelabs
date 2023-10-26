@@ -1,0 +1,24 @@
+{
+  "float": [
+    {
+      "name": "news_list_height",
+      "value": "256vp"
+    },
+    {
+      "name": "news_list_margin_top",
+      "value": "12vp"
+    },
+    {
+      "name": "news_title_image_height",
+      "value": "20vp"
+    },
+    {
+      "name": "news_title_row_height",
+      "value": "22vp"
+    },
+    {
+      "name": "news_title_row_margin_top",
+      "value": "16vp"
+    }
+  ]
+}

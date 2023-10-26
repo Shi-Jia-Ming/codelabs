@@ -16,8 +16,8 @@
 import WebView from '@ohos.web.webview';
 import contact from '@ohos.contact';
 import { code } from '../constant/CodeConstant';
-import { ParamsBean } from '../bean/ParamsBean';
-import { JavaScriptBean } from '../bean/JavaScriptBean';
+import { ParamsBean } from '../../viewmodel/ParamsBean';
+import { JavaScriptBean } from '../../viewmodel/JavaScriptBean';
 import Logger from './Logger';
 
 /**

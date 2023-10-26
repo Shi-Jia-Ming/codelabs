@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Commodity } from '../bean/CommodityModel';
+import { Commodity } from '../viewmodel/CommodityModel';
 import { EmptyComponent } from './EmptyComponent';
 import { StyleConstants } from '../constants/StyleConstants';
 import { CommonDataSource } from '../utils/CommonDataSource';

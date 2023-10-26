@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PictureItem } from '../../common/bean/PictureItem';
+import { PictureItem } from '../../viewmodel/PictureItem';
 import { initializePictures } from '../../viewmodel/PictureViewModel';
 import { PictureType } from '../../common/constants/PictureConstants';
 import { PictureView } from '../common/PictureView';

@@ -14,7 +14,7 @@
  */
 
 import { OrderType } from '@ohos/common';
-import { IconButtonModel } from '../bean/IconButtonModel';
+import { IconButtonModel } from './IconButtonModel';
 
 const orderButton: IconButtonModel[] = [
   new IconButtonModel(

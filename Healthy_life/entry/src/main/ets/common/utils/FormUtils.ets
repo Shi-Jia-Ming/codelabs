@@ -19,18 +19,18 @@ import RdbUtils from '../database/rdb/RdbUtils';
 import FormInfoApi from '../dataBase/tables/FormInfoApi';
 import DayInfoApi from '../dataBase/tables/DayInfoApi';
 import TaskInfoApi from '../dataBase/tables/TaskInfoApi';
-import AgencyCardInfo from '../bean/AgencyCardInfo';
-import FormInfo from '../bean/FormInfo';
+import AgencyCardInfo from '../../viewmodel/AgencyCardInfo';
+import FormInfo from '../../viewmodel/FormInfo';
 import Logger from '../utils/Logger';
-import ProgressCardInfo from '../bean/ProgressCardInfo';
-import TaskInfo, { taskType } from '../bean/TaskInfo';
+import ProgressCardInfo from '../../viewmodel/ProgressCardInfo';
+import TaskInfo, { taskType } from '../../viewmodel/TaskInfo';
 import { columnDayInfoList, columnTaskInfoInfoList, columnFormInfoList } from '../../model/RdbColumnModel';
 import {
   CommonConstants as Const,
   Unit,
   TaskType
 } from '../constants/CommonConstants';
-import DayInfo from '../bean/DayInfo';
+import DayInfo from '../../viewmodel/DayInfo';
 import { GlobalContext } from './GlobalContext';
 
 class FormUtils {

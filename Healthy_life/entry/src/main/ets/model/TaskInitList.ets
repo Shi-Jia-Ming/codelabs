@@ -12,9 +12,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import AchievementMapInfo from '../common/bean/AchievementMapInfo';
+import AchievementMapInfo from '../viewmodel/AchievementMapInfo';
 
-import TaskInfo from '../common/bean/TaskInfo';
+import TaskInfo from '../viewmodel/TaskInfo';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 
 export interface ITaskItem {

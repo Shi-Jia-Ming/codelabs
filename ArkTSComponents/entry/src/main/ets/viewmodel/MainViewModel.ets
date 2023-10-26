@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ItemData from '../common/bean/ItemData';
+import ItemData from './ItemData';
 
 /**
  * Binds data to components and provides interfaces.

@@ -14,7 +14,7 @@
  */
 
 import Logger from '../common/utils/Logger';
-import HobbyBean from '../common/bean/HobbyBean';
+import HobbyBean from '../viewmodel/HobbyBean';
 import CommonUtils from '../common/utils/CommonUtils';
 import CommonConstants from '../common/constants/CommonConstants';
 

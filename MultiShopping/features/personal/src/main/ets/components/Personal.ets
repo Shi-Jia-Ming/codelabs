@@ -19,7 +19,7 @@ import { orderButton, memberButton, activityButton, liveData } from '../viewmode
 import { IconButton } from '../components/IconButton';
 import { LiveList } from '../components/LiveList';
 import { PersonalConstants } from '../constants/PersonalConstants';
-import { IconButtonModel, OrderCount } from '../bean/IconButtonModel';
+import { IconButtonModel, OrderCount } from '../viewmodel/IconButtonModel';
 
 @Component
 export struct Personal {

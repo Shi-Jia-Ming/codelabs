@@ -20,7 +20,7 @@ import common from '@ohos.app.ability.common';
 import { ITaskItem } from '../../model/TaskInitList';
 import Logger from '../../common/utils/Logger';
 import { CommonConstants as Const } from '../../common/constants/CommonConstants';
-import TaskInfo, { taskType } from '../../common/bean/TaskInfo';
+import TaskInfo, { taskType } from '../../viewmodel/TaskInfo';
 import {
   TaskChooseItem,
   TargetSetItem,

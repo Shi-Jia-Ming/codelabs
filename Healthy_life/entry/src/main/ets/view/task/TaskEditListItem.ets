@@ -15,7 +15,7 @@
 
 import { ITaskItem } from '../../model/TaskInitList';
 import { CommonConstants as Const } from '../../common/constants/CommonConstants';
-import { taskType } from '../../common/bean/TaskInfo';
+import { taskType } from '../../viewmodel/TaskInfo';
 
 @Extend(Text) function targetSetCommon() {
   .fontSize(Const.DEFAULT_16)

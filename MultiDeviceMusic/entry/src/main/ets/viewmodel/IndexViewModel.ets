@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import IndexItem from '../common/bean/IndexItem';
+import IndexItem from './IndexItem';
 
 /**
  * Home page information data processing class.

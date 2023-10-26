@@ -18,9 +18,9 @@ import Logger from '../common/utils/Logger';
 import reminder from '../service/ReminderAgent';
 import TaskInfoApi from '../common/database/tables/TaskInfoApi';
 import { padTo2Digits } from '../common/utils/Utils';
-import TaskInfo, { oneWeek } from '../common/bean/TaskInfo';
+import TaskInfo, { oneWeek } from './TaskInfo';
 import { TaskMapById, RemindContentMap, ITaskItem } from '../model/TaskInitList';
-import PublishReminderInfo from '../common/bean/PublishReminderInfo';
+import PublishReminderInfo from './PublishReminderInfo';
 
 const publishReminder = reminder.publishReminder;
 const cancelReminder = reminder.cancelReminder;

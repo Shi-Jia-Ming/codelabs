@@ -25,7 +25,7 @@ import { AchievementIndex } from '../view/AchievementComponent';
 import { MineIndex } from './MinePage';
 import { HomeStore } from '../viewmodel/HomeViewModel';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
-import GlobalInfo from '../common/bean/GlobalInfo';
+import GlobalInfo from '../viewmodel/GlobalInfo';
 import { GlobalContext } from '../common/utils/GlobalContext';
 
 @Styles function allSize() {

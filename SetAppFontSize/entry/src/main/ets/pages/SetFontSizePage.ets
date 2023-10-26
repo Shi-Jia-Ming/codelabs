@@ -20,7 +20,7 @@ import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import Logger from '../common/utils/Logger';
 import PreferencesUtil from '../common/database/Preferencesutil';
-import ChatData from '../common/bean/ChatData';
+import ChatData from '../viewmodel/ChatData';
 
 const TAG = '[SetFontSizePage]';
 

@@ -14,8 +14,8 @@
  */
 
 import prompt from '@ohos.promptAction';
-import AccountData from '../common/bean/AccountData';
-import AccountItem from '../common/bean/AccountItem';
+import AccountData from '../viewmodel/AccountData';
+import AccountItem from '../viewmodel/AccountItem';
 import CommonConstants from '../common/constants/CommonConstants';
 import { PayList, EarnList } from '../viewmodel/AccountList';
 

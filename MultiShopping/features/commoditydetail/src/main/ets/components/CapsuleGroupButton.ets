@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ButtonType } from '../bean/TypeModel';
+import { ButtonType } from '../viewmodel/TypeModel';
 import { StyleConstants } from '@ohos/common';
 
 @Component

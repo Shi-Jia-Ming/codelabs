@@ -17,8 +17,8 @@ import CommonConstants from '../common/constants/CommonConstants';
 import { EnumeratedValue } from '../common/constants/CommonConstants';
 import ColorConstants from '../common/constants/ColorConstants';
 import StyleConstants from '../common/constants/StyleConstants';
-import PrizeData from '../common/bean/PrizeData';
-import FillArcData from '../common/bean/FillArcData';
+import PrizeData from '../viewmodel/PrizeData';
+import FillArcData from '../viewmodel/FillArcData';
 import Logger from '../common/utils/Logger';
 import CheckEmptyUtils from '../common/utils/CheckEmptyUtils';
 

@@ -19,7 +19,7 @@ import { getBadgeCardItems } from '../viewmodel/AchievementViewModel'
 import Logger from '../common/utils/Logger'
 import { ACHIEVEMENT_LEVEL_KEY } from '../model/AchieveModel'
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import CardInfo from '../common/bean/CardInfo'
+import CardInfo from '../viewmodel/CardInfo'
 
 @Component
 export struct BadgePanel {
@@ -27,7 +27,7 @@ export struct BadgePanel {
 
   aboutToAppear() {
     Logger.debug('BadgePanel','aboutToAppear');
-    getAchievementLevel()
+    getAchievementLevel();
   }
 
   build() {

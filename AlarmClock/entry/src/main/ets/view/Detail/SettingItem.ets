@@ -15,7 +15,7 @@
 
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { AlarmSettingType } from '../../common/constants/AlarmSettingType';
-import AlarmSettingBean from '../../common/bean/AlarmSettingBean';
+import AlarmSettingBean from '../../viewmodel/AlarmSettingBean';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 import IntervalDialog from './dialog/IntervalDialog';
 import DurationDialog from './dialog/DurationDialog';

@@ -15,7 +15,7 @@
 
 import prompt from '@ohos.promptAction';
 import { RankViewModel } from '../viewmodel/RankViewModel';
-import { RankData } from '../common/bean/RankData';
+import { RankData } from '../viewmodel/RankData';
 import { ListHeaderComponent } from '../view/ListHeaderComponent';
 import { TitleComponent } from '../view/TitleComponent';
 import { ListItemComponent } from '../view/ListItemComponent';

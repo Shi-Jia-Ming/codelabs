@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import DayDataBean from '../bean/DayDataBean'
+import DayDataBean from '../../viewmodel/DayDataBean'
 
 /**
  * Detail page constant description.

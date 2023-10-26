@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import RefreshLoadingClass from '../common/bean/RefreshLoadingClass';
+import RefreshLoadingClass from '../viewmodel/RefreshLoadingClass';
 import Constants from '../common/constants/Constants';
 
 /**

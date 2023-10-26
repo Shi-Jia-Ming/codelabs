@@ -16,12 +16,12 @@
 import router from '@ohos.router';
 import Constants from '../common/constants/Constants';
 import { fileSelect, fileUpload } from '../common/utils/FileUtil';
-import { NewsFile, NewsData } from '../common/bean/NewsData';
+import { NewsFile, NewsData } from '../viewmodel/NewsData';
 import NewsViewModel from '../viewmodel/NewsViewModel';
 import { showToast } from '../common/utils/ToastUtil';
 import UploadingLayout from '../view/UploadingLayout';
-import ResponseResult from '../common/bean/ResponseResult';
-import { GlobalContext } from '../common/bean/GlobalContext';
+import ResponseResult from '../viewmodel/ResponseResult';
+import { GlobalContext } from '../viewmodel/GlobalContext';
 
 /**
  * NewsEditPage.
@@ -36,7 +36,7 @@ struct NewsEditPage {
 
   selectImage() {
     fileSelect().then((uri: string) => {
-      this.imageUri = uri || '';
+      this.imageUri = uri;
     });
   }
 

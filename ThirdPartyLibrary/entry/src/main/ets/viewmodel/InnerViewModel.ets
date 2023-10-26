@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { ButtonList } from '../common/bean/ButtonList';
+import { ButtonList } from './ButtonList';
 
 class InnerViewModel {
   getButtonListData() {

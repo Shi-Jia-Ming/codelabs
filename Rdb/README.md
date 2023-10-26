@@ -8,7 +8,7 @@
 
 ### 相关概念
 
-- [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-references/js-apis-data-rdb-0000001281001102)：基于关系模型来管理数据的数据库，提供了增、删、改、查等接口，也可运行输入的SQL语句满足复杂场景需要。
+- [关系型数据库](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-data-rdb-0000001544584073-V3)：基于关系模型来管理数据的数据库，提供了增、删、改、查等接口，也可运行输入的SQL语句满足复杂场景需要。
 
 ### 相关权限
 

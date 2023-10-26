@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { RegionItem } from '../common/bean/RegionItem';
+import { RegionItem } from '../viewmodel/RegionItem';
 import { CommonConstants } from '../common/constant/CommonConstants';
 
 /**

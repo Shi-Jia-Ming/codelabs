@@ -16,7 +16,7 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonUtils from '../common/utils/CommonUtils';
-import ItemData from '../common/bean/ItemData';
+import ItemData from '../viewmodel/ItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 import Logger from '../common/utils/Logger';
 

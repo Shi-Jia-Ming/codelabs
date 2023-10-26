@@ -16,7 +16,7 @@
 import dataRdb from '@ohos.data.relationalStore';
 import tableHelper from './TableHelper';
 import { RdbHelper } from './RdbHelper';
-import ColumnInfo from '../../bean/ColumnInfo';
+import ColumnInfo from '../../../viewmodel/ColumnInfo';
 import Logger from '../../utils/Logger';
 
 export class RdbHelperImp implements RdbHelper {

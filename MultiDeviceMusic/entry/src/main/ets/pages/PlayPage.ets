@@ -16,7 +16,7 @@
 import router from '@ohos.router';
 import { StyleConstants } from '../common/constants/StyleConstants';
 import { BreakpointType } from '../common/utils/BreakpointSystem';
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from '../viewmodel/SongData';
 import { MusicList } from '../viewmodel/MusicListViewModel';
 
 import { ControlComponent } from '../components/ControlComponent';

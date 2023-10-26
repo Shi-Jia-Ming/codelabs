@@ -15,7 +15,7 @@
 
 import CommonConstants from '../common/constants/CommonConstants';
 import mainViewModel from '../viewmodel/MainViewModel';
-import ItemData from '../common/bean/ItemData';
+import ItemData from '../viewmodel/ItemData';
 
 /**
  * Home tab content

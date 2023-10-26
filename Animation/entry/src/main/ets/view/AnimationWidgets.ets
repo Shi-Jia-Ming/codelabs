@@ -16,7 +16,7 @@
 import { IconsModel } from '../viewmodel/IconsModel';
 import { IconAnimation } from './IconAnimation';
 import Common from '../common/constants/Const';
-import IconItem from '../common/bean/IconItem';
+import IconItem from '../viewmodel/IconItem';
 
 @Component
 export struct AnimationWidgets {

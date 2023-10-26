@@ -17,7 +17,7 @@ import fs from '@ohos.file.fs';
 import request from '@ohos.request';
 import picker from '@ohos.file.picker';
 import Constants, { ContentType, RequestMethod, UploadingState } from '../constants/Constants';
-import ResponseResult from '../bean/ResponseResult';
+import ResponseResult from '../../viewmodel/ResponseResult';
 import Logger from './Logger';
 import { showToast } from './ToastUtil';
 
@@ -35,11 +35,11 @@ export async function fileSelect(): Promise<string> {
     let photoSelectResult = await photoPicker.select(photoSelectOptions);
     if (photoSelectResult && photoSelectResult.photoUris && photoSelectResult.photoUris.length > 0) {
       let imgUri = photoSelectResult.photoUris[0];
-      if (imgUri.indexOf('media/image')<0) {
+      if (imgUri.indexOf('media/image') < 0) {
         showToast($r('app.string.prompt_select_img'));
         return '';
       }
-      return photoSelectResult.photoUris[0];
+      return imgUri;
     } else {
       return '';
     }

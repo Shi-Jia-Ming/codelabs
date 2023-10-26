@@ -14,67 +14,44 @@
  */
 
 import promptAction from '@ohos.promptAction';
-import {
-  CommonConstant as Const,
-  PageState
-} from '../common/constant/CommonConstant';
+import { CommonConstant, CommonConstant as Const, PageState } from '../common/constant/CommonConstant';
 import NewsItem from './NewsItem';
 import LoadMoreLayout from './LoadMoreLayout';
 import RefreshLayout from './RefreshLayout';
 import CustomRefreshLoadLayout from './CustomRefreshLoadLayout';
-import { CustomRefreshLoadLayoutClass, NewsData } from '../common/bean/NewsData';
 import { listTouchEvent } from '../common/utils/PullDownRefresh';
-import NewsViewModel from '../viewmodel/NewsViewModel';
+import NewsViewModel, { CustomRefreshLoadLayoutClass, NewsData } from '../viewmodel/NewsViewModel';
 import NoMoreLayout from './NoMoreLayout';
+import NewsModel from '../viewmodel/NewsModel';
 
 /**
  * The news list component.
  */
 @Component
 export default struct NewsList {
+  @State newsModel: NewsModel = new NewsModel();
   @Watch('changeCategory') @Link currentIndex: number;
-  @State newsData: Array<NewsData> = [];
-  @State currentPage: number = 1;
-  @State pageSize: number = Const.PAGE_SIZE;
-  @State pullDownRefreshText: Resource = $r('app.string.pull_down_refresh_text');
-  @State pullDownRefreshImage: Resource = $r('app.media.ic_pull_down_refresh');
-  @State pullDownRefreshHeight: number = Const.CUSTOM_LAYOUT_HEIGHT;
-  @State isVisiblePullDown: boolean = false;
-  @State pullUpLoadText: Resource = $r('app.string.pull_up_load_text');
-  @State pullUpLoadImage: Resource = $r('app.media.ic_pull_up_load');
-  @State pullUpLoadHeight: number = Const.CUSTOM_LAYOUT_HEIGHT;
-  @State isVisiblePullUpLoad: boolean = false;
-  @State offsetY: number = 0;
-  @State pageState: number = PageState.Loading;
-  @State hasMore: boolean = true;
-  private startIndex = 0;
-  private endIndex = 0;
-  private downY = 0;
-  private lastMoveY = 0;
-  private isRefreshing: boolean = false;
-  private isCanRefresh = false;
-  private isPullRefreshOperation = false;
-  private isLoading: boolean = false;
-  private isCanLoadMore: boolean = false;
 
   changeCategory() {
-    this.currentPage = 1;
-    NewsViewModel.getNewsList(this.currentPage, this.pageSize, Const.GET_NEWS_LIST).then((data: NewsData[]) => {
-      this.pageState = PageState.Success;
-      if (data.length === this.pageSize) {
-        this.currentPage++;
-        this.hasMore = true;
-      } else {
-        this.hasMore = false;
-      }
-      this.newsData = data;
-    }).catch((err: string | Resource) => {
-      promptAction.showToast({
-        message: err,
-        duration: Const.ANIMATION_DURATION
+    this.newsModel.currentPage = 1;
+    NewsViewModel.getNewsList(this.newsModel.currentPage, this.newsModel.pageSize, Const.GET_NEWS_LIST)
+      .then((data: NewsData[]) => {
+        this.newsModel.pageState = PageState.Success;
+        if (data.length === this.newsModel.pageSize) {
+          this.newsModel.currentPage++;
+          this.newsModel.hasMore = true;
+        } else {
+          this.newsModel.hasMore = false;
+        }
+        this.newsModel.newsData = data;
+      })
+      .catch((err: string | Resource) => {
+        promptAction.showToast({
+          message: err,
+          duration: Const.ANIMATION_DURATION
+        });
+        this.newsModel.pageState = PageState.Fail;
       });
-      this.pageState = PageState.Fail;
-    });
   }
 
   aboutToAppear() {
@@ -84,9 +61,9 @@ export default struct NewsList {
 
   build() {
     Column() {
-      if (this.pageState === PageState.Success) {
+      if (this.newsModel.pageState === PageState.Success) {
         this.ListLayout()
-      } else if (this.pageState === PageState.Loading) {
+      } else if (this.newsModel.pageState === PageState.Loading) {
         this.LoadingLayout()
       } else {
         this.FailLayout()
@@ -97,8 +74,8 @@ export default struct NewsList {
     .justifyContent(FlexAlign.Center)
     .onTouch((event: TouchEvent | undefined) => {
       if (event) {
-        if (this.pageState === PageState.Success) {
-          listTouchEvent(this, event);
+        if (this.newsModel.pageState === PageState.Success) {
+          listTouchEvent(this.newsModel, event);
         }
       }
     })
@@ -106,33 +83,33 @@ export default struct NewsList {
 
   @Builder LoadingLayout() {
     CustomRefreshLoadLayout({ customRefreshLoadClass: new CustomRefreshLoadLayoutClass(true,
-      $r('app.media.ic_pull_up_load'), $r('app.string.pull_up_load_text'), this.pullDownRefreshHeight) })
+      $r('app.media.ic_pull_up_load'), $r('app.string.pull_up_load_text'), this.newsModel.pullDownRefreshHeight) })
   }
 
   @Builder ListLayout() {
     List() {
       ListItem() {
         RefreshLayout({
-          refreshLayoutClass: new CustomRefreshLoadLayoutClass(this.isVisiblePullDown, this.pullDownRefreshImage,
-            this.pullDownRefreshText, this.pullDownRefreshHeight)
+          refreshLayoutClass: new CustomRefreshLoadLayoutClass(this.newsModel.isVisiblePullDown, this.newsModel.pullDownRefreshImage,
+            this.newsModel.pullDownRefreshText, this.newsModel.pullDownRefreshHeight)
         })
       }
 
-      ForEach(this.newsData, (item: NewsData) => {
+      ForEach(this.newsModel.newsData, (item: NewsData) => {
         ListItem() {
           NewsItem({ newsData: item })
         }
-        .height(Const.NewsListConstant_ITEM_HEIGHT)
+        .height($r('app.float.news_list_height'))
         .backgroundColor($r('app.color.white'))
-        .margin({ top: Const.NewsListConstant_ITEM_MARGIN_TOP})
+        .margin({ top: $r('app.float.news_list_margin_top') })
         .borderRadius(Const.NewsListConstant_ITEM_BORDER_RADIUS)
       }, (item: NewsData, index?: number) => JSON.stringify(item) + index)
 
       ListItem() {
-        if (this.hasMore) {
+        if (this.newsModel.hasMore) {
           LoadMoreLayout({
-            loadMoreLayoutClass: new CustomRefreshLoadLayoutClass(this.isVisiblePullUpLoad, this.pullUpLoadImage,
-              this.pullUpLoadText, this.pullUpLoadHeight)
+            loadMoreLayoutClass: new CustomRefreshLoadLayoutClass(this.newsModel.isVisiblePullUpLoad, this.newsModel.pullUpLoadImage,
+              this.newsModel.pullUpLoadText, this.newsModel.pullUpLoadHeight)
           })
         } else {
           NoMoreLayout()
@@ -150,11 +127,11 @@ export default struct NewsList {
     })
     // Remove the rebound effect.
     .edgeEffect(EdgeEffect.None)
-    .offset({ x: 0, y: `${this.offsetY}px` })
+    .offset({ x: 0, y: `${this.newsModel.offsetY}${CommonConstant.LIST_OFFSET_UNIT}` })
     .onScrollIndex((start: number, end: number) => {
       // Listen to the first index of the current list.
-      this.startIndex = start;
-      this.endIndex = end;
+      this.newsModel.startIndex = start;
+      this.newsModel.endIndex = end;
     })
   }
 

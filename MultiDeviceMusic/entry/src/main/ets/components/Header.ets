@@ -17,7 +17,7 @@ import router from '@ohos.router';
 import promptAction from '@ohos.promptAction';
 import { BreakpointType } from '../common/utils/BreakpointSystem';
 
-import { MenuData } from '../common/bean/MenuData';
+import { MenuData } from '../viewmodel/MenuData';
 import { StyleConstants } from '../common/constants/StyleConstants';
 import { HeaderConstants } from '../common/constants/HeaderConstants';
 

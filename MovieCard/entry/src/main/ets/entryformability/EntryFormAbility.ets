@@ -18,9 +18,9 @@ import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formBindingData from '@ohos.app.form.formBindingData';
 import Want from '@ohos.app.ability.Want';
 import CommonConstants from '../common/constants/CommonConstants';
-import FormBean from '../common/bean/FormBean';
+import FormBean from '../viewmodel/FormBean';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../common/bean/MovieDataBean';
+import MovieDataBean from '../viewmodel/MovieDataBean';
 import Logger from '../common/utils/Logger';
 
 /**

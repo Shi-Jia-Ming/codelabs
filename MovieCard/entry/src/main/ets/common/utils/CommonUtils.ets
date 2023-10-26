@@ -16,13 +16,13 @@
 import relationalStore from '@ohos.data.relationalStore';
 import formProvider from '@ohos.app.form.formProvider';
 import formBindingData from '@ohos.app.form.formBindingData';
-import FormBean from '../bean/FormBean';
+import FormBean from '../../viewmodel/FormBean';
 import CommonConstants from '../constants/CommonConstants';
-import MovieDataBean from '../bean/MovieDataBean';
+import MovieDataBean from '../../viewmodel/MovieDataBean';
 import Logger from './Logger';
 import { MOVIE_LIST_DATA, STARRING_DATA, STILLS_DATA } from '../datasource/MovieListData';
 import { GlobalContext } from './GlobalContext';
-import FormDataBean from '../bean/FormDataBean';
+import FormDataBean from '../../viewmodel/FormDataBean';
 
 /**
  * Movie data common class.

@@ -12,7 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { NavigatorBean } from '../common/bean/NavigatorBean';
+
+import { NavigatorModel } from '../viewmodel/NavigatorModel';
 import { CommonConstant as Const } from '../common/Constant';
 
 @Extend(Button) function fancy (top: string) {
@@ -37,13 +38,13 @@ struct MainPage {
         Button($r('app.string.loadLocalH5'))
           .fancy(Const.MainConstant_BUTTON_MARGIN_TOP)
       }
-      .params({ path: Const.LOCAL_PATH, tips: $r('app.string.local') } as NavigatorBean)
+      .params({ path: Const.LOCAL_PATH, tips: $r('app.string.local') } as NavigatorModel)
 
       Navigator({ target: Const.WEB_PAGE_URI, type: NavigationType.Push }) {
         Button($r('app.string.loadCloudH5'))
           .fancy(Const.MainConstant_BUTTON_MARGIN_TOP_BUTTON)
       }
-      .params({ path: Const.CLOUD_PATH, tips: $r('app.string.online') } as NavigatorBean)
+      .params({ path: Const.CLOUD_PATH, tips: $r('app.string.online') } as NavigatorModel)
     }
     .height(Const.MainConstant_FULL_HEIGHT)
     .backgroundColor($r('app.color.navy_blue'))

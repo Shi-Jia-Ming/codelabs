@@ -20,9 +20,9 @@ import formBindingData from '@ohos.app.form.formBindingData';
 import SongItemBuilder from './SongItemBuilder';
 import { AudioPlayerState, MusicPlayMode } from '../../viewmodel/MusicData';
 
-import { SongItem } from '../bean/SongData';
+import { SongItem } from '../../viewmodel/SongData';
 import { PreferencesUtil } from './PreferencesUtil';
-import { CardData } from '../bean/CardData';
+import { CardData } from '../../viewmodel/CardData';
 import { BackgroundUtil } from './BackgroundUtil';
 import { MediaTools } from './MediaTools';
 import { SongConstants } from '../constants/SongConstants';
@@ -65,7 +65,8 @@ export class MediaService {
         this.setAVPlayerCallback();
       }
     })
-      .catch(error => Logger.error(TAG, 'this avPlayer: ', `catch error happened,error ${error.code}`))
+      .catch((error: Error) => Logger.error(TAG, 'this avPlayer: ',
+        `catch error happened, Error cause : ${JSON.stringify(error)}`));
   }
 
   private setAVPlayerCallback() {
@@ -99,7 +100,6 @@ export class MediaService {
           this.songItem = await this.songItemBuilder.build(this.songList[this.musicIndex]);
           let url = this.songItemBuilder.getRealUrl();
           if (url && this.avPlayer) {
-            Logger.info(TAG, 'loadAsset avPlayer.url:' + this.avPlayer.fdSrc.fd);
             let avFileDescriptor: media.AVFileDescriptor = { fd: url.fd, offset: url.offset, length: url.length };
             this.avPlayer.fdSrc = avFileDescriptor;
           }
@@ -110,8 +110,8 @@ export class MediaService {
           if (this.avPlayer) {
             this.avPlayer.prepare().then(() => {
               Logger.info(TAG, 'AVPlayer prepare succeeded.');
-            }, (err) => {
-              Logger.error(TAG, `Invoke prepare failed, code is ${err.code}, message is ${err.message}`);
+            }, (err: Error) => {
+              Logger.error(TAG, `Invoke prepare failed, Error cause : ${JSON.stringify(err)}`);
             });
           }
           break;
@@ -245,7 +245,7 @@ export class MediaService {
     Logger.info(TAG, 'AVPlayer play() isPrepared:' + this.isPrepared + ', state:' + this.state + '，seek:' + seekMs);
     if (this.avPlayer) {
       this.avPlayer.prepare().then(() => {
-      }).catch((error) => {
+      }).catch((error: Error) => {
         if (this.avPlayer) {
           Logger.error(TAG, `start error ${JSON.stringify(error)} avplayer ${this.avPlayer.state}`)
           this.state = AudioPlayerState.ERROR;

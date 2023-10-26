@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { RankData } from '../common/bean/RankData';
+import { RankData } from './RankData';
 import { rankData1, rankData2 } from '../model/DataModel';
 
 export class RankViewModel {

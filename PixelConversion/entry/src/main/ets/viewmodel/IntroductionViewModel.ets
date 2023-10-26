@@ -14,7 +14,7 @@
  */
 
 import Constants from '../common/constants/Constants';
-import IntroductionItem from '../common/bean/IntroductionItem';
+import IntroductionItem from './IntroductionItem';
 
 class IntroductionViewModel {
   /**

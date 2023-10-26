@@ -16,7 +16,7 @@
 import router from '@ohos.router';
 import CommonConstants from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
-import VerifyItem from '../common/bean/VerifyItem';
+import VerifyItem from '../viewmodel/VerifyItem';
 import WindowViewModel from '../viewmodel/WindowViewModel';
 
 @Extend(Text)

@@ -30,7 +30,7 @@ import {
   BreakpointConstants,
   GridConstants
 } from '@ohos/common';
-import { updateOrderProps } from '@ohos/common/src/main/ets/bean/OrderModel';
+import { updateOrderProps } from '@ohos/common/src/main/ets/viewmodel/OrderModel';
 
 @Component
 export struct OrderListContent {
@@ -190,7 +190,7 @@ export struct OrderListContent {
                 .textAlign(TextAlign.Start)
 
               CommodityList({
-                commodityList: $commodityList,
+                commodityList: this.commodityList,
                 column: this.currentBreakpoint === BreakpointConstants.BREAKPOINT_SM ?
                 StyleConstants.DISPLAY_TWO : StyleConstants.DISPLAY_THREE,
                 onClickItem: (data: Commodity) => {

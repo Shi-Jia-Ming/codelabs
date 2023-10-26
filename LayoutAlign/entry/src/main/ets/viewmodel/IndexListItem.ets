@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,11 +12,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { FLEX_MODULE } from './AttributeModuleData';
+import { CONTAINER, CONTAINER_TYPE } from '../common/constants/CommonConstants';
+import { ContainerModuleItem } from './ContainerModuleItem'
 
-/**
- * Navigator params class.
+/*
+ * class for IndexListItem
  */
-@Observed
-export class ParamItem {
-  source: Resource;
+export class IndexListItem {
+  name: string = CONTAINER.FLEX;
+  icon: Resource = $r('app.media.ic_flex');
+  containerType: number = CONTAINER_TYPE.FLEX;
+  moduleList: ContainerModuleItem[] = FLEX_MODULE;
 }

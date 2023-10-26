@@ -30,7 +30,7 @@ import { ShopCart } from '@ohos/shopcart';
 import { Personal } from '@ohos/personal';
 import { buttonInfo, ButtonInfoModel } from '../viewmodel/MainPageData';
 import { PageConstants } from '../constants/PageConstants';
-import { OrderCount } from '@ohos/commoditydetail/src/main/ets/bean/TypeModel';
+import { OrderCount } from '@ohos/commoditydetail/src/main/ets/viewmodel/TypeModel';
 
 @Entry
 @Component
@@ -110,7 +110,7 @@ struct MainPage {
 
         TabContent() {
           ShopCart({
-            products: $shoppingCartList,
+            products: this.shoppingCartList,
             onNeedUpdate: (): void => this.queryShopCart()
           })
         }

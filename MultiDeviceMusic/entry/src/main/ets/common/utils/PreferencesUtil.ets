@@ -64,7 +64,7 @@ export class PreferencesUtil {
           resolve(true);
         })
       } catch (err) {
-        Logger.error(TAG, `Failed to put data. Code: ${err.code},message:${err.message}`);
+        Logger.error(TAG, `Failed to put data. Error cause : ${JSON.stringify(err)}`);
       }
     });
   }
@@ -96,10 +96,10 @@ export class PreferencesUtil {
         }
         preferences.get(FORM_ID, ['']).then((value: number | string | boolean | Array<number> | Array<string> | Array<boolean>) => {
           resolve(value as Array<string>)
-        }).catch((error) => reject(error))
+        }).catch((error: Error) => reject(error))
       })
     } catch (err) {
-      Logger.error(TAG, `WANG Failed to get value of 'formIds'. Code:${err.code}, message:${err.message}`);
+      Logger.error(TAG, `WANG Failed to get value of 'formIds'. Error cause : ${JSON.stringify(err)}`);
     }
     return new Promise((resolve: Function, reject: Function) => {});
   }
@@ -128,7 +128,7 @@ export class PreferencesUtil {
         this.preferencesFlush(preferences);
       }
     } catch (err) {
-      Logger.error(TAG, `Failed to check the key 'formIds'. Code:${err.code}, message:${err.message}`);
+      Logger.error(TAG, `Failed to check the key 'formIds'. Error cause : ${JSON.stringify(err)}`);
     }
   }
 
@@ -151,7 +151,7 @@ export class PreferencesUtil {
         this.preferencesFlush(preferences);
       }
     } catch (err) {
-      Logger.error(TAG, `WANG Failed to get preferences. Code:${err.code},message:${err.message}`);
+      Logger.error(TAG, `WANG Failed to get preferences. Error cause : ${JSON.stringify(err)}`);
     }
   }
 }

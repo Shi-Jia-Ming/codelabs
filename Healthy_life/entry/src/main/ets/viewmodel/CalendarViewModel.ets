@@ -16,93 +16,61 @@
 import { WeekDateModel } from '../model/WeekCalendarModel';
 import Logger from '../common/utils/Logger';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import WeekCalendarMethodInfo from '../common/bean/WeekCalendarMethodInfo';
+import WeekCalendarMethodInfo from './WeekCalendarMethodInfo';
+import { HomeStore } from './HomeViewModel';
 
 const LAZY_DATA_PAGE: number = 2; // lazy page number
 
-interface ScrollPage {
+export interface ScrollPage {
   next: boolean;
   direction?: Axis;
 }
 
-interface ScrollTo {
+export interface ScrollTo {
   xOffset: number | string;
   yOffset: number | string;
 }
 
-function gotoPreviousWeek(that) {
-  that.isPageScroll = true;
-  let date: Date = new Date(that.homeStore.showDate);
+function gotoPreviousWeek(isPageScroll: Boolean, homeStore: HomeStore, currentPage: number, scroller: Scroller) {
+  isPageScroll = true;
+  let date: Date = new Date(homeStore.showDate);
   Logger.info('HomeIndex', 'gotoPreviousWeek: showDate_' + date.toISOString());
 
-  if ((that.currentPage + LAZY_DATA_PAGE) * Const.WEEK_DAY_NUM > that.homeStore.dateArr.length) {
+  if ((currentPage + LAZY_DATA_PAGE) * Const.WEEK_DAY_NUM > homeStore.dateArr.length) {
     // get more history data
-    that.homeStore.getPreWeekData(date, () => {
-      that.homeStore.setSelectedShowDate(that.homeStore.showDate - Const.WEEK_DAY_TIME);
-      that.currentPage += 1;
+    homeStore.getPreWeekData(date, () => {
+      homeStore.setSelectedShowDate(homeStore.showDate - Const.WEEK_DAY_TIME);
+      currentPage += 1;
     });
   } else {
-    that.scroller.scrollPage({ next: false } as ScrollPage);
+    scroller.scrollPage({ next: false } as ScrollPage);
     Logger.info('HomeIndex', 'gotoPreviousWeek');
-    that.homeStore.setSelectedShowDate(that.homeStore.showDate - Const.WEEK_DAY_TIME);
-    that.currentPage += 1;
+    homeStore.setSelectedShowDate(homeStore.showDate - Const.WEEK_DAY_TIME);
+    currentPage += 1;
   }
 }
 
-function goToNextWeek(that) {
-  if (that.currentPage <= 0) {
+function goToNextWeek(currentPage: number, isPageScroll: Boolean, homeStore: HomeStore, scroller: Scroller) {
+  if (currentPage <= 0) {
     Logger.info('HomeIndex', 'goToNextWeek: is the current week');
     return;
   }
-  that.isPageScroll = that;
+  isPageScroll = true;
   Logger.info('HomeIndex', 'goToNextWeek: nextPage');
-  that.homeStore.setSelectedShowDate(that.homeStore.showDate + Const.WEEK_DAY_TIME);
-  that.currentPage -= 1;
-  that.scroller.scrollPage({ next: true } as ScrollPage);
+  homeStore.setSelectedShowDate(homeStore.showDate + Const.WEEK_DAY_TIME);
+  currentPage -= 1;
+  scroller.scrollPage({ next: true } as ScrollPage);
 }
 
-function onScrollEndAction(that) {
-  if (that.isPageScroll === false) {
-    let page = Math.round(that.scroller.currentOffset().xOffset / that.scrollWidth);
-    page = (that.isLoadMore === true) ? page + 1 : page;
-    if (that.scroller.currentOffset().xOffset % that.scrollWidth != 0 || that.isLoadMore === true) {
-      let xOffset = page * that.scrollWidth;
-      that.scroller.scrollTo({ xOffset, yOffset: 0 } as ScrollTo);
-      that.isLoadMore = false;
-    }
-    that.currentPage = that.homeStore.dateArr.length / Const.WEEK_DAY_NUM - page - 1;
-    Logger.info('HomeIndex', 'onScrollEnd: page ' + page + ', listLength ' + that.homeStore.dateArr.length);
-    let dayModel: WeekDateModel = that.homeStore.dateArr[Const.WEEK_DAY_NUM * page+that.homeStore.selectedDay];
-    Logger.info('HomeIndex', 'currentItem: ' + JSON.stringify(dayModel) + ', selectedDay  ' + that.homeStore.selectedDay);
-    that.homeStore.setSelectedShowDate(dayModel.date.getTime());
-  }
-  that.isPageScroll = false;
-}
-
-function onScrollEdgeAction(that, side: Edge) {
-  if (side === Edge.Top && that.isPageScroll === false) {
-    Logger.info('HomeIndex', 'onScrollEdge: currentPage ' + that.currentPage);
-    if ((that.currentPage + 2) * Const.WEEK_DAY_NUM >= that.homeStore.dateArr.length) {
-      Logger.info('HomeIndex', 'onScrollEdge: load more data');
-      let date: Date = new Date(that.homeStore.showDate);
-      date.setDate(date.getDate() - Const.WEEK_DAY_NUM);
-      that.homeStore.getPreWeekData(date);
-      that.isLoadMore = true;
-    }
-  }
-}
-
-function calenderItemClickAction(that, item: WeekDateModel, index: number) {
+function calenderItemClickAction(item: WeekDateModel, index: number, homeStore: HomeStore) {
   Logger.info('HomeIndex', 'click the calendarItem: ' + JSON.stringify(item));
-  that.homeStore.setSelectedShowDate(item.date.getTime());
-  that.homeStore.selectedDay = index % Const.WEEK_DAY_NUM;
+  homeStore.setSelectedShowDate(item.date.getTime());
+  homeStore.selectedDay = index % Const.WEEK_DAY_NUM;
 }
 
 const WeekCalendarMethods: WeekCalendarMethodInfo = new WeekCalendarMethodInfo();
 WeekCalendarMethods.gotoPreviousWeek = gotoPreviousWeek;
 WeekCalendarMethods.goToNextWeek = goToNextWeek;
-WeekCalendarMethods.onScrollEndAction = onScrollEndAction;
-WeekCalendarMethods.onScrollEdgeAction = onScrollEdgeAction;
 WeekCalendarMethods.calenderItemClickAction = calenderItemClickAction;
 
 export default WeekCalendarMethods;

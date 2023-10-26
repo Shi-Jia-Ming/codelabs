@@ -16,8 +16,8 @@
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { isReachNewAchievement, ACHIEVEMENT_LEVEL_KEY } from '../model/AchieveModel';
 import { TaskMapById, ITaskItem, ACHIEVEMENT_LEVEL_LIST } from '../model/TaskInitList';
-import TaskInfo from '../common/bean/TaskInfo';
-import DayInfo from '../common/bean/DayInfo';
+import TaskInfo from './TaskInfo';
+import DayInfo from './DayInfo';
 import { dateToStr, weekDateFormat } from '../common/utils/Utils';
 import { WeekDateModel, initializeOnStartUp, getPreviousWeek, WEEK_DAY_NUM } from '../model/WeekCalendarModel';
 import DatabaseApi from '../model/DatabaseModel';
@@ -25,9 +25,9 @@ import TaskInfoTableApi from '../common/database/tables/TaskInfoApi';
 import DayInfoApi from '../common/database/tables/DayInfoApi';
 import GlobalInfoApi from '../common/database/tables/GlobalInfoApi';
 import Logger from '../common/utils/Logger';
-import GlobalInfo from '../common/bean/GlobalInfo';
-import WeekCalendarInfo from '../common/bean/WeekCalendarInfo';
-import AchievementInfo from '../common/bean/AchievementInfo';
+import GlobalInfo from './GlobalInfo';
+import WeekCalendarInfo from './WeekCalendarInfo';
+import AchievementInfo from './AchievementInfo';
 
 @Observed
 export class HomeStore {

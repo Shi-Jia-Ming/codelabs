@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { VideoItem } from '../../common/bean/VideoItem';
+import { VideoItem } from '../../viewmodel/VideoItem';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 import { PlayState } from '../../common/constants/VideoConstants';
 import { NavigationView } from './NavigationView';

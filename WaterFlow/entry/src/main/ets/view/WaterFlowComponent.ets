@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import ProductBean from '../common/bean/ProductBean';
-import { WaterFlowDataSource } from '../common/bean/WaterFlowDataSource';
+import ProductBean from '../viewmodel/ProductBean';
+import { WaterFlowDataSource } from '../viewmodel/WaterFlowDataSource';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { waterFlowData } from '../viewmodel/HomeViewModel';
 import FlowItemComponent from '../view/FlowItemComponent';

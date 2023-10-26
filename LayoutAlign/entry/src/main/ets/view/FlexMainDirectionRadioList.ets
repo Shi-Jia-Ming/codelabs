@@ -15,7 +15,7 @@
 
 import { MARGIN_FONT_SIZE_SPACE, ATTRIBUTE_OPACITY, ATTRIBUTE, ALL_PERCENT } from '../common/Constants/CommonConstants';
 import { getFlexModuleList } from '../viewmodel/AttributeModuleData';
-import { ContainerModuleItem } from '../common/bean/ContainerModuleItem';
+import { ContainerModuleItem } from '../viewmodel/ContainerModuleItem';
 
 /**
  *Set Main Direction Alignment in Flex

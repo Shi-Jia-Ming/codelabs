@@ -15,7 +15,7 @@
 
 import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formBindingData from '@ohos.app.form.formBindingData';
-import FormInfo from '../common/bean/FormInfo';
+import FormInfo from '../viewmodel/FormInfo';
 import FormUtils from '../common/utils/FormUtils';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import Want from '@ohos.app.ability.Want';

@@ -15,14 +15,14 @@
 
 import router from '@ohos.router';
 import { BreakpointType } from '../common/utils/BreakpointSystem';
-import { SongItem } from '../common/bean/SongData';
+import { SongItem } from '../viewmodel/SongData';
 import { MusicList } from '../viewmodel/MusicListViewModel';
 import { RouterUrlConstants } from '../common/constants/RouterUrlConstants';
 import { StyleConstants } from '../common/constants/StyleConstants';
 import { playImage } from '../viewmodel/PlayData';
 import { ControlConstants } from '../common/constants/ControlConstants';
 import { PlayConstants } from '../common/constants/PlayConstants';
-import { PlayControlModel } from '../common/bean/PlayControlModel';
+import { PlayControlModel } from '../viewmodel/PlayControlModel';
 import { Logger } from '../common/utils/Logger';
 
 @Component
@@ -161,7 +161,7 @@ export struct MusicInfoComponent {
     if (key === ControlConstants.REVIEW) {
       router.pushUrl({
         url: RouterUrlConstants.MUSIC_COMMENT
-      }, router.RouterMode.Single).catch(error => {
+      }, router.RouterMode.Single).catch((error: Error) => {
         Logger.error('pushUrl failed :' + JSON.stringify(error));
       })
     }

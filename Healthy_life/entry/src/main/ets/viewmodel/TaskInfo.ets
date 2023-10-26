@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { oneWeekDictFunc } from '../../common/utils/Utils';
+import { oneWeekDictFunc } from '../common/utils/Utils';
 
 /**
  * TaskInfo

@@ -15,7 +15,7 @@
 
 import router from '@ohos.router';
 import Logger from '../common/util/Logger';
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import HomeVideoListModel from '../viewmodel/HomeVideoListModel';
 import { HomeConstants } from '../common/constants/HomeConstants';
 import { CommonConstants } from '../common/constants/CommonConstants';
@@ -26,14 +26,14 @@ import resourceManager from '@ohos.resourceManager';
 @Component
 export struct HomeTabContentList {
   private currIndex: number = 0;
-  @Consume videoList: Array<VideoBean>;
-  @State item: VideoBean = new VideoBean('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4');
+  @Consume videoList: Array<VideoItem>;
+  @State item: VideoItem = new VideoItem('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4');
 
   async aboutToAppear() {
     if (this.currIndex === CommonConstants.TYPE_LOCAL) {
       this.videoList = await HomeVideoListModel.getLocalVideo();
     } else {
-      let videoInternetList = GlobalContext.getContext().getObject('videoInternetList') as VideoBean[];
+      let videoInternetList = GlobalContext.getContext().getObject('videoInternetList') as VideoItem[];
       this.videoList = videoInternetList;
     }
   }
@@ -44,7 +44,7 @@ export struct HomeTabContentList {
         space: HomeConstants.LIST_SPACE,
         initialIndex: HomeConstants.LIST_INITIAL_INDEX
       }) {
-        ForEach(this.videoList, (item: VideoBean, index?: number) => {
+        ForEach(this.videoList, (item: VideoItem, index?: number) => {
           ListItem() {
             HomeTabContentListItem({ item: item });
           }.onClick(() => {
@@ -61,7 +61,7 @@ export struct HomeTabContentList {
               Logger.error('[IndexTabLocalList] router error: ' + JSON.stringify(err))
             });
           })
-        }, (item: VideoBean) => JSON.stringify(item))
+        }, (item: VideoItem) => JSON.stringify(item))
       }
       .backgroundColor(Color.White)
       .borderRadius($r('app.float.list_border_radius'))

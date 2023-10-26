@@ -15,7 +15,7 @@
 
 import Constants from '../common/constants/Constants';
 import ConversionItemComponent from '../view/ConversionItemComponent';
-import ConversionItem from '../common/bean/ConversionItem';
+import ConversionItem from '../viewmodel/ConversionItem';
 import ConversionViewModel from '../viewmodel/ConversionViewModel';
 
 @Entry

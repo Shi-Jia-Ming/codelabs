@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import TaskInfo from '../common/bean/TaskInfo';
-import DayInfo from '../common/bean/DayInfo';
+import TaskInfo from '../viewmodel/TaskInfo';
+import DayInfo from '../viewmodel/DayInfo';
 import { WEEK_TITLES, dateToStr } from '../common/utils/Utils'
 import Logger from '../common/utils/Logger'
-import WeekCalendarInfo from '../common/bean/WeekCalendarInfo';
+import WeekCalendarInfo from '../viewmodel/WeekCalendarInfo';
 
 // day number of on week
 export const WEEK_DAY_NUM: number = 7;

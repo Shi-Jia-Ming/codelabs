@@ -27,7 +27,7 @@ import {
   BreakpointConstants,
   Order
 } from '@ohos/common';
-import { SelectProducts, UpdateShopProps } from '@ohos/common/src/main/ets/bean/ProductModel';
+import { SelectProducts, UpdateShopProps } from '@ohos/common/src/main/ets/viewmodel/ProductModel';
 
 @Component
 export struct ShopCart {

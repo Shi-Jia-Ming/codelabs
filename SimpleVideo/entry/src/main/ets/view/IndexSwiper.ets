@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,8 +15,8 @@
 
 import { SWIPER_VIDEOS } from '../viewmodel/VideoData';
 import { STRING_PERCENT, MARGIN_FONT_SIZE, SECOND_PAGE } from '../common/constants/CommonConstants';
-import { SwiperVideoItem } from '../common/bean/SwiperVideoItem';
-import { ParamItem } from '../common/bean/ParamItem';
+import { SwiperVideoItem } from '../viewmodel/SwiperVideoItem';
+import { ParamItem } from '../viewmodel/ParamItem';
 
 /**
  * Picture carousel component

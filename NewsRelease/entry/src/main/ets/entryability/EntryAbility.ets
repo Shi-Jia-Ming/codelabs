@@ -17,7 +17,7 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 import window from '@ohos.window';
 import abilityAccessCtrl from '@ohos.abilityAccessCtrl';
 import Logger from '../common/utils/Logger';
-import { GlobalContext } from '../common/bean/GlobalContext';
+import { GlobalContext } from '../viewmodel/GlobalContext';
 import Want from '@ohos.app.ability.Want';
 
 

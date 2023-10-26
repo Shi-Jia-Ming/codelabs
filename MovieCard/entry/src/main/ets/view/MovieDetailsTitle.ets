@@ -16,7 +16,7 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../common/bean/MovieDataBean';
+import MovieDataBean from '../viewmodel/MovieDataBean';
 import StarsWidget from './StarsWidget';
 import Logger from '../common/utils/Logger';
 

@@ -15,7 +15,7 @@
 
 import StyleConstants from '../common/constants/StyleConstants';
 import DataSource from '../common/datasource/DataSource';
-import MovieDataBean from '../common/bean/MovieDataBean';
+import MovieDataBean from '../viewmodel/MovieDataBean';
 import MovieItem from '../view/MovieItem';
 import CommonUtils from '../common/utils/CommonUtils';
 import { GlobalContext } from '../common/utils/GlobalContext';

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { NewsData, NewsFile } from '../common/bean/NewsData';
+import { NewsData, NewsFile } from '../viewmodel/NewsData';
 import Constants from '../common/constants/Constants';
 
 /**

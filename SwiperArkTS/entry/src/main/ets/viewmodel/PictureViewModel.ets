@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PictureItem } from '../common/bean/PictureItem';
+import { PictureItem } from './PictureItem';
 import { PICTURE_RECENTLY, PICTURE_PHOTO, PICTURE_LATEST, PICTURE_BANNER } from '../common/constants/PictureConstants';
 import { PictureType } from '../common/constants/PictureConstants';
 import { CommonConstants } from '../common/constants/CommonConstant';

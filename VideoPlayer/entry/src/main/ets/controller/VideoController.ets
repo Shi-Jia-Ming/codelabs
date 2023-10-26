@@ -21,7 +21,7 @@ import { CommonConstants, AvplayerStatus, Events, SliderMode } from '../common/c
 import { PlayConstants } from '../common/constants/PlayConstants';
 import { GlobalContext } from '../common/util/GlobalContext';
 import window from '@ohos.window';
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import resourceManager from '@ohos.resourceManager';
 
 @Observed
@@ -102,7 +102,7 @@ export class VideoController {
           this.duration = PlayConstants.PLAYER_DURATION;
           if (!this.loop) {
             let curIndex = this.index + PlayConstants.PLAYER_NEXT;
-            let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoBean[];
+            let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoItem[];
             this.index = (curIndex === globalVideoList.length) ?
             PlayConstants.PLAYER_FIRST : curIndex;
             if (this.iUrl) {
@@ -208,7 +208,7 @@ export class VideoController {
       return;
     }
     this.titleThis.playSpeed = 1;
-    let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoBean[];
+    let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoItem[];
     let curIndex = this.index - PlayConstants.CONTROL_NEXT;
     this.index = (curIndex === -PlayConstants.CONTROL_NEXT) ?
       (globalVideoList.length - PlayConstants.CONTROL_NEXT) : curIndex;
@@ -231,7 +231,7 @@ export class VideoController {
       return;
     }
     this.titleThis.playSpeed = 1;
-    let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoBean[];
+    let globalVideoList = GlobalContext.getContext().getObject('globalVideoList') as VideoItem[];
     let curIndex = this.index + PlayConstants.CONTROL_NEXT;
     this.index = (curIndex === globalVideoList.length) ?
     PlayConstants.CONTROL_FIRST : curIndex;

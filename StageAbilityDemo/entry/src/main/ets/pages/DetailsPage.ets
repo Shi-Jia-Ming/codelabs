@@ -27,7 +27,7 @@ import ServicesComponent from '../view/details/ServicesComponent';
 import BalanceComponent from '../view/BalanceComponent';
 import CardComponent from '../view/CardComponent';
 import PreviewerComponent from '../view/details/PreviewerComponent';
-import GoodsData from '../common/bean/GoodsData';
+import GoodsData from '../viewmodel/GoodsData';
 import DetailsViewModel from '../viewmodel/DetailsViewModel';
 
 let viewModel: DetailsViewModel = new DetailsViewModel();

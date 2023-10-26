@@ -15,7 +15,6 @@
 
 import { CommonConstants } from '../common/constant/CommonConstant';
 import Logger from '../common/utils/Logger';
-import TaskItemBean from '../common/bean/TaskItemBean';
 
 const TAG = '[DataModel]';
 
@@ -94,3 +93,36 @@ export class DataModel {
 }
 
 export default new DataModel();
+
+/**
+ * Task item entity class.
+ */
+export class TaskItemBean {
+  /**
+   * Progress value of task item.
+   */
+  taskName: string;
+
+  /**
+   * Update time of task item.
+   */
+  updateDate: string;
+
+  /**
+   * progress value of task item.
+   */
+  progressValue: number;
+
+
+  /**
+   * Construction method.
+   *
+   * @param progressValue progress value.
+   * @param updateDate update time.
+   */
+  constructor(taskName: string, progressValue: number, updateDate: string) {
+    this.taskName = taskName;
+    this.progressValue = progressValue;
+    this.updateDate = updateDate;
+  }
+}

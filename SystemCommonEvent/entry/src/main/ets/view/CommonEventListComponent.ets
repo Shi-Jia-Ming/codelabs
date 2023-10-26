@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-import { CommonEventBean } from '../common/bean/CommonEventBean';
+import promptAction from '@ohos.promptAction';
 import { CommonConstants } from '../common/constants/CommonConst';
 import CommonEventUtil from '../common/utils/CommonEventUtil';
-import MainPageViewModel from '../viewmodel/MainPageViewModel';
-import promptAction from '@ohos.promptAction';
+import MainPageViewModel, { CommonEventBean } from '../viewmodel/MainPageViewModel';
 
 @Component
 export default struct CommonEventListComponent {

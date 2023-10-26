@@ -19,7 +19,7 @@ import MovieStarring from '../view/MovieStarring';
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../common/bean/MovieDataBean';
+import MovieDataBean from '../viewmodel/MovieDataBean';
 import StoryIntroduce from '../view/StoryIntroduce';
 import MovieDetailsTitle from '../view/MovieDetailsTitle';
 import Logger from '../common/utils/Logger';

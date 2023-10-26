@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License,Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,35 +13,28 @@
  * limitations under the License.
  */
 
+import { AlarmSettingType } from '../common/constants/AlarmSettingType';
+
 /**
- * Task item entity class.
+ * Alarm setting bean information.
  */
-export default class TaskItemBean {
+export default class AlarmSettingBean {
   /**
-   * Progress value of task item.
+   * Alarm setting title.
    */
-  taskName: string;
-
+  public title: string;
   /**
-   * Update time of task item.
+   * Alarm setting content.
    */
-  updateDate: string;
-
+  public content: string;
   /**
-   * progress value of task item.
+   * Alarm setting type.
    */
-  progressValue: number;
+  public sType: AlarmSettingType;
 
-
-  /**
-   * Construction method.
-   *
-   * @param progressValue progress value.
-   * @param updateDate update time.
-   */
-  constructor(taskName: string, progressValue: number, updateDate: string) {
-    this.taskName = taskName;
-    this.progressValue = progressValue;
-    this.updateDate = updateDate;
+  constructor(title: string, content: string, sType: AlarmSettingType) {
+    this.title = title;
+    this.content = content;
+    this.sType = sType;
   }
 }

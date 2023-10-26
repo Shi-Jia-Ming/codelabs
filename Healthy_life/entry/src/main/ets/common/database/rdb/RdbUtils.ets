@@ -14,7 +14,7 @@
  */
 
 import dataRdb from '@ohos.data.relationalStore';
-import ColumnInfo from '../../bean/ColumnInfo';
+import ColumnInfo from '../../../viewmodel/ColumnInfo';
 import { RdbHelper } from './RdbHelper';
 import { RdbHelperImp } from './RdbHelperImp';
 import Logger from '../../utils/Logger';

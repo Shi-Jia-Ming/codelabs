@@ -14,7 +14,7 @@
  */
 
 import mediaLibrary from '@ohos.multimedia.mediaLibrary';
-import AudioData from '../common/bean/AudioData';
+import AudioData from '../viewmodel/AudioData';
 import Logger from '../common/utils/Logger';
 
 const TAG = 'MediaManager';

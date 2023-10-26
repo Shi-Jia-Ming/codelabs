@@ -15,7 +15,7 @@
 
 import GoodsItemComponent from './GoodsItemComponent';
 import { GoodsList } from '../../common/constants/HomeConstants';
-import GoodsData from '../../common/bean/GoodsData';
+import GoodsData from '../../viewmodel/GoodsData';
 import { PERCENTAGE_100, PERCENTAGE_50 } from '../../common/constants/Constants';
 
 @Component

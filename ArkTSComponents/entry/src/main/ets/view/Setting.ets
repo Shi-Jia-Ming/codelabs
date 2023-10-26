@@ -14,7 +14,7 @@
  */
 
 import CommonConstants from '../common/constants/CommonConstants';
-import ItemData from '../common/bean/ItemData';
+import ItemData from '../viewmodel/ItemData';
 import mainViewModel from '../viewmodel/MainViewModel';
 
 /**

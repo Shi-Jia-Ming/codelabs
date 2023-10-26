@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,19 +13,17 @@
  * limitations under the License.
  */
 
-import image from '@ohos.multimedia.image';
-import resourceManager from '@ohos.resourceManager';
+/**
+ * NewsData params info.
+ */
+export class NavigatorModel {
+  /**
+   * Jumping Path.
+   */
+  path: Resource | string = '';
 
-@Observed export class VideoBean {
-  name: string;
-  src: resourceManager.RawFileDescriptor;
-  iSrc: string;
-  pixelMap?: image.PixelMap;
-
-  constructor(name: string, src: resourceManager.RawFileDescriptor, iSrc: string, pixelMap?: image.PixelMap) {
-    this.name = name;
-    this.src = src;
-    this.iSrc = iSrc;
-    this.pixelMap = pixelMap;
-  }
+  /**
+   * Prompt message.
+   */
+  tips: Resource | string = '';
 }

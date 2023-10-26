@@ -16,7 +16,7 @@
 import { TaskMapById } from '../../model/TaskInitList';
 import HealthText from '../../view/HealthTextComponent';
 import { CommonConstants as Const } from '../../common/constants/CommonConstants';
-import TaskInfo from '../../common/bean/TaskInfo';
+import TaskInfo from '../../viewmodel/TaskInfo';
 
 @Styles function allSize () {
   .width(Const.THOUSANDTH_1000)

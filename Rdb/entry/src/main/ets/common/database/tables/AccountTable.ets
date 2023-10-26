@@ -14,7 +14,7 @@
  */
 
 import relationalStore from '@ohos.data.relationalStore';
-import AccountData from '../../bean/AccountData';
+import AccountData from '../../../viewmodel/AccountData';
 import CommonConstants from '../../constants/CommonConstants';
 import Rdb from '../rdb';
 

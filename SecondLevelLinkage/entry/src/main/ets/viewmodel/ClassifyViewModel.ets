@@ -13,9 +13,9 @@
  * limitations under the License.
  */
 
-import ClassifyModel from '../common/bean/ClassifyModel';
-import CourseModel from '../common/bean/CourseModel';
-import LinkDataModel from '../common/bean/LinkDataModel';
+import ClassifyModel from './ClassifyModel';
+import CourseModel from './CourseModel';
+import LinkDataModel from './LinkDataModel';
 
 class ClassifyViewModel {
   /**
@@ -54,14 +54,14 @@ const LINK_DATA: LinkDataModel[] = [
   new LinkDataModel(1, '热门课程', 6, '机器学习在图像分割场景中的应用', $r('app.media.ic_img_6'), 0),
   new LinkDataModel(1, '热门课程', 7, '一分钟了解华为应用内支付服务', $r('app.media.ic_img_7'), 0),
   new LinkDataModel(1, '热门课程', 8, '一分钟了解华为位置服务', $r('app.media.ic_img_8'), 400),
-  new LinkDataModel(2, '热门课程', 9, 'Excel函数在商业中的应用', $r('app.media.ic_img_9'), 65),
-  new LinkDataModel(2, '热门课程', 10, '“震动”手机锁屏制作', $r('app.media.ic_img_10'), 0),
-  new LinkDataModel(2, '热门课程', 11, '“流体动效”手机锁屏制作', $r('app.media.ic_img_11'), 50),
-  new LinkDataModel(2, '热门课程', 12, 'HUAWEI GT自定义表盘制作', $r('app.media.ic_img_12'), 70),
-  new LinkDataModel(2, '热门课程', 13, '商务表盘制作', $r('app.media.ic_img_13'), 0),
-  new LinkDataModel(2, '热门课程', 14, '5分钟了解跨应用、跨形态无缝登录', $r('app.media.ic_img_14'), 80),
-  new LinkDataModel(2, '热门课程', 15, 'oCPC进阶功能及最新政策解读', $r('app.media.ic_img_15'), 120),
-  new LinkDataModel(2, '热门课程', 16, 'HUAWEI Ads 游戏行业投放指南', $r('app.media.ic_img_16'), 160),
+  new LinkDataModel(2, '最新课程', 9, 'Excel函数在商业中的应用', $r('app.media.ic_img_9'), 65),
+  new LinkDataModel(2, '最新课程', 10, '“震动”手机锁屏制作', $r('app.media.ic_img_10'), 0),
+  new LinkDataModel(2, '最新课程', 11, '“流体动效”手机锁屏制作', $r('app.media.ic_img_11'), 50),
+  new LinkDataModel(2, '最新课程', 12, 'HUAWEI GT自定义表盘制作', $r('app.media.ic_img_12'), 70),
+  new LinkDataModel(2, '最新课程', 13, '商务表盘制作', $r('app.media.ic_img_13'), 0),
+  new LinkDataModel(2, '最新课程', 14, '5分钟了解跨应用、跨形态无缝登录', $r('app.media.ic_img_14'), 80),
+  new LinkDataModel(2, '最新课程', 15, 'oCPC进阶功能及最新政策解读', $r('app.media.ic_img_15'), 120),
+  new LinkDataModel(2, '最新课程', 16, 'HUAWEI Ads 游戏行业投放指南', $r('app.media.ic_img_16'), 160),
   new LinkDataModel(3, 'HarmonyOS', 17, 'HarmonyOS物联网开发课程', $r('app.media.ic_img_17'), 0),
   new LinkDataModel(3, 'HarmonyOS', 18, '【Hello系列直播课】第1期：手把手教你搭建开发环境', $r('app.media.ic_img_18'), 0),
   new LinkDataModel(3, 'HarmonyOS', 19, 'HarmonyOS技术训练营-10分钟快速体验HarmonyOS分布式应用', $r('app.media.ic_img_9'), 0),

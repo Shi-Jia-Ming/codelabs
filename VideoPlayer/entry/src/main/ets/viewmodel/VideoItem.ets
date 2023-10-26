@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,16 +12,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { FLEX_MODULE } from '../../viewmodel/AttributeModuleData';
-import { CONTAINER, CONTAINER_TYPE } from '../constants/CommonConstants';
-import { ContainerModuleItem } from './ContainerModuleItem'
 
-/*
- * class for IndexListItem
- */
-export class IndexListItem {
-  name: string = CONTAINER.FLEX;
-  icon: Resource = $r('app.media.ic_flex');
-  containerType: number = CONTAINER_TYPE.FLEX;
-  moduleList: ContainerModuleItem[] = FLEX_MODULE;
+import image from '@ohos.multimedia.image';
+import resourceManager from '@ohos.resourceManager';
+
+@Observed export class VideoItem {
+  name: string;
+  src: resourceManager.RawFileDescriptor;
+  iSrc: string;
+  pixelMap?: image.PixelMap;
+
+  constructor(name: string, src: resourceManager.RawFileDescriptor, iSrc: string, pixelMap?: image.PixelMap) {
+    this.name = name;
+    this.src = src;
+    this.iSrc = iSrc;
+    this.pixelMap = pixelMap;
+  }
 }

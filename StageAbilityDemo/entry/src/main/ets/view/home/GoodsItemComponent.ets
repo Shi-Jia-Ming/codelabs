@@ -14,7 +14,7 @@
  */
 
 import { AppFontSize, AppFontWeight, PERCENTAGE_100 } from '../../common/constants/Constants';
-import GoodsData from '../../common/bean/GoodsData';
+import GoodsData from '../../viewmodel/GoodsData';
 import { GoodsListItem } from '../../common/constants/HomeConstants';
 
 @Component

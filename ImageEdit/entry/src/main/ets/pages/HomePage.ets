@@ -14,11 +14,11 @@
  */
 
 import image from '@ohos.multimedia.image';
-import { IconStatus } from '../viewModel/IconListViewModel';
+import { IconStatus } from '../viewmodel/IconListViewModel';
 import AdjustContentView from '../view/AdjustContentView';
-import { cropIconChangeList, menuIconList } from '../viewModel/IconListViewModel';
+import { cropIconChangeList, menuIconList } from '../viewmodel/IconListViewModel';
 import Logger from '../utils/LoggerUtil';
-import { RotateType, CropType, MainTabId } from '../viewModel/OptionViewModel';
+import { RotateType, CropType, MainTabId } from '../viewmodel/OptionViewModel';
 import { square, banner, rectangle } from '../utils/CropUtil';
 import { encode } from '../utils/EncodeUtil';
 import getPixelMap from '../utils/DecodeUtil';
@@ -52,6 +52,7 @@ struct HomePage {
     .width(CommonConstants.LAYOUT_FULL_SCREEN)
   }
 
+  pageContent?: Object;
   @State currentIndex: number = 0;
   @State currentCropIndex: number = 0;
   @Provide pixelMap?: image.PixelMap = undefined;
@@ -141,24 +142,27 @@ struct HomePage {
   }
 
   pixelInit() {
-    getPixelMap().then((pixelMap?: image.PixelMap) => {
-      if (pixelMap) {
-        this.isPixelMapChange = !this.isPixelMapChange;
-        this.pixelMap = pixelMap;
-      }
-      this.currentCropIndex = 0;
-      this.currentAdjustData = CommonConstants.ADJUST_SLIDER_VALUE.map((item: number) => item);
-    })
+    if (this.pageContent !== undefined){
+      getPixelMap(this.pageContent).then((pixelMap?: image.PixelMap) => {
+        if (pixelMap) {
+          this.isPixelMapChange = !this.isPixelMapChange;
+          this.pixelMap = pixelMap;
+        }
+        this.currentCropIndex = 0;
+        this.currentAdjustData = CommonConstants.ADJUST_SLIDER_VALUE.map((item: number) => item);
+      })
+    }
   }
 
   aboutToAppear() {
+    this.pageContent = this;
     this.pixelInit();
   }
 
   @Builder TitleNavigation() {
     Row({ space: CommonConstants.TITLE_SPACE }) {
       Button() {
-        Image($r("app.media.ic_reset"))
+        Image($r('app.media.ic_reset'))
           .width($r('app.float.title_image_width'))
           .height($r('app.float.title_image_height'))
       }
@@ -171,7 +175,7 @@ struct HomePage {
       })
 
       Button() {
-        Image($r("app.media.ic_save"))
+        Image($r('app.media.ic_save'))
           .width($r('app.float.title_image_width'))
           .height($r('app.float.title_image_height'))
       }
@@ -243,14 +247,14 @@ struct HomePage {
 
               TabContent() {
                 Row() {
-                  Image($r("app.media.ic_clockwise"))
+                  Image($r('app.media.ic_clockwise'))
                     .width($r('app.float.rotate_image_width'))
                     .height($r('app.float.rotate_image_height'))
                     .margin({ right: CommonConstants.EDIT_PAGE_HEIGHT })
                     .onClick(() => {
                       this.rotateImage(RotateType.CLOCKWISE);
                     })
-                  Image($r("app.media.ic_anti_clockwise"))
+                  Image($r('app.media.ic_anti_clockwise'))
                     .width($r('app.float.rotate_image_width'))
                     .height($r('app.float.rotate_image_height'))
                     .onClick(async () => {

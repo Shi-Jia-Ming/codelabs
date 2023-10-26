@@ -14,7 +14,7 @@
  */
 
 import Constants from '../common/constants/Constants';
-import CourseModel from '../common/bean/CourseModel';
+import CourseModel from '../viewmodel/CourseModel';
 
 @Component
 export default struct CourseItem {

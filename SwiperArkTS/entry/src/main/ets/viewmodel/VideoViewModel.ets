@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { VideoItem } from '../common/bean/VideoItem';
+import { VideoItem } from './VideoItem';
 import { VIDEO_DATA } from '../common/constants/VideoConstants';
 
 /**

@@ -15,7 +15,7 @@
 
 import { Logger } from './Logger';
 import { StyleConstants } from '../constants/StyleConstants';
-import { Opt } from '../bean/CommodityModel';
+import { Opt } from '../viewmodel/CommodityModel';
 
 /**
  * Format date.

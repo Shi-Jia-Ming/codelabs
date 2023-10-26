@@ -15,7 +15,7 @@
 
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonConstants from '../common/constants/CommonConstants';
-import Fruit from '../common/bean/Fruit';
+import Fruit from '../viewmodel/Fruit';
 
 /**
  * Text item component.
