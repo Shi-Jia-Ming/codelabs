@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { IProductBean } from '../common/bean/ProductBean';
+import { IProductBean } from './ProductBean';
 
 /**
  * Home page classify title data.
