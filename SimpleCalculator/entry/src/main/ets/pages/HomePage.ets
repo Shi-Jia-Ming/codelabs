@@ -17,7 +17,7 @@ import Logger from '../common/util/Logger';
 import CalculateUtil from '../common/util/CalculateUtil';
 import CheckEmptyUtil from '../common/util/CheckEmptyUtil';
 import keysModel from '../viewmodel/PresskeysBeanViewModel';
-import { PressKeysBean } from '../common/bean/PressKeysBean';
+import { PressKeysBean } from '../viewmodel/PressKeysBean';
 import { CommonConstants, Symbol } from '../common/constants/CommonConstants';
 
 @Entry
