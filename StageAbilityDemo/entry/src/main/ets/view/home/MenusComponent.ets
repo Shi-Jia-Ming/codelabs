@@ -14,7 +14,7 @@
  */
 
 import { AppFontSize } from '../../common/constants/Constants';
-import MenuData from '../../common/bean/MenuData';
+import MenuData from '../../viewmodel/MenuData';
 import { Menus } from '../../common/constants/HomeConstants';
 
 @Component

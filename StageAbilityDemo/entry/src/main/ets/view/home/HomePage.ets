@@ -21,9 +21,9 @@ import SearchComponent from './SearchComponent';
 import MenusComponent from './MenusComponent';
 import BannerComponent from './BannerComponent';
 import GoodsComponent from './GoodsComponent';
-import BannerData from '../../common/bean/BannerData';
-import MenuData from '../../common/bean/MenuData';
-import GoodsData from '../../common/bean/GoodsData';
+import BannerData from '../../viewmodel/BannerData';
+import MenuData from '../../viewmodel/MenuData';
+import GoodsData from '../../viewmodel/GoodsData';
 import { HomePageStyle, PERCENTAGE_100 } from '../../common/constants/Constants';
 
 let viewModel: HomeViewModel = new HomeViewModel();

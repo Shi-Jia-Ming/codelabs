@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import BannerData from '../common/bean/BannerData';
-import MenuData from '../common/bean/MenuData';
-import GoodsData from '../common/bean/GoodsData';
-import ToolBarData from '../common/bean/ToolBarData';
-import GoodsServiceData from '../common/bean/GoodsServiceData';
+import BannerData from '../viewmodel/BannerData';
+import MenuData from '../viewmodel/MenuData';
+import GoodsData from '../viewmodel/GoodsData';
+import ToolBarData from '../viewmodel/ToolBarData';
+import GoodsServiceData from '../viewmodel/GoodsServiceData';
 
 /*
  * The DataModel file instead of network data.

@@ -15,7 +15,7 @@
 
 import HomePage from '../view/home/HomePage';
 import NavViewModel from '../viewmodel/NavViewModel';
-import ToolBarData from '../common/bean/ToolBarData';
+import ToolBarData from '../viewmodel/ToolBarData';
 import ToolBarComponent from '../view/ToolBarComponent';
 import { AppFontSize, NavPageStyle, PERCENTAGE_100 } from '../common/constants/Constants';
 

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import BannerData from '../../common/bean/BannerData';
+import BannerData from '../../viewmodel/BannerData';
 import { Banner } from '../../common/constants/HomeConstants';
 import { PERCENTAGE_100, PERCENTAGE_20 } from '../../common/constants/Constants';
 

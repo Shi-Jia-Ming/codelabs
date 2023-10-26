@@ -15,9 +15,9 @@
 
 import hilog from '@ohos.hilog';
 import DataModel from '../model/DataModel';
-import GoodsData from '../common/bean/GoodsData';
-import BannerData from '../common/bean/BannerData';
-import MenuData from '../common/bean/MenuData';
+import GoodsData from './GoodsData';
+import BannerData from './BannerData';
+import MenuData from './MenuData';
 import { DETAILS_ABILITY_NAME } from '../common/constants/Constants';
 import common from '@ohos.app.ability.common';
 import Want from '@ohos.app.ability.Want';

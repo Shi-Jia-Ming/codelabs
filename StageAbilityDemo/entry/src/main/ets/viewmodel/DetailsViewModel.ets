@@ -14,7 +14,7 @@
  */
 
 import DataModel from '../model/DataModel';
-import GoodsData from '../common/bean/GoodsData';
+import GoodsData from './GoodsData';
 
 export default class DetailsViewModel {
   public loadDetails(position: number): GoodsData {
