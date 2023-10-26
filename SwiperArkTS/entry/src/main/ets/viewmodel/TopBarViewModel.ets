@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TopBarItem } from '../common/bean/TopBarItem';
+import { TopBarItem } from './TopBarItem';
 import { TOP_BAR_DATA } from '../common/constants/TopBarConstants';
 
 /**

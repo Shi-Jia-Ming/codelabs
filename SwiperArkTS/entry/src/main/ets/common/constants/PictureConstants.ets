@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PictureItem } from '../bean/PictureItem';
+import { PictureItem } from '../../viewmodel/PictureItem';
 
 /**
  * Pictures of banner.

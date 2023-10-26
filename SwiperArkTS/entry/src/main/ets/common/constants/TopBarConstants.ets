@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TopBarItem } from '../bean/TopBarItem';
+import { TopBarItem } from '../../viewmodel/TopBarItem';
 
 /**
  * Data of top bar.

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { VideoItem } from '../bean/VideoItem';
+import { VideoItem } from '../../viewmodel/VideoItem';
 
 /**
  * Data of video.

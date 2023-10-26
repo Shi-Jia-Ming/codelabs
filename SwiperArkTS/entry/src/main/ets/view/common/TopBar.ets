@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TopBarItem } from '../../common/bean/TopBarItem';
+import { TopBarItem } from '../../viewmodel/TopBarItem';
 import { initializeOnStartup } from '../../viewmodel/TopBarViewModel';
 import { CommonConstants } from '../../common/constants/CommonConstant';
 
