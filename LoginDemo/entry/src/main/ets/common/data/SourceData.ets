@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ItemData from '../bean/ItemData';
+import ItemData from '../../viewmodel/ItemData';
 
 /**
  * Swiper image resource data.
