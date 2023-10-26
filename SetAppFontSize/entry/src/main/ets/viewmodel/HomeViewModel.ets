@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import SettingData from '../common/bean/SettingData';
+import SettingData from '../viewmodel/SettingData';
 
 /**
  * Home view model, providing page display data.

@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import ChatData from '../common/bean/ChatData';
-import { ItemDirection } from '../common/bean/ItemDirection';
+import ChatData from '../viewmodel/ChatData';
+import { ItemDirection } from '../viewmodel/ItemDirection';
 import StyleConstants from '../common/constants/StyleConstants';
 
 /**
