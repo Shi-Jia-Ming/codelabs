@@ -15,7 +15,7 @@
 
 import { Buttons } from '@ohos/library';
 import InnerViewModel from '../viewmodel/InnerViewModel'
-import { ButtonList } from '../common/bean/ButtonList';
+import { ButtonList } from '../viewmodel/ButtonList';
 import { CommonConstants } from '../common/constants/CommonConst';
 
 @Component
