@@ -14,7 +14,7 @@
  */
 
 import matrix4 from '@ohos.matrix4';
-import PrizeData from '../common/bean/PrizeData';
+import PrizeData from '../viewmodel/PrizeData';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonConstants from '../common/constants/CommonConstants';
 
