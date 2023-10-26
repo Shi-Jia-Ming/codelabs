@@ -16,8 +16,7 @@
 import TargetInformation from '../view/TargetInformation';
 import AddTargetDialog from '../view/AddTargetDialog';
 import TargetList from '../view/TargetList';
-import TaskItemBean from '../common/bean/TaskItemBean';
-import DataModel from '../viewmodel/DataModel';
+import DataModel, { TaskItemBean } from '../viewmodel/DataModel';
 import { CommonConstants } from '../common/constant/CommonConstant';
 import getCurrentTime from '../common/utils/DateUtil';
 import promptAction from '@ohos.promptAction';

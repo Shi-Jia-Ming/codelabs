@@ -13,10 +13,9 @@
  * limitations under the License.
  */
 
-import TaskItemBean from '../common/bean/TaskItemBean';
 import TargetListItem from './TargetListItem';
 import { CommonConstants } from '../common/constant/CommonConstant';
-import DataModel from '../viewmodel/DataModel';
+import DataModel, { TaskItemBean } from '../viewmodel/DataModel';
 
 @Component
 export default struct TargetList {
