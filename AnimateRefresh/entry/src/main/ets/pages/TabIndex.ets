@@ -16,7 +16,7 @@
 import FileManagerIndex from './FileManagerIndex';
 import CommonConstants from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
-import CardModel from '../common/bean/CardModel';
+import CardModel from '../viewmodel/CardModel';
 
 /**
  * Navigation path on the home page.

@@ -14,8 +14,8 @@
  */
 
 import display from '@ohos.display';
-import ClassifyModel from '../bean/AnimationModel';
-import CardModel from '../bean/CardModel';
+import ClassifyModel from '../../viewmodel/AnimationModel';
+import CardModel from '../../viewmodel/CardModel';
 import { GlobalContext } from '../utils/GlobalContext';
 
 let deviceDisplay: display.Display = GlobalContext.getContext().getObject('display') as display.Display;

@@ -16,7 +16,7 @@
 import { RefreshState, RefreshConstants } from '../common/constants/RefreshConstants';
 import CommonConstants from '../common/constants/CommonConstants';
 import DimensionUtil from '../common/utils/DimensionUtil';
-import ClassifyModel from '../common/bean/AnimationModel';
+import ClassifyModel from '../viewmodel/AnimationModel';
 
 @Component
 export default struct RefreshAnimHeader {
