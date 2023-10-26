@@ -25,10 +25,10 @@ const TAG: string = 'imageEdit_Decode';
  *
  * @return file fd.
  */
-async function getResourceFd() {
-  const context = getContext(this);
+async function getResourceFd(pageContent: Object) {
+  const context = getContext(pageContent);
   const resourceMgr = context.resourceManager;
-  let imageBuffer = await resourceMgr.getMediaContent($r("app.media.ic_low"))
+  let imageBuffer = await resourceMgr.getMediaContent($r('app.media.ic_low'));
   let filePath = context.cacheDir + '/' + CommonConstants.RAW_FILE_NAME;
   let file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE);
   fs.writeSync(file.fd, imageBuffer.buffer);
@@ -40,8 +40,8 @@ async function getResourceFd() {
  *
  * @return pixelMa.
  */
-export default async function getPixelMap() {
-  const fd = await getResourceFd();
+export default async function getPixelMap(pageContent: Object) {
+  const fd = await getResourceFd(pageContent);
   const imageSourceApi = image.createImageSource(fd);
   if (!imageSourceApi) {
     Logger.error(TAG, 'imageSourceAPI created failed!');

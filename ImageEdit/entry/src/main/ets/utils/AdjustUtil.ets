@@ -14,7 +14,7 @@
  */
 
 import { CommonConstants } from '../common/constant/CommonConstants';
-import { RGBIndex, HSVIndex, AngelRange } from '../viewModel/OptionViewModel';
+import { RGBIndex, HSVIndex, AngelRange } from '../viewmodel/OptionViewModel';
 
 /**
  * Saturation adjust.
