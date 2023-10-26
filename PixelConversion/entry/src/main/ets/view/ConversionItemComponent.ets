@@ -14,7 +14,7 @@
  */
 
 import Constants from '../common/constants/Constants';
-import ConversionItem from '../common/bean/ConversionItem';
+import ConversionItem from '../viewmodel/ConversionItem';
 
 @Extend(Text) function descTextStyle() {
   .fontColor($r('app.color.title_font'))

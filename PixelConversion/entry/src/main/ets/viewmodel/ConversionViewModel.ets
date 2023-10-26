@@ -14,7 +14,7 @@
  */
 
 import Constants from '../common/constants/Constants';
-import ConversionItem from '../common/bean/ConversionItem';
+import ConversionItem from './ConversionItem';
 
 class ConversionViewModel {
   /**
