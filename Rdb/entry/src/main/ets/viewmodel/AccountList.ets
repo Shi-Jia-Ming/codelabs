@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import AccountItem from '../common/bean/AccountItem';
+import AccountItem from './AccountItem';
 
 export const PayList: Array<AccountItem> = [
   {

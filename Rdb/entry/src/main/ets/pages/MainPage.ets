@@ -14,7 +14,7 @@
  */
 
 import AccountTable from '../common/database/tables/AccountTable';
-import AccountData from '../common/bean/AccountData';
+import AccountData from '../viewmodel/AccountData';
 import CommonConstants from '../common/constants/CommonConstants';
 import { DialogComponent } from '../view/DialogComponent';
 import { ImageList } from '../viewmodel/AccountList';
