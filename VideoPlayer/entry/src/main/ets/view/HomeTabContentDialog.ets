@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import { HomeDialogModel } from '../viewmodel/HomeDialogModel';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import { HomeConstants } from '../common/constants/HomeConstants';
@@ -26,7 +26,7 @@ export struct HomeTabContentDialog {
   @State loadColor: Resource = $r('app.color.index_tab_selected_font_color');
   @Link name: string;
   @Link src: string;
-  @Link videoList: Array<VideoBean>;
+  @Link videoList: Array<VideoItem>;
   controller: CustomDialogController = new CustomDialogController({
     builder: HomeTabContentDialog({
       name: '',

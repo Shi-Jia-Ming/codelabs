@@ -16,7 +16,7 @@
 import image from '@ohos.multimedia.image';
 import resourceManager from '@ohos.resourceManager';
 
-@Observed export class VideoBean {
+@Observed export class VideoItem {
   name: string;
   src: resourceManager.RawFileDescriptor;
   iSrc: string;

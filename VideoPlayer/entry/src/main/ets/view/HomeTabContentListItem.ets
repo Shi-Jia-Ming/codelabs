@@ -13,14 +13,14 @@
  * limitations under the License.
  */
 
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import { HomeConstants } from '../common/constants/HomeConstants';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import resourceManager from '@ohos.resourceManager';
 
 @Component
 export struct HomeTabContentListItem {
-  private item: VideoBean = new VideoBean('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4');
+  private item: VideoItem = new VideoItem('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4');
 
   build() {
     Row() {

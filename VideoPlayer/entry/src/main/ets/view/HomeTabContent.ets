@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import { HomeTabContentList } from './HomeTabContentList';
 import { HomeTabContentButton } from './HomeTabContentButton';
 import { CommonConstants } from '../common/constants/CommonConstants';
@@ -21,7 +21,7 @@ import { CommonConstants } from '../common/constants/CommonConstants';
 @Component
 export struct HomeTabContent {
   private currIndex: number = 0;
-  @Provide videoList: Array<VideoBean> = [];
+  @Provide videoList: Array<VideoItem> = [];
 
   build() {
     Column() {

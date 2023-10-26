@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { VideoBean } from '../bean/VideoBean';
-import { VideoSpeed } from '../bean/VideoSpeed';
+import { VideoItem } from '../../viewmodel/VideoItem';
+import { VideoSpeed } from '../../viewmodel/VideoSpeed';
 import resourceManager from '@ohos.resourceManager';
 
 /**
@@ -141,7 +141,7 @@ export enum SliderMode {
 /**
  * Video object collection.
  */
-export const VIDEO_DATA: VideoBean[] = [
-  new VideoBean('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4',),
-  new VideoBean('video2', {} as resourceManager.RawFileDescriptor, 'video2.mp4',)
+export const VIDEO_DATA: VideoItem[] = [
+  new VideoItem('video1', {} as resourceManager.RawFileDescriptor, 'video1.mp4',),
+  new VideoItem('video2', {} as resourceManager.RawFileDescriptor, 'video2.mp4',)
 ]

@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { VideoSpeed } from '../common/bean/VideoSpeed';
+import { VideoSpeed } from '../viewmodel/VideoSpeed';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import { PlayConstants } from '../common/constants/PlayConstants';
 

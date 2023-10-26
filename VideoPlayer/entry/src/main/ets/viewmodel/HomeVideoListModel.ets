@@ -14,14 +14,14 @@
  */
 
 import image from '@ohos.multimedia.image';
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from './VideoItem';
 import { VIDEO_DATA } from '../common/constants/CommonConstants';
 import { GlobalContext } from '../common/util/GlobalContext';
 import resourceManager from '@ohos.resourceManager';
 
 export class HomeVideoListModel {
-  private videoLocalList: Array<VideoBean> = [];
-  private videoInternetList: Array<VideoBean> = [];
+  private videoLocalList: Array<VideoItem> = [];
+  private videoInternetList: Array<VideoItem> = [];
 
   /**
    * Scan the local video.
@@ -39,10 +39,10 @@ export class HomeVideoListModel {
    * Assembling the video object
    */
   async assemblingVideoBean() {
-    VIDEO_DATA.forEach(async (item: VideoBean) => {
+    VIDEO_DATA.forEach(async (item: VideoItem) => {
       let videoBean = await getContext().resourceManager.getRawFd(item.iSrc);
       let uri = videoBean;
-      this.videoLocalList.push(new VideoBean(item.name, uri, ''));
+      this.videoLocalList.push(new VideoItem(item.name, uri, ''));
     });
   }
 
@@ -56,7 +56,7 @@ export class HomeVideoListModel {
    * @return Network video list data.
    */
   async setInternetVideo(name: string, src: string, pixelMap?: image.PixelMap) {
-    this.videoInternetList.push(new VideoBean(name, {} as resourceManager.RawFileDescriptor, src, pixelMap));
+    this.videoInternetList.push(new VideoItem(name, {} as resourceManager.RawFileDescriptor, src, pixelMap));
     let videoInternetList = this.videoInternetList;
     GlobalContext.getContext().setObject('videoInternetList', videoInternetList);
     return videoInternetList;

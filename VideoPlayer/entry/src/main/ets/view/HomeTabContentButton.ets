@@ -14,7 +14,7 @@
  */
 
 import { HomeTabContentDialog } from './HomeTabContentDialog';
-import { VideoBean } from '../common/bean/VideoBean';
+import { VideoItem } from '../viewmodel/VideoItem';
 import HomeVideoListModel from '../viewmodel/HomeVideoListModel';
 import { CommonConstants } from '../common/constants/CommonConstants';
 import { HomeConstants } from '../common/constants/HomeConstants';
@@ -23,7 +23,7 @@ import { GlobalContext } from '../common/util/GlobalContext';
 @Component
 export struct HomeTabContentButton {
   private currIndex: number = 0;
-  @Consume videoList: Array<VideoBean>;
+  @Consume videoList: Array<VideoItem>;
   @State name: string = '';
   @State src: string = '';
   dialogController: CustomDialogController = new CustomDialogController({
@@ -45,7 +45,7 @@ export struct HomeTabContentButton {
 
   confirm() {
     HomeVideoListModel.setInternetVideo(this.name, this.src);
-    let videoInternetList = GlobalContext.getContext().getObject('videoInternetList') as VideoBean[];
+    let videoInternetList = GlobalContext.getContext().getObject('videoInternetList') as VideoItem[];
     this.videoList = videoInternetList;
     this.src = '';
     this.name = '';
