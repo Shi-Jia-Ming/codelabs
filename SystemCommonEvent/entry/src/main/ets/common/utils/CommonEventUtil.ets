@@ -14,7 +14,7 @@
  */
 
 import CommonEventManager from '@ohos.commonEventManager';
-import { CommonEventBean } from '../bean/CommonEventBean';
+import { CommonEventBean } from '../../viewmodel/MainPageViewModel';
 import { BatteryChargeState, CommonConstants, WifiState } from '../constants/CommonConst';
 import Logger from './Logger';
 
