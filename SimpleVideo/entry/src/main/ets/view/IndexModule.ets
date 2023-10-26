@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,7 +16,7 @@
 import router from '@ohos.router';
 import { HORIZONTAL_VIDEOS } from '../viewmodel/VideoData';
 import { MARGIN_FONT_SIZE, STRING_PERCENT, SECOND_PAGE, NET } from '../common/constants/CommonConstants';
-import { HorizontalVideoItem } from '../common/bean/HorizontalVideoItem';
+import { HorizontalVideoItem } from '../viewmodel/HorizontalVideoItem';
 
 /**
  * The modules in index

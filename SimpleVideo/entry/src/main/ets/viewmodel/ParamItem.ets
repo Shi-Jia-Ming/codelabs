@@ -18,5 +18,5 @@
  */
 @Observed
 export class ParamItem {
-  source: Resource;
+  source: Resource = $r('app.string.empty');
 }

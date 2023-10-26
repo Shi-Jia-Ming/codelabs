@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022 Huawei Device Co., Ltd.
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,13 +15,17 @@
 
 import prompt from '@ohos.promptAction';
 import { VideoSlider } from '../view/VideoPlaySlider';
-import { prepared, finish, changeSliderTime } from '../model/VideoControll';
+import {changeSliderTime } from '../model/VideoControll';
 import {
   START_TIME,
   STRING_PERCENT,
   COMMON_NUM_DURATION,
   MESSAGE,
-  ALL_PERCENT
+  ALL_PERCENT,
+  COMMON_NUM_MINUTE,
+  COMMON_NUM_DOUBLE,
+  ZERO_STR,
+  SPLIT
 } from '../common/constants/CommonConstants';
 
 /**
@@ -62,10 +66,10 @@ export struct VideoPlayer {
           }
         })
         .onPrepared((event) => {
-          prepared(this, event);
+          this.prepared(event?.duration);
         })
         .onFinish(() => {
-          finish(this);
+          this.finish();
         })
         .onError(() => {
           prompt.showToast({
@@ -75,5 +79,26 @@ export struct VideoPlayer {
         })
       VideoSlider({ controller: this.controller })
     }
+  }
+
+  /**
+   * video component prepared callback
+   */
+  prepared(duration: number) {
+    this.durationTime = duration;
+    let second: number = duration % COMMON_NUM_MINUTE;
+    let min: number = Number.parseInt((duration / COMMON_NUM_MINUTE).toString());
+    let head = min < COMMON_NUM_DOUBLE ? `${ZERO_STR}${min}` : min;
+    let end = second < COMMON_NUM_DOUBLE ? `${ZERO_STR}${second}` : second;
+    this.durationStringTime = `${head}${SPLIT}${end}`;
+    this.flag = true;
+  }
+
+  /**
+   * video component finish callback
+   */
+  finish() {
+    this.isPlay = false;
+    this.isOpacity = false;
   }
 }
