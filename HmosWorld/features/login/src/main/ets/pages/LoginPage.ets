@@ -16,6 +16,7 @@
 import { BusinessError } from '@ohos.base';
 import common from '@ohos.app.ability.common';
 import router from '@ohos.router';
+import I18n from '@ohos.i18n';
 import promptAction from '@ohos.promptAction';
 import { UserModel } from '@ohos/mine';
 import { UserAccount, splashImages, Logger } from '@ohos/common';
@@ -58,6 +59,7 @@ struct LoginPage {
   }
 
   login(): void {
+    let systemLanguage: string = I18n.System.getSystemLanguage();
     if ((this.account.trim() === '') || (this.password.trim() === '')) {
       promptAction.showToast({
         message: $r('app.string.account_password_empty')
@@ -105,7 +107,7 @@ struct LoginPage {
 
   build() {
     Stack() {
-      Image(this.backgroundImg)
+      Image(this?.backgroundImg)
         .height(Constants.FULL_SCREEN)
         .width(Constants.FULL_SCREEN)
         .syncLoad(true)
