@@ -8,6 +8,12 @@
           "enable": false
         }
       }
+    },
+    "napiLibFilterOption": {
+      "pickFirsts": [],
+      "pickLasts": [],
+      "excludes": [],
+      "enableOverride": true
     }
   },
   "targets": [
