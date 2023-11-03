@@ -1,0 +1,40 @@
+{
+  "float": [
+    {
+      "name": "classify_item_width",
+      "value": "100vp"
+    },
+    {
+      "name": "course_item_height",
+      "value": "96vp"
+    },
+    {
+      "name": "classify_item_height",
+      "value": "56vp"
+    },
+    {
+      "name": "title_line_height",
+      "value": "20vp"
+    },
+    {
+      "name": "course_item_padding",
+      "value": "12vp"
+    },
+    {
+      "name": "item_padding_left",
+      "value": "8vp"
+    },
+    {
+      "name": "normal_border_radius",
+      "value": "18vp"
+    },
+    {
+      "name": "header_font_size",
+      "value": "18fp"
+    },
+    {
+      "name": "normal_font_size",
+      "value": "14fp"
+    }
+  ]
+}

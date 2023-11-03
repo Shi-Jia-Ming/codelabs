@@ -1,0 +1,76 @@
+{
+  "float": [
+    {
+      "name": "float_1",
+      "value": "30.6"
+    },
+    {
+      "name": "font_size_input",
+      "value": "64fp"
+    },
+    {
+      "name": "font_size_text",
+      "value": "32fp"
+    },
+    {
+      "name": "font_size_dot",
+      "value": "42fp"
+    },
+    {
+      "name": "input_height",
+      "value": "86vp"
+    },
+    {
+      "name": "input_margin_right",
+      "value": "22vp"
+    },
+    {
+      "name": "input_margin_top",
+      "value": "121.96vp"
+    },
+    {
+      "name": "text_height",
+      "value": "43vp"
+    },
+    {
+      "name": "text_margin_right",
+      "value": "21vp"
+    },
+    {
+      "name": "text_margin_bottom",
+      "value": "64vp"
+    },
+    {
+      "name": "key_width",
+      "value": "70vp"
+    },
+    {
+      "name": "key_height",
+      "value": "60vp"
+    },
+    {
+      "name": "equals_height",
+      "value": "125vp"
+    },
+    {
+      "name": "border_radius",
+      "value": "36vp"
+    },
+    {
+      "name": "margin_top",
+      "value": "70vp"
+    },
+    {
+      "name": "margin_bottom",
+      "value": "40vp"
+    },
+    {
+      "name": "margin_left",
+      "value": "19vp"
+    },
+    {
+      "name": "margin_right",
+      "value": "19vp"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "主程序入口"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "构建多种样式弹窗"
+    },
+    {
+      "name": "text_input_hint",
+      "value": "昵称"
+    },
+    {
+      "name": "text_input_signature",
+      "value": "个性签名"
+    },
+    {
+      "name": "title_birthdate",
+      "value": "出生日期"
+    },
+    {
+      "name": "title_sex",
+      "value": "性别"
+    },
+    {
+      "name": "default_sex",
+      "value": "男"
+    },
+    {
+      "name": "title_hobbies",
+      "value": "兴趣爱好（多选）"
+    },
+    {
+      "name": "alert_dialog_message",
+      "value": "当前数据未保存，是否离开？"
+    },
+    {
+      "name": "cancel_button",
+      "value": "取消"
+    },
+    {
+      "name": "definite_button",
+      "value": "确定"
+    },
+    {
+      "name": "text_personal_title",
+      "value": "个人信息"
+    },
+    {
+      "name": "text_title_hobbies",
+      "value": "兴趣爱好"
+    }
+  ]
+}

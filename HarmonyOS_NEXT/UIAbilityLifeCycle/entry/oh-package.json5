@@ -1,0 +1,9 @@
+{
+  "license": "ISC",
+  "devDependencies": {},
+  "name": "entry",
+  "description": "Please describe the basic information.",
+  "repository": {},
+  "version": "1.0.0",
+  "dependencies": {}
+}

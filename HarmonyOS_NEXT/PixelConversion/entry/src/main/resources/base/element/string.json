@@ -1,0 +1,64 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "pixel_introduce",
+      "value": "Pixel Introduce"
+    },
+    {
+      "name": "pixel_conversion",
+      "value": "Pixel Conversion"
+    },
+    {
+      "name": "HarmonyHeiTi",
+      "value": "HarmonyHeiTi"
+    },
+    {
+      "name": "HarmonyHeiTi_Medium",
+      "value": "HarmonyHeiTi-Medium"
+    },
+    {
+      "name": "font_desc",
+      "value": "This is a text for %dfp"
+    },
+    {
+      "name": "notice",
+      "value": "For the conversion between lpx and px, set designWidth based on the site requirements."
+    },
+    {
+      "name": "px_unit",
+      "value": "Physical pixel unit of the screen."
+    },
+    {
+      "name": "vp_unit",
+      "value": "Screen density-related pixels, which are converted to screen physical pixels based on the screen pixel density."
+    },
+    {
+      "name": "lpx_unit",
+      "value": "Logical pixel unit of the window. The unit of lpx is the ratio of the actual screen width to the logical width (configured by designWidth)."
+    },
+    {
+      "name": "fp_unit",
+      "value": "Font pixel, similar to vp, varies with the system font size setting."
+    },
+    {
+      "name": "vp_desc",
+      "value": "On a device with a pixel density of 160 dpi, 1vp = 1px, corresponding physical screen pixels = (Screen pixel density/160) px."
+    },
+    {
+      "name": "fp_desc",
+      "value": "By default, the value is the same as that of vp, that is, 1vp=1fp. If the system font is manually adjusted, scale indicates the scaling ratio. The font size after setting (unit: fp) equals the font size before setting x scale."
+    }
+  ]
+}
