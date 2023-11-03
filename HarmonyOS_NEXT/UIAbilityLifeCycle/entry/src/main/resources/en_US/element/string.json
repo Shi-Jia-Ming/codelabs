@@ -1,0 +1,24 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "UIAbilityLifeCycle"
+    },
+    {
+      "name": "hello_message",
+      "value": "Hello World"
+    },
+    {
+      "name": "button_name",
+      "value": "jump"
+    }
+  ]
+}

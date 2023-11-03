@@ -1,0 +1,48 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ts",
+        "description": "$string:entryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:entryAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "orientation": "portrait",
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "DetailsAbility",
+        "srcEntry": "./ets/DetailsAbility/DetailsAbility.ts",
+        "description": "$string:details_ability_desc",
+        "icon": "$media:icon",
+        "label": "$string:details_ability_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:white",
+        "orientation": "portrait",
+        "exported": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "CanvasComponent"
+    },
+    {
+      "name": "text_confirm",
+      "value": "Confirm"
+    },
+    {
+      "name": "text_smile",
+      "value": "Thanks"
+    },
+    {
+      "name": "text_hamburger",
+      "value": "Hamburger"
+    },
+    {
+      "name": "text_cake",
+      "value": "Cake"
+    },
+    {
+      "name": "text_beer",
+      "value": "Beer"
+    },
+    {
+      "name": "text_watermelon",
+      "value": "Watermelon"
+    },
+    {
+      "name": "prize_text_smile",
+      "value": "Sorry, you didn't win the prize"
+    },
+    {
+      "name": "prize_text_hamburger",
+      "value": "Congratulations, you won the prize burger"
+    },
+    {
+      "name": "prize_text_cake",
+      "value": "Congratulations, you won the prize cake"
+    },
+    {
+      "name": "prize_text_beer",
+      "value": "Congratulations, you won the prize beer"
+    },
+    {
+      "name": "prize_text_watermelon",
+      "value": "Congratulations, you won the prize watermelon"
+    }
+  ]
+}

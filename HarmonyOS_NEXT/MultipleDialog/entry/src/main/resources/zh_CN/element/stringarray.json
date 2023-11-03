@@ -1,0 +1,35 @@
+{
+  "strarray": [
+    {
+      "name": "sex_array",
+      "value": [
+        {
+          "value": "男"
+        },
+        {
+          "value": "女"
+        }
+      ]
+    },
+    {
+      "name": "hobbies_data",
+      "value": [
+        {
+          "value": "足球"
+        },
+        {
+          "value": "羽毛球"
+        },
+        {
+          "value": "旅游"
+        },
+        {
+          "value": "打游戏"
+        },
+        {
+          "value": "看书"
+        }
+      ]
+    }
+  ]
+}

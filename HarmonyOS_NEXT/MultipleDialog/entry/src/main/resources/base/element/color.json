@@ -1,0 +1,32 @@
+{
+  "color": [
+    {
+      "name": "start_window_background",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "column_background_color",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "custom_color",
+      "value": "#182431"
+    },
+    {
+      "name": "custom_button_color",
+      "value": "#007DFF"
+    },
+    {
+      "name": "custom_blank_color",
+      "value": "#F2F2F2"
+    },
+    {
+      "name": "place_color",
+      "value": "#99000000"
+    },
+    {
+      "name": "divider_color",
+      "value": "#0D182431"
+    }
+  ]
+}
