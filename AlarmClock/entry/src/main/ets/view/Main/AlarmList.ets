@@ -15,7 +15,7 @@
 
 import router from '@ohos.router';
 import { CommonConstants } from '../../common/constants/CommonConstants';
-import AlarmItem from '../../viewmodel/AlarmItemBean';
+import AlarmItem from '../../viewmodel/AlarmItem';
 import AlarmListItem from '../Main/AlarmListItem';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 

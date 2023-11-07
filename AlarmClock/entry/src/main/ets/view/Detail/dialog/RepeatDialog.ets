@@ -15,7 +15,7 @@
 
 import { CommonConstants } from '../../../common/constants/CommonConstants';
 import { DetailConstant } from '../../../common/constants/DetailConstant';
-import AlarmItem from '../../../viewmodel/AlarmItemBean';
+import AlarmItem from '../../../viewmodel/AlarmItem';
 import DetailModel from '../../../viewmodel/DetailViewModel';
 import CommonDialog from './CommonDialog';
 import DataTypeUtils from '../../../common/utils/DataTypeUtils';

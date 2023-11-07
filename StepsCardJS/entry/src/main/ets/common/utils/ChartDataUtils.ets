@@ -14,12 +14,12 @@
  */
 
 import DataRdb from '@ohos.data.relationalStore';
-import ChartValues from '../bean/ChartValues';
-import ChartPoint from '../bean/ChartPoint';
-import PointStyle from '../bean/PointStyle';
+import ChartValues from '../../viewmodel/ChartValues';
+import ChartPoint from '../../viewmodel/ChartPoint';
+import PointStyle from '../../viewmodel/PointStyle';
 import DatabaseUtils from './DatabaseUtils';
 import CommonConstants from '../constants/CommonConstants';
-import FormData from '../bean/FormData';
+import FormData from '../../viewmodel/FormData';
 import Logger from '../utils/Logger';
 
 /**

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from '../viewmodel/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import zonesViewModel from '../viewmodel/ZonesViewModel';
 

@@ -15,7 +15,7 @@
 
 import StyleConstants from '../common/constants/StyleConstants';
 import DataSource from '../common/datasource/DataSource';
-import MovieDataBean from '../viewmodel/MovieDataBean';
+import MovieData from '../viewmodel/MovieData';
 import MovieItem from '../view/MovieItem';
 import CommonUtils from '../common/utils/CommonUtils';
 import { GlobalContext } from '../common/utils/GlobalContext';
@@ -29,7 +29,7 @@ import { GlobalContext } from '../common/utils/GlobalContext';
 @Component
 struct MovieListPage {
   // Lazy loading of matching data sources.
-  private dataSource: DataSource<MovieDataBean> = new DataSource([]);
+  private dataSource: DataSource<MovieData> = new DataSource([]);
 
   aboutToAppear() {
     this.dataSource = new DataSource(CommonUtils.getListData());
@@ -55,11 +55,11 @@ struct MovieListPage {
         })
         .height($r('app.float.list_title_height'))
       List({ space: StyleConstants.LIST_COMPONENT_SPACE }) {
-        LazyForEach(this.dataSource, (item: MovieDataBean) => {
+        LazyForEach(this.dataSource, (item: MovieData) => {
           ListItem() {
             MovieItem({ movieItem: item });
           }
-        }, (item: MovieDataBean) => JSON.stringify(item))
+        }, (item: MovieData) => JSON.stringify(item))
       }
       .listDirection(Axis.Vertical)
       .edgeEffect(EdgeEffect.None)

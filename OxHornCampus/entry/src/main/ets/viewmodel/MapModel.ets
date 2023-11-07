@@ -13,8 +13,8 @@
  * limitations under the License.
  */
 
-import { AddressItem, Location } from '../common/bean/AddressItem';
-import { PositionItem, GeoCoordinates } from '../common/bean/PositionItem';
+import { AddressItem, Location } from './AddressItem';
+import { PositionItem, GeoCoordinates } from './PositionItem';
 import { CommonConstants as Const, PositionType } from '../common/constants/CommonConstants';
 import { Geography } from '../common/utils/Geography';
 import MapController from '../controller/MapController';
@@ -23,7 +23,6 @@ import MapController from '../controller/MapController';
  * Initializing Map Data.
  */
 export class MapModel {
-  private mapContext: any;
   private data?: AddressItem;
   private addressArray: Array<AddressItem> = new Array(Const.MAP_LANDMARKS_LENGTH).fill(undefined);
 
@@ -35,16 +34,15 @@ export class MapModel {
    * @param mapContext Objects in a map component.
    * @returns Landmark objects in the map.
    */
-  calCoordinateByLonAndLat(geoCoordinates: Array<GeoCoordinates>, type: number, mapContext: any): AddressItem {
-    this.mapContext = mapContext;
+  calCoordinateByLonAndLat(geoCoordinates: Array<GeoCoordinates>, type: number, mapWidth: number, mapHeight: number): AddressItem {
     this.data = undefined;
     if (!this.addressArray[type - 1]) {
-      this.addressArray[type - 1] = new AddressItem(
-        mapLandmarksName[type - 1],
-        mapLandmarksIcon[type - 1],
-        this.initLocationData(geoCoordinates),
-        mapLandmarksTextColor[type - 1]
-      );
+      let addressItem = new AddressItem();
+      addressItem.name = mapLandmarksName[type-1];
+      addressItem.icon = mapLandmarksIcon[type - 1];
+      addressItem.locations = this.initLocationData(geoCoordinates, mapWidth, mapHeight);
+      addressItem.textColor = mapLandmarksTextColor[type - 1];
+      this.addressArray[type - 1] = addressItem;
     }
     this.data = this.addressArray[type - 1];
     return this.data;
@@ -56,14 +54,12 @@ export class MapModel {
    * @param geoCoordinates Longitude and latitude data.
    * @returns Coordinates of landmarks on the map.
    */
-  initLocationData(geoCoordinates: Array<GeoCoordinates>): Array<Location> {
+  initLocationData(geoCoordinates: Array<GeoCoordinates>, mapWidth: number, mapHeight: number): Array<Location> {
     let locations: Array<Location> = [];
     geoCoordinates.forEach((item: GeoCoordinates) => {
       let pixelCoordinates = Geography.toPixelCoordinates(item.latitude, item.longitude);
-      let positionX = pixelCoordinates.coordinateX * this.mapContext.mapWidth / MapController.mapMultiples() /
-        Const.MAP_WIDTH;
-      let positionY = pixelCoordinates.coordinateY / Const.MAP_HEIGHT *
-        this.mapContext.mapHeight / MapController.mapMultiples();
+      let positionX = pixelCoordinates.coordinateX * mapWidth / MapController.mapMultiples() / Const.MAP_WIDTH;
+      let positionY = pixelCoordinates.coordinateY / Const.MAP_HEIGHT * mapHeight / MapController.mapMultiples();
       locations.push(new Location(positionX, positionY));
     })
     return locations;

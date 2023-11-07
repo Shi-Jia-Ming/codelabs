@@ -16,13 +16,13 @@
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../viewmodel/MovieDataBean';
+import MovieData from '../viewmodel/MovieData';
 import StarsWidget from './StarsWidget';
 import Logger from '../common/utils/Logger';
 
 @Component
 export default struct MovieDetailsTitle {
-  private movieDetail: MovieDataBean = new MovieDataBean();
+  private movieDetail: MovieData = new MovieData();
   private movieImage: Resource = $r('app.media.ic_movie_one');
   private title: string = '';
   private rating: string = '';

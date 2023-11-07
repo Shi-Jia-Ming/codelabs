@@ -13,21 +13,21 @@
  * limitations under the License.
  */
 
-import ProductBean from './ProductBean';
+import ProductItem from './ProductItem';
 
 /**
  * Water flow data source.
  */
 export class WaterFlowDataSource implements IDataSource {
-  private dataArray: ProductBean[] = [];
+  private dataArray: ProductItem[] = [];
   private listeners: DataChangeListener[] = [];
 
   /**
    * Set water flow data array.
    *
-   * @param {ProductBean[]} productDataArray Displaying water flow Data.
+   * @param {ProductItem[]} productDataArray Displaying water flow Data.
    */
-  public setDataArray(productDataArray: ProductBean[]): void {
+  public setDataArray(productDataArray: ProductItem[]): void {
     this.dataArray = productDataArray;
   }
 
@@ -42,9 +42,9 @@ export class WaterFlowDataSource implements IDataSource {
    * Get the data corresponding to the index.
    *
    * @param {number} index Data index.
-   * @returns Return ProductBean.
+   * @returns Return ProductItem.
    */
-  public getData(index: number): ProductBean {
+  public getData(index: number): ProductItem {
     return this.dataArray[index];
   }
 

@@ -14,7 +14,7 @@
  */
 import window from '@ohos.window';
 
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from '../viewmodel/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { DeviceScreen } from '../common/utils/DeviceScreen';
 

@@ -14,7 +14,7 @@
  */
 
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import ProductBean from '../viewmodel/ProductBean';
+import ProductItem from '../viewmodel/ProductItem';
 import { waterFlowData } from '../viewmodel/HomeViewModel';
 
 /**
@@ -23,7 +23,7 @@ import { waterFlowData } from '../viewmodel/HomeViewModel';
  */
 @Component
 export default struct FlowItemComponent {
-  item: ProductBean = waterFlowData[0];
+  item: ProductItem = waterFlowData[0];
 
   build() {
     Column() {

@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from './ZonesItem';
 
 class ZonesViewModel {
   getZonesList(): ZonesItem[] {

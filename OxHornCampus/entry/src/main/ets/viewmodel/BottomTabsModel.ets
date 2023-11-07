@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { BottomTabsItem } from '../common/bean/BottomTabsItem';
+import { BottomTabsItem } from './BottomTabsItem';
 
 export const BottomTabsList: Array<BottomTabsItem> = [
   {

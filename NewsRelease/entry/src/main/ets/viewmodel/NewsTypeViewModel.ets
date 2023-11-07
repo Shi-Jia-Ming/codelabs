@@ -13,28 +13,28 @@
  * limitations under the License.
  */
 
-import NewsTypeBean from './NewsTypeBean'
+import NewsTypeModel from './NewsTypeModel'
 import ResponseResult from './ResponseResult';
 import Constants from '../common/constants/Constants';
 import { httpRequestGet } from '../common/utils/HttpUtil';
 
-const DEFAULT_NEWS_TYPES: NewsTypeBean[] = [
-  new NewsTypeBean(0, $r('app.string.tab_all')),
-  new NewsTypeBean(1, $r('app.string.tab_domestic')),
-  new NewsTypeBean(2, $r('app.string.tab_international')),
-  new NewsTypeBean(3, $r('app.string.tab_fun')),
-  new NewsTypeBean(4, $r('app.string.tab_military')),
-  new NewsTypeBean(5, $r('app.string.tab_sports')),
-  new NewsTypeBean(6, $r('app.string.tab_science'))
+const DEFAULT_NEWS_TYPES: NewsTypeModel[] = [
+  new NewsTypeModel(0, $r('app.string.tab_all')),
+  new NewsTypeModel(1, $r('app.string.tab_domestic')),
+  new NewsTypeModel(2, $r('app.string.tab_international')),
+  new NewsTypeModel(3, $r('app.string.tab_fun')),
+  new NewsTypeModel(4, $r('app.string.tab_military')),l
+  new NewsTypeModel(5, $r('app.string.tab_sports')),
+  new NewsTypeModel(6, $r('app.string.tab_science'))
 ];
 
 class NewsTypeViewModel {
   /**
    * Get news type list from server.
    *
-   * @return NewsTypeBean[] newsTypeList
+   * @return NewsTypeModel[] newsTypeList
    */
-  getNewsTypeList(): Promise<NewsTypeBean[]> {
+  getNewsTypeList(): Promise<NewsTypeModel[]> {
     return new Promise((resolve: Function) => {
       let url = `${Constants.SERVER}/${Constants.GET_NEWS_TYPE}`;
       httpRequestGet(url).then((data: ResponseResult) => {
@@ -52,9 +52,9 @@ class NewsTypeViewModel {
   /**
    * Get default news type list.
    *
-   * @return NewsTypeBean[] newsTypeList
+   * @return NewsTypeModel[] newsTypeList
    */
-  getDefaultTypeList(): NewsTypeBean[] {
+  getDefaultTypeList(): NewsTypeModel[] {
     return DEFAULT_NEWS_TYPES;
   }
 }

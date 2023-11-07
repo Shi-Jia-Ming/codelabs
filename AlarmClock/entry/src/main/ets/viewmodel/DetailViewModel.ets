@@ -15,12 +15,12 @@
 
 import { DetailConstant } from '../common/constants/DetailConstant';
 import { CommonConstants, WeekDays } from '../common/constants/CommonConstants';
-import AlarmItem from './AlarmItemBean';
+import AlarmItem from './AlarmItem';
 import ReminderService from '../model/ReminderService';
 import DataTypeUtils from '../common/utils/DataTypeUtils';
 import { GlobalContext } from '../common/utils/GlobalContext';
 import PreferencesHandler from '../model/database/PreferencesHandler';
-import DayDataBean from './DayDataBean';
+import DayDataItem from './DayDataItem';
 
 /**
  * Detail page view model description
@@ -139,7 +139,7 @@ export default class DetailViewModel {
   }
 
   private getAlarmTime(aType: number): number {
-    let times:DayDataBean = DetailConstant.DAY_DATA[aType];
+    let times:DayDataItem = DetailConstant.DAY_DATA[aType];
     let selectedIndex = times.delSelect;
     let time = Number(times.data[selectedIndex]);
     if (aType === CommonConstants.DEFAULT_SINGLE) {

@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from '../viewmodel/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { ZonesConstants as ZoneConst } from '../common/constants/ZonesConstants';
 import ZonesViewModel from '../viewmodel/ZonesViewModel';
@@ -102,13 +102,13 @@ export struct Zones {
                 Math.abs(this.getImgCoefficients(index))) * ZoneConst.OPACITY_COEFFICIENTS)
               .blur(ZoneConst.OFFSET_COEFFICIENTS * Math.abs(this.getImgCoefficients(index)))
           }
-          .width(index != this.aheadIndex && this.getImgCoefficients(index) === 0
+          .width(index !== this.aheadIndex && this.getImgCoefficients(index) === 0
             ? Const.SWIPER_DEFAULT_WIDTH
             : `${ZoneConst.ITEM_WIDTH - ZoneConst.OFFSET_COEFFICIENTS * Math.abs(this.getImgCoefficients(index))}%`)
           .aspectRatio(Const.SWIPER_ASPECT_RATIO)
           .borderRadius($r('app.float.common_border_radius'))
           .offset({ x: 0, y: this.getOffSetY(index) })
-          .zIndex(index != this.aheadIndex && this.getImgCoefficients(index) === 0
+          .zIndex(index !== this.aheadIndex && this.getImgCoefficients(index) === 0
             ? 0 : ZoneConst.HALF_COUNT - Math.abs(this.getImgCoefficients(index)))
         }, (item: ZonesItem) => JSON.stringify(item))
       }

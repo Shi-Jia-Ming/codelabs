@@ -17,13 +17,13 @@ import router from '@ohos.router';
 import Logger from '../common/utils/Logger';
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
-import MovieDataBean from '../viewmodel/MovieDataBean';
+import MovieData from '../viewmodel/MovieData';
 import StarsWidget from './StarsWidget';
 import CommonUtils from '../common/utils/CommonUtils';
 
 @Component
 export default struct MovieItem {
-  private movieItem: MovieDataBean = new MovieDataBean();
+  private movieItem: MovieData = new MovieData();
   private sort: number = 0;
   private isShowSort: boolean = true;
   private sortImage: Resource = $r('app.media.ic_first');

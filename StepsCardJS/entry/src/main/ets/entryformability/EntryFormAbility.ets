@@ -25,7 +25,7 @@ import DateUtils from '../common/utils/DateUtils';
 import ChartDataUtils from '../common/utils/ChartDataUtils';
 import SensorData from '../common/database/SensorData';
 import CommonConstants from '../common/constants/CommonConstants';
-import FormData from '../common/bean/FormData';
+import FormData from '../viewmodel/FormData';
 
 /**
  * Form management of Ability.

@@ -16,8 +16,8 @@
 import Logger from '../common/util/Logger';
 import CalculateUtil from '../common/util/CalculateUtil';
 import CheckEmptyUtil from '../common/util/CheckEmptyUtil';
-import keysModel from '../viewmodel/PresskeysBeanViewModel';
-import { PressKeysBean } from '../viewmodel/PressKeysBean';
+import keysModel from '../viewmodel/PresskeysViewModel';
+import { PressKeyItem } from '../viewmodel/PressKeysItem';
 import { CommonConstants, Symbol } from '../common/constants/CommonConstants';
 
 @Entry
@@ -64,9 +64,9 @@ struct HomePage {
 
       Column() {
         Row() {
-          ForEach(keysModel.getPressKeys(), (columnItem: Array<PressKeysBean>, columnItemIndex?: number) => {
+          ForEach(keysModel.getPressKeys(), (columnItem: Array<PressKeyItem>, columnItemIndex?: number) => {
             Column() {
-              ForEach(columnItem, (keyItem: PressKeysBean, keyItemIndex?: number) => {
+              ForEach(columnItem, (keyItem: PressKeyItem, keyItemIndex?: number) => {
                 Column() {
                   Column() {
                     if (keyItem.flag === 0) {
@@ -113,14 +113,14 @@ struct HomePage {
                 )
                 .width(CommonConstants.FULL_PERCENT)
                 .justifyContent(FlexAlign.Center)
-              }, (keyItem: PressKeysBean) => JSON.stringify(keyItem))
+              }, (keyItem: PressKeyItem) => JSON.stringify(keyItem))
             }
             .layoutWeight(1)
             .margin({
               top: $r('app.float.margin_top'),
               bottom: $r('app.float.margin_bottom')
             })
-          }, (item: Array<Array<PressKeysBean>>) => JSON.stringify(item))
+          }, (item: Array<Array<PressKeyItem>>) => JSON.stringify(item))
         }
         .height(CommonConstants.FULL_PERCENT)
         .alignItems(VerticalAlign.Top)

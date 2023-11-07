@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { TrainsMap, Position } from '../common/bean/TrainsMap';
+import { TrainsMap, Position } from './TrainsMap';
 import { TrainsLine, CommonConstants as Const } from '../common/constants/CommonConstants';
 
 class TrainsMapModel {

@@ -13,9 +13,10 @@
  * limitations under the License.
  */
 
-import { AddressItem, Location } from '../common/bean/AddressItem';
-import { PositionItem } from '../common/bean/PositionItem';
+import { AddressItem, Location } from '../viewmodel/AddressItem';
+import { PositionItem } from '../viewmodel/PositionItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
+import Logger from '../common/utils/Logger';
 import MapController from '../controller/MapController';
 import MapModel from '../viewmodel/MapModel';
 import { PositionList } from '../viewmodel/MapModel';
@@ -29,8 +30,7 @@ export struct Map {
   @State mapHeight: number = 0;
   @State mapX: number = 0;
   @State mapY: number = 0;
-  @Provide data: AddressItem = new AddressItem($r('app.string.train_station'),
-    $r('app.string.train_station'), [], $r('app.color.train_station_color'));
+  @Provide data: AddressItem = new AddressItem();
 
   build() {
     Stack({ alignContent: Alignment.BottomEnd }) {
@@ -68,31 +68,84 @@ export struct Map {
         if (this.screenMapWidth === 0 || this.screenMapHeight === 0) {
           this.screenMapWidth = Number(newVal.width);
           this.screenMapHeight = Number(newVal.height);
-          MapController.initMap(this);
+          this.mapHeight = this.screenMapHeight;
+          this.mapWidth = Const.MAP_WIDTH * this.mapHeight / Const.MAP_HEIGHT;
+          this.mapX = (this.screenMapWidth - this.mapWidth) / Const.DOUBLE_OR_HALF;
+          MapController.initLeftTop(this.screenMapWidth, this.mapWidth);
         }
       })
       .gesture(
         GestureGroup(GestureMode.Exclusive,
           PinchGesture({ fingers: Const.MAP_FINGER_COUNT })
-            .onActionUpdate((event?: GestureEvent) => {
-              if (!event) {
-                return;
-              }
-              MapController.pinchUpdate(event);
+            .onActionUpdate((event: GestureEvent) => {
+              MapController.pinchUpdate(event, (ratio: number) => {
+                Logger.info(`======pinchUpdate====mapx: ${this.mapX},===mapy: ${this.mapY}`);
+                this.mapWidth *= ratio;
+                this.mapHeight *= ratio;
+                let offsetX = (1 - ratio) * (this.screenMapWidth /
+                Const.DOUBLE_OR_HALF - this.mapX);
+                let offsetY = (1 - ratio) * (this.mapHeight /
+                Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapY);
+                this.mapX += offsetX;
+                this.mapY += offsetY;
+                this.data.locations = this.data.locations.map((item: Location) => {
+                  item.positionX = item.oriPositionX * MapController.mapMultiples() -
+                    Const.MAP_LANDMARKS_SIZE * Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF;
+                  item.positionY = item.oriPositionY * MapController.mapMultiples() -
+                    Const.MAP_LANDMARKS_SIZE * Const.MAP_ZOOM_RATIO;
+                  return item;
+                })
+                this.zoomOutCheck();
+              });
             })
             .onActionEnd(() => {
-              MapController.pinchEnd();
+              MapController.pinchEnd(this.screenMapWidth, this.mapWidth, this.mapHeight);
             }),
           TapGesture({ count: Const.MAP_FINGER_COUNT })
             .onAction(() => {
-              MapController.tapAction();
+              MapController.tapAction((isMaxTime: boolean) => {
+                if (isMaxTime) {
+                  return [];
+                }
+                this.mapWidth *= Const.MAP_ZOOM_RATIO;
+                this.mapHeight *= Const.MAP_ZOOM_RATIO;
+                let offsetX = (1 - Const.MAP_ZOOM_RATIO) *
+                  (this.screenMapWidth / Const.DOUBLE_OR_HALF - this.mapX);
+                let offsetY = (1 - Const.MAP_ZOOM_RATIO) * (this.mapHeight /
+                Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapY);
+                this.mapX += offsetX;
+                this.mapY += offsetY;
+                this.data.locations = this.data.locations.map((item: Location) => {
+                  item.positionX = item.oriPositionX * MapController.mapMultiples() -
+                    Const.MAP_LANDMARKS_SIZE * Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF;
+                  item.positionY = item.oriPositionY * MapController.mapMultiples() -
+                    Const.MAP_LANDMARKS_SIZE * Const.MAP_ZOOM_RATIO;
+                  return item;
+                })
+                // Calculate the farthest coordinate of the upper left corner.
+                let minX = (this.screenMapWidth - this.mapWidth);
+                let minY = this.mapHeight / MapController.mapMultiples() - this.mapHeight;
+                return [minX, minY];
+              });
             }),
           PanGesture(this.panOption)
-            .onActionUpdate((event?: GestureEvent) => {
-              if (!event) {
-                return;
-              }
-              MapController.panUpdate(event);
+            .onActionUpdate((event: GestureEvent) => {
+              MapController.panUpdate(event, (mapPanX: number, mapPanY: number, leftTop: Array<number>) => {
+                this.mapX += mapPanX;
+                this.mapY += mapPanY;
+                if (this.mapX < leftTop[0]) {
+                  this.mapX = leftTop[0];
+                }
+                if (this.mapX > 0) {
+                  this.mapX = 0;
+                }
+                if (this.mapY < leftTop[1]) {
+                  this.mapY = leftTop[1];
+                }
+                if (this.mapY > 0) {
+                  this.mapY = 0;
+                }
+              });
             })
             .onActionEnd(() => {
               MapController.panEnd();
@@ -100,7 +153,31 @@ export struct Map {
         )
       )
 
-      CustomPanel({ mapWidth: this.mapWidth, mapHeight: this.mapHeight })
+      CustomPanel({
+        mapWidth: $mapWidth,
+        mapHeight: $mapHeight,
+        screenMapWidth: $screenMapWidth,
+        screenMapHeight: $screenMapHeight,
+        mapX: $mapX,
+        mapY: $mapY,
+      })
+    }
+  }
+
+  zoomOutCheck(): void {
+    // Top left corner.
+    if (this.mapX > 0) {
+      this.mapX = 0;
+    }
+    if (this.mapY > 0) {
+      this.mapY = 0;
+    }
+    // Lower right corner.
+    if ((this.mapX + this.mapWidth) < this.screenMapWidth) {
+      this.mapX = this.screenMapWidth - this.mapWidth;
+    }
+    if ((this.mapY + this.mapHeight) < (this.mapHeight / MapController.mapMultiples())) {
+      this.mapY = this.mapHeight / MapController.mapMultiples() - this.mapHeight;
     }
   }
 }
@@ -131,8 +208,12 @@ struct CustomPanel {
   @State imageEnable: boolean = true;
   @State iconOpacity: number = Const.PANEL_HIGH_OPACITY;
   @Consume data: AddressItem;
-  @Prop mapWidth: number = 0;
-  @Prop mapHeight: number = 0;
+  @Link mapWidth: number;
+  @Link mapHeight: number;
+  @Link screenMapWidth: number;
+  @Link screenMapHeight: number;
+  @Link mapX: number;
+  @Link mapY: number;
 
   build() {
     Column() {
@@ -159,9 +240,9 @@ struct CustomPanel {
           .onSubmit((value: string) => {
             this.positionList.forEach((item: PositionItem) => {
               if (MapController.getResourceString(item.text) === value) {
-                this.data = MapModel.calCoordinateByLonAndLat(item.lngLat, item.type, this);
-                MapController.calLandmarksPosition();
-                MapController.setFirstLandmarksCenter();
+                this.data = MapModel.calCoordinateByLonAndLat(item.lngLat, item.type, this.mapWidth, this.mapHeight);
+                MapController.calLandmarksPosition(this.data);
+                this.setFirstLandmarksCenter();
                 this.upAndDown();
               }
             }, (item: PositionItem) => JSON.stringify(item));
@@ -172,9 +253,11 @@ struct CustomPanel {
               PositionGridView({ positionItem: item })
                 .enabled(this.imageEnable)
                 .onClick(() => {
-                  this.data = MapModel.calCoordinateByLonAndLat(item.lngLat, item.type, this);
-                  MapController.calLandmarksPosition();
-                  MapController.setFirstLandmarksCenter();
+                  this.data = MapModel.calCoordinateByLonAndLat(item.lngLat, item.type, this.mapWidth, this.mapHeight);
+                  MapController.calLandmarksPosition(this.data);
+                  Logger.info(`=====before setFirstLandmarksCenter=====mapx: ${this.mapX},===mapy: ${this.mapY}`);
+                  this.setFirstLandmarksCenter();
+                  Logger.info(`=====after setFirstLandmarksCenter=====mapx: ${this.mapX},===mapy: ${this.mapY}`);
                   this.upAndDown();
                 })
             }
@@ -213,5 +296,27 @@ struct CustomPanel {
     }
     this.isDownImage = !this.isDownImage;
     this.imageEnable = true;
+  }
+
+  setFirstLandmarksCenter(): void {
+    let locations: Location[] = this.data.locations;
+    if (locations.length > 0) {
+      // Horizontally centered.
+      this.mapX = this.screenMapWidth / Const.DOUBLE_OR_HALF - locations[0].positionX;
+      if (this.mapX > 0) {
+        this.mapX = 0;
+      }
+      if (this.mapX < (this.screenMapWidth - this.mapWidth)) {
+        this.mapX = this.screenMapWidth - this.mapWidth;
+      }
+      // Vertically centered.
+      this.mapY = this.screenMapHeight / Const.DOUBLE_OR_HALF - locations[0].positionY;
+      if (this.mapY > 0) {
+        this.mapY = 0;
+      }
+      if (this.mapY < (this.screenMapHeight - this.mapHeight)) {
+        this.mapY = this.screenMapHeight - this.mapHeight;
+      }
+    }
   }
 }

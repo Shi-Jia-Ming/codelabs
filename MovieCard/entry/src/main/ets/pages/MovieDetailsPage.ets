@@ -19,7 +19,7 @@ import MovieStarring from '../view/MovieStarring';
 import CommonConstants from '../common/constants/CommonConstants';
 import StyleConstants from '../common/constants/StyleConstants';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../viewmodel/MovieDataBean';
+import MovieData from '../viewmodel/MovieData';
 import StoryIntroduce from '../view/StoryIntroduce';
 import MovieDetailsTitle from '../view/MovieDetailsTitle';
 import Logger from '../common/utils/Logger';
@@ -29,7 +29,7 @@ import { GlobalContext } from '../common/utils/GlobalContext';
 @Component
 struct MovieDetailPage {
   private introduction: string = '';
-  private movieData: MovieDataBean = new MovieDataBean();
+  private movieData: MovieData = new MovieData();
 
   aboutToAppear() {
     let index: number = 0;
@@ -40,7 +40,7 @@ struct MovieDetailPage {
       let position = GlobalContext.getContext().getObject('position') as number;
       index = position ?? 0;
     }
-    let listData: MovieDataBean[] = CommonUtils.getListData();
+    let listData: MovieData[] = CommonUtils.getListData();
     if (CommonUtils.isEmptyArr(listData)) {
       Logger.error(CommonConstants.TAG_DETAILS_PAGE, 'listData is 0');
       return;

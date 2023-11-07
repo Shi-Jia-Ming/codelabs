@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { IProductBean } from './ProductBean';
+import { IProductItem } from './ProductItem';
 
 /**
  * Home page classify title data.
@@ -41,7 +41,7 @@ const swiperImage: Resource[] = [
 /**
  * Home page water flow item init data.
  */
-const waterFlowData: IProductBean[] = [
+const waterFlowData: IProductItem[] = [
   {
     image_url: $r('app.media.ic_holder_50e'),
     name: 'XXX50E',
