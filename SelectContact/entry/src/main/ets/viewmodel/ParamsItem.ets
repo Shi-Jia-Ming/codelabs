@@ -16,15 +16,15 @@
 /**
  * Function params object.
  */
-export interface ParamsBean {
+export interface ParamsItem {
   callID: number,
-  data: ParamsDataBean
+  data: ParamsDataItem
 }
 
 /**
- * ParamsDataBean.
+ * ParamsDataItem.
  */
-export interface ParamsDataBean {
+export interface ParamsDataItem {
   name?: string;
   tel?: string
 }

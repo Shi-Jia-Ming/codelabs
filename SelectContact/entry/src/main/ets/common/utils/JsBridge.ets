@@ -16,8 +16,8 @@
 import WebView from '@ohos.web.webview';
 import contact from '@ohos.contact';
 import { code } from '../constant/CodeConstant';
-import { ParamsBean } from '../../viewmodel/ParamsBean';
-import { JavaScriptBean } from '../../viewmodel/JavaScriptBean';
+import { ParamsItem } from '../../viewmodel/ParamsItem';
+import { JavaScriptItem } from '../../viewmodel/JavaScriptItem';
 import Logger from './Logger';
 
 /**
@@ -35,8 +35,8 @@ export default class JsBridge {
    *
    * @returns javaScriptProxy object.
    */
-  get javaScriptProxy(): JavaScriptBean {
-    let result: JavaScriptBean = {
+  get javaScriptProxy(): JavaScriptItem {
+    let result: JavaScriptItem = {
       object: {
         call: this.call
       },
@@ -80,7 +80,7 @@ export default class JsBridge {
   /**
    * Change tel function.
    */
-  changeTel = (params: ParamsBean): Promise<string> => {
+  changeTel = (params: ParamsItem): Promise<string> => {
     Logger.info('手机号', JSON.stringify(params));
     const tel: string = params.data.tel ?? '';
     AppStorage.Set<string>('tel', tel);
@@ -112,7 +112,7 @@ export default class JsBridge {
    * Invoke the chooseContact function.
    */
   call = (func: string, params: string): void => {
-    const paramsObject: ParamsBean = JSON.parse(params);
+    const paramsObject: ParamsItem = JSON.parse(params);
     let result: Promise<string> = new Promise((resolve) => resolve(''));
     switch (func) {
       case 'chooseContact':
