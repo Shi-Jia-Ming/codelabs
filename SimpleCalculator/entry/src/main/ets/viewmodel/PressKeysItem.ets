@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export class PressKeysBean {
+export class PressKeyItem {
   flag: number;
   width: string;
   height: string;
