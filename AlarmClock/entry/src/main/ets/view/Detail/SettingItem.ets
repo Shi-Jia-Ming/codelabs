@@ -15,7 +15,7 @@
 
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import { AlarmSettingType } from '../../common/constants/AlarmSettingType';
-import AlarmSettingBean from '../../viewmodel/AlarmSettingBean';
+import AlarmSettingItem from '../../viewmodel/AlarmSettingItem';
 import DimensionUtil from '../../common/utils/DimensionUtil';
 import IntervalDialog from './dialog/IntervalDialog';
 import DurationDialog from './dialog/DurationDialog';
@@ -24,7 +24,7 @@ import RepeatDialog from './dialog/RepeatDialog';
 
 @Component
 export default struct SettingItem {
-  @Link settingInfo: Array<AlarmSettingBean>;
+  @Link settingInfo: Array<AlarmSettingItem>;
   repeatDialogController: CustomDialogController = new CustomDialogController({
     builder: RepeatDialog(),
     autoCancel: true
@@ -63,7 +63,7 @@ export default struct SettingItem {
 
   build() {
     Column() {
-      ForEach(this.settingInfo, (item: AlarmSettingBean, index: number | undefined) => {
+      ForEach(this.settingInfo, (item: AlarmSettingItem, index: number | undefined) => {
         Divider()
           .visibility(index === 0 ? Visibility.Hidden : Visibility.Visible)
           .opacity($r('app.float.divider_opacity'))
@@ -101,7 +101,7 @@ export default struct SettingItem {
         .onClick(() => {
           this.showSettingDialog(item.sType);
         })
-      }, (item: AlarmSettingBean, index: number | undefined) => JSON.stringify(item) + index)
+      }, (item: AlarmSettingItem, index: number | undefined) => JSON.stringify(item) + index)
     }
     .margin({
       bottom: DimensionUtil.getVp($r('app.float.setting_item_interval')),

@@ -16,21 +16,21 @@
 import { DetailConstant } from '../../common/constants/DetailConstant';
 import { CommonConstants } from '../../common/constants/CommonConstants';
 import DimensionUtil from '../../common/utils/DimensionUtil';
-import DayDataBean from '../../viewmodel/DayDataBean';
+import DayDataItem from '../../viewmodel/DayDataItem';
 
 @Component
 export default struct DatePickArea {
   build() {
     Stack({ alignContent: Alignment.Center }) {
       Row() {
-        ForEach(DetailConstant.DAY_DATA, (item: DayDataBean) => {
+        ForEach(DetailConstant.DAY_DATA, (item: DayDataItem) => {
           TextPicker({ range: item.data, selected: item.delSelect })
             .layoutWeight(CommonConstants.DEFAULT_LAYOUT_WEIGHT)
             .backgroundColor($r('app.color.grey_light'))
             .onChange((value: string, index: number) => {
               item.delSelect = index;
             })
-        }, (item: DayDataBean) => JSON.stringify(item))
+        }, (item: DayDataItem) => JSON.stringify(item))
       }
     }
     .height(DimensionUtil.getVp($r('app.float.date_picker_height')))

@@ -16,9 +16,9 @@
 import { AlarmSettingType } from '../common/constants/AlarmSettingType';
 
 /**
- * Alarm setting bean information.
+ * Alarm setting item information.
  */
-export default class AlarmSettingBean {
+export default class AlarmSettingItem {
   /**
    * Alarm setting title.
    */

@@ -15,8 +15,8 @@
 
 import router from '@ohos.router';
 import { CommonConstants } from '../common/constants/CommonConstants';
-import AlarmItem from '../viewmodel/AlarmItemBean';
-import AlarmSettingBean from '../viewmodel/AlarmSettingBean';
+import AlarmItem from '../viewmodel/AlarmItem';
+import AlarmSettingItem from '../viewmodel/AlarmSettingItem';
 import { AlarmSettingType } from '../common/constants/AlarmSettingType';
 import { DetailConstant } from '../common/constants/DetailConstant';
 import BackContainer from '../view/BackContainer';
@@ -29,8 +29,8 @@ import DimensionUtil from '../common/utils/DimensionUtil';
 @Component
 struct DetailIndex {
   @Watch('onAlarmItemChange') @Provide(DetailConstant.DEFAULT_PROVIDER_KEY) alarmItem: AlarmItem = new AlarmItem();
-  @State repeatSettingArr: Array<AlarmSettingBean> = [];
-  @State alarmSettingInfoArr: Array<AlarmSettingBean> = [];
+  @State repeatSettingArr: Array<AlarmSettingItem> = [];
+  @State alarmSettingInfoArr: Array<AlarmSettingItem> = [];
   private isNow: boolean = true;
   private viewModel: DetailModel = DetailModel.instant;
 
@@ -57,15 +57,15 @@ struct DetailIndex {
 
   initData() {
     this.repeatSettingArr = [
-      new AlarmSettingBean(DetailConstant.DEFAULT_STRING_REPEAT,
+      new AlarmSettingItem(DetailConstant.DEFAULT_STRING_REPEAT,
         this.alarmItem.isRepeat ? DetailConstant.DEFAULT_STRING_REPEAT
                                 : CommonConstants.DEFAULT_STRING_NO_REPEAT, AlarmSettingType.REPEAT)
     ];
     this.alarmSettingInfoArr = [
-      new AlarmSettingBean(DetailConstant.DEFAULT_STRING_ALARM_NAME, this.alarmItem.name, AlarmSettingType.ALARM_NAME),
-      new AlarmSettingBean(DetailConstant.DEFAULT_STRING_DURATION,
+      new AlarmSettingItem(DetailConstant.DEFAULT_STRING_ALARM_NAME, this.alarmItem.name, AlarmSettingType.ALARM_NAME),
+      new AlarmSettingItem(DetailConstant.DEFAULT_STRING_DURATION,
         this.alarmItem.duration + DetailConstant.DEFAULT_STRING_MINUTE, AlarmSettingType.RING_DURATION),
-      new AlarmSettingBean(DetailConstant.DEFAULT_STRING_INTERVAL, this.alarmItem.intervalMinute
+      new AlarmSettingItem(DetailConstant.DEFAULT_STRING_INTERVAL, this.alarmItem.intervalMinute
       + DetailConstant.DEFAULT_STRING_MINUTE + CommonConstants.DEFAULT_STRING_COMMA
       + this.alarmItem.intervalTimes + DetailConstant.DEFAULT_STRING_TIMES, AlarmSettingType.INTERVAL)
     ]
