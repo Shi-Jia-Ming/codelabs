@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import ChartValues from '../bean/ChartValues';
+import ChartValues from './ChartValues';
 
 /**
  * Form data entity class.

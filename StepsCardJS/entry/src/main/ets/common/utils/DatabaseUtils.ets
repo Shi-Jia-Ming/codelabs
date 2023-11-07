@@ -21,10 +21,10 @@ import FormBindingData from '@ohos.app.form.formBindingData';
 import Form from '../database/Form';
 import SensorData from '../database/SensorData';
 import DateUtils from './DateUtils';
-import ChartPoint from '../bean/ChartPoint';
+import ChartPoint from '../../viewmodel/ChartPoint';
 import ChartDataUtils from '../utils/ChartDataUtils';
 import CommonConstants from '../constants/CommonConstants';
-import FormData from '../bean/FormData';
+import FormData from '../../viewmodel/FormData';
 import Logger from '../utils/Logger';
 import { GlobalContext } from './GlobalContext';
 
