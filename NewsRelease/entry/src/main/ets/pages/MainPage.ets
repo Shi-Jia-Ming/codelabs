@@ -17,7 +17,7 @@ import Constants from '../common/constants/Constants';
 import NewsList from '../view/newslist';
 import router from '@ohos.router';
 import NewsTypeViewModel from '../viewmodel/NewsTypeViewModel';
-import NewsTypeBean from '../viewmodel/NewsTypeBean';
+import NewsTypeModel from '../viewmodel/NewsTypeModel';
 import { GlobalContext } from '../viewmodel/GlobalContext';
 
 /**
@@ -26,7 +26,7 @@ import { GlobalContext } from '../viewmodel/GlobalContext';
 @Entry
 @Component
 struct MainPage {
-  @State tabBarArray: NewsTypeBean[] = NewsTypeViewModel.getDefaultTypeList();
+  @State tabBarArray: NewsTypeModel[] = NewsTypeViewModel.getDefaultTypeList();
   @State currentIndex: number = 0;
 
   @Builder TabBuilder(index: number) {
@@ -46,7 +46,7 @@ struct MainPage {
 
   aboutToAppear() {
     // Request news category.
-    NewsTypeViewModel.getNewsTypeList().then((typeList: NewsTypeBean[]) => {
+    NewsTypeViewModel.getNewsTypeList().then((typeList: NewsTypeModel[]) => {
       this.tabBarArray = typeList;
     });
   }
@@ -63,12 +63,12 @@ struct MainPage {
   build() {
     Stack() {
       Tabs() {
-        ForEach(this.tabBarArray, (tabsItem: NewsTypeBean, index?: number) => {
+        ForEach(this.tabBarArray, (tabsItem: NewsTypeModel, index?: number) => {
           TabContent() {
             NewsList({ index, currentIndex: $currentIndex })
           }
           .tabBar(this.TabBuilder(tabsItem.id))
-        }, (tabsItem: NewsTypeBean) => JSON.stringify(tabsItem));
+        }, (tabsItem: NewsTypeModel) => JSON.stringify(tabsItem));
       }
       .barHeight($r('app.float.nav_height'))
       .height(Constants.FULL_PERCENT)
