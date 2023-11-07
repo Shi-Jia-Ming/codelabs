@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PositionType } from '../constants/CommonConstants';
+import { PositionType } from '../common/constants/CommonConstants';
 
 /**
  * Landmark location data.

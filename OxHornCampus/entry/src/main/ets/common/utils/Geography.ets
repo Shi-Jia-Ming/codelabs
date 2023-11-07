@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { PixelCoordinates } from '../bean/PositionItem';
+import { PixelCoordinates } from '../../viewmodel/PositionItem';
 import { CommonConstants as Const } from '../constants/CommonConstants';
 
 /**

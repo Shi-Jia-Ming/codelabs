@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import { Location } from '../common/bean/AddressItem';
+import { AddressItem, Location } from '../viewmodel/AddressItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import Logger from '../common/utils/Logger';
 
@@ -23,7 +23,6 @@ const TAG = 'MapController';
  * Used for map control.
  */
 export class MapController {
-  private mapContext: any;
   private leftTop: Array<number> = [];
   private previousScale: number = 0;
   private pinchCount: number = 0;
@@ -35,12 +34,8 @@ export class MapController {
    *
    * @param mapContext This object of MapComponent.
    */
-  initMap(mapContext): void {
-    this.mapContext = mapContext;
-    this.mapContext.mapHeight = this.mapContext.screenMapHeight;
-    this.mapContext.mapWidth = Const.MAP_WIDTH * this.mapContext.mapHeight / Const.MAP_HEIGHT;
-    this.mapContext.mapX = (this.mapContext.screenMapWidth - this.mapContext.mapWidth) / Const.DOUBLE_OR_HALF;
-    this.leftTop = [(this.mapContext.screenMapWidth - this.mapContext.mapWidth), 0];
+  initLeftTop(screenMapWidth: number, mapWidth: number): void {
+    this.leftTop = [(screenMapWidth - mapWidth), 0];
   }
 
   /**
@@ -48,7 +43,7 @@ export class MapController {
    *
    * @param event Kneading gesture event.
    */
-  pinchUpdate(event: GestureEvent): void {
+  pinchUpdate(event: GestureEvent, callBack: Function): void {
     let scale = Number.parseFloat(event.scale.toFixed(Const.MAP_SCALE_ACCURACY));
     let ratio = 1;
     if (this.previousScale !== scale) {
@@ -67,75 +62,30 @@ export class MapController {
         this.pinchCount = 0;
         return;
       }
-      this.mapContext.mapWidth *= ratio;
-      this.mapContext.mapHeight *= ratio;
-      let offsetX = (1 - ratio) * (this.mapContext.screenMapWidth /
-      Const.DOUBLE_OR_HALF - this.mapContext.mapX);
-      let offsetY = (1 - ratio) * (this.mapContext.mapHeight /
-      Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
-      this.mapContext.mapX += offsetX;
-      this.mapContext.mapY += offsetY;
-      this.calLandmarksPosition();
-      this.zoomOutCheck();
+      callBack(ratio);
     }
     this.previousScale = scale;
   }
 
   /**
-   * Check whether the map is zoomed to the screen boundary during zooming.
-   */
-  zoomOutCheck(): void {
-    // Top left corner.
-    if (this.mapContext.mapX > 0) {
-      this.mapContext.mapX = 0;
-    }
-    if (this.mapContext.mapY > 0) {
-      this.mapContext.mapY = 0;
-    }
-    // Lower right corner.
-    const mapX: number = this.mapContext.mapX;
-    const mapWidth: number = this.mapContext.mapWidth;
-    const screenMapWidth: number = this.mapContext.screenMapWidth;
-    if ((mapX + mapWidth) < screenMapWidth) {
-      this.mapContext.mapX = screenMapWidth - mapWidth;
-    }
-    const mapY: number = this.mapContext.mapY;
-    const mapHeight: number = this.mapContext.mapHeight;
-    if ((mapY + mapHeight) < (mapHeight / this.mapMultiples())) {
-      this.mapContext.mapY = mapHeight / this.mapMultiples() - mapHeight;
-    }
-  }
-
-  /**
    * End of map kneading gesture.
    */
-  pinchEnd(): void {
-    let minX = this.mapContext.screenMapWidth - this.mapContext.mapWidth;
-    let minY = (1 / this.mapMultiples() - 1) * this.mapContext.mapHeight;
+  pinchEnd(screenMapWidth: number, mapWidth: number, mapHeight: number): void {
+    let minX = screenMapWidth - mapWidth;
+    let minY = (1 / this.mapMultiples() - 1) * mapHeight;
     this.leftTop = [minX, minY];
   }
 
   /**
    * Double-click the map.
    */
-  tapAction(): void {
+  tapAction(callBack: Function): void {
+    let isMaxTime: boolean = false;
     if (++this.pinchCount > Const.ZOOM_MAX_TIMES) {
       this.pinchCount = Const.ZOOM_MAX_TIMES;
-      return;
+      isMaxTime = true;
     }
-    this.mapContext.mapWidth *= Const.MAP_ZOOM_RATIO;
-    this.mapContext.mapHeight *= Const.MAP_ZOOM_RATIO;
-    let offsetX = (1 - Const.MAP_ZOOM_RATIO) *
-      (this.mapContext.screenMapWidth / Const.DOUBLE_OR_HALF - this.mapContext.mapX);
-    let offsetY = (1 - Const.MAP_ZOOM_RATIO) * (this.mapContext.mapHeight /
-    Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF - this.mapContext.mapY);
-    this.mapContext.mapX += offsetX;
-    this.mapContext.mapY += offsetY;
-    this.calLandmarksPosition();
-    // Calculate the farthest coordinate of the upper left corner.
-    let minX = (this.mapContext.screenMapWidth - this.mapContext.mapWidth);
-    let minY = this.mapContext.mapHeight / this.mapMultiples() - this.mapContext.mapHeight;
-    this.leftTop = [minX, minY];
+    this.leftTop = callBack(isMaxTime);
   }
 
   /**
@@ -143,11 +93,13 @@ export class MapController {
    *
    * @param event Events when panning.
    */
-  panUpdate(event: GestureEvent): void {
+  panUpdate(event: GestureEvent, callBack: Function): void {
     let panX = Number.parseInt(event.offsetX.toFixed(0));
     let panY = Number.parseInt(event.offsetY.toFixed(0));
     if ((this.panX !== panX) || (this.panY !== panY)) {
-      this.panCheck(panX, panY);
+      let mapPanX = panX - this.panX;
+      let mapPanY = panY - this.panY;
+      callBack(mapPanX, mapPanY, this.leftTop);
     }
     this.panX = panX;
     this.panY = panY;
@@ -162,44 +114,10 @@ export class MapController {
   }
 
   /**
-   * Calculate Coordinates During Drag.
-   *
-   * @param panX Map Move Horizontal Distance.
-   * @param panY Map Move Longitudinal Distance.
-   */
-  panCheck(panX: number, panY: number): void {
-    let mapPanX = panX - this.panX;
-    let mapPanY = panY - this.panY;
-    this.mapContext.mapX += mapPanX;
-    this.mapContext.mapY += mapPanY;
-    if (this.mapContext.mapX < this.leftTop[0]) {
-      this.mapContext.mapX = this.leftTop[0];
-    }
-    if (this.mapContext.mapX > 0) {
-      this.mapContext.mapX = 0;
-    }
-    if (this.mapContext.mapY < this.leftTop[1]) {
-      this.mapContext.mapY = this.leftTop[1];
-    }
-    if (this.mapContext.mapY > 0) {
-      this.mapContext.mapY = 0;
-    }
-  }
-
-  /**
-   * Obtains the map magnification.
-   *
-   * @returns Map magnification.
-   */
-  mapMultiples(): number {
-    return Math.pow(Const.MAP_ZOOM_RATIO, this.pinchCount);
-  }
-
-  /**
    * Calculating Landmark Locations.
    */
-  calLandmarksPosition(): void {
-    this.mapContext.data.locations = this.mapContext.data.locations.map((item: Location) => {
+  calLandmarksPosition(data: AddressItem): void {
+    data.locations = data.locations.map((item: Location) => {
       item.positionX = item.oriPositionX * this.mapMultiples() -
         Const.MAP_LANDMARKS_SIZE * Const.MAP_ZOOM_RATIO / Const.DOUBLE_OR_HALF;
       item.positionY = item.oriPositionY * this.mapMultiples() -
@@ -209,28 +127,12 @@ export class MapController {
   }
 
   /**
-   * When selecting a landmark, place the first coordinate in the middle of the screen horizontally.
+   * Obtains the map magnification.
+   *
+   * @returns Map magnification.
    */
-  setFirstLandmarksCenter(): void {
-    let locations: Location[] = this.mapContext.data.locations;
-    if (locations.length > 0) {
-      // Horizontally centered.
-      this.mapContext.mapX = this.mapContext.screenMapWidth / Const.DOUBLE_OR_HALF - locations[0].positionX;
-      if (this.mapContext.mapX > 0) {
-        this.mapContext.mapX = 0;
-      }
-      if (this.mapContext.mapX < (this.mapContext.screenMapWidth - this.mapContext.mapWidth)) {
-        this.mapContext.mapX = this.mapContext.screenMapWidth - this.mapContext.mapWidth;
-      }
-      // Vertically centered.
-      this.mapContext.mapY = this.mapContext.screenMapHeight / Const.DOUBLE_OR_HALF - locations[0].positionY;
-      if (this.mapContext.mapY > 0) {
-        this.mapContext.mapY = 0;
-      }
-      if (this.mapContext.mapY < (this.mapContext.screenMapHeight - this.mapContext.mapHeight)) {
-        this.mapContext.mapY = this.mapContext.screenMapHeight - this.mapContext.mapHeight;
-      }
-    }
+  mapMultiples(): number {
+    return Math.pow(Const.MAP_ZOOM_RATIO, this.pinchCount);
   }
 
   /**
@@ -244,7 +146,7 @@ export class MapController {
     try {
       resourceString = getContext(this).resourceManager.getStringSync(resource.id);
     } catch (error) {
-      Logger.error(TAG, `getResourceString failed, error code: ${error.code}, message: ${error.message}.`);
+      Logger.error(TAG, `getResourceString failed, error is ${JSON.stringify(error)}`);
     }
     return resourceString;
   }

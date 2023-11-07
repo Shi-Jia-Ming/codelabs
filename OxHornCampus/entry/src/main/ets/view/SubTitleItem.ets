@@ -14,7 +14,7 @@
  */
 
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from '../viewmodel/ZonesItem';
 
 @Component
 export default struct SubTitleItem {

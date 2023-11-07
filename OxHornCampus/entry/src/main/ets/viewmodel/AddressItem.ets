@@ -18,17 +18,10 @@
  */
 @Observed
 export class AddressItem {
-  name: Resource;
-  icon: Resource;
-  locations: Array<Location>;
-  textColor: Resource;
-
-  constructor(name: Resource, icon: Resource, locations: Array<Location>, textColor: Resource) {
-    this.name = name;
-    this.icon = icon;
-    this.locations = locations;
-    this.textColor = textColor;
-  }
+  name?: Resource;
+  icon?: Resource;
+  locations: Array<Location> = [];
+  textColor?: Resource;
 }
 
 /**

@@ -14,7 +14,7 @@
  */
 
 import router from '@ohos.router';
-import ZonesItem from '../common/bean/ZonesItem';
+import ZonesItem from '../viewmodel/ZonesItem';
 import { CommonConstants as Const } from '../common/constants/CommonConstants';
 import { DeviceScreen } from '../common/utils/DeviceScreen';
 import { Animation } from '../common/utils/Animation';
@@ -23,7 +23,8 @@ import BuildListItem from '../view/BuildListItem';
 import StyleListItem from '../view/StyleListItem';
 import SubTitleItem from '../view/SubTitleItem';
 import zonesViewModel from '../viewmodel/ZonesViewModel';
-import { RouteTitle } from '../common/bean/TrainsMap';
+import { RouteTitle } from '../viewmodel/TrainsMap';
+import { AnimationItem } from '../viewmodel/AnimationItem'
 
 @Entry
 @Component
@@ -31,21 +32,11 @@ struct IntroductionPage {
   @State zoneList: ZonesItem[] = zonesViewModel.getZonesList();
   @Provide('introductionData') introductionData: ZonesItem = zonesViewModel.getZonesList()[0];
   @State currentZoneId: number = 0;
-  @State screenHeight: number = 0;
-  @State listPosition: number = Const.LIST_POSITION_BEGIN;
-  @State imageHeight: number = Const.FULL_PERCENT_NUMBER;
-  @State arrowIconOpacity: number = Const.OPACITY_MAX;
   @State isShowReplay: Array<boolean> = [];
-  @State currentListIndex: number = Const.LIST_POSITION_BEGIN;
-  @State offsetSum: number = 0;
-  private scrollerForList: Scroller = new Scroller();
-  @State scaleIcon: Array<number> = [Const.OPACITY_MAX, Const.OPACITY_MIN,
-    Const.OPACITY_MIN];
-  @State iconTitle: string = Const.ICON_SUBTITLE_ARRAY[0];
   @State isReachStart: boolean = false;
-  @State geographicPicType: string = Const.GEOGRAPHY_LIGHT;
   @State buildingType: string = Const.BUILDING_TEXT;
   @State homeIconOpacity: number = Const.OPACITY_MIN;
+  @Provide animationItem: AnimationItem = new AnimationItem();
 
   @Builder
   TitleIcon($$: RouteTitle) {
@@ -77,14 +68,14 @@ struct IntroductionPage {
           .width($r('app.float.introduction_title_icon_width'))
           .margin({ bottom: $r('app.float.title_icon_margin_bottom') })
 
-        this.TitleIcon({ src: $r('app.media.ic_design_style'), scale: this.scaleIcon[0] })
-        this.TitleIcon({ src: $r('app.media.ic_building'), scale: this.scaleIcon[1] })
-        this.TitleIcon({ src: $r("app.media.ic_geography_icon"), scale: this.scaleIcon[2] })
+        this.TitleIcon({ src: $r('app.media.ic_design_style'), scale: this.animationItem.scaleIcon[0] })
+        this.TitleIcon({ src: $r('app.media.ic_building'), scale: this.animationItem.scaleIcon[1] })
+        this.TitleIcon({ src: $r("app.media.ic_geography_icon"), scale: this.animationItem.scaleIcon[2] })
       }
       .width(Const.FULL_SIZE)
       .height($r('app.float.stack_container_height'))
 
-      Text(this.iconTitle)
+      Text(this.animationItem.iconTitle)
         .fontSize($r('app.float.font_size_smaller'))
         .height($r('app.float.font_height_smaller'))
         .fontColor($r('app.color.font_color_black'))
@@ -132,12 +123,12 @@ struct IntroductionPage {
     Column() {
       Stack({ alignContent: Alignment.Bottom }) {
         Column() {
-          List({ scroller: this.scrollerForList }) {
+          List({ scroller: this.animationItem.scrollerForList }) {
             ListItem() {
               SwiperListItem({
-                imageHeight: this.imageHeight,
+                imageHeight: this.animationItem.imageHeight,
                 currentZoneId: this.currentZoneId,
-                arrowIconOpacity: this.arrowIconOpacity
+                arrowIconOpacity: this.animationItem.arrowIconOpacity
               })
             }
 
@@ -155,7 +146,7 @@ struct IntroductionPage {
               }
 
               ListItem() {
-                BuildListItem({ type: this.geographicPicType })
+                BuildListItem({ type: this.animationItem.geographicPicType })
               }
             }
           }
@@ -168,16 +159,16 @@ struct IntroductionPage {
             this.resetParameters();
           })
           .onScrollIndex((start: number) => {
-            this.currentListIndex = start;
+            this.animationItem.currentListIndex = start;
           })
           .onReachEnd(() => {
-            this.listPosition = Const.LIST_POSITION_END;
+            this.animationItem.listPosition = Const.LIST_POSITION_END;
           })
           .onScroll(() => {
             this.startAnimation();
           })
           .onScrollFrameBegin((offset: number, state: ScrollState) => {
-            let realOffset = Animation.controlImageScale(this, offset, state);
+            let realOffset = Animation.controlImageScale(this.animationItem, offset, state);
             return { offsetRemain: realOffset };
           })
         }
@@ -190,14 +181,14 @@ struct IntroductionPage {
           .onClick(() => {
             this.scrollToTop();
           })
-          .opacity(1 - this.arrowIconOpacity)
+          .opacity(1 - this.animationItem.arrowIconOpacity)
 
         Image($r('app.media.ic_home_back'))
           .height($r('app.float.page_icon_size'))
           .aspectRatio(1)
           .margin({
             right: $r('app.float.page_icon_margin_vertical'),
-            bottom: this.screenHeight - Const.HOME_ICON_MARGIN_TOP
+            bottom: this.animationItem.screenHeight - Const.HOME_ICON_MARGIN_TOP
           })
           .onClick(() => {
             router.back();
@@ -215,7 +206,7 @@ struct IntroductionPage {
     this.currentZoneId = params.id as number;
 
     this.getIntroductionData();
-    this.screenHeight = DeviceScreen.getDeviceHeight();
+    this.animationItem.screenHeight = DeviceScreen.getDeviceHeight();
   }
 
   /**
@@ -229,10 +220,10 @@ struct IntroductionPage {
    * Reset all parameters if the list arrive begin by animation.
    */
   resetParameters() {
-    this.listPosition = Const.LIST_POSITION_BEGIN;
-    if (this.listPosition === Const.LIST_POSITION_BEGIN && this.isReachStart) {
-      this.imageHeight = Const.FULL_PERCENT_NUMBER;
-      this.arrowIconOpacity = Const.OPACITY_MAX;
+    this.animationItem.listPosition = Const.LIST_POSITION_BEGIN;
+    if (this.animationItem.listPosition === Const.LIST_POSITION_BEGIN && this.isReachStart) {
+      this.animationItem.imageHeight = Const.FULL_PERCENT_NUMBER;
+      this.animationItem.arrowIconOpacity = Const.OPACITY_MAX;
     }
     this.isReachStart = false;
   }
@@ -241,26 +232,26 @@ struct IntroductionPage {
    * Start animation when scroll the list.
    */
   startAnimation() {
-    Animation.changeTitleIcon(this);
+    Animation.changeTitleIcon(this.animationItem);
   }
 
   /**
    * Click the up arrow scroll to the beginning.
    */
   scrollToTop() {
-    if (this.listPosition !== Const.LIST_POSITION_BEGIN) {
-      this.scrollerForList.scrollTo({
+    if (this.animationItem.listPosition !== Const.LIST_POSITION_BEGIN) {
+      this.animationItem.scrollerForList.scrollTo({
         xOffset: 0,
         yOffset: Const.SCROLL_UP_TOP_THRESHOLD,
         animation: {
-          duration: this.offsetSum / Const.OFFSET_DIVIDE_RATIO,
+          duration: this.animationItem.offsetSum / Const.OFFSET_DIVIDE_RATIO,
           curve: Curve.Linear,
         }
       })
       this.isReachStart = true;
     } else {
-      this.imageHeight = Const.FULL_PERCENT_NUMBER;
-      this.arrowIconOpacity = Const.OPACITY_MAX;
+      this.animationItem.imageHeight = Const.FULL_PERCENT_NUMBER;
+      this.animationItem.arrowIconOpacity = Const.OPACITY_MAX;
     }
   }
 }
