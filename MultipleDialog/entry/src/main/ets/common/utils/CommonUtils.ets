@@ -16,7 +16,7 @@
 import Context from '@ohos.app.ability.common';
 import Logger from './Logger';
 import CommonConstants from '../constants/CommonConstants';
-import HobbyBean from '../../viewmodel/HobbyBean';
+import HobbyItem from '../../viewmodel/HobbyItem';
 
 /**
  * This is a pop-up window tool class, which is used to encapsulate dialog code.
@@ -121,7 +121,7 @@ export class CommonUtils {
    * @param {Array}array
    * @return {boolean} true(empty)
    */
-  isEmptyArr(array: Array<HobbyBean>): boolean {
+  isEmptyArr(array: Array<HobbyItem>): boolean {
     return this.isEmpty(array) || array.length === 0;
   }
 }

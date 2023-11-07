@@ -14,9 +14,9 @@
  */
 
 /**
- * Hobby info bean.
+ * Hobby info item.
  */
-export default class HobbyBean {
+export default class HobbyItem {
   /**
    * Hobby title
    */

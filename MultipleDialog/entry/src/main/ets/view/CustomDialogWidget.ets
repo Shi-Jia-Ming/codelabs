@@ -14,13 +14,13 @@
  */
 
 import Logger from '../common/utils/Logger';
-import HobbyBean from '../viewmodel/HobbyBean';
+import HobbyItem from '../viewmodel/HobbyItem';
 import CommonUtils from '../common/utils/CommonUtils';
 import CommonConstants from '../common/constants/CommonConstants';
 
 @CustomDialog
 export default struct CustomDialogWidget {
-  @State hobbyBeans: HobbyBean[] = [];
+  @State hobbyItems: HobbyItem[] = [];
   @Link hobbies: string;
   private controller?: CustomDialogController;
 
@@ -35,11 +35,11 @@ export default struct CustomDialogWidget {
       if (!CommonUtils.isEmpty(error)) {
         Logger.error(CommonConstants.TAG_CUSTOM, 'error = ' + JSON.stringify(error));
       } else {
-        hobbyArray.forEach((hobbyItem: string) => {
-          let hobbyBean = new HobbyBean();
-          hobbyBean.label = hobbyItem;
-          hobbyBean.isChecked = false;
-          this.hobbyBeans.push(hobbyBean);
+        hobbyArray.forEach((hobby: string) => {
+          let hobbyItem = new HobbyItem();
+          hobbyItem.label = hobby;
+          hobbyItem.isChecked = false;
+          this.hobbyItems.push(hobbyItem);
         });
       }
     });
@@ -48,16 +48,16 @@ export default struct CustomDialogWidget {
   /**
    * Set hobbies value
    *
-   * @param {HobbyBean[]} hobby bean array
+   * @param {HobbyItem[]} hobby item array
    */
-  setHobbiesValue(hobbyBeans: HobbyBean[]) {
-    if (CommonUtils.isEmptyArr(hobbyBeans)) {
-      Logger.error(CommonConstants.TAG_HOME, 'hobbyBeans length is 0');
+  setHobbiesValue(hobbyItems: HobbyItem[]) {
+    if (CommonUtils.isEmptyArr(hobbyItems)) {
+      Logger.error(CommonConstants.TAG_HOME, 'hobbyItems length is 0');
       return;
     }
     let hobbiesText: string = '';
-    hobbiesText = hobbyBeans.filter((isCheckItem: HobbyBean) => isCheckItem?.isChecked)
-      .map<string>((checkedItem: HobbyBean) => {
+    hobbiesText = hobbyItems.filter((isCheckItem: HobbyItem) => isCheckItem?.isChecked)
+      .map<string>((checkedItem: HobbyItem) => {
         return checkedItem.label!;
       })
       .join(CommonConstants.COMMA);
@@ -76,7 +76,7 @@ export default struct CustomDialogWidget {
         .alignSelf(ItemAlign.Start)
         .margin({ left: $r('app.float.title_left_distance') })
       List() {
-        ForEach(this.hobbyBeans, (itemHobby: HobbyBean) => {
+        ForEach(this.hobbyItems, (itemHobby: HobbyItem) => {
           ListItem() {
             Row() {
               Text(itemHobby.label)
@@ -100,7 +100,7 @@ export default struct CustomDialogWidget {
               bottom: $r('app.float.options_bottom_distance')
             })
           }
-        }, (itemHobby: HobbyBean) => JSON.stringify(itemHobby.label))
+        }, (itemHobby: HobbyItem) => JSON.stringify(itemHobby.label))
       }
       .margin({
         top: $r('app.float.list_top_distance'),
@@ -129,7 +129,7 @@ export default struct CustomDialogWidget {
         Button($r('app.string.definite_button'))
           .dialogButtonStyle()
           .onClick(() => {
-            this.setHobbiesValue(this.hobbyBeans);
+            this.setHobbiesValue(this.hobbyItems);
             this.controller?.close();
           })
       }
