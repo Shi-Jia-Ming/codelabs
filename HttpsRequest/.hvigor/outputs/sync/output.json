@@ -1,0 +1,36 @@
+{
+  "ohos-module-entry": {
+    "SELECT_TARGET": "default",
+    "MODULE_BUILD_DIR": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build",
+    "TARGETS": {
+      "default": {
+        "SOURCE_ROOT": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main",
+        "RESOURCES_PATH": [
+          "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\resources"
+        ],
+        "BUILD_PATH": {
+          "OUTPUT_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\outputs\\default",
+          "INTERMEDIA_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates",
+          "JS_ASSETS_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\loader_out\\default",
+          "JS_LITE_ASSETS_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\loader_out_lite\\default",
+          "RES_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\res\\default",
+          "RES_PROFILE_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\res\\default\\resources\\base\\profile",
+          "ETS_SUPER_VISUAL_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\cache\\default\\default@CompileArkTS\\esmodule",
+          "JS_SUPER_VISUAL_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\cache\\default\\default@CompileJS\\jsbundle",
+          "WORKER_LOADER": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\loader\\default\\loader.json",
+          "MANIFEST_JSON": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\manifest\\default",
+          "OUTPUT_METADATA_JSON": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\build\\default\\intermediates\\hap_metadata\\default\\output_metadata.json"
+        }
+      }
+    }
+  },
+  "ohos-project": {
+    "SELECT_PRODUCT_NAME": "default",
+    "MODULE_BUILD_DIR": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\build",
+    "BUNDLE_NAME": "com.example.httpsrequest",
+    "BUILD_PATH": {
+      "OUTPUT_PATH": "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\build\\outputs\\default"
+    }
+  },
+  "version": 1
+}

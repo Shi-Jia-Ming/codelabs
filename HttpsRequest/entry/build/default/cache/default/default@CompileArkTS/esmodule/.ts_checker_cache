@@ -1,0 +1,223 @@
+{
+  "runtimeOS": "HarmonyOS",
+  "sdkInfo": "false:9:3.2.12.5:Release",
+  "fileList": {
+    "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\entryability\\EntryAbility.ts": {
+      "mtimeMs": 1699373577492.21,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\pages\\WebPage.ets": {
+      "mtimeMs": 1699353783039.557,
+      "children": [
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\utils\\HttpUtil.ets",
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\constant\\StyleConstant.ets",
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets"
+      ],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.UIAbility.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.Ability.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.Configuration.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\application\\UIAbilityContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\bundleManager\\AbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\bundleManager\\ApplicationInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.bundle.bundleManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\bundleManager\\BundleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\bundleManager\\HapModuleInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\bundleManager\\ExtensionAbilityInfo.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\ability\\abilityResult.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\ability\\connectOptions.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.rpc.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\application\\Context.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.resourceManager.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\application\\ApplicationContext.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.AbilityLifecycleCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.window.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.multimedia.image.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.EnvironmentCallback.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.app.ability.dialogRequest.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\utils\\HttpUtil.ets": {
+      "mtimeMs": 1699373478073.0398,
+      "children": [
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets"
+      ],
+      "parent": [
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\pages\\WebPage.ets"
+      ],
+      "error": false
+    },
+    "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\constant\\StyleConstant.ets": {
+      "mtimeMs": 1699373417276.8208,
+      "children": [],
+      "parent": [
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\pages\\WebPage.ets"
+      ],
+      "error": false
+    },
+    "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\constant\\CommonConstants.ets": {
+      "mtimeMs": 1699373405623.7593,
+      "children": [],
+      "parent": [
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\pages\\WebPage.ets",
+        "D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\entry\\src\\main\\ets\\common\\utils\\HttpUtil.ets"
+      ],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.web.webview.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.net.http.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\api\\@ohos.promptAction.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\canvas.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\component\\common.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\web.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    },
+    "D:\\Service\\HarmonyOSSDK\\openharmony\\9\\ets\\build-tools\\ets-loader\\declarations\\matrix2d.d.ts": {
+      "mtimeMs": 978278400000,
+      "children": [],
+      "parent": [],
+      "error": false
+    }
+  }
+}

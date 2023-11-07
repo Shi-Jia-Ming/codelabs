@@ -5,7 +5,8 @@
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
     "deviceTypes": [
-      "phone"
+      "phone",
+      "tablet"
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
@@ -32,6 +33,7 @@
         ]
       }
     ],
+    // 获取网络访问权限
     "requestPermissions": [
       {
         "name": "ohos.permission.INTERNET"

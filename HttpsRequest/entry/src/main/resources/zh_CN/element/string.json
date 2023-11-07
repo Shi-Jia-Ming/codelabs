@@ -30,7 +30,7 @@
     },
     {
       "name": "http_response_error",
-      "value": "请求出错，请检查是否有网络"
+      "value": "请求出错，请检查网络是否连接"
     }
   ]
 }

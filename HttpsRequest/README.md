@@ -3,7 +3,7 @@
 ### 简介
 基于网络模块，实现数据安全加密传输。
 
-![](screenshots/device/https.gif)
+![https.gif](screenshots/device/https.gif)
 
 ### 相关概念
 - [Webview](https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/js-apis-webview-0000001427902720-V3)：提供Web控制能力，Web组件提供网页显示能力。

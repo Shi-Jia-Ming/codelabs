@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\HUAWEI\\.ohos\\config\\auto_debug_HttpsRequest_com.example.httpsrequest_70086000190523123.cer",
+          "storePassword": "0000001BFFE8D0281546A26F6767CDCF00178346102FAE4E21213D38A77C8D58B24FCEE50683998614C161",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B45D4167042782CB8A8F4D011BA72D64921BF5970600DB40D46094F4E9BA98417DFA0B50332DFA6",
+          "profile": "C:\\Users\\HUAWEI\\.ohos\\config\\auto_debug_HttpsRequest_com.example.httpsrequest_70086000190523123.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\HUAWEI\\.ohos\\config\\auto_debug_HttpsRequest_com.example.httpsrequest_70086000190523123.p12"
+        }
+      }
+    ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,
     "products": [

@@ -1,0 +1,13 @@
+{
+	"BuildOptions":{
+		"BUNDLE_NAME":"com.example.httpsrequest",
+		"BUILD_PATH":{
+			"OUTPUT_PATH":"D:\\User\\Documents\\Repository\\codelabs\\HttpsRequest\\build\\outputs\\default"
+		},
+		"SELECT_BUILD_PRODUCT":"default"
+	},
+	"CommonInfo":{
+		"project.ide.version":"3.1.0.501",
+		"current.select.product":"default"
+	}
+}
