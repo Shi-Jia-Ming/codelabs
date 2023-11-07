@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-export interface IProductBean {
+export interface IProductItem {
   /**
    * Product image url.
    */
@@ -46,9 +46,9 @@ export interface IProductBean {
 }
 
 /**
- * Water flow item bean.
+ * Water flow item.
  */
-export default class ProductBean implements IProductBean {
+export default class ProductItem implements IProductItem {
   image_url: Resource;
   name: string;
   discount: string;
@@ -56,7 +56,7 @@ export default class ProductBean implements IProductBean {
   promotion: string;
   bonus_points: string;
 
-  constructor(props: ProductBean) {
+  constructor(props: ProductItem) {
     this.image_url = props.image_url;
     this.name = props.name;
     this.discount = props.discount;
