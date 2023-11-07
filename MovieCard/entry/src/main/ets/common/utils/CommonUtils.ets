@@ -16,13 +16,13 @@
 import relationalStore from '@ohos.data.relationalStore';
 import formProvider from '@ohos.app.form.formProvider';
 import formBindingData from '@ohos.app.form.formBindingData';
-import FormBean from '../../viewmodel/FormBean';
+import FormItem from '../../viewmodel/FormItem';
 import CommonConstants from '../constants/CommonConstants';
-import MovieDataBean from '../../viewmodel/MovieDataBean';
+import MovieData from '../../viewmodel/MovieData';
 import Logger from './Logger';
 import { MOVIE_LIST_DATA, STARRING_DATA, STILLS_DATA } from '../datasource/MovieListData';
 import { GlobalContext } from './GlobalContext';
-import FormDataBean from '../../viewmodel/FormDataBean';
+import FormData from '../../viewmodel/FormData';
 
 /**
  * Movie data common class.
@@ -51,11 +51,11 @@ export class CommonUtils {
   /**
    * Insert form data.
    *
-   * @param {FormBean} form Form entity
+   * @param {FormItem} form Form entity
    * @param {relationalStore.RdbStore} rdbStore RDB database
    * @return {Promise<number>} return the row ID if the operation is successful. return -1 otherwise.
    */
-  insertForm(form: FormBean, rdbStore: relationalStore.RdbStore) {
+  insertForm(form: FormItem, rdbStore: relationalStore.RdbStore) {
     if ((this.isEmpty(rdbStore)) || (this.isEmpty(form))) {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'insertForm rdbStore or form is null');
       return;
@@ -81,7 +81,7 @@ export class CommonUtils {
         Logger.error(CommonConstants.TAG_COMMON_UTILS, 'updateCardMovieData rowCount <= 0');
         return;
       }
-      let listData: MovieDataBean[] = this.getListData();
+      let listData: MovieData[] = this.getListData();
       resultSet.goToFirstRow();
       do {
         let formData = this.getFormData(listData);
@@ -133,8 +133,8 @@ export class CommonUtils {
    *
    * @return {listMovieData} return list movie data
    */
-  getListData(): MovieDataBean[] {
-    let listMovieData = GlobalContext.getContext().getObject('listMovieData') as MovieDataBean[];
+  getListData(): MovieData[] {
+    let listMovieData = GlobalContext.getContext().getObject('listMovieData') as MovieData[];
     if (this.isEmptyArr(listMovieData)) {
       listMovieData = MOVIE_LIST_DATA;
       GlobalContext.getContext().setObject('listMovieData', listMovieData);
@@ -147,15 +147,15 @@ export class CommonUtils {
    *
    * @return {formData} return form data
    */
-  getFormData(listData: MovieDataBean[]): object {
+  getFormData(listData: MovieData[]): object {
     if (this.isEmptyArr(listData)) {
       Logger.error(CommonConstants.TAG_COMMON_UTILS, 'getFormData listData is empty');
       return [];
     }
     let oneRandom: number = this.getRandomInt(listData.length);
     let twoRandom: number = this.getRandomInt(oneRandom);
-    let topMovie: MovieDataBean = listData[oneRandom];
-    let bottomMovie: MovieDataBean = listData[twoRandom];
+    let topMovie: MovieData = listData[oneRandom];
+    let bottomMovie: MovieData = listData[twoRandom];
     let formData = {
       topIndex: topMovie.sort,
       topMovieImage: topMovie.cardImage,
@@ -165,7 +165,7 @@ export class CommonUtils {
       bottomMovieImage: bottomMovie.cardImage,
       bottomTitle: bottomMovie.title,
       bottomDescribe: bottomMovie.describe
-    } as FormDataBean;
+    } as FormData;
     return formData;
   }
 
@@ -225,7 +225,7 @@ export class CommonUtils {
    * @param {Array}array
    * @return {boolean} true(empty)
    */
-  isEmptyArr(array: MovieDataBean[]): boolean {
+  isEmptyArr(array: MovieData[]): boolean {
     return (this.isEmpty(array) || array.length === 0);
   }
 }

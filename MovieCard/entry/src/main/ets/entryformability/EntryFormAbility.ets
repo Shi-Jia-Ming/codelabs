@@ -18,9 +18,9 @@ import FormExtensionAbility from '@ohos.app.form.FormExtensionAbility';
 import formBindingData from '@ohos.app.form.formBindingData';
 import Want from '@ohos.app.ability.Want';
 import CommonConstants from '../common/constants/CommonConstants';
-import FormBean from '../viewmodel/FormBean';
+import FormItem from '../viewmodel/FormItem';
 import CommonUtils from '../common/utils/CommonUtils';
-import MovieDataBean from '../viewmodel/MovieDataBean';
+import MovieData from '../viewmodel/MovieData';
 import Logger from '../common/utils/Logger';
 
 /**
@@ -35,7 +35,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
     let formName: string = want.parameters[CommonConstants.NAME_KEY] as string;
     let dimensionFlag: number = want.parameters[CommonConstants.DIMENSION_KEY] as number;
     CommonUtils.createRdbStore(this.context).then((rdbStore: relationalStore.RdbStore) => {
-      let form: FormBean = new FormBean();
+      let form: FormItem = new FormItem();
       form.formId = formId;
       form.formName = formName;
       form.dimension = dimensionFlag;
@@ -43,7 +43,7 @@ export default class EntryFormAbility extends FormExtensionAbility {
     }).catch((error: Error) => {
       Logger.error(CommonConstants.TAG_FORM_ABILITY, 'onAddForm create rdb error ' + JSON.stringify(error));
     });
-    let listData: MovieDataBean[] = CommonUtils.getListData();
+    let listData: MovieData[] = CommonUtils.getListData();
     let formData = CommonUtils.getFormData(listData);
     return formBindingData.createFormBindingData(formData);
   }

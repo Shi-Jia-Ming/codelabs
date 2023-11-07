@@ -14,9 +14,9 @@
  */
 
 /**
- * Movie details info bean.
+ * Movie details info.
  */
-export default class MovieDataBean {
+export default class MovieData {
   /**
    * Movie sort number
    */

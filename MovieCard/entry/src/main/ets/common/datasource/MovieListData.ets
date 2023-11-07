@@ -12,12 +12,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import MovieDataBean from '../../viewmodel/MovieDataBean';
+import MovieData from '../../viewmodel/MovieData';
 
 /**
  * Movie list Data
  */
-export const MOVIE_LIST_DATA: MovieDataBean[] = [
+export const MOVIE_LIST_DATA: MovieData[] = [
   {
     sort: 0,
     isShowSort: true,

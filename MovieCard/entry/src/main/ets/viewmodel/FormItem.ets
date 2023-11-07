@@ -13,13 +13,35 @@
  * limitations under the License.
  */
 
-export default interface FormDataBean {
-  topIndex: number;
-  topMovieImage: string;
-  topTitle: string;
-  topDescribe: string;
-  bottomIndex: number;
-  bottomMovieImage: string;
-  bottomTitle: string;
-  bottomDescribe: string;
+import relationalStore from '@ohos.data.relationalStore';
+
+/**
+ * Database form entity class.
+ */
+export default class FormItem {
+  /**
+   * Form ID
+   */
+  formId: string = '';
+  /**
+   * Form name
+   */
+  formName: string = '';
+  /**
+   * Card dimension
+   */
+  dimension: number = 0;
+
+  /**
+   * Get inserted form data.
+   *
+   * @return Return form data
+   */
+  toValuesBucket(): relationalStore.ValuesBucket {
+    return {
+      'formId': this.formId,
+      'formName': this.formName,
+      'dimension': this.dimension
+    };
+  }
 }
